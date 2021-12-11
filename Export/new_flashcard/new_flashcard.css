@@ -1,0 +1,87 @@
+.mediaViewInfo {
+	--web-view-name: new_flashcard;
+	--web-view-id: new_flashcard;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+	--web-is-overlay: true;
+}
+:root {
+	--web-view-ids: new_flashcard;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#new_flashcard {
+	position: absolute;
+	width: 571px;
+	height: 838px;
+	background-color: rgba(53,53,53,1);
+	overflow: hidden;
+	cursor: pointer;
+	--web-view-name: new_flashcard;
+	--web-view-id: new_flashcard;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+	--web-is-overlay: true;
+}
+#Pfad_7 {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 18px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Pfad_7 {
+	overflow: visible;
+	position: absolute;
+	width: 571.186px;
+	height: 838.606px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Flashcard_title {
+	left: 118px;
+	top: 65px;
+	position: absolute;
+	overflow: visible;
+	width: 336px;
+	height: 53px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: italic;
+	font-weight: normal;
+	font-size: 45px;
+	color: rgba(255,255,255,1);
+}
+#Write_flashcard {
+	left: 42px;
+	top: 156px;
+	position: absolute;
+	overflow: visible;
+	width: 496px;
+	height: 48px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: lighter;
+	font-size: 40px;
+	color: rgba(255,255,255,1);
+}
+#trash {
+	fill: rgba(112,112,112,1);
+}
+.trash {
+	overflow: visible;
+	position: absolute;
+	width: 47.669px;
+	height: 51.86px;
+	left: 489px;
+	top: 758px;
+	transform: matrix(1,0,0,1,0,0);
+}

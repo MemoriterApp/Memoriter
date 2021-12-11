@@ -1,0 +1,68 @@
+.mediaViewInfo {
+	--web-view-name: Zeichenfläche – 1;
+	--web-view-id: Zeichenflche__1;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Zeichenflche__1;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Zeichenflche__1 {
+	position: absolute;
+	width: 1920px;
+	height: 1080px;
+	background-color: rgba(53,53,53,1);
+	overflow: hidden;
+	--web-view-name: Zeichenfläche – 1;
+	--web-view-id: Zeichenflche__1;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+#Impressum__Title {
+	left: 157px;
+	top: 109px;
+	position: absolute;
+	overflow: visible;
+	width: 359px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 72px;
+	color: rgba(255,255,255,1);
+}
+#Memoriter_Schlerfirma_Rudolf-B {
+	left: 157px;
+	top: 243px;
+	position: absolute;
+	overflow: visible;
+	width: 451px;
+	height: 326px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+}
+#Das_Projekt_entstand_im_Rahmen {
+	left: 157px;
+	top: 592px;
+	position: absolute;
+	overflow: visible;
+	width: 486px;
+	height: 254px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+}
