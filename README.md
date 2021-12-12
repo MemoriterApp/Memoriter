@@ -1,9 +1,9 @@
 # Memoriter
-Hier soll die Web-App für "Memoriter" (Arbeitstitel) entstehen. 
+Hier soll die Web-App "Memoriter" (Arbeitstitel) entstehen. 
 
 ## Was ist Memoriter?
 Memoriter ist ein digitales Lernbegleitungssystem. Das bedeutet: wir wollen ein Programm schaffen, welches die Informationsspeicherungssysteme eines Notizprogramms mit den praktischen Vorteilen eines Karteikartensystems verbindet und damit die ultimative "all in one" Lernunterstützung schafft. 
-Zu Beginn wollen wir ein Ordnersystem schaffen, in dem man für jedes seiner wichtigen Themen ein Ordner erstellen kann, innerhalb dieses Ordners soll es ähnlich wie bei "Google Keep" die verschiedenen Karteikarten zu sehen geben. Ebenfalls ist erstmals ein Karteiabfragungssystem geplant, in welchem ähnlich wie bei Quizlet die Karteikarten überprüfen kann. Wir wollen also auf den Schultern von Giganten stehen.
+Zu Beginn wollen wir ein Ordnersystem schaffen, in dem man für jedes seiner wichtigen Themen ein Ordner erstellen kann, innerhalb dieses Ordners soll es ähnlich wie bei "Google Keep" die verschiedenen Karteikarten zu sehen geben. Ebenfalls ist erstmals ein Karteiabfragungssystem geplant, in welchem ähnlich wie bei Quizlet die Karteikarten überprüfen kann. Wir wollen also auf den Schultern von GIGANTEN stehen.
 
 ## Was sind die Inspirationen?
 * Quizlet
@@ -13,5 +13,5 @@ Zu Beginn wollen wir ein Ordnersystem schaffen, in dem man für jedes seiner wic
 
 ## Geplante Features
 * Kalendersystem
-  * Erinnerung
- * spaced repetition Algorithmus
+ * Erinnerung
+* spaced repetition Algorithmus
