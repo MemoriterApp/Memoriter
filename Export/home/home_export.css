@@ -1,0 +1,793 @@
+.mediaViewInfo {
+	--web-view-name: Home;
+	--web-view-id: Home;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: fit;
+	--web-scale-on-resize: true;
+	--web-show-scale-controls: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Home;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Home {
+	position: absolute;
+	width: 1920px;
+	height: 1080px;
+	background-color: rgba(53,53,53,1);
+	overflow: hidden;
+	--web-view-name: Home;
+	--web-view-id: Home;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: fit;
+	--web-scale-on-resize: true;
+	--web-show-scale-controls: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#New_Group {
+	position: absolute;
+	width: 357px;
+	height: 50px;
+	left: 140px;
+	top: 518px;
+	overflow: visible;
+}
+#Button {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Button_q {
+	fill: transparent;
+	stroke: rgba(58,109,112,1);
+	stroke-width: 6px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Button_q {
+	position: absolute;
+	overflow: visible;
+	width: 50px;
+	height: 50px;
+	left: 0px;
+	top: 0px;
+}
+#iconcontentadd_24px {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	left: 5px;
+	top: 5px;
+	overflow: visible;
+}
+#Boundary {
+	fill: transparent;
+}
+.Boundary {
+	position: absolute;
+	overflow: visible;
+	width: 27px;
+	height: 27px;
+	left: 0px;
+	top: 0px;
+}
+#n_Color {
+	fill: rgba(112,112,112,1);
+}
+.n_Color {
+	overflow: visible;
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	left: 5px;
+	top: 5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Enter_the_name {
+	left: 70px;
+	top: 8px;
+	position: absolute;
+	overflow: visible;
+	width: 288px;
+	height: 36px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+}
+#File_overview {
+	left: 813px;
+	top: 188px;
+	position: absolute;
+	overflow: visible;
+	width: 295px;
+	height: 59px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 50px;
+	color: rgba(255,255,255,1);
+}
+#Home_w {
+	left: 887px;
+	top: 86px;
+	position: absolute;
+	overflow: visible;
+	width: 148px;
+	height: 60px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 50px;
+	color: rgba(255,255,255,1);
+}
+#Rand {
+	position: absolute;
+	width: 1736px;
+	height: 646px;
+	left: 92px;
+	top: 158px;
+	overflow: visible;
+}
+#Auen_Rand {
+	fill: transparent;
+	stroke: rgba(39,75,101,1);
+	stroke-width: 10px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Auen_Rand {
+	position: absolute;
+	overflow: visible;
+	width: 1736px;
+	height: 646px;
+	left: 0px;
+	top: 0px;
+}
+#Innen_Abtrennung {
+	fill: rgba(0,0,0,0);
+	stroke: rgba(58,109,112,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Innen_Abtrennung {
+	overflow: visible;
+	position: absolute;
+	width: 1716.023px;
+	height: 7.5px;
+	left: 10.024px;
+	top: 106.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Foulder {
+	position: absolute;
+	width: 1479px;
+	height: 179px;
+	left: 139px;
+	top: 304px;
+	overflow: visible;
+}
+#Staatsstrukturprinzipien_file {
+	position: absolute;
+	width: 1479px;
+	height: 50px;
+	left: 0px;
+	top: 129px;
+	overflow: visible;
+}
+#three_dots {
+	position: absolute;
+	width: 39px;
+	height: 11px;
+	left: 1440px;
+	top: 24px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: three_dots.html;
+}
+#Ellipse_7 {
+	fill: rgba(112,112,112,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_7 {
+	position: absolute;
+	overflow: visible;
+	width: 11px;
+	height: 11px;
+	left: 0px;
+	top: 0px;
+}
+#Ellipse_6 {
+	fill: rgba(112,112,112,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_6 {
+	position: absolute;
+	overflow: visible;
+	width: 11px;
+	height: 11px;
+	left: 14px;
+	top: 0px;
+}
+#Ellipse_5 {
+	fill: rgba(112,112,112,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_5 {
+	position: absolute;
+	overflow: visible;
+	width: 11px;
+	height: 11px;
+	left: 28px;
+	top: 0px;
+}
+#Staatsstrukturprinzipien {
+	left: 62px;
+	top: 8px;
+	position: absolute;
+	overflow: visible;
+	width: 334px;
+	height: 35px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+}
+#Button_ {
+	fill: transparent;
+	stroke: rgba(58,109,112,1);
+	stroke-width: 6px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Button_ {
+	position: absolute;
+	overflow: visible;
+	width: 50px;
+	height: 50px;
+	left: 0px;
+	top: 0px;
+}
+#Biomembran_file {
+	position: absolute;
+	width: 1479px;
+	height: 50px;
+	left: 0px;
+	top: 64px;
+	overflow: visible;
+}
+#three_dots_ {
+	position: absolute;
+	width: 39px;
+	height: 11px;
+	left: 1440px;
+	top: 25px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: three_dots.html;
+}
+#Ellipse_7_ba {
+	fill: rgba(112,112,112,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_7_ba {
+	position: absolute;
+	overflow: visible;
+	width: 11px;
+	height: 11px;
+	left: 0px;
+	top: 0px;
+}
+#Ellipse_6_bb {
+	fill: rgba(112,112,112,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_6_bb {
+	position: absolute;
+	overflow: visible;
+	width: 11px;
+	height: 11px;
+	left: 14px;
+	top: 0px;
+}
+#Ellipse_5_bc {
+	fill: rgba(112,112,112,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_5_bc {
+	position: absolute;
+	overflow: visible;
+	width: 11px;
+	height: 11px;
+	left: 28px;
+	top: 0px;
+}
+#Button_bd {
+	fill: transparent;
+	stroke: rgba(58,109,112,1);
+	stroke-width: 6px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Button_bd {
+	position: absolute;
+	overflow: visible;
+	width: 50px;
+	height: 50px;
+	left: 0px;
+	top: 0px;
+}
+#Biomembran {
+	left: 62px;
+	top: 8px;
+	position: absolute;
+	overflow: visible;
+	width: 185px;
+	height: 35px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+}
+#Am_Rev_file {
+	position: absolute;
+	width: 1479px;
+	height: 50px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#three_dots_bg {
+	position: absolute;
+	width: 39px;
+	height: 11px;
+	left: 1440px;
+	top: 19px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: three_dots.html;
+}
+#Ellipse_7_bh {
+	fill: rgba(112,112,112,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_7_bh {
+	position: absolute;
+	overflow: visible;
+	width: 11px;
+	height: 11px;
+	left: 0px;
+	top: 0px;
+}
+#Ellipse_6_bi {
+	fill: rgba(112,112,112,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_6_bi {
+	position: absolute;
+	overflow: visible;
+	width: 11px;
+	height: 11px;
+	left: 14px;
+	top: 0px;
+}
+#Ellipse_5_bj {
+	fill: rgba(112,112,112,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_5_bj {
+	position: absolute;
+	overflow: visible;
+	width: 11px;
+	height: 11px;
+	left: 28px;
+	top: 0px;
+}
+#Amerikanische_Revolution {
+	left: 62px;
+	top: 8px;
+	position: absolute;
+	overflow: visible;
+	width: 368px;
+	height: 35px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+}
+#Button_bl {
+	fill: transparent;
+	stroke: rgba(58,109,112,1);
+	stroke-width: 6px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Button_bl {
+	position: absolute;
+	overflow: visible;
+	width: 50px;
+	height: 50px;
+	left: 0px;
+	top: 0px;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: Karteikarten__bersicht.html;
+	cursor: pointer;
+}
+#divider {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.divider {
+	overflow: visible;
+	position: absolute;
+	width: 1645.5px;
+	height: 5px;
+	left: 139px;
+	top: 494.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#settings {
+	position: absolute;
+	width: 83px;
+	height: 83px;
+	left: 1715px;
+	top: 172px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: settings.html;
+}
+#Boundary_bo {
+	fill: transparent;
+}
+.Boundary_bo {
+	position: absolute;
+	overflow: visible;
+	width: 83px;
+	height: 83px;
+	left: 0px;
+	top: 0px;
+}
+#n_Color_bp {
+	fill: rgba(112,112,112,1);
+}
+.n_Color_bp {
+	overflow: visible;
+	position: absolute;
+	width: 64.68px;
+	height: 65.708px;
+	left: 10.78px;
+	top: 8.646px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#core-component-XF-footer {
+	position: absolute;
+	width: 1366px;
+	height: 260px;
+	left: 251px;
+	top: 820px;
+	overflow: visible;
+}
+#background {
+	fill: rgba(53,53,53,1);
+}
+.background {
+	position: absolute;
+	overflow: visible;
+	width: 1366px;
+	height: 260px;
+	left: 0px;
+	top: 0px;
+}
+#Impressum {
+	left: 141px;
+	top: 200px;
+	position: absolute;
+	overflow: visible;
+	width: 76px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Zeichenfl_che___1.html;
+	cursor: pointer;
+	line-height: 28px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: rgba(39,75,101,1);
+}
+#core-component-separator {
+	position: absolute;
+	width: 1084px;
+	height: 40px;
+	left: 141px;
+	top: 152px;
+	overflow: visible;
+}
+#background_bu {
+	fill: transparent;
+}
+.background_bu {
+	position: absolute;
+	overflow: visible;
+	width: 1084px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+#separator {
+	fill: rgba(112,112,112,1);
+}
+.separator {
+	position: absolute;
+	overflow: visible;
+	width: 1084px;
+	height: 2px;
+	left: 0px;
+	top: 19px;
+}
+#container-right {
+	position: absolute;
+	width: 95px;
+	height: 25px;
+	left: 141px;
+	top: 44px;
+	overflow: visible;
+}
+#Memoriter {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 96px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	color: rgba(255,255,255,1);
+	text-transform: uppercase;
+}
+#Social_-_Follow_Wireframe {
+	position: absolute;
+	width: 123px;
+	height: 40px;
+	left: 1010px;
+	top: 37px;
+	overflow: visible;
+}
+#Follow_us {
+	left: 0px;
+	top: 9px;
+	position: absolute;
+	overflow: visible;
+	width: 64px;
+	white-space: nowrap;
+	line-height: 28px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: rgba(255,255,255,1);
+}
+#Icon_-_Instagram {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	left: 83px;
+	top: 0px;
+	overflow: visible;
+}
+#background_b {
+	fill: rgba(112,112,112,1);
+}
+.background_b {
+	position: absolute;
+	overflow: visible;
+	width: 40px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+#icons {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 10px;
+	top: 10px;
+	overflow: visible;
+}
+#instagram-167 {
+	fill: rgba(255,255,255,1);
+}
+.instagram-167 {
+	overflow: visible;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Datenschutzerklrung {
+	left: 262px;
+	top: 202px;
+	position: absolute;
+	overflow: visible;
+	width: 130px;
+	white-space: nowrap;
+	line-height: 25px;
+	margin-top: -5.5px;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(39,75,101,1);
+}
+#AGB {
+	left: 437px;
+	top: 201px;
+	position: absolute;
+	overflow: visible;
+	width: 25px;
+	white-space: nowrap;
+	line-height: 25px;
+	margin-top: -5.5px;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(39,75,101,1);
+}
+#MEMORITER {
+	left: 52px;
+	top: 43px;
+	position: absolute;
+	overflow: visible;
+	width: 261px;
+	height: 48px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	color: rgba(255,255,255,1);
+}

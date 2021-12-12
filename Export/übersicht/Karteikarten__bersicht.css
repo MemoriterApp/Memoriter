@@ -1,0 +1,1083 @@
+.mediaViewInfo {
+	--web-view-name: Karteikarten übersicht;
+	--web-view-id: Karteikarten_bersicht;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Karteikarten_bersicht;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Karteikarten_bersicht {
+	position: absolute;
+	width: 1920px;
+	height: 1258px;
+	background-color: rgba(53,53,53,1);
+	overflow: hidden;
+	--web-view-name: Karteikarten übersicht;
+	--web-view-id: Karteikarten_bersicht;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#flashcards {
+	position: absolute;
+	width: 1432px;
+	height: 782px;
+	left: 220px;
+	top: 183px;
+	overflow: visible;
+}
+#new_card {
+	position: absolute;
+	width: 242px;
+	height: 353px;
+	left: 888px;
+	top: 429px;
+	overflow: visible;
+}
+#Rechteck {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rechteck {
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+}
+#flashcard_8 {
+	position: absolute;
+	width: 243px;
+	height: 353px;
+	left: 593px;
+	top: 429px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: Karteikarte_short.html;
+}
+#Rechteck8 {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rechteck8 {
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 353px;
+	left: 1px;
+	top: 0px;
+}
+#Die_Amerikanischen_Truppen_war {
+	left: 24px;
+	top: 111px;
+	position: absolute;
+	overflow: visible;
+	width: 208px;
+	height: 224px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Wie_lief_der_Unabhngigkeits-kr {
+	left: 0px;
+	top: 16px;
+	position: absolute;
+	overflow: visible;
+	width: 230px;
+	height: 95px;
+	line-height: 33px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.25px;
+}
+#flashcard_7 {
+	position: absolute;
+	width: 242px;
+	height: 353px;
+	left: 303px;
+	top: 429px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: Karteikarte_short.html;
+}
+#Rechteck7 {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rechteck7 {
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+}
+#Die_East_India_Company_hat_Tea {
+	left: 11px;
+	top: 98px;
+	position: absolute;
+	overflow: hidden;
+	width: 222px;
+	height: 224px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Ursachen_der_Boston_Tea_Party {
+	left: 3px;
+	top: 18px;
+	position: absolute;
+	overflow: visible;
+	width: 230px;
+	height: 62px;
+	line-height: 33px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.25px;
+}
+#flashcard_6 {
+	position: absolute;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 429px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: Karteikarte_short.html;
+}
+#Rechteck6 {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rechteck6 {
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+}
+#Die_Reaktion_auf_die_Steuer_wa {
+	left: 22px;
+	top: 85px;
+	position: absolute;
+	overflow: visible;
+	width: 194px;
+	height: 250px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Wie_wurde_reagiert {
+	left: 7px;
+	top: 18px;
+	position: absolute;
+	overflow: visible;
+	width: 230px;
+	height: 29px;
+	line-height: 33px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.25px;
+}
+#flashcard_5 {
+	position: absolute;
+	width: 242px;
+	height: 353px;
+	left: 1190px;
+	top: 0px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: Karteikarte_short.html;
+}
+#Rechteck_8 {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rechteck_8 {
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+}
+#Direkte_Besteuerung_der_Amerik {
+	left: 21px;
+	top: 106px;
+	position: absolute;
+	overflow: visible;
+	width: 205px;
+	height: 207px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Was_ist_der_Stamp_Act {
+	left: 19px;
+	top: 21px;
+	position: absolute;
+	overflow: visible;
+	width: 210px;
+	height: 62px;
+	line-height: 33px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.25px;
+}
+#flashcard_4 {
+	position: absolute;
+	width: 242px;
+	height: 353px;
+	left: 888px;
+	top: 0px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: Karteikarte_short.html;
+}
+#Rechteck_5 {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rechteck_5 {
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+}
+#n_765_wurde_der_Stamp_Act_durc {
+	left: 17px;
+	top: 106px;
+	position: absolute;
+	overflow: visible;
+	width: 214px;
+	height: 224px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Wann_wurde_Stamp_Act_durchgese {
+	left: 7px;
+	top: 18px;
+	position: absolute;
+	overflow: visible;
+	width: 230px;
+	height: 62px;
+	line-height: 33px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.25px;
+}
+#flashcard_3 {
+	position: absolute;
+	width: 242px;
+	height: 353px;
+	left: 595px;
+	top: 0px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: Karteikarte_short.html;
+}
+#Rechteck_4 {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rechteck_4 {
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+}
+#GB_musste_viel_Geld_im_7-jhrig {
+	left: 25px;
+	top: 96px;
+	position: absolute;
+	overflow: visible;
+	width: 202px;
+	height: 224px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Was_war_die_Ausgangslage {
+	left: 4px;
+	top: 18px;
+	position: absolute;
+	overflow: visible;
+	width: 230px;
+	height: 62px;
+	line-height: 33px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.25px;
+}
+#flashcard_2_bo {
+	position: absolute;
+	width: 242px;
+	height: 353px;
+	left: 302px;
+	top: 0px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: Karteikarte_short.html;
+}
+#Rechteck2_bp {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rechteck2_bp {
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+}
+#Text2_bq {
+	left: 21px;
+	top: 83px;
+	position: absolute;
+	overflow: hidden;
+	width: 201px;
+	height: 250px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Title2_br {
+	left: 4px;
+	top: 18px;
+	position: absolute;
+	overflow: visible;
+	width: 230px;
+	height: 62px;
+	line-height: 33px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.25px;
+}
+#flashcard_1 {
+	position: absolute;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Rechteck1 {
+	position: absolute;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Rechteck1_bl {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rechteck1_bl {
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+}
+#Text1 {
+	left: 30px;
+	top: 96px;
+	position: absolute;
+	overflow: visible;
+	width: 183px;
+	height: 47px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Title1 {
+	left: 4px;
+	top: 18px;
+	position: absolute;
+	overflow: visible;
+	width: 230px;
+	height: 62px;
+	line-height: 33px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.25px;
+}
+#flashcard_2_bo {
+	position: absolute;
+	width: 242px;
+	height: 353px;
+	left: 302px;
+	top: 0px;
+	overflow: visible;
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: Karteikarte_short.html;
+}
+#Rechteck2_bp {
+	fill: transparent;
+	stroke: rgba(58,99,103,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rechteck2_bp {
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 353px;
+	left: 0px;
+	top: 0px;
+}
+#Text2_bq {
+	left: 21px;
+	top: 83px;
+	position: absolute;
+	overflow: hidden;
+	width: 201px;
+	height: 250px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Title2_br {
+	left: 4px;
+	top: 18px;
+	position: absolute;
+	overflow: visible;
+	width: 230px;
+	height: 62px;
+	line-height: 33px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.25px;
+}
+#Rand {
+	position: absolute;
+	width: 1614.122px;
+	height: 1117.5px;
+	left: 145.378px;
+	top: 140.5px;
+	overflow: visible;
+}
+#Linie_2 {
+	fill: transparent;
+	stroke: rgba(42,75,94,1);
+	stroke-width: 10px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Linie_2 {
+	overflow: visible;
+	position: absolute;
+	width: 10px;
+	height: 1117.5px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Linie_1 {
+	fill: transparent;
+	stroke: rgba(42,75,94,1);
+	stroke-width: 10px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Linie_1 {
+	overflow: visible;
+	position: absolute;
+	width: 1614.122px;
+	height: 10px;
+	left: 0px;
+	top: 5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Linie_3 {
+	fill: transparent;
+	stroke: rgba(42,75,94,1);
+	stroke-width: 10px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Linie_3 {
+	overflow: visible;
+	position: absolute;
+	width: 14px;
+	height: 1112.536px;
+	left: 1610.122px;
+	top: 5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Page_Title {
+	position: absolute;
+	width: 704px;
+	height: 59px;
+	left: 569px;
+	top: 42px;
+	overflow: visible;
+}
+#Page_Title_bx {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 705px;
+	height: 59px;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 50px;
+	color: rgba(255,255,255,1);
+}
+#zurck_button {
+	position: absolute;
+	width: 103px;
+	height: 53px;
+	left: 46px;
+	top: 45px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Home.html;
+	cursor: pointer;
+	padding: 9px 15px 9px 16px;
+}
+#background {
+	fill: rgba(42,75,94,1);
+}
+.background {
+	position: absolute;
+	overflow: visible;
+	width: 103px;
+	height: 53px;
+	left: 0px;
+	top: 0px;
+}
+#Zurck {
+	left: 16px;
+	top: 9px;
+	position: absolute;
+	overflow: visible;
+	width: 73px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgba(255,255,255,1);
+}
+#Light__FAB__3_MiniResting {
+	position: absolute;
+	width: 156px;
+	height: 156px;
+	left: 1155px;
+	top: 712px;
+	overflow: visible;
+}
+#Fill {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#State {
+	position: absolute;
+	width: 156px;
+	height: 156px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#iconcontentadd_24px {
+	position: absolute;
+	width: 107px;
+	height: 104px;
+	left: 22px;
+	top: 23px;
+	overflow: visible;
+}
+#Boundary {
+	fill: transparent;
+}
+.Boundary {
+	position: absolute;
+	overflow: visible;
+	width: 103px;
+	height: 103px;
+	left: 0px;
+	top: 0px;
+}
+#n_Color {
+	fill: rgba(112,112,112,1);
+}
+.n_Color {
+	overflow: visible;
+	position: absolute;
+	width: 105px;
+	height: 99px;
+	left: 2px;
+	top: 5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Pfad_1 {
+	fill: transparent;
+	stroke: rgba(58,109,112,1);
+	stroke-width: 7.5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Pfad_1 {
+	overflow: visible;
+	position: absolute;
+	width: 156px;
+	height: 151px;
+	left: 1155px;
+	top: 712px;
+	transform: matrix(1,0,0,1,0,0);
+	cursor: pointer;
+	--web-animation: fadein 0.3s bounce;
+	--web-action-type: page;
+	--web-action-target: new_flashcard.html;
+}
+#core-component-XF-footer {
+	position: absolute;
+	width: 1366px;
+	height: 260px;
+	left: 220px;
+	top: 1003px;
+	overflow: visible;
+}
+#background_b {
+	fill: rgba(53,53,53,1);
+}
+.background_b {
+	position: absolute;
+	overflow: visible;
+	width: 1366px;
+	height: 260px;
+	left: 0px;
+	top: 0px;
+}
+#Impressum {
+	left: 141px;
+	top: 200px;
+	position: absolute;
+	overflow: visible;
+	width: 76px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Zeichenfl_che___1.html;
+	cursor: pointer;
+	line-height: 28px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: rgba(39,75,101,1);
+}
+#core-component-separator {
+	position: absolute;
+	width: 1084px;
+	height: 40px;
+	left: 141px;
+	top: 152px;
+	overflow: visible;
+}
+#background_cc {
+	fill: transparent;
+}
+.background_cc {
+	position: absolute;
+	overflow: visible;
+	width: 1084px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+#separator {
+	fill: rgba(112,112,112,1);
+}
+.separator {
+	position: absolute;
+	overflow: visible;
+	width: 1084px;
+	height: 2px;
+	left: 0px;
+	top: 19px;
+}
+#container-right {
+	position: absolute;
+	width: 95px;
+	height: 25px;
+	left: 141px;
+	top: 44px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Home.html;
+	cursor: pointer;
+}
+#Memoriter {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 96px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	color: rgba(255,255,255,1);
+	text-transform: uppercase;
+}
+#Social_-_Follow_Wireframe {
+	position: absolute;
+	width: 127px;
+	height: 40px;
+	left: 1010px;
+	top: 37px;
+	overflow: visible;
+}
+#Follow_us {
+	left: 0px;
+	top: 9px;
+	position: absolute;
+	overflow: visible;
+	width: 64px;
+	white-space: nowrap;
+	line-height: 28px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: rgba(255,255,255,1);
+}
+#Icon_-_Instagram {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	left: 87px;
+	top: 0px;
+	overflow: visible;
+}
+#background_cj {
+	fill: rgba(112,112,112,1);
+}
+.background_cj {
+	position: absolute;
+	overflow: visible;
+	width: 40px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+#icons {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 10px;
+	top: 10px;
+	overflow: visible;
+}
+#instagram-167 {
+	fill: rgba(255,255,255,1);
+}
+.instagram-167 {
+	overflow: visible;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Datenschutzerklrung {
+	left: 262px;
+	top: 202px;
+	position: absolute;
+	overflow: visible;
+	width: 130px;
+	white-space: nowrap;
+	line-height: 25px;
+	margin-top: -5.5px;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(39,75,101,1);
+}
+#AGB {
+	left: 437px;
+	top: 201px;
+	position: absolute;
+	overflow: visible;
+	width: 25px;
+	white-space: nowrap;
+	line-height: 25px;
+	margin-top: -5.5px;
+	text-align: left;
+	font-family: Source Sans Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(39,75,101,1);
+}
