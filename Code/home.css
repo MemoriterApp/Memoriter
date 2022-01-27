@@ -1,4 +1,4 @@
-#Memoriter {
+#Memoriter_name {
 	left: 40px;
 	top: 40px;
 	position: absolute;
@@ -7,28 +7,21 @@
 	white-space: nowrap;
 	text-align: left;
 	font-family: Helvetica;
-	font-style: normal;
 	font-weight: bold;
 	font-size: 25px;
 	color: rgba(255,255,255,1);
 	text-transform: uppercase;
 }
-#Home_w {
-	left: 900px;
-	right: 960px;
-	top: 86px;
-	position: absolute;
-	overflow: visible;
-	width: 148px;
-	height: 60px;
+#Home_title {
+	position:relative;
+	top: 40px;
 	text-align: center;
 	font-family: Helvetica;
-	font-style: normal;
 	font-weight: bold;
-	font-size: 50px;
+	font-size: 30px;
 	color: rgba(255,255,255,1);
 }
-#Auen_Rand {
+#Rechteck_outside {
 	fill: transparent;
 	stroke: rgba(39,75,101,1);
 	stroke-width: 10px;
@@ -37,7 +30,7 @@
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
 }
-.Auen_Rand {
+.Rechteck_outside {
 	position: absolute;
 	overflow: visible;
 	width: 1736px;
@@ -45,20 +38,15 @@
 	left: 0px;
 	top: 0px;
 }
-#File_overview {
-	left: 850px;
-	right: 960px;
-	top: 188px;
-	position: absolute;
-	overflow: visible;
-	width: 295px;
-	height: 59px;
+#FileOverview_subtitle {
+	color: white;
+	font-family: "Helvetica Neue";
+	font-size: 30px; 
+	line-height: 40px;
+	position: relative;
+	top: 40px;
 	text-align: center;
-	font-family: Helvetica Neue;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 50px;
-	color: rgba(255,255,255,1);
+	letter-spacing: 1px;
 }
 #settings {
 	position: absolute;
@@ -69,16 +57,12 @@
 	overflow: visible;
 	cursor: pointer;
 }
-#Boundary_bo {
+#Gear {
 	fill: transparent;
-}
-.Boundary_bo {
 	position: absolute;
 	overflow: visible;
 	width: 83px;
 	height: 83px;
-	left: 0px;
-	top: 0px;
 }
 #n_Color_bp {
 	fill: rgba(112,112,112,1);
