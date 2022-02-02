@@ -249,7 +249,7 @@
 	transform: matrix(1,0,0,1,0,0);
 	cursor: pointer;
 }
-#Datenschutzerklrung {
+#Datenschutzerklaerung {
 	left: 262px;
 	top: 202px;
 	position: absolute;
@@ -292,7 +292,6 @@
 	height: 48px;
 	text-align: left;
 	font-family: Helvetica Neue;
-	font-style: normal;
 	font-weight: bold;
 	font-size: 40px;
 	color: rgba(255,255,255,1);
