@@ -102,14 +102,6 @@
 #background {
 	fill: rgba(53,53,53,1);
 }
-.background {
-	position: absolute;
-	overflow: visible;
-	width: 1366px;
-	height: 260px;
-	left: 0px;
-	top: 0px;
-}
 #Impressum {
 	left: 141px;
 	top: 190px;
@@ -166,8 +158,6 @@
 	overflow: visible;
 }
 #Memoriter {
-	left: 0px;
-	top: 0px;
 	position: absolute;
 	overflow: visible;
 	width: 96px;
@@ -189,18 +179,12 @@
 	overflow: visible;
 }
 #Follow_us {
-	left: 0px;
-	top: 9px;
-	position: absolute;
-	overflow: visible;
 	width: 64px;
 	white-space: nowrap;
 	line-height: 28px;
 	margin-top: -6px;
 	text-align: left;
 	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: normal;
 	font-size: 16px;
 	color: rgba(255,255,255,1);
 }
