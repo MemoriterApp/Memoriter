@@ -2,9 +2,7 @@
 	left: 40px;
 	top: 40px;
 	position: absolute;
-	overflow: visible;
 	width: 96px;
-	white-space: nowrap;
 	text-align: left;
 	font-family: Helvetica;
 	font-weight: bold;
@@ -35,8 +33,6 @@
 	overflow: visible;
 	width: 1736px;
 	height: 646px;
-	left: 0px;
-	top: 0px;
 }
 #FileOverview_subtitle {
 	color: white;
@@ -54,7 +50,6 @@
 	height: 83px;
 	left: 1715px;
 	top: 172px;
-	overflow: visible;
 	cursor: pointer;
 }
 #Gear {
@@ -85,11 +80,11 @@
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
 	overflow: visible;
-	position: absolute;
+	position: relative;
 }
 .Innen_Abtrennung {
 	overflow: visible;
-	position: absolute;
+	position: relative;
 	width: 1800.023px;
 	height: 7.5px;
 	left: -32.024px;
@@ -117,7 +112,7 @@
 }
 #Impressum {
 	left: 141px;
-	top: 200px;
+	top: 190px;
 	position: absolute;
 	overflow: visible;
 	width: 76px;
@@ -251,7 +246,7 @@
 }
 #Datenschutzerklaerung {
 	left: 262px;
-	top: 202px;
+	top: 190px;
 	position: absolute;
 	overflow: visible;
 	width: 130px;
@@ -268,7 +263,7 @@
 }
 #AGB {
 	left: 437px;
-	top: 201px;
+	top: 190px;
 	position: absolute;
 	overflow: visible;
 	width: 25px;
