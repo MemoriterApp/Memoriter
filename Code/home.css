@@ -91,8 +91,8 @@
 	top: 106.5px;
 	transform: matrix(1,0,0,1,0,0);
 }
-#core-component-XF-footer {
-	position: absolute;
+#footer {
+	position: fixed;
 	width: 1366px;
 	height: 260px;
 	left: 251px;
@@ -102,23 +102,6 @@
 #background {
 	fill: rgba(53,53,53,1);
 }
-#Impressum {
-	left: 141px;
-	top: 190px;
-	position: absolute;
-	overflow: visible;
-	width: 76px;
-	white-space: nowrap;
-	cursor: pointer;
-	line-height: 28px;
-	margin-top: -6px;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 16px;
-	color: rgba(39,75,101,1);
-}
 #core-component-separator {
 	position: absolute;
 	width: 1084px;
@@ -127,27 +110,18 @@
 	top: 152px;
 	overflow: visible;
 }
-#background_bu {
-	fill: transparent;
-}
 .background_bu {
-	position: absolute;
-	overflow: visible;
 	width: 1084px;
 	height: 40px;
-	left: 0px;
-	top: 0px;
+	fill: transparent;
 }
 #separator {
 	fill: rgba(112,112,112,1);
 }
 .separator {
-	position: absolute;
+	position: relative;
 	overflow: visible;
-	width: 1084px;
-	height: 2px;
-	left: 0px;
-	top: 19px;
+	top: -20px;
 }
 #container-right {
 	position: absolute;
@@ -228,39 +202,26 @@
 	transform: matrix(1,0,0,1,0,0);
 	cursor: pointer;
 }
-#Datenschutzerklaerung {
-	left: 262px;
-	top: 190px;
-	position: absolute;
-	overflow: visible;
-	width: 130px;
-	white-space: nowrap;
-	line-height: 25px;
-	margin-top: -5.5px;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 14px;
+#footer_quicklinks {
+	font-size: 15px;
 	color: rgba(39,75,101,1);
+	font-family: Arial, Helvetica, sans-serif;
 	cursor: pointer;
 }
-#AGB {
-	left: 437px;
+#Impressum {
+	position: relative;
 	top: 190px;
-	position: absolute;
-	overflow: visible;
-	width: 25px;
-	white-space: nowrap;
-	line-height: 25px;
-	margin-top: -5.5px;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 14px;
-	color: rgba(39,75,101,1);
-	cursor: pointer;
+	left: 150px;
+}
+#privacy {
+	position: relative;
+	top: 160px;
+	left: 240px;
+}
+#Terms_of_use {
+	position: relative;
+	top: 130px;
+	left: 345px;
 }
 #MEMORITER {
 	left: 52px;
