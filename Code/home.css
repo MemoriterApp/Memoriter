@@ -200,28 +200,29 @@
 	left: 0px;
 	top: 0px;
 	transform: matrix(1,0,0,1,0,0);
-	cursor: pointer;
 }
 #footer_quicklinks {
 	font-size: 15px;
 	color: rgba(39,75,101,1);
 	font-family: Arial, Helvetica, sans-serif;
-	cursor: pointer;
 }
 #Impressum {
 	position: relative;
 	top: 190px;
 	left: 150px;
+	cursor: pointer;
 }
 #privacy {
 	position: relative;
 	top: 160px;
 	left: 240px;
+	cursor: pointer;
 }
 #Terms_of_use {
 	position: relative;
 	top: 130px;
 	left: 345px;
+	cursor: pointer;
 }
 #MEMORITER {
 	left: 52px;
