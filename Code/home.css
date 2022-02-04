@@ -46,7 +46,7 @@
 }
 #settings {
 	position: absolute;
-	width: 83px;
+	width: fit-content;
 	height: 83px;
 	left: 1715px;
 	top: 172px;
@@ -211,6 +211,7 @@
 	top: 800px;
 	left: 625px;
 	cursor: pointer;
+	width: fit-content;
 	
 }
 #privacy {
@@ -218,13 +219,14 @@
 	top: 763px;
 	left: 500px;
 	cursor: pointer;
-	
+	width: fit-content;
 }
 #Terms_of_use {
 	cursor: pointer;
 	position: relative;
 	top: 725px;
 	left: 380px;
+	width: fit-content;
 	
 	
 }
