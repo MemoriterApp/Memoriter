@@ -36,7 +36,7 @@
 }
 #FileOverview_subtitle {
 	color: white;
-	font-family: "Helvetica Neue";
+	font-family: "Helvetica";
 	font-size: 30px; 
 	line-height: 40px;
 	position: relative;
@@ -92,7 +92,6 @@
 	transform: matrix(1,0,0,1,0,0);
 }
 #footer {
-	position: fixed;
 	width: 1366px;
 	height: 260px;
 	left: 251px;
@@ -202,27 +201,32 @@
 	transform: matrix(1,0,0,1,0,0);
 }
 #footer_quicklinks {
-	font-size: 15px;
+	font-size: 17.5px;
 	color: rgba(39,75,101,1);
 	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
 }
 #Impressum {
 	position: relative;
-	top: 190px;
-	left: 150px;
+	top: 800px;
+	left: 625px;
 	cursor: pointer;
+	
 }
 #privacy {
 	position: relative;
-	top: 160px;
-	left: 240px;
+	top: 763px;
+	left: 500px;
 	cursor: pointer;
+	
 }
 #Terms_of_use {
-	position: relative;
-	top: 130px;
-	left: 345px;
 	cursor: pointer;
+	position: relative;
+	top: 725px;
+	left: 380px;
+	
+	
 }
 #MEMORITER {
 	left: 52px;
