@@ -27,12 +27,11 @@
 	stroke-linecap: butt;
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
+	
 }
 .Rechteck_outside {
-	position: absolute;
+	position: relative;
 	overflow: visible;
-	width: 1736px;
-	height: 646px;
 }
 #FileOverview_subtitle {
 	color: white;
@@ -88,8 +87,7 @@
 	width: 1800.023px;
 	height: 7.5px;
 	left: -32.024px;
-	top: 106.5px;
-	transform: matrix(1,0,0,1,0,0);
+	top: -55px;
 }
 #footer {
 	width: 1366px;
