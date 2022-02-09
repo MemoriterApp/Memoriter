@@ -1,34 +1,25 @@
-#Memoriter {
+#Memoriter_name {
 	left: 40px;
 	top: 40px;
 	position: absolute;
-	overflow: visible;
 	width: 96px;
-	white-space: nowrap;
 	text-align: left;
 	font-family: Helvetica;
-	font-style: normal;
 	font-weight: bold;
 	font-size: 25px;
 	color: rgba(255,255,255,1);
 	text-transform: uppercase;
 }
-#Home_w {
-	left: 900px;
-	right: 960px;
-	top: 86px;
-	position: absolute;
-	overflow: visible;
-	width: 148px;
-	height: 60px;
+#Home_title {
+	position:relative;
+	top: 40px;
 	text-align: center;
 	font-family: Helvetica;
-	font-style: normal;
 	font-weight: bold;
-	font-size: 50px;
+	font-size: 30px;
 	color: rgba(255,255,255,1);
 }
-#Auen_Rand {
+#Rechteck_outside {
 	fill: transparent;
 	stroke: rgba(39,75,101,1);
 	stroke-width: 10px;
@@ -36,49 +27,36 @@
 	stroke-linecap: butt;
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
+	
 }
-.Auen_Rand {
-	position: absolute;
+.Rechteck_outside {
+	position: relative;
 	overflow: visible;
-	width: 1736px;
-	height: 646px;
-	left: 0px;
-	top: 0px;
 }
-#File_overview {
-	left: 850px;
-	right: 960px;
-	top: 188px;
-	position: absolute;
-	overflow: visible;
-	width: 295px;
-	height: 59px;
+#FileOverview_subtitle {
+	color: white;
+	font-family: "Helvetica";
+	font-size: 30px; 
+	line-height: 40px;
+	position: relative;
+	top: 40px;
 	text-align: center;
-	font-family: Helvetica Neue;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 50px;
-	color: rgba(255,255,255,1);
+	letter-spacing: 1px;
 }
 #settings {
 	position: absolute;
-	width: 83px;
+	width: fit-content;
 	height: 83px;
 	left: 1715px;
 	top: 172px;
-	overflow: visible;
 	cursor: pointer;
 }
-#Boundary_bo {
+#Gear {
 	fill: transparent;
-}
-.Boundary_bo {
 	position: absolute;
 	overflow: visible;
 	width: 83px;
 	height: 83px;
-	left: 0px;
-	top: 0px;
 }
 #n_Color_bp {
 	fill: rgba(112,112,112,1);
@@ -101,19 +79,17 @@
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
 	overflow: visible;
-	position: absolute;
+	position: relative;
 }
 .Innen_Abtrennung {
 	overflow: visible;
-	position: absolute;
+	position: relative;
 	width: 1800.023px;
 	height: 7.5px;
 	left: -32.024px;
-	top: 106.5px;
-	transform: matrix(1,0,0,1,0,0);
+	top: -55px;
 }
-#core-component-XF-footer {
-	position: absolute;
+#footer {
 	width: 1366px;
 	height: 260px;
 	left: 251px;
@@ -123,31 +99,6 @@
 #background {
 	fill: rgba(53,53,53,1);
 }
-.background {
-	position: absolute;
-	overflow: visible;
-	width: 1366px;
-	height: 260px;
-	left: 0px;
-	top: 0px;
-}
-#Impressum {
-	left: 141px;
-	top: 200px;
-	position: absolute;
-	overflow: visible;
-	width: 76px;
-	white-space: nowrap;
-	cursor: pointer;
-	line-height: 28px;
-	margin-top: -6px;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 16px;
-	color: rgba(39,75,101,1);
-}
 #core-component-separator {
 	position: absolute;
 	width: 1084px;
@@ -156,27 +107,18 @@
 	top: 152px;
 	overflow: visible;
 }
-#background_bu {
-	fill: transparent;
-}
 .background_bu {
-	position: absolute;
-	overflow: visible;
 	width: 1084px;
 	height: 40px;
-	left: 0px;
-	top: 0px;
+	fill: transparent;
 }
 #separator {
 	fill: rgba(112,112,112,1);
 }
 .separator {
-	position: absolute;
+	position: relative;
 	overflow: visible;
-	width: 1084px;
-	height: 2px;
-	left: 0px;
-	top: 19px;
+	top: -20px;
 }
 #container-right {
 	position: absolute;
@@ -187,8 +129,6 @@
 	overflow: visible;
 }
 #Memoriter {
-	left: 0px;
-	top: 0px;
 	position: absolute;
 	overflow: visible;
 	width: 96px;
@@ -210,18 +150,12 @@
 	overflow: visible;
 }
 #Follow_us {
-	left: 0px;
-	top: 9px;
-	position: absolute;
-	overflow: visible;
 	width: 64px;
 	white-space: nowrap;
 	line-height: 28px;
 	margin-top: -6px;
 	text-align: left;
 	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: normal;
 	font-size: 16px;
 	color: rgba(255,255,255,1);
 }
@@ -263,41 +197,36 @@
 	left: 0px;
 	top: 0px;
 	transform: matrix(1,0,0,1,0,0);
+}
+#footer_quicklinks {
+	font-size: 17.5px;
+	color: rgba(39,75,101,1);
+	font-family: Arial, Helvetica, sans-serif;
 	cursor: pointer;
 }
-#Datenschutzerklrung {
-	left: 262px;
-	top: 202px;
-	position: absolute;
-	overflow: visible;
-	width: 130px;
-	white-space: nowrap;
-	line-height: 25px;
-	margin-top: -5.5px;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 14px;
-	color: rgba(39,75,101,1);
+#Impressum {
+	position: relative;
+	top: 800px;
+	left: 625px;
 	cursor: pointer;
+	width: fit-content;
+	
 }
-#AGB {
-	left: 437px;
-	top: 201px;
-	position: absolute;
-	overflow: visible;
-	width: 25px;
-	white-space: nowrap;
-	line-height: 25px;
-	margin-top: -5.5px;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 14px;
-	color: rgba(39,75,101,1);
+#privacy {
+	position: relative;
+	top: 763px;
+	left: 500px;
 	cursor: pointer;
+	width: fit-content;
+}
+#Terms_of_use {
+	cursor: pointer;
+	position: relative;
+	top: 725px;
+	left: 380px;
+	width: fit-content;
+	
+	
 }
 #MEMORITER {
 	left: 52px;
@@ -308,7 +237,6 @@
 	height: 48px;
 	text-align: left;
 	font-family: Helvetica Neue;
-	font-style: normal;
 	font-weight: bold;
 	font-size: 40px;
 	color: rgba(255,255,255,1);
