@@ -1,0 +1,18 @@
+#title {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    font-family: Helvetica;
+    font-weight: 400;
+    padding: 40px;
+}
+#vertical-line {
+   
+    width: 1800px;
+    height: 950px;
+    background: transparent;
+    border-right: 7.55px solid #274b65;
+    border-left: 7.5px solid #274b65;
+    border-top: 7.5px solid #274b65;
+    margin:auto
+}
