@@ -107,11 +107,6 @@
 	top: 152px;
 	overflow: visible;
 }
-.background_bu {
-	width: 1084px;
-	height: 40px;
-	fill: transparent;
-}
 #separator {
 	fill: rgba(112,112,112,1);
 }
@@ -198,13 +193,10 @@
 	top: 0px;
 	transform: matrix(1,0,0,1,0,0);
 }
-#footer_quicklinks {
+#Impressum {
 	font-size: 17.5px;
 	color: rgba(39,75,101,1);
 	font-family: Arial, Helvetica, sans-serif;
-	cursor: pointer;
-}
-#Impressum {
 	position: relative;
 	top: 800px;
 	left: 625px;
@@ -213,6 +205,9 @@
 	
 }
 #privacy {
+	font-size: 17.5px;
+	color: rgba(39,75,101,1);
+	font-family: Arial, Helvetica, sans-serif;
 	position: relative;
 	top: 763px;
 	left: 500px;
@@ -220,6 +215,9 @@
 	width: fit-content;
 }
 #Terms_of_use {
+	font-size: 17.5px;
+	color: rgba(39,75,101,1);
+	font-family: Arial, Helvetica, sans-serif;
 	cursor: pointer;
 	position: relative;
 	top: 725px;
