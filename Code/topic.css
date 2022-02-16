@@ -11,21 +11,25 @@
 }
 #back-button {
     position: absolute;
-    top: -1064px;
-    left: 0px;
+    top: -978px;
+    left: -20px;
     width: 90px;
     height: 45px;
     background: #2A4B5E;
     margin: 20px;
+    cursor: pointer;
+    border-radius: 10px;
 }
 #back-button-text {
     color: white;
     position: absolute;
-    top: -1050px;
-    left: 21px;
+    top: -965px;
+    left: 0px;
     margin: 20px;
     font-family: Helvetica;
     font-weight: 600;
+    cursor: pointer;
+    text-align: center;
     
 }
 #vertical-lines {
@@ -36,4 +40,12 @@
     border-left: 7.5px solid #274b65;
     border-top: 7.5px solid #274b65;
     margin:auto
+}
+#Logo-oben {
+    width: 8%;
+    height: 8%;
+    position: relative;
+    top: -1070px;
+    left: 40px;
+    cursor: pointer;
 }
