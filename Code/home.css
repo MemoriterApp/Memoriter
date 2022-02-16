@@ -241,3 +241,11 @@
 	font-size: 40px;
 	color: rgba(255,255,255,1);
 }
+#Logo-oben {
+    width: 8%;
+    height: 8%;
+    position: relative;
+	top: -300px;
+    cursor: pointer;
+	margin: 20px;
+}
