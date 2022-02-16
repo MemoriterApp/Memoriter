@@ -3,16 +3,18 @@
     text-align: center;
     margin: 0 auto;
     font-family: Helvetica;
-    font-weight: 400;
+    font-weight: 500;
     padding: 40px;
+    font-size: 350%;
+
 }
 .content {
     position: relative;
 }
 #back-button {
     position: absolute;
-    top: -978px;
-    left: -20px;
+    top: -80px;
+    left: -10px;
     width: 90px;
     height: 45px;
     background: #2A4B5E;
@@ -23,8 +25,8 @@
 #back-button-text {
     color: white;
     position: absolute;
-    top: -965px;
-    left: 0px;
+    top: -68px;
+    left: 10px;
     margin: 20px;
     font-family: Helvetica;
     font-weight: 600;
@@ -33,8 +35,8 @@
     
 }
 #vertical-lines {
-    width: 1800px;
-    height: 950px;
+    width: 1750px;
+    height: 1100px;
     background: transparent;
     border-right: 7.55px solid #274b65;
     border-left: 7.5px solid #274b65;
@@ -45,7 +47,12 @@
     width: 8%;
     height: 8%;
     position: relative;
-    top: -1070px;
-    left: 40px;
+    top: -75px;
+    left: 20px;
     cursor: pointer;
+}
+#footer-seperator {
+    width: 75%;
+    position: relative;
+    top: -100px;
 }
