@@ -35,24 +35,103 @@
     
 }
 #vertical-lines {
+    position: relative;
     width: 1750px;
     height: 1100px;
     background: transparent;
     border-right: 7.55px solid #274b65;
     border-left: 7.5px solid #274b65;
     border-top: 7.5px solid #274b65;
-    margin:auto
+    margin:auto;
+    top: -65px;
 }
 #Logo-oben {
     width: 8%;
     height: 8%;
     position: relative;
-    top: -75px;
+    top: -125px;
     left: 20px;
     cursor: pointer;
 }
 #footer-seperator {
     width: 75%;
     position: relative;
-    top: -100px;
+    top: -250px;
+    fill: #707070;
+    border-bottom: #707070;
+    border-width: 3px;
 }
+#footer-quicklinks {
+    color: #274b65;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left: 275px;
+    top: -235px;
+}
+#Impressum {
+    margin: 25px;
+    cursor: pointer;
+}
+#Privacy {
+    margin-right: 25px;
+    cursor: pointer;
+}
+#Terms-of-use {
+    cursor: pointer;
+}
+#Logo-unten {
+    width: 5%;
+    height: 5%;
+    position: relative;
+    cursor: pointer;
+    left: 250px;
+    top: -250px;
+}
+.gg-instagram {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 2px;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    left: 1690px;
+    top: -205px;
+   }
+   
+   .gg-instagram::after,
+   .gg-instagram::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute
+   }
+   
+   .gg-instagram::after {
+    border: 2px solid;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    top: 3px
+   }
+   
+   .gg-instagram::before {
+    border-radius: 3px;
+    width: 2px;
+    height: 2px;
+    background: currentColor;
+    right: 1px;
+    top: 1px
+   } 
+   #follow-us {
+       color: black;
+       font-family: Arial, Helvetica, sans-serif;
+       position: relative;
+       top: -220px;
+       left: 1610px;
+    
+   }
