@@ -87,51 +87,18 @@
     left: 250px;
     top: -250px;
 }
-.gg-instagram {
-    box-sizing: border-box;
+#follow-us {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    display: block;
-    transform: scale(var(--ggs,1));
-    border: 2px solid transparent;
-    box-shadow: 0 0 0 2px;
-    border-radius: 4px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    left: 1690px;
-    top: -205px;
-   }
-   
-   .gg-instagram::after,
-   .gg-instagram::before {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    position: absolute
-   }
-   
-   .gg-instagram::after {
-    border: 2px solid;
-    left: 3px;
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    top: 3px
-   }
-   
-   .gg-instagram::before {
-    border-radius: 3px;
-    width: 2px;
-    height: 2px;
-    background: currentColor;
-    right: 1px;
-    top: 1px
-   } 
-   #follow-us {
-       color: black;
-       font-family: Arial, Helvetica, sans-serif;
-       position: relative;
-       top: -220px;
-       left: 1610px;
-    
-   }
+    top: -220px;
+    left: 1500px;
+ 
+}
+#instagram-icon {
+    position: relative;
+    width: 1%;
+    height: 1%;
+    left: 1610px;
+    top: -216px;
+}
