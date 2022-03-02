@@ -102,3 +102,11 @@
     left: 1610px;
     top: -216px;
 }
+#social-media {
+    position: relative;
+    left: 275px;
+}
+footer {
+    position: relative;
+    top: 75px;
+}
