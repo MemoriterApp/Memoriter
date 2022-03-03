@@ -140,3 +140,53 @@ footer {
     letter-spacing: 0.005px;
 
 }
+#new-flashcard {
+    position: absolute;
+    width: 242px;
+    height: 353px;
+    background: transparent;
+    top: 200px;
+    left: 610px;
+    border-right: 7.5px solid #3A6367;
+    border-left: 7.5px solid #3A6367;
+    border-top: 7.5px solid #3A6367;
+    border-bottom: 7.5px solid #3A6367;
+    padding: 10px;
+
+}
+#circle {
+    position: inherit;
+    left: 50px;
+    top: 100px;
+    height: 150px;
+    width: 150px;
+    background-color:#274b65;
+    border: 7.5px solid #3A6367;
+    border-radius: 50%;
+    display: inline-block;
+}
+#circle::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #707070;
+    height: 13px;
+    margin-top: -5px;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    z-index: 9;
+
+  }
+  #circle::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #707070;
+    width: 13px;
+    margin-left: -5px;
+    left: 50%;
+    top: 20px;
+    bottom: 20px;
+    z-index: 9;
+  }
