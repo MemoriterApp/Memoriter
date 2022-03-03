@@ -121,10 +121,22 @@ footer {
     border-left: 7.5px solid #3A6367;
     border-top: 7.5px solid #3A6367;
     border-bottom: 7.5px solid #3A6367;
+    padding: 10px;
 
 }
 #card-title {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    
+    position: inherit;
+    left: 50px;
+    top: -7.5px;
+}
+#card-content {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: inherit;
+    top: 57px;
+    font-size: 20px;
+    letter-spacing: 0.005px;
+
 }
