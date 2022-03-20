@@ -10,6 +10,7 @@
 }
 .content {
     position: relative;
+    left: 0%;
 }
 #back-button {
     position: absolute;
@@ -36,7 +37,7 @@
 }
 #vertical-lines {
     position: relative;
-    width: 1750px;
+    width: 80%;
     height: 1100px;
     background: transparent;
     border-right: 10px solid #274b65;
@@ -65,7 +66,7 @@
     color: #274b65;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    left: 275px;
+    left: 12%;
     top: -235px;
 }
 #Impressum {
@@ -84,7 +85,7 @@
     height: 5%;
     position: relative;
     cursor: pointer;
-    left: 250px;
+    left: 13%;
     top: -250px;
 }
 #follow-us {
@@ -92,19 +93,20 @@
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     top: -220px;
-    left: 1500px;
- 
+    left: 76%;
+    font-size: 110%;
+    cursor: pointer;
 }
 #instagram-icon {
     position: relative;
-    width: 1%;
-    height: 1%;
-    left: 1610px;
-    top: -216px;
+    width: 1.4%;
+    height: 1.4%;
+    left: 75%;  
+    top: -219px;
+    cursor: pointer;
 }
 #social-media {
     position: relative;
-    left: 275px;
 }
 footer {
     position: relative;
@@ -112,16 +114,15 @@ footer {
 }
 #flashcard {
     position: absolute;
-    width: 242px;
-    height: 353px;
+    width: 15%;
+    height: 41%;
     background: transparent;
-    top: 200px;
-    left: 285px;
+    top: 23.5%;
+    left: 13%;
     border-right: 7.5px solid #3A6367;
     border-left: 7.5px solid #3A6367;
     border-top: 7.5px solid #3A6367;
     border-bottom: 7.5px solid #3A6367;
-    padding: 10px;
 
 }
 #card-title {
@@ -130,23 +131,24 @@ footer {
     position: inherit;
     left: 50px;
     top: -7.5px;
+    font-size: 100%;
 }
 #card-content {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: inherit;
-    top: 57px;
-    font-size: 20px;
+    top: 8%;
+    font-size: 95%;
     letter-spacing: 0.005px;
-
+    padding: 5%;
 }
 #new-flashcard {
     position: absolute;
-    width: 242px;
-    height: 353px;
+    width: 13%;
+    height: 38%;
     background: transparent;
-    top: 200px;
-    left: 610px;
+    top: 23.5%;
+    left: 30%;
     border-right: 7.5px solid #3A6367;
     border-left: 7.5px solid #3A6367;
     border-top: 7.5px solid #3A6367;
@@ -156,10 +158,10 @@ footer {
 }
 #circle {
     position: inherit;
-    left: 50px;
-    top: 100px;
-    height: 150px;
-    width: 150px;
+    left: 6%;
+    top: 25%;
+    height: 50%;
+    width: 80%;
     background-color:#274b65;
     border: 7.5px solid #3A6367;
     border-radius: 50%;
