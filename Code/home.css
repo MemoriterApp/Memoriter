@@ -1,243 +1,273 @@
 #Memoriter_name {
-	left: 40px;
-	top: 40px;
-	position: absolute;
-	width: 96px;
-	text-align: left;
-	font-family: Helvetica;
-	font-weight: bold;
-	font-size: 25px;
-	color: rgba(255,255,255,1);
-	text-transform: uppercase;
+    left: 40px;
+    top: 40px;
+    position: absolute;
+    width: 96px;
+    text-align: left;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgba(255,255,255,1);
+    text-transform: uppercase;
 }
 #Home_title {
-	position:relative;
-	top: 40px;
-	text-align: center;
-	font-family: Helvetica;
-	font-weight: bold;
-	font-size: 30px;
-	color: rgba(255,255,255,1);
+    position:relative;
+    top: 40px;
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(255,255,255,1);
 }
 #Rechteck_outside {
-	fill: transparent;
-	stroke: rgba(39,75,101,1);
-	stroke-width: 10px;
-	stroke-linejoin: miter;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-	
+    fill: transparent;
+    stroke: rgba(39,75,101,1);
+    stroke-width: 10px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+    
 }
 .Rechteck_outside {
-	position: relative;
-	overflow: visible;
+    position: relative;
+    overflow: visible;
 }
 #FileOverview_subtitle {
-	color: white;
-	font-family: "Helvetica";
-	font-size: 30px; 
-	line-height: 40px;
-	position: relative;
-	top: 40px;
-	text-align: center;
-	letter-spacing: 1px;
+    color: white;
+    font-family: "Helvetica";
+    font-size: 30px; 
+    line-height: 40px;
+    position: relative;
+    top: 40px;
+    text-align: center;
+    letter-spacing: 1px;
 }
 #settings {
-	position: absolute;
-	width: fit-content;
-	height: 83px;
-	left: 1715px;
-	top: 172px;
-	cursor: pointer;
+    position: absolute;
+    width: fit-content;
+    height: 83px;
+    left: 1715px;
+    top: 172px;
+    cursor: pointer;
 }
 #Gear {
-	fill: transparent;
-	position: absolute;
-	overflow: visible;
-	width: 83px;
-	height: 83px;
+    fill: transparent;
+    position: absolute;
+    overflow: visible;
+    width: 83px;
+    height: 83px;
 }
 #n_Color_bp {
-	fill: rgba(112,112,112,1);
+    fill: rgba(112,112,112,1);
 }
 .n_Color_bp {
-	overflow: visible;
-	position: absolute;
-	width: 64.68px;
-	height: 65.708px;
-	left: 10.78px;
-	top: 8.646px;
-	transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    width: 64.68px;
+    height: 65.708px;
+    left: 10.78px;
+    top: 8.646px;
+    transform: matrix(1,0,0,1,0,0);
 }
 #Innen_Abtrennung {
-	fill: rgba(0,0,0,0);
-	stroke: rgba(58,109,112,1);
-	stroke-width: 7.5px;
-	stroke-linejoin: miter;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-	overflow: visible;
-	position: relative;
+    fill: rgba(0,0,0,0);
+    stroke: rgba(58,109,112,1);
+    stroke-width: 7.5px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+    overflow: visible;
+    position: relative;
 }
 .Innen_Abtrennung {
-	overflow: visible;
-	position: relative;
-	width: 1800.023px;
-	height: 7.5px;
-	left: -32.024px;
-	top: -55px;
+    overflow: visible;
+    position: relative;
+    width: 1800.023px;
+    height: 7.5px;
+    left: -32.024px;
+    top: -55px;
 }
 #footer {
-	width: 1366px;
-	height: 260px;
-	left: 251px;
-	top: 820px;
-	overflow: visible;
+    width: 1366px;
+    height: 260px;
+    left: 251px;
+    top: 820px;
+    overflow: visible;
 }
 #background {
-	fill: rgba(53,53,53,1);
+    fill: rgba(53,53,53,1);
 }
 #core-component-separator {
-	position: absolute;
-	width: 1084px;
-	height: 40px;
-	left: 141px;
-	top: 152px;
-	overflow: visible;
-}
-.background_bu {
-	width: 1084px;
-	height: 40px;
-	fill: transparent;
+    position: absolute;
+    width: 1084px;
+    height: 40px;
+    left: 141px;
+    top: 152px;
+    overflow: visible;
 }
 #separator {
-	fill: rgba(112,112,112,1);
+    fill: rgba(112,112,112,1);
 }
 .separator {
-	position: relative;
-	overflow: visible;
-	top: -20px;
+    position: relative;
+    overflow: visible;
+    top: -20px;
 }
 #container-right {
-	position: absolute;
-	width: 95px;
-	height: 25px;
-	left: 141px;
-	top: 44px;
-	overflow: visible;
+    position: absolute;
+    width: 95px;
+    height: 25px;
+    left: 141px;
+    top: 44px;
+    overflow: visible;
 }
 #Memoriter {
-	position: absolute;
-	overflow: visible;
-	width: 96px;
-	white-space: nowrap;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 18px;
-	color: rgba(255,255,255,1);
-	text-transform: uppercase;
+    position: absolute;
+    overflow: visible;
+    width: 96px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgba(255,255,255,1);
+    text-transform: uppercase;
 }
 #Social_-_Follow_Wireframe {
-	position: absolute;
-	width: 123px;
-	height: 40px;
-	left: 1010px;
-	top: 37px;
-	overflow: visible;
+    position: absolute;
+    width: 123px;
+    height: 40px;
+    left: 1010px;
+    top: 37px;
+    overflow: visible;
 }
 #Follow_us {
-	width: 64px;
-	white-space: nowrap;
-	line-height: 28px;
-	margin-top: -6px;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	color: rgba(255,255,255,1);
+    width: 64px;
+    white-space: nowrap;
+    line-height: 28px;
+    margin-top: -6px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,1);
 }
 #Icon_-_Instagram {
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	left: 83px;
-	top: 0px;
-	overflow: visible;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 83px;
+    top: 0px;
+    overflow: visible;
 }
 #background_b {
-	fill: rgba(112,112,112,1);
+    fill: rgba(112,112,112,1);
 }
 .background_b {
-	position: absolute;
-	overflow: visible;
-	width: 40px;
-	height: 40px;
-	left: 0px;
-	top: 0px;
+    position: absolute;
+    overflow: visible;
+    width: 40px;
+    height: 40px;
+    left: 0px;
+    top: 0px;
 }
 #icons {
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	left: 10px;
-	top: 10px;
-	overflow: visible;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 10px;
+    top: 10px;
+    overflow: visible;
 }
 #instagram-167 {
-	fill: rgba(255,255,255,1);
+    fill: rgba(255,255,255,1);
 }
 .instagram-167 {
-	overflow: visible;
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	left: 0px;
-	top: 0px;
-	transform: matrix(1,0,0,1,0,0);
-}
-#footer_quicklinks {
-	font-size: 17.5px;
-	color: rgba(39,75,101,1);
-	font-family: Arial, Helvetica, sans-serif;
-	cursor: pointer;
+    overflow: visible;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0px;
+    top: 0px;
+    transform: matrix(1,0,0,1,0,0);
 }
 #Impressum {
-	position: relative;
-	top: 800px;
-	left: 625px;
-	cursor: pointer;
-	width: fit-content;
-	
+    font-size: 17.5px;
+    color: rgba(39,75,101,1);
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 800px;
+    left: 625px;
+    cursor: pointer;
+    width: fit-content;
+    
 }
 #privacy {
-	position: relative;
-	top: 763px;
-	left: 500px;
-	cursor: pointer;
-	width: fit-content;
+    font-size: 17.5px;
+    color: rgba(39,75,101,1);
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 763px;
+    left: 500px;
+    cursor: pointer;
+    width: fit-content;
 }
 #Terms_of_use {
-	cursor: pointer;
-	position: relative;
-	top: 725px;
-	left: 380px;
-	width: fit-content;
-	
-	
+    font-size: 17.5px;
+    color: rgba(39,75,101,1);
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    position: relative;
+    top: 725px;
+    left: 380px;
+    width: fit-content;
+    
+    
 }
 #MEMORITER {
-	left: 52px;
-	top: 43px;
-	position: absolute;
-	overflow: visible;
-	width: 261px;
-	height: 48px;
-	text-align: left;
-	font-family: Helvetica Neue;
-	font-weight: bold;
-	font-size: 40px;
-	color: rgba(255,255,255,1);
+    left: 52px;
+    top: 43px;
+    position: absolute;
+    overflow: visible;
+    width: 261px;
+    height: 48px;
+    text-align: left;
+    font-family: Helvetica Neue;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgba(255,255,255,1);
+}
+#Logo-oben {
+    width: 8%;
+    height: 8%;
+    position: relative;
+    top: -300px;
+    cursor: pointer;
+    margin: 20px;
+}
+#BeispielOrdner {
+    width: 1.5%;
+    height: 3.25%;
+    overflow: visible;
+    position: absolute;
+    top: 30%;
+    left: 7%;
+    background-color: #353535; 
+    cursor: pointer;
+    border-right: 7.55px solid cadetblue;
+    border-left: 7.5px solid cadetblue;
+    border-top: 7.5px solid cadetblue;
+    border-bottom: 7.5px solid cadetblue;   
+
+}
+#FileName {
+    position: absolute;
+    left: 10%;
+    top: 27.25%;
+    color: white;
+    font-size: 200%;
+    font-weight: 200;
+    font-family: Arial, Helvetica, sans-serif;
 }
