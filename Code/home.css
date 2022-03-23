@@ -247,3 +247,27 @@
     cursor: pointer;
 	margin: 20px;
 }
+#BeispielOrdner {
+	width: 1.5%;
+	height: 3.25%;
+	overflow: visible;
+	position: absolute;
+	top: 30%;
+	left: 7%;
+	background-color: #353535; 
+	cursor: pointer;
+	border-right: 7.55px solid cadetblue;
+    border-left: 7.5px solid cadetblue;
+    border-top: 7.5px solid cadetblue;
+	border-bottom: 7.5px solid cadetblue;	
+
+}
+#FileName {
+	position: absolute;
+	left: 10%;
+	top: 27.25%;
+	color: white;
+	font-size: 200%;
+	font-weight: 200;
+	font-family: Arial, Helvetica, sans-serif;
+}
