@@ -2,24 +2,23 @@ body {
     background-color:#353535
 }
 .page_title {
-    color: #fff;
-    position: absolute;
-    margin: auto;
-    width: 100%;
-    padding: 10px;
+    position:relative;
     text-align: center;
-    font-family: Helvetica Neue;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(255,255,255,1);
 }
 .rechteck {
     background: transparent;
-    border-right: 10px solid #274b65;
-    border-left: 10px solid #274b65;
-    border-top: 10px solid #274b65;
-    border-bottom: 10px solid #274b65;
-    width: 80%;
+    border-right: 5px solid #274b65;
+    border-left: 5px solid #274b65;
+    border-top: 5px solid #274b65;
+    border-bottom: 5px solid #274b65;
+    width: 90%;
     height: 80%;
     margin: auto;
     position: absolute;
-    top: 10%;
-    left: 10%;
+    top: 11%;
+    left: 5%;
 }
