@@ -1,3 +1,25 @@
 body {
     background-color:#353535
 }
+.page_title {
+    color: #fff;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-family: Helvetica Neue;
+}
+.rechteck {
+    background: transparent;
+    border-right: 10px solid #274b65;
+    border-left: 10px solid #274b65;
+    border-top: 10px solid #274b65;
+    border-bottom: 10px solid #274b65;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
