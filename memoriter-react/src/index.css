@@ -29,3 +29,11 @@ body {
     height: 4px;
     background-color: rgba(58,109,112,1);
 }
+.Logo-oben {
+    width: 8%;
+    height: 4%;
+    position: absolute;
+    cursor: pointer;
+    margin: 20px;
+    top: -1%;
+}
