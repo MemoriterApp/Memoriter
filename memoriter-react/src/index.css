@@ -37,3 +37,12 @@ body {
     margin: 20px;
     top: -1%;
 }
+.File-Overview {
+    position: relative;
+    text-align: center;
+    color: #FFFF;
+    top: -3%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 120%;
+}

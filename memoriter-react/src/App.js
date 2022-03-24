@@ -8,6 +8,7 @@ function App() {
         <img className="Logo-oben" src={Logo} alt="site-logo"></img>
       </header>
       <div className="rechteck">
+        <h2 className="File-Overview">File Overview</h2>
         <div className="main-seperator"></div>
       </div>
     </body>
