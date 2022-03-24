@@ -5,7 +5,9 @@ function App() {
       <header>
         <h1 className="page_title">Home</h1>
       </header>
-      <div className="rechteck"></div>
+      <div className="rechteck">
+        <div className="main-seperator"></div>
+      </div>
     </body>
   );
 }

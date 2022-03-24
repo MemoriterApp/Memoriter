@@ -16,9 +16,16 @@ body {
     border-top: 5px solid #274b65;
     border-bottom: 5px solid #274b65;
     width: 90%;
-    height: 80%;
+    height: 60%;
     margin: auto;
     position: absolute;
     top: 11%;
-    left: 5%;
+    left: 4.5%;
+}
+.main-seperator {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(58,109,112,1);
 }
