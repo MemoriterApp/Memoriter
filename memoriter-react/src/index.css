@@ -46,3 +46,20 @@ body {
     font-weight: 400;
     font-size: 120%;
 }
+.Button_Homepage {
+    position: absolute;
+    top: 20%;
+    left: 5.5%;
+    padding: 15px 15px;
+    background-color: #353535;
+    cursor: pointer;
+    border: 5px solid cadetblue;
+}
+.Button_Homepage_Text {
+    position: absolute;
+    top: 21.25%;
+    left: 8.75%;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}

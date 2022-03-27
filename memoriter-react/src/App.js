@@ -1,4 +1,5 @@
-import Logo from './Logo.png'
+import Logo from './Logo.png';
+import ButtonHomepage from './components/Button_Homepage';
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <div className="rechteck">
         <h2 className="File-Overview">File Overview</h2>
         <div className="main-seperator"></div>
+      </div>
+      <div>
+        <ButtonHomepage />
       </div>
     </body>
   );
