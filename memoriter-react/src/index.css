@@ -39,6 +39,14 @@ body {
     left: -0.5%;
     top: -0.5%;
 }
+.gear{
+    position: absolute;
+    top: 1.75%;
+    right: 0.75%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
 .File-Overview {
     position: relative;
     text-align: center;

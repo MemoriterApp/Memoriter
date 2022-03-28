@@ -1,4 +1,5 @@
 import Logo from './Logo.png';
+import Zahnrad from './Zahnrad.png';
 import FolderHome from './components/FolderHome';
 import Footer from './components/Footer';
 
@@ -11,6 +12,7 @@ function App() {
       </header>
       <div className="rechteck">
         <h2 className="File-Overview">File Overview</h2>
+        <img className='gear' src={Zahnrad}></img>
         <div className="main-seperator"></div>
       </div>    
       <div>
