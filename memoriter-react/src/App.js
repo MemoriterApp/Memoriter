@@ -1,5 +1,6 @@
 import Logo from './Logo.png';
-import ButtonHomepage from './components/Button_Homepage';
+import FolderHome from './components/FolderHome';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -11,9 +12,12 @@ function App() {
       <div className="rechteck">
         <h2 className="File-Overview">File Overview</h2>
         <div className="main-seperator"></div>
+      </div>    
+      <div>
+        <FolderHome />
       </div>
       <div>
-        <ButtonHomepage />
+        <Footer />
       </div>
     </body>
   );

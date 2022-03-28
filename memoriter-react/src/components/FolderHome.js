@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ButtonHomepage = () => {
+const FolderHome = () => {
     return (
         <div>
             <button className='Button_Homepage'></button>
@@ -9,4 +9,4 @@ const ButtonHomepage = () => {
     );
 }
 
-export default ButtonHomepage;
+export default FolderHome;
