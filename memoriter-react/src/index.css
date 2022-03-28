@@ -39,12 +39,14 @@ body {
     left: -0.5%;
     top: -0.5%;
 }
-.gear{
+.gear {
     position: absolute;
-    top: 1.75%;
+    top: 1.5%;
     right: 0.75%;
     width: 30px;
     height: 30px;
+    background-image: url(components/zahnrad.png);
+    border: 1px #353535;
     cursor: pointer;
 }
 .File-Overview {
