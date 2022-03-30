@@ -12,17 +12,13 @@ function App() {
       </header>
       <div className="rechteck">
         <h2 className="File-Overview">File Overview</h2>
-        <div>
           <SettingsIcon />
-        </div>
         <div className="main-seperator"></div>
       </div>    
-      <div>
         <FolderHome />
-      </div>
-      <div>
+      <footer>
         <Footer />
-      </div>
+      </footer>
     </body>
   );
 }
