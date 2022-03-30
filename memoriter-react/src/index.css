@@ -6,7 +6,7 @@ body {
     text-align: center;
     font-family: Helvetica;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 36px;
     color: rgba(255,255,255,1);
 }
 .rechteck {
@@ -24,25 +24,140 @@ body {
 }
 .main-seperator {
     position: absolute;
+    left: -0.05%;
     top: 10%;
-    width: 100%;
+    width: 100.05%;
     height: 4px;
     background-color: rgba(58,109,112,1);
 }
 .Logo-oben {
-    width: 8%;
+    width: 7%;
     height: 4%;
     position: absolute;
     cursor: pointer;
     margin: 20px;
-    top: -1%;
+    left: -0.5%;
+    top: -0.5%;
+}
+.gear {
+    position: absolute;
+    top: 1.5%;
+    right: 0.75%;
+    width: 30px;
+    height: 30px;
+    background-image: url(components/zahnrad.png);
+    border: 1px #353535;
+    cursor: pointer;
 }
 .File-Overview {
     position: relative;
     text-align: center;
     color: #FFFF;
-    top: -3%;
+    top: -2%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
-    font-size: 120%;
+    font-size: 24px;
+}
+.Button_Homepage {
+    position: absolute;
+    top: 20%;
+    left: 5.5%;
+    padding: 15px 15px;
+    background-color: #353535;
+    cursor: pointer;
+    border: 5px solid cadetblue;
+}
+.Button_Homepage_Text {
+    position: absolute;
+    top: 21.25%;
+    left: 8.75%;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Nachfolgendes ist alles für den Footer */
+.MEMORITER {
+    position: absolute;
+    left: 15%;
+    bottom: 12.5%;
+    overflow: visible;
+    width: 96px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgba(255,255,255,1);
+    text-transform: uppercase;
+}
+.followUs {
+    position: absolute;
+    right: 18.5%;
+    bottom: 12.5%;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,1);
+}
+.rechteckLogo {
+    position: absolute;
+    right: 15%;
+    bottom: 11%;
+    padding: 15px;
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(112,112,112,1);
+    cursor: pointer;
+}
+.instaIcon {
+    position: absolute;
+    right: 15.475%;
+    bottom: 12.05%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.footerLine {
+    position: absolute;
+    left: 15%;
+    bottom: 7.5%;
+    border-top: 2px solid rgba(112,112,112,1);
+    width: 70%;
+}
+.termsOfUse {
+    font-size: 14px;
+    color: rgba(39,75,101,1);
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2.5%;
+    left: 15%;
+    width: fit-content;
+}
+.privacyPolicy {
+    font-size: 14px;
+    color: rgba(39,75,101,1);
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 2.5%;
+    left: 23.7%;
+    cursor: pointer;
+    width: fit-content;
+}
+.impressum {
+    font-size: 14px;
+    color: rgba(39,75,101,1);
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 2.5%;
+    left: 32.75%;
+    cursor: pointer;
+    width: fit-content;
+    
 }

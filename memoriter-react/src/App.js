@@ -1,4 +1,7 @@
-import Logo from './Logo.png'
+import Logo from './Logo.png';
+import SettingsIcon from './components/SettingsIcon';
+import FolderHome from './components/FolderHome';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -7,15 +10,19 @@ function App() {
         <h1 className="page_title">Home</h1>
         <img className="Logo-oben" src={Logo} alt="site-logo"></img>
       </header>
-      <main>
-        <div className="rechteck">
-          <h2 className="File-Overview">File Overview</h2>
-          <div className="main-seperator"></div>
+      <div className="rechteck">
+        <h2 className="File-Overview">File Overview</h2>
+        <div>
+          <SettingsIcon />
         </div>
-      </main>
-      <footer>
-
-      </footer>
+        <div className="main-seperator"></div>
+      </div>    
+      <div>
+        <FolderHome />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </body>
   );
 }
