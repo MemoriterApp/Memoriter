@@ -1,6 +1,7 @@
 import Logo from './Logo.png';
 import SettingsIcon from '../components/SettingsIcon';
 import FolderHome from '../components/FolderHome';
+import NewFolder from '../components/NewFolder'
 import Footer from '../components/Footer';
 
 
@@ -17,6 +18,7 @@ function HomePage() {
         <div className="main-seperator"></div>
       </div>    
         <FolderHome />
+        <NewFolder />
       <footer>
         <Footer />
       </footer>
