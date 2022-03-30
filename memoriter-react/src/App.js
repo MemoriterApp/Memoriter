@@ -1,25 +1,31 @@
-import Logo from './Logo.png';
-import SettingsIcon from './components/SettingsIcon';
-import FolderHome from './components/FolderHome';
-import Footer from './components/Footer';
+import { Route, Routes } from 'react-router-dom';
+import ImpressumPage from './pages/impressum';
+import PrivacyPage from './pages/privacy_policies';
+import TermsPage from './pages/terms_of_use';
+import HomePage from './pages/home';
+
 
 function App() {
   return (
-    <body className="body">
-      <header>
-        <h1 className="page_title">Home</h1>
-        <img className="Logo-oben" src={Logo} alt="site-logo"></img>
-      </header>
-      <div className="rechteck">
-        <h2 className="File-Overview">File Overview</h2>
-          <SettingsIcon />
-        <div className="main-seperator"></div>
-      </div>    
-        <FolderHome />
-      <footer>
-        <Footer />
-      </footer>
-    </body>
+    <div>
+      <Routes>
+      <Route path='/' element={<HomePage />}>
+      </Route>
+
+      <Route path='/impressum' element={<ImpressumPage/>}>
+        
+      </Route>
+
+      <Route path='/privacy' element={<PrivacyPage />}>
+        
+      </Route>
+
+      <Route path='/terms-of-use' element={<TermsPage />}>
+        
+      </Route>
+      </Routes>
+
+    </div>
   );
 }
 
