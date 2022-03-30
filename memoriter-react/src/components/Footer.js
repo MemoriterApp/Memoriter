@@ -1,13 +1,12 @@
 import React from 'react';
 import instagramIcon from './instagramIcon.png'
+import Logo from './Logo.png'
 
 
 const Footer = () => {
     return (
         <div>
-            <div className='MEMORITER'>
-                <small>MEMORITER</small>
-            </div>
+            <img  className='MEMORITER' src={Logo} alt='Memoriter-Logo'></img>
             <div className='followUs'>
                 <small>Follow Us:</small>
             </div>
