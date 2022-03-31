@@ -5,7 +5,7 @@ import NewFolder from '../components/NewFolder'
 import Footer from '../components/Footer';
 
 
-function HomePage() {
+function HomePage({props}) {
   return (
     <>
       <header>
@@ -17,8 +17,8 @@ function HomePage() {
           <SettingsIcon />
         <div className="main-seperator"></div>
       </div>    
-        <FolderHome />
-        <NewFolder />
+        <FolderHome name="Geschichte"/>
+        <NewFolder/>
       <footer>
         <Footer />
       </footer>
