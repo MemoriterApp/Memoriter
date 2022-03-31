@@ -70,25 +70,78 @@ body {
     border: 5px solid cadetblue;
 }
 .Button_Homepage_Text {
-    position: absolute;
+    position: fixed;
     top: 21.25%;
     left: 8.75%;
     color: white;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #353535;
-    border: 1px #353535;
+    background-color: transparent;
+    border: 1px transparent;
     cursor: pointer;
 }
 .Button_Homepage_Space {
-    position: absolute;
+    position: fixed;
     top: 21.25%;
     left: 8.1%;
-    height: 25px;
-    width: 1px;
-    background-color: #353535;
-    border: 1px #353535;
+    height: 23px;
+    width: 10px;
+    background-color: transparent;
+    border: 1px transparent;
     cursor: pointer;
+}
+
+/* New Folder Button*/
+.New_Folder_Line {
+    position: absolute;
+    top: 27%;
+    left: 5.5%;
+    width: 88.5%;
+    border-top: 5px solid rgba(112,112,112,1);
+}
+.Button_New_Folder {
+    position: absolute;
+    top: 29.25%;
+    left: 5.5%;
+    padding: 15px 15px;
+    background-color: #353535;
+    cursor: pointer;
+    border: 5px solid cadetblue;
+}
+.New_Folder_Text {
+    position: fixed;
+    top: 30.75%;
+    left: 8.85%;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    border: 1px transparent;
+    cursor: pointer;
+}
+.New_Folder_Space {
+    position: fixed;
+    top: 30.75%;
+    left: 8.1%;
+    height: 23px;
+    width: 10px;
+    background-color: transparent;
+    border: 1px transparent;
+    cursor: pointer;
+}
+.New_Folder_Plus_h{
+    position: absolute;
+    top: 42.5%;
+    left: 10.5%;
+    width: 80%;
+    border-top: 5px solid rgba(112,112,112,1);
+}
+.New_Folder_Plus_v{
+    position: absolute;
+    top: 10.5%;
+    left: 42.5%;
+    height: 80%;
+    border-left: 5px solid rgba(112,112,112,1);
 }
 
 /* Nachfolgendes ist alles für den Footer */
