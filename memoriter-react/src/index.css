@@ -228,3 +228,16 @@ body {
     cursor: pointer;
     width: fit-content;
 }
+/* bezieht sich auf die Drei Punkte*/
+.dot {
+    height: 11px;
+    width: 11px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    margin: 1px;
+    left: 90%;
+    top: 90px;
+    cursor: pointer;
+}

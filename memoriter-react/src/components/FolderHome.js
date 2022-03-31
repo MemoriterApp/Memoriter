@@ -6,6 +6,11 @@ const FolderHome = ({ name }) => {
             <button className='Button_Homepage'></button>
             <button className='Button_Homepage_Space'></button>
             <button className='Button_Homepage_Text'>{name}</button>
+            <div className='three-dots'>
+                <span className='dot'></span>
+                <span className='dot'></span>
+                <span className='dot'></span>
+            </div>
         </div>
     );
 }
