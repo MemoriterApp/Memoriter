@@ -60,19 +60,28 @@ body {
 }
 
 /* Folder für Homepage */
+.Folder_Base {
+    height: 52.5%;
+    width: 90%;
+    margin: auto;
+    position: absolute;
+    top: 19%;
+    left: 4.85%;
+    background-color: transparent;
+}
+
 .Button_Homepage {
     position: absolute;
-    top: 20%;
-    left: 5.5%;
+    left: 0.5%;
     padding: 15px 15px;
     background-color: #353535;
     cursor: pointer;
     border: 5px solid cadetblue;
 }
 .Button_Homepage_Text {
-    position: fixed;
-    top: 21.25%;
-    left: 8.75%;
+    position: absolute;
+    top: 2%;
+    left: 4%;
     color: white;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
@@ -81,9 +90,9 @@ body {
     cursor: pointer;
 }
 .Button_Homepage_Space {
-    position: fixed;
-    top: 21.25%;
-    left: 8.1%;
+    position: absolute;
+    top: 2%;
+    left: 3.25%;
     height: 23px;
     width: 10px;
     background-color: transparent;
@@ -94,24 +103,24 @@ body {
 /* New Folder Button*/
 .New_Folder_Line {
     position: absolute;
-    top: 27%;
-    left: 5.5%;
-    width: 88.5%;
+    top: 12%;
+    left: 0.5%;
+    width: 99%;
     border-top: 5px solid rgba(112,112,112,1);
 }
 .Button_New_Folder {
     position: absolute;
-    top: 29.25%;
-    left: 5.5%;
+    top: 15%;
+    left: 0.5%;
     padding: 15px 15px;
     background-color: #353535;
     cursor: pointer;
     border: 5px solid cadetblue;
 }
 .New_Folder_Text {
-    position: fixed;
-    top: 30.75%;
-    left: 8.85%;
+    position: absolute;
+    top: 17%;
+    left: 4%;
     color: white;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
@@ -120,9 +129,9 @@ body {
     cursor: pointer;
 }
 .New_Folder_Space {
-    position: fixed;
-    top: 30.75%;
-    left: 8.1%;
+    position: absolute;
+    top: 17%;
+    left: 3.25%;
     height: 23px;
     width: 10px;
     background-color: transparent;
@@ -240,4 +249,9 @@ body {
     left: 90%;
     top: 90px;
     cursor: pointer;
+}
+.three-dots {
+    position: absolute;
+    top: -18.5%;
+    right: 3.25%;
 }

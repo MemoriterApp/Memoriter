@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Newfolder = ({NewFolderClick}) => {
+const NewFolder = ({ NewFolderClick }) => {
     return (
         <div>
             <div className='New_Folder_Line'></div>
@@ -8,12 +8,12 @@ const Newfolder = ({NewFolderClick}) => {
                 <button className='Button_New_Folder'>
                     <div className='New_Folder_Plus_h'></div>
                     <div className='New_Folder_Plus_v'></div>
-                    <div className='New_Folder_Space'></div>
-                    <div className='New_Folder_Text'>Create New Folder</div>
                 </button>
+                <button className='New_Folder_Space'></button>
+                <button className='New_Folder_Text'>Create New Folder</button>
              </div>
         </div>
     );
 }
 
-export default Newfolder;
+export default NewFolder;
