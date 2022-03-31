@@ -2,7 +2,7 @@ import React from 'react';
 
 const FolderHome = ({ name }) => {
 const DreiPunkteClick = () => {
-    alert('aaa')
+    alert('Nein Simon so funktioniert das nicht')
 }
 
     return (
