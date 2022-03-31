@@ -1,12 +1,16 @@
 import React from 'react';
 
 const FolderHome = ({ name }) => {
+const DreiPunkteClick = () => {
+    alert('aaa')
+}
+
     return (
         <div>
             <button className='Button_Homepage'></button>
             <button className='Button_Homepage_Space'></button>
             <button className='Button_Homepage_Text'>{name}</button>
-            <div className='three-dots'>
+            <div className='three-dots' onClick={DreiPunkteClick}>
                 <span className='dot'></span>
                 <span className='dot'></span>
                 <span className='dot'></span>
