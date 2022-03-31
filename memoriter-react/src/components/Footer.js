@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import instagramIcon from './instagramIcon.png'
 import Logo from './Logo.png'
 
@@ -17,9 +18,9 @@ const Footer = () => {
                 </a>
             </div>
             <div className='footerLine'></div>
-            <div className='termsOfUse'>Terms of Use</div>
-            <div className='privacyPolicy'>Privacy Policy</div>
-            <div className='impressum'>Impressum</div>
+            <Link className='termsOfUse' to='/terms-of-use'>Terms of Use</Link>
+            <Link className='privacyPolicy' to='/privacy'>Privacy Policy</Link>
+            <Link className='impressum' to='/impressum'>Impressum</Link>
         </div>
     );
 }
