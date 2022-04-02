@@ -72,7 +72,7 @@ body {
 .Folder_Body {
     position: relative;
     width: 100%;
-    height: 40px;
+    height: 50px;
     background-color: transparent;
     border: transparent;
 }
@@ -87,7 +87,7 @@ body {
 }
 .Button_Homepage_Text {
     position: absolute;
-    bottom: 6px;
+    bottom: 16px;
     left: 40px;
     color: white;
     font-size: 20px;
@@ -121,19 +121,19 @@ body {
 }
 
 /* New Folder Button*/
+.New_Folder_Body {
+    position: relative;
+    top: 11.5%;
+    width: 100%;
+    height: 55px;
+    background-color: transparent;
+    border: transparent;
+}
 .New_Folder_Line {
     position: absolute;
     top: 0%;
     width: 100%;
     border-top: 5px solid rgba(112,112,112,1);
-}
-.New_Folder_Body {
-    position: absolute;
-    top: 11.5%;
-    width: 100%;
-    height: 50px;
-    background-color: transparent;
-    border: transparent;
 }
 .Button_New_Folder {
     position: absolute;
