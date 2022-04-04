@@ -1,3 +1,342 @@
 body {
     background-color:#353535
 }
+.page_title {
+    position:relative;
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 36px;
+    color: rgba(255,255,255,1);
+}
+.rechteck {
+    background: transparent;
+    border-right: 5px solid #274b65;
+    border-left: 5px solid #274b65;
+    border-top: 5px solid #274b65;
+    border-bottom: 5px solid #274b65;
+    width: 90%;
+    height: 60%;
+    margin: auto;
+    position: absolute;
+    top: 11%;
+    left: 4.5%;
+}
+.main-seperator {
+    position: absolute;
+    left: -0.05%;
+    top: 10%;
+    width: 100.05%;
+    height: 4px;
+    background-color: rgba(58,109,112,1);
+}
+.Logo-oben {
+    width: 7%;
+    height: 4%;
+    position: absolute;
+    cursor: pointer;
+    margin: 20px;
+    left: -0.5%;
+    top: -0.5%;
+}
+.gear {
+    position: absolute;
+    top: 1.5%;
+    right: 0.75%;
+    width: 30px;
+    height: 30px;
+    background-image: url(components/zahnrad.png);
+    border: 1px #353535;
+    cursor: pointer;
+}
+.File-Overview {
+    position: relative;
+    text-align: center;
+    color: #FFFF;
+    top: -2%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+/* Folder für Homepage */
+.Folder_Base {
+    height: 52.5%;
+    width: 89.35%;
+    margin: auto;
+    position: absolute;
+    top: 19%;
+    left: 5.15%;
+    background-color: transparent;
+}
+.Folder_Body {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: transparent;
+}
+.Button_Homepage {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding: 15px 15px;
+    background-color: #353535;
+    border: 5px solid cadetblue;
+    cursor: pointer;
+}
+.Button_Homepage_Text {
+    position: absolute;
+    bottom: 16px;
+    left: 40px;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    border: 1px transparent;
+    cursor: pointer;
+}
+.Button_Homepage_Settings {
+    position: absolute;
+    right: 0%;
+    top: 25%;
+    height: 10px;
+    width: 25px;
+    background-color: transparent;
+    border: 5px solid transparent;
+    cursor: pointer;
+}
+/* bezieht sich auf die Drei Punkte (Button_Homepage_Settings) */
+.dot {
+    height: 6px;
+    width: 6px;
+    background-color: #bbb;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    margin: 1px;
+    left: 1px;
+    top: -5.5px;
+    cursor: pointer;
+}
+
+/* New Folder Button*/
+.New_Folder_Body {
+    position: relative;
+    top: 11.5%;
+    width: 100%;
+    height: 55px;
+    background-color: transparent;
+    border: transparent;
+}
+.New_Folder_Line {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    border-top: 5px solid rgba(112,112,112,1);
+}
+.Button_New_Folder {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    padding: 15px 15px;
+    background-color: #353535;
+    cursor: pointer;
+    border: 5px solid cadetblue;
+}
+.New_Folder_Text {
+    position: absolute;
+    bottom: 6px;
+    left: 40px;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    border: 1px transparent;
+    cursor: pointer;
+}
+.New_Folder_Plus_h {
+    position: absolute;
+    top: 42.5%;
+    left: 10.5%;
+    width: 80%;
+    border-top: 5px solid rgba(112,112,112,1);
+}
+.New_Folder_Plus_v {
+    position: absolute;
+    top: 10.5%;
+    left: 42.5%;
+    height: 80%;
+    border-left: 5px solid rgba(112,112,112,1);
+}
+
+/* Feld für das Erstellen von Ordnern */
+.Add_Folder_Form_Body {
+    border: 5px solid #274b65;
+    background-color: #353535;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    width: 30%;
+    height: 30%;
+    position: fixed;
+    top: 30%;
+    left: 35%;
+    min-width: 240px;
+    min-height: 220px;
+    z-index: 10;
+    border-radius: 6px;
+}
+.Add_Folder_Form_Header {
+    font-size: 24px;
+}
+.Add_Folder_Form_Text {
+    font-size: 20px;
+}
+.Add_Folder_Form_Input {
+    border: 5px solid rgba(58,109,112,1);
+    width: 80%;
+    color: white;
+    background-color: #353535;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 5px 5px;
+    outline: none;
+}
+.Add_Folder_Form_Submit {
+    border: 5px solid rgba(58,109,112,1);
+    padding: 5px;
+    color: white;
+    background-color: #353535;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Nachfolgendes ist alles für den Footer */
+.MEMORITER {
+    position: absolute;
+    left: 15%;
+    bottom: 12.5%;
+    overflow: visible;
+    width: 96px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgba(255,255,255,1);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.followUs {
+    position: absolute;
+    right: 18.5%;
+    bottom: 12.5%;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,1);
+}
+.rechteckLogo {
+    position: absolute;
+    right: 15%;
+    bottom: 11%;
+    padding: 15px;
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(112,112,112,1);
+    cursor: pointer;
+}
+.instaIcon {
+    position: absolute;
+    right: 15.475%;
+    bottom: 12.05%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.footerLine {
+    position: absolute;
+    left: 15%;
+    bottom: 7.5%;
+    border-top: 2px solid rgba(112,112,112,1);
+    width: 70%;
+}
+.termsOfUse {
+    font-size: 14px;
+    color: rgba(39,75,101,1);
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2.5%;
+    left: 15%;
+    width: fit-content;
+}
+.privacyPolicy {
+    font-size: 14px;
+    color: rgba(39,75,101,1);
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 2.5%;
+    left: 23.7%;
+    cursor: pointer;
+    width: fit-content;
+}
+.impressum {
+    font-size: 14px;
+    color: rgba(39,75,101,1);
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 2.5%;
+    left: 32.75%;
+    cursor: pointer;
+    width: fit-content;
+}
+
+/* Nachfolgender Code bezieht sich auf das Settingsoverlay */
+.settings-overlay {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: #353535;
+    border: 5px solid #274b65;
+    padding: 1rem;
+    text-align: center;
+    width: 10rem;
+    height: 13.5rem;
+    z-index: 10;
+    position: relative;
+    left: 79%;
+    top: -3vh;
+}
+
+.backdrop {
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+.settings-title {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: -4vh;
+    padding: 1vh;
+}
+.settings-sub {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    cursor: pointer;
+    margin: 2px;
+    width: 100%;
+    top: -25%;
+}
