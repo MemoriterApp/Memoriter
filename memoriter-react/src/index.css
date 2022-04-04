@@ -332,11 +332,12 @@ body {
     padding: 1vh;
 }
 .settings-sub {
-    color: white;
+    color: rgba(58,109,112,1);
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     cursor: pointer;
-    margin: 2px;
+    margin: 0px;
     width: 100%;
     top: -25%;
+    text-align: left;
 }
