@@ -185,6 +185,7 @@ body {
     min-width: 240px;
     min-height: 220px;
     z-index: 10;
+    border-radius: 6px;
 }
 .Add_Folder_Form_Header {
     font-size: 24px;
@@ -302,14 +303,16 @@ body {
 .settings-overlay {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
-    background-color: white;
+    background-color: #353535;
+    border: 5px solid #274b65;
     padding: 1rem;
     text-align: center;
-    width: 30rem;
+    width: 15rem;
+    height: 15rem;
     z-index: 10;
-    position: fixed;
-    top: 20vh;
-    left: calc(50% - 15rem);
+    position: relative;
+    left: 79%;
+    top: -3vh;
 }
 
 .backdrop {
@@ -321,3 +324,12 @@ body {
     top: 0;
     left: 0;
   }
+.settings-title {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: -4vh;
+    padding: 1vh;
+
+
+}
