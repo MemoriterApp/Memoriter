@@ -42,11 +42,13 @@ function HomePage() {
         <div className="main-seperator"></div>
       </div> 
       <div className='Folder_Base'>
+            {folders.length > 0 ?
             <>
               {folders.map((folder) => (
                 <FolderHome key={folder.id} folder={folder} />
               ))}
-            </>
+            </> : 
+            <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
             <div folders={folders}>
               <div className='New_Folder_Body'>
                 <div className='New_Folder_Line'></div>
