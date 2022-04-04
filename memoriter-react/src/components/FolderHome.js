@@ -1,5 +1,5 @@
 import React from 'react';
-import Backdrop from './backdrop';
+import Backdropfs from './backdropfs';
 import { useState } from 'react';
 import HomepageSettingsClick from './FolderSettingsInteraction'
 
@@ -32,10 +32,10 @@ const FolderHome = ({ folder }) => {
             </div>
             <div>
                 {modalIsOpen && <HomepageSettingsClick/>}
-                {modalIsOpen && <Backdrop/>}
+                {modalIsOpen && <Backdropfs/>}
             </div>
             <div  onClick={backdropClick}>
-                    {modalIsOpen && <Backdrop/>}
+                    {modalIsOpen && <Backdropfs/>}
             </div>
         </div>
     );
