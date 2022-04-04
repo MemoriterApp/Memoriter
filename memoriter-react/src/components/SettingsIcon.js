@@ -11,6 +11,9 @@ const SettingsIcon = () => {
     function settingsHandler() {
         setModalIsOpen(true);
     }
+    function backdropClick() {
+        setModalIsOpen(false);
+    }
 
     return (
         <div>
@@ -20,6 +23,9 @@ const SettingsIcon = () => {
             <div>
                 {modalIsOpen && <SettingsClick/>}
                 {modalIsOpen && <Backdrop/>}
+            </div>
+            <div  onClick={backdropClick}>
+                    {modalIsOpen && <Backdrop/>}
             </div>
         </div>
     );

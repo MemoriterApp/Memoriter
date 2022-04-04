@@ -13,6 +13,9 @@ const FolderHome = ({ folder }) => {
     function settingsHandler() {
         setModalIsOpen(true);
     }
+    function backdropClick() {
+        setModalIsOpen(false);
+    }
 
     return (
         <div className='Folder_Body'>
@@ -30,6 +33,9 @@ const FolderHome = ({ folder }) => {
             <div>
                 {modalIsOpen && <HomepageSettingsClick/>}
                 {modalIsOpen && <Backdrop/>}
+            </div>
+            <div  onClick={backdropClick}>
+                    {modalIsOpen && <Backdrop/>}
             </div>
         </div>
     );
