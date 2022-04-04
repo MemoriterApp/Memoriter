@@ -11,6 +11,9 @@ const SettingsIcon = () => {
     function settingsHandler() {
         setModalIsOpen(true);
     }
+    function closingHandler() {
+        setModalIsOpen(false);
+    }
 
     return (
         <div>
@@ -19,7 +22,7 @@ const SettingsIcon = () => {
             </button>
             <div>
                 {modalIsOpen && <SettingsClick/>}
-                {modalIsOpen && <Backdrop/>}
+                {modalIsOpen && <Backdrop onClick={closingHandler}/>}
             </div>
         </div>
     );
