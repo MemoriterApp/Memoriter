@@ -1,31 +1,34 @@
 import { useState } from 'react';
 import Logo from './Logo.png';
 import SettingsIcon from '../components/SettingsIcon';
-import FolderBase from '../components/FolderBase';
+import FolderHome from '../components/FolderHome';
+import AddFolderForm from '../components/AddFolderForm';
+import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
 
 function HomePage() {
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  function NewFolderClick() {
+      setModalIsOpen(true);
+  }
+  function backdropClick() {
+      setModalIsOpen(false);
+  }
+
+// Folder Data
   const [ folders, setFolders ] = useState([ 
-    {
-      id: 1,
-      name: 'Geschichte',
-    },
-    {
-      id: 2,
-      name: 'Deutsch',
-    },
-    {
-      id: 3,
-      name: 'Politik',
-    },
-    {
-      id: 4,
-      name: 'Mathematik',
-    },
-    {
-      id: 5,
-    }
+
   ])
+
+  //Add Folder
+  const addFolder = (folder) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newFolderC = { id, ...folder }
+    setFolders([...folders, newFolderC])
+    setModalIsOpen(false)
+}
 
   return (
     <>
@@ -37,8 +40,30 @@ function HomePage() {
         <h2 className="File-Overview">File Overview</h2>
           <SettingsIcon />
         <div className="main-seperator"></div>
-      </div>    
-        <FolderBase folders={folders} />
+      </div> 
+      <div className='Folder_Base'>
+            <>
+              {folders.map((folder) => (
+                <FolderHome key={folder.id} folder={folder} />
+              ))}
+            </>
+            <div folders={folders}>
+              <div className='New_Folder_Body'>
+                <div className='New_Folder_Line'></div>
+                <button className='Button_New_Folder' onClick={NewFolderClick}>
+                        <div className='New_Folder_Plus_h'></div>
+                        <div className='New_Folder_Plus_v'></div>
+                </button>
+                <button className='New_Folder_Text' onClick={NewFolderClick}>Create New Folder</button>
+                <div>
+                    {modalIsOpen && <AddFolderForm onAddFolder={addFolder} />}
+                </div>
+                <div  onClick={backdropClick}>
+                    {modalIsOpen && <Backdrop/>}
+                </div>
+              </div>
+            </div>
+      </div>
       <footer>
         <Footer />
       </footer>
