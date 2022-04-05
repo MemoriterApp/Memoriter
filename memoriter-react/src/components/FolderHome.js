@@ -20,7 +20,7 @@ const FolderHome = ({ folder }) => {
     return (
         <div className='Folder_Body'>
             <button className='Button_Homepage' onClick={test}></button>
-            {folder.name != null ? ( 
+            {folder.name != '' ? ( 
                 <button className='Button_Homepage_Text' onClick={test}>{folder.name}</button>
             ) : (
                 <button className='Button_Homepage_Text' onClick={test}>New Folder</button>
