@@ -378,8 +378,8 @@ body {
     height: 4rem;
     z-index: 10;
     position: relative;
-    left: 90%;
-    top: 0vh;
+    left: 92.5%;
+    top: 2vh;
 }
 .folder-settings-sub {
     color: rgba(58,109,112,1);
