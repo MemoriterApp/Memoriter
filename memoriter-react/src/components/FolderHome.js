@@ -3,9 +3,9 @@ import Backdropfs from './backdropfs';
 import Backdrop from './backdrop';
 import { useState } from 'react';
 
-//NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN
+//NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder }) => {
+const FolderHome = ({ folder, onDeleteFolder }) => {
     const test = () => {
         alert('test')
     }
@@ -45,7 +45,7 @@ const FolderHome = ({ folder }) => {
                 {modalIsOpen && <div className='folder-settings-overlay'>
                     <div className='folder-settings-sub'>
                         <p onClick={EditFolderClick}>Edit</p>
-                        <p>Delete</p>
+                        <p onClick={() => onDeleteFolder(folder.id)}>Delete</p>
                     </div>
 
                     <div>

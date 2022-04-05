@@ -18,17 +18,20 @@ function HomePage() {
   }
 
 // Folder Data
-  const [ folders, setFolders ] = useState([ 
+  const [ folders, setFolders ] = useState([ ])
 
-  ])
-
-  //Add Folder
+//Add Folder
   const addFolder = (folder) => {
     const id = Math.floor(Math.random() * 10000) + 1
     const newFolderC = { id, ...folder }
     setFolders([...folders, newFolderC])
     setModalIsOpen(false)
 }
+
+//Delete Folder
+  const deleteFolder = (id) => {
+    setFolders(folders.filter((folder) => folder.id !== id))
+  }
 
   return (
     <>
@@ -40,12 +43,13 @@ function HomePage() {
         <h2 className="File-Overview">File Overview</h2>
           <SettingsIcon />
         <div className="main-seperator"></div>
-      </div> 
-        <div className='Folder_Base'>
+      </div>
+
+      <div className='Folder_Base'>
               {folders.length > 0 ?
               <>
                 {folders.map((folder) => (
-                  <FolderHome key={folder.id} folder={folder} />
+                  <FolderHome key={folder.id} folder={folder} onDeleteFolder={deleteFolder}/>
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
