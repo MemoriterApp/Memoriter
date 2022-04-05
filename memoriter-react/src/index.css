@@ -379,7 +379,7 @@ body {
     z-index: 10;
     position: relative;
     left: 90%;
-    top: -3vh;
+    top: 0vh;
 }
 .folder-settings-sub {
     color: rgba(58,109,112,1);
