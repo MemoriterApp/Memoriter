@@ -41,31 +41,32 @@ function HomePage() {
           <SettingsIcon />
         <div className="main-seperator"></div>
       </div> 
-      <div className='Folder_Base'>
-            {folders.length > 0 ?
-            <>
-              {folders.map((folder) => (
-                <FolderHome key={folder.id} folder={folder} />
-              ))}
-            </> : 
-            <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
-            <div folders={folders}>
-              <div className='New_Folder_Body'>
-                <div className='New_Folder_Line'></div>
-                <button className='Button_New_Folder' onClick={NewFolderClick}>
-                        <div className='New_Folder_Plus_h'></div>
-                        <div className='New_Folder_Plus_v'></div>
-                </button>
-                <button className='New_Folder_Text' onClick={NewFolderClick}>Create New Folder</button>
-                <div>
-                    {modalIsOpen && <AddFolderForm onAddFolder={addFolder} />}
-                </div>
-                <div  onClick={backdropClick}>
-                    {modalIsOpen && <Backdrop/>}
+        <div className='Folder_Base'>
+              {folders.length > 0 ?
+              <>
+                {folders.map((folder) => (
+                  <FolderHome key={folder.id} folder={folder} />
+                ))}
+              </> : 
+              <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
+              <div folders={folders}>
+                <div className='New_Folder_Body'>
+                  <div className='New_Folder_Line'></div>
+                  <button className='Button_New_Folder' onClick={NewFolderClick}>
+                          <div className='New_Folder_Plus_h'></div>
+                          <div className='New_Folder_Plus_v'></div>
+                  </button>
+                  <button className='New_Folder_Text' onClick={NewFolderClick}>Create New Folder</button>
+                  <div>
+                      {modalIsOpen && <AddFolderForm onAddFolder={addFolder} />}
+                  </div>
+                  <div  onClick={backdropClick}>
+                      {modalIsOpen && <Backdrop/>}
+                  </div>
                 </div>
               </div>
-            </div>
-      </div>
+        </div>
+
       <footer>
         <Footer />
       </footer>

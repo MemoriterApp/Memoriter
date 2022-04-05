@@ -3,6 +3,7 @@ import ImpressumPage from './pages/impressum';
 import PrivacyPage from './pages/privacy_policies';
 import TermsPage from './pages/terms_of_use';
 import HomePage from './pages/home';
+import TopicPage from './pages/topic';
 
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
 
       <Route path='/terms-of-use' element={<TermsPage />}>
         
+      </Route>
+
+      <Route path='/topic' element={<TopicPage/>}>
+
       </Route>
       </Routes>
 
