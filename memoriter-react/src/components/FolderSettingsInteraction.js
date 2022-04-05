@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import AddFolderForm from './EditFolderForm';
 import Backdrop from './backdrop';
-import EditFolderForm from './EditFolderForm';
 
 const FolderSettingsClick= () => {
 
@@ -22,7 +20,16 @@ const FolderSettingsClick= () => {
                 <p>Delete</p>
             </div>
             <div>
-                {modalIsOpen && <EditFolderForm />}
+                {modalIsOpen && <form className='Add_Folder_Form_Body'>
+                    <div>
+                    <h2 className='Add_Folder_Form_Header'>Edit Folder</h2>
+                    <div className='Add_Folder_Form_Text'>Folder Name: </div>
+                    <p style={{fontSize: '5px'}} />
+                    <input className='Add_Folder_Form_Input' type='text' maxLength='100' />
+                    </div>
+                    <p style={{fontSize: '25px'}} />
+                    <input className='Add_Folder_Form_Submit' type='submit' value='Done' />
+                </form>}
             </div>
             <div  onClick={backdropClick}>
                 {modalIsOpen && <Backdrop/>}
