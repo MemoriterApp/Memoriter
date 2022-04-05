@@ -329,15 +329,15 @@ body {
 .settings-overlay {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
-    background-color: #353535;
+    background-color: #343434;
     border: 5px solid #274b65;
-    padding: 1rem;
+    padding: 2rem;
     text-align: center;
     width: 10rem;
-    height: 13.5rem;
+    height: 14rem;
     z-index: 10;
     position: relative;
-    left: 79%;
+    left: 85%;
     top: -3vh;
 }
 
@@ -354,7 +354,7 @@ body {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    top: -4vh;
+    top: -5vh;
     padding: 1vh;
 }
 .settings-sub {
@@ -363,6 +363,42 @@ body {
     position: relative;
     cursor: pointer;
     width: 100%;
-    top: -25%;
-    text-align: left;
+    top: -30%;
 }
+
+/* Nachfolgender Code bezieht sich auf das Settingsoverlay der Folder */
+.folder-settings-overlay {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: #333333;
+    border: 5px solid #274b65;
+    padding: 1rem;
+    text-align: center;
+    width: 3rem;
+    height: 6rem;
+    z-index: 10;
+    position: relative;
+    left: 90%;
+    top: -3vh;
+}
+.folder-settings-sub {
+    color: rgba(58,109,112,1);
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    cursor: pointer;
+    margin: 2px;
+    width: 100%;
+    top: -16%;
+    font-weight: bold;
+    left: -12%;
+}
+
+.Backdropfs {
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
