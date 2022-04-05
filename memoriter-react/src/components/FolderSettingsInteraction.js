@@ -4,13 +4,13 @@ import Backdrop from './backdrop';
 
 const FolderSettingsClick= () => {
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalIsOpenE, setModalIsOpenE] = useState(false);
 
   function EditFolderClick() {
-      setModalIsOpen(true);
+      setModalIsOpenE(true);
   }
-  function backdropClick() {
-      setModalIsOpen(false);
+  function backdropClickE() {
+      setModalIsOpenE(false);
   }
 
     return (
@@ -20,7 +20,7 @@ const FolderSettingsClick= () => {
                 <p>Delete</p>
             </div>
             <div>
-                {modalIsOpen && <form className='Add_Folder_Form_Body'>
+                {modalIsOpenE && <form className='Add_Folder_Form_Body'>
                     <div>
                     <h2 className='Add_Folder_Form_Header'>Edit Folder</h2>
                     <div className='Add_Folder_Form_Text'>Folder Name: </div>
@@ -31,8 +31,8 @@ const FolderSettingsClick= () => {
                     <input className='Add_Folder_Form_Submit' type='submit' value='Done' />
                 </form>}
             </div>
-            <div  onClick={backdropClick}>
-                {modalIsOpen && <Backdrop/>}
+            <div  onClick={backdropClickE}>
+                {modalIsOpenE && <Backdrop/>}
             </div>
         </div>
     );
