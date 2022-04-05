@@ -27,6 +27,15 @@ const FolderHome = ({ folder, onDeleteFolder }) => {
       setModalIsOpenE(false);
     }
 
+    const [modalIsOpenD, setModalIsOpenD] = useState(false);
+
+    function DeleteFolderReq() {
+      setModalIsOpenD(true);
+    }
+    function backdropClickD() {
+      setModalIsOpenD(false);
+    }
+
     return (
         <div className='Folder_Body'>
             <button className='Button_Homepage' onClick={test}></button>
@@ -45,7 +54,7 @@ const FolderHome = ({ folder, onDeleteFolder }) => {
                 {modalIsOpen && <div className='folder-settings-overlay'>
                     <div className='folder-settings-sub'>
                         <p onClick={EditFolderClick}>Edit</p>
-                        <p onClick={() => onDeleteFolder(folder.id)}>Delete</p>
+                        <p onClick={DeleteFolderReq}>Delete</p>
                     </div>
 
                     <div>
@@ -61,8 +70,19 @@ const FolderHome = ({ folder, onDeleteFolder }) => {
                         </form>}
                     </div>
 
+                    <div>
+                        {modalIsOpenD && <form className='Delete_Folder_Confirm'>
+                            <h2 className='Add_folder_Form_Header'>Do you really want to delete this folder?</h2>
+                            <input className='Delete_Folder_Confirm_Yes 'type='submit' value='Yes' onClick={() => onDeleteFolder(folder.id)} />
+                            <input className='Delete_Folder_Confirm_No' type='submit' value='No' onClick={backdropClickD} />
+                        </form>}
+                    </div>
+
                 <div  onClick={backdropClickE}>
                     {modalIsOpenE && <Backdrop/>}
+                </div>
+                <div  onClick={backdropClickD}>
+                    {modalIsOpenD && <Backdrop/>}
                 </div>
             </div>}
                 {modalIsOpen && <Backdropfs/>}

@@ -5,6 +5,7 @@ body {
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
 }
 ::-webkit-scrollbar-track {
     background-color: #353535;
@@ -237,6 +238,48 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     cursor: pointer;
+}
+
+/* Delete Folder Bestätigung */
+.Delete_Folder_Confirm {
+    border: 5px solid #274b65;
+    background-color: #353535;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    width: 20%;
+    height: 20%;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    min-width: 300px;
+    min-height: 160px;
+    z-index: 10;
+    border-radius: 6px;
+}
+.Delete_Folder_Confirm_Yes {
+        border: 5px solid green;
+        padding: 5px;
+        width: 60px;
+        color: white;
+        background-color: #353535;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        cursor: pointer;
+        position: absolute;
+        left: 25%;
+}
+.Delete_Folder_Confirm_No {
+    border: 5px solid red;
+    padding: 5px;
+    width: 60px;
+    color: white;
+    background-color: #353535;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 25%;
 }
 
 /* Nachfolgendes ist alles für den Footer */
