@@ -24,7 +24,7 @@ const SettingsIcon = () => {
                 {modalIsOpen && <SettingsClick/>}
                 {modalIsOpen && <Backdrop onClick={closingHandler}/>}
             </div>
-            <div  onClick={backdropClick}>
+            <div  onClick={closingHandler}>
                     {modalIsOpen && <Backdrop/>}
             </div>
         </div>
