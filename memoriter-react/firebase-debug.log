@@ -1,0 +1,40 @@
+[debug] [2022-04-06T20:24:16.175Z] ----------------------------------------------------------------------
+[debug] [2022-04-06T20:24:16.177Z] Command:       /usr/local/bin/firebase /Users/johantrieloff/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
+[debug] [2022-04-06T20:24:16.177Z] CLI Version:   10.6.0
+[debug] [2022-04-06T20:24:16.177Z] Platform:      darwin
+[debug] [2022-04-06T20:24:16.177Z] Node Version:  v12.18.1
+[debug] [2022-04-06T20:24:16.178Z] Time:          Wed Apr 06 2022 22:24:16 GMT+0200 (GMT+02:00)
+[debug] [2022-04-06T20:24:16.178Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-04-06T20:24:16.250Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-04-06T20:24:16.251Z] > authorizing via signed-in user (johan@trieloff.net)
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[debug] [2022-04-06T20:24:16.295Z] [hub] writing locator at /var/folders/9x/qg_wmwlj0qqgzhgzgqy88wr40000gn/T/hub-memoriter-802b0.json
+[debug] [2022-04-06T20:24:16.325Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/memoriter-802b0/sites 
+[debug] [2022-04-06T20:24:27.134Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/memoriter-802b0/sites 200
+[debug] [2022-04-06T20:24:27.134Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/memoriter-802b0/sites {"sites":[{"name":"projects/7107097450/sites/memoriter-802b0","defaultUrl":"https://memoriter-802b0.web.app","appId":"1:7107097450:web:5352b9a5f9abf638e76b13","type":"DEFAULT_SITE"}]}
+[debug] [2022-04-06T20:24:27.135Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/memoriter-802b0/webApps/1:7107097450:web:5352b9a5f9abf638e76b13/config [none]
+[debug] [2022-04-06T20:24:34.777Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/memoriter-802b0/webApps/1:7107097450:web:5352b9a5f9abf638e76b13/config 200
+[debug] [2022-04-06T20:24:34.777Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/memoriter-802b0/webApps/1:7107097450:web:5352b9a5f9abf638e76b13/config {"projectId":"memoriter-802b0","appId":"1:7107097450:web:5352b9a5f9abf638e76b13","storageBucket":"memoriter-802b0.appspot.com","apiKey":"AIzaSyDBXsAk4E47Z9WyZ6__2WQNPnZi0aoWA4Q","authDomain":"memoriter-802b0.firebaseapp.com","messagingSenderId":"7107097450","measurementId":"G-JES49GGH5N"}
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5001 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5001\u001b[22m\u001b[24m"}}
+[warn] ⚠  emulators: The Emulator UI requires a project ID to start. Configure your default project with 'firebase use' or pass the --project flag. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI requires a project ID to start. Configure your default project with 'firebase use' or pass the --project flag."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ localhost:5001 │
+└──────────┴────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [06/Apr/2022:20:24:55 +0000] "GET / HTTP/1.1" 200 1721 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [06/Apr/2022:20:24:55 +0000] \"GET / HTTP/1.1\" 200 1721 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15\""}}
+[info] i  hosting: 127.0.0.1 - - [06/Apr/2022:20:24:56 +0000] "GET /%PUBLIC_URL%/favicon.ico HTTP/1.1" 500 - "http://localhost:5001/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [06/Apr/2022:20:24:56 +0000] \"GET /%PUBLIC_URL%/favicon.ico HTTP/1.1\" 500 - \"http://localhost:5001/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15\""}}
+[info] i  hosting: 127.0.0.1 - - [06/Apr/2022:20:25:24 +0000] "GET /%25PUBLIC_URL%25/favicon.ico HTTP/1.1" 200 1721 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [06/Apr/2022:20:25:24 +0000] \"GET /%25PUBLIC_URL%25/favicon.ico HTTP/1.1\" 200 1721 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15\""}}
+[info] i  hosting: 127.0.0.1 - - [06/Apr/2022:20:25:25 +0000] "GET /%25PUBLIC_URL%25/%PUBLIC_URL%/favicon.ico HTTP/1.1" 500 - "http://localhost:5001/%25PUBLIC_URL%25/favicon.ico" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [06/Apr/2022:20:25:25 +0000] \"GET /%25PUBLIC_URL%25/%PUBLIC_URL%/favicon.ico HTTP/1.1\" 500 - \"http://localhost:5001/%25PUBLIC_URL%25/favicon.ico\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15\""}}
