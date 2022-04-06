@@ -363,7 +363,9 @@ body {
     position: relative;
     cursor: pointer;
     width: 100%;
-    top: -30%;
+    top: -25%;
+    font-weight: bold;
+    text-align: left;
 }
 
 /* Nachfolgender Code bezieht sich auf das Settingsoverlay der Folder */
