@@ -5,7 +5,6 @@ import TermsPage from './pages/terms_of_use';
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
 
-
 function App() {
   return (
     <div>
