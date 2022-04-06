@@ -1,3 +1,6 @@
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDBXsAk4E47Z9WyZ6__2WQNPnZi0aoWA4Q",
   authDomain: "memoriter-802b0.firebaseapp.com",
@@ -8,4 +11,7 @@ const firebaseConfig = {
   measurementId: "G-JES49GGH5N"
 };
 
-export default firebaseConfig
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+export default firebaseConfig;
