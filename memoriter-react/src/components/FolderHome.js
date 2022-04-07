@@ -30,7 +30,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
     const [modalIsOpenE, setModalIsOpenE] = useState(false);
 
     function editFolderReq() {
-        setModalIsOpenE(true)
+        setModalIsOpenE(true);
     }
     function backdropClickE () {
         setModalIsOpenE(false);
@@ -70,7 +70,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
                     </div>
                         <p style={{fontSize: '25px'}} />
                         <input className='Add_Folder_Form_Submit' type='button' value='Done' onClick={
-                            () => { onEditFolder(folder.id, name); setModalIsOpenE(false); }} />
+                            () => { onEditFolder(folder.id, name); setModalIsOpenE(false); setModalIsOpen(false); }} />
                 </form>}
             </div>
 
