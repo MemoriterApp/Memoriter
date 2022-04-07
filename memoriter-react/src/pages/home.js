@@ -18,7 +18,16 @@ function HomePage() {
   }
 
 // Folder Data
-  const [ folders, setFolders ] = useState([ ])
+  const [ folders, setFolders ] = useState([
+    {
+      id: 1,
+      name: 'Folder1'
+    },
+    {
+      id: 2,
+      name: 'Folder2'
+    },
+  ])
 
 //Add Folder
   const addFolder = (folder) => {
@@ -35,10 +44,9 @@ function HomePage() {
 
 //Rename Folder
   const editFolder = (folder) => {
-    console.log(folder.name + ' yes!')
+    console.log(folder.id + ' ' + folder.name + ' yes!')
   }
 
-    
   return (
     <>
       <header>

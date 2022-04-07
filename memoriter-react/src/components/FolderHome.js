@@ -38,16 +38,18 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
 
     const [ name, setName ] = useState(folder.name)
 
+    const [ id ] = useState(folder.id)
+
     const onSubmitFolder = (changeName) => {
         changeName.preventDefault()
-        onEditFolder({ name })
+        onEditFolder({ name, id })
     }
 
     return (
         <div className='Folder_Body'>
             <button className='Button_Homepage' onClick={test}></button>
             {folder.name !== '' ? (
-                <button className='Button_Homepage_Text' onClick={test}>{folder.name}</button>
+                <button className='Button_Homepage_Text' onClick={test}>{name}</button>
             ) : (
                 <button className='Button_Homepage_Text' onClick={test}>New Folder</button>
             )}
@@ -71,7 +73,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
                         <div className='Add_Folder_Form_Text'>Rename Folder: </div>
                         <p style={{fontSize: '5px'}} />
                         <input className='Add_Folder_Form_Input' type='text' maxLength='100' placeholder='New Folder'
-                            value={name} onChange={(changeName) => setName(changeName.target.value)} />
+                            defaultValue={folder.name} onChange={(changeName) => setName(changeName.target.value)} />
                     </div>
                         <p style={{fontSize: '25px'}} />
                         <input className='Add_Folder_Form_Submit' type='submit' value='Done' />
