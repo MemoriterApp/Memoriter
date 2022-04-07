@@ -33,6 +33,12 @@ function HomePage() {
     setFolders(folders.filter((folder) => folder.id !== id))
   }
 
+//Edit Folder
+  const editFolder = (id, name) => {
+    setFolders(folders.map((folder) => folder.id === id
+    ? { ...folder, name: name} : folder))
+  }
+
   return (
     <>
       <header>
@@ -49,7 +55,7 @@ function HomePage() {
               {folders.length > 0 ?
               <>
                 {folders.map((folder) => (
-                  <FolderHome key={folder.id} folder={folder} onDeleteFolder={deleteFolder} />
+                  <FolderHome key={folder.id} folder={folder} onDeleteFolder={deleteFolder} onEditFolder={editFolder} />
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}

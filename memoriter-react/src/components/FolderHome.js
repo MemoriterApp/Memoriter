@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder }) => {
+const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
     const test = () => {
         alert('test')
     }
@@ -42,7 +42,7 @@ const FolderHome = ({ folder, onDeleteFolder }) => {
         <div className='Folder_Body'>
             <button className='Button_Homepage' onClick={test}></button>
             {folder.name !== '' ? (
-                <button className='Button_Homepage_Text' onClick={test}>{name}</button>
+                <button className='Button_Homepage_Text' onClick={test}>{folder.name}</button>
             ) : (
                 <button className='Button_Homepage_Text' onClick={test}>New Folder</button>
             )}
@@ -60,7 +60,7 @@ const FolderHome = ({ folder, onDeleteFolder }) => {
             </div>
 
             <div>
-                {modalIsOpenE && <form className='Add_Folder_Form_Body' onSubmit={backdropClickE}>
+                {modalIsOpenE && <form className='Add_Folder_Form_Body'>
                     <div>
                         <h2 className='Add_Folder_Form_Header'>Edit Folder</h2>
                         <div className='Add_Folder_Form_Text'>Rename Folder: </div>
@@ -69,7 +69,7 @@ const FolderHome = ({ folder, onDeleteFolder }) => {
                             defaultValue={name} onChange={(changeName) => setName(changeName.target.value)} />
                     </div>
                         <p style={{fontSize: '25px'}} />
-                        <input className='Add_Folder_Form_Submit' type='submit' value='Done' />
+                        <input className='Add_Folder_Form_Submit' type='button' value='Done' onClick={() => onEditFolder(folder.id, name)}/>
                 </form>}
             </div>
 
