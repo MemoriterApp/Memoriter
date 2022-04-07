@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
+const FolderHome = ({ folder, onDeleteFolder }) => {
     const test = () => {
         alert('test')
     }
@@ -38,13 +38,6 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
 
     const [ name, setName ] = useState(folder.name)
 
-    const [ id ] = useState(folder.id)
-
-    const onSubmitFolder = (changeName) => {
-        changeName.preventDefault()
-        onEditFolder({ name, id })
-    }
-
     return (
         <div className='Folder_Body'>
             <button className='Button_Homepage' onClick={test}></button>
@@ -67,13 +60,13 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
             </div>
 
             <div>
-                {modalIsOpenE && <form className='Add_Folder_Form_Body' onSubmit={onSubmitFolder}>
+                {modalIsOpenE && <form className='Add_Folder_Form_Body' onSubmit={backdropClickE}>
                     <div>
                         <h2 className='Add_Folder_Form_Header'>Edit Folder</h2>
                         <div className='Add_Folder_Form_Text'>Rename Folder: </div>
                         <p style={{fontSize: '5px'}} />
                         <input className='Add_Folder_Form_Input' type='text' maxLength='100' placeholder='New Folder'
-                            defaultValue={folder.name} onChange={(changeName) => setName(changeName.target.value)} />
+                            defaultValue={name} onChange={(changeName) => setName(changeName.target.value)} />
                     </div>
                         <p style={{fontSize: '25px'}} />
                         <input className='Add_Folder_Form_Submit' type='submit' value='Done' />

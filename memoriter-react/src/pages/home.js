@@ -18,16 +18,7 @@ function HomePage() {
   }
 
 // Folder Data
-  const [ folders, setFolders ] = useState([
-    {
-      id: 1,
-      name: 'Folder1'
-    },
-    {
-      id: 2,
-      name: 'Folder2'
-    },
-  ])
+  const [ folders, setFolders ] = useState([])
 
 //Add Folder
   const addFolder = (folder) => {
@@ -40,11 +31,6 @@ function HomePage() {
 //Delete Folder
   const deleteFolder = (id) => {
     setFolders(folders.filter((folder) => folder.id !== id))
-  }
-
-//Rename Folder
-  const editFolder = (folder) => {
-    console.log(folder.id + ' ' + folder.name + ' yes!')
   }
 
   return (
@@ -63,7 +49,7 @@ function HomePage() {
               {folders.length > 0 ?
               <>
                 {folders.map((folder) => (
-                  <FolderHome key={folder.id} folder={folder} onDeleteFolder={deleteFolder} onEditFolder={editFolder} />
+                  <FolderHome key={folder.id} folder={folder} onDeleteFolder={deleteFolder} />
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
