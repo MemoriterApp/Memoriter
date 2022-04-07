@@ -59,7 +59,7 @@ function HomePage() {
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
-              <div folders={folders}>
+             <div folders={folders}>
                 <div className='New_Folder_Body'>
                   <div className='New_Folder_Line'></div>
                   <button className='Button_New_Folder' onClick={NewFolderClick}>

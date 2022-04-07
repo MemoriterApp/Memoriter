@@ -38,6 +38,7 @@ body {
     position: absolute;
     top: 11%;
     left: 4.5%;
+    border-radius: 3px;
 }
 .main-seperator {
     position: absolute;
@@ -101,6 +102,7 @@ body {
     padding: 15px 15px;
     background-color: #353535;
     border: 5px solid cadetblue;
+    border-radius: 3px;
     cursor: pointer;
 }
 .Button_Homepage_Text {
@@ -152,7 +154,7 @@ body {
     position: relative;
     top: 11.5%;
     width: 100%;
-    height: 60px;
+    height: 55px;
     background-color: transparent;
     border: transparent;
 }
@@ -164,16 +166,17 @@ body {
 }
 .Button_New_Folder {
     position: absolute;
-    bottom: 5px;
+    bottom: 0px;
     left: 0%;
     padding: 15px 15px;
     background-color: #353535;
     cursor: pointer;
     border: 5px solid cadetblue;
+    border-radius: 3px;
 }
 .New_Folder_Text {
     position: absolute;
-    bottom: 11px;
+    bottom: 6px;
     left: 40px;
     color: white;
     font-size: 20px;
@@ -188,6 +191,7 @@ body {
     left: 10.5%;
     width: 80%;
     border-top: 5px solid rgba(112,112,112,1);
+    border-radius: 3px;
 }
 .New_Folder_Plus_v {
     position: absolute;
@@ -195,6 +199,7 @@ body {
     left: 42.5%;
     height: 80%;
     border-left: 5px solid rgba(112,112,112,1);
+    border-radius: 3px;
 }
 
 /* Feld für das Erstellen von Ordnern */
@@ -213,6 +218,7 @@ body {
     min-height: 220px;
     z-index: 10;
     border-radius: 6px;
+    
 }
 .Add_Folder_Form_Header {
     font-size: 24px;
@@ -229,6 +235,7 @@ body {
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
+    border-radius: 3px;
 }
 .Add_Folder_Form_Submit {
     border: 5px solid rgba(58,109,112,1);
@@ -238,6 +245,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     cursor: pointer;
+    border-radius: 3px;
 }
 
 /* Delete Folder Bestätigung */
@@ -258,11 +266,12 @@ body {
     border-radius: 6px;
 }
 .Delete_Folder_Confirm_Yes {
-        border: 5px solid green;
+        border: 5px solid rgb(45, 119, 45);
+        border-radius: 3px;
         padding: 5px;
         width: 60px;
         color: white;
-        background-color: #353535;
+        background-color: rgb(45, 119, 45);
         font-family: Arial, Helvetica, sans-serif;
         font-size: 20px;
         cursor: pointer;
@@ -270,11 +279,12 @@ body {
         left: 25%;
 }
 .Delete_Folder_Confirm_No {
-    border: 5px solid red;
+    border: 5px solid rgb(228, 48, 48);
+    border-radius: 3px;
     padding: 5px;
     width: 60px;
     color: white;
-    background-color: #353535;
+    background-color: rgb(228, 48, 48);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     cursor: pointer;
@@ -406,7 +416,9 @@ body {
     position: relative;
     cursor: pointer;
     width: 100%;
-    top: -30%;
+    top: -25%;
+    font-weight: bold;
+    text-align: left;
 }
 
 /* Nachfolgender Code bezieht sich auf das Settingsoverlay der Folder */
