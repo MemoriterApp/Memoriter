@@ -2,7 +2,7 @@ import React from 'react';
 import Backdropfs from './backdropfs';
 import Backdrop from './backdrop';
 import { useState } from 'react';
-import HomepageSettingsClick from './FolderSettingsInteraction'
+/*import HomepageSettingsClick from './FolderSettingsInteraction'*/
 import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
