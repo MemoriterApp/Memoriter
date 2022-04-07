@@ -69,7 +69,8 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
                             defaultValue={name} onChange={(changeName) => setName(changeName.target.value)} />
                     </div>
                         <p style={{fontSize: '25px'}} />
-                        <input className='Add_Folder_Form_Submit' type='button' value='Done' onClick={() => onEditFolder(folder.id, name)}/>
+                        <input className='Add_Folder_Form_Submit' type='button' value='Done' onClick={
+                            () => { onEditFolder(folder.id, name); setModalIsOpenE(false); }} />
                 </form>}
             </div>
 
