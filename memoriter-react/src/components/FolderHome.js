@@ -47,6 +47,12 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
                     <button className='Button_Homepage_Text'>New Folder</button>
                 )}
             </Link>
+            <div className='Folder_Pos_Body_Up'>
+                <div className='Folder_Pos_Arrow_Up' />
+            </div>
+            <div className='Folder_Pos_Body_Down'>
+                <div className='Folder_Pos_Arrow_Down' />
+            </div>
             <div className='Button_Homepage_Settings' onClick={settingsHandler}>
                 <span className='dot'></span>
                 <span className='dot'></span>
