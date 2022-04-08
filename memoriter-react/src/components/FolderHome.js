@@ -2,14 +2,12 @@ import React from 'react';
 import Backdropfs from './backdropfs';
 import Backdrop from './backdrop';
 import { useState } from 'react';
-/*import HomepageSettingsClick from './FolderSettingsInteraction'*/
+import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
 const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
-    const test = () => {
-        alert('test')
-    }
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     function settingsHandler() {
@@ -41,12 +39,14 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
 
     return (
         <div className='Folder_Body'>
-            <button className='Button_Homepage' onClick={test}></button>
-            {folder.name !== '' ? (
-                <button className='Button_Homepage_Text' onClick={test}>{folder.name}</button>
-            ) : (
-                <button className='Button_Homepage_Text' onClick={test}>New Folder</button>
-            )}
+            <Link to='/topic'>
+                <button className='Button_Homepage'></button>
+                {folder.name !== '' ? (
+                    <button className='Button_Homepage_Text'>{folder.name}</button>
+                ) : (
+                    <button className='Button_Homepage_Text'>New Folder</button>
+                )}
+            </Link>
             <div className='Button_Homepage_Settings' onClick={settingsHandler}>
                 <span className='dot'></span>
                 <span className='dot'></span>
