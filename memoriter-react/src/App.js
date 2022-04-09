@@ -4,6 +4,7 @@ import PrivacyPage from './pages/privacy_policies';
 import TermsPage from './pages/terms_of_use';
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
+import TestPage from './pages/test';
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
       </Route>
 
       <Route path='/topic' element={<TopicPage/>}>
+
+      </Route>
+
+      <Route path='/test' element={<TestPage/>}>
 
       </Route>
       </Routes>
