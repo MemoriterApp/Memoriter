@@ -18,7 +18,27 @@ function HomePage() {
   }
 
 // Folder Data
-  const [ folders, setFolders ] = useState([])
+  const [ folders, setFolders ] = useState([
+    {
+      id: 1,
+      pos: 2,
+      name: 'Test_1',
+    },
+    {
+      id: 2,
+      pos: 0,
+      name: 'Test_2',
+    },
+    {
+      id: 3,
+      pos: 1,
+      name: 'Test_3',
+    },
+  ])
+  
+
+//Folder Position
+  folders.sort((a, b) => a.pos - b.pos )
 
 //Add Folder
   const addFolder = (folder) => {
