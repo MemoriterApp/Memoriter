@@ -19,6 +19,7 @@ function HomePage() {
   }
 
   firebase.getNotes().then(console.log);
+  firebase.getFolder().then(console.log);
 
 
 // Folder Data

@@ -32,10 +32,17 @@ async function getNotes(database = db) {
   return notesList;
 }
 
+async function getFolder(database = db) {
+  const FolderCollection = collection(database, 'folders');
+  const allFolders = await getDocs(FolderCollection);
+  const folderList = allFolders.docs.map(doc => doc.data());
+  return folderList;
+}
 export const firebase = {
   app,
   // auth,
   // analytics,
   db,
-  getNotes
+  getNotes,
+  getFolder
 };
