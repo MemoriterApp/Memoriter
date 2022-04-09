@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder, onEditFolder }) => {
+const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosFolder }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 

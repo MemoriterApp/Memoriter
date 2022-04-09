@@ -19,7 +19,7 @@ body {
 
 /* Home */
 .page_title {
-    position:relative;
+    position: relative;
     text-align: center;
     font-family: Helvetica;
     font-weight: bold;
@@ -42,11 +42,11 @@ body {
 }
 .main-seperator {
     position: absolute;
-    left: -0.05%;
-    top: 10%;
-    width: 100.05%;
-    height: 4px;
-    background-color: rgba(58,109,112,1);
+    left: 5px;
+    top: 45px;
+    width: calc(100% - 10px);
+    height: 0px;
+    border-top: 5px solid rgba(58,109,112,1);
 }
 .Logo-oben {
     width: 134.4px;
@@ -59,8 +59,8 @@ body {
 }
 .gear {
     position: absolute;
-    top: 1.5%;
-    right: 0.75%;
+    top: 3.75px;
+    right: 3.75px;
     width: 30px;
     height: 30px;
     background-image: url(components/zahnrad.png);
@@ -71,7 +71,7 @@ body {
     position: relative;
     text-align: center;
     color: #FFFF;
-    top: -2%;
+    top: -10px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 24px;
@@ -79,12 +79,12 @@ body {
 
 /* Folder für Homepage */
 .Folder_Base {
-    height: 52%;
-    width: 89.35%;
+    height: calc(100% - 60px);
+    width: calc(100% - 10px);
     margin: auto;
     position: absolute;
-    top: 19%;
-    left: 5.15%;
+    bottom: 5px;
+    left: 5px;
     background-color: transparent;
     overflow: auto;
 }
