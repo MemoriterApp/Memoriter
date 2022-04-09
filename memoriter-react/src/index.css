@@ -28,15 +28,12 @@ body {
 }
 .rechteck {
     background: transparent;
-    border-right: 5px solid #274b65;
-    border-left: 5px solid #274b65;
-    border-top: 5px solid #274b65;
-    border-bottom: 5px solid #274b65;
+    border: 5px solid #274b65;
     width: 90%;
     height: 60%;
     margin: auto;
     position: absolute;
-    top: 11%;
+    top: 80px;
     left: 4.5%;
     border-radius: 3px;
 }
