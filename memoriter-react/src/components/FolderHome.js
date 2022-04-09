@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosFolder }) => {
+const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -31,11 +31,23 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosFolder }) => {
     function editFolderReq() {
         setModalIsOpenE(true);
     }
-    function backdropClickE () {
+    function backdropClickE() {
         setModalIsOpenE(false);
     }
 
     const [ name, setName ] = useState(folder.name)
+
+    const [ pos, setPos ] = useState(folder.pos)
+
+    function posUpReq() {
+        if (pos > 0) {
+            console.log(pos);
+        }
+    }
+
+    if (folder.pos !== pos) {
+        setPos(pos + 1);
+    }
 
     return (
         <div className='Folder_Body'>
@@ -47,10 +59,10 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosFolder }) => {
                     <button className='Button_Homepage_Text'>New Folder</button>
                 )}
             </Link>
-            <div className='Folder_Pos_Body_Up'>
+            <div className='Folder_Pos_Body_Up' onClick={() => onPosUp(folder.id, pos)}>
                 <div className='Folder_Pos_Arrow_Up' />
             </div>
-            <div className='Folder_Pos_Body_Down'>
+            <div className='Folder_Pos_Body_Down' onClick={posUpReq}>
                 <div className='Folder_Pos_Arrow_Down' />
             </div>
             <div className='Button_Homepage_Settings' onClick={settingsHandler}>

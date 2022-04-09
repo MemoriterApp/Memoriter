@@ -49,6 +49,12 @@ function HomePage() {
 //Folder Position
   folders.sort(function(a, b){return a.pos - b.pos})
 
+  const posUp = (id, pos) => {
+    setFolders(folders.map((folder) => folder.id === id
+    ? { ...folder, pos: pos } : folder))
+    setFolders(folders.map((folder) => folder.pos === pos - 1
+    ? { ...folder, pos: pos + 1 } : folder))
+  }
 //Add Folder
   const addFolder = (folder) => {
     const id = Math.floor(Math.random() * 10000) + 1
@@ -85,7 +91,7 @@ function HomePage() {
               <>
                 {folders.map((folder) => (
                   <FolderHome key={folder.id} folder={folder}
-                    onDeleteFolder={deleteFolder} onEditFolder={editFolder} />
+                    onDeleteFolder={deleteFolder} onEditFolder={editFolder} onPosUp={posUp}/>
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
