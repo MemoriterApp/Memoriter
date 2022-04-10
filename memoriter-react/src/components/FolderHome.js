@@ -39,14 +39,8 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp }) => {
 
     const [ pos, setPos ] = useState(folder.pos)
 
-    function posUpReq() {
-        if (pos > 0) {
-            console.log(pos);
-        }
-    }
-
     if (folder.pos !== pos) {
-        setPos(pos + 1);
+        setPos(folder.pos)
     }
 
     return (
@@ -59,10 +53,16 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp }) => {
                     <button className='Button_Homepage_Text'>New Folder</button>
                 )}
             </Link>
-            <div className='Folder_Pos_Body_Up' onClick={() => onPosUp(folder.id, pos)}>
+
+            <div className='testfolderpos'>{folder.pos}</div>
+            <div className='testpos'>{pos}</div>
+
+            <div className='Folder_Pos_Body_Up' onClick={
+                () => { if (pos > 1) {setPos(pos - 1); onPosUp(folder.id, pos);} }
+            }>
                 <div className='Folder_Pos_Arrow_Up' />
             </div>
-            <div className='Folder_Pos_Body_Down' onClick={posUpReq}>
+            <div className='Folder_Pos_Body_Down'>
                 <div className='Folder_Pos_Arrow_Down' />
             </div>
             <div className='Button_Homepage_Settings' onClick={settingsHandler}>

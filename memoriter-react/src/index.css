@@ -502,3 +502,20 @@ body {
     top: 0;
     left: 0;
   }
+
+
+
+
+
+.testpos {
+    color: red;
+    position: absolute;
+    font-size: 20px;
+    right: 80px;
+}
+.testfolderpos {
+    color: green;
+    position: absolute;
+    font-size: 20px;
+    right: 120px;
+}

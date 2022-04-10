@@ -20,27 +20,27 @@ function HomePage() {
 // Folder Data
   const [ folders, setFolders ] = useState([
     {
-      id: 1,
+      id: 17483,
       pos: 1,
       name: 'Test_1',
     },
     {
-      id: 2,
+      id: 2235,
       pos: 2,
       name: 'Test_2',
     },
     {
-      id: 3,
+      id: 3234,
       pos: 3,
       name: 'Test_3',
     },
     {
-      id: 4,
+      id: 469,
       pos: 4,
       name: 'Test_4',
     },
     {
-      id: 5,
+      id: 5235,
       pos: 5,
       name: 'Test_5',
     },
@@ -51,10 +51,10 @@ function HomePage() {
 
   const posUp = (id, pos) => {
     setFolders(folders.map((folder) => folder.id === id
-    ? { ...folder, pos: pos } : folder))
-    setFolders(folders.map((folder) => folder.pos === pos - 1
-    ? { ...folder, pos: pos + 1 } : folder))
+    ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
+    ? { ...folder, pos: (folder.pos + 1) } : folder ))
   }
+
 //Add Folder
   const addFolder = (folder) => {
     const id = Math.floor(Math.random() * 10000) + 1
@@ -91,7 +91,7 @@ function HomePage() {
               <>
                 {folders.map((folder) => (
                   <FolderHome key={folder.id} folder={folder}
-                    onDeleteFolder={deleteFolder} onEditFolder={editFolder} onPosUp={posUp}/>
+                    onDeleteFolder={deleteFolder} onEditFolder={editFolder} onPosUp={posUp} />
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
