@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp }) => {
+const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -62,7 +62,9 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp }) => {
             }>
                 <div className='Folder_Pos_Arrow_Up' />
             </div>
-            <div className='Folder_Pos_Body_Down'>
+            <div className='Folder_Pos_Body_Down' onClick={
+                () => { if (pos < folderCount) {setPos(pos + 1); onPosDown(folder.id, pos);} }
+            }>
                 <div className='Folder_Pos_Arrow_Down' />
             </div>
             <div className='Button_Homepage_Settings' onClick={settingsHandler}>

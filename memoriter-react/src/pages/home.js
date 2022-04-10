@@ -55,6 +55,12 @@ function HomePage() {
     ? { ...folder, pos: (folder.pos + 1) } : folder ))
   }
 
+  const posDown = (id, pos) => {
+    setFolders(folders.map((folder) => folder.id === id
+    ? { ...folder, pos: (folder.pos + 1) } : folder.pos === (pos + 1)
+    ? { ...folder, pos: (folder.pos - 1) } : folder ))
+  }
+
 //Add Folder
   const addFolder = (folder) => {
     const id = Math.floor(Math.random() * 10000) + 1
@@ -90,8 +96,8 @@ function HomePage() {
               {folders.length > 0 ?
               <>
                 {folders.map((folder) => (
-                  <FolderHome key={folder.id} folder={folder}
-                    onDeleteFolder={deleteFolder} onEditFolder={editFolder} onPosUp={posUp} />
+                  <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
+                    onDeleteFolder={deleteFolder} onEditFolder={editFolder} onPosUp={posUp} onPosDown={posDown}/>
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
