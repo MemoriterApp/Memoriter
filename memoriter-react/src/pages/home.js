@@ -18,33 +18,7 @@ function HomePage() {
   }
 
 // Folder Data
-  const [ folders, setFolders ] = useState([
-    {
-      id: 17483,
-      pos: 1,
-      name: 'Test_1',
-    },
-    {
-      id: 2235,
-      pos: 2,
-      name: 'Test_2',
-    },
-    {
-      id: 3234,
-      pos: 3,
-      name: 'Test_3',
-    },
-    {
-      id: 469,
-      pos: 4,
-      name: 'Test_4',
-    },
-    {
-      id: 5235,
-      pos: 5,
-      name: 'Test_5',
-    },
-  ])
+  const [ folders, setFolders ] = useState([ ])
 
 //Folder Position
   folders.sort(function(a, b){return a.pos - b.pos})
