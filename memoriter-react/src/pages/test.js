@@ -8,6 +8,9 @@ const { db } = firebase;
 
 function TestPage() {
 
+    //we use the useState and useEffekt because we want our page to update if the db updates
+    
+
     const [folders, setFolders] = useState([]);
     //Link zur Collection 
     const foldersCollectionRef = collection(db, "folders");
@@ -25,7 +28,7 @@ function TestPage() {
     return (
     <div>
         {folders.map((folder) => {
-            return <div> <h1>title: {folder.title}</h1> </div>;
+            return <div> <h1>title: {folder.title}</h1> </div>; //render of things in db
             })}
      </div>
     );
