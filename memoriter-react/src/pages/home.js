@@ -18,9 +18,6 @@ function HomePage() {
       setModalIsOpen(false);
   }
 
-  firebase.getNotes().then(console.log);
-  firebase.getFolder().then(console.log);
-
 
 // Folder Data
   const [ folders, setFolders ] = useState([ 
