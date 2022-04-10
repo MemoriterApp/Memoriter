@@ -6,14 +6,13 @@ import Logo from './Logo.png'
 
 const Footer = () => {
     return (
-        <div>
+        <div className='Footer_Body'>
             <img  className='MEMORITER' src={Logo} alt='Memoriter-Logo'></img>
             <div className='followUs'>
                 <small>Follow Us:</small>
             </div>
             <div>
-                <a className='rechteckLogo' href='https://www.instagram.com/memorit.er/' target='_blank'></a>
-                <a href='https://www.instagram.com/memorit.er/' target='_blank'>
+                <a className='rechteckLogo' href='https://www.instagram.com/memorit.er/' target='_blank'>
                     <img className='instaIcon' src={instagramIcon} alt='instagram'></img>
                 </a>
             </div>
