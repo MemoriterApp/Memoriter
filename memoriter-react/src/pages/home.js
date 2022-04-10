@@ -5,6 +5,7 @@ import FolderHome from '../components/FolderHome';
 import AddFolderForm from '../components/AddFolderForm';
 import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
+import { firebase } from '../utils/firebase'
 
 function HomePage() {
 
@@ -16,6 +17,7 @@ function HomePage() {
   function backdropClick() {
       setModalIsOpen(false);
   }
+
 
 // Folder Data
   const [ folders, setFolders ] = useState([ ])
