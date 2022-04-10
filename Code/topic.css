@@ -1,0 +1,194 @@
+#title {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    font-family: Helvetica;
+    font-weight: 500;
+    padding: 40px;
+    font-size: 350%;
+
+}
+.content {
+    position: relative;
+    left: 0%;
+}
+#back-button {
+    position: absolute;
+    top: -80px;
+    left: -10px;
+    width: 90px;
+    height: 45px;
+    background: #2A4B5E;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#back-button-text {
+    color: white;
+    position: absolute;
+    top: -68px;
+    left: 10px;
+    margin: 20px;
+    font-family: Helvetica;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    
+}
+#vertical-lines {
+    position: relative;
+    width: 80%;
+    height: 1100px;
+    background: transparent;
+    border-right: 10px solid #274b65;
+    border-left: 10px solid #274b65;
+    border-top: 10px solid #274b65;
+    margin:auto;
+    top: -65px;
+}
+#Logo-oben {
+    width: 8%;
+    height: 8%;
+    position: relative;
+    top: -125px;
+    left: 20px;
+    cursor: pointer;
+}
+#footer-seperator {
+    width: 75%;
+    position: relative;
+    top: -250px;
+    fill: #707070;
+    border-bottom: #707070;
+    border-width: 3px;
+}
+#footer-quicklinks {
+    color: #274b65;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left: 12%;
+    top: -235px;
+}
+#Impressum {
+    margin: 25px;
+    cursor: pointer;
+}
+#Privacy {
+    margin-right: 25px;
+    cursor: pointer;
+}
+#Terms-of-use {
+    cursor: pointer;
+}
+#Logo-unten {
+    width: 5%;
+    height: 5%;
+    position: relative;
+    cursor: pointer;
+    left: 13%;
+    top: -250px;
+}
+#follow-us {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: -220px;
+    left: 76%;
+    font-size: 110%;
+    cursor: pointer;
+}
+#instagram-icon {
+    position: relative;
+    width: 1.4%;
+    height: 1.4%;
+    left: 75%;  
+    top: -219px;
+    cursor: pointer;
+}
+#social-media {
+    position: relative;
+}
+footer {
+    position: relative;
+    top: 75px;
+}
+#flashcard {
+    position: absolute;
+    width: 15%;
+    height: 41%;
+    background: transparent;
+    top: 23.5%;
+    left: 13%;
+    border-right: 7.5px solid #3A6367;
+    border-left: 7.5px solid #3A6367;
+    border-top: 7.5px solid #3A6367;
+    border-bottom: 7.5px solid #3A6367;
+
+}
+#card-title {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: inherit;
+    left: 50px;
+    top: -7.5px;
+    font-size: 100%;
+}
+#card-content {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: inherit;
+    top: 8%;
+    font-size: 95%;
+    letter-spacing: 0.005px;
+    padding: 5%;
+}
+#new-flashcard {
+    position: absolute;
+    width: 13%;
+    height: 38%;
+    background: transparent;
+    top: 23.5%;
+    left: 30%;
+    border-right: 7.5px solid #3A6367;
+    border-left: 7.5px solid #3A6367;
+    border-top: 7.5px solid #3A6367;
+    border-bottom: 7.5px solid #3A6367;
+    padding: 10px;
+
+}
+#circle {
+    position: inherit;
+    left: 6%;
+    top: 25%;
+    height: 50%;
+    width: 80%;
+    background-color:#274b65;
+    border: 7.5px solid #3A6367;
+    border-radius: 50%;
+    display: inline-block;
+}
+#circle::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #707070;
+    height: 13px;
+    margin-top: -5px;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    z-index: 9;
+
+  }
+  #circle::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #707070;
+    width: 13px;
+    margin-left: -5px;
+    left: 50%;
+    top: 20px;
+    bottom: 20px;
+    z-index: 9;
+  }
