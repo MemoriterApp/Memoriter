@@ -9,7 +9,7 @@ const { db } = firebase;
 function TestPage() {
 
     //we use the useState and useEffekt because we want our page to update if the db updates
-    
+
 
     const [folders, setFolders] = useState([]);
     //Link zur Collection 
@@ -30,6 +30,8 @@ function TestPage() {
         {folders.map((folder) => {
             return <div> <h1>title: {folder.title}</h1> </div>; //render of things in db
             })}
+        <input placeholder='Folder name'/>
+        <button>create new folder</button>  
      </div>
     );
 }
