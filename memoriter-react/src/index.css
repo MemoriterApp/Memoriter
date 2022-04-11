@@ -502,12 +502,3 @@ body {
     top: 0;
     left: 0;
 }
-
-
-
-.pos {
-    color: red;
-    position: absolute;
-    font-size: 20px;
-    right: 80px;
-}

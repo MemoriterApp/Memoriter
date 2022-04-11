@@ -53,9 +53,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                     <button className='Button_Homepage_Text'>New Folder</button>
                 )}
             </Link>
-
-            <div className='pos'>{folder.pos}</div>
-
+            
             <div className='Folder_Pos_Body_Up' onClick={
                 () => { if (pos > 1) {setPos(pos - 1); onPosUp(folder.id, pos);} }
             }>
