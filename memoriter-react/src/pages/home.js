@@ -18,7 +18,33 @@ function HomePage() {
   }
 
 // Folder Data
-  const [ folders, setFolders ] = useState([ ])
+  const [ folders, setFolders ] = useState([
+    {
+      id: 5253 ,
+      pos: 1 ,
+      name: 'TEST_1',
+    },
+    {
+      id: 586 ,
+      pos: 2 ,
+      name: 'TEST_2',
+    },
+    {
+    id: 12331 ,
+    pos: 3 ,
+    name: 'TEST_3',
+    },
+    {
+      id: 69098 ,
+      pos: 4 ,
+      name: 'TEST_4',
+    },
+    {
+      id: 32554 ,
+      pos: 5 ,
+      name: 'TEST_5',
+    },
+  ])
 
 //Folder Position
   folders.sort(function(a, b){return a.pos - b.pos})
@@ -45,7 +71,10 @@ function HomePage() {
 }
 
 //Delete Folder
-  const deleteFolder = (id) => {
+  const deleteFolder = (id, pos) => {
+    setFolders(folders.map((folder) => folder.pos > pos
+    ? { ...folder, pos: (folder.pos - 1) } : folder ))
+
     setFolders(folders.filter((folder) => folder.id !== id))
   }
 
@@ -71,7 +100,8 @@ function HomePage() {
               <>
                 {folders.map((folder) => (
                   <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
-                    onDeleteFolder={deleteFolder} onEditFolder={editFolder} onPosUp={posUp} onPosDown={posDown}/>
+                    onDeleteFolder={deleteFolder} onEditFolder={editFolder}
+                    onPosUp={posUp} onPosDown={posDown} />
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
