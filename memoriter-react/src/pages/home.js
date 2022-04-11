@@ -18,33 +18,7 @@ function HomePage() {
   }
 
 // Folder Data
-  const [ folders, setFolders ] = useState([
-    {
-      id: 5253 ,
-      pos: 1 ,
-      name: 'TEST_1',
-    },
-    {
-      id: 586 ,
-      pos: 2 ,
-      name: 'TEST_2',
-    },
-    {
-    id: 12331 ,
-    pos: 3 ,
-    name: 'TEST_3',
-    },
-    {
-      id: 69098 ,
-      pos: 4 ,
-      name: 'TEST_4',
-    },
-    {
-      id: 32554 ,
-      pos: 5 ,
-      name: 'TEST_5',
-    },
-  ])
+  const [ folders, setFolders ] = useState([ ])
 
 //Folder Position
   folders.sort(function(a, b){return a.pos - b.pos})
@@ -72,10 +46,13 @@ function HomePage() {
 
 //Delete Folder
   const deleteFolder = (id, pos) => {
-    setFolders(folders.map((folder) => folder.pos > pos
-    ? { ...folder, pos: (folder.pos - 1) } : folder ))
-
-    setFolders(folders.filter((folder) => folder.id !== id))
+    setFolders((folders) =>
+      folders
+        .map((folder) =>
+          folder.pos > pos ? { ...folder, pos: folder.pos - 1 } : folder
+        )
+        .filter((folder) => folder.id !== id)
+    )
   }
 
 //Edit Folder
