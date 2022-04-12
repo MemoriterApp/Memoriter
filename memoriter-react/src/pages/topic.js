@@ -31,6 +31,11 @@ function TopicPage() {
             pos:1,
             title:'jdifnioeaffni'
         },
+        {
+            id:7393535433359,
+            pos:3,
+            title:'jdifnioeaffniyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+        },
      ])
 
 //Flashcard Position
@@ -57,6 +62,17 @@ function TopicPage() {
         setModalIsOpenA(false)
     }
 
+//Delete Flashcard
+    const deleteFlashcard = (id, pos) => {
+        setFlashcards((flashcards) =>
+        flashcards
+            .map((flashcard) =>
+            flashcard.pos > pos ? { ...flashcard, pos: flashcard.pos - 1 } : flashcard
+            )
+            .filter((flashcard) => flashcard.id !== id)
+        )
+    }
+
     return (
         <>
             <header>
@@ -75,7 +91,7 @@ function TopicPage() {
                     <>
                         {flashcards.map((flashcard) => (
                         <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length}
-                        onPosLeft={posLeft} onPosRight={posRight} />
+                        onPosLeft={posLeft} onPosRight={posRight} onDeleteFlashcard={deleteFlashcard} />
                         ))}
                     </>
 
