@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Backdrop from './backdrop';
 import Backdropfs from './backdropfs';
 
-const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount }) => {
+const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard }) => {
 
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
@@ -22,6 +22,15 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount }) => {
     }
     function backdropClick() {
         setModalIsOpenS(false);
+    }
+
+    const [modalIsOpenD, setModalIsOpenD] = useState(false);
+
+    function deleteFlashcardReq() {
+      setModalIsOpenD(true);
+    }
+    function backdropClickD() {
+      setModalIsOpenD(false);
     }
 
     const [ pos, setPos ] = useState(flashcard.pos)
@@ -70,10 +79,22 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount }) => {
                 {modalIsOpenS && <div className='flashcard-settings-overlay'>
                     <div className='folder-settings-sub'>
                         <p>Edit</p>
-                        <p>Delete</p>
+                        <p onClick={deleteFlashcardReq}>Delete</p>
+                    </div>
+                    <div  onClick={backdropClickD}>
+                        {modalIsOpenD && <Backdrop/>}
                     </div>
                 </div>}
             </div>
+
+            <div>
+                {modalIsOpenD && <form className='Delete_Folder_Confirm'>
+                    <h2 className='Add_folder_Form_Header'>Do you really want to delete this flashcard?</h2>
+                    <input className='Delete_Folder_Confirm_Yes 'type='submit' value='Yes' onClick={() => onDeleteFlashcard(flashcard.id)} />
+                    <input className='Delete_Folder_Confirm_No' type='submit' value='No' onClick={backdropClickD} />
+                 </form>}
+            </div>
+
             <div onClick={backdropClick}>
                 {modalIsOpenS && <Backdropfs/>}
             </div>
