@@ -501,4 +501,41 @@ body {
     height: 100vh;
     top: 0;
     left: 0;
-  }
+}
+
+
+
+
+/* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
+.Flashcard_Body {
+    position: relative;
+    width: 264px;
+    height: calc(264px * 1.5);
+}
+.Flashcard_Rechteck {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
+    border: 5px solid rgba(58,109,112,1);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.Flashcard_Title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.Flashcard_Content {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 16px;
+    text-align: justify;
+    width: 90%;
+    left: 5%;
+}
