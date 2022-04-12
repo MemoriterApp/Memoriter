@@ -20,23 +20,7 @@ function TopicPage() {
     }
 
 //Flashcard Data
-    const [ flashcards, setFlashcards ] = useState([
-        {
-            id:748393,
-            pos:2,
-            title:'65839303ß4'
-        },
-        {
-            id:73939,
-            pos:1,
-            title:'jdifnioeaffni'
-        },
-        {
-            id:7393535433359,
-            pos:3,
-            title:'jdifnioeaffniyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
-        },
-     ])
+    const [ flashcards, setFlashcards ] = useState([ ])
 
 //Flashcard Position
     flashcards.sort(function(a, b){return a.pos - b.pos})
