@@ -14,6 +14,7 @@ function TopicPage() {
     function NewFlashcardClick() {
         setModalIsOpenA(true);
     }
+
     function backdropClick() {
         setModalIsOpenA(false);
     }
@@ -62,10 +63,11 @@ function TopicPage() {
                             </div>
                         </div>
                     </div>
+
                     <div>
                         {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} />}
                     </div>
-                    <div  onClick={backdropClick}>
+                    <div onClick={backdropClick}>
                         {modalIsOpenA && <Backdrop/>}
                     </div>
                 </div>

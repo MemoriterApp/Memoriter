@@ -549,11 +549,28 @@ body {
     height: 92vh;
     width: calc(92vh / 3 * 2);
     background-color: #353535;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border: 5px solid rgba(39,75,101,1);
     border-radius: 3px;
     z-index: 10;
     overflow-x: hidden;
     overflow-y: auto;
+}
+.Flashcard_Open_Title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+}
+.Flashcard_Open_Content {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 20px;
+    text-align: justify;
+    width: 90%;
+    left: 5%;
 }
 
 /* New Flashcard Button*/
