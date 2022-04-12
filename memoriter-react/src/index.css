@@ -530,6 +530,8 @@ body {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    width: 90%;
+    padding-left: 5%;
 }
 .Flashcard_Content {
     position: relative;
@@ -562,6 +564,8 @@ body {
     text-align: center;
     font-weight: bold;
     font-size: 28px;
+    width: 90%;
+    padding-left: 5%;
 }
 .Flashcard_Open_Content {
     position: relative;
@@ -570,6 +574,7 @@ body {
     font-size: 20px;
     text-align: justify;
     width: 90%;
+    min-height: 60vh;
     left: 5%;
 }
 

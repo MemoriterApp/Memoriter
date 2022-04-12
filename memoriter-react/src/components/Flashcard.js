@@ -4,13 +4,14 @@ import Backdrop from './backdrop';
 
 const Flashcard = ({ flashcard }) => {
 
-    const [ modalIsOpenC, setModalIsOpenC ] = useState(false);
+    const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
     function openFlashcard() {
-        setModalIsOpenC(true);
+        setModalIsOpen(true);
     }
+
     function closeFlashcard() {
-        setModalIsOpenC(false);
+        setModalIsOpen(false);
     }
 
     return (
@@ -21,15 +22,15 @@ const Flashcard = ({ flashcard }) => {
             </div>
 
             <div>
-                {modalIsOpenC && <div className='Flashcard_Open_Body'>
-                <p style={{fontSize: '40px'}} />
-                <h2 className='Flashcard_Open_Title'>{flashcard.title}</h2>
-                <p style={{fontSize: '40px'}} />
-                <p className='Flashcard_Open_Content'>{flashcard.content}</p>
+                {modalIsOpen && <div className='Flashcard_Open_Body'>
+                    <p style={{fontSize: '40px'}} />
+                    <h2 className='Flashcard_Open_Title'>{flashcard.title}</h2>
+                    <p style={{fontSize: '40px'}} />
+                    <p className='Flashcard_Open_Content'>{flashcard.content}</p>
                 </div>}
             </div>
             <div onClick={closeFlashcard}>
-                {modalIsOpenC && <Backdrop/>}
+                {modalIsOpen && <Backdrop/>}
             </div>
         </div>
     );
