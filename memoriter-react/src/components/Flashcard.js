@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Backdrop from './backdrop';
 import Backdropfs from './backdropfs';
 
-const Flashcard = ({ flashcard }) => {
+const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount }) => {
 
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
@@ -24,6 +24,12 @@ const Flashcard = ({ flashcard }) => {
         setModalIsOpenS(false);
     }
 
+    const [ pos, setPos ] = useState(flashcard.pos)
+
+    if (flashcard.pos !== pos) {
+        setPos(flashcard.pos)
+    }
+
     return (
         <div className='Flashcard_Body'>
             <div className='Flashcard_Settings_Bar'>
@@ -32,10 +38,14 @@ const Flashcard = ({ flashcard }) => {
                     <span className='dot'></span>
                     <span className='dot'></span>
                 </div>
-                <div className='Flashcard_Pos_Body_Left'>
+                <div className='Flashcard_Pos_Body_Left' onClick={
+                    () => { if (pos > 1) {setPos(pos - 1); onPosLeft(flashcard.id, pos);} }
+                }>
                     <div className='Flashcard_Pos_Arrow_Left' />
                 </div>
-                <div className='Flashcard_Pos_Body_Right'>
+                <div className='Flashcard_Pos_Body_Right' onClick={
+                    () => { if (pos < flashcardCount) {setPos(pos + 1); onPosRight(flashcard.id, pos);} }
+                }>
                     <div className='Flashcard_Pos_Arrow_Right' />
                 </div>
             </div>

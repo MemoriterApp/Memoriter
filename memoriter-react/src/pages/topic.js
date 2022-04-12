@@ -20,15 +20,38 @@ function TopicPage() {
     }
 
 //Flashcard Data
-    const [ flashcards, setFlashcards ] = useState([ ])
+    const [ flashcards, setFlashcards ] = useState([
+        {
+            id:748393,
+            pos:2,
+            title:'65839303ß4'
+        },
+        {
+            id:73939,
+            pos:1,
+            title:'jdifnioeaffni'
+        },
+     ])
 
 //Flashcard Position
     flashcards.sort(function(a, b){return a.pos - b.pos})
+    
+    const posLeft = (id, pos) => {
+        setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+        ? { ...flashcard, pos: (flashcard.pos - 1) } : flashcard.pos === (pos - 1)
+        ? { ...flashcard, pos: (flashcard.pos + 1) } : flashcard ))
+      }
+    
+      const posRight = (id, pos) => {
+        setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+        ? { ...flashcard, pos: (flashcard.pos + 1) } : flashcard.pos === (pos + 1)
+        ? { ...flashcard, pos: (flashcard.pos - 1) } : flashcard ))
+      }
 
 //Add Flashcard
     const addFlashcard = (flashcard) => {
         const id = Math.floor(Math.random() * 10000) + 1
-        const pos = flashcard.length + 1
+        const pos = flashcards.length + 1
         const newFlashcardC = { id, pos, ...flashcard }
         setFlashcards([...flashcards, newFlashcardC])
         setModalIsOpenA(false)
@@ -51,7 +74,8 @@ function TopicPage() {
                 <div className='Folder_Base'>
                     <>
                         {flashcards.map((flashcard) => (
-                        <Flashcard key={flashcard.id} flashcard={flashcard} />
+                        <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length}
+                        onPosLeft={posLeft} onPosRight={posRight} />
                         ))}
                     </>
 
