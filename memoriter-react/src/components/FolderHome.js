@@ -54,9 +54,6 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                 )}
             </Link>
 
-            <div className='testfolderpos'>{folder.pos}</div>
-            <div className='testpos'>{pos}</div>
-
             <div className='Folder_Pos_Body_Up' onClick={
                 () => { if (pos > 1) {setPos(pos - 1); onPosUp(folder.id, pos);} }
             }>
@@ -78,7 +75,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                     <div className='folder-settings-sub'>
                         <p onClick={editFolderReq}>Edit</p>
                         <p onClick={deleteFolderReq}>Delete</p>
-            </div>
+                    </div>
 
             <div>
                 {modalIsOpenE && <form className='Add_Folder_Form_Body'>

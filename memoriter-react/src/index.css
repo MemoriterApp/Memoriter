@@ -254,8 +254,7 @@ body {
     min-width: 240px;
     min-height: 220px;
     z-index: 10;
-    border-radius: 6px;
-    
+    border-radius: 6px;  
 }
 .Add_Folder_Form_Header {
     font-size: 24px;
@@ -509,17 +508,20 @@ body {
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
 .Flashcard_Body {
     position: relative;
+    top: 20px;
     width: 268px;
-    height: calc(268px * 1.5);
+    height: calc(268px * 1.5 - 20px);
     display: inline-block;
 }
 .Flashcard_Rechteck {
     position: absolute;
     left: 30px;
-    top: 30px;
-    height: calc(100% - 40px);
+    top: 60px;
+    height: calc(100% - 50px);
     width: calc(100% - 40px);
-    border: 5px solid rgba(58,109,112,1);
+    border-bottom: 5px solid rgba(58,109,112,1);
+    border-left: 5px solid rgba(58,109,112,1);
+    border-right: 5px solid rgba(58,109,112,1);
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
@@ -532,6 +534,8 @@ body {
     text-align: center;
     width: 90%;
     padding-left: 5%;
+    position: relative;
+    top: -10px;
 }
 .Flashcard_Content {
     position: relative;
@@ -541,6 +545,88 @@ body {
     text-align: justify;
     width: 90%;
     left: 5%;
+    top: -10px;
+}
+
+/* Flashcard Settings */
+.flashcard-settings-overlay {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: #333333;
+    border: 5px solid #274b65;
+    padding: 1rem;
+    text-align: center;
+    width: 3rem;
+    height: 4rem;
+    z-index: 10;
+    position: absolute;
+    left: 62%;
+    top: 5.5vh;
+}
+.Flashcard_Settings_Bar {
+    position: absolute;
+    width: calc(100% - 40px);
+    left: 30px;
+    top: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-top: 5px solid rgba(58,109,112,1);
+    border-left: 5px solid rgba(58,109,112,1);
+    border-right: 5px solid rgba(58,109,112,1);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.Flashcard_Settings {
+    position: absolute;
+    right: 0%;
+    top: 20%;
+    height: 10px;
+    width: 25px;
+    background-color: transparent;
+    border: 5px solid transparent;
+    cursor: pointer;
+}
+
+/* Flashcard Position */
+.Flashcard_Pos_Body_Left {
+    background-color: transparent;
+    border: 2.5px solid transparent;
+    position: absolute;
+    left: -2px;
+    top: 20%;
+    padding: 6px 9px;
+    cursor: pointer;
+    transform: rotate(-90deg);
+}
+.Flashcard_Pos_Arrow_Left {
+    border: solid #bbb;
+    border-width: 0 3.5px 3.5px 0;
+    padding: 4.5px;
+    position: absolute;
+    left: 15%;
+    top: 25%;
+    cursor: pointer;
+    transform: rotate(-135deg);
+}
+.Flashcard_Pos_Body_Right {
+    background-color: transparent;
+    border: 2.5px solid transparent;
+    position: absolute;
+    left: 18px;
+    top: 20%;
+    padding: 6px 9px;
+    cursor: pointer;
+    transform: rotate(270deg);
+}
+.Flashcard_Pos_Arrow_Right {
+    border: solid #bbb;
+    border-width: 0 3.5px 3.5px 0;
+    padding: 4.5px;
+    position: absolute;
+    left: 15%;
+    bottom: 25%;
+    cursor: pointer;
+    transform: rotate(45deg);
 }
 
 /*  Open Flashcard */
@@ -581,10 +667,10 @@ body {
 /* New Flashcard Button*/
 .New_Flashcard_Circle {
     position: absolute;
-    top: calc(50% - 25% / 3 * 2);
+    top: calc(50% - 25% / 3 * 2 - 15px);
     left: calc(25% - 5px);
     width: 50%;
-    height: calc(50% / 3 * 2 - 5px);
+    height: calc(50% / 3 * 2);
     border: 5px solid rgba(58,109,112,1);
     border-radius: 50%;
     background-color: #274b65;

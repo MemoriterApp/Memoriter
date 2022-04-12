@@ -55,8 +55,9 @@ function TopicPage() {
                         ))}
                     </>
 
-                    <div className='Flashcard_Body' onClick={NewFlashcardClick}>
-                        <div className='Flashcard_Rechteck'>
+                    <div className='Flashcard_Body'>
+                        <div className='Flashcard_Settings_Bar' onClick={NewFlashcardClick}/>
+                        <div className='Flashcard_Rechteck' onClick={NewFlashcardClick}>
                             <div className='New_Flashcard_Circle'>
                                 <div className='New_Flashcard_Plus_h' />
                                 <div className='New_Flashcard_Plus_v' />
