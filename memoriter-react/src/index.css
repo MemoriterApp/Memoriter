@@ -560,7 +560,7 @@ body {
     position: absolute;
     left: 25px;
     top: 30px;
-    height: calc(100% - 50px);
+    height: calc(100% - 70px);
     width: calc(100% - 60px);
     border-bottom: 5px solid rgba(58,109,112,1);
     border-left: 5px solid rgba(58,109,112,1);
@@ -756,7 +756,7 @@ body {
     top: calc(50% - 25% / 3 * 2 - 15px);
     left: calc(25% - 5px);
     width: 50%;
-    height: calc(50% / 3 * 2 - 5px);
+    height: calc(50% / 3 * 2);
     border: 5px solid rgba(58,109,112,1);
     border-radius: 50%;
     background-color: #274b65;
