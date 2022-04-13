@@ -96,6 +96,9 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
             <div>
                 {modalIsOpen && <div className='Flashcard_Open_Body'>
+                    <div className='Close_Flashcard_Button' onClick={closeFlashcard}>
+                        <div className='Close_Flashcard_Arrow'/>
+                    </div>
                     <div className='Flashcard_Open_Settings' onClick={settingsHandlerOpen}>
                         <span className='big-dot'/>
                         <span className='big-dot'/>

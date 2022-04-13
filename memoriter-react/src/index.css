@@ -677,8 +677,8 @@ body {
 }
 .Flashcard_Open_Settings {
     position: absolute;
-    right: 5px;
-    top: 10px;
+    right: 8px;
+    top: 15px;
     height: 10px;
     width: 36px;
     background-color: transparent;
@@ -696,8 +696,28 @@ body {
     height: 4rem;
     z-index: 10;
     position: absolute;
-    right: 16px;
-    top: 16px;
+    right: 18px;
+    top: 20px;
+}
+.Close_Flashcard_Button {
+    background-color: transparent;
+    border: 2.5px solid transparent;
+    position: absolute;
+    left: -1px;
+    top: 9px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transform: rotate(270deg);
+}
+.Close_Flashcard_Arrow {
+    border: solid #bbb;
+    border-width: 6px 6px 0px 0px;
+    padding: 8px;
+    position: absolute;
+    left: 12.5%;
+    bottom: -30%;
+    cursor: pointer;
+    transform: rotate(-45deg);
 }
 
 /* New Flashcard Button*/
