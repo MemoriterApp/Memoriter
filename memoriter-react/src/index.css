@@ -134,7 +134,7 @@ body {
     padding: 11.5px;
 }
 
-/* bezieht sich auf die Drei Punkte (Button_Homepage_Settings) */
+/* bezieht sich auf die Drei Punkte (Button_Homepage_Settings), big-dot auf die Flashcard Settings */
 .dot {
     height: 6px;
     width: 6px;
@@ -143,6 +143,18 @@ body {
     display: inline-block;
     position: relative;
     margin: 1px;
+    left: 1px;
+    top: -5.5px;
+    cursor: pointer;
+}
+.big-dot {
+    height: 8px;
+    width: 8px;
+    background-color: #bbb;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    margin: 2px;
     left: 1px;
     top: -5.5px;
     cursor: pointer;
@@ -560,7 +572,7 @@ body {
     height: 4rem;
     z-index: 10;
     position: absolute;
-    left: 62%;
+    left: 62.8%;
     top: 5.5vh;
 }
 .Flashcard_Settings_Bar {
@@ -662,6 +674,30 @@ body {
     width: 90%;
     min-height: 60vh;
     left: 5%;
+}
+.Flashcard_Open_Settings {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    height: 10px;
+    width: 36px;
+    background-color: transparent;
+    border: 5px solid transparent;
+    cursor: pointer;
+}
+.flashcard-open-settings-overlay {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: #333333;
+    border: 5px solid #274b65;
+    padding: 1rem;
+    text-align: center;
+    width: 3rem;
+    height: 4rem;
+    z-index: 10;
+    position: absolute;
+    right: 16px;
+    top: 16px;
 }
 
 /* New Flashcard Button*/

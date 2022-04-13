@@ -46,6 +46,12 @@ function TopicPage() {
         setModalIsOpenA(false)
     }
 
+//Edit Flashcard
+    const editFlashcard = (id, title, content) => {
+        setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+        ? { ...flashcard, title: title, content: content } : flashcard))
+    }
+
 //Delete Flashcard
     const deleteFlashcard = (id, pos) => {
         setFlashcards((flashcards) =>
@@ -75,7 +81,8 @@ function TopicPage() {
                     <>
                         {flashcards.map((flashcard) => (
                         <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length}
-                        onPosLeft={posLeft} onPosRight={posRight} onDeleteFlashcard={deleteFlashcard} />
+                        onPosLeft={posLeft} onPosRight={posRight}
+                        onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard} />
                         ))}
                     </>
 
