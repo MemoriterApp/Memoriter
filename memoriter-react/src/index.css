@@ -518,6 +518,16 @@ body {
 
 
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
+.Flashcard_Base {
+    height: calc(100% - 62px);
+    width: calc(100% - 85px);
+    margin: auto;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: transparent;
+    overflow: auto;
+}
 .Zurückbutton_Body {
     background-color: transparent;
     border: 2.5px solid transparent;
@@ -540,17 +550,18 @@ body {
 }
 .Flashcard_Body {
     position: relative;
+    width: 240px;
     top: 20px;
-    width: 268px;
-    height: calc(268px * 1.5 - 20px);
+    height: calc(240px * 1.5 - 20px);
     display: inline-block;
+    background-color: transparent;
 }
 .Flashcard_Rechteck {
     position: absolute;
-    left: 30px;
-    top: 60px;
+    left: 25px;
+    top: 30px;
     height: calc(100% - 50px);
-    width: calc(100% - 40px);
+    width: calc(100% - 60px);
     border-bottom: 5px solid rgba(58,109,112,1);
     border-left: 5px solid rgba(58,109,112,1);
     border-right: 5px solid rgba(58,109,112,1);
@@ -592,14 +603,13 @@ body {
     height: 4rem;
     z-index: 10;
     position: absolute;
-    left: 62.8%;
-    top: 5.5vh;
+    left: 45%;
+    top: 3vh;
 }
 .Flashcard_Settings_Bar {
     position: absolute;
-    width: calc(100% - 40px);
-    left: 30px;
-    top: 30px;
+    width: calc(100% - 60px);
+    left: 25px;
     height: 30px;
     background-color: transparent;
     border-top: 5px solid rgba(58,109,112,1);
@@ -610,7 +620,7 @@ body {
 }
 .Flashcard_Settings {
     position: absolute;
-    right: 0%;
+    right: 5%;
     top: 20%;
     height: 10px;
     width: 25px;
@@ -746,7 +756,7 @@ body {
     top: calc(50% - 25% / 3 * 2 - 15px);
     left: calc(25% - 5px);
     width: 50%;
-    height: calc(50% / 3 * 2);
+    height: calc(50% / 3 * 2 - 5px);
     border: 5px solid rgba(58,109,112,1);
     border-radius: 50%;
     background-color: #274b65;

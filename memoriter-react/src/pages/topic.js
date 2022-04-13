@@ -67,19 +67,15 @@ function TopicPage() {
     return (
         <>
             <header>
-                <h1 className="page_title">Topic</h1>
+                <h1 className="page_title">--Folder Name--</h1>
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo"></img>
                 </Link>
             </header>
 
             <div className="rechteck">
-                <h2 className="File-Overview">--Folder Name hier Einfügen--</h2>
-                <BackButton />
-                <SettingsIcon />
-                <div className="main-seperator"></div>
-
-                <div className='Folder_Base'>
+                <div className='main-seperator' />
+                <div className='Flashcard_Base'>
                     <>
                         {flashcards.map((flashcard) => (
                         <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length}
@@ -105,6 +101,8 @@ function TopicPage() {
                         {modalIsOpenA && <Backdrop/>}
                     </div>
                 </div>
+                <BackButton />
+                <SettingsIcon />
             </div>
 
             <footer>
