@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Logo from './Logo.png';
+import BackButton from '../components/BackButton';
 import SettingsIcon from '../components/SettingsIcon';
 import Footer from '../components/Footer';
 import Flashcard from '../components/Flashcard';
@@ -74,6 +75,7 @@ function TopicPage() {
 
             <div className="rechteck">
                 <h2 className="File-Overview">--Folder Name hier Einfügen--</h2>
+                <BackButton />
                 <SettingsIcon />
                 <div className="main-seperator"></div>
 

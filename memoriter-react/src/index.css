@@ -518,6 +518,26 @@ body {
 
 
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
+.Zurückbutton_Body {
+    background-color: transparent;
+    border: 2.5px solid transparent;
+    position: absolute;
+    left: -1px;
+    top: 9px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transform: rotate(270deg);
+}
+.Zurückbutton_Arrow {
+    border: solid rgba(112, 112, 112, 1);
+    border-width:6px 6px 0px 0px;
+    padding: 8px;
+    position: absolute;
+    left: 12.5%;
+    bottom: -30%;
+    cursor: pointer;
+    transform: rotate(-45deg);
+}
 .Flashcard_Body {
     position: relative;
     top: 20px;
