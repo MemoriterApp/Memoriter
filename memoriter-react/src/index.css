@@ -749,6 +749,30 @@ body {
     cursor: pointer;
     transform: rotate(-45deg);
 }
+.Next_Flashcard {
+    position: fixed;
+    bottom: 5vh;
+    right: calc(50% - 46vh / 3 * 2 - 80px);
+    width: 0;
+	height: 0;
+	border-top: 40px solid transparent;
+	border-left: 60px solid rgba(112, 112, 112, 1);
+	border-bottom: 40px solid transparent;
+    z-index: 10;
+    cursor: pointer;
+}
+.Prev_Flashcard {
+    position: fixed;
+    bottom: 5vh;
+    left: calc(50% - 46vh / 3 * 2 - 70px);
+    width: 0;
+	height: 0;
+	border-top: 40px solid transparent;
+	border-right: 60px solid rgba(112, 112, 112, 1);
+	border-bottom: 40px solid transparent;
+    z-index: 10;
+    cursor: pointer;
+}
 
 /* New Flashcard Button*/
 .New_Flashcard_Circle {

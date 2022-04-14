@@ -95,39 +95,43 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             </div>
 
             <div>
-                {modalIsOpen && <div className='Flashcard_Open_Body'>
-                    <div className='Close_Flashcard_Button' onClick={closeFlashcard}>
-                        <div className='Close_Flashcard_Arrow'/>
-                    </div>
-                    <div className='Flashcard_Open_Settings' onClick={settingsHandlerOpen}>
-                        <span className='big-dot'/>
-                        <span className='big-dot'/>
-                        <span className='big-dot'/>
-                    </div>
-                    <p style={{fontSize: '40px'}} />
-                    <h2 className='Flashcard_Open_Title'>{flashcard.title}</h2>
-                    <p style={{fontSize: '40px'}} />
-                    <p className='Flashcard_Open_Content'>{flashcard.content}</p>
-                    <div>
-                        {modalIsOpenSO && <div className='flashcard-open-settings-overlay'>
-                            <div className='folder-settings-sub'>
-                                <p onClick={editOpenFlashcardReq}>Edit</p>
-                                <p onClick={deleteFlashcardReq}>Delete</p>
-                            </div>
-
-                            <div  onClick={backdropClickD}>
-                                {modalIsOpenD && <Backdrop/>}
-                            </div>
-
-                            <div onClick={backdropClickE}>
-                                {modalIsOpenEbackdropfs && <Backdropfs/>}
-                            </div>
-                        </div>}
-
-                        <div onClick={backdropClickOpen}>
-                            {modalIsOpenSO && <Backdropfs/>}
+                {modalIsOpen && <div>
+                    <div className='Next_Flashcard' onClick={() => console.log(flashcard.pos)} />
+                    <div className='Prev_Flashcard' onClick={() => console.log(flashcard.pos)} />
+                    <div className='Flashcard_Open_Body'>
+                        <div className='Close_Flashcard_Button' onClick={closeFlashcard}>
+                            <div className='Close_Flashcard_Arrow'/>
                         </div>
+                        <div className='Flashcard_Open_Settings' onClick={settingsHandlerOpen}>
+                            <span className='big-dot'/>
+                            <span className='big-dot'/>
+                            <span className='big-dot'/>
+                        </div>
+                        <p style={{fontSize: '40px'}} />
+                        <h2 className='Flashcard_Open_Title'>{flashcard.title}</h2>
+                        <p style={{fontSize: '40px'}} />
+                        <p className='Flashcard_Open_Content'>{flashcard.content}</p>
+                        <div>
+                            {modalIsOpenSO && <div className='flashcard-open-settings-overlay'>
+                                <div className='folder-settings-sub'>
+                                    <p onClick={editOpenFlashcardReq}>Edit</p>
+                                    <p onClick={deleteFlashcardReq}>Delete</p>
+                                </div>
 
+                                <div  onClick={backdropClickD}>
+                                    {modalIsOpenD && <Backdrop/>}
+                                </div>
+
+                                <div onClick={backdropClickE}>
+                                    {modalIsOpenEbackdropfs && <Backdropfs/>}
+                                </div>
+                            </div>}
+
+                            <div onClick={backdropClickOpen}>
+                                {modalIsOpenSO && <Backdropfs/>}
+                            </div>
+
+                        </div>
                     </div>
                 </div>}
             </div>
