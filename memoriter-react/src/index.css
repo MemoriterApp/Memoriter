@@ -579,6 +579,7 @@ body {
     padding-left: 5%;
     position: relative;
     top: -10px;
+    white-space: pre-line;
 }
 .Flashcard_Content {
     position: relative;
@@ -589,6 +590,7 @@ body {
     width: 90%;
     left: 5%;
     top: -10px;
+    white-space: pre-line;
 }
 
 /* Flashcard Settings */
@@ -694,6 +696,7 @@ body {
     font-size: 28px;
     width: 90%;
     padding-left: 5%;
+    white-space: pre-line;
 }
 .Flashcard_Open_Content {
     position: relative;
@@ -704,6 +707,7 @@ body {
     width: 90%;
     min-height: 60vh;
     left: 5%;
+    white-space: pre-line;
 }
 .Flashcard_Open_Settings {
     position: absolute;
