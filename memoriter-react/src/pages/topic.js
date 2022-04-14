@@ -21,7 +21,26 @@ function TopicPage() {
     }
 
 //Flashcard Data
-    const [ flashcards, setFlashcards ] = useState([ ])
+    const [ flashcards, setFlashcards ] = useState([
+        {
+            id: 838,
+            pos: 1,
+            title: 'Was ist eine Revolution?',
+            content: 'Schneller radikaler gesellschaftlicher oder politischer Umbruch, bei dem durch bspw. Rebellion eine gesellschaftlich Struktur mehr Freiheit oder Gerechtigkeit erreicht werden soll, wobei die Revolution nicht von den herrschenden durchgeführt werden wird.'
+        },
+        {
+            id: 463,
+            pos: 2,
+            title: 'Stamp Act???',
+            content: '...'
+        },
+        {
+            id: 674,
+            pos: 3,
+            title: 'Wann war die Unabhängigkeit?',
+            content: '1776'
+        },
+    ])
 
 //Flashcard Position
     flashcards.sort(function(a, b){return a.pos - b.pos})
