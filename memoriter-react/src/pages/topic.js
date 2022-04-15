@@ -42,6 +42,29 @@ function TopicPage() {
         },
     ])
 
+//Open Flashcard
+    const [ openFlashcard, setOpenFlashcard ] = useState()
+
+    const openFlashcardReq = (pos) => {
+        setOpenFlashcard(pos)
+    }
+
+    const closeFlashcardReq = () => {
+        setOpenFlashcard(undefined)
+    }
+
+    const nextFlashcard = (pos) => {
+        if (pos < flashcards.length) {
+            setOpenFlashcard(pos + 1)
+        }
+    }
+
+    const prevFlashcard = (pos) => {
+        if (pos > 1) {
+            setOpenFlashcard(pos - 1)
+        }
+    }
+
 //Flashcard Position
     flashcards.sort(function(a, b){return a.pos - b.pos})
     
@@ -49,13 +72,13 @@ function TopicPage() {
         setFlashcards(flashcards.map((flashcard) => flashcard.id === id
         ? { ...flashcard, pos: (flashcard.pos - 1) } : flashcard.pos === (pos - 1)
         ? { ...flashcard, pos: (flashcard.pos + 1) } : flashcard ))
-      }
+    }
     
-      const posRight = (id, pos) => {
+    const posRight = (id, pos) => {
         setFlashcards(flashcards.map((flashcard) => flashcard.id === id
         ? { ...flashcard, pos: (flashcard.pos + 1) } : flashcard.pos === (pos + 1)
         ? { ...flashcard, pos: (flashcard.pos - 1) } : flashcard ))
-      }
+    }
 
 //Add Flashcard
     const addFlashcard = (flashcard) => {
@@ -97,9 +120,11 @@ function TopicPage() {
                 <div className='Flashcard_Base'>
                     <>
                         {flashcards.map((flashcard) => (
-                        <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length}
+                        <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                         onPosLeft={posLeft} onPosRight={posRight}
-                        onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard} />
+                        onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                        onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                        onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard} />
                         ))}
                     </>
 

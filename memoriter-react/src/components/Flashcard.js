@@ -3,16 +3,27 @@ import { useState } from 'react';
 import Backdrop from './backdrop';
 import Backdropfs from './backdropfs';
 
-const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard }) => {
+const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
+    onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView }) => {
 
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
     function openFlashcard() {
-        setModalIsOpen(true);
+        onOpenFlashcard(flashcard.pos);
     }
 
     function closeFlashcard() {
-        setModalIsOpen(false);
+        onCloseFlashcard();
+    }
+
+    if (openFlashcardView === flashcard.pos) {
+        if (modalIsOpen === false) {
+            setModalIsOpen(true)
+        }
+    } else {
+        if (modalIsOpen === true) {
+            setModalIsOpen(false)
+        }
     }
 
     const [modalIsOpenSO, setModalIsOpenSO ] = useState(false);
@@ -96,8 +107,8 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
             <div>
                 {modalIsOpen && <div>
-                    <div className='Next_Flashcard' onClick={() => console.log(flashcard.pos)} />
-                    <div className='Prev_Flashcard' onClick={() => console.log(flashcard.pos)} />
+                    <div className='Next_Flashcard' onClick={() => onNextFlashcard(flashcard.pos)} />
+                    <div className='Prev_Flashcard' onClick={() => onPrevFlashcard(flashcard.pos)} />
                     <div className='Flashcard_Open_Body'>
                         <div className='Close_Flashcard_Button' onClick={closeFlashcard}>
                             <div className='Close_Flashcard_Arrow'/>
