@@ -108,12 +108,15 @@ body {
     position: absolute;
     bottom: 16px;
     left: 40px;
+    max-width: calc(100% - 120px);
     color: white;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: transparent;
     border: 1px transparent;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .Button_Homepage_Settings {
     position: absolute;
@@ -580,6 +583,8 @@ body {
     position: relative;
     top: -10px;
     white-space: pre-line;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 .Flashcard_Content {
     position: relative;
@@ -590,7 +595,10 @@ body {
     width: 90%;
     left: 5%;
     top: -10px;
+    overflow: hidden;
     white-space: pre-line;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 /* Flashcard Settings */
@@ -697,6 +705,8 @@ body {
     width: 90%;
     padding-left: 5%;
     white-space: pre-line;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 .Flashcard_Open_Content {
     position: relative;
@@ -708,6 +718,8 @@ body {
     min-height: 60vh;
     left: 5%;
     white-space: pre-line;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 .Flashcard_Open_Settings {
     position: absolute;
