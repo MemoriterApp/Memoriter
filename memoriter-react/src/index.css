@@ -572,6 +572,19 @@ body {
     overflow: hidden;
     cursor: pointer;
 }
+.Flashcard_Rechteck::after {
+    position: absolute;
+    bottom: 0;  
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(to top,
+     #353535 5px,
+     rgba(255,255,255, 0) 25%
+    );
+    pointer-events: none;
+}
+
 .Flashcard_Title {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -599,6 +612,7 @@ body {
     white-space: pre-line;
     word-wrap: break-word;
     hyphens: auto;
+    line-height: 120%;
 }
 
 /* Flashcard Settings */
@@ -720,6 +734,7 @@ body {
     white-space: pre-line;
     word-wrap: break-word;
     hyphens: auto;
+    line-height: 125%;
 }
 .Flashcard_Open_Settings {
     position: absolute;

@@ -26,7 +26,7 @@ function TopicPage() {
             id: 838,
             pos: 1,
             title: 'Was ist eine Revolution?',
-            content: 'Schneller radikaler gesellschaftlicher oder politischer Umbruch, bei dem durch bspw. Rebellion eine gesellschaftlich Struktur mehr Freiheit oder Gerechtigkeit erreicht werden soll, wobei die Revolution nicht von den herrschenden durchgeführt werden wird.'
+            content: 'Schneller radikaler gesellschaftlicher oder politischer Umbruch, bei dem durch bspw. Rebellion eine gesellschaftliche Struktur mehr Freiheit oder Gerechtigkeit erreicht werden soll, wobei die Revolution nicht von den herrschenden durchgeführt werden wird.'
         },
         {
             id: 463,
