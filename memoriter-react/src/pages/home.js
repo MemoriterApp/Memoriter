@@ -5,6 +5,7 @@ import FolderHome from '../components/FolderHome';
 import AddFolderForm from '../components/AddFolderForm';
 import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
+import { firebase } from '../utils/firebase'
 
 function HomePage() {
 
@@ -16,6 +17,7 @@ function HomePage() {
   function backdropClick() {
       setModalIsOpen(false);
   }
+
 
 // Folder Data
   const [ folders, setFolders ] = useState([ ])
@@ -45,8 +47,14 @@ function HomePage() {
 }
 
 //Delete Folder
-  const deleteFolder = (id) => {
-    setFolders(folders.filter((folder) => folder.id !== id))
+  const deleteFolder = (id, pos) => {
+    setFolders((folders) =>
+      folders
+        .map((folder) =>
+          folder.pos > pos ? { ...folder, pos: folder.pos - 1 } : folder
+        )
+        .filter((folder) => folder.id !== id)
+    )
   }
 
 //Edit Folder
@@ -71,7 +79,8 @@ function HomePage() {
               <>
                 {folders.map((folder) => (
                   <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
-                    onDeleteFolder={deleteFolder} onEditFolder={editFolder} onPosUp={posUp} onPosDown={posDown}/>
+                    onDeleteFolder={deleteFolder} onEditFolder={editFolder}
+                    onPosUp={posUp} onPosDown={posDown} />
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}

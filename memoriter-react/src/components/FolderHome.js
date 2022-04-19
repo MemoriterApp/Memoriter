@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount }) => {
+const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount, folders }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -53,7 +53,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                     <button className='Button_Homepage_Text'>New Folder</button>
                 )}
             </Link>
-
+            
             <div className='Folder_Pos_Body_Up' onClick={
                 () => { if (pos > 1) {setPos(pos - 1); onPosUp(folder.id, pos);} }
             }>
@@ -93,11 +93,13 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
             </div>
 
             <div>
-                {modalIsOpenD && <form className='Delete_Folder_Confirm'>
+                {modalIsOpenD && <div className='Delete_Folder_Confirm'>
                     <h2 className='Add_folder_Form_Header'>Do you really want to delete this folder?</h2>
-                    <input className='Delete_Folder_Confirm_Yes 'type='submit' value='Yes' onClick={() => onDeleteFolder(folder.id)} />
-                    <input className='Delete_Folder_Confirm_No' type='submit' value='No' onClick={backdropClickD} />
-                 </form>}
+                    <button className='Delete_Folder_Confirm_Yes' onClick={
+                        () => onDeleteFolder(folder.id, folder.pos)
+                    }>Yes</button>
+                    <button className='Delete_Folder_Confirm_No' onClick={backdropClickD}>No</button>
+                 </div>}
             </div>
 
             <div  onClick={backdropClickE}>
