@@ -1,5 +1,5 @@
 body {
-    background-color:#353535
+    background-color:#353535;
 }
 
 /* Custom Scrollbar */
@@ -108,12 +108,15 @@ body {
     position: absolute;
     bottom: 16px;
     left: 40px;
+    max-width: calc(100% - 120px);
     color: white;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: transparent;
     border: 1px transparent;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .Button_Homepage_Settings {
     position: absolute;
@@ -134,7 +137,7 @@ body {
     padding: 11.5px;
 }
 
-/* bezieht sich auf die Drei Punkte (Button_Homepage_Settings) */
+/* bezieht sich auf die Drei Punkte (Button_Homepage_Settings), big-dot auf die Flashcard Settings */
 .dot {
     height: 6px;
     width: 6px;
@@ -143,6 +146,18 @@ body {
     display: inline-block;
     position: relative;
     margin: 1px;
+    left: 1px;
+    top: -5.5px;
+    cursor: pointer;
+}
+.big-dot {
+    height: 8px;
+    width: 8px;
+    background-color: #bbb;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    margin: 2px;
     left: 1px;
     top: -5.5px;
     cursor: pointer;
@@ -254,8 +269,7 @@ body {
     min-width: 240px;
     min-height: 220px;
     z-index: 10;
-    border-radius: 6px;
-    
+    border-radius: 6px;  
 }
 .Add_Folder_Form_Header {
     font-size: 24px;
@@ -501,4 +515,372 @@ body {
     height: 100vh;
     top: 0;
     left: 0;
+}
+
+
+
+
+/* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
+.Flashcard_Base {
+    height: calc(100% - 62px);
+    width: calc(100% - 85px);
+    margin: auto;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: transparent;
+    overflow: auto;
+}
+.Zurückbutton_Body {
+    background-color: transparent;
+    border: 2.5px solid transparent;
+    position: absolute;
+    left: -1px;
+    top: 9px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transform: rotate(270deg);
+}
+.Zurückbutton_Arrow {
+    border: solid rgba(112, 112, 112, 1);
+    border-width:6px 6px 0px 0px;
+    padding: 8px;
+    position: absolute;
+    left: 12.5%;
+    bottom: -30%;
+    cursor: pointer;
+    transform: rotate(-45deg);
+}
+.Flashcard_Body {
+    position: relative;
+    width: 240px;
+    top: 20px;
+    height: calc(240px * 1.5 - 20px);
+    display: inline-block;
+    background-color: transparent;
+}
+.Flashcard_Rechteck {
+    position: absolute;
+    left: 25px;
+    top: 30px;
+    height: calc(100% - 70px);
+    width: calc(100% - 60px);
+    border-bottom: 5px solid rgba(58,109,112,1);
+    border-left: 5px solid rgba(58,109,112,1);
+    border-right: 5px solid rgba(58,109,112,1);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.Flashcard_Rechteck::after {
+    position: absolute;
+    bottom: 0;  
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(to top,
+     #353535 5px,
+     rgba(255,255,255, 0) 25%
+    );
+    pointer-events: none;
+}
+
+.Flashcard_Title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    width: 90%;
+    padding-left: 5%;
+    position: relative;
+    top: -10px;
+    white-space: pre-line;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+.Flashcard_Content {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 16px;
+    text-align: justify;
+    width: 90%;
+    left: 5%;
+    top: -10px;
+    overflow: hidden;
+    white-space: pre-line;
+    word-wrap: break-word;
+    hyphens: auto;
+    line-height: 120%;
+}
+
+/* Flashcard Settings */
+.flashcard-settings-overlay {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: #333333;
+    border: 5px solid #274b65;
+    padding: 1rem;
+    text-align: center;
+    width: 3rem;
+    height: 4rem;
+    z-index: 10;
+    position: absolute;
+    left: 45%;
+    top: 3vh;
+}
+.Flashcard_Settings_Bar {
+    position: absolute;
+    width: calc(100% - 60px);
+    left: 25px;
+    height: 30px;
+    background-color: transparent;
+    border-top: 5px solid rgba(58,109,112,1);
+    border-left: 5px solid rgba(58,109,112,1);
+    border-right: 5px solid rgba(58,109,112,1);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.Flashcard_Settings {
+    position: absolute;
+    right: 2%;
+    top: 20%;
+    height: 10px;
+    width: 25px;
+    background-color: transparent;
+    border: 5px solid transparent;
+    cursor: pointer;
+}
+
+/* Flashcard Position */
+.Flashcard_Pos_Body_Left {
+    background-color: transparent;
+    border: 2.5px solid transparent;
+    position: absolute;
+    left: -2px;
+    top: 20%;
+    padding: 6px 9px;
+    cursor: pointer;
+    transform: rotate(-90deg);
+}
+.Flashcard_Pos_Arrow_Left {
+    border: solid #bbb;
+    border-width: 0 3.5px 3.5px 0;
+    padding: 4.5px;
+    position: absolute;
+    left: 15%;
+    top: 25%;
+    cursor: pointer;
+    transform: rotate(-135deg);
+}
+.Flashcard_Pos_Body_Right {
+    background-color: transparent;
+    border: 2.5px solid transparent;
+    position: absolute;
+    left: 18px;
+    top: 20%;
+    padding: 6px 9px;
+    cursor: pointer;
+    transform: rotate(270deg);
+}
+.Flashcard_Pos_Arrow_Right {
+    border: solid #bbb;
+    border-width: 0 3.5px 3.5px 0;
+    padding: 4.5px;
+    position: absolute;
+    left: 15%;
+    bottom: 25%;
+    cursor: pointer;
+    transform: rotate(45deg);
+}
+
+/*  Open Flashcard */
+.Flashcard_Open_Body {
+    position: fixed;
+    top: 3vh;
+    left: calc(50% - 46vh / 3 * 2);
+    height: 92vh;
+    width: calc(92vh / 3 * 2);
+    background-color: #353535;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border: 5px solid rgba(39,75,101,1);
+    border-radius: 3px;
+    z-index: 10;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.Flashcard_Open_Title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    width: 90%;
+    padding-left: 5%;
+    white-space: pre-line;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+.Flashcard_Open_Content {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 20px;
+    text-align: justify;
+    width: 90%;
+    min-height: 60vh;
+    left: 5%;
+    white-space: pre-line;
+    word-wrap: break-word;
+    hyphens: auto;
+    line-height: 125%;
+}
+.Flashcard_Open_Settings {
+    position: absolute;
+    right: 8px;
+    top: 15px;
+    height: 10px;
+    width: 36px;
+    background-color: transparent;
+    border: 5px solid transparent;
+    cursor: pointer;
+}
+.flashcard-open-settings-overlay {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: #333333;
+    border: 5px solid #274b65;
+    padding: 1rem;
+    text-align: center;
+    width: 3rem;
+    height: 4rem;
+    z-index: 10;
+    position: absolute;
+    right: 18px;
+    top: 20px;
+}
+.Close_Flashcard_Button {
+    background-color: transparent;
+    border: 2.5px solid transparent;
+    position: absolute;
+    left: -1px;
+    top: 9px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transform: rotate(270deg);
+}
+.Close_Flashcard_Arrow {
+    border: solid #bbb;
+    border-width: 6px 6px 0px 0px;
+    padding: 8px;
+    position: absolute;
+    left: 12.5%;
+    bottom: -30%;
+    cursor: pointer;
+    transform: rotate(-45deg);
+}
+.Next_Flashcard {
+    position: fixed;
+    bottom: 5vh;
+    right: calc(50% - 46vh / 3 * 2 - 80px);
+    width: 0;
+	height: 0;
+	border-top: 40px solid transparent;
+	border-left: 60px solid rgba(112, 112, 112, 1);
+	border-bottom: 40px solid transparent;
+    z-index: 10;
+    cursor: pointer;
+}
+.Prev_Flashcard {
+    position: fixed;
+    bottom: 5vh;
+    left: calc(50% - 46vh / 3 * 2 - 70px);
+    width: 0;
+	height: 0;
+	border-top: 40px solid transparent;
+	border-right: 60px solid rgba(112, 112, 112, 1);
+	border-bottom: 40px solid transparent;
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* New Flashcard Button*/
+.New_Flashcard_Circle {
+    position: absolute;
+    top: calc(50% - 25% / 3 * 2 - 15px);
+    left: calc(25% - 5px);
+    width: 50%;
+    height: calc(50% / 3 * 2);
+    border: 5px solid rgba(58,109,112,1);
+    border-radius: 50%;
+    background-color: #274b65;
+}
+.New_Flashcard_Plus_h {
+    position: absolute;
+    top: calc(50% - 2.5px);
+    left: 15%;
+    width: 70%;
+    border-top: 5px solid rgba(112,112,112,1);
+}
+.New_Flashcard_Plus_v {
+    position: absolute;
+    top: 15%;
+    left: calc(50% - 2.5px);
+    height: 70%;
+    border-left: 5px solid rgba(112,112,112,1);
+}
+
+/* New Flashcard Form */
+.Add_Flashcard_Form_Submit {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    border: 5px solid rgba(58,109,112,1);
+    padding: 5px;
+    width: calc(100% - 20px);
+    color: white;
+    background-color: #353535;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.Add_Flashcard_Form_Header {
+    font-size: 24px;
+    font-family: Arial,  Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+}
+.Add_Flashcard_Form_Title {
+    position: relative;
+    left: 10px;
+    width: calc(100% - 34px);
+    color: white;
+    text-align: center;
+    background-color: #353535;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 5px;
+    outline: none;
+    resize: none;
+    border: 2px solid rgba(112, 112 ,112 ,1);
+    border-radius: 3px;
+}
+.Add_Flashcard_Form_Content {
+    position: relative;
+    left: 10px;
+    height: 57vh;
+    width: calc(100% - 34px);
+    color: white;
+    text-align: justify;
+    background-color: #353535;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 5px 5px;
+    outline: none;
+    resize: none;
+    border: 2px solid rgba(112, 112 ,112 ,1);
+    border-radius: 3px;
 }

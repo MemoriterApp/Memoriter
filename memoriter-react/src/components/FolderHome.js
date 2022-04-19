@@ -75,7 +75,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                     <div className='folder-settings-sub'>
                         <p onClick={editFolderReq}>Edit</p>
                         <p onClick={deleteFolderReq}>Delete</p>
-            </div>
+                    </div>
 
             <div>
                 {modalIsOpenE && <form className='Add_Folder_Form_Body'>
