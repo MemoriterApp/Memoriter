@@ -21,6 +21,7 @@ const AddFolderForm = ({ onAddFolder }) => {
             </div>
             <p style={{fontSize: '25px'}} />
             <input className='Add_Folder_Form_Submit' type='submit' value='Done' />
+            <p style={{fontSize: '10px'}} />
         </form>
     );
 }
