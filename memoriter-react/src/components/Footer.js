@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import instagramIcon from './instagramIcon.png'
-import Logo from './Logo.png'
+import instagramIcon from './instagramIcon.png';
+import Logo from './Logo.png';
 
 
 const Footer = () => {
