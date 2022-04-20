@@ -1,6 +1,5 @@
 body {
     background-color:#353535;
-    overflow: hidden;
 }
 
 /* Custom Scrollbar */
@@ -110,7 +109,7 @@ body {
 }
 .Button_Homepage_Text {
     position: absolute;
-    bottom: 16px;
+    bottom: 32%;
     left: 40px;
     max-width: calc(100% - 120px);
     color: white;
@@ -234,7 +233,7 @@ body {
 }
 .New_Folder_Text {
     position: absolute;
-    bottom: 6px;
+    bottom: 11.625%;
     left: 40px;
     color: white;
     font-size: 20px;
