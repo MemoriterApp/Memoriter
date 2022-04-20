@@ -190,7 +190,9 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                     <input className='Delete_Folder_Confirm_Yes 'type='submit' value='Yes' onClick={
                         () => onDeleteFlashcard(flashcard.id, flashcard.pos)
                     }/>
+                    <div style={{display: 'inline', color: 'transparent', cursor: 'default'}}>====</div>
                     <input className='Delete_Folder_Confirm_No' type='submit' value='No' onClick={backdropClickD} />
+                    <p style={{fontSize: '10px'}} />
                  </form>}
             </div>
 
