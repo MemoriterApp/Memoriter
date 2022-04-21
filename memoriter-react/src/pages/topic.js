@@ -89,7 +89,7 @@ function TopicPage() {
 
     return (
         <>
-            <header>
+            <header className='Page_Header'>
                 <h1 className="page_title">--Folder Name--</h1>
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo"></img>
