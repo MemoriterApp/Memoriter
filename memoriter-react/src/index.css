@@ -40,7 +40,7 @@ body {
     top: 80px;
     left: 4.5%;
     border-radius: 3px;
-    min-height: 254px;
+    min-height: 152px;
 }
 .main-seperator {
     position: absolute;
@@ -364,6 +364,11 @@ body {
     height: 38px;
     background-color: #353535;
     text-align: center;
+    overflow: auto;
+}
+.Footer_Body::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
 }
 .MEMORITER {
     position: absolute;
@@ -412,6 +417,7 @@ body {
     bottom: 50%;
     left: 50%;
     transform: translate(-50%, 50%);
+    line-height: 18px;
 }
 .termsOfUse {
     color: rgba(39,75,101,1);

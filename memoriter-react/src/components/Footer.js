@@ -16,7 +16,6 @@ const Footer = () => {
                     <img className='instaIcon' src={instagramIcon} alt='instagram'></img>
                 </a>
             </div>
-            <div className='footerLine'></div>
             <div className='footerLinks'>
                 <Link className='termsOfUse' to='/terms-of-use'>Terms of Use</Link>
                 <div
