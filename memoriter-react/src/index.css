@@ -471,16 +471,18 @@ body {
     border-radius: 6px;
     background-color: #343434;
     border: 5px solid #274b65;
-    padding: 2rem;
     text-align: center;
-    width: 10rem;
-    height: 14rem;
+    width: 210px;
+    height: 290px;
+    max-width: calc(100% - 30px);
+    max-height: calc(100% - 30px);
     z-index: 10;
-    position: relative;
-    left: 85%;
-    top: -3vh;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
-
 .backdrop {
     position: fixed;
     z-index: 1;
@@ -494,18 +496,22 @@ body {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    top: -5vh;
-    padding: 1vh;
+    word-wrap: break-word;
+    hyphens: manual;
 }
 .settings-sub {
     color: rgba(58,109,112,1);
+    width: fit-content;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     cursor: pointer;
-    width: 100%;
-    top: -25%;
+    padding-left: 10px;
+    padding-right: 10px;
     font-weight: bold;
     text-align: left;
+    max-width: 100%;
+    word-wrap: break-word;
+    hyphens: manual;
 }
 
 /* Nachfolgender Code bezieht sich auf das Settingsoverlay der Folder */
