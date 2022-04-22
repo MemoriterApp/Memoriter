@@ -89,6 +89,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                         <p style={{fontSize: '25px'}} />
                         <input className='Add_Folder_Form_Submit' type='button' value='Done' onClick={
                             () => { onEditFolder(folder.id, name); setModalIsOpenE(false); setModalIsOpen(false); }} />
+                        <p style={{fontSize: '10px'}} />
                 </form>}
             </div>
 
@@ -98,7 +99,9 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                     <button className='Delete_Folder_Confirm_Yes' onClick={
                         () => onDeleteFolder(folder.id, folder.pos)
                     }>Yes</button>
+                    <div style={{display: 'inline', color: 'transparent', cursor: 'default'}}>====</div>
                     <button className='Delete_Folder_Confirm_No' onClick={backdropClickD}>No</button>
+                    <p style={{fontSize: '10px'}} />
                  </div>}
             </div>
 

@@ -65,9 +65,9 @@ function HomePage() {
 
   return (
     <>
-      <header>
+      <header className='Page_Header'>
         <h1 className="page_title">Home</h1>
-        <img className="Logo-oben" src={Logo} alt="site-logo"></img>
+        <img className="Logo-oben" src={Logo} alt="site-logo" />
       </header>
       <div className="rechteck">
         <h2 className="File-Overview">File Overview</h2>

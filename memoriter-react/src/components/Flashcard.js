@@ -107,8 +107,10 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
             <div>
                 {modalIsOpen && <div>
-                    <div className='Next_Flashcard' onClick={() => onNextFlashcard(flashcard.pos)} />
-                    <div className='Prev_Flashcard' onClick={() => onPrevFlashcard(flashcard.pos)} />
+                    <div className='Flashcard_Switch_Arrows'>
+                            <div className='Next_Flashcard' onClick={() => onNextFlashcard(flashcard.pos)} />
+                            <div className='Prev_Flashcard' onClick={() => onPrevFlashcard(flashcard.pos)} />
+                        </div>
                     <div className='Flashcard_Open_Body'>
                         <div className='Close_Flashcard_Button' onClick={closeFlashcard}>
                             <div className='Close_Flashcard_Arrow'/>
@@ -190,7 +192,9 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                     <input className='Delete_Folder_Confirm_Yes 'type='submit' value='Yes' onClick={
                         () => onDeleteFlashcard(flashcard.id, flashcard.pos)
                     }/>
+                    <div style={{display: 'inline', color: 'transparent', cursor: 'default'}}>====</div>
                     <input className='Delete_Folder_Confirm_No' type='submit' value='No' onClick={backdropClickD} />
+                    <p style={{fontSize: '10px'}} />
                  </form>}
             </div>
 
