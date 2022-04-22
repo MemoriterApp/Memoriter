@@ -562,7 +562,7 @@ body {
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
 .Flashcard_Base {
     height: calc(100% - 62px);
-    width: calc(100% - 85px);
+    width: 94%;
     margin: auto;
     position: absolute;
     bottom: 5px;
