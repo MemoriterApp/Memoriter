@@ -735,10 +735,14 @@ body {
 /*  Open Flashcard */
 .Flashcard_Open_Body {
     position: fixed;
-    top: 3vh;
-    left: calc(50% - 46vh / 3 * 2);
-    height: 92vh;
-    width: calc(92vh / 3 * 2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 94vh;
+    width: calc(94vh / 3 * 2);
+    min-height: 160px;
+    min-width: 120px;
+    max-width: calc(100% - 120px);
     background-color: #353535;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border: 5px solid rgba(39,75,101,1);
@@ -870,11 +874,12 @@ body {
 
 /* New Flashcard Form */
 .Add_Flashcard_Form_Submit {
-    position: absolute;
-    bottom: 10px;
+    position: relative;
     left: 10px;
     border: 5px solid rgba(58,109,112,1);
     padding: 5px;
+    margin-top: 15px;
+    margin-bottom: 10px;
     width: calc(100% - 20px);
     color: white;
     background-color: #353535;
@@ -908,8 +913,8 @@ body {
 .Add_Flashcard_Form_Content {
     position: relative;
     left: 10px;
-    height: 57vh;
     width: calc(100% - 34px);
+    height: calc(100vh - 312px);
     color: white;
     text-align: justify;
     background-color: #353535;
