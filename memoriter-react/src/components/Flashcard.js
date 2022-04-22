@@ -107,8 +107,10 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
             <div>
                 {modalIsOpen && <div>
-                    <div className='Next_Flashcard' onClick={() => onNextFlashcard(flashcard.pos)} />
-                    <div className='Prev_Flashcard' onClick={() => onPrevFlashcard(flashcard.pos)} />
+                    <div className='Flashcard_Switch_Arrows'>
+                            <div className='Next_Flashcard' onClick={() => onNextFlashcard(flashcard.pos)} />
+                            <div className='Prev_Flashcard' onClick={() => onPrevFlashcard(flashcard.pos)} />
+                        </div>
                     <div className='Flashcard_Open_Body'>
                         <div className='Close_Flashcard_Button' onClick={closeFlashcard}>
                             <div className='Close_Flashcard_Arrow'/>

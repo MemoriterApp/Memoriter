@@ -621,7 +621,6 @@ body {
     );
     pointer-events: none;
 }
-
 .Flashcard_Title {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -742,7 +741,7 @@ body {
     width: calc(94vh / 3 * 2);
     min-height: 160px;
     min-width: 120px;
-    max-width: calc(100% - 120px);
+    max-width: calc(100% - 160px);
     background-color: #353535;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border: 5px solid rgba(39,75,101,1);
@@ -821,10 +820,21 @@ body {
     cursor: pointer;
     transform: rotate(-45deg);
 }
-.Next_Flashcard {
+.Flashcard_Switch_Arrows {
+    background-color: transparent;
     position: fixed;
-    bottom: 5vh;
-    right: calc(50% - 46vh / 3 * 2 - 80px);
+    left: 50%;
+    bottom: 4vh;
+    transform: translate(-50%);
+    height: 80px;
+    width: calc(94vh / 3 * 2 + 160px);
+    min-width: 260px;
+    max-width: calc(100% - 20px);
+    z-index: 11;
+}
+.Next_Flashcard {
+    position: absolute;
+    right: 0%;
     width: 0;
 	height: 0;
 	border-top: 40px solid transparent;
@@ -834,9 +844,8 @@ body {
     cursor: pointer;
 }
 .Prev_Flashcard {
-    position: fixed;
-    bottom: 5vh;
-    left: calc(50% - 46vh / 3 * 2 - 70px);
+    position: absolute;
+    left: 0%;
     width: 0;
 	height: 0;
 	border-top: 40px solid transparent;
