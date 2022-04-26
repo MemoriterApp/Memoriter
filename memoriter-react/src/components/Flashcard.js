@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import Backdrop from './backdrop';
 import Backdropfs from './backdropfs';
+import BackdropOpenFlashcard from './backdropOpenFlashcard';
+import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
 
 const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
     onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView }) => {
@@ -14,6 +16,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     function closeFlashcard() {
         onCloseFlashcard();
+        setModalIsOpenSO(false)
     }
 
     if (openFlashcardView === flashcard.pos) {
@@ -33,6 +36,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
     }
     function backdropClickOpen() {
         setModalIsOpenSO(false);
+        setModalIsOpenE(false);
     }
 
     const [modalIsOpenS, setModalIsOpenS] = useState(false);
@@ -55,7 +59,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     const [modalIsOpenE, setModalIsOpenE] = useState(false);
     const [modalIsOpenEbackdrop, setModalIsOpenEbackdrop] = useState(false);
-    const [modalIsOpenEbackdropfs, setModalIsOpenEbackdropfs] = useState(false);
+    const [setModalIsOpenEbackdropfs] = useState(false);
 
     function editFlashcardReq() {
       setModalIsOpenE(true);
@@ -125,29 +129,30 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                         <p style={{fontSize: '40px'}} />
                         <p className='Flashcard_Open_Content'>{flashcard.content}</p>
                         <div>
-                            {modalIsOpenSO && <div className='flashcard-open-settings-overlay'>
-                                <div className='folder-settings-sub'>
-                                    <p onClick={editOpenFlashcardReq}>Edit</p>
-                                    <p onClick={deleteFlashcardReq}>Delete</p>
-                                </div>
-
-                                <div  onClick={backdropClickD}>
-                                    {modalIsOpenD && <Backdrop/>}
-                                </div>
-
-                                <div onClick={backdropClickE}>
-                                    {modalIsOpenEbackdropfs && <Backdropfs/>}
-                                </div>
-                            </div>}
-
-                            <div onClick={backdropClickOpen}>
-                                {modalIsOpenSO && <Backdropfs/>}
-                            </div>
 
                         </div>
                     </div>
                 </div>}
             </div>
+
+            <div  onClick={backdropClickD}>
+                {modalIsOpenD && <BackdropOpenFlashcard/>}
+            </div>
+
+            <div onClick={backdropClickOpen}>
+                {modalIsOpenSO && <BackdropfsOpenFlashcard/>}
+            </div>
+
+            {modalIsOpenSO && <div className='flashcard-open-settings-overlay-position-field'>
+                <div className='flashcard-open-settings-overlay-position-field-click' onClick={backdropClickOpen}/>
+                <div className='flashcard-open-settings-overlay'>
+                    <div className='folder-settings-sub'>
+                        <p onClick={editOpenFlashcardReq}>Edit</p>
+                        <p onClick={deleteFlashcardReq}>Delete</p>
+                    </div>
+                </div>
+            </div>}
+
             <div onClick={closeFlashcard}>
                 {modalIsOpen && <Backdrop/>}
             </div>
@@ -159,10 +164,6 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                         <p onClick={deleteFlashcardReq}>Delete</p>
                     </div>
 
-                    <div  onClick={backdropClickD}>
-                        {modalIsOpenD && <Backdrop/>}
-                    </div>
-
                     <div onClick={backdropClickE}>
                         {modalIsOpenEbackdrop && <Backdrop/>}
                     </div>
@@ -170,7 +171,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             </div>
 
             <div>
-                {modalIsOpenE && <form className='Flashcard_Open_Body'>
+                {modalIsOpenE && <form className='Edit_Flashcard_Open_Body'>
                     <div>
                         <h2 className='Add_Flashcard_Form_Header'>Edit Flashcard</h2>
                         <p style={{fontSize: '30px'}} />
