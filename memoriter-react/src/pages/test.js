@@ -13,9 +13,13 @@ function TestPage() {
 
     const [folders, setFolders] = useState([]);
     const [newFolder, setNewFolder] = useState("");
+    const [notes, setNotes] = useState([]);
+
     //Link zur Collection 
+    const notesCollectionRef = collection(db, "notes")
     const foldersCollectionRef = collection(db, "folders");
 
+    //Use Effect für folders
     useEffect(() => {
         const getFolder = async () => {
             const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
@@ -23,6 +27,16 @@ function TestPage() {
         };
         
         getFolder();
+    }, [])
+
+    //Use Effect für Notes
+    useEffect(() => {
+        const getNotes = async () => {
+            const allNotes = await getDocs(notesCollectionRef)
+            setNotes(allNotes.docs.map((doc)=>({...doc.data(), id: doc.id })))
+        };
+
+        getNotes();
     }, [])
 
     //Function um den Link zur db herzustellen 
@@ -33,11 +47,22 @@ function TestPage() {
 
     return (
     <div>
-        {folders.map((folder) => {
-            return <div> <h1>title: {folder.title}</h1> </div>; //render of things in db
+        <div>
+            {folders.map((folder) => {
+                return <div> <h1>title: {folder.title}</h1> </div>; //render of things in db
+                })}
+            <input placeholder='Folder name' onChange={(event) => {setNewFolder(event.target.value)}}/>
+            <button onClick={createFolder}>create new folder</button> 
+        </div> 
+        <div>
+            {notes.map((notes) => {
+                return <div> 
+                    <h1>flashcard title: {notes.title}</h1> 
+                    <h1>flashcard content: {notes.content}</h1>
+                
+                </div>
             })}
-        <input placeholder='Folder name' onChange={(event) => {setNewFolder(event.target.value)}}/>
-        <button onClick={createFolder}>create new folder</button>  
+        </div>
      </div>
     );
 }
