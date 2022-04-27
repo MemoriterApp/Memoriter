@@ -18,6 +18,12 @@ function LoginPage() {
                         <input className="mail-input" type="email" id="email" name="email"></input>
                     </form>
                 </div>
+                <div className="password-form1">
+                     <form className="paswword-form">
+                        <label className="password-label" for="password">password</label>
+                        <input className="password-input" type="password" id="password" name="password"></input>
+                     </form>
+                </div>
             </body>
         </div>
     );
