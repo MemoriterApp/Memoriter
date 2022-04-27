@@ -618,8 +618,8 @@ body {
     width: 100%;
     content: "";
     background: linear-gradient(to top,
-     #353535 5px,
-     rgba(255,255,255, 0) 25%
+    rgba(35,35,35,1),
+    rgba(255,255,255,0) 25%
     );
     pointer-events: none;
 }

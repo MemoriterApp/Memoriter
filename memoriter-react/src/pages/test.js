@@ -50,6 +50,10 @@ function TestPage() {
     const createNoteTitle = async () => {
         await addDoc(notesCollectionRef, {title: newNotes})
     }
+    //Create new Note content
+    const createNoteContent = async () => {
+        await addDoc(notesCollectionRef, {content: newNotes})
+    }
 
     return (
     <div>
@@ -64,6 +68,10 @@ function TestPage() {
                 <div>
                     <input placeholder='Note Title' onChange={(event) => {setNewNotes(event.target.value)}}/>
                     <button onClick={createNoteTitle}>create note title</button>
+                </div>
+                <div>
+                    <input placeholder='Note content' onChange={(event) => {setNewNotes(event.target.value)}}/>
+                    <button onClick={createNoteContent}>create new content</button>
                 </div>    
         </div> 
         <div>
