@@ -62,15 +62,15 @@ function TestPage() {
                     <button onClick={createFolder}>create new folder</button> 
                 </div>
                 <div>
-                    <input placeholder='Note Title' onChange={(event) => {setNewFolder(event.target.value)}}/>
+                    <input placeholder='Note Title' onChange={(event) => {setNewNotes(event.target.value)}}/>
                     <button onClick={createNoteTitle}>create note title</button>
                 </div>    
         </div> 
         <div>
             {notes.map((notes) => {
                 return <div> 
-                    <h1>flashcard title: {notes.title}</h1> 
-                    <h1>flashcard content: {notes.content}</h1>
+                    <h2>flashcard title: {notes.title}</h2> 
+                    <h2>flashcard content: {notes.content}</h2>
                 
                 </div>
             })}
