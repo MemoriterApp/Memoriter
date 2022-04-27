@@ -65,13 +65,14 @@ const createFolder = async () => {
   }
 
 //Add Folder
-  const addFolder = (folder) => {
+  const addFolder = async (folder) => {
     const id = Math.floor(Math.random() * 10000) + 1
     const pos = folders.length + 1
     const newFolderC = { id, pos, ...folder }
+    await addDoc(foldersCollectionRef, {id, pos, title: folder.title} )
     setFolders([...folders, newFolderC])
     setModalIsOpen(false)
-}
+  }
 
 //Delete Folder
   const deleteFolder = (id, pos) => {

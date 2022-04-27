@@ -3,11 +3,11 @@ import { useState } from 'react';
 
 const AddFolderForm = ({ onAddFolder }) => {
 
-    const [name, setName] = useState('')
+    const [title, setTitle] = useState('')
 
     const onSubmitFolder = (changeName) => {
         changeName.preventDefault()
-        onAddFolder({ name })
+        onAddFolder({ title })
     }
 
     return (
@@ -17,7 +17,7 @@ const AddFolderForm = ({ onAddFolder }) => {
                 <div className='Add_Folder_Form_Text'>Folder Name: </div>
                 <p style={{fontSize: '5px'}} />
                 <input className='Add_Folder_Form_Input' type='text' placeholder='New Folder' maxLength='100' 
-                    value={name} onChange={(changeName) => setName(changeName.target.value)} />
+                    value={title} onChange={(changeName) => setTitle(changeName.target.value)} />
             </div>
             <p style={{fontSize: '25px'}} />
             <input className='Add_Folder_Form_Submit' type='submit' value='Done' />
