@@ -18,6 +18,10 @@ function HomePage() {
   // connection to the folders firestore
   const foldersCollectionRef = collection(db, "folders");
 
+// Folder Data
+const [ folders, setFolders ] = useState([ ])
+const [newFolder, setNewFolder] = useState("");
+
 //Use Effect für folders
 useEffect(() => {
   const getFolder = async () => {
@@ -27,6 +31,11 @@ useEffect(() => {
   
   getFolder();
 }, [])
+
+//Create new Folder
+const createFolder = async () => {
+  await addDoc(foldersCollectionRef, {title: newFolder})
+}
 
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -39,8 +48,6 @@ useEffect(() => {
   }
 
 
-// Folder Data
-  const [ folders, setFolders ] = useState([ ])
 
 //Folder Position
   folders.sort(function(a, b){return a.pos - b.pos})
