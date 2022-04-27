@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
 import { async } from '@firebase/util';
-import { collection, getDocs, addDoc } from 'firebase/firestore/lite';
+import { collection, getDocs, addDoc, updateDoc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
 
