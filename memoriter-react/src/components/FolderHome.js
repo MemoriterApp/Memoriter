@@ -35,7 +35,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
         setModalIsOpenE(false);
     }
 
-    const [ name, setName ] = useState(folder.name)
+    const [ title, setTitle ] = useState(folder.title)
 
     const [ pos, setPos ] = useState(folder.pos)
 
@@ -47,7 +47,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
         <div className='Folder_Body'>
             <Link to='/topic'>
                 <button className='Button_Homepage'></button>
-                {folder.name !== '' ? (
+                {folder.title !== '' ? (
                     <button className='Button_Homepage_Text'>{folder.title}</button>
                 ) : (
                     <button className='Button_Homepage_Text'>New Folder</button>
@@ -84,11 +84,11 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                         <div className='Add_Folder_Form_Text'>Rename Folder: </div>
                         <p style={{fontSize: '5px'}} />
                         <input className='Add_Folder_Form_Input' type='text' maxLength='100' placeholder='New Folder'
-                            defaultValue={name} onChange={(changeName) => setName(changeName.target.value)} />
+                            defaultValue={title} onChange={(changeName) => setTitle(changeName.target.value)} />
                     </div>
                         <p style={{fontSize: '25px'}} />
                         <input className='Add_Folder_Form_Submit' type='button' value='Done' onClick={
-                            () => { onEditFolder(folder.id, name); setModalIsOpenE(false); setModalIsOpen(false); }} />
+                            () => { onEditFolder(folder.id, title); setModalIsOpenE(false); setModalIsOpen(false); }} />
                         <p style={{fontSize: '10px'}} />
                 </form>}
             </div>

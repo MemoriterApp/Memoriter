@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
 import { async } from '@firebase/util';
-import { collection, getDocs, addDoc, updateDoc } from 'firebase/firestore/lite';
+import { collection, getDocs, addDoc, updateDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
 
@@ -31,12 +31,6 @@ useEffect(() => {
   
   getFolder();
 }, [])
-
-//Create new Folder
-const createFolder = async () => {
-  await addDoc(foldersCollectionRef, {title: newFolder})
-}
-
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -85,9 +79,12 @@ const createFolder = async () => {
   }
 
 //Edit Folder
-  const editFolder = (id, name) => {
+  const editFolder = async (id, title) => {
+    const folderDoc = doc(db, 'folders', id);
+    const newTitle = { title: title };
+    await updateDoc(folderDoc, newTitle);
     setFolders(folders.map((folder) => folder.id === id
-    ? { ...folder, name: name } : folder))
+    ? { ...folder, title: title } : folder))
   }
 
   return (
