@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import Logo from './Logo.png';
 import SettingsIcon from '../components/SettingsIcon';
 import FolderHome from '../components/FolderHome';
@@ -6,8 +6,28 @@ import AddFolderForm from '../components/AddFolderForm';
 import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
 import { firebase } from '../utils/firebase'
+import { useState, useEffect } from 'react';
+import { async } from '@firebase/util';
+import { collection, getDocs, addDoc } from 'firebase/firestore/lite';
+const { db } = firebase;
+
 
 function HomePage() {
+
+  //firestore stuff
+  // connection to the folders firestore
+  const foldersCollectionRef = collection(db, "folders");
+
+//Use Effect für folders
+useEffect(() => {
+  const getFolder = async () => {
+      const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
+      setFolders(allFolders.docs.map((doc)=>({...doc.data(), id: doc.id })))
+  };
+  
+  getFolder();
+}, [])
+
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 

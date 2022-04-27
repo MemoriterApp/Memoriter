@@ -48,7 +48,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
             <Link to='/topic'>
                 <button className='Button_Homepage'></button>
                 {folder.name !== '' ? (
-                    <button className='Button_Homepage_Text'>{folder.name}</button>
+                    <button className='Button_Homepage_Text'>{folder.title}</button>
                 ) : (
                     <button className='Button_Homepage_Text'>New Folder</button>
                 )}
