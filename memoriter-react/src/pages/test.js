@@ -14,6 +14,7 @@ function TestPage() {
     const [folders, setFolders] = useState([]);
     const [newFolder, setNewFolder] = useState("");
     const [notes, setNotes] = useState([]);
+    const [newNotes, setNewNotes] = useState("");
 
     //Link zur Collection 
     const notesCollectionRef = collection(db, "notes")
@@ -41,8 +42,13 @@ function TestPage() {
 
     //Function um den Link zur db herzustellen 
     // mit dieser Function wird die Data hinzugefügt
+    //Create new Folder
     const createFolder = async () => {
         await addDoc(foldersCollectionRef, {title: newFolder})
+    }
+    //Create new Note title
+    const createNoteTitle = async () => {
+        await addDoc(notesCollectionRef, {title: newNotes})
     }
 
     return (
@@ -51,8 +57,14 @@ function TestPage() {
             {folders.map((folder) => {
                 return <div> <h1>title: {folder.title}</h1> </div>; //render of things in db
                 })}
-            <input placeholder='Folder name' onChange={(event) => {setNewFolder(event.target.value)}}/>
-            <button onClick={createFolder}>create new folder</button> 
+                <div>
+                    <input placeholder='Folder name' onChange={(event) => {setNewFolder(event.target.value)}}/>
+                    <button onClick={createFolder}>create new folder</button> 
+                </div>
+                <div>
+                    <input placeholder='Note Title' onChange={(event) => {setNewFolder(event.target.value)}}/>
+                    <button onClick={createNoteTitle}>create note title</button>
+                </div>    
         </div> 
         <div>
             {notes.map((notes) => {
