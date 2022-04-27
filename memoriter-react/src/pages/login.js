@@ -16,6 +16,7 @@ function LoginPage() {
             <body>
                 <MailForm/>
                 <PasswordForm/>
+                <button className="LoginButton">Login</button>
             </body>
         </div>
     );
