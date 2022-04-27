@@ -1017,3 +1017,13 @@ body {
     left: 10%;
     padding-bottom: 120px;
 }
+/* Css für Login */
+.Logo-oben-login {
+    width: 134.4px;
+    max-width: 25%;
+    position: absolute;
+    cursor: pointer;
+    top: 0%;
+    left: 10px;
+    transform: translate(0%, 50%);
+}
