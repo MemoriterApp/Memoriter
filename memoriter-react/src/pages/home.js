@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
 import { async } from '@firebase/util';
-import { collection, getDocs, addDoc, updateDoc, doc } from 'firebase/firestore/lite';
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
 
@@ -68,7 +68,9 @@ useEffect(() => {
   }
 
 //Delete Folder
-  const deleteFolder = (id, pos) => {
+  const deleteFolder = async (id, pos) => {
+    const folderDoc = doc(db, 'folders', id); //Bug dass man die seite refreshen muss...
+    await deleteDoc(folderDoc); //Position wird auf Firebase noch nicht korrigiert.
     setFolders((folders) =>
       folders
         .map((folder) =>
