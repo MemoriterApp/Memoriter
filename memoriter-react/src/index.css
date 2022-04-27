@@ -618,7 +618,7 @@ body {
     width: 100%;
     content: "";
     background: linear-gradient(to top,
-    rgba(35,35,35,1),
+    #353535 5px,
     rgba(255,255,255,0) 25%
     );
     pointer-events: none;
