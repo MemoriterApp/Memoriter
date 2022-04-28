@@ -1109,14 +1109,23 @@ body {
 }
 .LoginButton {
     height: 50px;
-    width: 200px;
+    width: 150px;
     border-radius: 5px;
     background-color: #265272;
     position: absolute;
     top: 50%;
-    left: 51%;
+    left: 54.2%;
     border: 3px solid #3B6E71;
     cursor: pointer;
     font-size: 20px;
     color: white;
+}
+.forgot-password {
+    color: #265272;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 48.5%;
+    left: 43.5%;
+    font-size: 15px;
+    cursor: pointer;
 }
