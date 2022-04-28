@@ -1129,3 +1129,23 @@ body {
     font-size: 15px;
     cursor: pointer;
 }
+
+.Signup1 {
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:25px;
+    color: gray;
+    top: 9px;
+    right: 115px;
+    cursor: pointer;
+}
+
+.Login1 {
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:25px;
+    color: white;
+    right: 10px;
+    top: 9px;
+    cursor: pointer;
+}
