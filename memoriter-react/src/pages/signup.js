@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from './Logo.png';
 import MailForm from "../components/mailForm";
-import PasswordForm from "../components/passwordForm";
+
 
 function SignUpPage() {
     return (
