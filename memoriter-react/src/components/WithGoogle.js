@@ -1,8 +1,9 @@
 import React from "react";
+import signInwithGoogle from "../utils/googleSignin";
 
 function WithGoogle() {
     return (
-        <button type="submit" className="google-button">
+        <button onClick={signInwithGoogle} type="submit" className="google-button">
             Sign in with Google 
         </button>
     );
