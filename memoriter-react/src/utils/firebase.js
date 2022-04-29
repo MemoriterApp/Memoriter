@@ -22,7 +22,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-// const auth = getAuth(app);
+const auth = getAuth(app);
 // const analytics = getAnalytics(app);
 
 async function getNotes(database = db) {
@@ -40,7 +40,7 @@ async function getNotes(database = db) {
 }*/
 export const firebase = {
   app,
-  // auth,
+  auth,
   // analytics,
   db,
   getNotes,
