@@ -11,7 +11,7 @@ import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
-function TopicPage() {
+function TopicPage({ syncFolder }) {
 
     //firebase stuff
     //link zur db
@@ -111,8 +111,16 @@ function TopicPage() {
         )
     }
 
+//sync flashcards to folder
+    const [ openFolder, setOpenFolder ] = useState()
+
+    function syncFlashcards() {
+        setOpenFolder(syncFolder)
+        console.log(openFolder)
+    }
+
     return (
-        <>
+        <div syncFolder={syncFlashcards}>
             <header className='Page_Header'>
                 <h1 className="page_title">--Folder Name--</h1>
                 <Link to='/'>
@@ -157,7 +165,7 @@ function TopicPage() {
             <footer>
                 <Footer />
             </footer>
-        </>
+        </div>
     );
 }
 export default TopicPage;

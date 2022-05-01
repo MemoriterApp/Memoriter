@@ -12,7 +12,7 @@ import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase
 const { db } = firebase;
 
 
-function HomePage({onOpenFolder}) {
+function HomePage({ onOpenFolder }) {
 
   //firestore stuff
   // connection to the folders firestore
@@ -106,7 +106,7 @@ useEffect(() => {
                 {folders.map((folder) => (
                   <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
                     onDeleteFolder={deleteFolder} onEditFolder={editFolder}
-                    onPosUp={posUp} onPosDown={posDown} onOpenFolder={() => onOpenFolder(folder)}/>
+                    onPosUp={posUp} onPosDown={posDown} onOpenFolder={onOpenFolder}/>
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
