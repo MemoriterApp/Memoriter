@@ -45,7 +45,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
     return (
         <div className='Folder_Body'>
-            <Link to='/topic' onClick={() => onOpenFolder(folder.id)}>
+            <Link to='/topic' onClick={() => onOpenFolder(folder.id, folder.title)}>
                 <button className='Button_Homepage'></button>
                 {folder.title !== '' ? (
                     <button className='Button_Homepage_Text'>{folder.title}</button>

@@ -9,12 +9,14 @@ import TestPage from './pages/test';
 
 function App() {
 
-  const openFolder = (id) => {
-    setSyncFolder(id)
-    console.log(syncFolder)
+  const openFolder = (id, title) => {
+    setSyncFolderID(id)
+    setSyncFolderTitle(title)
+    console.log(syncFolderID + ' ' + syncFolderTitle)
   }
 
-  const [ syncFolder, setSyncFolder ] = useState()
+  const [ syncFolderID, setSyncFolderID ] = useState()
+  const [ syncFolderTitle, setSyncFolderTitle ] = useState("")
 
   return (
     <div>
@@ -34,7 +36,7 @@ function App() {
         
       </Route>
 
-      <Route path='/topic' element={<TopicPage onSyncFolder={syncFolder}/>}>
+      <Route path='/topic' element={<TopicPage />}>
 
       </Route>
 

@@ -11,7 +11,7 @@ import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
-function TopicPage({ syncFolder }) {
+function TopicPage({  }) {
 
     //firebase stuff
     //link zur db
@@ -111,18 +111,10 @@ function TopicPage({ syncFolder }) {
         )
     }
 
-//sync flashcards to folder
-    const [ openFolder, setOpenFolder ] = useState()
-
-    function syncFlashcards() {
-        setOpenFolder(syncFolder)
-        console.log(openFolder)
-    }
-
     return (
-        <div syncFolder={syncFlashcards}>
+        <div>
             <header className='Page_Header'>
-                <h1 className="page_title">--Folder Name--</h1>
+                <h1 className="page_title">...</h1>
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo"></img>
                 </Link>
@@ -137,7 +129,8 @@ function TopicPage({ syncFolder }) {
                         onPosLeft={posLeft} onPosRight={posRight}
                         onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
                         onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
-                        onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard} />
+                        onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                        />
                         ))}
                     </>
 
