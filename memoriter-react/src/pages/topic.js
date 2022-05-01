@@ -90,7 +90,10 @@ function TopicPage() {
     }
 
 //Edit Flashcard
-    const editFlashcard = (id, title, content) => {
+    const editFlashcard = async (id, title, content) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+        const newAll = {title: title, content: content};
+        await updateDoc(flashcardDoc, newAll);
         setFlashcards(flashcards.map((flashcard) => flashcard.id === id
         ? { ...flashcard, title: title, content: content } : flashcard))
     }
