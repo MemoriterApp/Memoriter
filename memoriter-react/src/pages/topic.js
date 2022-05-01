@@ -136,7 +136,7 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
                                     onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
                                     onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
                                     />) : (
-                                    <div />
+                                    <div style={{display: 'inline-block'}}/>
                                     )
                             ))}
                     </>
