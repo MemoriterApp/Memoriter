@@ -128,14 +128,17 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
                 <div className='main-seperator' />
                 <div className='Flashcard_Base'>
                     <>
-                        {flashcards.map((flashcard) => (
-                        <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
-                        onPosLeft={posLeft} onPosRight={posRight}
-                        onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
-                        onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
-                        onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
-                        />
-                        ))}
+                            {flashcards.map((flashcard) => (
+                                flashcard.syncedFolder === syncedFolderID ? (
+                                    <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                    onPosLeft={posLeft} onPosRight={posRight}
+                                    onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                    onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                    onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                    />) : (
+                                    <div />
+                                    )
+                            ))}
                     </>
 
                     <div className='Flashcard_Body'>
