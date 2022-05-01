@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount, folders }) => {
+const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount, folders, onOpenFolder }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -45,7 +45,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
     return (
         <div className='Folder_Body'>
-            <Link to='/topic'>
+            <Link to='/topic' onClick={() => onOpenFolder(folder.id)}>
                 <button className='Button_Homepage'></button>
                 {folder.title !== '' ? (
                     <button className='Button_Homepage_Text'>{folder.title}</button>
