@@ -99,7 +99,9 @@ function TopicPage() {
     }
 
 //Delete Flashcard
-    const deleteFlashcard = (id, pos) => {
+    const deleteFlashcard = async (id, pos) => {
+        const flashcardDoc = doc(db, 'flashcards', id); //Bug dass man die seite refreshen muss...
+        await deleteDoc(flashcardDoc); //Position wird auf Firebase noch nicht korrigiert.
         setFlashcards((flashcards) =>
         flashcards
             .map((flashcard) =>
