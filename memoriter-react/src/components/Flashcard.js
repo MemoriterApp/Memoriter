@@ -202,6 +202,10 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             <div onClick={backdropClick}>
                 {modalIsOpenS && <Backdropfs/>}
             </div>
+
+            <div className='flashcard-pos-indicator'>{flashcard.pos}</div>
+            <div className='flashcard-folder-indicator'>{flashcard.syncedFolder}</div>
+
         </div>
     );
 }

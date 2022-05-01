@@ -117,6 +117,9 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
             <div  onClick={backdropClick}>
                 {modalIsOpen && <Backdropfs/>}
             </div>
+
+            <div className='folder-pos-indicator'>{folder.pos}</div>
+
         </div>
     );
 }

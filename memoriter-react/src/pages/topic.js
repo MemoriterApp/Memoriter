@@ -84,7 +84,7 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
     const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
         const newFlashcardC = {pos, ...flashcard }
-        await addDoc(flashcardCollectionRef, {pos, title: flashcard.title, content: flashcard.content} )
+        await addDoc(flashcardCollectionRef, {pos, title: flashcard.title, content: flashcard.content, syncedFolder: flashcard.syncedFolder} )
         setFlashcards([...flashcards, newFlashcardC])
         setModalIsOpenA(false)
     }
@@ -110,9 +110,6 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
             .filter((flashcard) => flashcard.id !== id)
         )
     }
-
-    console.log(syncedFolderID + ' test')
-    console.log(syncedFolderTitle + ' test')
 
     return (
         <div>
@@ -152,7 +149,7 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
                     </div>
 
                     <div>
-                        {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} />}
+                        {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} syncedFolderID={syncedFolderID}/>}
                     </div>
                     <div onClick={backdropClick}>
                         {modalIsOpenA && <Backdrop/>}
