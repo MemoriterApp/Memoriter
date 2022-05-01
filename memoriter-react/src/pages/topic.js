@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, } from 'react';
 import Logo from './Logo.png';
 import BackButton from '../components/BackButton';
 import SettingsIcon from '../components/SettingsIcon';
@@ -6,9 +6,27 @@ import Footer from '../components/Footer';
 import Flashcard from '../components/Flashcard';
 import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
-import { Link } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
+import { firebase } from '../utils/firebase'
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+const { db } = firebase;
 
 function TopicPage() {
+
+    //firebase stuff
+    //link zur db
+    const flashcardCollectionRef = collection(db, "flashcards")
+
+    //Use Effect für Notes
+    useEffect(() => {
+        const getFlashcards = async () => {
+            const allFlashcards = await getDocs(flashcardCollectionRef)
+            setFlashcards(allFlashcards.docs.map((doc)=>({...doc.data(), id: doc.id })))
+        };
+
+        getFlashcards();
+    }, [])
+
 
     const [modalIsOpenA, setModalIsOpenA] = useState(false);
 
@@ -22,6 +40,7 @@ function TopicPage() {
 
 //Flashcard Data
     const [ flashcards, setFlashcards ] = useState([ ])
+    const [newFlashcard, setNewFlashcard] = useState("");
 
 //Open Flashcard
     const [ openFlashcard, setOpenFlashcard ] = useState()
@@ -62,10 +81,10 @@ function TopicPage() {
     }
 
 //Add Flashcard
-    const addFlashcard = (flashcard) => {
-        const id = Math.floor(Math.random() * 10000) + 1
+    const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
-        const newFlashcardC = { id, pos, ...flashcard }
+        const newFlashcardC = {pos, ...flashcard }
+        await addDoc(flashcardCollectionRef, {pos, title: flashcard.title, content: flashcard.content} )
         setFlashcards([...flashcards, newFlashcardC])
         setModalIsOpenA(false)
     }
