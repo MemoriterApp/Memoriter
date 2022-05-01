@@ -12,7 +12,6 @@ function App() {
   const openFolder = (id, title) => {
     setSyncFolderID(id)
     setSyncFolderTitle(title)
-    console.log(syncFolderID + ' ' + syncFolderTitle)
   }
 
   const [ syncFolderID, setSyncFolderID ] = useState()
@@ -36,7 +35,9 @@ function App() {
         
       </Route>
 
-      <Route path='/topic' element={<TopicPage />}>
+      <Route path='/topic' element={<TopicPage
+        syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle}
+      />}>
 
       </Route>
 

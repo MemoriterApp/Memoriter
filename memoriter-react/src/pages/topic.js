@@ -11,7 +11,7 @@ import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
-function TopicPage({  }) {
+function TopicPage({ syncedFolderID, syncedFolderTitle }) {
 
     //firebase stuff
     //link zur db
@@ -111,10 +111,17 @@ function TopicPage({  }) {
         )
     }
 
+    console.log(syncedFolderID + ' test')
+    console.log(syncedFolderTitle + ' test')
+
     return (
         <div>
             <header className='Page_Header'>
-                <h1 className="page_title">...</h1>
+                {syncedFolderTitle !== '' ? (
+                        <h1 className="page_title">{syncedFolderTitle}</h1>
+                    ) : (
+                        <h1 className="page_title">New Folder</h1>
+                    )}
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo"></img>
                 </Link>
