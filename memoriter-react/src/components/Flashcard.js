@@ -70,9 +70,11 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
         setModalIsOpenEbackdropfs(true);
       }
     function backdropClickE() {
-      setModalIsOpenE(false);
-      setModalIsOpenEbackdrop(false);
-      setModalIsOpenEbackdropfs(false);
+        setTitle(flashcard.title);
+        setContent(flashcard.content);
+        setModalIsOpenE(false);
+        setModalIsOpenEbackdrop(false);
+        setModalIsOpenEbackdropfs(false);
     }
 
     const [title, setTitle] = useState(flashcard.title)

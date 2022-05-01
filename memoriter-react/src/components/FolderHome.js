@@ -32,6 +32,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
         setModalIsOpenE(true);
     }
     function backdropClickE() {
+        setTitle(folder.title);
         setModalIsOpenE(false);
     }
 
