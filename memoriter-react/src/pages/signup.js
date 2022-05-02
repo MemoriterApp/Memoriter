@@ -1,9 +1,10 @@
 import React from "react";
 import Logo from './Logo.png';
 import MailForm from "../components/mailForm";
+import WithGoogle from "../components/WithGoogle";
 
 
-function SignUpPage() {
+function SignUpPage(props) {
     return (
         <div>
             <header>
@@ -17,11 +18,12 @@ function SignUpPage() {
                 <MailForm/>
                     <div className="password-form1">
                         <form className="paswword-form">
-                            <label className="password-label" for="password">password</label>
+                            <label className="password-label" htmlFor="password">password</label>
                             <input className="password-input" type="password" id="password" name="password"></input>
                         </form>
                     </div>
-                <button className="LoginButton">sign up</button>
+                <button type="submit" className="LoginButton">sign up</button>
+                <WithGoogle login={props.login}/>
             </body>
         </div>
     );
