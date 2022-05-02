@@ -3,10 +3,10 @@ import { firebase } from "./firebase";
 
 
 const provider = new GoogleAuthProvider()
-const signInwithGoogle = () => {
+const signInwithGoogle = (...args) => {
     signInWithPopup(firebase.auth, provider).then((results) => {
-        console.log(results);
-
+        console.log('just logged in', results);
+        
     }).catch((error) => {
         console.log(error)
     })

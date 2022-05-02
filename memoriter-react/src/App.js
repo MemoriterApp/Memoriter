@@ -1,3 +1,4 @@
+import { firebase } from './utils/firebase';
 import { Route, Routes } from 'react-router-dom';
 import ImpressumPage from './pages/impressum';
 import PrivacyPage from './pages/privacy_policies';
@@ -7,43 +8,107 @@ import TopicPage from './pages/topic';
 import TestPage from './pages/test';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
+import { getAuth } from 'firebase/auth';
+import { useState } from 'react';
+import 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 function App() {
-  return (
-    <div>
-      <Routes>
-      <Route path='/' element={<HomePage />}>
-      </Route>
 
-      <Route path='/impressum' element={<ImpressumPage/>}>
-        
-      </Route>
+  const [user, setUser] = useState(null);
+  const login = async () => {
+    const provider = new GoogleAuthProvider()
+    signInWithPopup(firebase.auth, provider).then((results) => {
+      console.log('just logged in', results);
+      setUser(results);
+    }).catch((error) => {
+      console.log(error)
+    });
 
-      <Route path='/privacy' element={<PrivacyPage />}>
-        
-      </Route>
+    const logout = async () => {
+      setUser(null);
+    }
 
-      <Route path='/terms-of-use' element={<TermsPage />}>
-        
-      </Route>
+  }
 
-      <Route path='/topic' element={<TopicPage/>}>
+  if (!!user) {
+    return (
+      <div>
+        <Routes>
+          <Route path='/' element={<HomePage />}>
+          </Route>
 
-      </Route>
+          <Route path='/impressum' element={<ImpressumPage />}>
 
-      <Route path='/test' element={<TestPage/>}>
+          </Route>
 
-      </Route>
-      <Route path='/login' element={<LoginPage/>}>
+          <Route path='/privacy' element={<PrivacyPage />}>
 
-      </Route>
-      <Route path='/signup' element={<SignUpPage/>}>
+          </Route>
 
-      </Route>
-      </Routes>
+          <Route path='/terms-of-use' element={<TermsPage />}>
 
-    </div>
-  );
+          </Route>
+
+          <Route path='/topic' element={<TopicPage />}>
+
+          </Route>
+
+          <Route path='/test' element={<TestPage />}>
+
+          </Route>
+          <Route path='/login' element={<LoginPage />}>
+
+          </Route>
+          <Route path='/signup' element={<SignUpPage />}>
+
+          </Route>
+        </Routes>
+
+      </div>
+    );
+  }
+  else {
+    return (
+
+      // <button onClick={login} type="submit" className="google-button">
+      //     Sign in with Google 
+      // </button>
+      <div>
+        <Routes>
+          <Route path='/' element={<SignUpPage login={login} />}>
+          </Route>
+
+          <Route path='/impressum' element={<ImpressumPage />}>
+
+          </Route>
+
+          <Route path='/privacy' element={<PrivacyPage />}>
+
+          </Route>
+
+          <Route path='/terms-of-use' element={<TermsPage />}>
+
+          </Route>
+
+          <Route path='/topic' element={<TopicPage />}>
+
+          </Route>
+
+          <Route path='/test' element={<TestPage />}>
+
+          </Route>
+          <Route path='/login' element={<LoginPage />}>
+
+          </Route>
+          <Route path='/signup' element={<SignUpPage />}>
+
+          </Route>
+        </Routes>
+
+      </div>
+    );
+  }
 }
 
 export default App;
