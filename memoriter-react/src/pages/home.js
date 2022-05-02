@@ -46,7 +46,7 @@ useEffect(() => {
 //Folder Position
   folders.sort(function(a, b){return a.pos - b.pos})
 
-  const posUp = (id, pos) => {
+  const posUp = async (id, pos) => {
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
     ? { ...folder, pos: (folder.pos + 1) } : folder ))

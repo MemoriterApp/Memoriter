@@ -32,6 +32,9 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
 
     function NewFlashcardClick() {
         setModalIsOpenA(true);
+        setFlashcards((flashcards) => //damit man korrekte positions hat
+            flashcards.filter((flashcard) => flashcard.syncedFolder === syncedFolderID)
+            );
     }
 
     function backdropClick() {
@@ -40,7 +43,6 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
 
 //Flashcard Data
     const [ flashcards, setFlashcards ] = useState([ ])
-    const [newFlashcard, setNewFlashcard] = useState("");
 
 //Open Flashcard
     const [ openFlashcard, setOpenFlashcard ] = useState()
@@ -115,9 +117,9 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
         <div>
             <header className='Page_Header'>
                 {syncedFolderTitle !== '' ? (
-                        <h1 className="page_title">{syncedFolderTitle}</h1>
+                        <h1 className="page_title" >{syncedFolderTitle}</h1>
                     ) : (
-                        <h1 className="page_title">New Folder</h1>
+                        <h1 className="page_title" >New Folder</h1>
                     )}
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo"></img>
@@ -128,17 +130,17 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
                 <div className='main-seperator' />
                 <div className='Flashcard_Base'>
                     <>
-                            {flashcards.map((flashcard) => (
-                                flashcard.syncedFolder === syncedFolderID ? (
-                                    <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
-                                    onPosLeft={posLeft} onPosRight={posRight}
-                                    onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
-                                    onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
-                                    onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
-                                    />) : (
-                                    <div style={{display: 'inline-block'}}/>
-                                    )
-                            ))}
+                        {flashcards.map((flashcard) => (
+                            flashcard.syncedFolder === syncedFolderID ? (
+                                <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                onPosLeft={posLeft} onPosRight={posRight}
+                                onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                />) : (
+                                <div style={{display: 'inline-block'}}/>
+                            )
+                        ))}
                     </>
 
                     <div className='Flashcard_Body'>
