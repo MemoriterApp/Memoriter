@@ -5,7 +5,8 @@ function MailForm() {
         <form>
             <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
             <p style={{fontSize: '5px'}} />
-            <input className="Add_Folder_Form_Input" type="email" id="email" name="email"/>
+            <input className="Add_Folder_Form_Input" type="email" id="email" name="email"
+                placeholder='Please enter Email Adress...'/>
             <p style={{fontSize: '25px'}} />
         </form>
     );
