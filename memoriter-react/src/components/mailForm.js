@@ -2,12 +2,12 @@ import React from 'react';
 
 function MailForm() {
     return(
-        <div className="mail-form1">
-        <form className="mail-form">
-            <label className="mail-label" htmlFor="email">Email</label>
-            <input className="mail-input" type="email" id="email" name="email"></input>
+        <form>
+            <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
+            <p style={{fontSize: '5px'}} />
+            <input className="Add_Folder_Form_Input" type="email" id="email" name="email"/>
+            <p style={{fontSize: '25px'}} />
         </form>
-        </div>
     );
 }
 

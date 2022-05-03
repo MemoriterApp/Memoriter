@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from './Logo.png';
+import Footer from "../components/Footer";
 import MailForm from "../components/mailForm";
 import WithGoogle from "../components/WithGoogle";
 
@@ -7,24 +8,33 @@ import WithGoogle from "../components/WithGoogle";
 function SignUpPage(props) {
     return (
         <div>
-            <header>
-                <img className="Logo-oben-login" src={Logo} alt=''/>
+            <header className='Page_Header'>
+                <img className="Logo-oben" src={Logo} alt="site-logo" />
+                <h1 className="page_title">Sign Up</h1>
                 <div className="link-box">
-                        <span className="Signup1">Signup</span>
+                        <span className="Signup1">Sign Up</span>
                         <span className="Login1">Login</span>
                 </div>
             </header>
-            <body>
-                <MailForm/>
-                    <div className="password-form1">
-                        <form className="paswword-form">
-                            <label className="password-label" htmlFor="password">password</label>
-                            <input className="password-input" type="password" id="password" name="password"></input>
+
+            <body className="rechteck">
+                <div className="main-seperator"/>
+                <div className="Login_Base">
+                    <MailForm/>
+                        <form>
+                            <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
+                            <p style={{fontSize: '5px'}} />
+                            <input className="Add_Folder_Form_Input" type="password" id="password" name="password"/>
+                            <p style={{fontSize: '25px'}} />
                         </form>
-                    </div>
-                <button type="submit" className="LoginButton">sign up</button>
-                <WithGoogle login={props.login}/>
+                    <button type="submit" className="LoginButton">sign up</button>
+                    <WithGoogle login={props.login}/>
+                </div>
             </body>
+
+            <footer>
+                <Footer/>
+            </footer>
         </div>
     );
 }
