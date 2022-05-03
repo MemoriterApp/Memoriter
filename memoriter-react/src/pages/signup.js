@@ -20,6 +20,7 @@ function SignUpPage(props) {
             <body className="rechteck">
                 <div className="main-seperator"/>
                 <div className="Login_Base">
+                    <p style={{fontSize: '25px'}} />
                     <MailForm/>
                         <form>
                             <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
@@ -27,7 +28,7 @@ function SignUpPage(props) {
                             <input className="Add_Folder_Form_Input" type="password" id="password" name="password"/>
                             <p style={{fontSize: '25px'}} />
                         </form>
-                    <button type="submit" className="LoginButton">sign up</button>
+                    <button type="submit" className="LoginButton">Sign Up</button>
                     <WithGoogle login={props.login}/>
                 </div>
             </body>

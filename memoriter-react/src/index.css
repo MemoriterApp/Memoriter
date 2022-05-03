@@ -1021,7 +1021,7 @@ body {
 /* Css für Login */
 .Login_Base {
     position: absolute;
-    background-color: red;
+    background-color: transparent;
     height: calc(100% - 62px);
     width: 550px;
     left: 50%;
@@ -1030,6 +1030,7 @@ body {
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    overflow: auto;
 }
 .Logo-oben-login {
     width: 134.4px;
@@ -1136,12 +1137,12 @@ body {
 }
 .LoginButton {
     height: 50px;
-    width: 150px;
+    width: 125px;
     border-radius: 5px;
     background-color: #265272;
     position: absolute;
-    top: 50%;
-    left: 54.2%;
+    top: 240px;
+    left: 20%;
     border: 3px solid #3B6E71;
     cursor: pointer;
     font-size: 20px;
@@ -1188,8 +1189,8 @@ body {
     font-size: 14px;
     font-weight: 500;
     position: absolute;
-    top: 50%;
-    left: 43.5%;
+    top: 240px;
+    right: 20%;
 }
 
 
