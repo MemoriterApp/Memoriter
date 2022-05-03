@@ -6,7 +6,6 @@ import PrivacyPage from './pages/privacy_policies';
 import TermsPage from './pages/terms_of_use';
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
-import TestPage from './pages/test';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
 import { getAuth } from 'firebase/auth';
@@ -66,9 +65,6 @@ function App() {
 
           </Route>
 
-          <Route path='/test' element={<TestPage />}>
-
-          </Route>
           <Route path='/login' element={<LoginPage />}>
 
           </Route>
@@ -110,9 +106,6 @@ function App() {
 
           </Route>
 
-          <Route path='/test' element={<TestPage />}>
-
-          </Route>
           <Route path='/login' element={<LoginPage />}>
 
           </Route>
