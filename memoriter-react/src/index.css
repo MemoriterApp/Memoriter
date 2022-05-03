@@ -1182,3 +1182,11 @@ body {
     left: 80px;
     top: 10px;
 }
+
+.test {
+    color: red;
+    font-size: 20px;
+    position: absolute;
+    left: 80px;
+    top: 100px;
+}

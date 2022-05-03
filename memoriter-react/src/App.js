@@ -10,6 +10,7 @@ import TestPage from './pages/test';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
 import { getAuth } from 'firebase/auth';
+import Startpage from './pages/Startpage';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
@@ -39,8 +40,16 @@ function App() {
     }
 
   }
+  return (
+    <div> 
+      <Routes>
+          <Route path='/Startpage' element={<Startpage />}>
+          </Route>
+      </Routes>
+    </div>
+  )
 
-  if (!!user) {
+  /* if (!!user) {
     return (
       <div>
         <Routes>
@@ -76,6 +85,9 @@ function App() {
 
           </Route>
           <Route path='/' element={<HomePage onOpenFolder={openFolder}/>}>
+
+          </Route>
+          <Route path='/startpage' element={<startpage />}>
 
           </Route>
         </Routes>
@@ -123,7 +135,7 @@ function App() {
 
       </div>
     );
-  }
+  } */
 }
 
 export default App;
