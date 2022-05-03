@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import Logo from './Logo.png';
 import SettingsIcon from '../components/SettingsIcon';
 import FolderHome from '../components/FolderHome';
@@ -6,8 +6,31 @@ import AddFolderForm from '../components/AddFolderForm';
 import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
 import { firebase } from '../utils/firebase'
+import { useState, useEffect } from 'react';
+import { async } from '@firebase/util';
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+const { db } = firebase;
 
-function HomePage() {
+
+function HomePage({ onOpenFolder }) {
+
+  //firestore stuff
+  // connection to the folders firestore
+  const foldersCollectionRef = collection(db, "folders");
+
+// Folder Data
+const [ folders, setFolders ] = useState([ ])
+const [newFolder, setNewFolder] = useState("");
+
+//Use Effect für folders
+useEffect(() => {
+  const getFolder = async () => {
+      const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
+      setFolders(allFolders.docs.map((doc)=>({...doc.data(), id: doc.id })))
+  };
+  
+  getFolder();
+}, [])
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -19,13 +42,11 @@ function HomePage() {
   }
 
 
-// Folder Data
-  const [ folders, setFolders ] = useState([ ])
 
 //Folder Position
   folders.sort(function(a, b){return a.pos - b.pos})
 
-  const posUp = (id, pos) => {
+  const posUp = async (id, pos) => {
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
     ? { ...folder, pos: (folder.pos + 1) } : folder ))
@@ -38,16 +59,18 @@ function HomePage() {
   }
 
 //Add Folder
-  const addFolder = (folder) => {
-    const id = Math.floor(Math.random() * 10000) + 1
+  const addFolder = async (folder) => {
     const pos = folders.length + 1
-    const newFolderC = { id, pos, ...folder }
+    const newFolderC = {pos, ...folder }
+    await addDoc(foldersCollectionRef, {pos, title: folder.title} )
     setFolders([...folders, newFolderC])
     setModalIsOpen(false)
-}
+  }
 
 //Delete Folder
-  const deleteFolder = (id, pos) => {
+  const deleteFolder = async (id, pos) => {
+    const folderDoc = doc(db, 'folders', id); //Bug dass man die seite refreshen muss...
+    await deleteDoc(folderDoc); //Position wird auf Firebase noch nicht korrigiert.
     setFolders((folders) =>
       folders
         .map((folder) =>
@@ -58,9 +81,12 @@ function HomePage() {
   }
 
 //Edit Folder
-  const editFolder = (id, name) => {
+  const editFolder = async (id, title) => {
+    const folderDoc = doc(db, 'folders', id);
+    const newTitle = { title: title };
+    await updateDoc(folderDoc, newTitle);
     setFolders(folders.map((folder) => folder.id === id
-    ? { ...folder, name: name } : folder))
+    ? { ...folder, title: title } : folder))
   }
 
   return (
@@ -80,7 +106,7 @@ function HomePage() {
                 {folders.map((folder) => (
                   <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
                     onDeleteFolder={deleteFolder} onEditFolder={editFolder}
-                    onPosUp={posUp} onPosDown={posDown} />
+                    onPosUp={posUp} onPosDown={posDown} onOpenFolder={onOpenFolder}/>
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}

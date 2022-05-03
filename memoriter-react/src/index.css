@@ -618,7 +618,7 @@ body {
     width: 100%;
     content: "";
     background: linear-gradient(to top,
-    rgba(35,35,35,1),
+    #353535 5px,
     rgba(255,255,255,0) 25%
     );
     pointer-events: none;
@@ -1163,4 +1163,22 @@ body {
     position: absolute;
     top: 50%;
     left: 43.5%;
+}
+
+
+/* Indikatoren */
+.folder-pos-indicator {
+    color: red;
+    font-size: large;
+    position: absolute;
+    right: 100px;
+    top: 10px;
+}
+
+.flashcard-pos-indicator {
+    color: red;
+    font-size: large;
+    position: absolute;
+    left: 80px;
+    top: 10px;
 }

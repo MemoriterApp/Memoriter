@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount, folders }) => {
+const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount, folders, onOpenFolder }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -32,10 +32,11 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
         setModalIsOpenE(true);
     }
     function backdropClickE() {
+        setTitle(folder.title);
         setModalIsOpenE(false);
     }
 
-    const [ name, setName ] = useState(folder.name)
+    const [ title, setTitle ] = useState(folder.title)
 
     const [ pos, setPos ] = useState(folder.pos)
 
@@ -45,10 +46,10 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
     return (
         <div className='Folder_Body'>
-            <Link to='/topic'>
+            <Link to='/topic' onClick={() => onOpenFolder(folder.id, folder.title)}>
                 <button className='Button_Homepage'></button>
-                {folder.name !== '' ? (
-                    <button className='Button_Homepage_Text'>{folder.name}</button>
+                {folder.title !== '' ? (
+                    <button className='Button_Homepage_Text'>{folder.title}</button>
                 ) : (
                     <button className='Button_Homepage_Text'>New Folder</button>
                 )}
@@ -84,11 +85,11 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                         <div className='Add_Folder_Form_Text'>Rename Folder: </div>
                         <p style={{fontSize: '5px'}} />
                         <input className='Add_Folder_Form_Input' type='text' maxLength='100' placeholder='New Folder'
-                            defaultValue={name} onChange={(changeName) => setName(changeName.target.value)} />
+                            defaultValue={title} onChange={(changeName) => setTitle(changeName.target.value)} />
                     </div>
                         <p style={{fontSize: '25px'}} />
                         <input className='Add_Folder_Form_Submit' type='button' value='Done' onClick={
-                            () => { onEditFolder(folder.id, name); setModalIsOpenE(false); setModalIsOpen(false); }} />
+                            () => { onEditFolder(folder.id, title); setModalIsOpenE(false); setModalIsOpen(false); }} />
                         <p style={{fontSize: '10px'}} />
                 </form>}
             </div>
@@ -117,6 +118,9 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
             <div  onClick={backdropClick}>
                 {modalIsOpen && <Backdropfs/>}
             </div>
+
+            <div className='folder-pos-indicator'>{folder.pos}</div>
+
         </div>
     );
 }

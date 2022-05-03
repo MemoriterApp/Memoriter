@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, } from 'react';
 import Logo from './Logo.png';
 import BackButton from '../components/BackButton';
 import SettingsIcon from '../components/SettingsIcon';
@@ -6,14 +6,35 @@ import Footer from '../components/Footer';
 import Flashcard from '../components/Flashcard';
 import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
-import { Link } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
+import { firebase } from '../utils/firebase'
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+const { db } = firebase;
 
-function TopicPage() {
+function TopicPage({ syncedFolderID, syncedFolderTitle }) {
+
+    //firebase stuff
+    //link zur db
+    const flashcardCollectionRef = collection(db, "flashcards")
+
+    //Use Effect für Notes
+    useEffect(() => {
+        const getFlashcards = async () => {
+            const allFlashcards = await getDocs(flashcardCollectionRef)
+            setFlashcards(allFlashcards.docs.map((doc)=>({...doc.data(), id: doc.id })))
+        };
+
+        getFlashcards();
+    }, [])
+
 
     const [modalIsOpenA, setModalIsOpenA] = useState(false);
 
     function NewFlashcardClick() {
         setModalIsOpenA(true);
+        setFlashcards((flashcards) => //damit man korrekte positions hat
+            flashcards.filter((flashcard) => flashcard.syncedFolder === syncedFolderID)
+            );
     }
 
     function backdropClick() {
@@ -62,22 +83,27 @@ function TopicPage() {
     }
 
 //Add Flashcard
-    const addFlashcard = (flashcard) => {
-        const id = Math.floor(Math.random() * 10000) + 1
+    const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
-        const newFlashcardC = { id, pos, ...flashcard }
+        const newFlashcardC = {pos, ...flashcard }
+        await addDoc(flashcardCollectionRef, {pos, title: flashcard.title, content: flashcard.content, syncedFolder: flashcard.syncedFolder} )
         setFlashcards([...flashcards, newFlashcardC])
         setModalIsOpenA(false)
     }
 
 //Edit Flashcard
-    const editFlashcard = (id, title, content) => {
+    const editFlashcard = async (id, title, content) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+        const newAll = {title: title, content: content};
+        await updateDoc(flashcardDoc, newAll);
         setFlashcards(flashcards.map((flashcard) => flashcard.id === id
         ? { ...flashcard, title: title, content: content } : flashcard))
     }
 
 //Delete Flashcard
-    const deleteFlashcard = (id, pos) => {
+    const deleteFlashcard = async (id, pos) => {
+        const flashcardDoc = doc(db, 'flashcards', id); //Bug dass man die seite refreshen muss...
+        await deleteDoc(flashcardDoc); //Position wird auf Firebase noch nicht korrigiert.
         setFlashcards((flashcards) =>
         flashcards
             .map((flashcard) =>
@@ -88,9 +114,13 @@ function TopicPage() {
     }
 
     return (
-        <>
+        <div>
             <header className='Page_Header'>
-                <h1 className="page_title">--Folder Name--</h1>
+                {syncedFolderTitle !== '' ? (
+                        <h1 className="page_title" >{syncedFolderTitle}</h1>
+                    ) : (
+                        <h1 className="page_title" >New Folder</h1>
+                    )}
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo"></img>
                 </Link>
@@ -101,11 +131,15 @@ function TopicPage() {
                 <div className='Flashcard_Base'>
                     <>
                         {flashcards.map((flashcard) => (
-                        <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
-                        onPosLeft={posLeft} onPosRight={posRight}
-                        onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
-                        onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
-                        onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard} />
+                            flashcard.syncedFolder === syncedFolderID ? (
+                                <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                onPosLeft={posLeft} onPosRight={posRight}
+                                onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                />) : (
+                                <div style={{display: 'inline-block'}}/>
+                            )
                         ))}
                     </>
 
@@ -120,7 +154,7 @@ function TopicPage() {
                     </div>
 
                     <div>
-                        {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} />}
+                        {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} syncedFolderID={syncedFolderID}/>}
                     </div>
                     <div onClick={backdropClick}>
                         {modalIsOpenA && <Backdrop/>}
@@ -133,7 +167,7 @@ function TopicPage() {
             <footer>
                 <Footer />
             </footer>
-        </>
+        </div>
     );
 }
 export default TopicPage;

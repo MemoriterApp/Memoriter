@@ -1,15 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
 
-const AddFlashcardForm = ({ onAddFlashcard }) => {
+const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
 
     const [title, setTitle] = useState('')
 
     const [content, setContent] = useState('')
 
+    const [syncedFolder] = useState(syncedFolderID)
+
     const onSubmitFlashcard = (changeContent) => {
         changeContent.preventDefault()
-        onAddFlashcard({ title, content })
+        onAddFlashcard({ title, content, syncedFolder })
     }
 
     return (

@@ -1,5 +1,6 @@
 import { firebase } from './utils/firebase';
 import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import ImpressumPage from './pages/impressum';
 import PrivacyPage from './pages/privacy_policies';
 import TermsPage from './pages/terms_of_use';
@@ -9,21 +10,29 @@ import TestPage from './pages/test';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
 import { getAuth } from 'firebase/auth';
-import { useState } from 'react';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 function App() {
 
-  const [user, setUser] = useState(null);
-  const login = async () => {
-    const provider = new GoogleAuthProvider()
-    signInWithPopup(firebase.auth, provider).then((results) => {
-      console.log('just logged in', results);
-      setUser(results);
-    }).catch((error) => {
-      console.log(error)
-    });
+  const openFolder = (id, title) => {
+    setSyncFolderID(id)
+    setSyncFolderTitle(title)
+  }
+
+  const [ syncFolderID, setSyncFolderID ] = useState()
+  const [ syncFolderTitle, setSyncFolderTitle ] = useState("")
+
+
+      const [user, setUser] = useState(null);
+      const login = async () => {
+        const provider = new GoogleAuthProvider()
+        signInWithPopup(firebase.auth, provider).then((results) => {
+          console.log('just logged in', results);
+          setUser(results);
+        }).catch((error) => {
+          console.log(error)
+        });
 
     const logout = async () => {
       setUser(null);
@@ -36,6 +45,9 @@ function App() {
       <div>
         <Routes>
           <Route path='/' element={<HomePage />}>
+          </Route>
+
+          <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle}/>}>
           </Route>
 
           <Route path='/impressum' element={<ImpressumPage />}>
@@ -61,6 +73,9 @@ function App() {
 
           </Route>
           <Route path='/signup' element={<SignUpPage />}>
+
+          </Route>
+          <Route path='/' element={<HomePage onOpenFolder={openFolder}/>}>
 
           </Route>
         </Routes>
