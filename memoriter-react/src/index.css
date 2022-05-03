@@ -1036,11 +1036,3 @@ body {
     left: 80px;
     top: 10px;
 }
-
-.flashcard-folder-indicator {
-    color: green;
-    font-size: medium;
-    position: absolute;
-    left: 30px;
-    bottom: 10px;
-}
