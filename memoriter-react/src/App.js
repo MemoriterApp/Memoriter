@@ -11,6 +11,7 @@ import SignUpPage from './pages/signup';
 import { getAuth } from 'firebase/auth';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
 
@@ -121,6 +122,7 @@ function App() {
   */
   return (
     <div>
+      <AuthProvider>
       <Routes>
         <Route path='/' element={<HomePage />}>
         </Route>
@@ -154,6 +156,7 @@ function App() {
 
         </Route>
       </Routes>
+      </AuthProvider>
 
     </div>
   );

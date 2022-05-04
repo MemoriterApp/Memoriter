@@ -4,11 +4,20 @@ import Footer from "../components/Footer";
 import MailForm from "../components/mailForm";
 import WithGoogle from "../components/WithGoogle";
 import { useRef } from "react";
+import { useAuth } from "../contexts/AuthContext";
 
 
 function SignUpPage(props) {
     const passwordRef = useRef();
     const passwordAgainRef = useRef()
+    const emailRef = useRef()
+    const { signup } = useAuth();
+
+    function handleSubmit(e) {
+        e.preventDefault()
+
+        signup(passwordRef.current.value, passwordAgainRef.current.value, emailRef.current.value)
+    }
 
     return (
         <div>
@@ -25,7 +34,13 @@ function SignUpPage(props) {
                 <div className="main-seperator"/>
                 <div className="Login_Base">
                     <p style={{fontSize: '25px'}} />
-                    <MailForm/>
+                        <form>
+                            <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
+                            <p style={{ fontSize: '5px' }} />
+                            <input className="Add_Folder_Form_Input" ref={emailRef} type="email" id="email" name="email"
+                                placeholder='Please enter Email Adress...' />
+                            <p style={{ fontSize: '25px' }} />
+                        </form>
                         <form>
                             <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
                             <p style={{fontSize: '5px'}} />
