@@ -70,7 +70,7 @@ function SignUpPage(props) {
                         <form>
                             <div className="Add_Folder_Form_Text" htmlFor="password">password again:</div>
                             <p style={{fontSize: '5px'}} />
-                            <input className="Add_Folder_Form_Input" ref={passwordAgainRef} type="password" id="password" name="password"
+                            <input className="Add_Folder_Form_Input" ref={passwordAgainRef} type="password" id="password-confirm" name="password"
                                 placeholder="Please Enter Password again..."/>
                             <p style={{fontSize: '25px'}} />
                         </form>
