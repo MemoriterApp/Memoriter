@@ -10,6 +10,7 @@ export function useAuth() {
 
 export function AuthProvider({children}) {
     const [currentUser, setcurrentUser] = useState();
+    const [loading, setLoading] = useState(true);
 
     function signup(email, password) {
         return firebase.auth.createUserWithEmailAndPassword(email, password)
@@ -17,6 +18,7 @@ export function AuthProvider({children}) {
     useEffect(()=> {
         const unsubscribe = firebase.auth.onAuthStateChanged(user => {
             setcurrentUser(user)
+            setLoading(false)
         })
 
         return unsubscribe;
@@ -29,7 +31,7 @@ export function AuthProvider({children}) {
 
     return (
         <AuthContext.Provider value={value}>
-            {children}
+            {!loading && children}
         </AuthContext.Provider>
     );
 }

@@ -13,7 +13,7 @@ function SignUpPage(props) {
     const passwordRef = useRef();
     const passwordAgainRef = useRef()
     const emailRef = useRef()
-    const { signup } = useAuth();
+    const { signup, currentUser } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false)
 
@@ -51,17 +51,17 @@ function SignUpPage(props) {
 
             <div className="rechteck">
                 <div className="main-seperator"/>
-                {error && <PasswordAlert></PasswordAlert>}
+                {error && <PasswordAlert/>}
                 <div className="Login_Base">
                     <p style={{fontSize: '25px'}} />
                         <form onSubmit={handleSubmit}>
                             <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
                             <p style={{ fontSize: '5px' }} />
-                            <input className="Add_Folder_Form_Input" ref={emailRef} type="email" id="email" name="email"
+                           <input className="Add_Folder_Form_Input" ref={emailRef} type="email" id="email" name="email"
                                 placeholder='Please enter Email Adress...' />
                             <p style={{ fontSize: '25px' }} />
                         
-                        
+                         
                             <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
                             <p style={{fontSize: '5px'}} />
                             <input className="Add_Folder_Form_Input" ref={passwordRef} type="password" id="password" name="password"
