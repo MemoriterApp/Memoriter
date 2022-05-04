@@ -43,7 +43,6 @@ function SignUpPage(props) {
             <header className='Page_Header'>
                 <img className="Logo-oben" src={Logo} alt="site-logo" />
                 <h1 className="page_title">Sign Up</h1>
-                {error && console.log('this is an error')}
                 <div className="link-box">
                         <span className="Signup1">Sign Up</span>
                         <span className="Login1">Login</span>
@@ -52,6 +51,7 @@ function SignUpPage(props) {
 
             <div className="rechteck">
                 <div className="main-seperator"/>
+                {error && <PasswordAlert></PasswordAlert>}
                 <div className="Login_Base">
                     <p style={{fontSize: '25px'}} />
                         <form onSubmit={handleSubmit}>
