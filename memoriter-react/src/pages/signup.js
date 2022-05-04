@@ -29,6 +29,13 @@ function SignUpPage(props) {
                                 placeholder="Please Enter Password..."/>
                             <p style={{fontSize: '25px'}} />
                         </form>
+                        <form>
+                            <div className="Add_Folder_Form_Text" htmlFor="password">password again:</div>
+                            <p style={{fontSize: '5px'}} />
+                            <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
+                                placeholder="Please Enter Password again..."/>
+                            <p style={{fontSize: '25px'}} />
+                        </form>
                     <button type="submit" className="LoginButton">Sign Up</button>
                     <WithGoogle login={props.login}/>
                 </div>
