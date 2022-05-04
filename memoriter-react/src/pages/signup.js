@@ -60,22 +60,23 @@ function SignUpPage(props) {
                             <input className="Add_Folder_Form_Input" ref={emailRef} type="email" id="email" name="email"
                                 placeholder='Please enter Email Adress...' />
                             <p style={{ fontSize: '25px' }} />
-                        </form>
-                        <form>
+                        
+                        
                             <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
                             <p style={{fontSize: '5px'}} />
                             <input className="Add_Folder_Form_Input" ref={passwordRef} type="password" id="password" name="password"
                                 placeholder="Please Enter Password..."/>
                             <p style={{fontSize: '25px'}} />
-                        </form>
-                        <form>
+                        
+                        
                             <div className="Add_Folder_Form_Text" htmlFor="password">password again:</div>
                             <p style={{fontSize: '5px'}} />
                             <input className="Add_Folder_Form_Input" ref={passwordAgainRef} type="password" id="password-confirm" name="password"
                                 placeholder="Please Enter Password again..."/>
                             <p style={{fontSize: '25px'}} />
+
+                            <button type="submit" className="LoginButton" disabled={loading}>Sign Up</button>
                         </form>
-                    <button type="submit" className="LoginButton" disabled={loading}>Sign Up</button>
                     <WithGoogle login={props.login}/>
                 </div>
             </div>
