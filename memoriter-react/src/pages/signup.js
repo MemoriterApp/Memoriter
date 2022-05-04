@@ -42,7 +42,7 @@ function SignUpPage(props) {
             <header className='Page_Header'>
                 <img className="Logo-oben" src={Logo} alt="site-logo" />
                 <h1 className="page_title">Sign Up</h1>
-                {error && <p>{error}</p>}
+                {error && console.log('this is an error')}
                 <div className="link-box">
                         <span className="Signup1">Sign Up</span>
                         <span className="Login1">Login</span>
