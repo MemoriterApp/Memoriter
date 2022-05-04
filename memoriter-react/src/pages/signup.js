@@ -21,6 +21,7 @@ function SignUpPage(props) {
         e.preventDefault()
 
         if (passwordRef.current.value !== passwordAgainRef.current.value) {
+            console.log('test')
             return setError('Passwords do not match')
         }
 
@@ -49,7 +50,7 @@ function SignUpPage(props) {
                 </div>
             </header>
 
-            <body className="rechteck">
+            <div className="rechteck">
                 <div className="main-seperator"/>
                 <div className="Login_Base">
                     <p style={{fontSize: '25px'}} />
@@ -77,7 +78,7 @@ function SignUpPage(props) {
                     <button type="submit" className="LoginButton" disabled={loading}>Sign Up</button>
                     <WithGoogle login={props.login}/>
                 </div>
-            </body>
+            </div>
 
             <footer>
                 <Footer/>
