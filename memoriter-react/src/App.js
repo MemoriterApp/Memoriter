@@ -19,26 +19,27 @@ function App() {
     setSyncFolderTitle(title)
   }
 
-  const [ syncFolderID, setSyncFolderID ] = useState()
-  const [ syncFolderTitle, setSyncFolderTitle ] = useState("")
+  const [syncFolderID, setSyncFolderID] = useState()
+  const [syncFolderTitle, setSyncFolderTitle] = useState("")
 
 
-      const [user, setUser] = useState(null);
-      const login = async () => {
-        const provider = new GoogleAuthProvider()
-        signInWithPopup(firebase.auth, provider).then((results) => {
-          console.log('just logged in', results);
-          setUser(results);
-        }).catch((error) => {
-          console.log(error)
-        });
+  /*const [user, setUser] = useState(null);
+  const login = async () => {
+    const provider = new GoogleAuthProvider()
+    signInWithPopup(firebase.auth, provider).then((results) => {
+      console.log('just logged in', results);
+      setUser(results);
+    }).catch((error) => {
+      console.log(error)
+    });
 
     const logout = async () => {
       setUser(null);
     }
 
   }
-
+  */
+/*
   if (!!user) {
     return (
       <div>
@@ -46,7 +47,7 @@ function App() {
           <Route path='/' element={<HomePage />}>
           </Route>
 
-          <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle}/>}>
+          <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle} />}>
           </Route>
 
           <Route path='/impressum' element={<ImpressumPage />}>
@@ -71,7 +72,7 @@ function App() {
           <Route path='/signup' element={<SignUpPage />}>
 
           </Route>
-          <Route path='/' element={<HomePage onOpenFolder={openFolder}/>}>
+          <Route path='/' element={<HomePage onOpenFolder={openFolder} />}>
 
           </Route>
         </Routes>
@@ -117,6 +118,45 @@ function App() {
       </div>
     );
   }
+  */
+  return (
+    <div>
+      <Routes>
+        <Route path='/' element={<HomePage />}>
+        </Route>
+
+        <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle} />}>
+        </Route>
+
+        <Route path='/impressum' element={<ImpressumPage />}>
+
+        </Route>
+
+        <Route path='/privacy' element={<PrivacyPage />}>
+
+        </Route>
+
+        <Route path='/terms-of-use' element={<TermsPage />}>
+
+        </Route>
+
+        <Route path='/topic' element={<TopicPage />}>
+
+        </Route>
+
+        <Route path='/login' element={<LoginPage />}>
+
+        </Route>
+        <Route path='/signup' element={<SignUpPage />}>
+
+        </Route>
+        <Route path='/' element={<HomePage onOpenFolder={openFolder} />}>
+
+        </Route>
+      </Routes>
+
+    </div>
+  );
 }
 
 export default App;
