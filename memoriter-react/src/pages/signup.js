@@ -30,9 +30,10 @@ function SignUpPage(props) {
         e.preventDefault()
 
         if (password.length < 6) {
-            setRedBorder('5px solid rgb(228, 48, 48)')
+            setRedBorder('5px solid rgb(228, 48, 48)');
             setShortPassword(true);
-            return setError('Password is too short')  
+            setSamePassword(false);
+            return setError('Password is too short');
         }
         else if (password === passwordAgain) {
             setRedBorder('5px solid rgba(58,109,112,1)');
