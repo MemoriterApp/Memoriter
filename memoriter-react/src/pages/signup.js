@@ -8,6 +8,8 @@ import { useAuth } from "../contexts/AuthContext";
 import { useState } from "react";
 import PasswordAlert from "../components/PassowrdAlter";
 import { Link } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { firebase } from "../utils/firebase";
 
 
 function SignUpPage(props) {
@@ -37,14 +39,16 @@ function SignUpPage(props) {
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordAgainRef.current.value, passwordRef.current.value)
+            const user = createUserWithEmailAndPassword(firebase.auth, emailRef.current.value, passwordRef.current.value);
+            console.log(user)
+            //await signup(emailRef.current.value, passwordAgainRef.current.value, passwordRef.current.value)
         }
         catch {
             setError('failed to create an account')
         }
         setLoading(false)
 
-        signup(passwordRef.current.value, passwordAgainRef.current.value, emailRef.current.value)
+        //signup(passwordRef.current.value, passwordAgainRef.current.value, emailRef.current.value)
     }
 
     return (
