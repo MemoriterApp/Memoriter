@@ -1,37 +1,39 @@
 import React from "react";
 import Logo from './Logo.png';
 import Footer from "../components/Footer";
-import MailForm from "../components/mailForm";
 import WithGoogle from "../components/WithGoogle";
-import { useRef } from "react";
-import { useAuth } from "../contexts/AuthContext";
 import { useState } from "react";
 import PasswordAlert from "../components/PassowrdAlter";
 import { Link } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { firebase } from "../utils/firebase";
 
 
 function SignUpPage(props) {
-    const passwordRef = useRef();
-    const passwordAgainRef = useRef()
-    const emailRef = useRef()
-    const { signup, currentUser } = useAuth();
+    const [password, setPassword] = useState('');
+    const [passwordAgain, setPasswordAgain] = useState('');
+    const [email, setEmail] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [samePassword, setSamePassword] = useState(false)
     const [redBorder, setRedBorder] = useState('5px solid rgba(58,109,112,1)');
 
+    const [user, setUser] = useState({})
+
+    onAuthStateChanged(firebase.auth, (currentUser) => {
+        setUser(currentUser);
+    })
+
     async function handleSubmit(e) {
         e.preventDefault()
 
-        if (passwordRef.current.value !== passwordAgainRef.current.value) {
+        if (password !== passwordAgain) {
             setRedBorder('5px solid rgb(228, 48, 48)')
             setSamePassword(true)
             return setError('Passwords do not match')  
         }
 
-        else if (passwordRef.current.value === passwordAgainRef.current.value) {
+        else if (password === passwordAgain) {
             setRedBorder('5px solid rgba(58,109,112,1)')
             setSamePassword(false)
         }
@@ -39,16 +41,15 @@ function SignUpPage(props) {
         try {
             setError('')
             setLoading(true)
-            const user = createUserWithEmailAndPassword(firebase.auth, emailRef.current.value, passwordRef.current.value);
-            console.log(user)
-            //await signup(emailRef.current.value, passwordAgainRef.current.value, passwordRef.current.value)
+            const user = createUserWithEmailAndPassword(firebase.auth, email, password);
+
+            console.log(user) // <- muss am Ende entfernt werden, genauso wie der Indikator in Zeile 69!
+
         }
         catch {
             setError('failed to create an account')
         }
         setLoading(false)
-
-        //signup(passwordRef.current.value, passwordAgainRef.current.value, emailRef.current.value)
     }
 
     return (
@@ -60,31 +61,38 @@ function SignUpPage(props) {
             </header>
 
             <div className="rechteck">
+
+                {user && <div style={{color: 'red'}}>{user.email}</div>}
+
                 {error && <PasswordAlert/>}
                 <div className="main-seperator"/>
                 <div className="Login_Base_Scroll">
                     <div className="Login_Base">
                         <p style={{fontSize: '25px'}} />
                             <form onSubmit={handleSubmit}>
-                                <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
-                                <p style={{ fontSize: '5px' }} />
-                                <input className="Add_Folder_Form_Input" ref={emailRef} type="email" id="email" name="email"
-                                    placeholder='Please enter Email Adress...' />
-                                <p style={{ fontSize: '25px' }} />
+
+                                    <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
+                                    <p style={{ fontSize: '5px' }} />
+                                    <input className="Add_Folder_Form_Input" type="email" id="email" name="email"
+                                        placeholder='Please enter Email Adress...'
+                                        onChange={(e) => setEmail(e.target.value)} />
+                                    <p style={{ fontSize: '25px' }}/>
                             
                                     <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
                                     <p style={{fontSize: '5px'}} />
-                                    <input className="Add_Folder_Form_Input" ref={passwordRef} type="password" id="password" name="password"
+                                    <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
                                         placeholder="Please Enter Password..."
-                                        style={{border: redBorder}}/>
+                                        style={{border: redBorder}}
+                                        onChange={(e) => setPassword(e.target.value)} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                     <p style={{fontSize: '25px'}} />
                             
                                     <div className="Add_Folder_Form_Text" htmlFor="password">Confirm Password:</div>
                                     <p style={{fontSize: '5px'}} />
-                                    <input className="Add_Folder_Form_Input" ref={passwordAgainRef} type="password" id="password-confirm" name="password"
+                                    <input className="Add_Folder_Form_Input" type="password" id="password-confirm" name="password"
                                         placeholder="Please Enter Password Again..."
-                                        style={{border: redBorder}} />
+                                        style={{border: redBorder}}
+                                        onChange={(e) => setPasswordAgain(e.target.value)} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                     <p style={{fontSize: '25px'}} />
 

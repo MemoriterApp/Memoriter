@@ -12,9 +12,6 @@ export function AuthProvider({children}) {
     const [currentUser, setcurrentUser] = useState();
     const [loading, setLoading] = useState(true);
 
-    function signup(email, password) {
-        return firebase.auth.createUserWithEmailAndPassword(email, password)
-    }
     useEffect(()=> {
         const unsubscribe = firebase.auth.onAuthStateChanged(user => {
             setcurrentUser(user)
@@ -26,7 +23,6 @@ export function AuthProvider({children}) {
 
     const value = {
         currentUser,
-        signup
     }
 
     return (
