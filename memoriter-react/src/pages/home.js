@@ -9,6 +9,7 @@ import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
 import { async } from '@firebase/util';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+import { onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
 
 
@@ -89,13 +90,21 @@ useEffect(() => {
     ? { ...folder, title: title } : folder))
   }
 
+  const [user, setUser] = useState({})
+
+  onAuthStateChanged(firebase.auth, (currentUser) => {
+    setUser(currentUser);
+  })
+
   return (
     <>
       <header className='Page_Header'>
         <h1 className="page_title">Home</h1>
         <img className="Logo-oben" src={Logo} alt="site-logo" />
       </header>
+
       <div className="rechteck">
+        {user && <div style={{color: 'red'}}>{user.email}</div>}
         <h2 className="File-Overview">File Overview</h2>
           <SettingsIcon />
         <div className="main-seperator"></div>

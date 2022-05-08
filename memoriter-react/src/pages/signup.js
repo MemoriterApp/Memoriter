@@ -81,7 +81,7 @@ function SignUpPage(props) {
                                     <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
                                     <p style={{fontSize: '5px'}} />
                                     <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
-                                        placeholder="Please Enter Password..."
+                                        placeholder="Please Enter Password..." maxLength={50}
                                         style={{border: redBorder}}
                                         onChange={(e) => setPassword(e.target.value)} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
@@ -90,7 +90,7 @@ function SignUpPage(props) {
                                     <div className="Add_Folder_Form_Text" htmlFor="password">Confirm Password:</div>
                                     <p style={{fontSize: '5px'}} />
                                     <input className="Add_Folder_Form_Input" type="password" id="password-confirm" name="password"
-                                        placeholder="Please Enter Password Again..."
+                                        placeholder="Please Enter Password Again..." maxLength={50}
                                         style={{border: redBorder}}
                                         onChange={(e) => setPasswordAgain(e.target.value)} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
