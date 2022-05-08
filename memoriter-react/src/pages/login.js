@@ -4,6 +4,7 @@ import MailForm from "../components/mailForm";
 import PasswordForm from "../components/passwordForm";
 import WithGoogle from "../components/WithGoogle";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
     return(
@@ -11,7 +12,7 @@ function LoginPage() {
             <header className='Page_Header'>
                 <img className="Logo-oben" src={Logo} alt="site-logo" />
                 <h1 className="page_title">Log In</h1>
-                <div className="link-box">Sign Up</div>
+                <Link to='/signup' className="link-box">Sign Up</Link>
             </header>
             <div className="rechteck">
                 <div className="main-seperator"/>

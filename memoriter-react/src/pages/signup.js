@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useState } from "react";
 import PasswordAlert from "../components/PassowrdAlter";
+import { Link } from "react-router-dom";
 
 
 function SignUpPage(props) {
@@ -43,7 +44,7 @@ function SignUpPage(props) {
             <header className='Page_Header'>
                 <img className="Logo-oben" src={Logo} alt="site-logo" />
                 <h1 className="page_title">Sign Up</h1>
-                <div className="link-box">Log In</div>
+                <Link to='/login' className="link-box">Log In</Link>
             </header>
 
             <div className="rechteck">
