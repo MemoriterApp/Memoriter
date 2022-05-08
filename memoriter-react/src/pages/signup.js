@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Logo from './Logo.png';
 import Footer from "../components/Footer";
 import WithGoogle from "../components/WithGoogle";
@@ -7,7 +7,6 @@ import PasswordAlert from "../components/PassowrdAlter";
 import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { firebase } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 
 
 function SignUpPage(props) {
@@ -24,8 +23,6 @@ function SignUpPage(props) {
     onAuthStateChanged(firebase.auth, (currentUser) => {
         setUser(currentUser);
     })
-
-    const navigate = useNavigate()
 
     async function handleSubmit(e) {
         e.preventDefault()
