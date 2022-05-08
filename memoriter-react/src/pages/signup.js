@@ -76,6 +76,9 @@ function SignUpPage(props) {
                             <button type="submit" className="LoginButton" disabled={loading}>Sign Up</button>
                         </form>
                     <WithGoogle login={props.login}/>
+                    <p className="no-account">Already have an account? You can log in&nbsp;</p>
+                    <Link to='/login' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
+                    <p className="no-account">!</p>
                 </div>
             </div>
 

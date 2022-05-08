@@ -17,10 +17,14 @@ function LoginPage() {
             <div className="rechteck">
                 <div className="main-seperator"/>
                 <div className="Login_Base">
-                    <p style={{fontSize: '25px'}} />
+                    <div style={{height: '80px'}} />
                     <MailForm/>
                     <PasswordForm/>
                     <button className="LoginButton">Log In</button>
+                    <WithGoogle/>
+                    <p className="no-account">Do you need an account? You can sign up&nbsp;</p>
+                    <Link to='/signup' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
+                    <p className="no-account">!</p>
                 </div>
             </div>
 
