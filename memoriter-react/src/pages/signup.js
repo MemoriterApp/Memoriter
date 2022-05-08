@@ -29,6 +29,11 @@ function SignUpPage(props) {
             return setError('Passwords do not match')  
         }
 
+        else if (passwordRef.current.value === passwordAgainRef.current.value) {
+            setRedBorder('5px solid rgba(58,109,112,1)')
+            setSamePassword(false)
+        }
+
         try {
             setError('')
             setLoading(true)
