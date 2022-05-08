@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from './Logo.png';
 import Footer from "../components/Footer";
 import WithGoogle from "../components/WithGoogle";
@@ -7,6 +7,7 @@ import PasswordAlert from "../components/PassowrdAlter";
 import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { firebase } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
 
 
 function SignUpPage(props) {
@@ -23,6 +24,8 @@ function SignUpPage(props) {
     onAuthStateChanged(firebase.auth, (currentUser) => {
         setUser(currentUser);
     })
+
+    const navigate = useNavigate()
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -44,7 +47,6 @@ function SignUpPage(props) {
             const user = createUserWithEmailAndPassword(firebase.auth, email, password);
 
             console.log(user) // <- muss am Ende entfernt werden, genauso wie der Indikator in Zeile 69!
-
         }
         catch {
             setError('failed to create an account')
