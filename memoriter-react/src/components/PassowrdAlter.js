@@ -2,9 +2,9 @@ import React from "react";
 
 function PasswordAlert() {
     return (
-        <div className="box">
-            <p className="text">passwords do not match</p>
-        </div>
+        <div className="File-Overview"
+            style={{color: 'rgb(228, 48, 48)', paddingTop: '19px'}}
+        >Failed to create an account!</div>
     );
 }
 export default PasswordAlert;

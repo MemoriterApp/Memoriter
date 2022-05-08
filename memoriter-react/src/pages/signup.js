@@ -16,14 +16,17 @@ function SignUpPage(props) {
     const emailRef = useRef()
     const { signup, currentUser } = useAuth();
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [samePassword, setSamePassword] = useState(false)
+    const [redBorder, setRedBorder] = useState('5px solid rgba(58,109,112,1)');
 
     async function handleSubmit(e) {
         e.preventDefault()
 
         if (passwordRef.current.value !== passwordAgainRef.current.value) {
-            console.log('test')
-            return setError('Passwords do not match')
+            setRedBorder('5px solid rgb(228, 48, 48)')
+            setSamePassword(true)
+            return setError('Passwords do not match')  
         }
 
         try {
@@ -48,8 +51,8 @@ function SignUpPage(props) {
             </header>
 
             <div className="rechteck">
-                <div className="main-seperator"/>
                 {error && <PasswordAlert/>}
+                <div className="main-seperator"/>
                 <div className="Login_Base_Scroll">
                     <div className="Login_Base">
                         <p style={{fontSize: '25px'}} />
@@ -60,19 +63,21 @@ function SignUpPage(props) {
                                     placeholder='Please enter Email Adress...' />
                                 <p style={{ fontSize: '25px' }} />
                             
+                                    <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
+                                    <p style={{fontSize: '5px'}} />
+                                    <input className="Add_Folder_Form_Input" ref={passwordRef} type="password" id="password" name="password"
+                                        placeholder="Please Enter Password..."
+                                        style={{border: redBorder}}/>
+                                    {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
+                                    <p style={{fontSize: '25px'}} />
                             
-                                <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
-                                <p style={{fontSize: '5px'}} />
-                                <input className="Add_Folder_Form_Input" ref={passwordRef} type="password" id="password" name="password"
-                                    placeholder="Please Enter Password..."/>
-                                <p style={{fontSize: '25px'}} />
-                            
-                            
-                                <div className="Add_Folder_Form_Text" htmlFor="password">Confirm Password:</div>
-                                <p style={{fontSize: '5px'}} />
-                                <input className="Add_Folder_Form_Input" ref={passwordAgainRef} type="password" id="password-confirm" name="password"
-                                    placeholder="Please Enter Password again..."/>
-                                <p style={{fontSize: '25px'}} />
+                                    <div className="Add_Folder_Form_Text" htmlFor="password">Confirm Password:</div>
+                                    <p style={{fontSize: '5px'}} />
+                                    <input className="Add_Folder_Form_Input" ref={passwordAgainRef} type="password" id="password-confirm" name="password"
+                                        placeholder="Please Enter Password Again..."
+                                        style={{border: redBorder}} />
+                                    {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
+                                    <p style={{fontSize: '25px'}} />
 
                                 <button type="submit" className="LoginButton" disabled={loading}>Sign Up</button>
                             </form>
