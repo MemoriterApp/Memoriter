@@ -1019,18 +1019,27 @@ body {
 }
 
 /* Css für Login */
-.Login_Base {
+.Login_Base_Scroll {
     position: absolute;
     background-color: transparent;
     height: calc(100% - 62px);
-    width: 550px;
-    left: 50%;
+    width: calc(100% - 10px);
+    left: 5px;
     bottom: 5px;
+    overflow: auto;
+}
+.Login_Base {
+    position: absolute;
+    background-color: transparent;
+    height: 100%;
+    width: 550px;
+    max-width: 100%;
+    left: 50%;
     transform: translate(-50%);
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    overflow: auto;
+    overflow: visible;
 }
 .Logo-oben-login {
     width: 134.4px;
