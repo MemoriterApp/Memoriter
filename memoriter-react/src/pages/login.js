@@ -2,22 +2,30 @@ import React from "react";
 import Logo from './Logo.png';
 import MailForm from "../components/mailForm";
 import PasswordForm from "../components/passwordForm";
+import WithGoogle from "../components/WithGoogle";
+import Footer from "../components/Footer";
 
 function LoginPage() {
     return(
         <div>
-            <header>
-                <img className="Logo-oben-login" src={Logo} alt=''/>
-                <div className="link-box">
-                        <span className="Signup">Signup</span>
-                        <span className="Login">Login</span>
-                </div>
+            <header className='Page_Header'>
+                <img className="Logo-oben" src={Logo} alt="site-logo" />
+                <h1 className="page_title">Log In</h1>
+                <div className="link-box">Sign Up</div>
             </header>
-            <body>
-                <MailForm/>
-                <PasswordForm/>
-                <button className="LoginButton">Login</button>
-            </body>
+            <div className="rechteck">
+                <div className="main-seperator"/>
+                <div className="Login_Base">
+                    <p style={{fontSize: '25px'}} />
+                    <MailForm/>
+                    <PasswordForm/>
+                    <button className="LoginButton">Log In</button>
+                </div>
+            </div>
+
+            <footer>
+                <Footer/>
+            </footer>
         </div>
     );
 

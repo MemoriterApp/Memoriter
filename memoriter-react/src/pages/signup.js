@@ -43,10 +43,7 @@ function SignUpPage(props) {
             <header className='Page_Header'>
                 <img className="Logo-oben" src={Logo} alt="site-logo" />
                 <h1 className="page_title">Sign Up</h1>
-                <div className="link-box">
-                        <span className="Signup1">Sign Up</span>
-                        <span className="Login1">Login</span>
-                </div>
+                <div className="link-box">Log In</div>
             </header>
 
             <div className="rechteck">
@@ -57,7 +54,7 @@ function SignUpPage(props) {
                         <form onSubmit={handleSubmit}>
                             <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
                             <p style={{ fontSize: '5px' }} />
-                           <input className="Add_Folder_Form_Input" ref={emailRef} type="email" id="email" name="email"
+                            <input className="Add_Folder_Form_Input" ref={emailRef} type="email" id="email" name="email"
                                 placeholder='Please enter Email Adress...' />
                             <p style={{ fontSize: '25px' }} />
                         
