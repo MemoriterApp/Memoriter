@@ -15,8 +15,10 @@ function SignUpPage(props) {
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const [samePassword, setSamePassword] = useState(false)
+    const [samePassword, setSamePassword] = useState(false);
+    const [shortPassword, setShortPassword] = useState(false);
     const [redBorder, setRedBorder] = useState('5px solid rgba(58,109,112,1)');
+    const [redBorderC, setRedBorderC] = useState('5px solid rgba(58,109,112,1)');
 
     const [user, setUser] = useState({})
 
@@ -27,15 +29,26 @@ function SignUpPage(props) {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        if (password !== passwordAgain) {
+        if (password.length < 6) {
             setRedBorder('5px solid rgb(228, 48, 48)')
+            setShortPassword(true);
+            return setError('Password is too short')  
+        }
+        else if (password === passwordAgain) {
+            setRedBorder('5px solid rgba(58,109,112,1)');
+            setShortPassword(false);
+        }
+        else if (password !== passwordAgain) {
+            setRedBorder('5px solid rgb(228, 48, 48)');
+            setRedBorderC('5px solid rgb(228, 48, 48)');
             setSamePassword(true)
+            setShortPassword(false);
             return setError('Passwords do not match')  
         }
-
         else if (password === passwordAgain) {
-            setRedBorder('5px solid rgba(58,109,112,1)')
-            setSamePassword(false)
+            setRedBorder('5px solid rgba(58,109,112,1)');
+            setRedBorderC('5px solid rgba(58,109,112,1)');
+            setSamePassword(false);
         }
 
         try {
@@ -84,13 +97,14 @@ function SignUpPage(props) {
                                         style={{border: redBorder}}
                                         onChange={(e) => setPassword(e.target.value)} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
+                                    {shortPassword && <p className="passwords-no-match">Password should be at least 6 characters long!</p>}
                                     <p style={{fontSize: '25px'}} />
                             
                                     <div className="Add_Folder_Form_Text" htmlFor="password">Confirm Password:</div>
                                     <p style={{fontSize: '5px'}} />
                                     <input className="Add_Folder_Form_Input" type="password" id="password-confirm" name="password"
                                         placeholder="Please Enter Password Again..." maxLength={50}
-                                        style={{border: redBorder}}
+                                        style={{border: redBorderC}}
                                         onChange={(e) => setPasswordAgain(e.target.value)} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                     <p style={{fontSize: '25px'}} />
