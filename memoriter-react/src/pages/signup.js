@@ -19,6 +19,8 @@ function SignUpPage(props) {
     const [shortPassword, setShortPassword] = useState(false);
     const [redBorder, setRedBorder] = useState('5px solid rgba(58,109,112,1)');
     const [redBorderC, setRedBorderC] = useState('5px solid rgba(58,109,112,1)');
+    const [redBorderE, setRedBorderE] = useState('5px solid rgba(58,109,112,1)');
+    const [emailInUse, setEmailInUse] = useState(false);
 
     const [user, setUser] = useState({})
 
@@ -35,10 +37,6 @@ function SignUpPage(props) {
             setSamePassword(false);
             return setError('Password is too short');
         }
-        else if (password === passwordAgain) {
-            setRedBorder('5px solid rgba(58,109,112,1)');
-            setShortPassword(false);
-        }
         else if (password !== passwordAgain) {
             setRedBorder('5px solid rgb(228, 48, 48)');
             setRedBorderC('5px solid rgb(228, 48, 48)');
@@ -46,21 +44,18 @@ function SignUpPage(props) {
             setShortPassword(false);
             return setError('Passwords do not match')  
         }
-        else if (password === passwordAgain) {
-            setRedBorder('5px solid rgba(58,109,112,1)');
-            setRedBorderC('5px solid rgba(58,109,112,1)');
-            setSamePassword(false);
-        }
-
         try {
             setError('')
             setLoading(true)
             const user = createUserWithEmailAndPassword(firebase.auth, email, password);
-
-            console.log(user) // <- muss am Ende entfernt werden, genauso wie der Indikator in Zeile 69!
+            console.log(user);
+            setTimeout(() => {
+                setEmailInUse(true);
+                setRedBorderE('5px solid rgb(228, 48, 48)');
+                setError('Failed to Sign Up!')}, 500);
         }
         catch {
-            setError('failed to create an account')
+            setError('Failed to Sign Up!');
         }
         setLoading(false)
     }
@@ -88,7 +83,13 @@ function SignUpPage(props) {
                                     <p style={{ fontSize: '5px' }} />
                                     <input className="Add_Folder_Form_Input" type="email" id="email" name="email"
                                         placeholder='Please enter Email Adress...'
-                                        onChange={(e) => setEmail(e.target.value)} />
+                                        style={{border: redBorderE}}
+                                        onChange={
+                                            (e) => {setEmail(e.target.value);
+                                            setEmailInUse(false);
+                                            setRedBorderE('5px solid rgba(58,109,112,1)');
+                                        }} />
+                                    {emailInUse && <p className="passwords-no-match">Invalid Email!</p>}
                                     <p style={{ fontSize: '25px' }}/>
                             
                                     <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
@@ -96,7 +97,10 @@ function SignUpPage(props) {
                                     <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
                                         placeholder="Please Enter Password..." maxLength={50}
                                         style={{border: redBorder}}
-                                        onChange={(e) => setPassword(e.target.value)} />
+                                        onChange={(e) => {setPassword(e.target.value);
+                                            setShortPassword(false); setSamePassword(false);
+                                            setRedBorder('5px solid rgba(58,109,112,1)'); setRedBorderC('5px solid rgba(58,109,112,1)');
+                                        }} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                     {shortPassword && <p className="passwords-no-match">Password should be at least 6 characters long!</p>}
                                     <p style={{fontSize: '25px'}} />
@@ -106,7 +110,10 @@ function SignUpPage(props) {
                                     <input className="Add_Folder_Form_Input" type="password" id="password-confirm" name="password"
                                         placeholder="Please Enter Password Again..." maxLength={50}
                                         style={{border: redBorderC}}
-                                        onChange={(e) => setPasswordAgain(e.target.value)} />
+                                        onChange={(e) => {setPasswordAgain(e.target.value);
+                                            setShortPassword(false); setSamePassword(false);
+                                            setRedBorder('5px solid rgba(58,109,112,1)'); setRedBorderC('5px solid rgba(58,109,112,1)');
+                                        }} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                     <p style={{fontSize: '25px'}} />
 
