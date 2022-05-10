@@ -80,7 +80,7 @@ function LoginPage() {
                                 placeholder="Please Enter Password..." maxLength={50}
                                 style={{border: redBorder}}
                                 onChange={
-                                    (e) => {setEmail(e.target.value);
+                                    (e) => {setPassword(e.target.value);
                                     setLoginFail(false);
                                     setRedBorder('5px solid rgba(58,109,112,1)');}} />
                             {loginFail && <p className="passwords-no-match">Wrong Email or Password!</p>}
