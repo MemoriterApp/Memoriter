@@ -65,6 +65,17 @@ function SignUpPage(props) {
         setLoading(false)
     }
 
+    function isAuth() {
+            if (user) {
+                // User is signed in.
+                console.log("you are signed in")
+              } else {
+                // No user is signed in.
+                console.log("you are not signed in")
+              };
+    }
+    isAuth();
+
     return (
         <div>
             <header className='Page_Header'>

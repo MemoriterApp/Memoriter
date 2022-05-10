@@ -124,7 +124,7 @@ function App() {
     <div>
       <AuthProvider>
       <Routes>
-        <Route path='/' element={<HomePage />}>
+        <Route path='/home' element={<HomePage />}>
         </Route>
 
         <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle} />}>
@@ -149,10 +149,10 @@ function App() {
         <Route path='/login' element={<LoginPage />}>
 
         </Route>
-        <Route path='/signup' element={<SignUpPage />}>
+        <Route path='/' element={<SignUpPage />}>
 
         </Route>
-        <Route path='/' element={<HomePage onOpenFolder={openFolder} />}>
+        <Route path='/home' element={<HomePage onOpenFolder={openFolder} />}>
 
         </Route>
       </Routes>
