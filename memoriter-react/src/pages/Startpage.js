@@ -2,7 +2,7 @@ import Logo from './Logo.png';
 function Startpage() {
     return (
     <div>
-        <h1 className="test">dudjdj</h1>
+        <h1 className="titel">Memoriter</h1>
     </div>
     );
 }

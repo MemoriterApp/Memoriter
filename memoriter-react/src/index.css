@@ -1183,10 +1183,10 @@ body {
     top: 10px;
 }
 
-.test {
-    color: red;
-    font-size: 20px;
-    position: absolute;
-    left: 80px;
-    top: 100px;
+.titel {
+    color: rgb(17, 30, 146);
+    font-size: 100px;
+    position:fixed;
+    left: 700px;
+    top: 50px;
 }
