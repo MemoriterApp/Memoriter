@@ -12,6 +12,7 @@ import { getAuth } from 'firebase/auth';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { AuthProvider } from './contexts/AuthContext';
+import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
 
@@ -22,6 +23,12 @@ function App() {
 
   const [syncFolderID, setSyncFolderID] = useState()
   const [syncFolderTitle, setSyncFolderTitle] = useState("")
+
+  const [user, setUser] = useState({});
+
+    onAuthStateChanged(firebase.auth, (currentUser) => {
+        setUser(currentUser);
+    });
 
 
   /*const [user, setUser] = useState(null);
@@ -120,6 +127,49 @@ function App() {
     );
   }
   */
+ if (user) {
+  return (
+    <div>
+      <AuthProvider>
+      <Routes>
+        <Route path='/' element={<HomePage />}>
+        </Route>
+
+        <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle} />}>
+        </Route>
+
+        <Route path='/impressum' element={<ImpressumPage />}>
+
+        </Route>
+
+        <Route path='/privacy' element={<PrivacyPage />}>
+
+        </Route>
+
+        <Route path='/terms-of-use' element={<TermsPage />}>
+
+        </Route>
+
+        <Route path='/topic' element={<TopicPage />}>
+
+        </Route>
+
+        <Route path='/login' element={<LoginPage />}>
+
+        </Route>
+        <Route path='/Signup' element={<SignUpPage />}>
+
+        </Route>
+        <Route path='/home' element={<HomePage onOpenFolder={openFolder} />}>
+
+        </Route>
+      </Routes>
+      </AuthProvider>
+
+    </div>
+  );
+ }
+ else {
   return (
     <div>
       <AuthProvider>
@@ -160,6 +210,8 @@ function App() {
 
     </div>
   );
+ }
+  
 }
 
 export default App;
