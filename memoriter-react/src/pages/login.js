@@ -5,7 +5,6 @@ import WithGoogle from "../components/WithGoogle";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { firebase } from "../utils/firebase";
-import PasswordAlert from "../components/PassowrdAlter";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 function LoginPage() {
@@ -14,6 +13,8 @@ function LoginPage() {
     const [loading, setLoading] = useState(false);
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [redBorder, setRedBorder] = useState('5px solid rgba(58,109,112,1)');
+    const [loginFail, setLoginFail] = useState(false);
 
     const [user, setUser] = useState({})
 
@@ -27,10 +28,14 @@ function LoginPage() {
             setError('')
             setLoading(true)
             const user = signInWithEmailAndPassword(firebase.auth, email, password);
-
+            setTimeout(() => {
+                setLoginFail(true);
+                setRedBorder('5px solid rgb(228, 48, 48)');
+                setError('Failed to Log In!');
+            }, 500);
         }
         catch {
-            setError('failed to create an account')
+            setError('failed to create an account');
         }
         setLoading(false)
     }
@@ -46,7 +51,10 @@ function LoginPage() {
 
                 {user && <div style={{color: 'red'}}>{user.email}</div>}
 
-                {error && <PasswordAlert/>}
+                {error && <div className="File-Overview"
+                    style={{color: 'rgb(228, 48, 48)', paddingTop: '19px'}}>
+                    Failed to log in!</div>}
+                
                 <div className="main-seperator"/>
                 <div className="Login_Base_Scroll">
                     <div className="Login_Base">
@@ -57,14 +65,18 @@ function LoginPage() {
                             <p style={{ fontSize: '5px' }} />
                             <input className="Add_Folder_Form_Input" type="email" id="email" name="email"
                                 placeholder='Please enter Email Adress...'
+                                style={{border: redBorder}}
                                 onChange={(e) => setEmail(e.target.value)} />
+                            {loginFail && <p className="passwords-no-match">Wrong Email or Password!</p>}
                             <p style={{ fontSize: '25px' }}/>
 
                             <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
                             <p style={{fontSize: '5px'}} />
                             <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
                                 placeholder="Please Enter Password..." maxLength={50}
+                                style={{border: redBorder}}
                                 onChange={(e) => setPassword(e.target.value)} />
+                            {loginFail && <p className="passwords-no-match">Wrong Email or Password!</p>}
                             <p style={{fontSize: '25px'}} />
 
                             <p className="forgot-password">Forgot Password?</p>

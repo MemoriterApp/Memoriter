@@ -3,7 +3,6 @@ import Logo from './Logo.png';
 import Footer from "../components/Footer";
 import WithGoogle from "../components/WithGoogle";
 import { useState } from "react";
-import PasswordAlert from "../components/PassowrdAlter";
 import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { firebase } from "../utils/firebase";
@@ -52,7 +51,8 @@ function SignUpPage(props) {
             setTimeout(() => {
                 setEmailInUse(true);
                 setRedBorderE('5px solid rgb(228, 48, 48)');
-                setError('Failed to Sign Up!')}, 500);
+                setError('Failed to Sign Up!');
+            }, 500);
         }
         catch {
             setError('Failed to Sign Up!');
@@ -72,7 +72,10 @@ function SignUpPage(props) {
 
                 {user && <div style={{color: 'red'}}>{user.email}</div>}
 
-                {error && <PasswordAlert/>}
+                {error && <div className="File-Overview"
+                    style={{color: 'rgb(228, 48, 48)', paddingTop: '19px'}}>
+                    Failed to create an account!</div>}
+
                 <div className="main-seperator"/>
                 <div className="Login_Base_Scroll">
                     <div className="Login_Base">
