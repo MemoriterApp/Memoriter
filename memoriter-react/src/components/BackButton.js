@@ -5,7 +5,7 @@ import HomePage from '../pages/home';
 const BackButton = () => {
 
     return (
-        <Link to='/' >
+        <Link to='/home' >
             <div className='Zurückbutton_Body'>
                <div className='Zurückbutton_Arrow'/> 
             </div>
