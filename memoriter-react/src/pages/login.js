@@ -65,8 +65,12 @@ function LoginPage() {
                             <p style={{ fontSize: '5px' }} />
                             <input className="Add_Folder_Form_Input" type="email" id="email" name="email"
                                 placeholder='Please enter Email Adress...'
+                                value={email}
                                 style={{border: redBorder}}
-                                onChange={(e) => setEmail(e.target.value)} />
+                                onChange={
+                                    (e) => {setEmail(e.target.value);
+                                    setLoginFail(false);
+                                    setRedBorder('5px solid rgba(58,109,112,1)');}} />
                             {loginFail && <p className="passwords-no-match">Wrong Email or Password!</p>}
                             <p style={{ fontSize: '25px' }}/>
 
@@ -75,7 +79,10 @@ function LoginPage() {
                             <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
                                 placeholder="Please Enter Password..." maxLength={50}
                                 style={{border: redBorder}}
-                                onChange={(e) => setPassword(e.target.value)} />
+                                onChange={
+                                    (e) => {setEmail(e.target.value);
+                                    setLoginFail(false);
+                                    setRedBorder('5px solid rgba(58,109,112,1)');}} />
                             {loginFail && <p className="passwords-no-match">Wrong Email or Password!</p>}
                             <p style={{fontSize: '25px'}} />
 
