@@ -9,10 +9,11 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 function LoginPage() {
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
 
     const [invalidEmail, setInvalidEmail] = useState(false);
     const [redBorderEmail, setRedBorderEmail] = useState('5px solid rgba(58,109,112,1)');
@@ -27,11 +28,11 @@ function LoginPage() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        try {
 
-            setLoading(true)
+        try {
+            setLoading(true);
             const user = signInWithEmailAndPassword(firebase.auth, email, password)
-            .catch(error => {   
+            .catch(error => {
                 switch(error.code) {
                     case 'auth/wrong-password':
                         setError(true);
@@ -44,6 +45,7 @@ function LoginPage() {
                         setLoading(false);
                         setRedBorderEmail('5px solid rgb(228, 48, 48)');
                         setInvalidEmail(true);
+                        break;
                }
              })
         } catch(err) {
