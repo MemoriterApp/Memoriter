@@ -27,7 +27,7 @@ function LoginPage() {
     })
 
     async function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
 
         try {
             setLoading(true);

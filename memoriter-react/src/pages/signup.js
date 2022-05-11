@@ -18,6 +18,7 @@ function SignUpPage(props) {
     const [loading, setLoading] = useState(false);
 
     const [invalidEmail, setInvalidEmail] = useState(false);
+    const [emailInUse, setEmailInUse] = useState(false);
     const [redBorderEmail, setRedBorderEmail] = useState('5px solid rgba(58,109,112,1)');
     const [shortPassword, setShortPassword] = useState(false);
     const [redBorderPassword, setRedBorderPassword] = useState('5px solid rgba(58,109,112,1)');
@@ -31,7 +32,7 @@ function SignUpPage(props) {
     })
 
     async function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
 
         if (password !== passwordAgain) {
             setShortPassword(false);
@@ -50,11 +51,18 @@ function SignUpPage(props) {
             const user = createUserWithEmailAndPassword(firebase.auth, email, password)
             .catch(error => {   
                 switch(error.code) {
+                    case 'auth/email-already-in-use':
+                        setError(true);
+                        setLoading(false);
+                        setRedBorderEmail('5px solid rgb(228, 48, 48)');
+                        setEmailInUse(true);
+                        break;
                     case error.code:
                         setError(true);
                         setLoading(false);
                         setRedBorderEmail('5px solid rgb(228, 48, 48)');
                         setInvalidEmail(true);
+                        break;
                }
              })
         } catch(err) {
@@ -103,9 +111,11 @@ function SignUpPage(props) {
                                         onChange={
                                             (e) => {setEmail(e.target.value);
                                             setInvalidEmail(false);
+                                            setEmailInUse(false);
                                             setRedBorderEmail('5px solid rgba(58,109,112,1)');
                                         }} />
                                     {invalidEmail && <p className="passwords-no-match">Invalid Email!</p>}
+                                    {emailInUse && <p className="passwords-no-match">Email already in use!</p>}
                                     <p style={{ fontSize: '25px' }}/>
                             
                                     <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
