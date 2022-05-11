@@ -9,12 +9,15 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 function LoginPage() {
 
-    const [error, setError] = useState('');
+    const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const [redBorder, setRedBorder] = useState('5px solid rgba(58,109,112,1)');
-    const [loginFail, setLoginFail] = useState(false);
+
+    const [invalidEmail, setInvalidEmail] = useState(false);
+    const [redBorderEmail, setRedBorderEmail] = useState('5px solid rgba(58,109,112,1)');
+    const [wrongPassword, setWrongPassword] = useState(false);
+    const [redBorderPassword, setRedBorderPassword] = useState('5px solid rgba(58,109,112,1)');
 
     const [user, setUser] = useState({})
 
@@ -25,15 +28,26 @@ function LoginPage() {
     async function handleSubmit(e) {
         e.preventDefault()
         try {
-            setError('')
+
             setLoading(true)
             const user = signInWithEmailAndPassword(firebase.auth, email, password)
             .catch(error => {   
-                alert(error.message);
+                switch(error.code) {
+                    case 'auth/wrong-password':
+                        setError(true);
+                        setLoading(false);
+                        setRedBorderPassword('5px solid rgb(228, 48, 48)');
+                        setWrongPassword(true);
+                        break;
+                    case error.code:
+                        setError(true);
+                        setLoading(false);
+                        setRedBorderEmail('5px solid rgb(228, 48, 48)');
+                        setInvalidEmail(true);
+               }
              })
-            }catch(err){
-              alert(err);
-            setLoading(false)
+        } catch(err) {
+            setLoading(false);
         }
     }
 
@@ -63,24 +77,24 @@ function LoginPage() {
                             <input className="Add_Folder_Form_Input" type="email" id="email" name="email"
                                 placeholder='Please enter Email Adress...'
                                 value={email}
-                                style={{border: redBorder}}
+                                style={{border: redBorderEmail}}
                                 onChange={
                                     (e) => {setEmail(e.target.value);
-                                    setLoginFail(false);
-                                    setRedBorder('5px solid rgba(58,109,112,1)');}} />
-                            {loginFail && <p className="passwords-no-match">Wrong Email or Password!</p>}
+                                    setInvalidEmail(false);
+                                    setRedBorderEmail('5px solid rgba(58,109,112,1)');}} />
+                            {invalidEmail && <p className="passwords-no-match">Invalid Email!</p>}
                             <p style={{ fontSize: '25px' }}/>
 
                             <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
                             <p style={{fontSize: '5px'}} />
                             <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
                                 placeholder="Please Enter Password..." maxLength={50}
-                                style={{border: redBorder}}
+                                style={{border: redBorderPassword}}
                                 onChange={
                                     (e) => {setPassword(e.target.value);
-                                    setLoginFail(false);
-                                    setRedBorder('5px solid rgba(58,109,112,1)');}} />
-                            {loginFail && <p className="passwords-no-match">Wrong Email or Password!</p>}
+                                    setWrongPassword(false);
+                                    setRedBorderPassword('5px solid rgba(58,109,112,1)');}} />
+                            {wrongPassword && <p className="passwords-no-match">Wrong Password!</p>}
                             <p style={{fontSize: '25px'}} />
 
                             <p className="forgot-password">Forgot Password?</p>
