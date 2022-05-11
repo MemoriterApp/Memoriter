@@ -13,6 +13,7 @@ import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { AuthProvider } from './contexts/AuthContext';
 import { onAuthStateChanged } from "firebase/auth";
+import PrivateRoutes from './components/PrivateRoutes';
 
 function App() {
 
@@ -160,8 +161,8 @@ function App() {
         <Route path='/Signup' element={<SignUpPage />}>
 
         </Route>
-        <Route path='/home' element={<HomePage onOpenFolder={openFolder} />}>
-
+        <Route element={<PrivateRoutes/>}>
+          <Route path='/home' element={<HomePage onOpenFolder={openFolder} />}></Route>
         </Route>
       </Routes>
       </AuthProvider>
@@ -174,7 +175,8 @@ function App() {
     <div>
       <AuthProvider>
       <Routes>
-        <Route path='/home' element={<HomePage />}>
+      <Route element={<PrivateRoutes/>}>
+        <Route path='/home' element={<HomePage />}></Route>
         </Route>
 
         <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle} />}>
