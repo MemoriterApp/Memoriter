@@ -27,17 +27,14 @@ function LoginPage() {
         try {
             setError('')
             setLoading(true)
-            const user = signInWithEmailAndPassword(firebase.auth, email, password);
-            setTimeout(() => {
-                setLoginFail(true);
-                setRedBorder('5px solid rgb(228, 48, 48)');
-                setError('Failed to Log In!');
-            }, 500);
+            const user = signInWithEmailAndPassword(firebase.auth, email, password)
+            .catch(error => {   
+                alert(error.message);
+             })
+            }catch(err){
+              alert(err);
+            setLoading(false)
         }
-        catch {
-            setError('failed to create an account');
-        }
-        setLoading(false)
     }
 
     return(
