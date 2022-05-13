@@ -9,7 +9,7 @@ import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
 import { async } from '@firebase/util';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, getAuth } from "firebase/auth";
 const { db } = firebase;
 
 
@@ -63,7 +63,7 @@ useEffect(() => {
   const addFolder = async (folder) => {
     const pos = folders.length + 1
     const newFolderC = {pos, ...folder }
-    await addDoc(foldersCollectionRef, {pos, title: folder.title} )
+    await addDoc(foldersCollectionRef, {pos, title: folder.title, user: user.uid} )
     setFolders([...folders, newFolderC])
     setModalIsOpen(false)
   }
@@ -95,6 +95,7 @@ useEffect(() => {
   onAuthStateChanged(firebase.auth, (currentUser) => {
     setUser(currentUser);
   })
+  //console.log('This is the user'+JSON.stringify(user))
 
   return (
     <>
