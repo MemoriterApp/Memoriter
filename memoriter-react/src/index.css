@@ -1,5 +1,6 @@
 body {
     background-color:#353535;
+    cursor: default;
 }
 
 /* Custom Scrollbar */
@@ -1019,18 +1020,27 @@ body {
 }
 
 /* Css für Login */
-.Login_Base {
+.Login_Base_Scroll {
     position: absolute;
     background-color: transparent;
     height: calc(100% - 62px);
-    width: 550px;
-    left: 50%;
+    width: calc(100% - 10px);
+    left: 5px;
     bottom: 5px;
+    overflow: auto;
+}
+.Login_Base {
+    position: absolute;
+    background-color: transparent;
+    height: 100%;
+    width: 550px;
+    max-width: 100%;
+    left: 50%;
     transform: translate(-50%);
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    overflow: auto;
+    overflow: visible;
 }
 .Logo-oben-login {
     width: 134.4px;
@@ -1060,8 +1070,7 @@ body {
     cursor: pointer;
 }
 .link-box {
-    width: 212px;
-    height: 50px;
+    width: 140px;
     fill: none;
     border: 5px solid #274b65;
     border-radius: 3px;
@@ -1071,6 +1080,13 @@ body {
     bottom: 50%;
     right: 10px;
     transform: translate(0%, 50%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:25px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
 }
 .mail-form1 {
     text-align: center;
@@ -1141,8 +1157,8 @@ body {
     border-radius: 5px;
     background-color: #265272;
     position: absolute;
-    top: 240px;
-    left: 20%;
+    top: 320px;
+    left: 40%;
     border: 3px solid #3B6E71;
     cursor: pointer;
     font-size: 20px;
@@ -1151,32 +1167,28 @@ body {
 .forgot-password {
     color: #265272;
     font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
-    top: 48.5%;
-    left: 43.5%;
     font-size: 15px;
     cursor: pointer;
+    text-align: center;
+    margin-bottom: 24px;
 }
-
-.Signup1 {
-    position: absolute;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:25px;
-    color: gray;
-    top: 9px;
-    left: 10px;
-    cursor: pointer;
-}
-
-.Login1 {
-    position: absolute;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:25px;
+.no-account {
     color: white;
-    right: 10px;
-    top: 9px;
-    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 82px;
+    display: inline-block;
 }
+.passwords-no-match {
+    color: rgb(228, 48, 48);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    position: absolute;
+    left: 8%;
+    margin-top: 2px;
+}
+
 /* sign in with google stuff */ 
 .google-button {
     width: 125px;
@@ -1189,7 +1201,7 @@ body {
     font-size: 14px;
     font-weight: 500;
     position: absolute;
-    top: 240px;
+    top: 320px;
     right: 20%;
 }
 
@@ -1209,4 +1221,24 @@ body {
     position: absolute;
     left: 80px;
     top: 10px;
+}
+.box {
+    height: 38px;
+    width: 185px;
+    background-color: red;
+    opacity: 0.6;
+    position: absolute;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    left: 43%;
+    border-radius: 5px;
+    top: 4px;
+}
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: -5px;
+    left: 4px;
 }
