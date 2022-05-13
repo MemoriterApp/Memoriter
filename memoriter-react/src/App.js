@@ -1,6 +1,7 @@
 import { firebase } from './utils/firebase';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import ImpressumPage from './pages/impressum';
 import PrivacyPage from './pages/privacy_policies';
 import TermsPage from './pages/terms_of_use';
@@ -155,8 +156,7 @@ function App() {
 
         </Route>
 
-        <Route path='/login' element={<HomePage />}>
-
+        <Route path='/login' element={<LoginPage />}>
         </Route>
         <Route path='/Signup' element={<SignUpPage />}>
 
