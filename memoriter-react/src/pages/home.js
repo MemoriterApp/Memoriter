@@ -104,7 +104,6 @@ useEffect(() => {
       </header>
 
       <div className="rechteck">
-        {user && <div style={{color: 'red'}}>{user.email}</div>}
         <h2 className="File-Overview">File Overview</h2>
           <SettingsIcon />
         <div className="main-seperator"></div>

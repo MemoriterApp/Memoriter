@@ -156,7 +156,7 @@ function App() {
 
         </Route>
 
-        <Route path='/login' element={<LoginPage />}>
+        <Route path='/login' element={<HomePage />}>
         </Route>
         <Route path='/Signup' element={<SignUpPage />}>
 
@@ -177,7 +177,7 @@ function App() {
       <Routes>
       <Route element={<PrivateRoutes/>}>
         <Route path='/home' element={<HomePage />}></Route>
-        </Route>
+      </Route>
 
         <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle} />}>
         </Route>
@@ -202,6 +202,9 @@ function App() {
 
         </Route>
         <Route path='/' element={<SignUpPage />}>
+
+        </Route>
+        <Route path='/Signup' element={<SignUpPage />}>
 
         </Route>
         <Route path='/home' element={<HomePage onOpenFolder={openFolder} />}>

@@ -21,7 +21,7 @@ function SettingsClick() {
 
     const logOut = async () => {
         await signOut(firebase.auth);
-        navigate('/login')
+        navigate('/Signup')
     }
 
     return (

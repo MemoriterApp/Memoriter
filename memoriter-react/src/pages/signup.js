@@ -91,7 +91,6 @@ function SignUpPage(props) {
 
             <div className="rechteck">
 
-                {user && <div style={{color: 'red'}}>{user.email}</div>}
 
                 {error && <div className="File-Overview"
                     style={{color: 'rgb(228, 48, 48)', paddingTop: '19px'}}>
@@ -147,7 +146,6 @@ function SignUpPage(props) {
 
                                 <button type="submit" className="LoginButton" disabled={loading}>Sign Up</button>
                             </form>
-                        <WithGoogle login={props.login}/>
                         <p className="no-account">Already have an account? You can log in&nbsp;</p>
                         <Link to='/login' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
                         <p className="no-account">!</p>

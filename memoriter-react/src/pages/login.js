@@ -56,9 +56,6 @@ function LoginPage() {
         }
     }
 
-    if(user) {
-        <Navigate to='/home'></Navigate>
-    }
 
     return(
         <div>
@@ -68,8 +65,6 @@ function LoginPage() {
                 <Link to='/' className="link-box">Sign Up</Link>
             </header>
             <div className="rechteck">
-
-                {user && <div style={{color: 'red'}}>{user.email}</div>}
 
                 {error && <div className="File-Overview"
                     style={{color: 'rgb(228, 48, 48)', paddingTop: '19px'}}>
@@ -110,7 +105,6 @@ function LoginPage() {
 
                             <button type="submit" className="LoginButton" disabled={loading}>Log In</button>
                         </form>
-                        <WithGoogle/>
                         <p className="no-account">Do you need an account? You can sign up&nbsp;</p>
                         <Link to='/' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
                         <p className="no-account">!</p>
