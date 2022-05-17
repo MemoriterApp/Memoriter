@@ -94,7 +94,7 @@ useEffect(() => {
     setUser(currentUser);
   })
   //console.log('This is the user'+JSON.stringify(user))
-
+  
   return (
     <>
       <header className='Page_Header'>
@@ -110,13 +110,14 @@ useEffect(() => {
         <div className='Folder_Base'>
              
               <>
-                {folders.map((folder) => (
-                  folder.user === user.uid ? (
-                  <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
-                    onDeleteFolder={deleteFolder} onEditFolder={editFolder}
-                    onPosUp={posUp} onPosDown={posDown} onOpenFolder={onOpenFolder}/>)
-                    : (<div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>)
-                ))}
+                {folders.length > 0 ? (<div/>) : (<div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>)}
+                {folders
+                  .filter((folder) => folder.user === user.uid)
+                  .map((folder) => (
+                    <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
+                      onDeleteFolder={deleteFolder} onEditFolder={editFolder}
+                      onPosUp={posUp} onPosDown={posDown} onOpenFolder={onOpenFolder}/>)
+                )}
               </>
 
              <div folders={folders}>
