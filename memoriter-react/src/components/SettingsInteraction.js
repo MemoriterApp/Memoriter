@@ -3,7 +3,6 @@ import Backdrop from './backdrop';
 import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
 
 function SettingsClick() {
 
@@ -17,11 +16,8 @@ function SettingsClick() {
         setUser(currentUser);
     })
 
-    const navigate = useNavigate();
-
     const logOut = async () => {
         await signOut(firebase.auth);
-        navigate('/Signup')
     }
 
     return (

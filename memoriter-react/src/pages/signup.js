@@ -86,7 +86,7 @@ function SignUpPage(props) {
             <header className='Page_Header'>
                 <img className="Logo-oben" src={Logo} alt="site-logo" />
                 <h1 className="page_title">Sign Up</h1>
-                <Link to='/login' className="link-box">Log In</Link>
+                <Link to='/' className="link-box">Log In</Link>
             </header>
 
             <div className="rechteck">
@@ -147,7 +147,7 @@ function SignUpPage(props) {
                                 <button type="submit" className="LoginButton" disabled={loading}>Sign Up</button>
                             </form>
                         <p className="no-account">Already have an account? You can log in&nbsp;</p>
-                        <Link to='/login' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
+                        <Link to='/' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
                         <p className="no-account">!</p>
                     </div>
                 </div>

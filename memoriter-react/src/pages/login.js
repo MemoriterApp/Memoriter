@@ -62,7 +62,7 @@ function LoginPage() {
             <header className='Page_Header'>
                 <img className="Logo-oben" src={Logo} alt="site-logo" />
                 <h1 className="page_title">Log In</h1>
-                <Link to='/' className="link-box">Sign Up</Link>
+                <Link to='/signup' className="link-box">Sign Up</Link>
             </header>
             <div className="rechteck">
 
@@ -106,7 +106,7 @@ function LoginPage() {
                             <button type="submit" className="LoginButton" disabled={loading}>Log In</button>
                         </form>
                         <p className="no-account">Do you need an account? You can sign up&nbsp;</p>
-                        <Link to='/' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
+                        <Link to='/signup' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
                         <p className="no-account">!</p>
                     </div>
                 </div>
