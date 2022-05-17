@@ -1182,11 +1182,58 @@ body {
     left: 80px;
     top: 10px;
 }
+/* Alles für die startpage*/
 
-.titel {
-    color: rgb(17, 30, 146);
-    font-size: 100px;
-    position:fixed;
-    left: 700px;
-    top: 50px;
+.titel-startpage {
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 72px;
+    color: rgba(255,255,255,1);
+    max-width: 40%;
+    max-height: 75px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.Logo-startpage {
+    width: 250px;
+    max-width: 25%;
+    position: absolute;
+    bottom: 25%;
+    left: 42%;
+    transform: translate(0%, 50%);
+}
+
+.rechteck {
+    background: transparent;
+    border: 5px solid #274b65;
+    width: 90%;
+    height: calc(100% - 200px);
+    margin: auto;
+    position: absolute;
+    top: 120px;
+    left: 4.5%;
+    border-radius: 3px;
+    max-height: calc(100% - 120px);
+    min-height: 168px;
+    }
+.Overview {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    color: #FFFF;
+    top: -10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    width: calc(100% - 70px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
