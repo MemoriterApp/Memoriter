@@ -42,8 +42,6 @@ useEffect(() => {
       setModalIsOpen(false);
   }
 
-
-
 //Folder Position
   folders.sort(function(a, b){return a.pos - b.pos})
 
@@ -113,9 +111,11 @@ useEffect(() => {
               {folders.length > 0 ?
               <>
                 {folders.map((folder) => (
+                  folder.user === user.uid ? (
                   <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
                     onDeleteFolder={deleteFolder} onEditFolder={editFolder}
-                    onPosUp={posUp} onPosDown={posDown} onOpenFolder={onOpenFolder}/>
+                    onPosUp={posUp} onPosDown={posDown} onOpenFolder={onOpenFolder}/>)
+                    : (<div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>)
                 ))}
               </> : 
               <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
