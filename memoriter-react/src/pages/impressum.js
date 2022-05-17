@@ -15,14 +15,14 @@ function ImpressumPage() {
             </Link>
             <h1 className='Legal_Header'>Impressum</h1>
             <p className='Legal_Text'>
-            Memoriter ist ein Schülerunternehmen des Bertha-von-Suttner-Gymnasiums, durchgeführt von JUNIOR. 
+            Memoriter is a student company by students of the Bertha-von-Bertha-Suttner-Gymnasium-Babelsberg under the supervision of JUNIOR
             </p>
             <ul className="Legal_Text" style={{top: '200px'}}>
-                Kontakt:
+                contact:
                 <li>Johan Trieloff</li>
                 <li>Kopernikusstraße 30</li>
                 <li>14482 Potsdam</li>
-                <li>Deutschland</li>
+                <li>Germany</li>
                 <li>Telefon:  +49 (0)221 | 4981-707</li>
                 <li>Email: johan@trieloff.net</li>
             </ul>
