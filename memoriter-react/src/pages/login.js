@@ -101,7 +101,7 @@ function LoginPage() {
                             {wrongPassword && <p className="passwords-no-match">Wrong Password!</p>}
                             <p style={{fontSize: '25px'}} />
 
-                            <p className="forgot-password">Forgot Password?</p>
+                            {/*<p className="forgot-password">Forgot Password?</p>*/}
 
                             <button type="submit" className="LoginButton" disabled={loading}>Log In</button>
                         </form>

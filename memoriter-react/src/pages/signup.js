@@ -144,7 +144,7 @@ function SignUpPage(props) {
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                     <p style={{fontSize: '25px'}} />
 
-                                <button type="submit" className="LoginButton" disabled={loading}>Sign Up</button>
+                                <button type="submit" className="LoginButton" disabled={loading} style={{top:"330px"}}>Sign Up</button>
                             </form>
                         <p className="no-account">Already have an account? You can log in&nbsp;</p>
                         <Link to='/' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
