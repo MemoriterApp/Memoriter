@@ -108,7 +108,7 @@ useEffect(() => {
         <div className="main-seperator"></div>
 
         <div className='Folder_Base'>
-              {folders.length > 0 ?
+             
               <>
                 {folders.map((folder) => (
                   folder.user === user.uid ? (
@@ -117,8 +117,8 @@ useEffect(() => {
                     onPosUp={posUp} onPosDown={posDown} onOpenFolder={onOpenFolder}/>)
                     : (<div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>)
                 ))}
-              </> : 
-              <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
+              </>
+
              <div folders={folders}>
                 <div className='New_Folder_Body'>
                   <div className='New_Folder_Line'></div>
