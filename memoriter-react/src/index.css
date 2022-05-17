@@ -479,7 +479,7 @@ body {
     border: 5px solid #274b65;
     text-align: center;
     width: 210px;
-    height: 220px;
+    height: 150px;
     max-width: calc(100% - 30px);
     max-height: calc(100% - 30px);
     z-index: 10;
