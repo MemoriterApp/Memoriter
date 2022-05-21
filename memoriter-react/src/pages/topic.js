@@ -17,32 +17,38 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
     //link zur db
     const flashcardCollectionRef = collection(db, "flashcards")
 
+    //Flashcard Data
+    const [ flashcards, setFlashcards ] = useState([ ])
+
     //Use Effect für Notes
     useEffect(() => {
         const getFlashcards = async () => {
             const allFlashcards = await getDocs(flashcardCollectionRef)
             setFlashcards(allFlashcards.docs.map((doc)=>({...doc.data(), id: doc.id })))
+            setRenderedFlashcard(false)
         };
 
         getFlashcards();
     }, [])
+
+    //show correct flashcards
+        const [renderedFlashcard, setRenderedFlashcard] = useState(true);
+
+        if (renderedFlashcard === false) {
+            setFlashcards(flashcards.filter((flashcard) => flashcard.syncedFolder === syncedFolderID));
+            setRenderedFlashcard(true);
+        }
 
 
     const [modalIsOpenA, setModalIsOpenA] = useState(false);
 
     function NewFlashcardClick() {
         setModalIsOpenA(true);
-        setFlashcards((flashcards) => //damit man korrekte positions hat
-            flashcards.filter((flashcard) => flashcard.syncedFolder === syncedFolderID)
-            );
     }
 
     function backdropClick() {
         setModalIsOpenA(false);
     }
-
-//Flashcard Data
-    const [ flashcards, setFlashcards ] = useState([ ])
 
 //Open Flashcard
     const [ openFlashcard, setOpenFlashcard ] = useState()
@@ -130,17 +136,15 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
                 <div className='main-seperator' />
                 <div className='Flashcard_Base'>
                     <>
-                        {flashcards.map((flashcard) => (
-                            flashcard.syncedFolder === syncedFolderID ? (
+                        {flashcards
+                            .map((flashcard) => (
                                 <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                                 onPosLeft={posLeft} onPosRight={posRight}
                                 onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
                                 onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
                                 onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
-                                />) : (
-                                <div style={{display: 'inline-block'}}/>
-                            )
-                        ))}
+                                />)
+                        )}
                     </>
 
                     <div className='Flashcard_Body'>

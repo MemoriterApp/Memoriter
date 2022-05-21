@@ -28,7 +28,7 @@ function HomePage({ onOpenFolder }) {
 // Folder Data
   const [ folders, setFolders ] = useState([ ])
 
-  //show correct folders
+//show correct folders
   const [renderedFolder, setRenderedFolder] = useState(true);
 
   if (renderedFolder === false) {
