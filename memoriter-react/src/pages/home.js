@@ -7,31 +7,45 @@ import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
-import { async } from '@firebase/util';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
-import { onAuthStateChanged, getAuth } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
 
 
 function HomePage({ onOpenFolder }) {
 
-  //firestore stuff
-  // connection to the folders firestore
+//firestore stuff
+// connection to the folders firestore
   const foldersCollectionRef = collection(db, "folders");
 
+//user stuff
+  const [user, setUser] = useState({})
+
+  onAuthStateChanged(firebase.auth, (currentUser) => {
+    setUser(currentUser);
+  })
+
 // Folder Data
-const [ folders, setFolders ] = useState([ ])
-const [newFolder, setNewFolder] = useState("");
+  const [ folders, setFolders ] = useState([ ])
+
+  //show correct folders
+  const [renderedFolder, setRenderedFolder] = useState(true);
+
+  if (renderedFolder === false) {
+    setFolders(folders.filter((folder) => folder.user === user.uid));
+    setRenderedFolder(true);
+  }
 
 //Use Effect für folders
-useEffect(() => {
-  const getFolder = async () => {
-      const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
-      setFolders(allFolders.docs.map((doc)=>({...doc.data(), id: doc.id })))
-  };
-  
-  getFolder();
-}, [])
+  useEffect(() => {
+    const getFolder = async () => {
+        const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
+        setFolders(allFolders.docs.map((doc)=>({...doc.data(), id: doc.id })))
+        setRenderedFolder(false)
+    };
+    
+    getFolder();
+  }, [])
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -87,13 +101,6 @@ useEffect(() => {
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, title: title } : folder))
   }
-
-  const [user, setUser] = useState({})
-
-  onAuthStateChanged(firebase.auth, (currentUser) => {
-    setUser(currentUser);
-  })
-  //console.log('This is the user'+JSON.stringify(user))
   
   return (
     <>
@@ -112,7 +119,6 @@ useEffect(() => {
               <>
                 {folders.length > 0 ? (<div/>) : (<div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>)}
                 {folders
-                  .filter((folder) => folder.user === user.uid)
                   .map((folder) => (
                     <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
                       onDeleteFolder={deleteFolder} onEditFolder={editFolder}
