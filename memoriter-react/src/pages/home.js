@@ -40,7 +40,7 @@ function HomePage({ onOpenFolder }) {
   useEffect(() => {
     const getFolder = async () => {
         const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
-        setFolders(allFolders.docs.map((doc)=>({...doc.data(), id: doc.id })))
+        setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         setRenderedFolder(false)
     };
     
@@ -74,9 +74,9 @@ function HomePage({ onOpenFolder }) {
 //Add Folder
   const addFolder = async (folder) => {
     const pos = folders.length + 1
-    const newFolderC = {pos, ...folder }
-    await addDoc(foldersCollectionRef, {pos, title: folder.title, user: user.uid} )
-    setFolders([...folders, newFolderC])
+    await addDoc(foldersCollectionRef, { pos, title: folder.title, user: user.uid })
+    const newFolderC = { pos, ...folder }
+    setFolders([ ...folders, newFolderC ])
     setModalIsOpen(false)
   }
 
