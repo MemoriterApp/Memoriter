@@ -24,7 +24,7 @@ function TopicPage() {
     useEffect(() => {
         const getFlashcards = async () => {
             const allFlashcards = await getDocs(flashcardCollectionRef)
-            setFlashcards(allFlashcards.docs.map((doc)=>({...doc.data(), id: doc.id })))
+            setFlashcards(allFlashcards.docs.map((doc) => ({...doc.data(), id: doc.id })))
             setRenderedFlashcard(false)
         };
 
@@ -95,9 +95,12 @@ function TopicPage() {
 //Add Flashcard
     const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
-        const newFlashcardC = {pos, ...flashcard }
-        await addDoc(flashcardCollectionRef, {pos, title: flashcard.title, content: flashcard.content, syncedFolder: flashcard.syncedFolder} )
-        setFlashcards([...flashcards, newFlashcardC])
+        await addDoc(flashcardCollectionRef, {pos, title: flashcard.title, content: flashcard.content, syncedFolder: flashcard.syncedFolder})
+
+        const allFlashcards = await getDocs(flashcardCollectionRef)
+        setFlashcards(allFlashcards.docs.map((doc) => ({...doc.data(), id: doc.id }))) //Aktualisieren der Flashcards
+        setRenderedFlashcard(false)
+
         setModalIsOpenA(false)
     }
 
@@ -112,7 +115,7 @@ function TopicPage() {
 
 //Delete Flashcard
     const deleteFlashcard = async (id, pos) => {
-        const flashcardDoc = doc(db, 'flashcards', id); //Bug dass man die seite refreshen muss...
+        const flashcardDoc = doc(db, 'flashcards', id);
         await deleteDoc(flashcardDoc); //Position wird auf Firebase noch nicht korrigiert.
         setFlashcards((flashcards) =>
         flashcards

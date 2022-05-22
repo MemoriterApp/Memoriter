@@ -75,8 +75,11 @@ function HomePage() {
   const addFolder = async (folder) => {
     const pos = folders.length + 1
     await addDoc(foldersCollectionRef, { pos, title: folder.title, user: user.uid })
-    const newFolderC = { pos, ...folder }
-    setFolders([ ...folders, newFolderC ])
+
+    const allFolders = await getDocs(foldersCollectionRef)
+    setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Ordner
+    setRenderedFolder(false)
+
     setModalIsOpen(false)
   }
 
