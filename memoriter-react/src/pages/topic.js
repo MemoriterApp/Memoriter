@@ -11,7 +11,7 @@ import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
-function TopicPage({ syncedFolderID, syncedFolderTitle }) {
+function TopicPage() {
 
     //firebase stuff
     //link zur db
@@ -31,8 +31,12 @@ function TopicPage({ syncedFolderID, syncedFolderTitle }) {
         getFlashcards();
     }, [])
 
-    //show correct flashcards
+    //show correct flashcards and title
         const [renderedFlashcard, setRenderedFlashcard] = useState(true);
+
+        let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
+
+        let syncedFolderID = localStorage.getItem('syncedFolderID')
 
         if (renderedFlashcard === false) {
             setFlashcards(flashcards.filter((flashcard) => flashcard.syncedFolder === syncedFolderID));

@@ -12,7 +12,7 @@ import { onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
 
 
-function HomePage({ onOpenFolder }) {
+function HomePage() {
 
 //firestore stuff
 // connection to the folders firestore
@@ -122,7 +122,7 @@ function HomePage({ onOpenFolder }) {
                   .map((folder) => (
                     <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
                       onDeleteFolder={deleteFolder} onEditFolder={editFolder}
-                      onPosUp={posUp} onPosDown={posDown} onOpenFolder={onOpenFolder}/>)
+                      onPosUp={posUp} onPosDown={posDown} />)
                 )}
               </>
 
