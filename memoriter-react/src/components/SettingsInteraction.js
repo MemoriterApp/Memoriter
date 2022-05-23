@@ -21,15 +21,15 @@ function SettingsClick() {
 
     const logOut = async () => {
         await signOut(firebase.auth);
-        navigate('/Signup')
+        navigate('/')
     }
 
     return (
         <div className='settings-overlay'>
             <h1 className='settings-title'>Set&shy;tings</h1>
             <p className='settings-sub' onClick={() => openProfile(true)}>Pro&shy;file</p>
-            <p className='settings-sub'>Chan&shy;ge Pass&shy;word</p>
-            <p  className='settings-sub' style={{color: 'rgb(228, 48, 48)'}}>De&shy;lete Ac&shy;count</p>
+            {/*<p className='settings-sub'>Chan&shy;ge Pass&shy;word</p>*/}
+            {/*<p  className='settings-sub' style={{color: 'rgb(228, 48, 48)'}}>De&shy;lete Ac&shy;count</p>*/}
             <p className='settings-sub' onClick={() => openSignOutView(true)}>Sign Out</p>
             {signOutView && <div>
                 <div className='Delete_Folder_Confirm'>

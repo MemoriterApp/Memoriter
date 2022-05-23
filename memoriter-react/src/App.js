@@ -19,14 +19,6 @@ import PrivateRoutes from './components/PrivateRoutes';
 
 function App() {
 
-  const openFolder = (id, title) => {
-    setSyncFolderID(id)
-    setSyncFolderTitle(title)
-  }
-
-  const [syncFolderID, setSyncFolderID] = useState()
-  const [syncFolderTitle, setSyncFolderTitle] = useState("")
-
   const [user, setUser] = useState({});
 
     onAuthStateChanged(firebase.auth, (currentUser) => {
@@ -138,7 +130,7 @@ function App() {
         <Route path='/' element={<HomePage />}>
         </Route>
 
-        <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle} />}>
+        <Route path='/topic' element={<TopicPage />}>
         </Route>
 
         <Route path='/impressum' element={<ImpressumPage />}>
@@ -163,7 +155,7 @@ function App() {
 
         </Route>
         <Route element={<PrivateRoutes/>}>
-          <Route path='/home' element={<HomePage onOpenFolder={openFolder} />}></Route>
+          <Route path='/home' element={<HomePage />}></Route>
         </Route>
       </Routes>
       </AuthProvider>
@@ -180,7 +172,7 @@ function App() {
         <Route path='/home' element={<HomePage />}></Route>
       </Route>
 
-        <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle} />}>
+        <Route path='/topic' element={<TopicPage />}>
         </Route>
 
         <Route path='/impressum' element={<ImpressumPage />}>
@@ -206,13 +198,13 @@ function App() {
         <Route path='/login' element={<LoginPage />}>
 
         </Route>
-        <Route path='/' element={<SignUpPage />}>
+        <Route path='/' element={<LoginPage />}>
 
         </Route>
         <Route path='/Signup' element={<SignUpPage />}>
 
         </Route>
-        <Route path='/home' element={<HomePage onOpenFolder={openFolder} />}>
+        <Route path='/home' element={<HomePage />}>
 
         </Route>
       </Routes>

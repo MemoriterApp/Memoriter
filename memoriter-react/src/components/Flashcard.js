@@ -180,7 +180,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                         <textarea rows='2' className='Add_Flashcard_Form_Title' placeholder='Flashcard Title...' maxLength='100'
                             value={title} onChange={(changeTitle) => setTitle(changeTitle.target.value)} />
                         <p style={{fontSize: '20px'}} />
-                        <textarea className='Add_Flashcard_Form_Content' placeholder='Flashcard Content...'
+                        <textarea className='Add_Flashcard_Form_Content' placeholder='Flashcard content...'
                             value={content} onChange={(changeContent) => setContent(changeContent.target.value)} />
                     </div>
                     <input className='Add_Flashcard_Form_Submit' type='submit' value='Done' onClick={
