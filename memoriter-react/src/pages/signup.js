@@ -157,13 +157,15 @@ function SignUpPage(props) {
                                     {borderBlueCheckbox && <div className='accept_privacy'>
                                         <input type='checkbox' id='accept_privacy'
                                             onChange={() => setIsAccepted(!isAccepted)} />
-                                        <label htmlFor="accept_privacy">I agree to the privacy policiy.</label>
+                                        <label htmlFor="accept_privacy">I agree to our&nbsp;
+                                        <Link to='/privacy' style={{color: '#265272', cursor: 'pointer'}}>privacy policiy</Link>.</label>
                                     </div>}
 
                                     {borderRedCheckbox && <div className='accept_privacy_red'>
                                         <input type='checkbox' id='accept_privacy'
                                             onChange={() => setIsAccepted(!isAccepted)} />
-                                        <label htmlFor="accept_privacy">I agree to the privacy policies.</label>
+                                        <label htmlFor="accept_privacy">I agree to our&nbsp;
+                                        <Link to='/privacy' style={{color: '#265272', cursor: 'pointer'}}>privacy policiy</Link>.</label>
                                     </div>}
 
                                         
