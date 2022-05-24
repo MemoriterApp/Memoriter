@@ -27,8 +27,6 @@ function SignUpPage(props) {
 
     const [isAccepted, setIsAccepted] = useState(false);
 
-    
-
     const [user, setUser] = useState({})
 
     onAuthStateChanged(firebase.auth, (currentUser) => {
@@ -49,8 +47,8 @@ function SignUpPage(props) {
             setShortPassword(true);
             setRedBorderPassword('5px solid rgb(228, 48, 48)');
             return setError(true);
-
-
+        } else if (isAccepted === false) {
+            
         } try {
             setError(false);
             setLoading(true);
@@ -149,10 +147,12 @@ function SignUpPage(props) {
                                         }} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                     <p style={{fontSize: '25px'}} />
+                                    <div className='accept_privacy'>
+                                        <input type='checkbox' id='accept_privacy' value='accepted' />
+                                        <label for="accept_privacy">I agree to the privacy policies.</label>
+                                    </div>
 
-                                    <input type='checkbox' name='accept_privacy' value='accepted' />
-                                    <label className='check_text' htmlFor="accept_privacy">Accept the privacy policies!</label>
-
+                                        
                                 <button type="submit" className="LoginButton" disabled={loading} style={{top:"330px"}}>Sign Up</button>
                             </form>
                         <p className="no-account">Already have an account? You can log in&nbsp;</p>
