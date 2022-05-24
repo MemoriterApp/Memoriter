@@ -1,6 +1,5 @@
 body {
     background-color:#353535;
-    cursor: default;
 }
 
 /* Custom Scrollbar */
@@ -614,7 +613,7 @@ body {
 }
 .Flashcard_Rechteck::after {
     position: absolute;
-    bottom: 0;  
+    bottom: 0;
     height: 100%;
     width: 100%;
     content: "";
@@ -1189,7 +1188,7 @@ body {
     margin-top: 2px;
 }
 
-/* sign in with google stuff */ 
+/* sign in with google stuff */
 .google-button {
     width: 125px;
     height: 50px;
@@ -1267,4 +1266,56 @@ body {
     width: 50%;
     left: 17%;
     top: 80%;
+}
+
+/*Startpage*/
+/*Header der Startpage*/
+.StartpageHeader {
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 1em;
+  background-color: black;
+}
+
+.StartpageHeaderLogo {
+  height: 2em;
+  vertical-align: middle;
+}
+
+.StartpageHeaderSpan {
+  position: fixed;
+  right: 0px;
+  margin-right: 1em;
+}
+
+.StartpageHeaderButton {
+  background-color: white;
+  margin-left: 1em;
+  border: 1px solid black;
+}
+
+/*Startpage Content*/
+/*Section 1*/
+.StartpageSection1 {
+  position: relative;
+  background-color: blue;
+  top: 100px;
+}
+
+.StartpageSectionPicture {
+  width: 33%;
+  position: relative;
+}
+
+.StartpageSectionText {
+  color: white;
+  width: 67%;
+  text-align: center;
+  position: absolute;
+  max-height: 100%;
+  overflow: hidden;
+  border: 10px solid black;
 }

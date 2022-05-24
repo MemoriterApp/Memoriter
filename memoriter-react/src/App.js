@@ -9,6 +9,7 @@ import HomePage from './pages/home';
 import TopicPage from './pages/topic';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
+import Startpage from './pages/startpage';
 import { getAuth } from 'firebase/auth';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -86,7 +87,7 @@ function App() {
     return (
 
       // <button onClick={login} type="submit" className="google-button">
-      //     Sign in with Google 
+      //     Sign in with Google
       // </button>
       <div>
         <Routes>
@@ -178,6 +179,10 @@ function App() {
 
         </Route>
 
+        <Route path='/startpage' element={<Startpage />}>
+
+        </Route>
+
         <Route path='/privacy' element={<PrivacyPage />}>
 
         </Route>
@@ -208,7 +213,7 @@ function App() {
     </div>
   );
  }
-  
+
 }
 
 export default App;
