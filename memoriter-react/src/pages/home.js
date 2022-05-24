@@ -61,6 +61,12 @@ function HomePage() {
   folders.sort(function(a, b){return a.pos - b.pos})
 
   const posUp = async (id, pos) => {
+    const folderDoc = doc(db, 'folders', id);
+    const newPosUp = { pos: pos - 1 };
+    sessionStorage.setItem('newPos', pos - 1);
+    sessionStorage.setItem('posAdjust', "+");
+
+    await updateDoc(folderDoc, newPosUp);
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
     ? { ...folder, pos: (folder.pos + 1) } : folder ))
