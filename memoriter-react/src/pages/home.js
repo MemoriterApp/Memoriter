@@ -64,16 +64,19 @@ function HomePage() {
     const folderDoc = doc(db, 'folders', id);
     const newPosUp = { pos: pos - 1 };
 
-    await updateDoc(folderDoc, newPosUp);
+    //await updateDoc(folderDoc, newPosUp);
+    
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
-    ? { ...folder, pos: (folder.pos + 1) } : folder ))
+    ? (sessionStorage.setItem('newPosID', folder.id), sessionStorage.setItem('newPosMove', "+"),
+      { ...folder, pos: (folder.pos + 1) }) : folder ))
   }
 
   const posDown = (id, pos) => {
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos + 1) } : folder.pos === (pos + 1)
-    ? { ...folder, pos: (folder.pos - 1) } : folder ))
+    ? (sessionStorage.setItem('newPosID', folder.id), sessionStorage.setItem('newPosMove', "-"),
+      { ...folder, pos: (folder.pos - 1) }) : folder ))
   }
 
 //Add Folder

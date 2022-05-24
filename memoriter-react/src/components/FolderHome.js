@@ -49,6 +49,18 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
         setPos(folder.pos)
     }
 
+    const newPosId = sessionStorage.getItem('newPosID');
+    const newPosMove = sessionStorage.getItem('newPosMove');
+
+    if (newPosId === folder.id) {
+        if (newPosMove === "+") {
+            console.log(folder.title + ' down');
+        } else if (newPosMove === "-") {
+            console.log(folder.title + ' up');
+        }
+        
+    }
+
     return (
         <div className='Folder_Body'>
             <Link to='/topic' onClick={onOpenFolder}>
