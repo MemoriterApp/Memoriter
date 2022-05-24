@@ -25,6 +25,10 @@ function SignUpPage(props) {
     const [samePassword, setSamePassword] = useState(false);
     const [redBorderConfirm, setRedBorderConfirm] = useState('5px solid rgba(58,109,112,1)');
 
+    const [isAccepted, setIsAccepted] = useState(false);
+
+    
+
     const [user, setUser] = useState({})
 
     onAuthStateChanged(firebase.auth, (currentUser) => {
