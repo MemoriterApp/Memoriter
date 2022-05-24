@@ -24,8 +24,9 @@ function SignUpPage(props) {
     const [redBorderPassword, setRedBorderPassword] = useState('5px solid rgba(58,109,112,1)');
     const [samePassword, setSamePassword] = useState(false);
     const [redBorderConfirm, setRedBorderConfirm] = useState('5px solid rgba(58,109,112,1)');
-
     const [isAccepted, setIsAccepted] = useState(false);
+    const [borderBlueCheckbox, setBorderBlueCheckbox] = useState(true);
+    const [borderRedCheckbox, setBorderRedCheckbox] = useState(false);
 
     const [user, setUser] = useState({})
 
@@ -48,7 +49,9 @@ function SignUpPage(props) {
             setRedBorderPassword('5px solid rgb(228, 48, 48)');
             return setError(true);
         } else if (isAccepted === false) {
-            
+            setBorderBlueCheckbox(false);
+            setBorderRedCheckbox(true);
+            return setError(true);
         } try {
             setError(false);
             setLoading(true);
@@ -147,10 +150,18 @@ function SignUpPage(props) {
                                         }} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                     <p style={{fontSize: '25px'}} />
-                                    <div className='accept_privacy'>
-                                        <input type='checkbox' id='accept_privacy' value='accepted' />
-                                        <label for="accept_privacy">I agree to the privacy policies.</label>
-                                    </div>
+
+                                    {borderBlueCheckbox && <div className='accept_privacy'>
+                                        <input type='checkbox' id='accept_privacy'
+                                            onChange={() => setIsAccepted(!isAccepted)} />
+                                        <label htmlFor="accept_privacy">I agree to the privacy policiy.</label>
+                                    </div>}
+
+                                    {borderRedCheckbox && <div className='accept_privacy_red'>
+                                        <input type='checkbox' id='accept_privacy'
+                                            onChange={() => setIsAccepted(!isAccepted)} />
+                                        <label htmlFor="accept_privacy">I agree to the privacy policies.</label>
+                                    </div>}
 
                                         
                                 <button type="submit" className="LoginButton" disabled={loading} style={{top:"330px"}}>Sign Up</button>

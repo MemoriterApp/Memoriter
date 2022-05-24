@@ -1188,16 +1188,16 @@ body {
 .accept_privacy {
     position: absolute;
     width: 100%;
-    top: 303px;
+    top: 302px;
     left: -22%;
 }
-[type="checkbox"] {
+.accept_privacy [type="checkbox"] {
     -webkit-appearance: none;
 }
-[type="checkbox"] + label {
+.accept_privacy [type="checkbox"] + label {
     position: absolute; 
 }
-[type="checkbox"] + label::before {
+.accept_privacy [type="checkbox"] + label::before {
     border: 3.5px solid rgba(58,109,112,1);
     border-radius: 3px;
     background-color: #353535;
@@ -1210,10 +1210,40 @@ body {
     position: relative;
     margin-top: -3px;
 }
-[type="checkbox"]:checked+label::before {
+.accept_privacy [type="checkbox"]:checked+label::before {
     box-shadow: inset 0px 0px 0px 3px #353535;
     background-color: rgba(58,109,112,1);
-  }
+}
+
+.accept_privacy_red {
+    position: absolute;
+    width: 100%;
+    top: 302px;
+    left: -22%;
+}
+.accept_privacy_red [type="checkbox"] {
+    -webkit-appearance: none;
+}
+.accept_privacy_red [type="checkbox"] + label {
+    position: absolute; 
+}
+.accept_privacy_red [type="checkbox"] + label::before {
+    border: 3.5px solid rgb(228, 48, 48);
+    border-radius: 3px;
+    background-color: #353535;
+    display: block;
+    content: "";
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 5px;
+    position: relative;
+    margin-top: -3px;
+}
+.accept_privacy_red [type="checkbox"]:checked+label::before {
+    box-shadow: inset 0px 0px 0px 3px #353535;
+    background-color: rgb(228, 48, 48);
+}
 
 /* sign in with google stuff */
 .google-button {
