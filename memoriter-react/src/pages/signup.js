@@ -150,6 +150,10 @@ function SignUpPage(props) {
                         <Link to='/' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
                         <p className="no-account">!</p>
                     </div>
+                    <form className="check_total">
+                            <input type='checkbox' name='accept_privacy' value='accepted'></input>
+                            <label className='check_text' htmlFor="accept_privacy">Accept the privacy policies!</label>
+                    </form>
                 </div>
             </div>
 
