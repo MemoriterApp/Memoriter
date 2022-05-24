@@ -152,7 +152,7 @@ function SignUpPage(props) {
                                             setRedBorderConfirm('5px solid rgba(58,109,112,1)');
                                         }} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
-                                    <p style={{fontSize: '45px'}} />
+                                    <p style={{fontSize: '55px'}} />
 
                                     {borderBlueCheckbox && <div className='accept_privacy'>
                                         <input type='checkbox' id='accept_privacy'
@@ -169,7 +169,7 @@ function SignUpPage(props) {
                                     </div>}
 
                                         
-                                <button type="submit" className="LoginButton" disabled={loading} style={{top:"350px"}}>Sign Up</button>
+                                <button type="submit" className="LoginButton" disabled={loading} style={{top:"360px"}}>Sign Up</button>
                             </form>
                         <p className="no-account">Already have an account? You can log in&nbsp;</p>
                         <Link to='/' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
