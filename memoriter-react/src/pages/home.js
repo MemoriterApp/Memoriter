@@ -58,18 +58,24 @@ function HomePage() {
   }
 
 //Folder Position
-  folders.sort(function(a, b){return a.pos - b.pos})
+  folders.sort(function(a, b){return a.pos - b.pos}) //Sorting Folders
 
-  const posUp = async (id, pos) => {
+  const posUp = async (id, pos) => { //Position Up
     const folderDoc = doc(db, 'folders', id);
     const newPosUp = { pos: pos - 1 };
 
-    //await updateDoc(folderDoc, newPosUp);
+    await updateDoc(folderDoc, newPosUp);
     
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
     ? (sessionStorage.setItem('newPosID', folder.id), sessionStorage.setItem('newPosMove', "+"),
       { ...folder, pos: (folder.pos + 1) }) : folder ))
+  }
+  const posAdjustDown = async (id, pos) => { //Adjust Position Down
+    const folderDoc = doc(db, 'folders', id);
+    const newPosAdjustDown = { pos: pos };
+
+    await updateDoc(folderDoc, newPosAdjustDown);
   }
 
   const posDown = (id, pos) => {
@@ -133,7 +139,8 @@ function HomePage() {
                   .map((folder) => (
                     <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
                       onDeleteFolder={deleteFolder} onEditFolder={editFolder}
-                      onPosUp={posUp} onPosDown={posDown} />)
+                      onPosUp={posUp} onPosDown={posDown}
+                      onPosAdjustDown={posAdjustDown} />)
                 )}
               </>
 
