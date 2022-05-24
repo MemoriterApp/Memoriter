@@ -4,12 +4,13 @@ import HomePage from '../pages/home';
 
 const BackButton = () => {
 
+    let lastPage = localStorage.getItem('lastPage')
+
     return (
-        <Link to='/home' >
+        <Link to={lastPage} >
             <div className='Zurückbutton_Body'>
                <div className='Zurückbutton_Arrow'/> 
-            </div>
-            
+            </div>  
         </Link>
     );
 }

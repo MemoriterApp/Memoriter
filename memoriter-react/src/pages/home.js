@@ -45,6 +45,7 @@ function HomePage() {
     };
     
     getFolder();
+    localStorage.setItem('lastPage', "/");
   }, [])
 
   const [modalIsOpen, setModalIsOpen] = useState(false);

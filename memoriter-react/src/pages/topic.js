@@ -29,6 +29,7 @@ function TopicPage() {
         };
 
         getFlashcards();
+        localStorage.setItem('lastPage', "/topic");
     }, [])
 
     //show correct flashcards and title

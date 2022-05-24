@@ -1188,7 +1188,7 @@ body {
 .accept_privacy {
     position: absolute;
     width: 100%;
-    top: 302px;
+    top: 312px;
     left: -22%;
 }
 .accept_privacy [type="checkbox"] {
@@ -1218,7 +1218,7 @@ body {
 .accept_privacy_red {
     position: absolute;
     width: 100%;
-    top: 302px;
+    top: 312px;
     left: -22%;
 }
 .accept_privacy_red [type="checkbox"] {

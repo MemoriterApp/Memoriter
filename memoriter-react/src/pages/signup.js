@@ -1,8 +1,7 @@
-import React from "react";
 import Logo from './Logo.png';
 import Footer from "../components/Footer";
 import WithGoogle from "../components/WithGoogle";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { firebase } from "../utils/firebase";
@@ -32,6 +31,10 @@ function SignUpPage(props) {
 
     onAuthStateChanged(firebase.auth, (currentUser) => {
         setUser(currentUser);
+    })
+
+    useEffect(() => {
+        localStorage.setItem('lastPage', "/signup");
     })
 
     async function handleSubmit(e) {
@@ -149,7 +152,7 @@ function SignUpPage(props) {
                                             setRedBorderConfirm('5px solid rgba(58,109,112,1)');
                                         }} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
-                                    <p style={{fontSize: '25px'}} />
+                                    <p style={{fontSize: '45px'}} />
 
                                     {borderBlueCheckbox && <div className='accept_privacy'>
                                         <input type='checkbox' id='accept_privacy'
@@ -164,7 +167,7 @@ function SignUpPage(props) {
                                     </div>}
 
                                         
-                                <button type="submit" className="LoginButton" disabled={loading} style={{top:"330px"}}>Sign Up</button>
+                                <button type="submit" className="LoginButton" disabled={loading} style={{top:"350px"}}>Sign Up</button>
                             </form>
                         <p className="no-account">Already have an account? You can log in&nbsp;</p>
                         <Link to='/' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>

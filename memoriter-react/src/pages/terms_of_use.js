@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 
 
 function TermsPage() {
+
+    let lastPage = localStorage.getItem('lastPage');
+
     return(
         <div>
             <Link to='/'>
                 <img className="Logo-oben" src={Logo} alt="site-logo" style={{top: '-2.5px'}}></img>
             </Link>
-            <Link to='/'>
+            <Link to={lastPage}>
                 <div className="Zurückbutton_Body" style={{top: '90px', left: '8px'}}>
                     <div className="Zurückbutton_Arrow"/>
                 </div>

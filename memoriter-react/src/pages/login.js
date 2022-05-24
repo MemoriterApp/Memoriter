@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Logo from './Logo.png';
 import WithGoogle from "../components/WithGoogle";
 import Footer from "../components/Footer";
@@ -28,6 +28,10 @@ function LoginPage() {
     onAuthStateChanged(firebase.auth, (currentUser) => {
         setUser(currentUser);
     })
+
+    useEffect(() => {
+        localStorage.setItem('lastPage', "/");
+    });
 
     async function handleSubmit(e) {
         e.preventDefault();
