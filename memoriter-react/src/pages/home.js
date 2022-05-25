@@ -68,7 +68,7 @@ function HomePage() {
     
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
-    ? (sessionStorage.setItem('newPosID', folder.id), sessionStorage.setItem('newPosMove', "+"),
+    ? (sessionStorage.setItem('newPosIdFolder', folder.id), sessionStorage.setItem('newPosMoveFolder', "+"),
       { ...folder, pos: (folder.pos + 1) }) : folder ))
   }
   const posAdjustDown = async (id, pos) => { //Adjust Position Down
@@ -78,11 +78,22 @@ function HomePage() {
     await updateDoc(folderDoc, newPosAdjustDown);
   }
 
-  const posDown = (id, pos) => {
+  const posDown = async (id, pos) => { //Position Down
+    const folderDoc = doc(db, 'folders', id);
+    const newPosDown = { pos: pos + 1 };
+
+    await updateDoc(folderDoc, newPosDown);
+
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos + 1) } : folder.pos === (pos + 1)
-    ? (sessionStorage.setItem('newPosID', folder.id), sessionStorage.setItem('newPosMove', "-"),
+    ? (sessionStorage.setItem('newPosIdFolder', folder.id), sessionStorage.setItem('newPosMoveFolder', "-"),
       { ...folder, pos: (folder.pos - 1) }) : folder ))
+  }
+  const posAdjustUp = async (id, pos) => { //Adjust Position Up
+    const folderDoc = doc(db, 'folders', id);
+    const newPosAdjustUp = { pos: pos };
+
+    await updateDoc(folderDoc, newPosAdjustUp);
   }
 
 //Add Folder
@@ -140,7 +151,7 @@ function HomePage() {
                     <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
                       onDeleteFolder={deleteFolder} onEditFolder={editFolder}
                       onPosUp={posUp} onPosDown={posDown}
-                      onPosAdjustDown={posAdjustDown} />)
+                      onPosAdjustDown={posAdjustDown} onPosAdjustUp={posAdjustUp} />)
                 )}
               </>
 

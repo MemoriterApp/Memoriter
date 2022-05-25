@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount, onPosAdjustDown }) => {
+const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount, onPosAdjustDown, onPosAdjustUp }) => {
 
     function onOpenFolder() {
         localStorage.setItem('syncedFolderID', folder.id)
@@ -49,16 +49,18 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
         setPos(folder.pos)
     }
 
-    const newPosId = sessionStorage.getItem('newPosID');
-    const newPosMove = sessionStorage.getItem('newPosMove');
+    const newPosId = sessionStorage.getItem('newPosIdFolder');
+    const newPosMove = sessionStorage.getItem('newPosMoveFolder');
 
     if (newPosId === folder.id) {
         if (newPosMove === "+") {
             onPosAdjustDown(folder.id, folder.pos);
-            sessionStorage.removeItem('newPosID');
-            sessionStorage.removeItem('newPosMove');
+            sessionStorage.removeItem('newPosIdFolder');
+            sessionStorage.removeItem('newPosMoveFolder');
         } else if (newPosMove === "-") {
-            console.log(folder.title + ' up');
+            onPosAdjustUp(folder.id, folder.pos);
+            sessionStorage.removeItem('newPosIdFolder');
+            sessionStorage.removeItem('newPosMoveFolder');
         }   
     }
 
