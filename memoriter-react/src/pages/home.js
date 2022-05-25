@@ -68,7 +68,7 @@ function HomePage() {
     
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
-    ? (sessionStorage.setItem('newPosIdFolder', folder.id),
+    ? (sessionStorage.setItem('newPosFolder', folder.id),
       { ...folder, pos: (folder.pos + 1) }) : folder ))
   }
 
@@ -80,7 +80,7 @@ function HomePage() {
 
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos + 1) } : folder.pos === (pos + 1)
-    ? (sessionStorage.setItem('newPosIdFolder', folder.id),
+    ? (sessionStorage.setItem('newPosFolder', folder.id),
       { ...folder, pos: (folder.pos - 1) }) : folder ))
   }
 
@@ -111,7 +111,7 @@ function HomePage() {
       folders
         .map((folder) =>
           folder.pos > pos
-          ? (sessionStorage.setItem('newPosIdFolder' + folder.id, folder.id),
+          ? (sessionStorage.setItem('newPosFolder' + folder.id, folder.id),
           { ...folder, pos: folder.pos - 1 }) : folder
         )
         .filter((folder) => folder.id !== id)
