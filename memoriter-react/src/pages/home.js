@@ -111,8 +111,8 @@ function HomePage() {
       folders
         .map((folder) =>
           folder.pos > pos
-          ? 
-          { ...folder, pos: folder.pos - 1 } : folder
+          ? (sessionStorage.setItem('newPosIdFolder' + folder.id, folder.id),
+          { ...folder, pos: folder.pos - 1 }) : folder
         )
         .filter((folder) => folder.id !== id)
     )

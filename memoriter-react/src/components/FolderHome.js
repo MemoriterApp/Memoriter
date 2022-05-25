@@ -50,10 +50,14 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
     }
 
     const newPosId = sessionStorage.getItem('newPosIdFolder');
+    const newPosIdDelete = sessionStorage.getItem('newPosIdFolder' + folder.id)
 
     if (newPosId === folder.id) {
             onPosAdjust(folder.id, folder.pos);
             sessionStorage.removeItem('newPosIdFolder');
+    } else if (newPosIdDelete === folder.id) {
+        onPosAdjust(folder.id, folder.pos);
+        sessionStorage.removeItem('newPosIdFolder' + folder.id);
     }
 
     return (
