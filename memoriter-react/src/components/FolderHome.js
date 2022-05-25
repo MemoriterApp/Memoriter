@@ -100,7 +100,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                         <h2 className='Add_Folder_Form_Header'>Edit Folder</h2>
                         <div className='Add_Folder_Form_Text'>Rename Folder: </div>
                         <p style={{fontSize: '5px'}} />
-                        <input className='Add_Folder_Form_Input' type='text' maxLength='100' placeholder='New Folder'
+                        <input className='Add_Folder_Form_Input' autoFocus type='text' maxLength='100' placeholder='New Folder'
                             defaultValue={title} onChange={(changeName) => setTitle(changeName.target.value)} />
                     </div>
                         <p style={{fontSize: '25px'}} />

@@ -16,7 +16,7 @@ const AddFolderForm = ({ onAddFolder }) => {
                 <h2 className='Add_Folder_Form_Header'>Create New Folder</h2>
                 <div className='Add_Folder_Form_Text'>Folder Name: </div>
                 <p style={{fontSize: '5px'}} />
-                <input className='Add_Folder_Form_Input' type='text' placeholder='New Folder' maxLength='100' 
+                <input className='Add_Folder_Form_Input' autoFocus type='text' placeholder='New Folder' maxLength='100' 
                     value={title} onChange={(changeName) => setTitle(changeName.target.value)} />
             </div>
             <p style={{fontSize: '25px'}} />
