@@ -86,9 +86,9 @@ function HomePage() {
 
   const posAdjust = async (id, pos) => { //Adjust Position
     const folderDoc = doc(db, 'folders', id);
-    const newPosAdjustUp = { pos: pos };
+    const newPosAdjust = { pos: pos };
 
-    await updateDoc(folderDoc, newPosAdjustUp);
+    await updateDoc(folderDoc, newPosAdjust);
   }
 
 //Add Folder

@@ -79,19 +79,38 @@ function TopicPage() {
     }
 
 //Flashcard Position
-    flashcards.sort(function(a, b){return a.pos - b.pos})
+    flashcards.sort(function(a, b){return a.pos - b.pos}) //Sorting Flashcards
     
-    const posLeft = (id, pos) => {
+    const posLeft = async (id, pos) => { //Position left
+        const flashcardDoc = doc(db, 'flashcards', id);
+        const newPosLeft = { pos: pos - 1 };
+
+        await updateDoc(flashcardDoc, newPosLeft);
+
         setFlashcards(flashcards.map((flashcard) => flashcard.id === id
         ? { ...flashcard, pos: (flashcard.pos - 1) } : flashcard.pos === (pos - 1)
-        ? { ...flashcard, pos: (flashcard.pos + 1) } : flashcard ))
+        ? (sessionStorage.setItem('newPosFlashcard', flashcard.id),
+            { ...flashcard, pos: (flashcard.pos + 1) }) : flashcard ))
     }
     
-    const posRight = (id, pos) => {
+    const posRight = async (id, pos) => { //Position right
+        const flashcardDoc = doc(db, 'flashcards', id);
+        const newPosRight = { pos: pos + 1 };
+
+        await updateDoc(flashcardDoc, newPosRight);
+
         setFlashcards(flashcards.map((flashcard) => flashcard.id === id
         ? { ...flashcard, pos: (flashcard.pos + 1) } : flashcard.pos === (pos + 1)
-        ? { ...flashcard, pos: (flashcard.pos - 1) } : flashcard ))
+        ? (sessionStorage.setItem('newPosFlashcard', flashcard.id),
+            { ...flashcard, pos: (flashcard.pos - 1) }) : flashcard ))
     }
+
+    const posAdjust = async (id, pos) => { //Adjust Position
+        const flashcardDoc = doc(db, 'flashcards', id);
+        const newPosAdjust = { pos: pos };
+    
+        await updateDoc(flashcardDoc, newPosAdjust);
+      }
 
 //Add Flashcard
     const addFlashcard = async (flashcard) => {
@@ -121,7 +140,9 @@ function TopicPage() {
         setFlashcards((flashcards) =>
         flashcards
             .map((flashcard) =>
-            flashcard.pos > pos ? { ...flashcard, pos: flashcard.pos - 1 } : flashcard
+                flashcard.pos > pos
+                ? (sessionStorage.setItem('newPosFlashcard' + flashcard.id, flashcard.id),
+                { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
             )
             .filter((flashcard) => flashcard.id !== id)
         )
@@ -147,7 +168,7 @@ function TopicPage() {
                         {flashcards
                             .map((flashcard) => (
                                 <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
-                                onPosLeft={posLeft} onPosRight={posRight}
+                                onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
                                 onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
                                 onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
                                 onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}

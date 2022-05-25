@@ -6,7 +6,7 @@ import BackdropOpenFlashcard from './backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
 
 const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
-    onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView }) => {
+    onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView, onPosAdjust }) => {
 
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
@@ -85,6 +85,17 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     if (flashcard.pos !== pos) {
         setPos(flashcard.pos)
+    }
+
+    const newPosId = sessionStorage.getItem('newPosFlashcard');
+    const newPosIdDelete = sessionStorage.getItem('newPosFlashcard' + flashcard.id)
+
+    if (newPosId === flashcard.id) {
+        onPosAdjust(flashcard.id, flashcard.pos);
+        sessionStorage.removeItem('newPosFlashcard');
+    } else if (newPosIdDelete === flashcard.id) {
+        onPosAdjust(flashcard.id, flashcard.pos);
+        sessionStorage.removeItem('newPosFlashcard' + flashcard.id);
     }
 
     return (
