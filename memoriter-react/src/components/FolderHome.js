@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount, onPosAdjustDown, onPosAdjustUp }) => {
+const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount, onPosAdjust }) => {
 
     function onOpenFolder() {
         localStorage.setItem('syncedFolderID', folder.id)
@@ -50,18 +50,10 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
     }
 
     const newPosId = sessionStorage.getItem('newPosIdFolder');
-    const newPosMove = sessionStorage.getItem('newPosMoveFolder');
 
     if (newPosId === folder.id) {
-        if (newPosMove === "+") {
-            onPosAdjustDown(folder.id, folder.pos);
+            onPosAdjust(folder.id, folder.pos);
             sessionStorage.removeItem('newPosIdFolder');
-            sessionStorage.removeItem('newPosMoveFolder');
-        } else if (newPosMove === "-") {
-            onPosAdjustUp(folder.id, folder.pos);
-            sessionStorage.removeItem('newPosIdFolder');
-            sessionStorage.removeItem('newPosMoveFolder');
-        }   
     }
 
     return (

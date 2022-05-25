@@ -68,14 +68,8 @@ function HomePage() {
     
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
-    ? (sessionStorage.setItem('newPosIdFolder', folder.id), sessionStorage.setItem('newPosMoveFolder', "+"),
+    ? (sessionStorage.setItem('newPosIdFolder', folder.id),
       { ...folder, pos: (folder.pos + 1) }) : folder ))
-  }
-  const posAdjustDown = async (id, pos) => { //Adjust Position Down
-    const folderDoc = doc(db, 'folders', id);
-    const newPosAdjustDown = { pos: pos };
-
-    await updateDoc(folderDoc, newPosAdjustDown);
   }
 
   const posDown = async (id, pos) => { //Position Down
@@ -86,10 +80,11 @@ function HomePage() {
 
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos + 1) } : folder.pos === (pos + 1)
-    ? (sessionStorage.setItem('newPosIdFolder', folder.id), sessionStorage.setItem('newPosMoveFolder', "-"),
+    ? (sessionStorage.setItem('newPosIdFolder', folder.id),
       { ...folder, pos: (folder.pos - 1) }) : folder ))
   }
-  const posAdjustUp = async (id, pos) => { //Adjust Position Up
+
+  const posAdjust = async (id, pos) => { //Adjust Position
     const folderDoc = doc(db, 'folders', id);
     const newPosAdjustUp = { pos: pos };
 
@@ -110,16 +105,19 @@ function HomePage() {
 
 //Delete Folder
   const deleteFolder = async (id, pos) => {
-    const folderDoc = doc(db, 'folders', id); //Bug dass man die seite refreshen muss...
-    await deleteDoc(folderDoc); //Position wird auf Firebase noch nicht korrigiert.
+    const folderDoc = doc(db, 'folders', id);
+    await deleteDoc(folderDoc);
     setFolders((folders) =>
       folders
         .map((folder) =>
-          folder.pos > pos ? { ...folder, pos: folder.pos - 1 } : folder
+          folder.pos > pos
+          ? 
+          { ...folder, pos: folder.pos - 1 } : folder
         )
         .filter((folder) => folder.id !== id)
     )
   }
+  
 
 //Edit Folder
   const editFolder = async (id, title) => {
@@ -150,8 +148,7 @@ function HomePage() {
                   .map((folder) => (
                     <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
                       onDeleteFolder={deleteFolder} onEditFolder={editFolder}
-                      onPosUp={posUp} onPosDown={posDown}
-                      onPosAdjustDown={posAdjustDown} onPosAdjustUp={posAdjustUp} />)
+                      onPosUp={posUp} onPosDown={posDown} onPosAdjust={posAdjust} />)
                 )}
               </>
 
