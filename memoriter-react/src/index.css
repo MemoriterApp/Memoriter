@@ -1264,14 +1264,6 @@ body {
 
 
 /* Indikatoren */
-.folder-pos-indicator {
-    color: red;
-    font-size: large;
-    position: absolute;
-    right: 100px;
-    top: 10px;
-}
-
 .flashcard-pos-indicator {
     color: red;
     font-size: large;
@@ -1279,6 +1271,7 @@ body {
     left: 80px;
     top: 10px;
 }
+
 .box {
     height: 38px;
     width: 185px;

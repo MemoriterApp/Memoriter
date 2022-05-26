@@ -26,6 +26,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
     function deleteFolderReq() {
       setModalIsOpenD(true);
+      setModalIsOpen(false);
     }
     function backdropClickD() {
       setModalIsOpenD(false);
@@ -35,6 +36,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
     function editFolderReq() {
         setModalIsOpenE(true);
+        setModalIsOpen(false);
     }
     function backdropClickE() {
         setTitle(folder.title);
@@ -93,6 +95,8 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                         <p onClick={editFolderReq}>Edit</p>
                         <p onClick={deleteFolderReq}>Delete</p>
                     </div>
+                </div>}
+            </div>
 
             <div>
                 {modalIsOpenE && <form className='Add_Folder_Form_Body'>
@@ -128,14 +132,14 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
             <div  onClick={backdropClickD}>
                 {modalIsOpenD && <Backdrop/>}
             </div>
-            </div>}
+
+            <div>
                 {modalIsOpen && <Backdropfs/>}
             </div>
             <div  onClick={backdropClick}>
                 {modalIsOpen && <Backdropfs/>}
             </div>
 
-            <div className='folder-pos-indicator'>{folder.pos}</div>
 
         </div>
     );

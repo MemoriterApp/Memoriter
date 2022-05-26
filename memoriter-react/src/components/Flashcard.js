@@ -52,6 +52,8 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     function deleteFlashcardReq() {
       setModalIsOpenD(true);
+      setModalIsOpenS(false);
+      setModalIsOpenSO(false);
     }
     function backdropClickD() {
       setModalIsOpenD(false);
@@ -64,6 +66,8 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
     function editFlashcardReq() {
       setModalIsOpenE(true);
       setModalIsOpenEbackdrop(true);
+      setModalIsOpenS(false);
+      setModalIsOpenSO(false);
     }
     function editOpenFlashcardReq() {
         setModalIsOpenE(true);
@@ -177,10 +181,11 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                         <p onClick={deleteFlashcardReq}>Delete</p>
                     </div>
 
-                    <div onClick={backdropClickE}>
-                        {modalIsOpenEbackdrop && <Backdrop/>}
-                    </div>
                 </div>}
+
+                <div onClick={backdropClickE}>
+                    {modalIsOpenEbackdrop && <Backdrop/>}
+                </div>
             </div>
 
             <div>
