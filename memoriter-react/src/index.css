@@ -1182,9 +1182,9 @@ body {
     left: 80px;
     top: 10px;
 }
-/* Alles für die startpage*/
+/* Alles für die homepage*/
 
-.titel-startpage {
+.titel-homepage {
     position: absolute;
     bottom: -10%;
     left: 50%;
@@ -1200,40 +1200,33 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.Logo-startpage {
+.Logo-homepage {
     width: 250px;
     max-width: 25%;
     position: absolute;
-    bottom: 25%;
-    left: 42%;
-    transform: translate(0%, 50%);
+    cursor: pointer;
+    top: 15%;
+    left: 2%;
 }
-
-.rechteck {
-    background: transparent;
-    border: 5px solid #274b65;
-    width: 90%;
-    height: calc(100% - 200px);
-    margin: auto;
+.LoginButton-homepage {
+    height: 60px;
+    width: 175px;
+    border-radius: 5px;
+    background-color: #265272;
     position: absolute;
-    top: 120px;
-    left: 4.5%;
-    border-radius: 3px;
-    max-height: calc(100% - 120px);
-    min-height: 168px;
-    }
-.Overview {
+    bottom: 20%;
+    right: 30px;
+    border: 3px solid #3B6E71;
+    cursor: pointer;
+    font-size: 23px;
+    color: white;
+}
+.Page_Header-homepage {
+    height: 110px;
+    width: 100%;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    text-align: center;
-    color: #FFFF;
-    top: -10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    font-size: 36px;
-    width: calc(100% - 70px);
-    white-space: nowrap;
+    top: 0%;
+    left: 0%;
+    background-color: transparent;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
