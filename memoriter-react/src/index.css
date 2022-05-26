@@ -909,11 +909,12 @@ body {
 /* New Flashcard Form */
 .Add_Flashcard_Form_Submit {
     position: relative;
+    top: calc(100% - 253px);
     left: 10px;
     border: 5px solid rgba(58,109,112,1);
     padding: 5px;
     margin-top: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     width: calc(100% - 20px);
     color: white;
     background-color: #353535;
@@ -945,10 +946,10 @@ body {
     border-radius: 3px;
 }
 .Add_Flashcard_Form_Content {
-    position: relative;
+    position: absolute;
     left: 10px;
     width: calc(100% - 34px);
-    height: calc(100vh - 312px);
+    height: calc(100% - 270px);
     color: white;
     text-align: justify;
     background-color: #353535;
