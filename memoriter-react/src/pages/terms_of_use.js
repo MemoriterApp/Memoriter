@@ -19,6 +19,8 @@ function TermsPage() {
             </Link>
             <h1 className='Legal_Header'>Terms of Use</h1>
             <p className='Legal_Text'></p>
+            <div style={{height: '100px'}}/>
+            
             <Footer/>
         </div>
     );

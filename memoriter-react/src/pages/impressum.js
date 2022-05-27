@@ -25,14 +25,16 @@ function ImpressumPage() {
             <a href="https://www.junior-programme.de/startseite" target="_blank" rel="noreferrer"
             style={{color: '#265272', cursor: 'pointer'}} >here</a>.
             </p>
-            <h3 className="Legal_Text" style={{top: '260px'}}>Contact:</h3>
-            <ul className="Legal_Text" style={{top: '290px'}}>
+            <p className="Legal-SubHeader">Contact:</p>
+            <ul className="Legal_Text">
                 <li>Johan Trieloff</li>
                 <li>Kopernikusstraße 30</li>
                 <li>14482 Potsdam, Germany</li>
                 <li>Phone: +49 (0)221 | 4981-707</li>
                 <li>Email: johan@trieloff.net</li>
             </ul>
+            <div style={{height: '100px'}}/>
+
             <Footer/>
         </div>
     );

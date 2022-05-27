@@ -1000,23 +1000,37 @@ body {
 
 /* CSS für AGB, Impressum und Datenschutz */
 .Legal_Header {
+    position: relative;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 36px;
     text-align: center;
     color: white;
     padding-top: 40px;
+    padding-bottom: 50px;
 }
-.Legal_Text {
+.Legal-SubHeader {
+    position: relative;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     text-align: justify;
     color: white;
     line-height: 150%;
     width: 80%;
-    position: absolute;
     left: 10%;
-    padding-bottom: 120px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+.Legal_Text {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: justify;
+    color: white;
+    line-height: 150%;
+    width: 80%;
+    left: 10%;
 }
 
 /* Css für Login */
@@ -1306,18 +1320,6 @@ body {
     position: absolute;
     top: -5px;
     left: 4px;
-}
-.Legal-SubHeader {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    text-align: justify;
-    color: white;
-    line-height: 150%;
-    width: 80%;
-    position: absolute;
-    left: 10%;
-    padding-bottom: 120px;
-    font-weight: bold;
 }
 .check_text {
     color: white;

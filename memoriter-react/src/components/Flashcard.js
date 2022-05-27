@@ -221,8 +221,6 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                 {modalIsOpenS && <Backdropfs/>}
             </div>
 
-            <div className='flashcard-pos-indicator'>{flashcard.pos}</div>
-
         </div>
     );
 }
