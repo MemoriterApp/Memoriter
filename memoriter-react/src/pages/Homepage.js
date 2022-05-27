@@ -2,6 +2,7 @@ import Logo from './Logo.png';
 import SettingsIcon from '../components/SettingsIcon';
 import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
+import { Link } from "react-router-dom";
 
 function Homepage() {
     return (
