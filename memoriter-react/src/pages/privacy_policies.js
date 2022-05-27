@@ -53,7 +53,7 @@ function PrivacyPage() {
                     We might also collect data about accessing the database, like your ip adress and time and of access to our app and reading and writing from or to the database.
                 </p>
             </article>
-            <p className="Legal-SubHeader">3. How User Data Is Used</p>
+            <p className="Legal-SubHeader">3. How Personal Data Is Used</p>
             <article className="Legal_Text">
                 <p>
                     All user data is stored at a Firebase database, a service provided by Google. For storing data, the privacy policies of Google apply.
