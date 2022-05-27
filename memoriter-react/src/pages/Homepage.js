@@ -9,6 +9,7 @@ function Homepage() {
         <header className='Page_Header-homepage'>
             <img className="Logo-homepage" src={Logo} alt="site-logo" />
             <button type="submit" className="LoginButton-homepage">sign up</button>
+            <Link to='/signup' className="LoginButton-homepage">Sign Up</Link>
         </header>
         <footer>
              <Footer />

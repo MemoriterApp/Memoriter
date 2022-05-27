@@ -45,6 +45,15 @@ function App() {
       <Routes>
           <Route path='/Homepage' element={<Homepage />}>
           </Route>
+          
+          <Route path='/login' element={<LoginPage />}>
+          </Route>
+
+          <Route path='/' element={<LoginPage />}>
+          </Route>
+
+          <Route path='/Signup' element={<SignUpPage />}>
+          </Route>
       </Routes>
     </div>
   )
