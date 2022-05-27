@@ -1387,3 +1387,52 @@ body {
   overflow: hidden;
   border: 10px solid black;
 }
+
+/* Alles für die homepage*/
+
+.titel-homepage {
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 72px;
+    color: rgba(255,255,255,1);
+    max-width: 40%;
+    max-height: 75px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.Logo-homepage {
+    width: 250px;
+    max-width: 25%;
+    position: absolute;
+    cursor: pointer;
+    top: 15%;
+    left: 2%;
+}
+.LoginButton-homepage {
+    height: 60px;
+    width: 175px;
+    border-radius: 5px;
+    background-color: #265272;
+    position: absolute;
+    bottom: 25%;
+    right: 30px;
+    border: 3px solid #3B6E71;
+    cursor: pointer;
+    font-size: 23px;
+    color: white;
+}
+.Page_Header-homepage {
+    height: 110px;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: transparent;
+    overflow: hidden;
+}
