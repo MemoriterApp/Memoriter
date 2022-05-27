@@ -80,17 +80,6 @@ function SignUpPage(props) {
         }
     }
 
-    function isAuth() {
-            if (user) {
-                // User is signed in.
-                console.log("you are signed in")
-              } else {
-                // No user is signed in.
-                console.log("you are not signed in")
-              };
-    }
-    isAuth();
-
     return (
         <div>
             <header className='Page_Header'>
@@ -157,14 +146,14 @@ function SignUpPage(props) {
                                     {borderBlueCheckbox && <div className='accept_privacy'>
                                         <input type='checkbox' id='accept_privacy'
                                             onChange={() => setIsAccepted(!isAccepted)} />
-                                        <label htmlFor="accept_privacy">I agree to our&nbsp;
+                                        <label htmlFor="accept_privacy">I agree to our<p style={{display: 'inline'}}> </p>
                                         <Link to='/privacy' style={{color: '#265272', cursor: 'pointer'}}>privacy policiy</Link>.</label>
                                     </div>}
 
                                     {borderRedCheckbox && <div className='accept_privacy_red'>
                                         <input type='checkbox' id='accept_privacy'
                                             onChange={() => setIsAccepted(!isAccepted)} />
-                                        <label htmlFor="accept_privacy">I agree to our&nbsp;
+                                        <label htmlFor="accept_privacy">I agree to our<p style={{display: 'inline'}}> </p>
                                         <Link to='/privacy' style={{color: '#265272', cursor: 'pointer'}}>privacy policiy</Link>.</label>
                                     </div>}
 
