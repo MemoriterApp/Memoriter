@@ -9,9 +9,14 @@ function Homepage() {
     <>
         <header className='Page_Header-homepage'>
             <img className="Logo-homepage" src={Logo} alt="site-logo" />
-            <Link to='/signup'>
-               <button type="submit" className="SignupButton-homepage">sign up</button> 
-            </Link>
+            <div>
+                <Link to='/signup'>
+                <button type="submit" className="SignupButton-homepage">Sign Up</button> 
+                </Link>
+                <Link to='/login'>
+                <button type="submit" className="LoginButton-homepage">Login</button> 
+                </Link>
+            </div>
         </header>
         <footer>
              <Footer />
