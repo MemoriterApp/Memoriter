@@ -2,12 +2,14 @@ import Logo from './Logo.png';
 import Footer from "../components/Footer";
 import WithGoogle from "../components/WithGoogle";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { firebase } from "../utils/firebase";
 
 
 function SignUpPage(props) {
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -59,6 +61,7 @@ function SignUpPage(props) {
             setError(false);
             setLoading(true);
             const user = createUserWithEmailAndPassword(firebase.auth, email, password)
+            .then(navigate('/'))
             .catch(error => {   
                 switch(error.code) {
                     case 'auth/email-already-in-use':
