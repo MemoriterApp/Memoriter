@@ -1407,12 +1407,61 @@ body {
     text-overflow: ellipsis;
 }
 .Logo-homepage {
-    width: 250px;
+    width: 230px;
     max-width: 25%;
     position: absolute;
     cursor: pointer;
     top: 15%;
     left: 2%;
+}
+
+.Page_Header-homepage {
+    height: 110px;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: transparent;
+    overflow: hidden;
+}
+.rechteck-homepage1 {
+    background: transparent;
+    border: 5px solid #274b65;
+    width: 40%;
+    height: calc(100% - 200px);
+    margin: auto;
+    position: absolute;
+    top: 110px;
+    left: 4.5%;
+    border-radius: 3px;
+    max-height: calc(100% - 120px);
+    min-height: 168px;
+}
+.rechteck-homepage2 {
+    background: transparent;
+    border: 5px solid #274b65;
+    width: 40%;
+    height: calc(50% - 200px);
+    margin: auto;
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    border-radius: 3px;
+    max-height: calc(100% - 120px);
+    min-height: 168px;
+}
+.rechteck-homepage3 {
+    background: transparent;
+    border: 5px solid #274b65;
+    width: 45%;
+    height: calc(65% - 200px);
+    margin: auto;
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    border-radius: 3px;
+    max-height: calc(100% - 120px);
+    min-height: 168px;
 }
 .SignupButton-homepage {
     height: 60px;
@@ -1434,18 +1483,19 @@ body {
     background-color: #353535;
     position: absolute;
     bottom: 25%;
-    right: 11%;
+    right: 220px;
     border: 3px solid #3B6E71;
     cursor: pointer;
     font-size: 23px;
     color: white;
 }
-.Page_Header-homepage {
-    height: 110px;
-    width: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    background-color: transparent;
-    overflow: hidden;
+@media (max-width: 479px) {
+    .LoginButton-homepage {
+        left: 45%; 
+        width: 120px; 
+    }
+    .SignupButton-homepage {
+        width: 120px;
+        right:4px
+    }
 }

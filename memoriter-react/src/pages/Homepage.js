@@ -18,9 +18,16 @@ function Homepage() {
                 </Link>
             </div>
         </header>
-        <footer>
-             <Footer />
-        </footer>
+        <div className="rechteck-homepage1">
+
+        </div>
+        <div className="rechteck-homepage2">
+
+        </div>
+        <div className="rechteck-homepage3">
+
+        </div>
+        <footer><Footer /></footer>
     </>
     );
 }
