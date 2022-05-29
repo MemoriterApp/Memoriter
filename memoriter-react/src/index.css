@@ -1388,9 +1388,9 @@ body {
   border: 10px solid black;
 }
 
-/* Alles für die homepage*/
+/* Alles für die StartPage*/
 
-.titel-homepage {
+.titel-Start {
     position: absolute;
     bottom: -10%;
     left: 50%;
@@ -1406,7 +1406,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.Logo-homepage {
+.Logo-Start {
     width: 230px;
     max-width: 25%;
     position: absolute;
@@ -1415,7 +1415,7 @@ body {
     left: 2%;
 }
 
-.Page_Header-homepage {
+.Page_Header-Start {
     height: 110px;
     width: 100%;
     position: absolute;
@@ -1424,7 +1424,7 @@ body {
     background-color: transparent;
     overflow: hidden;
 }
-.rechteck-homepage1 {
+.rechteck-Start1 {
     background: transparent;
     border: 5px solid #274b65;
     width: 40%;
@@ -1437,7 +1437,7 @@ body {
     max-height: calc(100% - 120px);
     min-height: 168px;
 }
-.rechteck-homepage2 {
+.rechteck-Start2 {
     background: transparent;
     border: 5px solid #274b65;
     width: 40%;
@@ -1450,7 +1450,7 @@ body {
     max-height: calc(100% - 120px);
     min-height: 168px;
 }
-.rechteck-homepage3 {
+.rechteck-Start3 {
     background: transparent;
     border: 5px solid #274b65;
     width: 45%;
@@ -1463,7 +1463,7 @@ body {
     max-height: calc(100% - 120px);
     min-height: 168px;
 }
-.SignupButton-homepage {
+.SignupButton-Start {
     height: 60px;
     width: 175px;
     border-radius: 5px;
@@ -1476,7 +1476,7 @@ body {
     font-size: 23px;
     color: white;
 }
-.LoginButton-homepage {
+.LoginButton-Start {
     height: 60px;
     width: 175px;
     border-radius: 5px;
@@ -1490,11 +1490,11 @@ body {
     color: white;
 }
 @media (max-width: 479px) {
-    .LoginButton-homepage {
+    .LoginButton-Start {
         left: 45%; 
         width: 120px; 
     }
-    .SignupButton-homepage {
+    .SignupButton-Start {
         width: 120px;
         right:4px
     }
