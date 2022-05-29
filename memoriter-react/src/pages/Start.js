@@ -25,8 +25,8 @@ function Start() {
         <div className="rechteck-Start2">
             <img className="Katze" src={Memoriter_Katze} alt="altes-site-logo" />
             <text className="Start2-Text">
-                <h4>So sah es aus </h4>
-                <h4>So sah es nicht aus </h4>
+                <p>So sah es aus </p>
+                <p>So sah es nicht aus </p>
             </text>
             
         </div>
