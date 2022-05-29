@@ -1,7 +1,7 @@
 import Logo from './Logo.png';
 import SettingsIcon from '../components/SettingsIcon';
 import Backdrop from '../components/backdrop';
-import Footer from '../components/Footer';
+import FooterStart from '../components/FooterStart';
 import { Link } from "react-router-dom";
 import Memoriter_Katze from './Memoriter_Katze.jpeg'
 
@@ -23,7 +23,6 @@ function Start() {
 
         </div>
         <div className="rechteck-Start2">
-            <img className="Katze" src={Memoriter_Katze} alt="altes-site-logo" />
             <text className="Start2-Text">
                 <p>So sah es aus </p>
                 <p>So sah es nicht aus </p>
@@ -33,7 +32,7 @@ function Start() {
         <div className="rechteck-Start3">
 
         </div>
-        <footer><Footer /></footer>
+        <footer><FooterStart/></footer>
     </>
     );
 }
