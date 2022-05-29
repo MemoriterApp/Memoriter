@@ -24,7 +24,6 @@ function Start() {
                 <h1>What is MEMORITER?</h1>
                 <p>So sah es nicht aus </p>
             </text>
-
         </div>
         <div className="rechteck-Start2">
             <text className="Start2-Text">
