@@ -20,11 +20,15 @@ function Start() {
             </div>
         </header>
         <div className="rechteck-Start1">
+            <text className="Start1-Text">
+                <h1>What is MEMORITER?</h1>
+                <p>So sah es nicht aus </p>
+            </text>
 
         </div>
         <div className="rechteck-Start2">
             <text className="Start2-Text">
-                <p>So sah es aus </p>
+                <h1>So sah es aus </h1>
                 <p>So sah es nicht aus </p>
             </text>
             
