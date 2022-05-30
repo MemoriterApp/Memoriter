@@ -1633,7 +1633,7 @@ body {
 }
 .Company-Start {
     position: absolute;
-    right: 60%;
+    right: 55%;
     top: 20%;
     transform: translate(0%, -50%);
     text-align: left;
@@ -1643,7 +1643,7 @@ body {
 }
 .followUs-Start {
     position: absolute;
-    right: 45%;
+    right: 40%;
     top: 20%;
     transform: translate(0%, -50%);
     text-align: left;
@@ -1653,7 +1653,7 @@ body {
 }
 .rechteckLogo-Start {
     position: absolute;
-    right: 47.5%;
+    right: 42.5%;
     top: 34%;
     transform: translate(0%, -50%);
     padding: 8px;
@@ -1670,6 +1670,39 @@ body {
     width: 70%;
     height: 70%;
     cursor: pointer;
+}
+.Line-Start1 {
+    background: transparent;
+    border: 2px solid rgba(112,112,112,1);
+    width: 25%;
+    height: 0px;
+    margin: auto;
+    position: absolute;
+    border-radius: 3px;
+    top:70%;
+    left: 55%;   
+}
+.Line-Start2 {
+    background: transparent;
+    border: 2px solid rgba(112,112,112,1);
+    width: 25%;
+    height: 0px;
+    margin: auto;
+    position: absolute;
+    border-radius: 3px;
+    top:70%;
+    right: 55%;   
+}
+.Line-Start3 {
+    background: transparent;
+    border: 2px solid rgba(112,112,112,1);
+    width: 0px;
+    height: 40%;
+    margin: auto;
+    position: absolute;
+    border-radius: 3px;
+    top:15%;
+    right: 50%;   
 }
 
 /* Dieser css bezieht sich auf die Links und ihre animation*/

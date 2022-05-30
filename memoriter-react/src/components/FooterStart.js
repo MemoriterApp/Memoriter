@@ -27,6 +27,11 @@ const FooterStart = () => {
                     <img className='instaIcon-Start' src={instagramIcon} alt='instagram'></img>
                 </a>
             </div>
+            <div >
+                <div className ='Line-Start1'></div>
+                <div className ='Line-Start2'></div>
+                <div className ='Line-Start3'></div>
+            </div>
         </div>
     );
 }
