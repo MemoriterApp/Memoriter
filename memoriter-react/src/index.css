@@ -1718,6 +1718,16 @@ body {
     right: 50%;   
 }
 
+@media (max-width: 500px) {
+    .followUs-Start {
+        position: absolute;
+        right: 10%;
+    }
+    .rechteckLogo-Start {
+        position: absolute;
+        right: 20%;
+    }
+}
 /* Dieser css bezieht sich auf die Links und ihre animation*/
 .footerLinks-Start {
     background-color: transparent;
@@ -1825,3 +1835,5 @@ body {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+
+
