@@ -1592,17 +1592,19 @@ body {
     position: absolute;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .LoginButton-Start {
-        left: 45%; 
+        right: 130px; 
         width: 120px; 
     }
     .SignupButton-Start {
         width: 120px;
         right:4px
     }
+   .Logo-Start {
+    max-width:170px;
+    }
 }
-
 
 
 /* Nachfolgendes ist alles für den Footer für den Start*/
