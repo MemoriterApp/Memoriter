@@ -19,25 +19,40 @@ function Start() {
                 </Link>
             </div>
         </header>
-        <div className="rechteck-Start1">
-            <text className="Start1-Text">
-                <h1 style={{textAlign: 'center'}}>What is MEMORITER?</h1>
-                <p>Memoriter is a web-application specifically build to <br></br>help you learn. 
-                    But of course it can also be used to <br></br>take notes or write anything one desires. 
-                    This <br></br>application is so easy to use, that a tutorial is not needed.
-                    It is primarily based on the design flashcards,which are commonly used to manage notes
-                    <br></br>and other things. Try it out its very simple! </p>
+        <div className="rechteck-Start1a">
+            <text className="Start1a-Text">
+                <h1>What is MEMORITER?</h1>
+                <p><div> Discover Memoriter and find out how it will give you a better experience in learning something in school
+                    or qust to take notes in a different creative way not seen anywhere else on the web.</div>
+                    <div> This new design is based on flashcards and features similarities to other similar
+                        note taking apps. So, try Memoriter and you wont be dissapointed. </div>
+                </p>
+                <p style={{fontSize:'29px'}}>
+                     If you want to learn something about us, the developers, head to our <a href='/About' className='About_Us-Start'>About Us</a> page
+                </p>
             </text>
         </div>
         <div className="rechteck-Start2">
             <text className="Start2-Text">
-                <h1>So sah es aus </h1>
-                <p>So sah es nicht aus </p>
+                <h1 style={{textAlign: 'center'}}>So why should you use MEMORITER</h1>
+                <ul> 
+                    <li> You can organize your content in flashcards.</li>
+                    <li>Its a webapp! Have it everwhere you go. On every operating system.</li>
+                    <li>Its free!</li>
+                </ul>
             </text>
             
         </div>
         <div className="rechteck-Start3">
-
+            <text className="Start3-Text">
+                <h1 style={{textAlign: 'center'}}>Collaboration parterns?</h1>
+                <p style={{lineHeight:1.5}}> The JUNIOR programme has helped the founding process of memoriterand it would not exist without them. 
+                    It helps students learn economics in school, by making them create a student company and let them deal with the logistics of that.
+                    <div></div>The collaboration only lasts one year.
+                    Soon the year of their influence over us will be over and we will be able to develop memoriter more freely and without constraints
+                </p>
+            </text>
+        
         </div>
         <footer><FooterStart/></footer>
     </>

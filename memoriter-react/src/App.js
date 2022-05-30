@@ -11,6 +11,7 @@ import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
 import { getAuth } from 'firebase/auth';
 import StartPage from './pages/Start';
+import AboutPage from './pages/About';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
@@ -53,6 +54,10 @@ function App() {
           </Route>
 
           <Route path='/Signup' element={<SignUpPage />}>
+          </Route>
+          <Route path='/impressum' element={<ImpressumPage />}>
+          </Route>
+          <Route path='/About' element={<AboutPage />}>
           </Route>
       </Routes>
     </div>
