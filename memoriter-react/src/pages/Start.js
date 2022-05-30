@@ -27,7 +27,7 @@ function Start() {
                     <div> This new design is based on flashcards and features similarities to other similar
                         note taking apps. So, try Memoriter and you wont be dissapointed. </div>
                 </p>
-                <p style={{fontSize:'29px'}}>
+                <p>
                      If you want to learn something about us, the developers, head to our <a href='/About' className='About_Us-Start'>About Us</a> page
                 </p>
             </text>
