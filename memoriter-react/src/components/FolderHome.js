@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
 
-const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount }) => {
+const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, folderCount, onPosAdjust }) => {
 
     function onOpenFolder() {
         localStorage.setItem('syncedFolderID', folder.id)
@@ -26,6 +26,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
     function deleteFolderReq() {
       setModalIsOpenD(true);
+      setModalIsOpen(false);
     }
     function backdropClickD() {
       setModalIsOpenD(false);
@@ -35,6 +36,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
     function editFolderReq() {
         setModalIsOpenE(true);
+        setModalIsOpen(false);
     }
     function backdropClickE() {
         setTitle(folder.title);
@@ -47,6 +49,17 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
     if (folder.pos !== pos) {
         setPos(folder.pos)
+    }
+
+    const newPosId = sessionStorage.getItem('newPosFolder');
+    const newPosIdDelete = sessionStorage.getItem('newPosFolder' + folder.id)
+
+    if (newPosId === folder.id) {
+        onPosAdjust(folder.id, folder.pos);
+        sessionStorage.removeItem('newPosFolder');
+    } else if (newPosIdDelete === folder.id) {
+        onPosAdjust(folder.id, folder.pos);
+        sessionStorage.removeItem('newPosFolder' + folder.id);
     }
 
     return (
@@ -82,6 +95,8 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                         <p onClick={editFolderReq}>Edit</p>
                         <p onClick={deleteFolderReq}>Delete</p>
                     </div>
+                </div>}
+            </div>
 
             <div>
                 {modalIsOpenE && <form className='Add_Folder_Form_Body'>
@@ -89,7 +104,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                         <h2 className='Add_Folder_Form_Header'>Edit Folder</h2>
                         <div className='Add_Folder_Form_Text'>Rename Folder: </div>
                         <p style={{fontSize: '5px'}} />
-                        <input className='Add_Folder_Form_Input' type='text' maxLength='100' placeholder='New Folder'
+                        <input className='Add_Folder_Form_Input' autoFocus type='text' maxLength='100' placeholder='New Folder'
                             defaultValue={title} onChange={(changeName) => setTitle(changeName.target.value)} />
                     </div>
                         <p style={{fontSize: '25px'}} />
@@ -117,14 +132,14 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
             <div  onClick={backdropClickD}>
                 {modalIsOpenD && <Backdrop/>}
             </div>
-            </div>}
+
+            <div>
                 {modalIsOpen && <Backdropfs/>}
             </div>
             <div  onClick={backdropClick}>
                 {modalIsOpen && <Backdropfs/>}
             </div>
 
-            <div className='folder-pos-indicator'>{folder.pos}</div>
 
         </div>
     );

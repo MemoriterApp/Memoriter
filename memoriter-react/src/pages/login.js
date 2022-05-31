@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Logo from './Logo.png';
 import WithGoogle from "../components/WithGoogle";
 import Footer from "../components/Footer";
@@ -28,6 +28,10 @@ function LoginPage() {
     onAuthStateChanged(firebase.auth, (currentUser) => {
         setUser(currentUser);
     })
+
+    useEffect(() => {
+        localStorage.setItem('lastPage', "/");
+    });
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -99,9 +103,9 @@ function LoginPage() {
                                     setWrongPassword(false);
                                     setRedBorderPassword('5px solid rgba(58,109,112,1)');}} />
                             {wrongPassword && <p className="passwords-no-match">Wrong Password!</p>}
-                            <p style={{fontSize: '25px'}} />
 
                             {/*<p className="forgot-password">Forgot Password?</p>*/}
+                            {/*kann später durch forgot password ersetzt werden:*/<p className="forgot-password" style={{cursor: 'default', height: '20px'}}/>}
 
                             <button type="submit" className="LoginButton" disabled={loading}>Log In</button>
                         </form>

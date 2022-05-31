@@ -6,7 +6,7 @@ import BackdropOpenFlashcard from './backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
 
 const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
-    onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView }) => {
+    onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView, onPosAdjust }) => {
 
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
@@ -52,6 +52,8 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     function deleteFlashcardReq() {
       setModalIsOpenD(true);
+      setModalIsOpenS(false);
+      setModalIsOpenSO(false);
     }
     function backdropClickD() {
       setModalIsOpenD(false);
@@ -64,6 +66,8 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
     function editFlashcardReq() {
       setModalIsOpenE(true);
       setModalIsOpenEbackdrop(true);
+      setModalIsOpenS(false);
+      setModalIsOpenSO(false);
     }
     function editOpenFlashcardReq() {
         setModalIsOpenE(true);
@@ -85,6 +89,17 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     if (flashcard.pos !== pos) {
         setPos(flashcard.pos)
+    }
+
+    const newPosId = sessionStorage.getItem('newPosFlashcard');
+    const newPosIdDelete = sessionStorage.getItem('newPosFlashcard' + flashcard.id)
+
+    if (newPosId === flashcard.id) {
+        onPosAdjust(flashcard.id, flashcard.pos);
+        sessionStorage.removeItem('newPosFlashcard');
+    } else if (newPosIdDelete === flashcard.id) {
+        onPosAdjust(flashcard.id, flashcard.pos);
+        sessionStorage.removeItem('newPosFlashcard' + flashcard.id);
     }
 
     return (
@@ -166,10 +181,11 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                         <p onClick={deleteFlashcardReq}>Delete</p>
                     </div>
 
-                    <div onClick={backdropClickE}>
-                        {modalIsOpenEbackdrop && <Backdrop/>}
-                    </div>
                 </div>}
+
+                <div onClick={backdropClickE}>
+                    {modalIsOpenEbackdrop && <Backdrop/>}
+                </div>
             </div>
 
             <div>
@@ -204,8 +220,6 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             <div onClick={backdropClick}>
                 {modalIsOpenS && <Backdropfs/>}
             </div>
-
-            <div className='flashcard-pos-indicator'>{flashcard.pos}</div>
 
         </div>
     );

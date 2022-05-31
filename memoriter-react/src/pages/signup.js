@@ -1,14 +1,15 @@
-import React from "react";
 import Logo from './Logo.png';
 import Footer from "../components/Footer";
 import WithGoogle from "../components/WithGoogle";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { firebase } from "../utils/firebase";
 
 
 function SignUpPage(props) {
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -24,15 +25,18 @@ function SignUpPage(props) {
     const [redBorderPassword, setRedBorderPassword] = useState('5px solid rgba(58,109,112,1)');
     const [samePassword, setSamePassword] = useState(false);
     const [redBorderConfirm, setRedBorderConfirm] = useState('5px solid rgba(58,109,112,1)');
-
     const [isAccepted, setIsAccepted] = useState(false);
-
-    
+    const [borderBlueCheckbox, setBorderBlueCheckbox] = useState(true);
+    const [borderRedCheckbox, setBorderRedCheckbox] = useState(false);
 
     const [user, setUser] = useState({})
 
     onAuthStateChanged(firebase.auth, (currentUser) => {
         setUser(currentUser);
+    })
+
+    useEffect(() => {
+        localStorage.setItem('lastPage', "/signup");
     })
 
     async function handleSubmit(e) {
@@ -49,10 +53,15 @@ function SignUpPage(props) {
             setShortPassword(true);
             setRedBorderPassword('5px solid rgb(228, 48, 48)');
             return setError(true);
+        } else if (isAccepted === false) {
+            setBorderBlueCheckbox(false);
+            setBorderRedCheckbox(true);
+            return setError(true);
         } try {
             setError(false);
             setLoading(true);
             const user = createUserWithEmailAndPassword(firebase.auth, email, password)
+            .then(navigate('/'))
             .catch(error => {   
                 switch(error.code) {
                     case 'auth/email-already-in-use':
@@ -73,17 +82,6 @@ function SignUpPage(props) {
             setLoading(false);
         }
     }
-
-    function isAuth() {
-            if (user) {
-                // User is signed in.
-                console.log("you are signed in")
-              } else {
-                // No user is signed in.
-                console.log("you are not signed in")
-              };
-    }
-    isAuth();
 
     return (
         <div>
@@ -146,18 +144,29 @@ function SignUpPage(props) {
                                             setRedBorderConfirm('5px solid rgba(58,109,112,1)');
                                         }} />
                                     {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
-                                    <p style={{fontSize: '25px'}} />
+                                    <p style={{fontSize: '55px'}} />
 
-                                <button type="submit" className="LoginButton" disabled={loading} style={{top:"330px"}}>Sign Up</button>
+                                    {borderBlueCheckbox && <div className='accept_privacy'>
+                                        <input type='checkbox' id='accept_privacy'
+                                            onChange={() => setIsAccepted(!isAccepted)} />
+                                        <label htmlFor="accept_privacy">I agree to our<p style={{display: 'inline'}}> </p>
+                                        <Link to='/privacy' style={{color: '#265272', cursor: 'pointer'}}>privacy policiy</Link>.</label>
+                                    </div>}
+
+                                    {borderRedCheckbox && <div className='accept_privacy_red'>
+                                        <input type='checkbox' id='accept_privacy'
+                                            onChange={() => setIsAccepted(!isAccepted)} />
+                                        <label htmlFor="accept_privacy">I agree to our<p style={{display: 'inline'}}> </p>
+                                        <Link to='/privacy' style={{color: '#265272', cursor: 'pointer'}}>privacy policiy</Link>.</label>
+                                    </div>}
+
+                                        
+                                <button type="submit" className="LoginButton" disabled={loading} style={{top:"360px"}}>Sign Up</button>
                             </form>
                         <p className="no-account">Already have an account? You can log in&nbsp;</p>
                         <Link to='/' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
                         <p className="no-account">!</p>
                     </div>
-                    <form className="check_total">
-                            <input type='checkbox' name='accept_privacy' value='accepted'></input>
-                            <label className='check_text' htmlFor="accept_privacy">Accept the privacy policies!</label>
-                    </form>
                 </div>
             </div>
 

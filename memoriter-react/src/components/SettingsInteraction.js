@@ -21,7 +21,9 @@ function SettingsClick() {
 
     const logOut = async () => {
         await signOut(firebase.auth);
-        navigate('/')
+        localStorage.removeItem('syncedFolderID');
+        localStorage.removeItem('syncedFolderTitle');
+        navigate('/');
     }
 
     return (

@@ -25,9 +25,10 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                 <textarea className='Add_Flashcard_Form_Content' placeholder='Flashcard Content...'
                     value={content} onChange={(changeContent) => setContent(changeContent.target.value)} />
             </div>
-            <input className='Add_Flashcard_Form_Submit' type='submit' value='Done' />
+                <input className='Add_Flashcard_Form_Submit' type='submit' value='Done' />
+                <div className='Add_Flashcard_Form_Submit'
+                    style={{border: 'none', marginTop: '0px', left: '5px'}}/>
         </form>
     );
 }
-
 export default AddFlashcardForm;
