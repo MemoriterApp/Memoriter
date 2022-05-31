@@ -23,9 +23,9 @@ function Start() {
             <text className="Start1a-Text">
                 <h1>What is MEMORITER?</h1>
                 <p><div> Discover Memoriter and find out how it will give you a better experience in learning something in school
-                    or qust to take notes in a different creative way not seen anywhere else on the web.</div>
-                    <div> This new design is based on flashcards and features similarities to other similar
-                        note taking apps. So, try Memoriter and you wont be dissapointed. </div>
+                    or just to take notes in a different creative way not seen anywhere else on the web.</div>
+                    <div> This new design is based on flashcards and features similar to other
+                        note taking apps. So, try Memoriter and you won't be dissapointed. </div>
                 </p>
                 <p>
                      If you want to learn something about us, the developers, head to our <a href='/About' className='About_Us-Start'>About Us</a> page
