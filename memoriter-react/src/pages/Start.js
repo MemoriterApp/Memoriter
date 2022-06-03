@@ -1,4 +1,5 @@
 import Logo from './Logo.png';
+import Footer from '../components/Footer';
 import SettingsIcon from '../components/SettingsIcon';
 import Backdrop from '../components/backdrop';
 import FooterStart from '../components/FooterStart';
@@ -34,7 +35,7 @@ function Start() {
             </text>
         </div>
         <div className='QA-Flashcards'>
-            <div className='how-does-it-work'>
+            <span className='how-does-it-work'>
                 <h1 className='QA-flashcard-title'>How does it work?</h1>
                 <article className='QA-flashcard-content'>
                     <p>With <span className='bold'>Memoriter</span> you can create different <span className='bold'>folders</span>, depending on the subject you want to study. 
@@ -47,9 +48,36 @@ function Start() {
                         If you are interested go and log in to see it for yourself and create your own flashcards.
                     </p>
                 </article>
-            </div>
+            </span>
+            <span className='why-should-i-use'>
+                <h1 className='QA-flashcard-title' style={{left:"50px"}}>Why should I use Memoriter?</h1>
+                <article className='QA-flashcard-content'>
+                    <p>
+                        <ul className='why-list'>
+                            <li>You can organize your content in flashcards</li>
+                            <li>You will have a great overview</li>
+                            <li>It is scientifically the most efficient way to study</li>
+                            <li>You can categorize your subjects into different folders</li>
+                            <li>You will make us happy!</li>
+                        </ul>
+                    </p>
+                </article>
+            </span>
+            <span className='how-much-does-it-cost'>
+                <h1 className='QA-flashcard-title' style={{left:"5px"}}>How much does it cost?</h1>
+                <article className='QA-flashcard-content'>
+                    <p>
+                        Thats the best part, it is totally free! We do not have an incentive to make money off of this project. 
+                        We also do not have any server costs at the moment. But nevertheless if you want to support us you can donate
+                        to our bank account, more info on the 'About Us'.
+                    </p>
+                </article>
+            </span>
+            <span className=''>
 
+            </span>
         </div>
+
         {/*<div className="rechteck-Start2">
             <text className="Start2-Text">
                 <h1 style={{textAlign: 'center'}}>So why should you use MEMORITER</h1>
@@ -72,7 +100,7 @@ function Start() {
             </text>
         
     </div>*/}
-        <footer><FooterStart/></footer>
+        <footer><FooterStart></FooterStart></footer>
     </>
     );
 }

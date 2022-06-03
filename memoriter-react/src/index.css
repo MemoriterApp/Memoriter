@@ -1459,7 +1459,7 @@ body {
 .rechteck-Start1a {
     background: rgba(47,78,110,1);
     width: 100%;
-    height: 620px;
+    height: 680px;
     margin: auto;
     position: absolute;
     min-height: 160px;
@@ -1822,30 +1822,58 @@ body {
 /* Johan Startpage*/
 .how-does-it-work {
     position: absolute;
-    height: 500px;
-    width: 300px;
-    top: 800px;
+    height: 550px;
+    width: 375px;
+    top: 850px;
     left: 75px;
-    border-radius: 5px;
-    border-top: 5px solid rgba(58,109,112,1);
-    border-bottom: 5px solid rgba(58,109,112,1);
-    border-left: 5px solid rgba(58,109,112,1);
-    border-right: 5px solid rgba(58,109,112,1);
+    border-radius: 7.5px;
+    border-top: 7.5px solid rgba(58,109,112,1);
+    border-bottom: 7.5px solid rgba(58,109,112,1);
+    border-left: 7.5px solid rgba(58,109,112,1);
+    border-right: 7.5px solid rgba(58,109,112,1);
 }
 .QA-flashcard-title {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    left: 9px;
+    left: 40px;
 }
 .QA-flashcard-content {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    left: 9px;
-    max-width: 280px;
-    font-size: 20px;
+    left: 30px;
+    max-width: 320px;
+    font-size: 22px;
+    line-height: 27px;
 }
 .bold {
     font-weight: bold;
+}
+.why-should-i-use {
+    position: absolute;
+    height: 550px;
+    width: 375px;
+    top: 850px;
+    left: 525px;
+    border-radius: 7.5px;
+    border-top: 7.5px solid rgba(58,109,112,1);
+    border-bottom: 7.5px solid rgba(58,109,112,1);
+    border-left: 7.5px solid rgba(58,109,112,1);
+    border-right: 7.5px solid rgba(58,109,112,1);
+}
+.how-much-does-it-cost {
+    position: absolute;
+    height: 550px;
+    width: 375px;
+    top: 850px;
+    left: 975px;
+    border-radius: 7.5px;
+    border-top: 7.5px solid rgba(58,109,112,1);
+    border-bottom: 7.5px solid rgba(58,109,112,1);
+    border-left: 7.5px solid rgba(58,109,112,1);
+    border-right: 7.5px solid rgba(58,109,112,1);
+}
+.why-list {
+    line-height: 35px;
 }
