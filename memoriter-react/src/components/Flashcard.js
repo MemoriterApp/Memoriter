@@ -206,17 +206,17 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             </div>
 
             <div>
-                {modalIsOpenD && <form className='Delete_Folder_Confirm'>
+                {modalIsOpenD && <div className='Delete_Folder_Confirm'>
                     <h2 className='Add_folder_Form_Header'>Do you really want to delete this flashcard?</h2>
-                    <input className='Delete_Folder_Confirm_Yes 'type='submit' value='Yes' onClick={
+                    <button className='Delete_Folder_Confirm_Yes' onClick={
                         () => onDeleteFlashcard(flashcard.id, flashcard.pos)
-                    }/>
+                    }>Yes</button>
                     <div style={{display: 'inline', color: 'transparent', cursor: 'default'}}>====</div>
-                    <input className='Delete_Folder_Confirm_No' type='submit' value='No' onClick={backdropClickD} />
+                    <button className='Delete_Folder_Confirm_No' onClick={backdropClickD}>No</button>
                     <p style={{fontSize: '10px'}} />
-                 </form>}
+                 </div>}
             </div>
-
+            
             <div onClick={backdropClick}>
                 {modalIsOpenS && <Backdropfs/>}
             </div>
