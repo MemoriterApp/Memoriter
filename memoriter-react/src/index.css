@@ -1502,22 +1502,6 @@ body {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-.rechteck-Start2 {
-    background: transparent;
-    border: 5px solid rgba(39,75,101,1);
-    width: calc(94vh / 3 * 2);
-    height: 94vh;
-    margin: auto;
-    position: absolute;
-    border-radius: 3px;
-    min-height: 160px;
-    min-width: 120px;
-    max-width: calc(100% - 160px);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    top:90%;
-    left: 55%;
-    
-}
 .Start2-Text {
     position: absolute;
     left: 10px;
@@ -1835,5 +1819,33 @@ body {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-
-
+/* Johan Startpage*/
+.how-does-it-work {
+    position: absolute;
+    height: 500px;
+    width: 300px;
+    top: 800px;
+    left: 75px;
+    border-radius: 5px;
+    border-top: 5px solid rgba(58,109,112,1);
+    border-bottom: 5px solid rgba(58,109,112,1);
+    border-left: 5px solid rgba(58,109,112,1);
+    border-right: 5px solid rgba(58,109,112,1);
+}
+.QA-flashcard-title {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left: 9px;
+}
+.QA-flashcard-content {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left: 9px;
+    max-width: 280px;
+    font-size: 20px;
+}
+.bold {
+    font-weight: bold;
+}

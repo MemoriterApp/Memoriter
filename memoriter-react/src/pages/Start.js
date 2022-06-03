@@ -19,6 +19,7 @@ function Start() {
                 </Link>
             </div>
         </header>
+        
         <div className="rechteck-Start1a">
             <text className="Start1a-Text">
                 <h1>What is MEMORITER?</h1>
@@ -32,7 +33,24 @@ function Start() {
                 </p>
             </text>
         </div>
-        <div className="rechteck-Start2">
+        <div className='QA-Flashcards'>
+            <div className='how-does-it-work'>
+                <h1 className='QA-flashcard-title'>How does it work?</h1>
+                <article className='QA-flashcard-content'>
+                    <p>With <span className='bold'>Memoriter</span> you can create different <span className='bold'>folders</span>, depending on the subject you want to study. 
+                        Inside of this folder you can create different <span className='bold'>flashcards</span>, kind of like this page.
+                        <p>
+
+                        </p>
+                        You always have a <span className='bold'>flashcard title</span>, which should be your question
+                        and the <span className='bold'>flashcard content</span> which should be the answer to the question. This way you have the perfect overview of the subject you want to study. 
+                        If you are interested go and log in to see it for yourself and create your own flashcards.
+                    </p>
+                </article>
+            </div>
+
+        </div>
+        {/*<div className="rechteck-Start2">
             <text className="Start2-Text">
                 <h1 style={{textAlign: 'center'}}>So why should you use MEMORITER</h1>
                 <ul> 
@@ -53,7 +71,7 @@ function Start() {
                 </p>
             </text>
         
-        </div>
+    </div>*/}
         <footer><FooterStart/></footer>
     </>
     );
