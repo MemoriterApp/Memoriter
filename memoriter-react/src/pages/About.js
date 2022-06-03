@@ -15,7 +15,7 @@ function About() {
             </Link>
             <h1 className='Legal_Header'>About Us</h1>
             <p className='Legal_Text'>
-               Memoriter is a Project made by made by six students (Alex, Simon, Leo, Nils, Maya and Johan), from Potsdam, Germany. We created the project 
+               Memoriter is a Project made by made by six students (Alex, Simon, Leo, Nils, Maya and Johan) from Potsdam, Germany. We created the project 
                as a part of of JUNIOR-Programme.
                The JUNIOR-Programme has helped the founding process of Memoriter and it would not exist in this way without them. 
                     It helps students learn economics in school, by making them create a student company and let them deal with the logistics of that.
