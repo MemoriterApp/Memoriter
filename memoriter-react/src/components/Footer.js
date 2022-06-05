@@ -17,6 +17,10 @@ const Footer = () => {
                 </a>
             </div>
             <div className='footerLinks'>
+                <Link className='termsOfUse' to='/About'>About us</Link>
+                <div
+                    style={{display: 'inline', color: 'rgba(112,112,112,1)', cursor: 'default'}}
+                > | </div>
                 <Link className='termsOfUse' to='/terms-of-use'>Terms of Use</Link>
                 <div
                     style={{display: 'inline', color: 'rgba(112,112,112,1)', cursor: 'default'}}
