@@ -97,7 +97,7 @@ function Start() {
             </text>
         
     </div>*/}
-        <footer><FooterStart></FooterStart></footer>
+        <Footer/>
     </>
     );
 }
