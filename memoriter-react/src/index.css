@@ -1587,6 +1587,7 @@ body {
    .Logo-Start {
         max-width:170px;
     }
+    
     .rechteck-Start1a {
         height: 655px;
 
@@ -1690,7 +1691,7 @@ body {
     top:70%;
     right: 55%;   
 }
-.Line-Start3 {
+.Line-Start-vertikal {
     background: transparent;
     border: 2px solid rgba(112,112,112,1);
     width: 0px;
@@ -1710,6 +1711,17 @@ body {
     .rechteckLogo-Start {
         position: absolute;
         right: 20%;
+    }
+    .Footer_Body-Start{
+        bottom: -350%;
+        height:450px;
+        width:100%;
+    }
+    .Line-Start1{
+        left:72%;
+    }
+    .Line-Start2{
+        right:72%;
     }
 }
 /* Dieser css bezieht sich auf die Links und ihre animation*/
@@ -1876,4 +1888,19 @@ body {
 }
 .why-list {
     line-height: 35px;
+}
+@media (max-width: 500px) {
+    .how-does-it-work{
+        left:5%;
+    }
+    .why-should-i-use {
+        top:1500px;
+        left:5%;
+    }
+    .how-much-does-it-cost{
+        top:2150px;
+        left:5%;
+        right:5%;
+    }
+
 }

@@ -30,7 +30,7 @@ const FooterStart = () => {
             <div >
                 <div className ='Line-Start1'></div>
                 <div className ='Line-Start2'></div>
-                <div className ='Line-Start3'></div>
+                <div className ='Line-Start-vertikal'></div>
             </div>
         </div>
     );
