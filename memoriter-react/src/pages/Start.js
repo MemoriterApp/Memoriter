@@ -68,7 +68,7 @@ function Start() {
                 <article className='QA-flashcard-content'>
                     <p>
                         Thats the best part, it is totally <span className='bold'>free!</span>. We do not have an incentive to make money off of this project. 
-                        We also do not have any server costs at the moment. But nevertheless if you want to support us you can <span className='bold'>donate</span> 
+                        We also do not have any server costs at the moment. But nevertheless if you want to support us you can  <span className='bold'>donate </span> 
                         to our bank account, more info on the 'About Us'.
                     </p>
                 </article>
