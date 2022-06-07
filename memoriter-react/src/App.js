@@ -11,6 +11,8 @@ import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
 import Startpage from './pages/startpage';
 import { getAuth } from 'firebase/auth';
+import StartPage from './pages/Start';
+import AboutPage from './pages/About';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { AuthProvider } from './contexts/AuthContext';
@@ -76,6 +78,9 @@ function App() {
 
           </Route>
           <Route path='/' element={<HomePage onOpenFolder={openFolder} />}>
+
+          </Route>
+          <Route path='/homepage' element={<homepage />}>
 
           </Route>
         </Routes>
