@@ -33,7 +33,7 @@ function Start() {
                     note taking apps. So, try Memoriter and you won't be dissapointed.
                 </p>
                 <p>
-                    If you want to learn something about us, the developers, head to our <a href='/About' className='About_Us-Start'>About Us</a> page
+                    If you want to learn something about us, the developers, head to our <a href='/About' className='About_Us-Start'>About Us</a> page.
                 </p>
             </div>
         </div>
@@ -58,7 +58,7 @@ function Start() {
             </div>
             <div className='how-does-it-work-body'>
                 <div className='how-does-it-work'>
-                    <h1 className='QA-flashcard-title' style={{left:"50px"}}>Why should I use Memoriter?</h1>
+                    <h1 className='QA-flashcard-title'>Why should I use Memoriter?</h1>
                     <article className='QA-flashcard-content'>
                         <ul className='why-list'>
                             <li>You can organize your content in flashcards</li>
