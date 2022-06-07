@@ -1402,7 +1402,7 @@ body {
 .Page_Header-Start {
     height: 110px;
     width: 100%;
-    position: absolute;
+    position: relative;
     top: 0%;
     left: 0%;
     background-color: transparent;
@@ -1459,26 +1459,20 @@ body {
 .rechteck-Start1a {
     background: rgba(47,78,110,1);
     width: 100%;
-    height: 680px;
-    margin: auto;
-    position: absolute;
-    min-height: 160px;
-    top: 110px;
-    left:-0.11%;
+    position: relative;
+    margin: 0px 0px 0px 0px;
+    padding-bottom: 20px;
 }
 .Start1a-Text {
-    position: absolute;
-    left: 10px;
-    text-align: left;
+    position: relative;
     color: #FFFF;
-    top: 1px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 28.76px;
-    width: 50%;
     line-height: 1.8;
-    left:25%;
-    text-align:center;
+    text-align: center;
+    width: 50%;
+    left: 25%;
 }
 .About_Us-Start {
     color: rgb(255, 255, 255);
@@ -1489,11 +1483,11 @@ body {
 .About_Us-Start:after{
     content: '';
     position: absolute;
-    width: 126px;
+    width: 120px;
     transform: scaleX(0);
     height: 2px;
-    bottom:40px;
-    left: 376px;
+    bottom: 10px;
+    left: 348px;
     background-color: #ffffff;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
@@ -1605,7 +1599,7 @@ body {
 
 /* Nachfolgendes ist alles für den Footer für den Start*/
 .Footer_Body-Start {
-    position: absolute;
+    position: relative;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border-top: 2px solid rgba(112,112,112,1);
     left: 0%;
@@ -1670,7 +1664,7 @@ body {
     cursor: pointer;
 }
 .Line-Start1 {
-    background: transparent;
+    background-color: rgba(112,112,112,1);
     border: 2px solid rgba(112,112,112,1);
     width: 25%;
     height: 0px;
@@ -1681,7 +1675,7 @@ body {
     left: 55%;   
 }
 .Line-Start2 {
-    background: transparent;
+    background-color: rgba(112,112,112,1);
     border: 2px solid rgba(112,112,112,1);
     width: 25%;
     height: 0px;
@@ -1692,7 +1686,7 @@ body {
     right: 55%;   
 }
 .Line-Start-vertikal {
-    background: transparent;
+    background-color: rgba(112,112,112,1);
     border: 2px solid rgba(112,112,112,1);
     width: 0px;
     height: 40%;
@@ -1833,16 +1827,16 @@ body {
   }
 /* Johan Startpage*/
 .how-does-it-work {
-    position: absolute;
+    position: relative;
+    display: inline-block;
     height: 550px;
     width: 375px;
-    top: 850px;
-    left: 75px;
     border-radius: 7.5px;
-    border-top: 7.5px solid rgba(58,109,112,1);
-    border-bottom: 7.5px solid rgba(58,109,112,1);
-    border-left: 7.5px solid rgba(58,109,112,1);
-    border-right: 7.5px solid rgba(58,109,112,1);
+    border: 7.5px solid rgba(58,109,112,1);
+    margin: 50px 50px 50px 20px;
+}
+.QA-Flashcards {
+    position: relative;
 }
 .QA-flashcard-title {
     color: white;
@@ -1863,28 +1857,22 @@ body {
     font-weight: bold;
 }
 .why-should-i-use {
-    position: absolute;
+    position: relative;
+    display: inline-block;
     height: 550px;
     width: 375px;
-    top: 850px;
-    left: 525px;
     border-radius: 7.5px;
-    border-top: 7.5px solid rgba(58,109,112,1);
-    border-bottom: 7.5px solid rgba(58,109,112,1);
-    border-left: 7.5px solid rgba(58,109,112,1);
-    border-right: 7.5px solid rgba(58,109,112,1);
+    border: 7.5px solid rgba(58,109,112,1);
+    margin: 50px 50px 50px 20px;
 }
 .how-much-does-it-cost {
-    position: absolute;
+    position: relative;
+    display: inline-block;
     height: 550px;
     width: 375px;
-    top: 850px;
-    left: 975px;
     border-radius: 7.5px;
-    border-top: 7.5px solid rgba(58,109,112,1);
-    border-bottom: 7.5px solid rgba(58,109,112,1);
-    border-left: 7.5px solid rgba(58,109,112,1);
-    border-right: 7.5px solid rgba(58,109,112,1);
+    border: 7.5px solid rgba(58,109,112,1);
+    margin: 50px 50px 50px 20px;
 }
 .why-list {
     line-height: 35px;

@@ -20,22 +20,26 @@ function Start() {
                 </Link>
             </div>
         </header>
-        
-        <div className="rechteck-Start1a">
-            <text className="Start1a-Text">
+
+        <div className='rechteck-Start1a'>
+            <div className="Start1a-Text">
                 <h1>What is MEMORITER?</h1>
-                <p><div> Discover Memoriter and find out how it will give you a better experience in learning something in school
-                    or just to take notes in a different creative way not seen anywhere else on the web.</div>
-                    <div> This new design is based on flashcards and features similar to other
-                        note taking apps. So, try Memoriter and you won't be dissapointed. </div>
+                <p>
+                    Discover Memoriter and find out how it will give you a better experience in learning something in school
+                    or just to take notes in a different creative way not seen anywhere else on the web.
                 </p>
                 <p>
-                     If you want to learn something about us, the developers, head to our <a href='/About' className='About_Us-Start'>About Us</a> page
+                    This new design is based on flashcards and features similar to other
+                    note taking apps. So, try Memoriter and you won't be dissapointed.
                 </p>
-            </text>
+                <p>
+                    If you want to learn something about us, the developers, head to our <a href='/About' className='About_Us-Start'>About Us</a> page
+                </p>
+            </div>
         </div>
+
         <div className='QA-Flashcards'>
-            <span className='how-does-it-work'>
+            <div className='how-does-it-work'>
                 <h1 className='QA-flashcard-title'>How does it work?</h1>
                 <article className='QA-flashcard-content'>
                     <p>With <span className='bold'>Memoriter</span> you can create different <span className='bold'>folders</span>, depending on the subject you want to study. 
@@ -48,8 +52,8 @@ function Start() {
                         If you are interested go and log in to see it for yourself and create your own flashcards.
                     </p>
                 </article>
-            </span>
-            <span className='why-should-i-use'>
+            </div>
+            <div className='why-should-i-use'>
                 <h1 className='QA-flashcard-title' style={{left:"50px"}}>Why should I use Memoriter?</h1>
                 <article className='QA-flashcard-content'>
                     <p>
@@ -62,8 +66,8 @@ function Start() {
                         </ul>
                     </p>
                 </article>
-            </span>
-            <span className='how-much-does-it-cost'>
+            </div>
+            <div className='how-much-does-it-cost'>
                 <h1 className='QA-flashcard-title' style={{left:"3.5px"}}>How much does it cost?</h1>
                 <article className='QA-flashcard-content'>
                     <p>
@@ -72,7 +76,7 @@ function Start() {
                         to our bank account, more info on the 'About Us'.
                     </p>
                 </article>
-            </span>
+            </div>
         </div>
 
         {/*<div className="rechteck-Start2">
@@ -97,7 +101,9 @@ function Start() {
             </text>
         
     </div>*/}
-        <footer><FooterStart></FooterStart></footer>
+        <footer>
+            <FooterStart/>
+        </footer>
     </>
     );
 }
