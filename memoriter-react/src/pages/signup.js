@@ -86,7 +86,9 @@ function SignUpPage(props) {
     return (
         <div>
             <header className='Page_Header'>
-                <img className="Logo-oben" src={Logo} alt="site-logo" />
+                <Link to='/startpage'>
+                    <img className="Logo-oben" src={Logo} alt="site-logo"/>
+                </Link>
                 <h1 className="page_title">Sign Up</h1>
                 <Link to='/' className="link-box">Log In</Link>
             </header>

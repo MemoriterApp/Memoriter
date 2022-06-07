@@ -64,7 +64,9 @@ function LoginPage() {
     return(
         <div>
             <header className='Page_Header'>
-                <img className="Logo-oben" src={Logo} alt="site-logo" />
+                <Link to='/startpage'>
+                    <img className="Logo-oben" src={Logo} alt="site-logo"/>
+                </Link>
                 <h1 className="page_title">Log In</h1>
                 <Link to='/signup' className="link-box">Sign Up</Link>
             </header>
