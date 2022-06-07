@@ -6,7 +6,7 @@ import BackdropOpenFlashcard from './backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
 
 const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
-    onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView }) => {
+    onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView, onPosAdjust }) => {
 
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
@@ -52,6 +52,8 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     function deleteFlashcardReq() {
       setModalIsOpenD(true);
+      setModalIsOpenS(false);
+      setModalIsOpenSO(false);
     }
     function backdropClickD() {
       setModalIsOpenD(false);
@@ -64,6 +66,8 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
     function editFlashcardReq() {
       setModalIsOpenE(true);
       setModalIsOpenEbackdrop(true);
+      setModalIsOpenS(false);
+      setModalIsOpenSO(false);
     }
     function editOpenFlashcardReq() {
         setModalIsOpenE(true);
@@ -85,6 +89,17 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     if (flashcard.pos !== pos) {
         setPos(flashcard.pos)
+    }
+
+    const newPosId = sessionStorage.getItem('newPosFlashcard');
+    const newPosIdDelete = sessionStorage.getItem('newPosFlashcard' + flashcard.id)
+
+    if (newPosId === flashcard.id) {
+        onPosAdjust(flashcard.id, flashcard.pos);
+        sessionStorage.removeItem('newPosFlashcard');
+    } else if (newPosIdDelete === flashcard.id) {
+        onPosAdjust(flashcard.id, flashcard.pos);
+        sessionStorage.removeItem('newPosFlashcard' + flashcard.id);
     }
 
     return (
@@ -166,10 +181,11 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                         <p onClick={deleteFlashcardReq}>Delete</p>
                     </div>
 
-                    <div onClick={backdropClickE}>
-                        {modalIsOpenEbackdrop && <Backdrop/>}
-                    </div>
                 </div>}
+
+                <div onClick={backdropClickE}>
+                    {modalIsOpenEbackdrop && <Backdrop/>}
+                </div>
             </div>
 
             <div>
@@ -180,7 +196,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                         <textarea rows='2' className='Add_Flashcard_Form_Title' placeholder='Flashcard Title...' maxLength='100'
                             value={title} onChange={(changeTitle) => setTitle(changeTitle.target.value)} />
                         <p style={{fontSize: '20px'}} />
-                        <textarea className='Add_Flashcard_Form_Content' placeholder='Flashcard Content...'
+                        <textarea className='Add_Flashcard_Form_Content' placeholder='Flashcard content...'
                             value={content} onChange={(changeContent) => setContent(changeContent.target.value)} />
                     </div>
                     <input className='Add_Flashcard_Form_Submit' type='submit' value='Done' onClick={
@@ -190,22 +206,20 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             </div>
 
             <div>
-                {modalIsOpenD && <form className='Delete_Folder_Confirm'>
+                {modalIsOpenD && <div className='Delete_Folder_Confirm'>
                     <h2 className='Add_folder_Form_Header'>Do you really want to delete this flashcard?</h2>
-                    <input className='Delete_Folder_Confirm_Yes 'type='submit' value='Yes' onClick={
+                    <button className='Delete_Folder_Confirm_Yes' onClick={
                         () => onDeleteFlashcard(flashcard.id, flashcard.pos)
-                    }/>
+                    }>Yes</button>
                     <div style={{display: 'inline', color: 'transparent', cursor: 'default'}}>====</div>
-                    <input className='Delete_Folder_Confirm_No' type='submit' value='No' onClick={backdropClickD} />
+                    <button className='Delete_Folder_Confirm_No' onClick={backdropClickD}>No</button>
                     <p style={{fontSize: '10px'}} />
-                 </form>}
+                 </div>}
             </div>
-
+            
             <div onClick={backdropClick}>
                 {modalIsOpenS && <Backdropfs/>}
             </div>
-
-            <div className='flashcard-pos-indicator'>{flashcard.pos}</div>
 
         </div>
     );

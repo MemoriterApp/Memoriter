@@ -1,76 +1,58 @@
 import { firebase } from './utils/firebase';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import ImpressumPage from './pages/impressum';
 import PrivacyPage from './pages/privacy_policies';
 import TermsPage from './pages/terms_of_use';
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
-import TestPage from './pages/test';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
+import Startpage from './pages/startpage';
 import { getAuth } from 'firebase/auth';
 import StartPage from './pages/Start';
 import AboutPage from './pages/About';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { AuthProvider } from './contexts/AuthContext';
+import { onAuthStateChanged } from "firebase/auth";
+import PrivateRoutes from './components/PrivateRoutes';
 
 function App() {
 
-  const openFolder = (id, title) => {
-    setSyncFolderID(id)
-    setSyncFolderTitle(title)
-  }
+  const [user, setUser] = useState({});
 
-  const [ syncFolderID, setSyncFolderID ] = useState()
-  const [ syncFolderTitle, setSyncFolderTitle ] = useState("")
+    onAuthStateChanged(firebase.auth, (currentUser) => {
+        setUser(currentUser);
+    });
 
 
-      const [user, setUser] = useState(null);
-      const login = async () => {
-        const provider = new GoogleAuthProvider()
-        signInWithPopup(firebase.auth, provider).then((results) => {
-          console.log('just logged in', results);
-          setUser(results);
-        }).catch((error) => {
-          console.log(error)
-        });
+  /*const [user, setUser] = useState(null);
+  const login = async () => {
+    const provider = new GoogleAuthProvider()
+    signInWithPopup(firebase.auth, provider).then((results) => {
+      console.log('just logged in', results);
+      setUser(results);
+    }).catch((error) => {
+      console.log(error)
+    });
 
     const logout = async () => {
       setUser(null);
     }
 
   }
-  return (
-    <div> 
-      <Routes>
-          <Route path='/Start' element={<StartPage />}>
-          </Route>
-          
-          <Route path='/login' element={<LoginPage />}>
-          </Route>
-
-          <Route path='/' element={<StartPage />}>
-          </Route>
-
-          <Route path='/Signup' element={<SignUpPage />}>
-          </Route>
-          <Route path='/impressum' element={<ImpressumPage />}>
-          </Route>
-          <Route path='/About' element={<AboutPage />}>
-          </Route>
-      </Routes>
-    </div>
-  )
-
-  /* if (!!user) {
+  */
+/*
+  if (!!user) {
     return (
       <div>
         <Routes>
           <Route path='/' element={<HomePage />}>
           </Route>
 
-          <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle}/>}>
+          <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle} />}>
           </Route>
 
           <Route path='/impressum' element={<ImpressumPage />}>
@@ -89,16 +71,13 @@ function App() {
 
           </Route>
 
-          <Route path='/test' element={<TestPage />}>
-
-          </Route>
           <Route path='/login' element={<LoginPage />}>
 
           </Route>
           <Route path='/signup' element={<SignUpPage />}>
 
           </Route>
-          <Route path='/' element={<HomePage onOpenFolder={openFolder}/>}>
+          <Route path='/' element={<HomePage onOpenFolder={openFolder} />}>
 
           </Route>
           <Route path='/homepage' element={<homepage />}>
@@ -113,7 +92,7 @@ function App() {
     return (
 
       // <button onClick={login} type="submit" className="google-button">
-      //     Sign in with Google 
+      //     Sign in with Google
       // </button>
       <div>
         <Routes>
@@ -136,9 +115,6 @@ function App() {
 
           </Route>
 
-          <Route path='/test' element={<TestPage />}>
-
-          </Route>
           <Route path='/login' element={<LoginPage />}>
 
           </Route>
@@ -149,7 +125,100 @@ function App() {
 
       </div>
     );
-  } */
+  }
+  */
+ if (user) {
+  return (
+    <div>
+      <AuthProvider>
+      <Routes>
+        <Route path='/' element={<HomePage />}>
+        </Route>
+
+        <Route path='/topic' element={<TopicPage />}>
+        </Route>
+
+        <Route path='/impressum' element={<ImpressumPage />}>
+
+        </Route>
+
+        <Route path='/privacy' element={<PrivacyPage />}>
+
+        </Route>
+
+        <Route path='/terms-of-use' element={<TermsPage />}>
+
+        </Route>
+
+        <Route path='/topic' element={<TopicPage />}>
+
+        </Route>
+
+        <Route path='/login' element={<HomePage />}>
+        </Route>
+        <Route path='/Signup' element={<HomePage />}>
+
+        </Route>
+        <Route element={<PrivateRoutes/>}>
+          <Route path='/home' element={<HomePage />}></Route>
+        </Route>
+      </Routes>
+      </AuthProvider>
+
+    </div>
+  );
+ }
+ else {
+  return (
+    <div>
+      <AuthProvider>
+      <Routes>
+      <Route element={<PrivateRoutes/>}>
+        <Route path='/home' element={<HomePage />}></Route>
+      </Route>
+
+        <Route path='/topic' element={<TopicPage />}>
+        </Route>
+
+        <Route path='/impressum' element={<ImpressumPage />}>
+
+        </Route>
+
+        <Route path='/startpage' element={<Startpage />}>
+
+        </Route>
+
+        <Route path='/privacy' element={<PrivacyPage />}>
+
+        </Route>
+
+        <Route path='/terms-of-use' element={<TermsPage />}>
+
+        </Route>
+
+        <Route path='/topic' element={<TopicPage />}>
+
+        </Route>
+
+        <Route path='/login' element={<LoginPage />}>
+
+        </Route>
+        <Route path='/' element={<LoginPage />}>
+
+        </Route>
+        <Route path='/Signup' element={<SignUpPage />}>
+
+        </Route>
+        <Route path='/home' element={<HomePage />}>
+
+        </Route>
+      </Routes>
+      </AuthProvider>
+
+    </div>
+  );
+ }
+
 }
 
 export default App;

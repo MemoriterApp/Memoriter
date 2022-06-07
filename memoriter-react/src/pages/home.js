@@ -7,30 +7,46 @@ import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
-import { async } from '@firebase/util';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+import { onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
 
 
-function HomePage({ onOpenFolder }) {
+function HomePage() {
 
-  //firestore stuff
-  // connection to the folders firestore
+//firestore stuff
+// connection to the folders firestore
   const foldersCollectionRef = collection(db, "folders");
 
+//user stuff
+  const [user, setUser] = useState({})
+
+  onAuthStateChanged(firebase.auth, (currentUser) => {
+    setUser(currentUser);
+  })
+
 // Folder Data
-const [ folders, setFolders ] = useState([ ])
-const [newFolder, setNewFolder] = useState("");
+  const [ folders, setFolders ] = useState([ ])
+
+//show correct folders
+  const [renderedFolder, setRenderedFolder] = useState(true);
+
+  if (renderedFolder === false) {
+    setFolders(folders.filter((folder) => folder.user === user.uid));
+    setRenderedFolder(true);
+  }
 
 //Use Effect für folders
-useEffect(() => {
-  const getFolder = async () => {
-      const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
-      setFolders(allFolders.docs.map((doc)=>({...doc.data(), id: doc.id })))
-  };
-  
-  getFolder();
-}, [])
+  useEffect(() => {
+    const getFolder = async () => {
+        const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
+        setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        setRenderedFolder(false)
+    };
+    
+    getFolder();
+    localStorage.setItem('lastPage', "/");
+  }, [])
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -41,44 +57,67 @@ useEffect(() => {
       setModalIsOpen(false);
   }
 
-
-
 //Folder Position
-  folders.sort(function(a, b){return a.pos - b.pos})
+  folders.sort(function(a, b){return a.pos - b.pos}) //Sorting Folders
 
-  const posUp = async (id, pos) => {
+  const posUp = async (id, pos) => { //Position Up
+    const folderDoc = doc(db, 'folders', id);
+    const newPosUp = { pos: pos - 1 };
+
+    await updateDoc(folderDoc, newPosUp);
+    
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
-    ? { ...folder, pos: (folder.pos + 1) } : folder ))
+    ? (sessionStorage.setItem('newPosFolder', folder.id),
+      { ...folder, pos: (folder.pos + 1) }) : folder ))
   }
 
-  const posDown = (id, pos) => {
+  const posDown = async (id, pos) => { //Position Down
+    const folderDoc = doc(db, 'folders', id);
+    const newPosDown = { pos: pos + 1 };
+
+    await updateDoc(folderDoc, newPosDown);
+
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, pos: (folder.pos + 1) } : folder.pos === (pos + 1)
-    ? { ...folder, pos: (folder.pos - 1) } : folder ))
+    ? (sessionStorage.setItem('newPosFolder', folder.id),
+      { ...folder, pos: (folder.pos - 1) }) : folder ))
+  }
+
+  const posAdjust = async (id, pos) => { //Adjust Position
+    const folderDoc = doc(db, 'folders', id);
+    const newPosAdjust = { pos: pos };
+
+    await updateDoc(folderDoc, newPosAdjust);
   }
 
 //Add Folder
   const addFolder = async (folder) => {
     const pos = folders.length + 1
-    const newFolderC = {pos, ...folder }
-    await addDoc(foldersCollectionRef, {pos, title: folder.title} )
-    setFolders([...folders, newFolderC])
+    await addDoc(foldersCollectionRef, { pos, title: folder.title, user: user.uid })
+
+    const allFolders = await getDocs(foldersCollectionRef)
+    setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Ordner
+    setRenderedFolder(false)
+
     setModalIsOpen(false)
   }
 
 //Delete Folder
   const deleteFolder = async (id, pos) => {
-    const folderDoc = doc(db, 'folders', id); //Bug dass man die seite refreshen muss...
-    await deleteDoc(folderDoc); //Position wird auf Firebase noch nicht korrigiert.
+    const folderDoc = doc(db, 'folders', id);
+    await deleteDoc(folderDoc);
     setFolders((folders) =>
       folders
         .map((folder) =>
-          folder.pos > pos ? { ...folder, pos: folder.pos - 1 } : folder
+          folder.pos > pos
+          ? (sessionStorage.setItem('newPosFolder' + folder.id, folder.id),
+          { ...folder, pos: folder.pos - 1 }) : folder
         )
         .filter((folder) => folder.id !== id)
     )
   }
+  
 
 //Edit Folder
   const editFolder = async (id, title) => {
@@ -88,28 +127,31 @@ useEffect(() => {
     setFolders(folders.map((folder) => folder.id === id
     ? { ...folder, title: title } : folder))
   }
-
+  
   return (
     <>
       <header className='Page_Header'>
         <h1 className="page_title">Home</h1>
         <img className="Logo-oben" src={Logo} alt="site-logo" />
       </header>
+
       <div className="rechteck">
         <h2 className="File-Overview">File Overview</h2>
           <SettingsIcon />
         <div className="main-seperator"></div>
 
         <div className='Folder_Base'>
-              {folders.length > 0 ?
+             
               <>
-                {folders.map((folder) => (
-                  <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
-                    onDeleteFolder={deleteFolder} onEditFolder={editFolder}
-                    onPosUp={posUp} onPosDown={posDown} onOpenFolder={onOpenFolder}/>
-                ))}
-              </> : 
-              <div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>}
+                {folders.length > 0 ? (<div/>) : (<div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>)}
+                {folders
+                  .map((folder) => (
+                    <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
+                      onDeleteFolder={deleteFolder} onEditFolder={editFolder}
+                      onPosUp={posUp} onPosDown={posDown} onPosAdjust={posAdjust} />)
+                )}
+              </>
+
              <div folders={folders}>
                 <div className='New_Folder_Body'>
                   <div className='New_Folder_Line'></div>
