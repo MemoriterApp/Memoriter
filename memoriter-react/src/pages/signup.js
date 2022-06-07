@@ -90,7 +90,7 @@ function SignUpPage(props) {
                     <img className="Logo-oben" src={Logo} alt="site-logo"/>
                 </Link>
                 <h1 className="page_title">Sign Up</h1>
-                <Link to='/' className="link-box">Log In</Link>
+                <Link to='/login' className="link-box">Log In</Link>
             </header>
 
             <div className="rechteck">
