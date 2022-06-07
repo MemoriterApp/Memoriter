@@ -183,7 +183,7 @@ function App() {
 
         </Route>
 
-        <Route path='/startpage' element={<Startpage />}>
+        <Route path='/' element={<Startpage />}>
 
         </Route>
 
@@ -202,9 +202,6 @@ function App() {
         </Route>
 
         <Route path='/login' element={<LoginPage />}>
-
-        </Route>
-        <Route path='/' element={<LoginPage />}>
 
         </Route>
         <Route path='/Signup' element={<SignUpPage />}>
