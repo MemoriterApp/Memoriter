@@ -39,42 +39,48 @@ function Start() {
         </div>
 
         <div className='QA-Flashcards'>
-            <div className='how-does-it-work'>
-                <h1 className='QA-flashcard-title'>How does it work?</h1>
-                <article className='QA-flashcard-content'>
-                    <p>
-                        With <span className='bold'>Memoriter</span> you can create different <span className='bold'>folders</span>, depending on the subject you want to study. 
-                        Inside of this folder you can create different <span className='bold'>flashcards</span>, kind of like this page.
-                    </p>
+            <div className='how-does-it-work-body'>
+                <div className='how-does-it-work'>
+                    <h1 className='QA-flashcard-title'>How does it work?</h1>
+                    <article className='QA-flashcard-content'>
+                        <p>
+                            With <span className='bold'>Memoriter</span> you can create different <span className='bold'>folders</span>, depending on the subject you want to study. 
+                            Inside of this folder you can create different <span className='bold'>flashcards</span>, kind of like this page.
+                        </p>
 
-                    <p>
-                        You always have a <span className='bold'>flashcard title</span>, which should be your question
-                        and the <span className='bold'>flashcard content</span> which should be the answer to the question. This way you have the perfect overview of the subject you want to study. 
-                        If you are interested go and log in to see it for yourself and create your own flashcards.
-                    </p>
-                </article>
+                        <p>
+                            You always have a <span className='bold'>flashcard title</span>, which should be your question
+                            and the <span className='bold'>flashcard content</span> which should be the answer to the question. This way you have the perfect overview of the subject you want to study. 
+                            If you are interested go and log in to see it for yourself and create your own flashcards.
+                        </p>
+                    </article>
+                </div>
             </div>
-            <div className='why-should-i-use'>
-                <h1 className='QA-flashcard-title' style={{left:"50px"}}>Why should I use Memoriter?</h1>
-                <article className='QA-flashcard-content'>
-                    <ul className='why-list'>
-                        <li>You can organize your content in flashcards</li>
-                        <li>You will have a great overview</li>
-                        <li>It is scientifically the most efficient way to study</li>
-                        <li>You can categorize your subjects into different folders</li>
-                        <li>You will make us happy!</li>
-                    </ul>
-                </article>
+            <div className='how-does-it-work-body'>
+                <div className='how-does-it-work'>
+                    <h1 className='QA-flashcard-title' style={{left:"50px"}}>Why should I use Memoriter?</h1>
+                    <article className='QA-flashcard-content'>
+                        <ul className='why-list'>
+                            <li>You can organize your content in flashcards</li>
+                            <li>You will have a great overview</li>
+                            <li>It is scientifically the most efficient way to study</li>
+                            <li>You can categorize your subjects into different folders</li>
+                            <li>You will make us happy!</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
-            <div className='how-much-does-it-cost'>
-                <h1 className='QA-flashcard-title' style={{left:"3.5px"}}>How much does it cost?</h1>
-                <article className='QA-flashcard-content'>
-                    <p>
-                        Thats the best part, it is totally <span className='bold'>free!</span>. We do not have an incentive to make money off of this project. 
-                        We also do not have any server costs at the moment. But nevertheless if you want to support us you can  <span className='bold'>donate </span> 
-                        to our bank account, more info on the 'About Us'.
-                    </p>
-                </article>
+            <div className='how-does-it-work-body'>
+                <div className='how-does-it-work'>
+                    <h1 className='QA-flashcard-title' style={{left:"3.5px"}}>How much does it cost?</h1>
+                    <article className='QA-flashcard-content'>
+                        <p>
+                            Thats the best part, it is totally <span className='bold'>free!</span>. We do not have an incentive to make money off of this project. 
+                            We also do not have any server costs at the moment. But nevertheless if you want to support us you can  <span className='bold'>donate </span> 
+                            to our bank account, more info on the 'About Us'.
+                        </p>
+                    </article>
+                </div>
             </div>
         </div>
 

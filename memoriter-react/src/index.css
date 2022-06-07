@@ -1826,17 +1826,27 @@ body {
     transform-origin: bottom left;
   }
 /* Johan Startpage*/
-.how-does-it-work {
+.how-does-it-work-body {
     position: relative;
+    width: 490px;
+    top: 20px;
+    height: 650px;
     display: inline-block;
+    max-width: 100%;
+}
+.how-does-it-work {
+    position: absolute;
     height: 550px;
-    width: 375px;
+    width: 80%;
     border-radius: 7.5px;
     border: 7.5px solid rgba(58,109,112,1);
-    margin: 50px 50px 50px 20px;
+    left: 10%;
 }
 .QA-Flashcards {
     position: relative;
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 50px;
 }
 .QA-flashcard-title {
     color: white;
@@ -1855,24 +1865,6 @@ body {
 }
 .bold {
     font-weight: bold;
-}
-.why-should-i-use {
-    position: relative;
-    display: inline-block;
-    height: 550px;
-    width: 375px;
-    border-radius: 7.5px;
-    border: 7.5px solid rgba(58,109,112,1);
-    margin: 50px 50px 50px 20px;
-}
-.how-much-does-it-cost {
-    position: relative;
-    display: inline-block;
-    height: 550px;
-    width: 375px;
-    border-radius: 7.5px;
-    border: 7.5px solid rgba(58,109,112,1);
-    margin: 50px 50px 50px 20px;
 }
 .why-list {
     line-height: 35px;
