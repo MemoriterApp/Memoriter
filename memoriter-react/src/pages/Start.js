@@ -42,11 +42,12 @@ function Start() {
             <div className='how-does-it-work'>
                 <h1 className='QA-flashcard-title'>How does it work?</h1>
                 <article className='QA-flashcard-content'>
-                    <p>With <span className='bold'>Memoriter</span> you can create different <span className='bold'>folders</span>, depending on the subject you want to study. 
+                    <p>
+                        With <span className='bold'>Memoriter</span> you can create different <span className='bold'>folders</span>, depending on the subject you want to study. 
                         Inside of this folder you can create different <span className='bold'>flashcards</span>, kind of like this page.
-                        <p>
+                    </p>
 
-                        </p>
+                    <p>
                         You always have a <span className='bold'>flashcard title</span>, which should be your question
                         and the <span className='bold'>flashcard content</span> which should be the answer to the question. This way you have the perfect overview of the subject you want to study. 
                         If you are interested go and log in to see it for yourself and create your own flashcards.
@@ -56,15 +57,13 @@ function Start() {
             <div className='why-should-i-use'>
                 <h1 className='QA-flashcard-title' style={{left:"50px"}}>Why should I use Memoriter?</h1>
                 <article className='QA-flashcard-content'>
-                    <p>
-                        <ul className='why-list'>
-                            <li>You can organize your content in flashcards</li>
-                            <li>You will have a great overview</li>
-                            <li>It is scientifically the most efficient way to study</li>
-                            <li>You can categorize your subjects into different folders</li>
-                            <li>You will make us happy!</li>
-                        </ul>
-                    </p>
+                    <ul className='why-list'>
+                        <li>You can organize your content in flashcards</li>
+                        <li>You will have a great overview</li>
+                        <li>It is scientifically the most efficient way to study</li>
+                        <li>You can categorize your subjects into different folders</li>
+                        <li>You will make us happy!</li>
+                    </ul>
                 </article>
             </div>
             <div className='how-much-does-it-cost'>
