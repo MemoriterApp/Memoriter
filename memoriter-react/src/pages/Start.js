@@ -5,8 +5,14 @@ import Backdrop from '../components/backdrop';
 import FooterStart from '../components/FooterStart';
 import { Link } from "react-router-dom";
 import Memoriter_Katze from './Memoriter_Katze.jpeg'
+import { useEffect } from 'react';
 
 function Start() {
+
+    useEffect(() => {
+        localStorage.setItem('lastPage', "/startpage");
+    },);
+
     return (
     <>
         <header className='Page_Header-Start'>

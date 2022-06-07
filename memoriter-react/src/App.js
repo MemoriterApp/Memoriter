@@ -9,9 +9,8 @@ import HomePage from './pages/home';
 import TopicPage from './pages/topic';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
-import Startpage from './pages/startpage';
 import { getAuth } from 'firebase/auth';
-import StartPage from './pages/Start';
+import Startpage from './pages/Start';
 import AboutPage from './pages/About';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -187,6 +186,8 @@ function App() {
         <Route path='/startpage' element={<Startpage />}>
 
         </Route>
+
+        <Route path='/About' element={<AboutPage/>}/>
 
         <Route path='/privacy' element={<PrivacyPage />}>
 
