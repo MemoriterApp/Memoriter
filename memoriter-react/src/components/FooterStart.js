@@ -20,7 +20,7 @@ const FooterStart = () => {
                 </ul> 
             </div>
             <div className='followUs-Start'>
-                <h2>Connect to us</h2>
+                <h2>Connect to Us</h2>
             </div>
             <div>
                 <a className='rechteckLogo-Start' href='https://www.instagram.com/memorit.er/' target='_blank' rel="noreferrer">

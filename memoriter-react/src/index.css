@@ -1478,9 +1478,10 @@ body {
     color: rgb(255, 255, 255);
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: underline;
 }
-.About_Us-Start:after{
+/*
+.About_Us-Start:after {
     content: '';
     position: absolute;
     width: 120px;
@@ -1491,7 +1492,7 @@ body {
     background-color: #ffffff;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
-}
+}*/
 .About_Us-Start:hover:after{
     transform: scaleX(1);
     transform-origin: bottom left;
@@ -1599,11 +1600,10 @@ body {
 
 /* Nachfolgendes ist alles für den Footer für den Start*/
 .Footer_Body-Start {
-    position: relative;
+    position: absolute;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border-top: 2px solid rgba(112,112,112,1);
     left: 0%;
-    bottom: -130%;
     width: 100%;
     height: 400px;
     background-color: #141414;
@@ -1632,20 +1632,22 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: white;
+    transform: translate(-50%, 0%, 0%, 0%);
 }
 .followUs-Start {
     position: absolute;
-    right: 40%;
+    left: 55%;
     top: 20%;
     transform: translate(0%, -50%);
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: white;
+    
 }
 .rechteckLogo-Start {
     position: absolute;
-    right: 42.5%;
+    left: calc(50% + 115px);
     top: 34%;
     transform: translate(0%, -50%);
     padding: 8px;
@@ -1672,7 +1674,8 @@ body {
     position: absolute;
     border-radius: 3px;
     top:70%;
-    left: 55%;   
+    right: 50px;  
+    transform: translate(-50%);
 }
 .Line-Start2 {
     background-color: rgba(112,112,112,1);
@@ -1683,7 +1686,8 @@ body {
     position: absolute;
     border-radius: 3px;
     top:70%;
-    right: 55%;   
+    left: 50px;
+    transform: translate(50%);
 }
 .Line-Start-vertikal {
     background-color: rgba(112,112,112,1);
@@ -1693,8 +1697,9 @@ body {
     margin: auto;
     position: absolute;
     border-radius: 3px;
-    top:15%;
-    right: 50%;   
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 @media (max-width: 500px) {
