@@ -51,9 +51,8 @@ function Start() {
                     <article className='QA-flashcard-content'>
                         <p>
                             With <span className='bold'>Memoriter</span> you can create different <span className='bold'>folders</span>, depending on the subject you want to study. 
-                            Inside of this folder you can create different <span className='bold'>flashcards</span>, kind of like this page.
+                            Inside of this folder you can create different <span className='bold'>flashcards</span> like on this page.
                         </p>
-
                         <p>
                             You always have a <span className='bold'>flashcard title</span>, which should be your question
                             and the <span className='bold'>flashcard content</span> which should be the answer to the question. This way you have the perfect overview of the subject you want to study. 
@@ -81,9 +80,9 @@ function Start() {
                     <h1 className='QA-flashcard-title' style={{left:"3.5px"}}>How much does it cost?</h1>
                     <article className='QA-flashcard-content'>
                         <p>
-                            Thats the best part, it is totally <span className='bold'>free!</span>. We do not have an incentive to make money off of this project. 
-                            We also do not have any server costs at the moment. But nevertheless if you want to support us you can  <span className='bold'>donate </span> 
-                            to our bank account, more info on the 'About Us'.
+                            Thats the best part, it is totally <span className='bold'>free!</span>. Memoriter is currently a non profit project, we do not have an incentive to make money off of this project. 
+                            We also do not have any server costs at the moment. {/*But nevertheless if you want to support us you can  <span className='bold'>donate</span> 
+                            to our bank account, more info on the 'About Us'.*/}
                         </p>
                     </article>
                 </div>
