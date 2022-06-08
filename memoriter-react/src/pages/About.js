@@ -22,8 +22,8 @@ function About() {
             <article className="Legal_Text">
                 <p>
                 Memoriter is a Project made by made by six students (Alex, Simon, Leo, Nils, Maya and Johan) from Potsdam, Germany. We created the project 
-                as a part of of JUNIOR-Programme.
-                The JUNIOR-Programme has helped the founding process of Memoriter and it would not exist in this way without them. 
+                as a part of of JUNIOR-project.
+                The JUNIOR-project has helped the founding process of Memoriter and it would not exist in this way without them. 
                 It helps students learn economics in school, by making them create a student company and let them deal with the logistics of that.
                 </p>
                 <p>

@@ -33,7 +33,7 @@ function PrivacyPage() {
             <p className="Legal-SubHeader">1. Reasons for Collecting Data</p>
             <article className="Legal_Text">
                <p>
-                   When using Memoriter, user data is not saved localy on your device,
+                   When using Memoriter, most of the user data is not saved locally on your device,
                    but at a database in order to use the app on different devices and locations.
                    Collecting the user data is therefore important for the app to work,
                    because it will request reading from and writing to a database.
@@ -51,7 +51,7 @@ function PrivacyPage() {
                     but the password in securely encrypted and cannot be observed.
                 </p>
                 <p>
-                    We might also collect data about accessing the database, like your ip adress and time and of access to our app and reading and writing from or to the database.
+                    We might also collect data about accessing the database, like your IP address and time of access to our app and reading and writing from or to the database.
                 </p>
             </article>
             <p className="Legal-SubHeader">3. How Personal Data Is Used</p>

@@ -8,7 +8,7 @@ body {
     height: 10px;
 }
 ::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: #272727;
 }
 ::-webkit-scrollbar-thumb {
     background-color: rgba(112, 112, 112, 1);
@@ -1847,7 +1847,7 @@ body {
     border-radius: 7.5px;
     border: 7.5px solid rgba(58,109,112,1);
     left: 10%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .QA-Flashcards {
     position: relative;
@@ -1874,4 +1874,5 @@ body {
 }
 .why-list {
     line-height: 35px;
+    text-align: left;
 }

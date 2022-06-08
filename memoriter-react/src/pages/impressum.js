@@ -18,7 +18,7 @@ function ImpressumPage() {
             </Link>
             <h1 className='Legal_Header'>Impressum</h1>
             <p className='Legal_Text'>
-            Memoriter is a student student company at the Bertha-von-Bertha-Suttner-Gymnasium Babelsberg
+            Memoriter is a student company at the Bertha-von-Bertha-Suttner-Gymnasium Babelsberg in Potsdam, Germany,
             under the supervision of JUNIOR, a project by the Institut der Deutchen Wirtschaft (IW),
             supported by the Bundesministerium für Wirtschaft und Klimaschutz (BMWK).
             Further information about the JUNIOR project can be found&nbsp;
