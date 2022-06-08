@@ -1659,11 +1659,12 @@ body {
 }
 .instaIcon-Start {
     position: absolute;
-    right: 15%;
+    left: 55%;
     bottom: 15%;
     width: 70%;
     height: 70%;
     cursor: pointer;
+    transform: translate(-50%);
 }
 .Line-Start1 {
     background-color: rgba(112,112,112,1);
@@ -1786,7 +1787,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     position:absolute;
-    top:60px;
+    top: 30px;
     text-decoration: none;
 }
 .impressum-Start:after{
@@ -1810,7 +1811,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     position:absolute;
-    top:90px;
+    top: 60px;
     text-decoration: none;
     display: inline-block;   
 }

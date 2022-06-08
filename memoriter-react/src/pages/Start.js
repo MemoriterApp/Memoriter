@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 function Start() {
 
     useEffect(() => {
-        localStorage.setItem('lastPage', "/startpage");
+        localStorage.setItem('lastPage', "/");
     },);
 
     return (

@@ -21,7 +21,7 @@ function PrivacyPage() {
             <h1 className='Legal_Header'>Privacy Policy</h1>
             <article className="Legal_Text">
                 <p>
-                    Last Changed: 27/05/2022
+                    Last Changed: June 8th, 2022
                 </p>
                 <p>
                     We are happy that you decided to use our app Memoriter.
@@ -67,11 +67,17 @@ function PrivacyPage() {
                 <p>
                     We do not share the user data with third parties except for the reasons and parties named above.
                 </p>
-                
             </article>
             <p className="Legal-SubHeader">4. Storage Period</p>
-            <article className="Legal_Text">The data will be stored until the account is deleted. Unfortunately it is curently not possible to delete an account,
+            <article className="Legal_Text">
+                The data will be stored until the account is deleted. Unfortunately it is curently not possible to delete an account,
                 but it will added later alongside other account management features.
+            </article>
+            <p className="Legal-SubHeader">5. Use of Local Storage</p>
+            <article className="Legal_Text">
+                This web application uses the local storage of the web browser. This is needed for some features of the application to work correctly.
+                The data saved by the application is only saved locally on your device and is just used for the purpose of functionality.
+                The data can be deleted by the user either manually in the developer tools (for experienced users) or by deleting all website data and settings in the browser history.
             </article>
             <div style={{height: '100px'}}/>
             
