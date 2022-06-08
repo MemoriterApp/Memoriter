@@ -201,7 +201,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                     </div>
                     <input className='Add_Flashcard_Form_Submit' type='submit' value='Done' onClick={
                         () => { onEditFlashcard(flashcard.id, title, content);
-                            setModalIsOpenE(false); setModalIsOpenS(false); setModalIsOpenSO(false); } }/>
+                            setModalIsOpenE(false); setModalIsOpenS(false); setModalIsOpenSO(false); setModalIsOpenEbackdrop(false);} }/>
                 </form>}
             </div>
 

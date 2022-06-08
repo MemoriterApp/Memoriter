@@ -23,7 +23,7 @@ function SettingsClick() {
         await signOut(firebase.auth);
         localStorage.removeItem('syncedFolderID');
         localStorage.removeItem('syncedFolderTitle');
-        navigate('/');
+        navigate('/login');
     }
 
     return (

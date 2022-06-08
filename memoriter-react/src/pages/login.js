@@ -4,13 +4,13 @@ import Logo from './Logo.png';
 import WithGoogle from "../components/WithGoogle";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { firebase } from "../utils/firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 function LoginPage() {
 
-
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -29,8 +29,12 @@ function LoginPage() {
         setUser(currentUser);
     })
 
+    if (user !== null) {
+        navigate('/')
+    }
+
     useEffect(() => {
-        localStorage.setItem('lastPage', "/");
+        localStorage.setItem('lastPage', "/login");
     });
 
     async function handleSubmit(e) {
