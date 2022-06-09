@@ -1,5 +1,5 @@
 # Memoriter
-Hier soll die Web-App "Memoriter" (Arbeitstitel) entstehen. 
+Hier soll die Web-App "[Memoriter] (app.memoriter.de)" (Arbeitstitel) entstehen.
 
 ## Was ist Memoriter?
 Memoriter ist ein digitales Lernbegleitungssystem. Das bedeutet: wir wollen ein Programm schaffen, welches die Informationsspeicherungssysteme eines Notizprogramms mit den praktischen Vorteilen eines Karteikartensystems verbindet und damit die ultimative "all in one" Lernunterstützung schafft. 
