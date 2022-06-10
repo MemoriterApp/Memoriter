@@ -47,7 +47,7 @@ function SettingsClick() {
             {profile && <div>
                 <div className='Add_Folder_Form_Body'>
                     <h2 className='Add_Folder_Form_Header'>Profile</h2>
-                    <div className='Add_Folder_Form_Text'>User Id:</div>
+                    <div className='Add_Folder_Form_Text'>User ID:</div>
                     <div className='Add_Folder_Form_Text' style={{color: '#bbb'}}>{user.uid}</div>
                     <p style={{fontSize: '15px'}} />
                     <div className='Add_Folder_Form_Text'>User Email:</div>
