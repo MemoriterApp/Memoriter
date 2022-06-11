@@ -65,118 +65,127 @@ function SignUpPage(props) {
             setError(false);
             setLoading(true);
             const user = createUserWithEmailAndPassword(firebase.auth, email, password)
-            .catch(error => {   
-                switch(error.code) {
-                    case 'auth/email-already-in-use':
-                        setError(true);
-                        setLoading(false);
-                        setRedBorderEmail('5px solid rgb(228, 48, 48)');
-                        setEmailInUse(true);
-                        break;
-                    case error.code:
-                        setError(true);
-                        setLoading(false);
-                        setRedBorderEmail('5px solid rgb(228, 48, 48)');
-                        setInvalidEmail(true);
-                        break;
-               }
-             })
-        } catch(err) {
+                .catch(error => {
+                    switch (error.code) {
+                        case 'auth/email-already-in-use':
+                            setError(true);
+                            setLoading(false);
+                            setRedBorderEmail('5px solid rgb(228, 48, 48)');
+                            setEmailInUse(true);
+                            break;
+                        case error.code:
+                            setError(true);
+                            setLoading(false);
+                            setRedBorderEmail('5px solid rgb(228, 48, 48)');
+                            setInvalidEmail(true);
+                            break;
+                    }
+                })
+        } catch (err) {
             setLoading(false);
         }
     }
 
     return (
         <div>
+            <head>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name='keywords' content='memoriter, signup, account, create an account'></meta>
+                <meta name='description' content='signup for Memoriter'></meta>
+            </head>
             <header className='Page_Header'>
                 <Link to='/'>
-                    <img className="Logo-oben" src={Logo} alt="site-logo"/>
+                    <img className="Logo-oben" src={Logo} alt="site-logo" />
                 </Link>
                 <h1 className="page_title">Sign Up</h1>
                 <Link to='/login' className="link-box">Log In</Link>
             </header>
+            <body>
+                <div className="rechteck">
 
-            <div className="rechteck">
 
+                    {error && <div className="File-Overview"
+                        style={{ color: 'rgb(228, 48, 48)', paddingTop: '19px' }}>
+                        Failed to create an account!</div>}
 
-                {error && <div className="File-Overview"
-                    style={{color: 'rgb(228, 48, 48)', paddingTop: '19px'}}>
-                    Failed to create an account!</div>}
-
-                <div className="main-seperator"/>
-                <div className="Login_Base_Scroll">
-                    <div className="Login_Base">
-                        <p style={{fontSize: '25px'}} />
+                    <div className="main-seperator" />
+                    <div className="Login_Base_Scroll">
+                        <div className="Login_Base">
+                            <p style={{ fontSize: '25px' }} />
                             <form onSubmit={handleSubmit}>
 
-                                    <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
-                                    <p style={{ fontSize: '5px' }} />
-                                    <input className="Add_Folder_Form_Input" type="email" id="email" name="email"
-                                        placeholder='Please enter Email Adress...'
-                                        style={{border: redBorderEmail}}
-                                        onChange={
-                                            (e) => {setEmail(e.target.value);
+                                <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
+                                <p style={{ fontSize: '5px' }} />
+                                <input className="Add_Folder_Form_Input" type="email" id="email" name="email"
+                                    placeholder='Please enter Email Adress...'
+                                    style={{ border: redBorderEmail }}
+                                    onChange={
+                                        (e) => {
+                                            setEmail(e.target.value);
                                             setInvalidEmail(false);
                                             setEmailInUse(false);
                                             setRedBorderEmail('5px solid rgba(58,109,112,1)');
                                         }} />
-                                    {invalidEmail && <p className="passwords-no-match">Invalid Email!</p>}
-                                    {emailInUse && <p className="passwords-no-match">Email already in use!</p>}
-                                    <p style={{ fontSize: '25px' }}/>
-                            
-                                    <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
-                                    <p style={{fontSize: '5px'}} />
-                                    <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
-                                        placeholder="Please Enter Password..." maxLength={50}
-                                        style={{border: redBorderPassword}}
-                                        onChange={(e) => {setPassword(e.target.value);
-                                            setShortPassword(false); setSamePassword(false);
-                                            setRedBorderPassword('5px solid rgba(58,109,112,1)');
-                                            setRedBorderConfirm('5px solid rgba(58,109,112,1)');
-                                        }} />
-                                    {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
-                                    {shortPassword && <p className="passwords-no-match">Password should be at least 6 characters long!</p>}
-                                    <p style={{fontSize: '25px'}} />
-                            
-                                    <div className="Add_Folder_Form_Text" htmlFor="password">Confirm Password:</div>
-                                    <p style={{fontSize: '5px'}} />
-                                    <input className="Add_Folder_Form_Input" type="password" id="password-confirm" name="password"
-                                        placeholder="Please Enter Password Again..." maxLength={50}
-                                        style={{border: redBorderConfirm}}
-                                        onChange={(e) => {setPasswordAgain(e.target.value);
-                                            setShortPassword(false); setSamePassword(false);
-                                            setRedBorderPassword('5px solid rgba(58,109,112,1)');
-                                            setRedBorderConfirm('5px solid rgba(58,109,112,1)');
-                                        }} />
-                                    {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
-                                    <p style={{fontSize: '55px'}} />
+                                {invalidEmail && <p className="passwords-no-match">Invalid Email!</p>}
+                                {emailInUse && <p className="passwords-no-match">Email already in use!</p>}
+                                <p style={{ fontSize: '25px' }} />
 
-                                    {borderBlueCheckbox && <div className='accept_privacy'>
-                                        <input type='checkbox' id='accept_privacy'
-                                            onChange={() => setIsAccepted(!isAccepted)} />
-                                        <label htmlFor="accept_privacy">I agree to our<p style={{display: 'inline'}}> </p>
-                                        <Link to='/privacy' style={{color: '#265272', cursor: 'pointer'}}>privacy policiy</Link>.</label>
-                                    </div>}
+                                <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
+                                <p style={{ fontSize: '5px' }} />
+                                <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
+                                    placeholder="Please Enter Password..." maxLength={50}
+                                    style={{ border: redBorderPassword }}
+                                    onChange={(e) => {
+                                        setPassword(e.target.value);
+                                        setShortPassword(false); setSamePassword(false);
+                                        setRedBorderPassword('5px solid rgba(58,109,112,1)');
+                                        setRedBorderConfirm('5px solid rgba(58,109,112,1)');
+                                    }} />
+                                {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
+                                {shortPassword && <p className="passwords-no-match">Password should be at least 6 characters long!</p>}
+                                <p style={{ fontSize: '25px' }} />
 
-                                    {borderRedCheckbox && <div className='accept_privacy_red'>
-                                        <input type='checkbox' id='accept_privacy'
-                                            onChange={() => setIsAccepted(!isAccepted)} />
-                                        <label htmlFor="accept_privacy">I agree to our<p style={{display: 'inline'}}> </p>
-                                        <Link to='/privacy' style={{color: '#265272', cursor: 'pointer'}}>privacy policiy</Link>.</label>
-                                    </div>}
+                                <div className="Add_Folder_Form_Text" htmlFor="password">Confirm Password:</div>
+                                <p style={{ fontSize: '5px' }} />
+                                <input className="Add_Folder_Form_Input" type="password" id="password-confirm" name="password"
+                                    placeholder="Please Enter Password Again..." maxLength={50}
+                                    style={{ border: redBorderConfirm }}
+                                    onChange={(e) => {
+                                        setPasswordAgain(e.target.value);
+                                        setShortPassword(false); setSamePassword(false);
+                                        setRedBorderPassword('5px solid rgba(58,109,112,1)');
+                                        setRedBorderConfirm('5px solid rgba(58,109,112,1)');
+                                    }} />
+                                {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
+                                <p style={{ fontSize: '55px' }} />
 
-                                        
-                                <button type="submit" className="LoginButton" disabled={loading} style={{top:"360px"}}>Sign Up</button>
+                                {borderBlueCheckbox && <div className='accept_privacy'>
+                                    <input type='checkbox' id='accept_privacy'
+                                        onChange={() => setIsAccepted(!isAccepted)} />
+                                    <label htmlFor="accept_privacy">I agree to our<p style={{ display: 'inline' }}> </p>
+                                        <Link to='/privacy' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
+                                </div>}
+
+                                {borderRedCheckbox && <div className='accept_privacy_red'>
+                                    <input type='checkbox' id='accept_privacy'
+                                        onChange={() => setIsAccepted(!isAccepted)} />
+                                    <label htmlFor="accept_privacy">I agree to our<p style={{ display: 'inline' }}> </p>
+                                        <Link to='/privacy' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
+                                </div>}
+
+
+                                <button type="submit" className="LoginButton" disabled={loading} style={{ top: "360px" }}>Sign Up</button>
                             </form>
-                        <p className="no-account">Already have an account? You can log in&nbsp;</p>
-                        <Link to='/' className="no-account" style={{color: '#265272', cursor: 'pointer'}}>here</Link>
-                        <p className="no-account">!</p>
+                            <p className="no-account">Already have an account? You can log in&nbsp;</p>
+                            <Link to='/' className="no-account" style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
+                            <p className="no-account">!</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            </body>
             <footer>
-                <Footer/>
+                <Footer />
             </footer>
         </div>
     );
