@@ -1,10 +1,6 @@
 import Logo from './Logo.png';
-import Footer from '../components/Footer';
-import SettingsIcon from '../components/SettingsIcon';
-import Backdrop from '../components/backdrop';
 import FooterStart from '../components/FooterStart';
 import { Link } from "react-router-dom";
-import Memoriter_Katze from './Memoriter_Katze.jpeg'
 import { useEffect } from 'react';
 
 function Start() {
@@ -14,7 +10,7 @@ function Start() {
     });
 
     return (
-        <>
+        <div>
             <head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -121,7 +117,7 @@ function Start() {
             <footer>
                 <FooterStart />
             </footer>
-        </>
+        </div>
     );
 }
 export default Start;

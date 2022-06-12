@@ -1457,16 +1457,17 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 24px;
-    width: 99%;
+    width: 100%;
     line-height: 1.8;
 }
-
 .rechteck-Start1a {
     background: rgba(47,78,110,1);
     width: 100%;
     position: relative;
     margin: 0px 0px 0px 0px;
-    padding-bottom: 20px;
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 85px;
 }
 .Start1a-Text {
     position: relative;
@@ -1614,6 +1615,7 @@ body {
     background-color: #141414;
     text-align: center;
     overflow: auto;
+    margin-top: 100px;
 }
 .Footer_Body::-webkit-scrollbar {
     width: 1px;
@@ -1839,15 +1841,16 @@ body {
 /* Johan Startpage*/
 .how-does-it-work-body {
     position: relative;
-    width: 490px;
+    width: 33%;
     top: 20px;
     height: 650px;
     display: inline-block;
     max-width: 100%;
+    min-width: 350px;
 }
 .how-does-it-work {
     position: absolute;
-    height: 550px;
+    height: 555px;
     width: 80%;
     border-radius: 7.5px;
     border: 7.5px solid rgba(58,109,112,1);

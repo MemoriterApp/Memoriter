@@ -129,6 +129,7 @@ function LoginPage() {
                             <p className="no-account">Do you need an account? You can sign up&nbsp;</p>
                             <Link to='/signup' className="no-account" style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
                             <p className="no-account">!</p>
+                            <div className='no-account' style={{height: '20px', display: 'block'}}/>
                         </div>
                     </div>
                 </div>

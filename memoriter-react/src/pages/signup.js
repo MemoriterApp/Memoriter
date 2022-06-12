@@ -180,6 +180,7 @@ function SignUpPage(props) {
                             <p className="no-account">Already have an account? You can log in&nbsp;</p>
                             <Link to='/login' className="no-account" style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
                             <p className="no-account">!</p>
+                            <div className='no-account' style={{height: '20px', display: 'block'}}/>
                         </div>
                     </div>
                 </div>
