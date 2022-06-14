@@ -1,5 +1,7 @@
 /*These styles are used for the product page (formerly known as start page) and some similar pages.*/
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*Font*/
+
 body {
     background-color: #202020;
 }
@@ -20,4 +22,48 @@ body {
     transform: translate(0, -50%);
     height: 35px;
     cursor: pointer;
+}
+
+.product-header-quicklink-box { /*used for the header links like product, about, downloads etc.*/
+    position: absolute;
+    left: 240px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: calc(100% - 240px);
+    height: 40%;
+}
+
+.product-header-quicklink {
+    display: inline;
+    position: relative;
+    font-size: larger;
+    font-weight: 500;
+    color: white;
+    font-family: 'Rubik';
+    text-decoration: none;
+    margin-right: 40px;
+    padding: 4px 6px 4px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.product-header-quicklink:hover { /*for the fading background on hover*/
+    background-color: #363636;
+}
+.product-header-quicklink-current {
+    display: inline;
+    position: relative;
+    font-size: larger;
+    font-weight: 600;
+    color: white;
+    font-family: 'Rubik';
+    text-decoration: none;
+    margin-right: 40px;
+    padding: 4px 6px 4px 6px;
+    cursor: pointer;
+    /*for the text gradient*/
+    background: -webkit-linear-gradient(45deg, #21a8a8, #29b791);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
