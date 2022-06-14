@@ -10,6 +10,7 @@ import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
 import { getAuth } from 'firebase/auth';
 import Startpage from './pages/Start';
+import Product from './pages/product';
 import AboutPage from './pages/About';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -156,6 +157,7 @@ function App() {
         <Route element={<PrivateRoutes/>}>
           <Route path='/home' element={<HomePage />}></Route>
         </Route>
+        <Route path='/product' element={<Product/>}/>
       </Routes>
       </AuthProvider>
 
@@ -201,6 +203,7 @@ function App() {
         <Route path='/home' element={<HomePage />}>
 
         </Route>
+        <Route path='/product' element={<Product/>}/>
       </Routes>
       </AuthProvider>
 
