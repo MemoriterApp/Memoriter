@@ -1,4 +1,4 @@
-import logo from '../../images/logo.png';
+import logo from '../../components/Logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 
 const ProductHeader = () => {
