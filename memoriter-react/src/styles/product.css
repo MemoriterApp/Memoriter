@@ -37,7 +37,6 @@ body {
     display: inline;
     position: relative;
     font-size: larger;
-    font-weight: 500;
     color: white;
     font-family: 'Rubik';
     text-decoration: none;
@@ -50,18 +49,7 @@ body {
 .product-header-quicklink:hover { /*for the fading background on hover*/
     background-color: #363636;
 }
-.product-header-quicklink-current {
-    display: inline;
-    position: relative;
-    font-size: larger;
-    font-weight: 600;
-    color: white;
-    font-family: 'Rubik';
-    text-decoration: none;
-    margin-right: 40px;
-    padding: 4px 6px 4px 6px;
-    cursor: pointer;
-    /*for the text gradient*/
+.product-header-quicklink-current { /*for the text gradient*/
     background: -webkit-linear-gradient(45deg, #21a8a8, #29b791);
     background-clip: text;
     -webkit-background-clip: text;
