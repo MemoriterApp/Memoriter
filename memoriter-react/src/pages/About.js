@@ -43,6 +43,12 @@ function About() {
                 </article>
                 {/*<img src={Group}></img>*/}
                 <div style={{ height: '100px' }} />
+                <h1 className="Legal_Header">How can I donate?</h1>
+                <article className="Legal_Text" style={{top:"-50px"}}>
+                    <p>All of the money donted will only be used to fund the production of the project.</p>
+                    <p>IBAN: DE26120965970001900013</p>
+                    <p>Paypal: johan@trieloff.net</p>
+                </article>
             </body>
             <footer>
                 <Footer />
