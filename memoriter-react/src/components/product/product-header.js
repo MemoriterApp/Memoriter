@@ -2,25 +2,34 @@ import logo from '../../components/Logo.png';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const ProductHeader = () => {
+const ProductHeader = ({ currentPage }) => {
 
     const navigate = useNavigate(); //variable for routing, alternative option for links
 
-    const [onHover, setOnHover] = useState('brightness(1)');
+    const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the register button
 
     return (
         <header className='product-header'>
             {/*If you click the logo, you will be redirected to the product page.*/}
             <img className='product-header-logo' src={logo} alt='memoriter-logo' onClick={() => navigate('/product')}/>
-            {/*Quicklinks:*/}
+            {/*Quicklinks (Navigation):*/}
             <nav className='product-header-quicklink-box'>
                 <Link className='product-header-quicklink' to='/product'>
-                    <span className='product-header-text-gradient'>Product</span>
+                    {currentPage === 'product' ? <span className='product-header-text-gradient'>Product</span> : <span>Product</span>}
                 </Link>
-                <Link className='product-header-quicklink' to='/about'>About</Link>
-                <Link className='product-header-quicklink' to='/blog'>Blog</Link>
-                <Link className='product-header-quicklink' to='/download'>Download</Link>
-                <Link className='product-header-quicklink' to='/donate'>Donate</Link>
+                <Link className='product-header-quicklink' to='/about'>
+                    {currentPage === 'about' ? <span className='product-header-text-gradient'>About</span> : <span>About</span>}
+                </Link>
+                <Link className='product-header-quicklink' to='/blog'>
+                    {currentPage === 'blog' ? <span className='product-header-text-gradient'>Blog</span> : <span>Blog</span>}
+                </Link>
+                <Link className='product-header-quicklink' to='/download'>
+                    {currentPage === 'download' ? <span className='product-header-text-gradient'>Download</span> : <span>Download</span>}
+                </Link>
+                <Link className='product-header-quicklink' to='/donate'>
+                    {currentPage === 'donate' ? <span className='product-header-text-gradient'>Donate</span> : <span>Donate</span>}
+                </Link>
+                {/*the if else conditions changes the color of the links depending on the current open page*/}
             </nav>
             {/*sign in and register buttons*/}
             <Link className='product-header-sign-in' to='/login'>
