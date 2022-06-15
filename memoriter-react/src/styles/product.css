@@ -6,6 +6,9 @@ body {
     background-color: rgba(32, 32, 32, 1);
 }
 
+
+/*header:*/
+
 .product-header { /*the header box at the top of the page*/
     position: fixed;
     left: 0;
@@ -76,13 +79,13 @@ body {
     background-color: rgb(55, 55, 55, 0.75);
 }
 
-.product-header-register { /*register button, needed to be split in multiple classes*/
+.product-header-register { /*register button, needed to be split in multiple classes, this class is for the positionig of the button*/
     position: absolute;
     right: 80px;
     top: 50%;
     transform: translate(0, -50%);
 }
-.product-header-register-text {
+.product-header-register-text { /*text which is not supposed to change color*/
     position: absolute;
     left: 50%;
     top: 8px;
@@ -100,4 +103,33 @@ body {
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     cursor: pointer;
     transition: 200ms;
+}
+
+.product-header-visual-mode-button { /*button to swich between light and dark mode*/
+    position: absolute;
+    right: 340px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%; /*creates the circle shape*/
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: 200ms;
+}
+.product-header-visual-mode-button:hover { /*visible border on hover*/
+    background-color: rgb(55, 55, 55, 0.75);
+}
+
+.product-header-visual-mode-icon { /*light and dark mode symbol*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border: 4px solid rgba(200, 200, 200, 1);
+    border-radius: 50%; /*creates the circle shape*/
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 55%, rgba(200, 200, 200, 1) 45%); /*half intransparent circle*/
 }

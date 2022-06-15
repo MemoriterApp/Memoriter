@@ -10,9 +10,11 @@ const ProductHeader = ({ currentPage }) => {
 
     return (
         <header className='product-header'>
+
             {/*If you click the logo, you will be redirected to the product page.*/}
             <img className='product-header-logo' src={logo} alt='memoriter-logo' onClick={() => navigate('/product')}/>
-            {/*Quicklinks (Navigation):*/}
+
+            {/*quicklinks (navigation bar):*/}
             <nav className='product-header-quicklink-box'>
                 <Link className='product-header-quicklink' to='/product'>
                     {currentPage === 'product' ? <span className='product-header-text-gradient'>Product</span> : <span>Product</span>}
@@ -31,6 +33,7 @@ const ProductHeader = ({ currentPage }) => {
                 </Link>
                 {/*the if else conditions changes the color of the links depending on the current open page*/}
             </nav>
+
             {/*sign in and register buttons*/}
             <Link className='product-header-sign-in' to='/login'>
                 <span className='product-header-text-gradient'>Sign in</span>
@@ -41,6 +44,11 @@ const ProductHeader = ({ currentPage }) => {
                 <div className='product-header-register-background' style={{filter: onHover}}/>
                 <span className='product-header-register-text'>Register</span>
             </Link>
+
+            {/*light and dark mode button*/}
+            <button className='product-header-visual-mode-button'>
+                <div className='product-header-visual-mode-icon'/>
+            </button>
         </header>
     );
 }
