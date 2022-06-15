@@ -1,4 +1,5 @@
-import logo from '../../components/Logo.png';
+import memoriterLogo from '../../components/Logo.png';
+import languageIcon from '../../components/language-icon.svg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -12,9 +13,9 @@ const ProductHeader = ({ currentPage }) => {
         <header className='product-header'>
 
             {/*If you click the logo, you will be redirected to the product page.*/}
-            <img className='product-header-logo' src={logo} alt='memoriter-logo' onClick={() => navigate('/product')}/>
+            <img className='product-header-logo' src={memoriterLogo} alt='memoriter-logo' onClick={() => navigate('/product')}/>
 
-            {/*quicklinks (navigation bar):*/}
+            {/*quicklinks (navigation bar)*/}
             <nav className='product-header-quicklink-box'>
                 <Link className='product-header-quicklink' to='/product'>
                     {currentPage === 'product' ? <span className='product-header-text-gradient'>Product</span> : <span>Product</span>}
@@ -49,6 +50,12 @@ const ProductHeader = ({ currentPage }) => {
             <button className='product-header-visual-mode-button'>
                 <div className='product-header-visual-mode-icon'/>
             </button>
+
+            {/*change language button*/}
+            <button className='product-header-language-button'>
+                <img src={languageIcon} alt='language-icon' className='product-header-language-icon'/>
+            </button>
+
         </header>
     );
 }
