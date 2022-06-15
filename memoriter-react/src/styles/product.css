@@ -40,7 +40,7 @@ body {
     left: 240px;
     top: 50%;
     transform: translate(0, -50%);
-    width: calc(100% - 240px);
+    width: calc(100% - 720px);
     height: 40%;
 }
 
@@ -55,7 +55,7 @@ body {
     padding: 4px 6px 4px 6px;
     border-radius: 4px;
     cursor: pointer;
-    transition: 200ms;
+    transition: background-color 200ms;
 }
 .product-header-quicklink:hover { /*for the fading background box on hover*/
     background-color: rgb(55, 55, 55, 0.75);
@@ -73,7 +73,7 @@ body {
     padding: 4px 6px 4px 6px;
     border-radius: 4px;
     cursor: pointer;
-    transition: 200ms;
+    transition: background-color 200ms;
 }
 .product-header-sign-in:hover { /*for the fading background box on hover*/
     background-color: rgb(55, 55, 55, 0.75);
@@ -116,7 +116,7 @@ body {
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-    transition: 200ms;
+    transition: background-color 200ms;
 }
 .product-header-visual-mode-button:hover { /*visible border on hover*/
     background-color: rgb(55, 55, 55, 0.75);
@@ -144,7 +144,7 @@ body {
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-    transition: 200ms;
+    transition: background-color 200ms;
 }
 .product-header-language-button:hover { /*visible border on hover*/
     background-color: rgb(55, 55, 55, 0.75);
@@ -157,4 +157,22 @@ body {
     width: 30px;
     height: 30px;
     filter: invert(0.78431372549019607843137254901961);
+}
+
+@media only screen and (max-width: 800px) { /*changes for small screens (e.g. mobile devices)*/
+    .product-header-logo {
+        left: 10px;
+    }
+
+    .product-header-quicklink-box {
+        left: 170px;
+    }
+
+    .product-header-register {
+        right: 10px;
+    }
+
+    .product-header-sign-in {
+        right: 130px;
+    }
 }
