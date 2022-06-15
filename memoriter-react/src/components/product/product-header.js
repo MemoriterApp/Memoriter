@@ -22,7 +22,7 @@ const ProductHeader = () => {
             <Link className='product-header-sign-in' to='/login'>
                 <span className='product-header-text-gradient'>Sign in</span>
             </Link>
-            <Link className='product-header-register' to='signup'>Register</Link>
+            <Link className='product-header-register' to='/signup'>Register</Link>
         </header>
     );
 }
