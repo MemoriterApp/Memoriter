@@ -47,7 +47,7 @@ body {
 .product-header-quicklink { /*link texts*/
     display: inline;
     position: relative;
-    font-size: larger;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
     text-decoration: none;
@@ -66,7 +66,7 @@ body {
     right: 200px;
     top: 50%;
     transform: translate(0, -50%);
-    font-size: larger;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
     text-decoration: none;
@@ -90,7 +90,7 @@ body {
     left: 50%;
     top: 8px;
     transform: translate(-50%);
-    font-size: larger;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
     text-decoration: none;
