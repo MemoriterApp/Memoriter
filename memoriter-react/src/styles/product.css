@@ -135,11 +135,11 @@ body {
 
 .product-header-language-button { /*button to change language*/
     position: absolute;
-    right: 400px;
+    right: 395px;
     top: 50%;
     transform: translate(0, -50%);
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border: none;
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0);
@@ -154,7 +154,7 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     filter: invert(0.78431372549019607843137254901961);
 }
