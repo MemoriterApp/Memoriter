@@ -1,3 +1,4 @@
+import '../../styles/product-header.css';
 import memoriterLogo from '../../components/Logo.png';
 import languageIcon from '../../components/language-icon.svg';
 import { useState } from 'react';
