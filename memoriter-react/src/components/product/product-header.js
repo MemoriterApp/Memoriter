@@ -10,7 +10,7 @@ const ProductHeader = ({ currentPage }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the register button
 
-    const [mobileSidebar, setMobileSidebar] = useState(false);
+    const [mobileSidebar, setMobileSidebar] = useState(false); //variable if the mobile nav sidebar is open or not
 
     return (
         <header className='product-header'>
@@ -18,8 +18,13 @@ const ProductHeader = ({ currentPage }) => {
             {/*If you click the logo, you will be redirected to the product page.*/}
             <img className='product-header-logo' src={memoriterLogo} alt='memoriter-logo' onClick={() => navigate('/product')}/>
 
+            {/*button for expanding side bar for small screens*/}
+            <button className='product-header-mobile-sidebar-button' onClick={() => setMobileSidebar(!mobileSidebar)}>
+                <div className='product-header-mobile-sidebar-icon'>|||</div>
+            </button>
+
             {/*quicklinks (navigation bar)*/}
-            <nav className='product-header-quicklink-box'>
+            <nav className='product-header-quicklink-box'> {/*expandable mobile nav sidebar, displays when button is clicked (changes className)*/}
                 <Link className='product-header-quicklink' to='/product'>
                     {currentPage === 'product' ? <span className='product-header-text-gradient'>Product</span> : <span>Product</span>}
                 </Link>
@@ -58,31 +63,6 @@ const ProductHeader = ({ currentPage }) => {
             <button className='product-header-language-button'>
                 <img src={languageIcon} alt='language-icon' className='product-header-language-icon'/>
             </button>
-
-            {/*button for expanding side bar for small screens*/}
-            <button className='product-header-toggle-button' onClick={() => setMobileSidebar(!mobileSidebar)}>
-                <div className='product-header-toggle-icon'>|||</div>
-            </button>
-
-            {/*expandable mobile nav sidebar, displays when butto is clicked*/}
-            {mobileSidebar &&
-            <nav>
-                <Link className='product-header-quicklink' to='/product'>
-                    {currentPage === 'product' ? <span className='product-header-text-gradient'>Product</span> : <span>Product</span>}
-                </Link>
-                <Link className='product-header-quicklink' to='/about'>
-                    {currentPage === 'about' ? <span className='product-header-text-gradient'>About</span> : <span>About</span>}
-                </Link>
-                <Link className='product-header-quicklink' to='/blog'>
-                    {currentPage === 'blog' ? <span className='product-header-text-gradient'>Blog</span> : <span>Blog</span>}
-                </Link>
-                <Link className='product-header-quicklink' to='/download'>
-                    {currentPage === 'download' ? <span className='product-header-text-gradient'>Download</span> : <span>Download</span>}
-                </Link>
-                <Link className='product-header-quicklink' to='/donate'>
-                    {currentPage === 'donate' ? <span className='product-header-text-gradient'>Donate</span> : <span>Donate</span>}
-                </Link>
-                {/*the if else conditions changes the color of the links depending on the current open page*/}</nav>}
 
         </header>
     );

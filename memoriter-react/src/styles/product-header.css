@@ -156,7 +156,11 @@ body {
     filter: invert(0.78431372549019607843137254901961);
 }
 
-.product-header-toggle-button { /*toggle button for small screen expandable side bar*/
+.product-header-mobile-sidebar {
+    position: absolute;
+}
+
+.product-header-mobile-sidebar-button { /*toggle button for small screen expandable side bar*/
     display: none; /*the button is hidden by default*/
     position: absolute;
     left: 15px;
@@ -170,10 +174,10 @@ body {
     cursor: pointer;
     transition: background-color 200ms;
 }
-.product-header-toggle-button:hover { /*visible border on hover*/
+.product-header-mobile-sidebar-button:hover { /*visible border on hover*/
     background-color: rgb(55, 55, 55, 0.75);
 }
-.product-header-toggle-icon { /*expand sidebar for small screens symbol*/
+.product-header-mobile-sidebar-icon { /*expand sidebar for small screens symbol*/
     font-size: 1.2rem;
     font-weight: 600;
     color: rgba(200, 200, 200, 1);
@@ -235,7 +239,7 @@ body {
         display: none;
     }
 
-    .product-header-toggle-button {
+    .product-header-mobile-sidebar-button {
         display: block;
     }
 }
