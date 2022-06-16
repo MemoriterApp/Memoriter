@@ -12,7 +12,7 @@ body {
     top: 0;
     width: 100%;
     height: 60px;
-    box-shadow: 0 6px 6px rgba(21, 21, 21, 1);
+    box-shadow: 0 5px 5px rgba(21, 21, 21, 1);
 }
 
 .product-header-text-gradient { /*for the text gradient of link texts*/
@@ -156,14 +156,10 @@ body {
     filter: invert(0.78431372549019607843137254901961);
 }
 
-.product-header-mobile-sidebar {
-    position: absolute;
-}
-
 .product-header-mobile-sidebar-button { /*toggle button for small screen expandable side bar*/
     display: none; /*the button is hidden by default*/
     position: absolute;
-    left: 15px;
+    right: 15px;
     top: 50%;
     transform: translate(0, -50%);
     width: 30px;
@@ -219,16 +215,36 @@ body {
 
 @media (max-width: 960px) { /*changes for small screen sizes (e.g. mobile devices)*/
     /*many links are now hidden and can be shown in a seperate expandable window*/
-    .product-header-logo {
-        left: 60px;
-    }
 
-    .product-header-quicklink-box {
-        display: none;
+    .product-header-quicklink-box { /*changes to mobile sidebar*/
+        left: unset;
+        right: 0;
+        top: 60px;
+        transform: translate(0, 0);
+        width: 240px;
+        max-width: 100vw;
+        height: calc(100vh - 60px);
+        border-top: 1px solid rgba(200, 200, 200, 1);
+        box-shadow:  0 10px 5px 5px rgba(21, 21, 21, 1);
+        background-color: rgba(32, 32, 32, 1);
+    }
+    .product-header-quicklink {
+        display: block;
+        left: 50%;
+        transform: translate(-50%);
+        width: calc(100% - 60px);
+        text-align: left;
+        padding: 16px 10px 16px 10px;
+        border-bottom: 1px solid rgba(200, 200, 200, 1);
+        border-radius: 0;
     }
 
     .product-header-sign-in {
-        right: 110px;
+        right: 160px;
+    }
+
+    .product-header-register {
+        right: 60px;
     }
 
     .product-header-visual-mode-button {
@@ -245,7 +261,11 @@ body {
 }
 
 @media (max-width: 360px) {
-    .product-header-logo {
+    .product-header-sign-in {
+        display: none;
+    }
+
+    .product-header-register {
         display: none;
     }
 }
