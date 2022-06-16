@@ -37,7 +37,7 @@ body {
     left: 240px;
     top: 50%;
     transform: translate(0, -50%);
-    width: calc(100% - 720px);
+    width: calc(100vw - 240px);
     height: 40%;
 }
 
@@ -56,6 +56,60 @@ body {
 }
 .product-header-quicklink:hover { /*for the fading background box on hover*/
     background-color: rgb(55, 55, 55, 0.75);
+}
+
+.product-header-language-button { /*button to change language*/
+    position: absolute;
+    right: 385px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+.product-header-language-button:hover { /*visible border on hover*/
+    background-color: rgb(55, 55, 55, 0.75);
+}
+.product-header-language-icon { /*change language mode symbol*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 85%;
+    filter: invert(0.78431372549019607843137254901961);
+}
+
+.product-header-visual-mode-button { /*button to swich between light and dark mode*/
+    position: absolute;
+    right: 335px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+.product-header-visual-mode-button:hover { /*visible border on hover*/
+    background-color: rgb(55, 55, 55, 0.75);
+}
+.product-header-visual-mode-icon { /*light and dark mode symbol*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    border: 3px solid rgba(200, 200, 200, 1);
+    border-radius: 50%; /*creates the circle shape*/
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 55%, rgba(200, 200, 200, 1) 45%); /*half intransparent circle*/
 }
 
 .product-header-sign-in { /*Sign in button*/
@@ -102,60 +156,6 @@ body {
     transition: 200ms;
 }
 
-.product-header-visual-mode-button { /*button to swich between light and dark mode*/
-    position: absolute;
-    right: 320px;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 30px;
-    height: 30px;
-    border: none;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    transition: background-color 200ms;
-}
-.product-header-visual-mode-button:hover { /*visible border on hover*/
-    background-color: rgb(55, 55, 55, 0.75);
-}
-.product-header-visual-mode-icon { /*light and dark mode symbol*/
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
-    border: 3px solid rgba(200, 200, 200, 1);
-    border-radius: 50%; /*creates the circle shape*/
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 55%, rgba(200, 200, 200, 1) 45%); /*half intransparent circle*/
-}
-
-.product-header-language-button { /*button to change language*/
-    position: absolute;
-    right: 370px;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 30px;
-    height: 30px;
-    border: none;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    transition: background-color 200ms;
-}
-.product-header-language-button:hover { /*visible border on hover*/
-    background-color: rgb(55, 55, 55, 0.75);
-}
-.product-header-language-icon { /*change language mode symbol*/
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    height: 85%;
-    filter: invert(0.78431372549019607843137254901961);
-}
-
 .product-header-mobile-sidebar-button { /*toggle button for small screen expandable side bar*/
     display: none; /*the button is hidden by default*/
     position: absolute;
@@ -183,33 +183,43 @@ body {
     transform: rotate(90deg);
 }
 
+.product-header-sign-in-alt {
+    display: none;
+}
+
+.product-header-register-alt {
+    display: none;
+}
+
 @media (max-width: 1160px) { /*changes for medium screen sizes (e.g. tablets, smaller laptops etc.)*/
     /*many objects are rendered closer to the edge and closer together to fit on a smaller width*/
+    
     .product-header-logo {
         left: 10px;
     }
 
     .product-header-quicklink-box {
         left: 150px;
+        width: calc(100vw - 150px);
     }
     .product-header-quicklink {
         margin-right: 20px;
     }
 
-    .product-header-register {
-        right: 10px;
-    }
-
-    .product-header-sign-in {
-        right: 130px;
+    .product-header-language-button {
+        right: 315px;
     }
 
     .product-header-visual-mode-button {
-        right: 250px;
+        right: 265px;
     }
 
-    .product-header-language-button {
-        right: 300px;
+    .product-header-sign-in {
+        right: 120px;
+    }
+
+    .product-header-register {
+        right: 10px;
     }
 }
 
@@ -221,38 +231,81 @@ body {
         right: 0;
         top: 60px;
         transform: translate(0, 0);
-        width: 240px;
+        width: 262px;
         max-width: 100vw;
         height: calc(100vh - 60px);
         border-top: 1px solid rgba(200, 200, 200, 1);
         box-shadow:  0 10px 5px 5px rgba(21, 21, 21, 1);
         background-color: rgba(32, 32, 32, 1);
+        overflow: auto;
     }
-    .product-header-quicklink {
+    .product-header-quicklink-box-space {
+        position: absolute;
+        top: 390px;
+        width: 100%;
+        height: 10px;
+    }
+    .product-header-quicklink { /*rearranging links and changing design*/
         display: block;
         left: 50%;
         transform: translate(-50%);
-        width: calc(100% - 60px);
+        width: calc(100% - 70px);
         text-align: left;
-        padding: 16px 10px 16px 10px;
+        padding: 16px 16px 16px 16px;
         border-bottom: 1px solid rgba(200, 200, 200, 1);
         border-radius: 0;
     }
 
-    .product-header-sign-in {
-        right: 160px;
-    }
-
-    .product-header-register {
-        right: 60px;
-    }
-
     .product-header-visual-mode-button {
-        display: none;
+        right: 3px;
+        top: 375px;
+        transform: translate(-50%, -50%);
     }
 
     .product-header-language-button {
-        display: none;
+        right: 43px;
+        top: 375px;
+        transform: translate(-50%, -50%);
+    }
+
+    .product-header-sign-in {
+        top: 320px;
+        left: 15%;
+        transform: translate(0, -50%);
+        width: 62px;
+    }
+
+    .product-header-register {
+        top: 320px;
+        right: 15%;
+        transform: translate(0, -50%);
+    }
+
+    .product-header-sign-in-alt { /*sign in button staying at the top*/
+        display: block;
+        position: absolute;
+        right: 160px;
+        top: 50%;
+        transform: translate(0, -50%);
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 1);
+        font-family: 'Rubik';
+        text-decoration: none;
+        padding: 4px 6px 4px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 200ms;
+    }
+    .product-header-sign-in-alt:hover { /*for the fading background box on hover*/
+        background-color: rgb(55, 55, 55, 0.75);
+    }
+
+    .product-header-register-alt { /*register button staying at the top*/
+        display: block;
+        position: absolute;
+        right: 60px;
+        top: 50%;
+        transform: translate(0, -50%);
     }
 
     .product-header-mobile-sidebar-button {
@@ -260,12 +313,12 @@ body {
     }
 }
 
-@media (max-width: 360px) {
-    .product-header-sign-in {
+@media (max-width: 360px) { /*hiding overlapping items on very small screen sizes*/
+    .product-header-sign-in-alt {
         display: none;
     }
 
-    .product-header-register {
+    .product-header-register-alt {
         display: none;
     }
 }
