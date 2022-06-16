@@ -6,9 +6,6 @@ body {
     background-color: rgba(32, 32, 32, 1);
 }
 
-
-/*header:*/
-
 .product-header { /*the header box at the top of the page*/
     position: fixed;
     left: 0;
@@ -159,7 +156,34 @@ body {
     filter: invert(0.78431372549019607843137254901961);
 }
 
-@media only screen and (max-width: 1160px) { /*changes for medium screen sizes (e.g. tablets, small laptops etc.)*/
+.product-header-toggle-button { /*toggle button for small screen expandable side bar*/
+    display: none; /*the button is hidden by default*/
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+.product-header-toggle-button:hover { /*visible border on hover*/
+    background-color: rgb(55, 55, 55, 0.75);
+}
+.product-header-toggle-icon { /*expand sidebar for small screens symbol*/
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(200, 200, 200, 1);
+    font-family: 'Rubik';
+    letter-spacing: 3px;
+    text-align: center;
+    transform: rotate(90deg);
+}
+
+@media (max-width: 1160px) { /*changes for medium screen sizes (e.g. tablets, smaller laptops etc.)*/
     /*many objects are rendered closer to the edge and closer together to fit on a smaller width*/
     .product-header-logo {
         left: 10px;
@@ -189,6 +213,35 @@ body {
     }
 }
 
-@media only screen and (max-width: 960px) { /*changes for small screen sizes (e.g. mobile devices)*/
-    
+@media (max-width: 960px) { /*changes for small screen sizes (e.g. mobile devices)*/
+    /*many links are now hidden and can be shown in a seperate expandable window*/
+    .product-header-logo {
+        left: 60px;
+    }
+
+    .product-header-quicklink-box {
+        display: none;
+    }
+
+    .product-header-sign-in {
+        right: 110px;
+    }
+
+    .product-header-visual-mode-button {
+        display: none;
+    }
+
+    .product-header-language-button {
+        display: none;
+    }
+
+    .product-header-toggle-button {
+        display: block;
+    }
+}
+
+@media (max-width: 360px) {
+    .product-header-logo {
+        display: none;
+    }
 }
