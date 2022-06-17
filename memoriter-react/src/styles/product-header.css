@@ -228,7 +228,6 @@ body {
 
     .product-header-quicklink-box { /*changes to mobile sidebar*/
         left: unset;
-        right: 0;
         top: 60px;
         transform: translate(0, 0);
         width: 262px;
@@ -238,6 +237,7 @@ body {
         box-shadow:  0 10px 5px 5px rgba(21, 21, 21, 1);
         background-color: rgba(32, 32, 32, 1);
         overflow: auto;
+        transition: right 600ms;
     }
     .product-header-quicklink-box-space {
         position: absolute;
@@ -270,14 +270,14 @@ body {
 
     .product-header-sign-in {
         top: 320px;
-        left: 15%;
+        left: 35px;
         transform: translate(0, -50%);
         width: 62px;
     }
 
     .product-header-register {
         top: 320px;
-        right: 15%;
+        right: 35px;
         transform: translate(0, -50%);
     }
 

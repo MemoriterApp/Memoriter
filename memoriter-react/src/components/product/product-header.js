@@ -11,7 +11,14 @@ const ProductHeader = ({ currentPage }) => {
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the register button
     const [onHoverAlt, setOnHoverAlt] = useState('brightness(1)'); //hover effect for alternative mobile register button
 
-    const [mobileSidebar, setMobileSidebar] = useState(false); //variable if the mobile nav sidebar is open or not
+    const [mobileSidebar, setMobileSidebar] = useState('-280px'); //variable if the mobile nav sidebar is open or not
+    function toggleMobileSidebar() { //function for opening and closing the mobile nav sidebar
+        if (mobileSidebar === '-280px') { //if else condition is for opening and closing correctly
+            setMobileSidebar('0');
+        } else {
+            setMobileSidebar('-280px');
+        }
+    }
 
     return (
         <header className='product-header'>
@@ -20,12 +27,12 @@ const ProductHeader = ({ currentPage }) => {
             <img className='product-header-logo' src={memoriterLogo} alt='memoriter-logo' onClick={() => navigate('/product')}/>
 
             {/*button for expanding side bar for small screens*/}
-            <button className='product-header-mobile-sidebar-button' onClick={() => setMobileSidebar(!mobileSidebar)}>
+            <button className='product-header-mobile-sidebar-button' onClick={toggleMobileSidebar}>
                 <div className='product-header-mobile-sidebar-icon'>|||</div>
             </button>
 
             {/*quicklinks (navigation bar)*/}
-            <nav className='product-header-quicklink-box'> {/*expandable mobile nav sidebar, displays when button is clicked (changes className)*/}
+            <nav className='product-header-quicklink-box' style={{right: mobileSidebar}}> {/*expandable mobile nav sidebar, displays when button is clicked (changes className)*/}
                 <Link className='product-header-quicklink' to='/product'>
                     {currentPage === 'product' ? <span className='product-header-text-gradient'>Product</span> : <span>Product</span>}
                 </Link>
