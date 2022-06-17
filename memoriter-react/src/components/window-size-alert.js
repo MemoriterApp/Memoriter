@@ -1,5 +1,4 @@
 import '../styles/window-size-alert.css';
-import { useState } from 'react';
 
 //On too small screens a warning alert will be displayed, because on very small screens (e.g. very small phones, smart watches etc.) the page does not display correctly.
 

@@ -10,11 +10,12 @@
     height: 60px;
     background-color: rgba(32, 32, 32, 1);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+    transition: bottom 200ms;
 }
 
 .product-header-text-gradient { /*for the text gradient of link texts*/
     font-weight: 600;
-    background: linear-gradient(45deg, rgb(35, 170, 170, 1), rgb(40, 185, 125, 1));
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -56,7 +57,7 @@
     transition: background-color 200ms;
 }
 .product-header-quicklink:hover { /*for the fading background box on hover*/
-    background-color: rgb(55, 55, 55, 0.75);
+    background-color: rgba(55, 55, 55, 0.75);
 }
 
 .product-header-language-button { /*button to change language*/
@@ -73,7 +74,7 @@
     transition: background-color 200ms;
 }
 .product-header-language-button:hover { /*visible border on hover*/
-    background-color: rgb(55, 55, 55, 0.75);
+    background-color: rgba(55, 55, 55, 0.75);
 }
 .product-header-language-icon { /*change language mode symbol*/
     position: absolute;
@@ -99,7 +100,7 @@
     transition: background-color 200ms;
 }
 .product-header-visual-mode-button:hover { /*visible border on hover*/
-    background-color: rgb(55, 55, 55, 0.75);
+    background-color: rgba(55, 55, 55, 0.75);
 }
 .product-header-visual-mode-icon { /*light and dark mode symbol*/
     position: absolute;
@@ -128,7 +129,7 @@
     transition: background-color 200ms;
 }
 .product-header-sign-in:hover { /*for the fading background box on hover*/
-    background-color: rgb(55, 55, 55, 0.75);
+    background-color: rgba(55, 55, 55, 0.75);
 }
 
 .product-header-register { /*register button, needed to be split in multiple classes, this class is for the positionig of the button*/
@@ -172,7 +173,7 @@
     transition: background-color 200ms;
 }
 .product-header-mobile-sidebar-button:hover { /*visible border on hover*/
-    background-color: rgb(55, 55, 55, 0.75);
+    background-color: rgba(55, 55, 55, 0.75);
 }
 .product-header-mobile-sidebar-icon { /*expand sidebar for small screens symbol*/
     font-size: 1.2rem;
@@ -301,7 +302,7 @@
         transition: background-color 200ms;
     }
     .product-header-sign-in-alt:hover { /*for the fading background box on hover*/
-        background-color: rgb(55, 55, 55, 0.75);
+        background-color: rgba(55, 55, 55, 0.75);
     }
 
     .product-header-register-alt { /*register button staying at the top*/

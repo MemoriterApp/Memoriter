@@ -1,0 +1,72 @@
+/*This file contains the styles for the cookie banner*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*header font*/
+
+.cookie-banner { /*basic cookie banner*/
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.4);
+    background-color: rgba(60, 60, 60, 0.6);
+    backdrop-filter: blur(10px);
+    transition: bottom 1000ms;
+}
+
+.cookie-banner-text { /*text for this-website-uses-cookies-sentence*/
+    position: absolute;
+    top: 0.2rem;
+    left: 80px;
+    font-size: 1.1rem;
+    font-family: 'Inter';
+    color: rgba(255, 255, 255, 1);
+}
+
+.cookie-banner-more-information {
+    position: absolute;
+    right: 200px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    text-decoration: none;
+    padding: 4px 6px 4px 6px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+.cookie-banner-more-information:hover {
+    background-color: rgba(70, 70, 70, 0.75);
+}
+
+.cookie-banner-accept { /*accept button, needed to be split in multiple classes, this class is for the positionig of the button*/
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+.cookie-banner-accept-text { /*text which is not supposed to change color*/
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    transform: translate(-50%);
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    text-decoration: none;
+}
+.cookie-banner-accept-background { /*the hover background was done in React because it did not work in CSS*/
+    width: 74px;
+    height: 22px;
+    padding: 8px 10px 8px 10px;
+    border-radius: 6px;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    transition: 200ms;
+}

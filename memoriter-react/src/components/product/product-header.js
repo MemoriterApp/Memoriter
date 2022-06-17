@@ -70,6 +70,7 @@ const ProductHeader = ({ currentPage }) => {
                     <div className='product-header-register-background' style={{filter: onHover}}/>
                     <span className='product-header-register-text'>Register</span>
                 </Link>
+                
                 <div className='product-header-quicklink-box-space'/> {/*space at the end for scrolling at the nav sidebar*/}
             </nav>
 
