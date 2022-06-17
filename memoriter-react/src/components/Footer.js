@@ -21,7 +21,7 @@ const Footer = () => {
                 <div
                     style={{display: 'inline', color: 'rgba(112,112,112,1)', cursor: 'default'}}
                 >  </div>
-                <Link className='privacyPolicy' to='/privacy'>Privacy Policy</Link>
+                <Link className='privacyPolicy' to='/privacy'>privacy policy</Link>
                 <div
                     style={{display: 'inline', color: 'rgba(112,112,112,1)', cursor: 'default'}}
                 > | </div>
