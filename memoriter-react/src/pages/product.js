@@ -1,5 +1,6 @@
 import Head from '../components/head';
 import ProductHeader from '../components/product/product-header';
+import WindowSizeAlert from '../components/window-size-alert';
 
 const Product = () => {
     return (
@@ -12,6 +13,9 @@ const Product = () => {
 
             {/*header*/}
             <ProductHeader currentPage='product'/> {/*The currentPage property defines the highlighted quicklink ath the navigation bar.*/}
+        
+            {/*alert for too small screens*/}
+            <WindowSizeAlert/>
         </>
     );
 }
