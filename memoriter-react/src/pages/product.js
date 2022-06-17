@@ -6,9 +6,9 @@ const Product = () => {
     return (
         <>
             {/*head*/}
-            <Head 
-                title=''
-                description=''
+            <Head
+                title='Product'
+                description='memoriter, learning, notes, home'
             /> {/*title property is for displaying a custom page title, description is for a custom meta description*/}
 
             {/*header*/}
