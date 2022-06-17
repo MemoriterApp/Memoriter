@@ -81,12 +81,12 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
             <div className='Folder_Pos_Body_Down' onClick={
                 () => { if (pos < folderCount) {setPos(pos + 1); onPosDown(folder.id, pos);} }
             }>
-                <div className='Folder_Pos_Arrow_Down' />
+                <div className='Folder_Pos_Arrow_Down'/>
             </div>
             <div className='Button_Homepage_Settings' onClick={settingsHandler}>
-                <span className='dot'></span>
-                <span className='dot'></span>
-                <span className='dot'></span>
+                <span className='dot'/>
+                <span className='dot'/>
+                <span className='dot'/>
             </div>
 
             <div>
