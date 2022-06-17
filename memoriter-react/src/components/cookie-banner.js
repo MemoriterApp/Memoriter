@@ -25,7 +25,7 @@ const CookieBanner = () => {
         <div className='cookie-banner' style={{bottom: display}}> {/*style is for if the banner is shown or not*/}
 
             {/*cookie banner text*/}
-            <p className='cookie-banner-text'>This website uses cookies for making the site work correctly and to enhance your experience.</p>
+            <p className='cookie-banner-text'>This website uses cookies for making the site work and to enhance your experience.</p>
 
             {/*accept and more information buttons*/}
             <div className='cookie-banner-more-information' to='/login'>

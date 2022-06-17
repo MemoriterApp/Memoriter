@@ -70,3 +70,22 @@
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     transition: 200ms;
 }
+
+@media (max-width: 1160px) { /*making the banner responsive for medium-size screens*/
+    /*some elements are moved closer to the side th free up space in the center*/
+
+    .cookie-banner-text {
+        left: 10px;
+    }
+
+    .cookie-banner-more-information {
+        right: 120px;
+        width: 106px;
+        text-align: center;
+        padding: 1px 6px 1px 6px;
+    }
+
+    .cookie-banner-accept {
+        right: 10px;
+    }
+}
