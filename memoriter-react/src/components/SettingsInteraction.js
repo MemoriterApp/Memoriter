@@ -45,14 +45,19 @@ function SettingsClick() {
             </div>}
 
             {profile && <div>
-                <div className='Add_Folder_Form_Body'>
+                <div className='Add_Folder_Form_Body' style={{left:'84%', top:'27%', height:'300px'}}>
                     <h2 className='Add_Folder_Form_Header'>Profile</h2>
-                    <div className='Add_Folder_Form_Text'>User ID:</div>
-                    <div className='Add_Folder_Form_Text' style={{color: '#bbb'}}>{user.uid}</div>
+                    {/*<div className='Add_Folder_Form_Text'>User ID:</div>
+                    <div className='Add_Folder_Form_Text' style={{color: '#bbb'}}>{user.uid}</div>*/}
                     <p style={{fontSize: '15px'}} />
-                    <div className='Add_Folder_Form_Text'>User Email:</div>
+                    <div className='Add_Folder_Form_Text'>current user email:</div>
                     <div className='Add_Folder_Form_Text'style={{color: '#bbb'}}>{user.email}</div>
-                    <p style={{fontSize: '25px'}} />
+                    <p style={{fontSize: '15px'}} />
+                    <div className='Add_Folder_Form_Text' style={{color:'#274b65', cursor:'pointer', fontWeight:'bold'}}>change password</div>
+                    <p style={{fontSize: '15px'}} />
+                    <div className='Add_Folder_Form_Text' style={{color:'#274b65', cursor:'pointer', fontWeight:'bold'}}>change email</div>
+                    <p style={{fontSize: '15px'}} />
+                    <div className='Add_Folder_Form_Text' style={{color:'#274b65', cursor:'pointer', fontWeight:'bold'}}>delete account</div>
                 </div>
                 <Backdrop onClick={() => openProfile(false)} />
             </div>}
