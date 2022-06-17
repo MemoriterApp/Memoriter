@@ -89,3 +89,51 @@
         right: 10px;
     }
 }
+
+@media (max-width: 960px) { /*making the banner responsive for small screens*/
+    /*some elements are rearranged to make the banner less wide*/
+    
+    .cookie-banner {
+        height: 120px;
+    }
+
+    .cookie-banner-text {
+        left: 50%;
+        top: 0;
+        width: calc(100% - 10px);
+        transform: translate(-50%);
+        text-align: center;
+    }
+
+    .cookie-banner-more-information {
+        left: calc(50% - 116px);
+        top: 90px;
+        transform: translate(0, -50%);
+    }
+
+    .cookie-banner-accept {
+        right: calc(50% - 116px);
+        top: 90px;
+        transform: translate(0, -50%);
+    }
+}
+
+@media (max-width: 360px) { /*optimization for very small screens*/
+    .cookie-banner {
+        height: 160px;
+    }
+
+    .cookie-banner-more-information {
+        top: 130px;
+    }
+
+    .cookie-banner-accept {
+        top: 130px;
+    }
+}
+
+@media (max-width: 240px) { /*hidden on to small */
+    .cookie-banner {
+        display: none;
+    }
+}
