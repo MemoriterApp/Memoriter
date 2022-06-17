@@ -1,5 +1,8 @@
 /*Tese styles are used for the alert showing on too small screens*/
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*header font*/
+
 .window-size-alert-backdrop { /*backdrop for warning*/
     display: none;
     position: fixed;
@@ -7,28 +10,43 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-.window-size-alert {
+.window-size-alert { /*container and text formatting*/
+    display: none;
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 200px;
-    max-width: 90vw;
+    width: 180px;
+    min-width: 100px;
+    max-width: calc(100vw - 32px);
     max-height: 90vh;
-    background-color: rgba(21, 21, 21, 1);
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    padding: 12px 12px 12px 12px;
+    border-radius: 12px;
+    background-color: rgba(32, 32, 32, 1);
+}
+
+.window-size-alert-header { /*container header*/
+    background: linear-gradient(45deg, rgb(35, 170, 170, 1), rgb(40, 185, 125, 1));
+    font-size: 1.2rem;
+    font-family: 'Rubik';
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @media (max-width: 240px) { /*defining screen width for showing the warning*/
     .window-size-alert-backdrop {
         display: block;
     }
-}
 
-@media (max-height: 120px) { /*defining screen height for showing the warning*/
-    .window-size-alert-backdrop {
+    .window-size-alert {
         display: block;
     }
 }

@@ -2,10 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*font*/
 
-body {
-    background-color: rgba(32, 32, 32, 1);
-}
-
 .product-header { /*the header box at the top of the page*/
     position: fixed;
     left: 0;
@@ -39,6 +35,10 @@ body {
     transform: translate(0, -50%);
     width: calc(100vw - 240px);
     height: 40%;
+}
+
+.product-header-quicklink-box-space { /*only for small screens*/
+    display: none;
 }
 
 .product-header-quicklink { /*link texts*/
@@ -239,12 +239,15 @@ body {
         overflow: auto;
         transition: right 600ms;
     }
+
     .product-header-quicklink-box-space {
+        display: block;
         position: absolute;
         top: 390px;
         width: 100%;
         height: 10px;
     }
+    
     .product-header-quicklink { /*rearranging links and changing design*/
         display: block;
         left: 50%;
@@ -319,6 +322,12 @@ body {
     }
 
     .product-header-register-alt {
+        display: none;
+    }
+}
+
+@media (max-width: 180px) { /*visual fix for too small screens*/
+    .product-header-mobile-sidebar-button {
         display: none;
     }
 }
