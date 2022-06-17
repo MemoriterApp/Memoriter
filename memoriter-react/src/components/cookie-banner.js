@@ -7,17 +7,17 @@ const CookieBanner = () => {
     
     const accepted = localStorage.getItem('cookies-accepted') //used for if the banner is first dieplayed or not
 
-    const [display, setDisplay] = useState('-80px'); //variable for showing the cookie banner and the move animation
+    const [display, setDisplay] = useState('-180px'); //variable for showing the cookie banner and the move animation
     if (accepted !== null) { //if else is for only displaying it before accepting cookies
         if (display === '0') {
-            setDisplay('-80px'); //if accepted, the banner is hidden
+            setDisplay('-180px'); //if accepted, the banner is hidden
         }
     } else {
-        setTimeout(() => {setDisplay('0'); }, 500); //executing move animation
+        setTimeout(() => {setDisplay('0'); }, 600); //executing move animation
     }
 
     function acceptCookies() {
-        setDisplay('-80px');
+        setDisplay('-180px');
         localStorage.setItem('cookies-accepted', true);
     }
 

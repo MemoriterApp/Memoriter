@@ -11,7 +11,7 @@
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.4);
     background-color: rgba(60, 60, 60, 0.6);
     backdrop-filter: blur(10px);
-    transition: bottom 1000ms;
+    transition: bottom 1600ms;
 }
 
 .cookie-banner-text { /*text for this-website-uses-cookies-sentence*/
