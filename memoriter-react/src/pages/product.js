@@ -16,7 +16,8 @@ const Product = () => {
             {/*header*/}
             <ProductHeader currentPage='product'/> {/*The currentPage property defines the highlighted quicklink ath the navigation bar.*/}
 
-            <div style={{display: 'flex', flexDirection: 'column', minHeight: 'calc100vh'}}> {/*style is needed for aligning the items correctly*/}
+            {/*style is needed for aligning the items correctly*/}
+            <div style={{display: 'flex', flexDirection: 'column', minHeight: 'calc100vh'}}>
 
                 {/*banner with slogan and get started button*/}
                 <ProductBanner/>
