@@ -1,0 +1,9 @@
+/*These styles are used for the product page (formerly known as start page) footer and some similar pages.*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*header font*/
+
+.product-footer {
+    margin-top: auto;
+    background-color: rgba(20, 20, 20, 1);
+}

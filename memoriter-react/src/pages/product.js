@@ -2,6 +2,7 @@ import Head from '../components/head';
 import ProductHeader from '../components/product/product-header';
 import ProductBanner from '../components/product/product-banner';
 import ProductMain from '../components/product/product-main';
+import ProductFooter from '../components/product/product-footer';
 import CookieBanner from '../components/cookie-banner';
 import WindowSizeAlert from '../components/window-size-alert';
 
@@ -15,11 +16,18 @@ const Product = () => {
             {/*header*/}
             <ProductHeader currentPage='product'/> {/*The currentPage property defines the highlighted quicklink ath the navigation bar.*/}
 
-            {/*banner with slogan and get started button*/}
-            <ProductBanner/>
+            <div style={{display: 'flex', flexDirection: 'column', minHeight: 'calc100vh'}}> {/*style is needed for aligning the items correctly*/}
 
-            {/*basic main layout and texts*/}
-            <ProductMain/>
+                {/*banner with slogan and get started button*/}
+                <ProductBanner/>
+
+                {/*basic main layout and texts*/}
+                <ProductMain/>
+
+            </div>
+
+            {/*footer*/}
+            <ProductFooter/>
 
             {/*cookie banner*/}
             <CookieBanner/>
