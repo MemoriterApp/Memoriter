@@ -11,6 +11,7 @@
     background-color: rgba(32, 32, 32, 1);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
     transition: bottom 200ms;
+    z-index: 1;
 }
 
 .product-header-text-gradient { /*for the text gradient of link texts*/

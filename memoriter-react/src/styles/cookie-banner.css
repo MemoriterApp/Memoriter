@@ -12,6 +12,7 @@
     background-color: rgba(60, 60, 60, 0.6);
     backdrop-filter: blur(10px);
     transition: bottom 1600ms;
+    z-index: 2;
 }
 
 .cookie-banner-text { /*text for this-website-uses-cookies-sentence*/
