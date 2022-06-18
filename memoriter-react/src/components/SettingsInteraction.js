@@ -45,19 +45,22 @@ function SettingsClick() {
             </div>}
 
             {profile && <div>
-                <div className='Add_Folder_Form_Body' style={{left:'84%', top:'27%', height:'300px'}}>
+                <div className='Add_Folder_Form_Body' style={{left:'50%', top:'27%', height:'350px', width:'450px'}}>
                     <h2 className='Add_Folder_Form_Header'>Profile</h2>
-                    {/*<div className='Add_Folder_Form_Text'>User ID:</div>
-                    <div className='Add_Folder_Form_Text' style={{color: '#bbb'}}>{user.uid}</div>*/}
+                    {/*<div className='Settings-profile-text'>User ID:</div>
+                    <div className='Settings-profile-text' style={{color: '#bbb'}}>{user.uid}</div>*/}
+                    <h1 className='Add_Folder_Form_Header' style={{fontSize: '20px'}}>Personal info</h1>
                     <p style={{fontSize: '15px'}} />
-                    <div className='Add_Folder_Form_Text'>current user email:</div>
-                    <div className='Add_Folder_Form_Text'style={{color: '#bbb'}}>{user.email}</div>
+                    <div className='Settings-profile-text'>Personal email:
+                    </div>
+                    <div className='Settings-profile-text'style={{color: '#bbb'}}>{user.email}</div>
                     <p style={{fontSize: '15px'}} />
-                    <div className='Add_Folder_Form_Text' style={{color:'#274b65', cursor:'pointer', fontWeight:'bold'}}>change password</div>
+                    <div className='Settings-profile-text'>change password</div>
                     <p style={{fontSize: '15px'}} />
-                    <div className='Add_Folder_Form_Text' style={{color:'#274b65', cursor:'pointer', fontWeight:'bold'}}>change email</div>
+                    <div className='Settings-profile-text' >change email</div>
                     <p style={{fontSize: '15px'}} />
-                    <div className='Add_Folder_Form_Text' style={{color:'#274b65', cursor:'pointer', fontWeight:'bold'}}>delete account</div>
+                    <div className='Settings-profile-text'style={{color:''}}>delete account</div>
+                    <div className='Settings-profile-text' style={{fontSize: '15px', color:'lightblue'}} >If you delete your account, your data will be gone forever.</div>
                 </div>
                 <Backdrop onClick={() => openProfile(false)} />
             </div>}

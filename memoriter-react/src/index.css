@@ -1884,3 +1884,17 @@ body {
     line-height: 35px;
     text-align: left;
 }
+
+/* Alexanderer Settings allgemein*/
+.Settings-profile-header {
+    font-size: 24px;
+}
+.Settings-profile-text {
+    font-size: 20px;
+    color:#3d769e; 
+    cursor: pointer;
+    font-weight: bold;
+    text-align: left;
+    left:20px;
+
+}
