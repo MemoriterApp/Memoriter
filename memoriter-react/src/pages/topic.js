@@ -158,6 +158,11 @@ function TopicPage() {
             await updateDoc(flashcardDoc, newAll);
             setFlashcards(flashcards.map((flashcard) => flashcard.id === id
                 ? { ...flashcard, textAlign: 'left' } : flashcard))
+        } else {
+            const newAll = { textAlign: 'left' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'left' } : flashcard))
         }
     }
 
