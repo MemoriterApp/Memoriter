@@ -5,6 +5,10 @@
 
 
 .product-banner { /*banner box, background and position*/
-    margin-top: 60px;
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 60px);
+    left: 0;
+    top: 60px;
     background-color: rgba(42, 42, 42, 1);
 }
