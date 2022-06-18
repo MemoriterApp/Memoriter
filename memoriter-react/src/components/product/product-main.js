@@ -3,7 +3,7 @@ import placeholderImage from '../../pages/Memoriter_Katze.jpeg';
 
 const ProductMain = () => {
     return (
-        <div className='product-main' style={{top: '100%'}}> {/*the main body is divided in three sections with a header, text and an image*/}
+        <div className='product-main' style={{top: '100%'}}> {/*the height style is for displaying the section correctly under the banner*/}
 
             <h1 className='product-main-header'>Placeholder Header</h1>
             <p className='product-main-text'>
