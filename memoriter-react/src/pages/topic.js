@@ -115,7 +115,7 @@ function TopicPage() {
     //Add Flashcard
     const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
-        await addDoc(flashcardCollectionRef, { pos, title: flashcard.title, content: flashcard.content, syncedFolder: flashcard.syncedFolder })
+        await addDoc(flashcardCollectionRef, { pos, title: flashcard.title, content: flashcard.content, textAlign: 'left', syncedFolder: flashcard.syncedFolder })
 
         const allFlashcards = await getDocs(flashcardCollectionRef)
         setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Flashcards
@@ -133,10 +133,38 @@ function TopicPage() {
             ? { ...flashcard, title: title, content: content } : flashcard))
     }
 
+    //Cahnge text align
+    const changeTextAlign = async (id, textAlign) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+
+        //based on the current text align, the text align will changed to a different value
+        if (textAlign === 'left') {
+            const newAll = { textAlign: 'right' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'right' } : flashcard))
+        } else if (textAlign === 'right') {
+            const newAll = { textAlign: 'center' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'center' } : flashcard))
+        } else if (textAlign === 'center') {
+            const newAll = { textAlign: 'jusify' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'justify' } : flashcard))
+        } else if (textAlign === 'justify') {
+            const newAll = { textAlign: 'left' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'left' } : flashcard))
+        }
+    }
+
     //Delete Flashcard
     const deleteFlashcard = async (id, pos) => {
         const flashcardDoc = doc(db, 'flashcards', id);
-        await deleteDoc(flashcardDoc); //Position wird auf Firebase noch nicht korrigiert.
+        await deleteDoc(flashcardDoc);
         setFlashcards((flashcards) =>
             flashcards
                 .map((flashcard) =>
@@ -178,6 +206,7 @@ function TopicPage() {
                                         onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
                                         onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
                                         onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                        onChangeTextAlign={changeTextAlign}
                                     />)
                                 )}
                         </>
