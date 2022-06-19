@@ -14,15 +14,50 @@
     overflow: hidden;
 }
 
+.product-banner-text { /*text for slogan*/
+    position: absolute;
+    color: rgba(255, 255, 255, 1);
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-style: italic;
+    font-size: 3rem;
+    font-family: 'Kaisei HarunoUmi';
+    text-align: center;
+}
+
+.product-banner-get-started { /*register button, needed to be split in multiple classes, this class is for the positionig of the button*/
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+}
+.product-banner-get-started-text { /*text which is not supposed to change color*/
+    position: absolute;
+    left: 50%;
+    top: 24px;
+    transform: translate(-50%);
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    text-decoration: none;
+    white-space: nowrap;
+}
+.product-banner-get-started-background { /*the hover background was done in React because it did not work in CSS*/
+    width: 240px;
+    height: 60px;
+    padding: 8px 10px 8px 10px;
+    border-radius: 6px;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    cursor: pointer;
+    transition: 200ms;
+}
+
 .product-banner-wave { /*animated wave at the bottom*/
     position: absolute;
+    left: 0;
     bottom: 0;
     width: 200%;
-    animation: wave-animation-left linear 5000ms;
-}
-@keyframes wave-animation-left { /*animation for moving the wave left*/
-    0% { transform: translateX(0);}
-    100% { transform: translateX(-50%);}
 }
 .product-banner-wave-transparent { /*animated wave at the bottom lighter part*/
     position: absolute;
@@ -31,17 +66,6 @@
     width: 200%;
     transform: scaleX(-1);
     opacity: 0.6;
-    animation: wave-animation-right linear 5000ms;
-}
-@keyframes wave-animation-right { /*animation for moving the wave right*/
-    0% {
-        transform: translateX(0);
-        opacity: 0.6;
-    }
-    100% {
-        transform: translateX(50%);
-        opacity: 0.6;
-    }
 }
 
 @media (max-width: 320px) {
