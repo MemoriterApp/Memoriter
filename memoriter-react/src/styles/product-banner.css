@@ -16,7 +16,7 @@
 
 .product-banner-wave { /*animated wave at the bottom*/
     position: absolute;
-    bottom: -6%;
+    bottom: -1px;
     width: 200%;
     animation: wave-animation-left linear 5000ms;
 }
@@ -27,7 +27,7 @@
 .product-banner-wave-transparent { /*animated wave at the bottom lighter part*/
     position: absolute;
     right: 0;
-    bottom: -5%;
+    bottom: -1px;
     width: 200%;
     transform: scaleX(-1);
     opacity: 0.6;
