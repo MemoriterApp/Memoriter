@@ -11,6 +11,37 @@
     left: 0;
     top: 60px;
     background-color: rgba(42, 42, 42, 1);
+    overflow: hidden;
+}
+
+.product-banner-wave { /*animated wave at the bottom*/
+    position: absolute;
+    bottom: -6%;
+    width: 200%;
+    animation: wave-animation-left linear 5000ms;
+}
+@keyframes wave-animation-left { /*animation for moving the wave left*/
+    0% { transform: translateX(0);}
+    100% { transform: translateX(-50%);}
+}
+.product-banner-wave-transparent { /*animated wave at the bottom lighter part*/
+    position: absolute;
+    right: 0;
+    bottom: -5%;
+    width: 200%;
+    transform: scaleX(-1);
+    opacity: 0.6;
+    animation: wave-animation-right linear 5000ms;
+}
+@keyframes wave-animation-right { /*animation for moving the wave right*/
+    0% {
+        transform: translateX(0);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateX(50%);
+        opacity: 0.6;
+    }
 }
 
 @media (max-width: 320px) {

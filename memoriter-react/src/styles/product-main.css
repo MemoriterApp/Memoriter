@@ -5,6 +5,7 @@
 
 .product-main { /*just used for layout adjustment*/
     margin-top: 100vh;
+    margin-bottom: 200px;
 }
 
 .product-main-header { /*header font styling*/
