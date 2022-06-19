@@ -9,14 +9,14 @@
     width: 100%;
     height: calc(100vh - 60px);
     left: 0;
-    top: 60px;
+    top: 62px;
     background-color: rgba(42, 42, 42, 1);
     overflow: hidden;
 }
 
 .product-banner-wave { /*animated wave at the bottom*/
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
     width: 200%;
     animation: wave-animation-left linear 5000ms;
 }

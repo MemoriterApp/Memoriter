@@ -1,7 +1,7 @@
 import '../../styles/product-header.css';
 import memoriterLogo from '../../components/Logo.png';
 import languageIcon from '../../components/language-icon.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const ProductHeader = ({ currentPage }) => {
@@ -18,7 +18,23 @@ const ProductHeader = ({ currentPage }) => {
         } else {
             setMobileSidebar('-280px');
         }
-    }
+    };
+
+    const [scrollProgress, setScrollProgress] = useState(0); //value for the scroll progress
+    const onScroll = () => { //getting the scroll data
+        const scroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+        const scrolled = (scroll / height) * 100;
+
+        setScrollProgress(scrolled);
+    };
+
+    useEffect(() => { //the useEffect is important for getting the value if it is scrolling
+        window.addEventListener('scroll', onScroll);
+
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     return (
         <header className='product-header'>
@@ -83,6 +99,10 @@ const ProductHeader = ({ currentPage }) => {
                 <div className='product-header-register-background' style={{filter: onHoverAlt}}/>
                 <span className='product-header-register-text'>Register</span>
             </Link>
+
+            {/*scroll indicator*/}
+            <div className='product-header-scroll-indicator' style={{width: `${scrollProgress}%`}}/>
+            {/*the width is calculated by the scrollProgress variable and defines the width of the bar*/}
 
         </header>
     );

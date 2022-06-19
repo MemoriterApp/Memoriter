@@ -7,7 +7,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 60px;
+    height: 62px;
     background-color: rgba(32, 32, 32, 1);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
     transition: bottom 200ms;
@@ -25,7 +25,7 @@
 .product-header-logo { /*logo formatting used for the header*/
     position: absolute;
     left: 80px;
-    top: 50%;
+    top: calc(50% - 1px);
     transform: translate(0, -50%);
     height: 35px;
     cursor: pointer;
@@ -34,7 +34,7 @@
 .product-header-quicklink-box { /*used for the header links like product, about, downloads etc.*/
     position: absolute;
     left: 240px;
-    top: 50%;
+    top: calc(50% - 1px);
     transform: translate(0, -50%);
     width: calc(100% - 240px);
     height: 40%;
@@ -64,7 +64,7 @@
 .product-header-language-button { /*button to change language*/
     position: absolute;
     right: 385px;
-    top: 50%;
+    top: calc(50% - 1px);
     transform: translate(0, -50%);
     width: 30px;
     height: 30px;
@@ -90,7 +90,7 @@
 .product-header-visual-mode-button { /*button to swich between light and dark mode*/
     position: absolute;
     right: 335px;
-    top: 50%;
+    top: calc(50% - 1px);
     transform: translate(0, -50%);
     width: 30px;
     height: 30px;
@@ -118,7 +118,7 @@
 .product-header-sign-in { /*Sign in button*/
     position: absolute;
     right: 200px;
-    top: 50%;
+    top: calc(50% - 1px);
     transform: translate(0, -50%);
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
@@ -136,7 +136,7 @@
 .product-header-register { /*register button, needed to be split in multiple classes, this class is for the positionig of the button*/
     position: absolute;
     right: 80px;
-    top: 50%;
+    top: calc(50% - 1px);
     transform: translate(0, -50%);
 }
 .product-header-register-text { /*text which is not supposed to change color*/
@@ -163,7 +163,7 @@
     display: none; /*the button is hidden by default*/
     position: absolute;
     right: 15px;
-    top: 50%;
+    top: calc(50% - 1px);
     transform: translate(0, -50%);
     width: 30px;
     height: 30px;
@@ -186,12 +186,20 @@
     transform: rotate(90deg);
 }
 
-.product-header-sign-in-alt {
+.product-header-sign-in-alt { /*alternative button for mobile screens*/
     display: none;
 }
 
-.product-header-register-alt {
+.product-header-register-alt { /*alternative button for mobile screens*/
     display: none;
+}
+
+.product-header-scroll-indicator { /*scroll indicator bar at the bottom*/
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    height: 2px;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
 }
 
 @media (max-width: 1160px) { /*changes for medium screen sizes (e.g. tablets, smaller laptops etc.)*/
@@ -231,7 +239,7 @@
 
     .product-header-quicklink-box { /*changes to mobile sidebar*/
         left: unset;
-        top: 60px;
+        top: 62px;
         transform: translate(0, 0);
         width: 262px;
         max-width: 100%;
