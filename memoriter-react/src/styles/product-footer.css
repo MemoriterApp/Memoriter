@@ -11,3 +11,9 @@
     height: 200px;
     background-color: rgba(18, 18, 18, 1);
 }
+
+@media (max-width: 320px) {
+    .product-footer {
+        display: none;
+    }
+}

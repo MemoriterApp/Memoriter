@@ -12,3 +12,9 @@
     top: 60px;
     background-color: rgba(42, 42, 42, 1);
 }
+
+@media (max-width: 320px) {
+    .product-banner {
+        display: none;
+    }
+}
