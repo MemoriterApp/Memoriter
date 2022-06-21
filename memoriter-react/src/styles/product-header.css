@@ -156,7 +156,7 @@
     border-radius: 6px;
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     cursor: pointer;
-    transition: 200ms;
+    transition: filter 200ms;
 }
 
 .product-header-mobile-sidebar-button { /*toggle button for small screen expandable side bar*/

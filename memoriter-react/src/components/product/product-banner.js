@@ -28,17 +28,21 @@ const ProductBanner = () => {
             {/*background triangles*/}
             <div className='product-banner-background-triangle-top' style={{right: `calc(-1 * ${scrollProgress}vh`}}/>
             <div className='product-banner-background-triangle-bottom' style={{left: `calc(-1 * ${scrollProgress}vh`}}/>
+            {/*the size of the triangles changes a bit when you scroll down*/}
 
-            {/*slogan*/}
-            <p className='product-banner-text'>The all-in-one<br/>learning environment</p>
+            {/*content*/}
+            <div className='product-banner-content'>
+                {/*slogan*/}
+                <p className='product-banner-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
 
-            {/*get started button for redirecting to register page*/}
-            <Link className='product-banner-get-started' to='/signup'
-                onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
-                {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css*/}
-                <div className='product-banner-get-started-background' style={{filter: onHover}}/>
-                <span className='product-banner-get-started-text'>Get Started!</span>
-            </Link>
+                {/*get started button for redirecting to register page*/}
+                <Link className='product-banner-get-started' to='/signup'
+                    onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
+                    {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css*/}
+                    <div className='product-banner-get-started-background' style={{filter: onHover}}/>
+                    <span className='product-banner-get-started-text'>Get Started!</span>
+                </Link>
+            </div>
 
             {/*transition shape at the bottom*/}
             <div className='product-banner-bottom-transition'/>
