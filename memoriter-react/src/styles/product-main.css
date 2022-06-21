@@ -1,7 +1,7 @@
 /*These styles define the main layout of the product (start) page*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,700&display=swap'); /*large header font*/
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap'); /*large header font*/
 
 .product-main { /*just used for layout adjustment*/
     margin-top: 100vh;
@@ -9,7 +9,8 @@
 }
 
 .product-main-header { /*header font styling*/
-    font-size: 3.4rem;
+    font-style: italic;
+    font-size: 4rem;
     font-family: 'Kanit';
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     background-clip: text;
