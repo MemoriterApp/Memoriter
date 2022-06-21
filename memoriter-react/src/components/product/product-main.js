@@ -1,4 +1,4 @@
-import '../../styles/product-main.css';
+import '../../styles/product/product-main.css';
 import placeholderImage from '../../pages/Memoriter_Katze.jpeg';
 
 const ProductMain = () => {

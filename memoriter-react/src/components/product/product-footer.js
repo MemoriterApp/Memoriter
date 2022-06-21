@@ -1,4 +1,4 @@
-import '../../styles/product-footer.css';
+import '../../styles/product/product-footer.css';
 
 const ProductFooter = () => {
     return (
