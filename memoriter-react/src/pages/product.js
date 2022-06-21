@@ -9,6 +9,7 @@ import WindowSizeAlert from '../components/window-size-alert';
 const Product = () => {
     return (
         <>
+        
             {/*head*/}
             <Head title='The all-in-one learning environment' description='memoriter, learning, notes, home'/>
             {/*title property is for displaying a custom page title, description is for a custom meta description*/}
