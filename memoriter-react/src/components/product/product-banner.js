@@ -1,5 +1,4 @@
 import '../../styles/product-banner.css';
-import productBannerWave from '../../images/product-banner-wave.svg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -20,10 +19,6 @@ const ProductBanner = () => {
                 <div className='product-banner-get-started-background' style={{filter: onHover}}/>
                 <span className='product-banner-get-started-text'>Get Started!</span>
             </Link>
-
-            {/*animated wave at the bottom*/}
-            <img className='product-banner-wave' src={productBannerWave} alt='wave'/>
-            <img className='product-banner-wave-transparent' src={productBannerWave} alt='wave-transparent'/>
 
         </div>
     );

@@ -35,7 +35,7 @@
 .product-banner-get-started-text { /*text which is not supposed to change color*/
     position: absolute;
     left: 50%;
-    top: 24px;
+    top: 22px;
     transform: translate(-50%);
     font-size: 1.8rem;
     color: rgba(255, 255, 255, 1);
@@ -51,21 +51,6 @@
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     cursor: pointer;
     transition: 200ms;
-}
-
-.product-banner-wave { /*animated wave at the bottom*/
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 200%;
-}
-.product-banner-wave-transparent { /*animated wave at the bottom lighter part*/
-    position: absolute;
-    right: 0;
-    bottom: -1px;
-    width: 200%;
-    transform: scaleX(-1);
-    opacity: 0.6;
 }
 
 @media (max-width: 320px) {
