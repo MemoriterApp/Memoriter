@@ -53,6 +53,25 @@
     transition: 200ms;
 }
 
+.product-banner-bottom-transition { /*the shape at the bottom is an overlay in the same color as se next section*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(32, 32, 32, 1);
+}
+.product-banner-bottom-transition-shape { /*trapezoid shape*/
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+	border-left: 50px solid rgba(0, 0, 0, 0);
+	border-right: 50px solid rgba(0, 0, 0, 0);
+    border-top: 50px solid rgba(42, 42, 42, 1);
+	height: 0;
+	width: 40%;
+}
+
 @media (max-width: 320px) {
     .product-banner {
         display: none;

@@ -20,6 +20,11 @@ const ProductBanner = () => {
                 <span className='product-banner-get-started-text'>Get Started!</span>
             </Link>
 
+            {/*transition shape at the bottom*/}
+            <div className='product-banner-bottom-transition'>
+                <div className='product-banner-bottom-transition-shape'/>
+            </div>
+
         </div>
     );
 }
