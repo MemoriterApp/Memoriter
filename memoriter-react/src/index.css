@@ -1927,6 +1927,6 @@ body {
 }
 @media (max-width: 500px){
     .Settings-profile-body{
-        width:400px;
+        width: 90vw;
     }
 }
