@@ -115,7 +115,8 @@ function TopicPage() {
     //Add Flashcard
     const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
-        await addDoc(flashcardCollectionRef, { pos, title: flashcard.title, content: flashcard.content, textAlign: 'left', syncedFolder: flashcard.syncedFolder })
+        await addDoc(flashcardCollectionRef, { pos, title: flashcard.title, content: flashcard.content,
+            textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)', syncedFolder: flashcard.syncedFolder })
 
         const allFlashcards = await getDocs(flashcardCollectionRef)
         setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Flashcards
@@ -139,30 +140,30 @@ function TopicPage() {
 
         //based on the current text align, the text align will changed to a different value
         if (textAlign === 'left') {
-            const newAll = { textAlign: 'right' };
+            const newAll = { textAlign: 'right', textAlignSymbol: '> >', textAlignColor: 'rgb(228, 48, 48)' };
             await updateDoc(flashcardDoc, newAll);
             setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-                ? { ...flashcard, textAlign: 'right' } : flashcard))
+                ? { ...flashcard, textAlign: 'right', textAlignSymbol: '> >', textAlignColor: 'rgb(228, 48, 48)' } : flashcard))
         } else if (textAlign === 'right') {
-            const newAll = { textAlign: 'center' };
+            const newAll = { textAlign: 'center', textAlignSymbol: '> <', textAlignColor: 'rgb(228, 198, 48)' };
             await updateDoc(flashcardDoc, newAll);
             setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-                ? { ...flashcard, textAlign: 'center' } : flashcard))
+                ? { ...flashcard, textAlign: 'center', textAlignSymbol: '> <', textAlignColor: 'rgb(228, 198, 48)' } : flashcard))
         } else if (textAlign === 'center') {
-            const newAll = { textAlign: 'jusify' };
+            const newAll = { textAlign: 'jusify', textAlignSymbol: '< >', textAlignColor: 'rgb(48, 158, 228)' };
             await updateDoc(flashcardDoc, newAll);
             setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-                ? { ...flashcard, textAlign: 'justify' } : flashcard))
+                ? { ...flashcard, textAlign: 'justify', textAlignSymbol: '< >', textAlignColor: 'rgb(48, 158, 228)' } : flashcard))
         } else if (textAlign === 'justify') {
-            const newAll = { textAlign: 'left' };
+            const newAll = { textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' };
             await updateDoc(flashcardDoc, newAll);
             setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-                ? { ...flashcard, textAlign: 'left' } : flashcard))
+                ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
         } else {
-            const newAll = { textAlign: 'left' };
+            const newAll = { textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' };
             await updateDoc(flashcardDoc, newAll);
             setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-                ? { ...flashcard, textAlign: 'left' } : flashcard))
+                ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
         }
     }
 
