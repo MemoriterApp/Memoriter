@@ -13,7 +13,9 @@ function SettingsClick() {
 
     const [user, setUser] = useState({});
 
-    const [changePassword, openChangePassword] = useState(false)
+    const [changePassword, openChangePassword] = useState(false);
+
+    const [changeEmail, openChangeEmail] = useState(false);
 
     onAuthStateChanged(firebase.auth, (currentUser) => {
         setUser(currentUser);
@@ -56,7 +58,14 @@ function SettingsClick() {
                         <div> 
                             <div className='Settings-profile-text'style={{float:'left',margin:'5px',}}>Personal email:</div>
                             <div className='Settings-profile-text'style={{color: '#bbb',float:'inline-start', margin:'5px'}}>{user.email}</div>
-                            <div className='Settings-profile-text'style={{float:'inline-start', margin:'5px'}}>Edit</div>
+                            <div className='Settings-profile-text'style={{float:'inline-start', margin:'5px'}} onClick={() => openChangeEmail(true)}>Edit</div>
+                                {changeEmail && <div>
+                                    <form>
+                                    <label for="nmail">enter new mail:</label>
+                                    <br></br>
+                                    <input type="text" id="nmail" name="nmail"></input>
+                                </form>
+                                    </div>}
                         </div>
                         {/*<div className='Settings-profile-text'>User ID:</div>
                         <div className='Settings-profile-text' style={{color: '#bbb'}}>{user.uid}</div>*/}
