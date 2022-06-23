@@ -2,6 +2,7 @@ import { Editor, EditorState, convertToRaw } from 'draft-js';
 import { convertToHTML } from 'draft-convert'
 import React from 'react';
 import { useState } from 'react';
+import './draft.css';
 
 const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
 
@@ -34,6 +35,7 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                 
                 <div className='Add_Flashcard_Form_Content'>
                     <Editor
+                        placeholder='Flashcard Content...'
                         editorState={editorState}
                         onChange={(editorState) => {
                             const contentState = editorState.getCurrentContent();
