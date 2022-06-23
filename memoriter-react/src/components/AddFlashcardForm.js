@@ -1,4 +1,4 @@
-import { Editor, EditorState, convertToRaw } from 'draft-js';
+import { Editor, EditorState, convertToRaw, RichUtils } from 'draft-js';
 import { convertToHTML } from 'draft-convert'
 import React from 'react';
 import { useState } from 'react';
@@ -18,6 +18,15 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
     const onSubmitFlashcard = (changeContent) => {
         changeContent.preventDefault()
         onAddFlashcard({ title, content, contentObj, syncedFolder })
+    }
+
+    function handleKeyCommand (command) {
+        const newState = RichUtils.handleKeyCommand(editorState, command);
+        if (newState) {
+            this.onChange(newState);
+            return 'handled';
+        }
+        return 'not-handled';
     }
 
     return (
@@ -46,6 +55,7 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                             saveContent(contentState);
                             setEditorState(editorState);
                         }}
+                        handleKeyCommand={handleKeyCommand}
                     />
                 </div>
 

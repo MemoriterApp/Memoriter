@@ -960,6 +960,8 @@ body {
     resize: none;
     border: 2px solid rgba(112, 112 ,112 ,1);
     border-radius: 3px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .Edit_Flashcard_Open_Body {
     position: fixed;
