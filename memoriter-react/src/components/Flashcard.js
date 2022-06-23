@@ -4,6 +4,7 @@ import Backdrop from './backdrop';
 import Backdropfs from './backdropfs';
 import BackdropOpenFlashcard from './backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
+import parse from 'html-react-parser';
 
 const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
     onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView, onPosAdjust }) => {
@@ -123,7 +124,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             </div>
             <div className='Flashcard_Rechteck' onClick={openFlashcard}>
                 <h3 className='Flashcard_Title'>{flashcard.title}</h3>
-                <p className='Flashcard_Content'>{flashcard.contentHTML}</p>
+                <p className='Flashcard_Content'>{parse(flashcard.content)}</p>
             </div>
 
             <div>

@@ -115,7 +115,7 @@ function TopicPage() {
     //Add Flashcard
     const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
-        await addDoc(flashcardCollectionRef, { pos, title: flashcard.title, content: flashcard.content, contentHTML: flashcard.contentHTML, syncedFolder: flashcard.syncedFolder })
+        await addDoc(flashcardCollectionRef, { pos, title: flashcard.title, content: flashcard.content, contentObj: flashcard.contentObj, syncedFolder: flashcard.syncedFolder })
 
         const allFlashcards = await getDocs(flashcardCollectionRef)
         setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Flashcards

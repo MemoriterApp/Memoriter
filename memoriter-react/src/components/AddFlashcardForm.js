@@ -10,14 +10,14 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
 
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
-    const content = sessionStorage.getItem('flashcard-text');
-    const contentHTML = sessionStorage.getItem('flashcard-text-html');
+    const content = sessionStorage.getItem('flashcard-content');
+    const contentObj = sessionStorage.getItem('flashcard-content-obj');
 
     const [syncedFolder] = useState(syncedFolderID)
 
     const onSubmitFlashcard = (changeContent) => {
         changeContent.preventDefault()
-        onAddFlashcard({ title, content, contentHTML, syncedFolder })
+        onAddFlashcard({ title, content, contentObj, syncedFolder })
     }
 
     return (
@@ -40,8 +40,8 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                         onChange={(editorState) => {
                             const contentState = editorState.getCurrentContent();
                             const saveContent = (contentState) => {
-                                sessionStorage.setItem('flashcard-text', JSON.stringify(convertToRaw(contentState)));
-                                sessionStorage.setItem('flashcard-text-html' ,convertToHTML(contentState));
+                                sessionStorage.setItem('flashcard-content-obj', JSON.stringify(convertToRaw(contentState)));
+                                sessionStorage.setItem('flashcard-content', convertToHTML(contentState));
                             };
                             saveContent(contentState);
                             setEditorState(editorState);
