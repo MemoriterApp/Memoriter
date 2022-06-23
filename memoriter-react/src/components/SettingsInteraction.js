@@ -13,6 +13,8 @@ function SettingsClick() {
 
     const [user, setUser] = useState({});
 
+    const [changePassword, openChangePassword] = useState(false)
+
     onAuthStateChanged(firebase.auth, (currentUser) => {
         setUser(currentUser);
     })
@@ -69,7 +71,16 @@ function SettingsClick() {
                         <h1 className='Settings-profile-header' style={{fontSize: '21px', textAlign:'left', margin:'5px'}}>Password</h1>
                         <div className ='Settings-line'></div>
                         <p style={{fontSize: '10px'}} />
-                        <div className='Settings-profile-text'style={{ margin:'5px'}}>change password</div>
+                        <div className='Settings-profile-text'style={{ margin:'5px'}} onClick={() => openChangePassword(true)}>change password</div>
+                        {/*form to enter new password */}
+                            {changePassword && <div>
+                                <form>
+                                    <label for="npassword">enter new password:</label>
+                                    <br></br>
+                                    <input type="text" id="npassword" name="npassword"></input>
+                                </form>
+                            </div>}
+
                         <p style={{fontSize: '30px'}} />
                     </div>
                     <div>
