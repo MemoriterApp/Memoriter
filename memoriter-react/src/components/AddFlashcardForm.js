@@ -1,3 +1,4 @@
+import { Editor, EditorState, convertToRaw, ContentState } from 'draft-js';
 import React from 'react';
 import { useState } from 'react';
 
@@ -5,7 +6,9 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
 
     const [title, setTitle] = useState('')
 
-    const [content, setContent] = useState('')
+    const [editorState, setEditorState] = useState(EditorState.createEmpty());
+
+    const content = sessionStorage.getItem('flashcard-text');
 
     const [syncedFolder] = useState(syncedFolderID)
 
@@ -22,8 +25,26 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                 <textarea rows='2' className='Add_Flashcard_Form_Title' placeholder='Flashcard Title...' maxLength='100'
                     value={title} onChange={(changeContent) => setTitle(changeContent.target.value)} />
                 <p style={{fontSize: '20px'}} />
-                <textarea className='Add_Flashcard_Form_Content' placeholder='Flashcard Content...'
-                    value={content} onChange={(changeContent) => setContent(changeContent.target.value)} />
+                
+                
+                {/*<textarea className='Add_Flashcard_Form_Content' placeholder='Flashcard Content...'
+                    value={content} onChange={(changeContent) => setContent(changeContent.target.value)} />*/}
+                
+                <div className='Add_Flashcard_Form_Content'>
+                    <Editor
+                        editorState={editorState}
+                        onChange={(editorState) => {
+                            const contentState = editorState.getCurrentContent();
+                            const saveContent = (contentState) => {
+                                sessionStorage.setItem('flashcard-text', JSON.stringify(convertToRaw(contentState)));
+                            };
+                            saveContent(contentState);
+                            setEditorState(editorState);
+                        }}
+                    />
+                </div>
+
+            
             </div>
                 <input className='Add_Flashcard_Form_Submit' type='submit' value='Done' />
                 <div className='Add_Flashcard_Form_Submit'
