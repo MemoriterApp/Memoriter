@@ -123,7 +123,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             </div>
             <div className='Flashcard_Rechteck' onClick={openFlashcard}>
                 <h3 className='Flashcard_Title'>{flashcard.title}</h3>
-                <p className='Flashcard_Content'>{flashcard.content}</p>
+                <p className='Flashcard_Content'>{flashcard.contentHTML}</p>
             </div>
 
             <div>

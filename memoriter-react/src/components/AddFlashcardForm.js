@@ -1,4 +1,5 @@
-import { Editor, EditorState, convertToRaw, ContentState } from 'draft-js';
+import { Editor, EditorState, convertToRaw } from 'draft-js';
+import { convertToHTML } from 'draft-convert'
 import React from 'react';
 import { useState } from 'react';
 
@@ -9,12 +10,13 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
     const content = sessionStorage.getItem('flashcard-text');
+    const contentHTML = sessionStorage.getItem('flashcard-text-html');
 
     const [syncedFolder] = useState(syncedFolderID)
 
     const onSubmitFlashcard = (changeContent) => {
         changeContent.preventDefault()
-        onAddFlashcard({ title, content, syncedFolder })
+        onAddFlashcard({ title, content, contentHTML, syncedFolder })
     }
 
     return (
@@ -37,6 +39,7 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                             const contentState = editorState.getCurrentContent();
                             const saveContent = (contentState) => {
                                 sessionStorage.setItem('flashcard-text', JSON.stringify(convertToRaw(contentState)));
+                                sessionStorage.setItem('flashcard-text-html' ,convertToHTML(contentState));
                             };
                             saveContent(contentState);
                             setEditorState(editorState);
