@@ -8,11 +8,91 @@
     margin-top: auto;
     left: 0;
     width: 100%;
-    height: 200px;
     background-color: rgba(18, 18, 18, 1);
 }
 
-@media (max-width: 320px) {
+.product-footer-top-transition-shape-left { /*trapezoid shape at the top left*/
+    position: absolute;
+    left: 0;
+    top: -50px;
+	border-right: 50px solid rgba(0, 0, 0, 0);
+    border-bottom: 50px solid rgba(18, 18, 18, 1);
+	height: 0;
+	width: 30vw;
+}
+.product-footer-top-transition-shape-right { /*trapezoid shape at the top right*/
+    position: absolute;
+    right: 0;
+    top: -50px;
+	border-left: 50px solid rgba(0, 0, 0, 0);
+    border-bottom: 50px solid rgba(18, 18, 18, 1);
+	height: 0;
+	width: 30vw;
+}
+
+.product-footer-content { /*values for setting up the column layout*/
+    display: flex; /*display: flex creates columns*/
+    gap: 20px;
+    padding: 80px 8% 80px 8%;
+}
+.product-footer-content > * { /*layout optimization*/
+    flex: 1; /*used for equal columns*/
+}
+
+.product-footer-header { /*column header*/
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    text-decoration: none;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.product-footer-link { /*column list items*/
+    display: block;
+    width: fit-content;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    text-decoration: none;
+    line-height: 1.5;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+@media (max-width: 1160px) { /*small optimization for small screens*/
+    .product-footer-content{
+        padding: 80px 4% 80px 4%;
+    }
+}
+
+@media (max-width: 960px) { /*mobile layout*/
+    /*the top transition shapes are smaller on mobile devices to look better*/
+    .product-footer-top-transition-shape-left {
+        width: 20vw;
+    }
+    .product-footer-top-transition-shape-right {
+        width: 20vw;
+    }
+
+    .product-footer-content {
+        flex-wrap: wrap;
+    }
+
+    /*font size will be smaller*/
+    .product-footer-header {
+        font-size: 0.9rem;
+    }
+
+    .product-footer-link {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 320px) { /*hides footer on to small screens*/
     .product-footer {
         display: none;
     }
