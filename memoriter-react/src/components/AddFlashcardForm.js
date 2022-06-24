@@ -57,10 +57,37 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
             </div>
         );
     };
+
+    const BLOCK_TYPES = [
+        { label: "Bulleted List", style: "unordered-list-item" },
+        { label: "Numbered List", style: "ordered-list-item" }
+      ];
+    
+      const BlockStyleControls = (props) => {
+        return (
+          <div>
+            {BLOCK_TYPES.map((type) => (
+              <StyleButton
+                key={type.label}
+                active={type.style}
+                label={type.label}
+                onToggle={props.onToggle}
+                style={type.style}
+              />
+            ))}
+          </div>
+        );
+      };
+
     const onInlineClick = (e) => {
         let nextState = RichUtils.toggleInlineStyle(editorState, e);
         setEditorState(nextState);
     };
+
+    const onBlockClick = (e) => {
+        let nextState = RichUtils.toggleBlockType(editorState, e);
+        setEditorState(nextState);
+      };
 
     return (
         <form className='Flashcard_Open_Body' onSubmit={onSubmitFlashcard}>
@@ -76,6 +103,7 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                     value={content} onChange={(changeContent) => setContent(changeContent.target.value)} />*/}
                 
                 <div className='Add_Flashcard_Form_Content'>
+                    <BlockStyleControls onToggle={onBlockClick} />
                     <InlineStyleControls onToggle={onInlineClick} />
                     <Editor
                         placeholder='Flashcard Content...'
