@@ -86,7 +86,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     const [title, setTitle] = useState(flashcard.title)
 
-    const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    const [editorState, setEditorState] = useState(EditorState.createWithContent(convertFromRaw(JSON.parse(sessionStorage.getItem('flashcard-content-obj')))));
 
     const content = sessionStorage.getItem('flashcard-content');
     const contentObj = sessionStorage.getItem('flashcard-content-obj');
