@@ -1,4 +1,8 @@
 import '../../styles/product/product-footer.css';
+import youtubeIcon from '../../images/youtube-icon.svg';
+import twitterIcon from '../../images/twitter-icon.svg';
+import instagramIcon from '../../images/instagram-icon.svg';
+import newsletterIcon from '../../images/newsletter-icon.svg';
 import { Link } from 'react-router-dom';
 
 const ProductFooter = () => {
@@ -42,17 +46,51 @@ const ProductFooter = () => {
                     <Link className='product-footer-link' to='/support'>Support</Link>
                     <Link className='product-footer-link' to='/faq'>FAQ</Link>
                     <Link className='product-footer-link' to='/report'>Bug Report</Link>
-                    <a className='product-footer-link'>Cookie Settings</a>
+                    <a className='product-footer-link'>Cookie Settings</a> {/*not a link, but a button*/}
                 </nav>
 
-                <nav> {/*eternal links*/}
+                <nav> {/*mostly external links*/}
                     <p className='product-footer-header'>Follow Us</p>
                     <a className='product-footer-link' href='https://www.twitter.com/' target='_blank' rel='noreferrer'>Twitter</a>
                     <a className='product-footer-link' href='https://www.youtube.com/' target='_blank' rel='noreferrer'>YouTube</a>
                     <a className='product-footer-link' href='https://www.instagram.com/memorit.er/' target='_blank' rel='noreferrer'>Instagram</a>
-                    <a className='product-footer-link' href='' target='_blank' rel='noreferrer'>-PLACEHOLDER-</a>
+                    <Link className='product-footer-link' to='/newsletter'>Newsletter</Link>
                 </nav>
 
+            </div>
+
+            {/*box at the bottom with social media links and other buttons*/}
+            <div className='product-footer-bottom-box'>
+                <p className='product-footer-bottom-box-text'>©Copyright 2022 Memoriter</p>
+
+                {/*right text uses two classes, one for the hover effect*/}
+                <p style ={{right: '180px', cursor: 'pointer'}}
+                    className='product-footer-bottom-box-text product-footer-bottom-box-text-hover'>Language: English</p>
+                <p style ={{right: '20px', cursor: 'pointer'}}
+                    className='product-footer-bottom-box-text product-footer-bottom-box-text-hover'>Visual Mode: Dark</p>
+
+                {/*social media icons*/}
+                <div className='product-footer-bottom-box-social-media-box'>
+                    <a className='product-footer-bottom-box-social-media-circle' style={{left: '0'}}
+                        href='https://www.twitter.com/' target='_blank' rel='noreferrer'>
+                        <img className='product-footer-bottom-box-social-media-icon'
+                            src={twitterIcon} alt='twitter-icon'/>
+                    </a>
+                    <a className='product-footer-bottom-box-social-media-circle' style={{left: '60px'}}
+                        href='https://www.youtube.com/' target='_blank' rel='noreferrer'>
+                        <img className='product-footer-bottom-box-social-media-icon'
+                            src={youtubeIcon} alt='youtube-icon'/>
+                    </a>
+                    <a className='product-footer-bottom-box-social-media-circle' style={{right: '60px'}}>
+                        <img className='product-footer-bottom-box-social-media-icon'
+                            src={instagramIcon} alt='instagram-icon'/>
+                    </a>
+                    <Link className='product-footer-bottom-box-social-media-circle' style={{right: '0'}}
+                        to='/newsletter'>
+                        <img className='product-footer-bottom-box-social-media-icon'
+                            src={newsletterIcon} alt='newsletter-icon'/>
+                    </Link>
+                </div>
             </div>
 
         </footer>

@@ -84,7 +84,7 @@
     transform: translate(-50%, -50%);
     width: 85%;
     height: 85%;
-    filter: invert(0.78431372549019607843137254901961);
+    filter: invert(0.78431372549019607843137254901961); /*for the correct icon color*/
 }
 
 .product-header-visual-mode-button { /*button to swich between light and dark mode*/
