@@ -6,7 +6,7 @@ import BackdropOpenFlashcard from './backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
 import parse from 'html-react-parser';
 import { Editor, EditorState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
-import { convertToHTML } from 'draft-convert';
+import { convertFromHTML, convertToHTML } from 'draft-convert';
 
 const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
     onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView, onPosAdjust }) => {
@@ -86,10 +86,9 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     const [title, setTitle] = useState(flashcard.title)
 
-    const [editorState, setEditorState] = useState(EditorState.createWithContent(convertFromRaw(JSON.parse(sessionStorage.getItem('flashcard-content-obj')))));
+    const [editorState, setEditorState] = useState(EditorState.createWithContent(convertFromHTML(flashcard.content)));
 
     const content = sessionStorage.getItem('flashcard-content');
-    const contentObj = sessionStorage.getItem('flashcard-content-obj');
 
     const [ pos, setPos ] = useState(flashcard.pos)
 
