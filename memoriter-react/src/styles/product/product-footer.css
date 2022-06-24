@@ -62,8 +62,10 @@
     white-space: nowrap;
     cursor: pointer;
     transition: color 200ms;
+    transition: transform 200ms;
 }
 .product-footer-link:hover { /*hover effect*/
+    transform: translate(4px);
     color: rgba(200, 200, 200, 1);
 }
 
