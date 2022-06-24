@@ -1886,3 +1886,14 @@ body {
     line-height: 35px;
     text-align: left;
 }
+
+/*Text Editor Buttons*/
+.text-editor-button {
+    display: inline;
+    cursor: pointer;
+    margin: 10px 10px 10px 0;
+    line-height: 2;
+    border: 2px solid rgba(112, 112 ,112 ,1);
+    border-radius: 4px;
+    padding: 4px 4px 4px 4px;
+}

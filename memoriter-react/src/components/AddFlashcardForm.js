@@ -20,6 +20,7 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
         onAddFlashcard({ title, content, contentObj, syncedFolder })
     }
 
+    //Editor Functions
     function handleKeyCommand (command) {
         const newState = RichUtils.handleKeyCommand(editorState, command);
         if (newState) {
@@ -34,7 +35,7 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
           e.preventDefault();
           props.onToggle(props.style);
         };
-        return <button onMouseDown={onClickButton}>{props.label}</button>;
+        return <div onMouseDown={onClickButton} className='text-editor-button'>{props.label}</div>;
     };
 
     const INLINE_STYLES = [
@@ -103,8 +104,9 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                     value={content} onChange={(changeContent) => setContent(changeContent.target.value)} />*/}
                 
                 <div className='Add_Flashcard_Form_Content'>
-                    <BlockStyleControls onToggle={onBlockClick} />
-                    <InlineStyleControls onToggle={onInlineClick} />
+                    <BlockStyleControls onToggle={onBlockClick}/>
+                    <InlineStyleControls onToggle={onInlineClick}/>
+                    <div style={{width: '100%', borderTop: '2px solid rgba(112, 112 ,112 ,1)', margin: '10px 0 10px 0'}}/>
                     <Editor
                         placeholder='Flashcard Content...'
                         editorState={editorState}
