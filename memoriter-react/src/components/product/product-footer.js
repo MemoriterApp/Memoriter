@@ -61,13 +61,11 @@ const ProductFooter = () => {
 
             {/*box at the bottom with social media links and other buttons*/}
             <div className='product-footer-bottom-box'>
-                <p className='product-footer-bottom-box-text'>©Copyright 2022 Memoriter</p>
+                <p className='product-footer-bottom-box-copyright'>©Copyright 2022 Memoriter</p>
 
                 {/*right text uses two classes, one for the hover effect*/}
-                <p style ={{right: '180px', cursor: 'pointer'}}
-                    className='product-footer-bottom-box-text product-footer-bottom-box-text-hover'>Language: English</p>
-                <p style ={{right: '20px', cursor: 'pointer'}}
-                    className='product-footer-bottom-box-text product-footer-bottom-box-text-hover'>Visual Mode: Dark</p>
+                <p className='product-footer-bottom-box-text product-footer-bottom-box-language'>Language: English</p>
+                <p className='product-footer-bottom-box-text product-footer-bottom-box-visual-mode'>Visual Mode: Dark</p>
 
                 {/*social media icons*/}
                 <div className='product-footer-bottom-box-social-media-box'>
@@ -81,7 +79,8 @@ const ProductFooter = () => {
                         <img className='product-footer-bottom-box-social-media-icon'
                             src={youtubeIcon} alt='youtube-icon'/>
                     </a>
-                    <a className='product-footer-bottom-box-social-media-circle' style={{right: '60px'}}>
+                    <a className='product-footer-bottom-box-social-media-circle' style={{right: '60px'}}
+                        href='https://www.instagram.com/memorit.er/' target='_blank' rel='noreferrer'>
                         <img className='product-footer-bottom-box-social-media-icon'
                             src={instagramIcon} alt='instagram-icon'/>
                     </a>
