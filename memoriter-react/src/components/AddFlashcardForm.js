@@ -99,10 +99,6 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                     value={title} onChange={(changeContent) => setTitle(changeContent.target.value)} />
                 <p style={{fontSize: '20px'}} />
                 
-                
-                {/*<textarea className='Add_Flashcard_Form_Content' placeholder='Flashcard Content...'
-                    value={content} onChange={(changeContent) => setContent(changeContent.target.value)} />*/}
-                
                 <div className='Add_Flashcard_Form_Content'>
                     <BlockStyleControls onToggle={onBlockClick}/>
                     <InlineStyleControls onToggle={onInlineClick}/>
@@ -123,7 +119,6 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                     />
                 </div>
 
-            
             </div>
                 <input className='Add_Flashcard_Form_Submit' type='submit' value='Done' />
                 <div className='Add_Flashcard_Form_Submit'

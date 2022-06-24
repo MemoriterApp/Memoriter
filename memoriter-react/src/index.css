@@ -961,7 +961,7 @@ body {
     border: 2px solid rgba(112, 112 ,112 ,1);
     border-radius: 3px;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 .Edit_Flashcard_Open_Body {
     position: fixed;
@@ -1896,4 +1896,5 @@ body {
     border: 2px solid rgba(112, 112 ,112 ,1);
     border-radius: 4px;
     padding: 4px 4px 4px 4px;
+    white-space: nowrap;
 }
