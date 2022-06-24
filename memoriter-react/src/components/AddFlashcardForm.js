@@ -29,6 +29,39 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
         return 'not-handled';
     }
 
+    const StyleButton = (props) => {
+        let onClickButton = (e) => {
+          e.preventDefault();
+          props.onToggle(props.style);
+        };
+        return <button onMouseDown={onClickButton}>{props.label}</button>;
+    };
+
+    const INLINE_STYLES = [
+        { label: "Bold", style: "BOLD" },
+        { label: "Italic", style: "ITALIC" },
+        { label: "Underline", style: "UNDERLINE" }
+    ];
+    
+    const InlineStyleControls = (props) => {
+        return (
+            <div>
+                {INLINE_STYLES.map((type) => (
+                <StyleButton
+                    key={type.label}
+                    label={type.label}
+                    onToggle={props.onToggle}
+                    style={type.style}
+                />
+                ))}
+            </div>
+        );
+    };
+    const onInlineClick = (e) => {
+        let nextState = RichUtils.toggleInlineStyle(editorState, e);
+        setEditorState(nextState);
+    };
+
     return (
         <form className='Flashcard_Open_Body' onSubmit={onSubmitFlashcard}>
             <div>
@@ -43,6 +76,7 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                     value={content} onChange={(changeContent) => setContent(changeContent.target.value)} />*/}
                 
                 <div className='Add_Flashcard_Form_Content'>
+                    <InlineStyleControls onToggle={onInlineClick} />
                     <Editor
                         placeholder='Flashcard Content...'
                         editorState={editorState}
