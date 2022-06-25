@@ -9,7 +9,7 @@
 }
 
 .product-main-container { /*contains all of the main sections, is used for positioning*/
-    margin: 80px 20px 0 20px;
+    margin: 120px 20px 0 20px;
 }
 
 .product-main-header { /*header font styling*/
@@ -45,12 +45,12 @@
         margin-left: 60px;
     }
 
-    .product-main-image {
+    .product-main-image { /*images are pushed down to the height of the headers*/
         margin-top: 42px;
     }
 }
 
-@media (max-width: 240px) {
+@media (max-width: 240px) { /*hiding content for too small screens (where the warning displays)*/
     .product-main {
         display: none;
     }
