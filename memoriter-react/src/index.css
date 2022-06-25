@@ -533,6 +533,7 @@ body {
     position: absolute;
     right: 15px;
     top: 20px;
+    white-space: nowrap;
 }
 .folder-settings-sub {
     color: rgba(58,109,112,1);
@@ -541,7 +542,7 @@ body {
     cursor: pointer;
     margin: 2px;
     width: 100%;
-    top: -16%;
+    top: -20%;
     font-weight: bold;
     left: -12%;
 }
@@ -951,7 +952,7 @@ body {
     width: calc(100% - 34px);
     height: calc(100% - 270px);
     color: white;
-    text-align: justify;
+    text-align: left;
     background-color: #353535;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;

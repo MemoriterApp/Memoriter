@@ -7,7 +7,7 @@ import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
 import parse from 'html-react-parser';
 
 const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
-    onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView, onPosAdjust }) => {
+    onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView, onPosAdjust, onChangeTextAlign }) => {
 
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
@@ -107,9 +107,9 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
         <div className='Flashcard_Body'>
             <div className='Flashcard_Settings_Bar'>
                 <div className='Flashcard_Settings' onClick={settingsHandler}>
-                    <span className='dot'></span>
-                    <span className='dot'></span>
-                    <span className='dot'></span>
+                    <span className='dot'/>
+                    <span className='dot'/>
+                    <span className='dot'/>
                 </div>
                 <div className='Flashcard_Pos_Body_Left' onClick={
                     () => { if (pos > 1) {setPos(pos - 1); onPosLeft(flashcard.id, pos);} }
@@ -124,7 +124,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             </div>
             <div className='Flashcard_Rechteck' onClick={openFlashcard}>
                 <h3 className='Flashcard_Title'>{flashcard.title}</h3>
-                <p className='Flashcard_Content'>{parse(flashcard.content)}</p>
+                <p className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}>{flashcard.content}</p>
             </div>
 
             <div>
@@ -145,7 +145,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                         <p style={{fontSize: '40px'}} />
                         <h2 className='Flashcard_Open_Title'>{flashcard.title}</h2>
                         <p style={{fontSize: '40px'}} />
-                        <p className='Flashcard_Open_Content'>{flashcard.content}</p>
+                        <p className='Flashcard_Open_Content' style={{textAlign: flashcard.textAlign}}>{flashcard.content}</p>
                         <div>
 
                         </div>
@@ -163,11 +163,14 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
             {modalIsOpenSO && <div className='flashcard-open-settings-overlay-position-field'>
                 <div className='flashcard-open-settings-overlay-position-field-click' onClick={backdropClickOpen}/>
-                <div className='flashcard-open-settings-overlay'>
+                <div className='flashcard-open-settings-overlay' style={{width: '90px', height: '100px', padding: '14px 0 14px 14px'}}>
                     <div className='folder-settings-sub'>
-                        <p onClick={editOpenFlashcardReq}>Edit</p>
-                        <p onClick={deleteFlashcardReq}>Delete</p>
+                        <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
+                            {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
+                        <p onClick={editFlashcardReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
+                        <p onClick={deleteFlashcardReq} style={{color: 'rgb(228, 48, 48)'}}>✕ Delete</p>
                     </div>
+
                 </div>
             </div>}
 
@@ -176,10 +179,12 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             </div>
 
             <div>
-                {modalIsOpenS && <div className='flashcard-settings-overlay'>
+                {modalIsOpenS && <div className='flashcard-settings-overlay' style={{width: '90px', height: '100px', padding: '14px 0 14px 14px'}}>
                     <div className='folder-settings-sub'>
-                        <p onClick={editFlashcardReq}>Edit</p>
-                        <p onClick={deleteFlashcardReq}>Delete</p>
+                        <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
+                            {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
+                        <p onClick={editFlashcardReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
+                        <p onClick={deleteFlashcardReq} style={{color: 'rgb(228, 48, 48)'}}>✕ Delete</p>
                     </div>
 
                 </div>}
