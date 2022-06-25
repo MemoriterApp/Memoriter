@@ -33,9 +33,20 @@
     width: 100%;
 }
 
-@media (min-width: 960px) { /*adding complexity for larger screens (e.g two columns), therefore it is min-width*/
+@media (min-width: 960.5px) { /*adding complexity for larger screens (e.g two columns), therefore it is min-width*/
     .product-main-container {
         display: flex;
+        margin: 80px 40px 0 40px;
+    }
+    .product-main-container > * { /*children of containe*/
+        flex-basis: 100%;
+    }
+    .product-main-container > * + * { /*children of containe*/
+        margin-left: 60px;
+    }
+
+    .product-main-image {
+        margin-top: 42px;
     }
 }
 
