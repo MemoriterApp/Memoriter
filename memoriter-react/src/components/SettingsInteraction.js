@@ -78,10 +78,9 @@ return (
                         {changeEmail && <div>
                             <div className='Settings-changemail-body'>
 
-                            <div className='Settings-profile-text' style={{ color: '#bbb', margin: '5px' }}>Update: "{user.email}"?</div>
+                            <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign:'center' }}>Update "{user.email}"</div>
                                 <form onSubmit={handleSubmit}>
-                                    <label for="nmail">enter new mail:</label>
-                                    <br></br>
+
                                     <input className='Settings-changemail-forum' 
                                     placeholder="New Email"
                                     type="mail" 
@@ -91,6 +90,8 @@ return (
                                     value={newEmail}
                                     />
                                     {/*<input type="submit" value="Submit"></input> */}
+                                </form>
+                                    <br></br>
                                     <input className='Settings-changemail-forum' 
                                     placeholder="Confirm Email"
                                     type="mail" 
@@ -98,7 +99,16 @@ return (
                                     name="nmail" 
                                     onChange={event => setNewEmail(event.target.value)}
                                     value={newEmail}
-                                    />
+                                    /> {/*
+                                    <br></br>
+                                    <br></br>
+                                    <input className='Settings-changemail-forum' 
+                                    placeholder="Account password"
+                                    onChange={event => setNewEmail(event.target.value)}
+                                    value={newEmail}
+                                    />*/}
+                                <form>
+
                                 </form>
                                 <button className='Settings-changemail-cancel' onClick={() =>openChangeEmail(false)}>Cancel</button>
                                 <button className='Settings-changemail-change' onClick={() =>openChangeEmail(false)}>Update Email</button>
