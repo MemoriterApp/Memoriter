@@ -212,7 +212,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             </div>
             <div className='Flashcard_Rechteck' onClick={openFlashcard}>
                 <h3 className='Flashcard_Title'>{flashcard.title}</h3>
-                <p className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</p>
+                <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</div>
             </div>
 
             <div>
@@ -233,7 +233,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                         <p style={{fontSize: '40px'}} />
                         <h2 className='Flashcard_Open_Title'>{flashcard.title}</h2>
                         <p style={{fontSize: '40px'}} />
-                        <p className='Flashcard_Open_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</p>
+                        <div className='Flashcard_Open_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</div>
                         <div>
 
                         </div>
