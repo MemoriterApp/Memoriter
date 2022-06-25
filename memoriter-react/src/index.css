@@ -1914,7 +1914,7 @@ body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    width: 450px;
+    width: 520px;
     height: 60vh;
     position: fixed;
     top: 10%;
@@ -1925,8 +1925,58 @@ body {
     border-radius: 6px;
     overflow-y: auto;
 }
-@media (max-width: 500px){
+.Settings-changemail-body {
+    border: 5px solid #274b65;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    background-color: #353535;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    width: 450px;
+    height: 300px;
+    position: fixed;
+    top: 20%;
+    right:50%;
+    max-width: calc(100vw - 30px);
+    max-height: calc(100vh - 30px);
+    z-index: 10;
+    border-radius: 6px;
+    overflow-y: auto;
+}
+.Settings-changemail-cancel {
+    border: 5px solid rgba(112,112,112,1);
+    border-radius: 3px;
+    padding: 5px;
+    width: 130px;
+    color: white;
+    background-color: rgba(112,112,112,1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 9vw;
+}
+.Settings-changemail-change {
+    border: 5px solid #264a63;
+    border-radius: 3px;
+    padding: 5px;
+    width: 175px;
+    color: white;
+    background-color: #264a63;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 9vw;
+}
+.Settings-changemail-forum {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+@media (max-width: 600px){
     .Settings-profile-body{
         width: 90vw;
+        right:0px;
+        left:4vw;
     }
 }
