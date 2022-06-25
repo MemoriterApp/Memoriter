@@ -75,13 +75,14 @@ return (
                         <div className='Settings-profile-text' style={{ float: 'left', margin: '5px', }}>Personal email:</div>
                         <div className='Settings-profile-text' style={{ color: '#bbb', float: 'inline-start', margin: '5px' }}>{user.email}</div>
                         <div className='Settings-profile-text' style={{ float: 'inline-start', margin: '5px' }} onClick={() => openChangeEmail(true)}>Edit</div>
+
                         {changeEmail && <div>
                             <div className='Settings-changemail-body'>
 
                             <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign:'center' }}>Update "{user.email}"</div>
                                 <form onSubmit={handleSubmit}>
 
-                                    <input className='Settings-changemail-forum' 
+                                    <input className='Settings-changemail-form' 
                                     placeholder="New Email"
                                     type="mail" 
                                     id="nmail" 
@@ -92,7 +93,7 @@ return (
                                     {/*<input type="submit" value="Submit"></input> */}
                                 </form>
                                     <br></br>
-                                    <input className='Settings-changemail-forum' 
+                                    <input className='Settings-changemail-form' 
                                     placeholder="Confirm Email"
                                     type="mail" 
                                     id="nmail" 
@@ -102,7 +103,7 @@ return (
                                     /> {/*
                                     <br></br>
                                     <br></br>
-                                    <input className='Settings-changemail-forum' 
+                                    <input className='Settings-changemail-form' 
                                     placeholder="Account password"
                                     onChange={event => setNewEmail(event.target.value)}
                                     value={newEmail}
@@ -113,7 +114,7 @@ return (
                                 <button className='Settings-changemail-cancel' onClick={() =>openChangeEmail(false)}>Cancel</button>
                                 <button className='Settings-changemail-change' onClick={() =>openChangeEmail(false)}>Update Email</button>
                             </div>
-                            	<Backdrop onClick={() => openChangeEmail(false)} />
+                            <Backdrop onClick={() => openChangeEmail(false)} />
                         </div>}
                     </div>
 
@@ -136,18 +137,41 @@ return (
                     {/*form to enter new password */}
 
                     {changePassword && <div>
-                        <form onChange={handleSubmit}>
-                            <label for="npassword">enter new password:</label>
-                            <br></br>
-                            <input 
-                            type="password" 
-                            id="npassword" 
-                            name="npassword"
-                            onChange={event => setNewPassword}
-                            value={newPassword}
-                            />
-                            <input type="submit" value="Submit"></input>
-                        </form>
+                        <div className='Settings-changemail-body'style={{ height:'350px'}}>
+                        <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign:'center' }}>Change password</div>
+                            <form>
+                                <br></br>
+                                <input className='Settings-changemail-form' 
+                                placeholder="Old password"
+                                type="password" 
+                                />
+                            </form>
+                            <form onChange={handleSubmit}>
+                                <br></br>
+                                <input className='Settings-changemail-form' 
+                                placeholder="New password"
+                                type="password" 
+                                id="npassword" 
+                                name="npassword"
+                                onChange={event => setNewPassword}
+                                value={newPassword}
+                                />
+                            </form>
+                            <form onChange={handleSubmit}>
+                                <br></br>
+                                <input className='Settings-changemail-form' 
+                                placeholder="Confirm new password"
+                                type="password" 
+                                id="npassword" 
+                                name="npassword"
+                                onChange={event => setNewPassword}
+                                value={newPassword}
+                                />
+                            </form>
+                            <button className='Settings-changemail-cancel' onClick={() => openChangePassword(false)}>Cancel</button>
+                            <button className='Settings-changemail-change' style={{ width:'130px'}} onClick={ErrorEvent}>Confirm</button>
+                        </div>
+                        <Backdrop onClick={() => openChangePassword(false)} />
                     </div>}
 
                     <p style={{ fontSize: '30px' }} />
