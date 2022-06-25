@@ -35,7 +35,14 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
           e.preventDefault();
           props.onToggle(props.style);
         };
-        return <div onMouseDown={onClickButton} className='text-editor-button'>{props.label}</div>;
+        let className = 'text-editor-button';
+          if (props.active) {
+            className += ' text-editor-button-active';
+            };
+        return <div onMouseDown={onClickButton} className={className}
+                    style={{fontWeight: props.label, fontStyle: props.label, textDecoration: props.label}}>
+                        {props.label}
+                </div>;
     };
 
     const INLINE_STYLES = [
@@ -45,6 +52,7 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
     ];
     
     const InlineStyleControls = (props) => {
+        const currentStyle = editorState.getCurrentInlineStyle();
         return (
             <div>
                 {INLINE_STYLES.map((type) => (
@@ -53,6 +61,7 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
                     label={type.label}
                     onToggle={props.onToggle}
                     style={type.style}
+                    active={currentStyle.has(type.style)}
                 />
                 ))}
             </div>
@@ -65,15 +74,20 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
       ];
     
       const BlockStyleControls = (props) => {
+        const selection = editorState.getSelection();
+        const blockType = editorState
+          .getCurrentContent()
+          .getBlockForKey(selection.getStartKey())
+          .getType();
         return (
           <div>
             {BLOCK_TYPES.map((type) => (
               <StyleButton
                 key={type.label}
-                active={type.style}
                 label={type.label}
                 onToggle={props.onToggle}
                 style={type.style}
+                active={type.style === blockType}
               />
             ))}
           </div>
@@ -81,13 +95,13 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
       };
 
     const onInlineClick = (e) => {
-        let nextState = RichUtils.toggleInlineStyle(editorState, e);
-        setEditorState(nextState);
+        let newState = RichUtils.toggleInlineStyle(editorState, e);
+        setEditorState(newState);
     };
 
     const onBlockClick = (e) => {
-        let nextState = RichUtils.toggleBlockType(editorState, e);
-        setEditorState(nextState);
+        let newState = RichUtils.toggleBlockType(editorState, e);
+        setEditorState(newState);
       };
 
     return (

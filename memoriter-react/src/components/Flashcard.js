@@ -5,7 +5,7 @@ import Backdropfs from './backdropfs';
 import BackdropOpenFlashcard from './backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
 import parse from 'html-react-parser';
-import { Editor, EditorState, RichUtils, convertToRaw, convertFromRaw } from 'draft-js';
+import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 import { convertFromHTML, convertToHTML } from 'draft-convert';
 
 const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
@@ -122,19 +122,24 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
           e.preventDefault();
           props.onToggle(props.style);
         };
-        return <div onMouseDown={onClickButton} className='text-editor-button'
+        let className = 'text-editor-button';
+          if (props.active) {
+            className += ' text-editor-button-active';
+            };
+        return <div onMouseDown={onClickButton} className={className}
                     style={{fontWeight: props.label, fontStyle: props.label, textDecoration: props.label}}>
                         {props.label}
                 </div>;
     };
 
     const INLINE_STYLES = [
-        { label: "Bold", style: "BOLD" },
+        { label: "Bold", style: "BOLD", highlight: 'red' },
         { label: "Italic", style: "ITALIC" },
         { label: "Underline", style: "UNDERLINE" }
     ];
     
     const InlineStyleControls = (props) => {
+        const currentStyle = editorState.getCurrentInlineStyle();
         return (
             <div>
                 {INLINE_STYLES.map((type) => (
@@ -143,6 +148,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                     label={type.label}
                     onToggle={props.onToggle}
                     style={type.style}
+                    active={currentStyle.has(type.style)}
                 />
                 ))}
             </div>
@@ -155,15 +161,20 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
       ];
     
       const BlockStyleControls = (props) => {
+        const selection = editorState.getSelection();
+        const blockType = editorState
+          .getCurrentContent()
+          .getBlockForKey(selection.getStartKey())
+          .getType();
         return (
           <div>
             {BLOCK_TYPES.map((type) => (
               <StyleButton
                 key={type.label}
-                active={type.style}
                 label={type.label}
                 onToggle={props.onToggle}
                 style={type.style}
+                active={type.style === blockType}
               />
             ))}
           </div>
@@ -171,13 +182,13 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
       };
 
     const onInlineClick = (e) => {
-        let nextState = RichUtils.toggleInlineStyle(editorState, e);
-        setEditorState(nextState);
+        let newState = RichUtils.toggleInlineStyle(editorState, e);
+        setEditorState(newState);
     };
 
     const onBlockClick = (e) => {
-        let nextState = RichUtils.toggleBlockType(editorState, e);
-        setEditorState(nextState);
+        let newState = RichUtils.toggleBlockType(editorState, e);
+        setEditorState(newState);
     };
 
     return (
