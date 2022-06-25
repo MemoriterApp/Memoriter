@@ -42,7 +42,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-@media (max-width: 320px) { /*defining screen width for showing the warning*/
+@media (max-width: 240px) { /*defining screen width for showing the warning*/
     .window-size-alert-backdrop {
         display: block;
     }

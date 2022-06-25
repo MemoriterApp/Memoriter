@@ -126,7 +126,7 @@
     }
 }
 
-@media (max-width: 320px) { /*hides all at too small screens in order to show no responsive bugs*/
+@media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/
     .product-banner {
         display: none;
     }

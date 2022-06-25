@@ -8,10 +8,14 @@
     margin-bottom: 200px;
 }
 
+.product-main-container { /*contains all of the main sections, is used for positioning*/
+    margin: 80px 20px 0 20px;
+}
+
 .product-main-header { /*header font styling*/
-    font-style: italic;
-    font-size: 4rem;
+    font-size: 3.2rem;
     font-family: 'Kanit';
+    line-height: 3.2rem;
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     background-clip: text;
     -webkit-background-clip: text;
@@ -22,14 +26,20 @@
     font-size: 1.4rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Inter';
-    line-height: 1.8rem;
+    line-height: 2rem;
 }
 
 .product-main-image { /*image optimization*/
-    max-width: 99%;
+    width: 100%;
 }
 
-@media (max-width: 320px) {
+@media (min-width: 960px) { /*adding complexity for larger screens (e.g two columns), therefore it is min-width*/
+    .product-main-container {
+        display: flex;
+    }
+}
+
+@media (max-width: 240px) {
     .product-main {
         display: none;
     }
