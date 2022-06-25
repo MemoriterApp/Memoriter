@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function SettingsClick() {
 
@@ -100,14 +101,14 @@ return (
                                     name="nmail" 
                                     onChange={event => setNewEmail(event.target.value)}
                                     value={newEmail}
-                                    /> {/*
+                                    /> 
                                     <br></br>
                                     <br></br>
                                     <input className='Settings-changemail-form' 
                                     placeholder="Account password"
                                     onChange={event => setNewEmail(event.target.value)}
                                     value={newEmail}
-                                    />*/}
+                                    />
                                 <form>
 
                                 </form>
@@ -142,8 +143,12 @@ return (
                             <form>
                                 <br></br>
                                 <input className='Settings-changemail-form' 
-                                placeholder="Old password"
-                                type="password" 
+                                    placeholder="Old password"
+                                    type="mail" 
+                                    id="nmail" 
+                                    name="nmail" 
+                                    onChange={event => setNewEmail(event.target.value)}
+                                    value={newEmail}
                                 />
                             </form>
                             <form onChange={handleSubmit}>
@@ -168,6 +173,7 @@ return (
                                 value={newPassword}
                                 />
                             </form>
+                           {/* <Link to='/signup' className="no-account">forgot current password?</Link> */} 
                             <button className='Settings-changemail-cancel' onClick={() => openChangePassword(false)}>Cancel</button>
                             <button className='Settings-changemail-change' style={{ width:'130px'}} onClick={ErrorEvent}>Confirm</button>
                         </div>
