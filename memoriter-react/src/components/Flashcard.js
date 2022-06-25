@@ -122,7 +122,10 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
           e.preventDefault();
           props.onToggle(props.style);
         };
-        return <div onMouseDown={onClickButton} className='text-editor-button'>{props.label}</div>;
+        return <div onMouseDown={onClickButton} className='text-editor-button'
+                    style={{fontWeight: props.label, fontStyle: props.label, textDecoration: props.label}}>
+                        {props.label}
+                </div>;
     };
 
     const INLINE_STYLES = [
