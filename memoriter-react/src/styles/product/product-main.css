@@ -11,6 +11,12 @@
 .product-main-container { /*contains all of the main sections, is used for positioning*/
     margin: 120px 20px 0 20px;
 }
+.product-main-container-sub { /*sub containers with the text inside*/
+    align-self: center;
+}
+.product-main-container-sub-image { /*sub containers with the image inside*/
+    align-self: center;
+}
 
 .product-main-header { /*header font styling*/
     font-size: 3.2rem;
@@ -31,22 +37,22 @@
 
 .product-main-image { /*image optimization*/
     width: 100%;
+    border-radius: 10px;
 }
 
 @media (min-width: 960.5px) { /*adding complexity for larger screens (e.g two columns), therefore it is min-width*/
     .product-main-container {
         display: flex;
-        margin: 80px 40px 0 40px;
+        margin: 160px 40px 80px 40px;
     }
-    .product-main-container > * { /*children of containe*/
-        flex-basis: 100%;
-    }
-    .product-main-container > * + * { /*children of containe*/
+    .product-main-container > * + * { /*children of container*/
         margin-left: 60px;
     }
-
-    .product-main-image { /*images are pushed down to the height of the headers*/
-        margin-top: 42px;
+    .product-main-container-sub { /*text width*/
+        flex-basis: 45%;
+    }
+    .product-main-container-sub-image { /*image width*/
+        flex-basis: 55%;
     }
 }
 
