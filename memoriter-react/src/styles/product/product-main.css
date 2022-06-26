@@ -1,7 +1,7 @@
 /*These styles define the main layout of the product (start) page*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap'); /*large header font*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large header font*/
 
 .product-main { /*just used for layout adjustment*/
     position: relative;
@@ -30,9 +30,9 @@
 }
 
 .product-main-header { /*header font styling*/
-    font-size: 3.2rem;
-    font-family: 'Kanit';
-    line-height: 3.2rem;
+    font-size: 3.4rem;
+    font-family: 'Heebo';
+    line-height: 3.6rem;
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     background-clip: text;
     -webkit-background-clip: text;
