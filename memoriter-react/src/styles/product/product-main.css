@@ -10,6 +10,7 @@
     max-width: 2400px; /*looks better on large screens*/
     margin-top: 100vh;
     margin-bottom: 200px;
+    overflow-x: hidden;
 }
 
 .product-main-container { /*contains all of the main sections, is used for positioning*/
@@ -69,5 +70,62 @@
 @media (max-height: 420px) { /*fixes issues for screens not high enough*/
     .product-main {
         margin-top: 420px;
+    }
+}
+
+/*animation classes*/
+.product-main-animation-fade-in-right { /*class for triggering the fade in right animation*/
+    animation: fade-in-right 200ms;
+}
+@keyframes fade-in-right { /*the items move a bit to the left and get visible*/
+    from {
+        transform: translateX(8%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.product-main-animation-fade-out-right { /*class for triggering the fade out right animation*/
+    animation: fade-out-right 400ms;
+}
+@keyframes fade-out-right { /*the items move a bit to the right and get invisible*/
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(8%);
+        opacity: 0;
+    }
+}
+
+.product-main-animation-fade-in-left { /*class for triggering the fade in left animation*/
+    animation: fade-in-left 200ms;
+}
+@keyframes fade-in-left { /*the items move a bit to the right and get visible*/
+    from {
+        transform: translateX(-8%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.product-main-animation-fade-out-left { /*class for triggering the fade out left animation*/
+    animation: fade-out-left 400ms;
+}
+@keyframes fade-out-left { /*the items move a bit to the right and get invisible*/
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-8%);
+        opacity: 0;
     }
 }
