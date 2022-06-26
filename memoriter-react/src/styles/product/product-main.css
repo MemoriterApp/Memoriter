@@ -32,7 +32,7 @@
 .product-main-header { /*header font styling*/
     font-size: 3.4rem;
     font-family: 'Heebo';
-    line-height: 3.6rem;
+    line-height: 4rem;
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     background-clip: text;
     -webkit-background-clip: text;
