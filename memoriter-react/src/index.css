@@ -1897,6 +1897,7 @@ body {
     color:rgba(58,109,112,1); 
     cursor: pointer;
     font-weight: bold;
+    display: inline-block;
     text-align: left;
 }
 .Settings-line {
@@ -1980,5 +1981,10 @@ body {
         width: 90vw;
         right:0px;
         left:4vw;
+    }
+    .Settings-changemail-body{
+        width: 85vw;
+        right:0px;
+        left:7vw;
     }
 }

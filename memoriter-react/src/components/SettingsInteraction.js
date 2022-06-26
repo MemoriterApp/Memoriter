@@ -73,10 +73,11 @@ return (
                     <div className='Settings-line'></div>
                     <p style={{ fontSize: '10px' }} />
                     <div>
-                        <div className='Settings-profile-text' style={{ float: 'left', margin: '5px', }}>Personal email:</div>
-                        <div className='Settings-profile-text' style={{ color: '#bbb', float: 'inline-start', margin: '5px' }}>{user.email}</div>
-                        <div className='Settings-profile-text' style={{ float: 'inline-start', margin: '5px' }} onClick={() => openChangeEmail(true)}>Edit</div>
-
+                        <div style={{textAlign: 'left'}}>
+                            <div className='Settings-profile-text' style={{ margin: '5px'}}>Personal email:</div>
+                            <div className='Settings-profile-text' style={{ color: '#bbb',  margin: '5px' }}>{user.email}</div>
+                            <div className='Settings-profile-text' style={{ margin: '5px' }} onClick={() => openChangeEmail(true)}>Edit</div>
+                        </div>
                         {changeEmail && <div>
                             <div className='Settings-changemail-body'>
 
@@ -127,13 +128,13 @@ return (
                         </div>*/}
 
                     {/*Wenn man etwas vor diesem punkt addiert muss man das <p> direkt hier drunter vergrößern */}
-                    <p style={{ fontSize: '70px' }} />
+                    <p style={{ fontSize: '30px' }} />
                 </div>
-                <div>
+                <div style={{textAlign: 'left'}}>
                     <h1 className='Settings-profile-header' style={{ fontSize: '21px', textAlign: 'left', margin: '5px' }}>Password</h1>
                     <div className='Settings-line'></div>
                     <p style={{ fontSize: '10px' }} />
-                    <div className='Settings-profile-text' style={{ margin: '5px' }} onClick={() => openChangePassword(true)}>change password</div>
+                    <div className='Settings-profile-text' style={{ margin: '5px',}} onClick={() => openChangePassword(true)}>change password</div>
 
                     {/*form to enter new password */}
 
@@ -182,12 +183,12 @@ return (
 
                     <p style={{ fontSize: '30px' }} />
                 </div>
-                <div>
-                    <h1 className='Settings-profile-header' style={{ fontSize: '21px', textAlign: 'left', margin: '5px' }}>Account</h1>
+                <div style={{textAlign: 'left'}}>
+                    <h1 className='Settings-profile-header' style={{ fontSize: '21px',  margin: '5px'}}>Account</h1>
                     <div className='Settings-line'></div>
                     <p style={{ fontSize: '20px' }} />
-                    <div className='Settings-profile-text' style={{ color: '#d83232', margin: '5px' }}>delete account</div>
-                    <div className='Settings-profile-text' style={{ fontSize: '15px', color: 'rgb(88, 167, 172)', float: 'left', margin: '5px' }} >If you delete your account, your data will be gone forever!</div>
+                    <div className='Settings-profile-text' style={{ color: '#d83232', margin: '5px' }} onClick={() => openSignOutView(true)}>delete account</div>
+                    <div className='Settings-profile-text' style={{ fontSize: '15px', color: 'rgb(88, 167, 172)', margin: '5px' }} >If you delete your account, your data will be gone forever!</div>
                 </div>
             </div>
 
