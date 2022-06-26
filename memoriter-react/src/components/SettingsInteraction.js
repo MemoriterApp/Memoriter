@@ -41,11 +41,7 @@ function SettingsClick() {
     const handleSubmit = event => {
         console.log('handleSubmit ran');
         event.preventDefault();
-    } //this prevents the page from refreshing
-
-    //just to check wether everything is working
-    console.log(newEmail)
-    console.log(newPassword)
+    } //this prevents the page from refreshin
 
     //firebase stuff
     const auth = getAuth();
