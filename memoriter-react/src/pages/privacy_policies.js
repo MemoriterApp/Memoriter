@@ -79,8 +79,9 @@ function PrivacyPage() {
                 </article>
                 <p className="Legal-SubHeader">4. Storage Period</p>
                 <article className="Legal_Text">
-                    The data will be stored until the account is deleted. Unfortunately it is curently not possible to delete an account,
-                    but it will added later alongside other account management features.
+                    The data will be stored until the account is deleted. 
+                    If you delete your account, your log in data and all of your folders and flashcards will be deleted and cannot be restored.
+                    If you change your log in data, the old log in data will be deleted.
                 </article>
                 <p className="Legal-SubHeader">5. Use of Local Storage</p>
                 <article className="Legal_Text">
