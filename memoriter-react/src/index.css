@@ -527,7 +527,7 @@ body {
     border: 5px solid #274b65;
     padding: 1rem;
     text-align: center;
-    width: 3rem;
+    width: 3.4rem;
     height: 4rem;
     z-index: 10;
     position: absolute;
@@ -962,7 +962,7 @@ body {
     border: 2px solid rgba(112, 112 ,112 ,1);
     border-radius: 3px;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 .Edit_Flashcard_Open_Body {
     position: fixed;
@@ -1886,4 +1886,19 @@ body {
 .why-list {
     line-height: 35px;
     text-align: left;
+}
+
+/*Text Editor Buttons*/
+.text-editor-button {
+    display: inline;
+    cursor: pointer;
+    margin: 10px 10px 10px 0;
+    line-height: 2;
+    border: 2px solid rgba(112, 112 ,112 ,1);
+    border-radius: 4px;
+    padding: 4px 4px 4px 4px;
+    white-space: nowrap;
+}
+.text-editor-button-active {
+    background-color: rgba(112, 112 ,112 ,1);
 }

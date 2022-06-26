@@ -134,7 +134,7 @@ function TopicPage() {
             ? { ...flashcard, title: title, content: content } : flashcard))
     }
 
-    //Cahnge text align
+    //Change text align
     const changeTextAlign = async (id, textAlign) => {
         const flashcardDoc = doc(db, 'flashcards', id);
 
