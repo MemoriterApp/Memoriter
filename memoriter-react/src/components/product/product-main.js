@@ -1,9 +1,9 @@
 import '../../styles/product/product-main.css';
-import placeholderImage from '../../pages/Memoriter_Katze.jpeg';
+import placeholderImage from '../../images/placeholder.jpeg';
 
 const ProductMain = () => {
     return (
-        <div className='product-main' style={{top: '100%'}}> {/*the height style is for displaying the section correctly under the banner*/}
+        <div className='product-main'>
 
             <div className='product-main-container'>
                 <div className='product-main-container-sub'>
@@ -13,13 +13,13 @@ const ProductMain = () => {
                     </p>
                 </div>
                 <div className='product-main-container-sub-image'>
-                    <img className='product-main-image' src={placeholderImage} alt='placeholder-screenshot'/>
+                    <img className='product-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
             </div>
 
             <div className='product-main-container'>
                 <div className='product-main-container-sub-image'>
-                    <img className='product-main-image' src={placeholderImage} alt='placeholder-screenshot'/>
+                    <img className='product-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
                 <div className='product-main-container-sub'>
                     <h1 className='product-main-header'>Placeholder Header</h1>
@@ -37,7 +37,7 @@ const ProductMain = () => {
                     </p>
                 </div>
                 <div className='product-main-container-sub-image'>
-                    <img className='product-main-image' src={placeholderImage} alt='placeholder-screenshot'/>
+                    <img className='product-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
             </div>
 

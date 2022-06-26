@@ -4,17 +4,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap'); /*large header font*/
 
 .product-main { /*just used for layout adjustment*/
+    position: relative;
+    left: 50%; /*centering the content on too large screens*/
+    transform: translate(-50%);
+    max-width: 2400px; /*looks better on large screens*/
     margin-top: 100vh;
     margin-bottom: 200px;
 }
 
 .product-main-container { /*contains all of the main sections, is used for positioning*/
-    margin: 120px 20px 0 20px;
+    display: flex;
+    margin: 160px 40px 200px 40px;
+}
+.product-main-container > * + * { /*children of container*/
+    margin-left: 60px;
 }
 .product-main-container-sub { /*sub containers with the text inside*/
+    flex-basis: 45%;
     align-self: center;
 }
 .product-main-container-sub-image { /*sub containers with the image inside*/
+    flex-basis: 55%;
     align-self: center;
 }
 
@@ -40,24 +50,24 @@
     border-radius: 10px;
 }
 
-@media (min-width: 960.5px) { /*adding complexity for larger screens (e.g two columns), therefore it is min-width*/
+@media (max-width: 960px) { /*simplyfied layout for smaller screens*/
     .product-main-container {
-        display: flex;
-        margin: 160px 40px 80px 40px;
+        display: block;
+        margin: 120px 20px 20px 20px;
     }
     .product-main-container > * + * { /*children of container*/
-        margin-left: 60px;
-    }
-    .product-main-container-sub { /*text width*/
-        flex-basis: 45%;
-    }
-    .product-main-container-sub-image { /*image width*/
-        flex-basis: 55%;
+        margin-left: unset;
     }
 }
 
 @media (max-width: 240px) { /*hiding content for too small screens (where the warning displays)*/
     .product-main {
         display: none;
+    }
+}
+
+@media (max-height: 420px) { /*fixes issues for screens not high enough*/
+    .product-main {
+        margin-top: 420px;
     }
 }
