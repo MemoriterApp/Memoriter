@@ -78,37 +78,6 @@ function SettingsClick() {
                         <h1 className='Settings-profile-header' style={{ fontSize: '21px', textAlign: 'left', margin: '5px' }}>Personal info</h1>
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '10px' }} />
-                        <div>
-                            <div className='Settings-profile-text' style={{ float: 'left', margin: '5px', }}>Personal email:</div>
-                            <div className='Settings-profile-text' style={{ color: '#bbb', float: 'inline-start', margin: '5px' }}>{user.email}</div>
-                            <div className='Settings-profile-text' style={{ float: 'inline-start', margin: '5px' }} onClick={() => openChangeEmail(true)}>Edit</div>
-                            {changeEmail && <div>
-                                <form onSubmit={handleSubmit}>
-                                    <label HTMLfor="nmail">enter new mail:</label>
-                                    <br></br>
-                                    <input
-                                        type="mail"
-                                        id="nmail"
-                                        name="nmail"
-                                        onChange={event => setNewEmail(event.target.value)}
-                                        value={newEmail}
-                                    />
-                                    <input type="submit" value="Submit"></input>
-                                </form>
-                            </div>}
-                        </div>
-
-                        {/*<div className='Settings-profile-text'>User ID:</div>
-                        <div className='Settings-profile-text' style={{color: '#bbb'}}>{user.uid}</div>*/}
-                        {/*<div>
-                            <div className='Settings-profile-text'style={{float:'left',margin:'5px',}}>Username:</div>
-                            <div className='Settings-profile-text'style={{float:'inline-start', margin:'5px'}}>Edit</div>
-                        </div>*/}
-
-                        {/*Wenn man etwas vor diesem punkt addiert muss man das <p> direkt hier drunter vergrößern */}
-                        <p style={{ fontSize: '70px' }} />
-                    </div>
-                    <div>
                         <div style={{textAlign: 'left'}}>
                             <div className='Settings-profile-text' style={{ margin: '5px'}}>Personal email:</div>
                             <div className='Settings-profile-text' style={{ color: '#bbb',  margin: '5px' }}>{user.email}</div>
