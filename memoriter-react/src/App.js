@@ -11,7 +11,7 @@ import SignUpPage from './pages/signup';
 import { getAuth } from 'firebase/auth';
 import Startpage from './pages/Start';
 import Product from './pages/product';
-import AboutPage from './pages/About';
+import About from './pages/about';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { AuthProvider } from './contexts/AuthContext';
@@ -184,7 +184,7 @@ function App() {
 
         </Route>
 
-        <Route path='/about' element={<AboutPage/>}/>
+        <Route path='/about' element={<About/>}/>
 
         <Route path='/privacy' element={<PrivacyPage />}>
 

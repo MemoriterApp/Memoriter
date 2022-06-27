@@ -10,7 +10,7 @@ const ProductMain = () => {
                     <div className='product-main-container-sub'>
                         <AnimationOnScroll animateIn='product-main-animation-fade-in-right' animateOut='product-main-animation-fade-out-right'>
                         {/*AnimationOnScroll starts an animation when it enters the viewport*/}
-                            <h1 className='product-main-header'>The all-in-one learning environment</h1>
+                            <h1 className='product-main-header'>The all-in-one learning environment.</h1>
                             <p className='product-main-text'>
                                 Memoriter is a program combining the information storage capacity of a note-taking tool with the practical advantages of a flashcard learning system,
                                 creating the ultimate all-in-one learning environment.

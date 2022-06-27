@@ -41,7 +41,7 @@ function Start() {
                             note taking apps. So, try Memoriter and you won't be dissapointed.
                         </p>
                         <p>
-                            If you want to learn something about us, the developers, head to our <a href='/About' className='About_Us-Start'>About Us</a> page.
+                            If you want to learn something about us, the developers, head to our <a href='/about' className='About_Us-Start'>About Us</a> page.
                         </p>
                     </div>
                 </div>
