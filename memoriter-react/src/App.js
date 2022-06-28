@@ -11,6 +11,7 @@ import SignUpPage from './pages/signup';
 import { getAuth } from 'firebase/auth';
 import Startpage from './pages/Start';
 import AboutPage from './pages/About';
+import PatchNotes from './pages/patchnotes/patchnotes.js';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { AuthProvider } from './contexts/AuthContext';
@@ -130,6 +131,9 @@ function App() {
     <div>
       <AuthProvider>
       <Routes>
+        <Route path='/patchnotes' element={<PatchNotes />}>
+        </Route>
+
         <Route path='/' element={<HomePage />}>
         </Route>
 
@@ -198,9 +202,13 @@ function App() {
         <Route path='/Signup' element={<SignUpPage />}>
 
         </Route>
-        <Route path='/home' element={<HomePage />}>
 
+        <Route path='/home' element={<HomePage />}>
         </Route>
+
+        <Route path='/patchnotes' element={<PatchNotes />}>
+        </Route>
+        
       </Routes>
       </AuthProvider>
 
