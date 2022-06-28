@@ -1,0 +1,11 @@
+body {
+    background-color: rgba(32, 32, 32, 1);
+}
+
+.patchnotes-releases-box {
+    background-color: rgba(18, 18, 18, 1);
+    padding: 1em;
+    margin: 1em;
+    color: white;
+    border-radius: 0.5em;
+}
