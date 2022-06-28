@@ -202,9 +202,13 @@ function App() {
         <Route path='/Signup' element={<SignUpPage />}>
 
         </Route>
-        <Route path='/home' element={<HomePage />}>
 
+        <Route path='/home' element={<HomePage />}>
         </Route>
+
+        <Route path='/patchnotes' element={<PatchNotes />}>
+        </Route>
+        
       </Routes>
       </AuthProvider>
 

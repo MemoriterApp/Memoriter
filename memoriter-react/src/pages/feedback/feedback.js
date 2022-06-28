@@ -8,7 +8,7 @@ function PatchNotes() {
             </header>
             <body>
                 <form className="feedback-form">
-                    <
+                    
                 </form>
             </body>
         </>
