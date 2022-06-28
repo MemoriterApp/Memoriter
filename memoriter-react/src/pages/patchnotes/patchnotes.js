@@ -2,6 +2,7 @@ import "../../index.css";
 import "./patchnotes.css";
 import Logo from '../Logo.png';
 import { Link } from "react-router-dom";
+import Footer from '../../components/Footer.js'
 
 function PatchNotes() {
 
@@ -27,7 +28,9 @@ function PatchNotes() {
                     <ul className="Legal_Text">
                         <li>added account management features (change email/password, delete account)</li>
                         <li>added more text editing features for flashcards</li>
-                        <li>Test TestTest TestTest TestTest TestTest Test</li>
+                        <li>added patch note page</li>
+                        <li>added bug report and feedback page</li>
+                        <li>database optimization</li>
                     </ul>
                 </div>
                 <div className="patchnotes-releases-box">
@@ -38,6 +41,10 @@ function PatchNotes() {
                     </ul>
                 </div>
             </body>
+            <div style={{ height: '100px' }} />
+
+            <Footer/>
+            
         </>
     );
 }
