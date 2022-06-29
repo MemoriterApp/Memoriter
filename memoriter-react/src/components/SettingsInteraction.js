@@ -75,11 +75,11 @@ function SettingsClick() {
                 <div className='Settings-profile-body'>
                     <h2 className='Add_Folder_Form_Header' style={{ fontSize: '30px' }}>Profile</h2>
                     <div>
-                        <h1 className='Settings-profile-header' style={{ fontSize: '21px', textAlign: 'left', margin: '5px' }}>Personal info</h1>
+                        <h1 className='Settings-profile-header' style={{ fontSize: '21px', textAlign: 'left', margin: '5px' }}>Personal Info</h1>
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '10px' }} />
                         <div style={{textAlign: 'left'}}>
-                            <div className='Settings-profile-text' style={{ margin: '5px'}}>Personal email:</div>
+                            <div className='Settings-profile-text' style={{ margin: '5px'}}>Personal Email:</div>
                             <div className='Settings-profile-text' style={{ color: '#bbb',  margin: '5px' }}>{user.email}</div>
                             <div className='Settings-profile-text' style={{ margin: '5px' }} onClick={() => openChangeEmail(true)}>Edit</div>
                         </div>
@@ -89,7 +89,7 @@ function SettingsClick() {
                                 <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Update "{user.email}"</div>
                                 <form onSubmit={handleSubmit}>
 
-                                    <input className='Settings-changemail-form'
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
                                         placeholder="New Email"
                                         type="mail"
                                         id="nmail"
@@ -100,7 +100,7 @@ function SettingsClick() {
                                     {/*<input type="submit" value="Submit"></input> */}
                                 </form>
                                 <br></br>
-                                <input className='Settings-changemail-form'
+                                <input className='Settings-changemail-form Add_Folder_Form_Input'
                                     placeholder="Confirm Email"
                                     type="mail"
                                     id="nmail"
@@ -110,8 +110,8 @@ function SettingsClick() {
                                 />
                                 <br></br>
                                 <br></br>
-                                <input className='Settings-changemail-form'
-                                    placeholder="Account password"
+                                <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                    placeholder="Account Password"
                                     onChange={event => setNewEmail(event.target.value)}
                                     value={newEmail}
                                 />
@@ -138,17 +138,17 @@ function SettingsClick() {
                         <h1 className='Settings-profile-header' style={{ fontSize: '21px', textAlign: 'left', margin: '5px' }}>Password</h1>
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '10px' }} />
-                        <div className='Settings-profile-text' style={{ margin: '5px',}} onClick={() => openChangePassword(true)}>change password</div>
+                        <div className='Settings-profile-text' style={{ margin: '5px',}} onClick={() => openChangePassword(true)}>Change Password</div>
 
                         {/*form to enter new password */}
 
                         {changePassword && <div>
                             <div className='Settings-changemail-body' style={{ height: '350px' }}>
-                                <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Change password</div>
+                                <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Change Password</div>
                                 <form>
                                     <br></br>
-                                    <input className='Settings-changemail-form'
-                                        placeholder="Old password"
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                        placeholder="Old Password"
                                         type="mail"
                                         id="nmail"
                                         name="nmail"
@@ -158,8 +158,8 @@ function SettingsClick() {
                                 </form>
                                 <form onChange={handleSubmit}>
                                     <br></br>
-                                    <input className='Settings-changemail-form'
-                                        placeholder="New password"
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                        placeholder="New Password"
                                         type="password"
                                         id="npassword"
                                         name="npassword"
@@ -169,8 +169,8 @@ function SettingsClick() {
                                 </form>
                                 <form onChange={handleSubmit}>
                                     <br></br>
-                                    <input className='Settings-changemail-form'
-                                        placeholder="Confirm new password"
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                        placeholder="Confirm New Password"
                                         type="password"
                                         id="npassword"
                                         name="npassword"
@@ -191,7 +191,7 @@ function SettingsClick() {
                         <h1 className='Settings-profile-header' style={{ fontSize: '21px',  margin: '5px'}}>Account</h1>
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '20px' }} />
-                        <div className='Settings-profile-text' style={{ color: '#d83232', margin: '5px' }} onClick={() => openSignOutView(true)}>delete account</div>
+                        <div className='Settings-profile-text' style={{ color: '#d83232', margin: '5px' }} onClick={() => openSignOutView(true)}>Delete Account</div>
                         <div className='Settings-profile-text' style={{ fontSize: '15px', color: 'rgb(88, 167, 172)', margin: '5px' }} >If you delete your account, your data will be gone forever!</div>
                     </div>
                 </div>
