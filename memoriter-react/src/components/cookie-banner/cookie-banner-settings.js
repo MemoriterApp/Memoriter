@@ -2,8 +2,10 @@ import '../../styles/cookie-banner/cookie-banner-settings.css';
 
 const CookieBannerSettings = () => {
     return (
-        <div>
-            
+        <div className='cookie-banner-settings-backdrop'>
+            <div className='cookie-banner-settings'>
+
+            </div>
         </div>
     );
 }

@@ -9,7 +9,7 @@ const CookieBanner = () => {
     const accepted = localStorage.getItem('cookies-accepted') //used for if the banner is first dieplayed or not
 
     const [display, setDisplay] = useState('-180px'); //variable for showing the cookie banner and the move animation
-    if (accepted !== null) { //if else is for only displaying it before accepting cookies
+    if (accepted) { //if else is for only displaying it before accepting cookies
         if (display === '0') {
             setDisplay('-180px'); //if accepted, the banner is hidden
         }
