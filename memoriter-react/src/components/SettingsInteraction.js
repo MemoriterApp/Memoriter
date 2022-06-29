@@ -41,18 +41,21 @@ function SettingsClick() {
     //important stuff for handling user input
 
     const handleSubmit = event => {
-        console.log('handleSubmit ran');
         event.preventDefault();
     } //this prevents the page from refreshin
 
     //firebase stuff
     const auth = getAuth();
     updateEmail(auth.currentUser, newEmail).then(() => {
-        console.log("success!")
+        return console.log("success!")
     }).catch((error) => {
-        console.log("error!!!")
+        return console.log("error!!!")
     });
 
+    function bigFunction() {
+       return updateEmail;
+       return openChangeEmail(false);
+    }
 
 
     return (
@@ -121,7 +124,7 @@ function SettingsClick() {
 
                                 </form>
                                 <button className='Settings-changemail-cancel' onClick={() => openChangeEmail(false)}>Cancel</button>
-                                <button className='Settings-changemail-change' onClick={() => openChangeEmail(false)}>Update Email</button>
+                                <button className='Settings-changemail-change' onClick={bigFunction}>Update Email</button>
                             </div>
                             <Backdrop onClick={() => openChangeEmail(false)} />
                         </div>}
