@@ -5,6 +5,12 @@ const CookieBannerSettings = () => {
         <div className='cookie-banner-settings-backdrop'>
             <div className='cookie-banner-settings'>
 
+            <label class='cookie-banner-settings-switch'>
+                <input type='checkbox'/>
+                <div className='cookie-banner-settings-switch-slider'></div>
+            </label>
+
+
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 /*styles used for the cookie banner settings view (when clicking the moreinformation-button)*/
 
-.cookie-banner-settings-backdrop { /*backdrop for view*/
+.cookie-banner-settings-backdrop { /*backdrop for settings view*/
     position: fixed;
     left: 50%;
     top: calc(-50vh + 60px);
@@ -22,6 +22,44 @@
     max-height: calc(100% - 40px);
     background-color: rgba(32, 32, 32, 1);
     border-radius: 12px;
+}
+
+.cookie-banner-settings-switch { /*toggle switch*/
+    position: relative;
+    float: right;
+    width: 60px;
+    height: 34px;
+}
+.cookie-banner-settings-switch input { /*hides default checkbox*/
+    display: none;
+}
+.cookie-banner-settings-switch-slider { /*toggle slider background shape*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 34px;
+    background-color: rgba(18, 18, 18, 1);
+    transition: 400ms;
+    cursor: pointer;
+}
+.cookie-banner-settings-switch-slider:before { /*slider knob (the circle)*/
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    background-color: rgba(54, 54, 54, 1);
+    transition: 400ms;
+}
+.cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider { /*background color change on toggle*/
+    background-color: rgba(40, 185, 125, 1);
+} 
+.cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider:before { /*knob position change on toggle*/
+    transform: translateX(26px);
 }
 
 @media (max-width: 960px) {
