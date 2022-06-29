@@ -46,7 +46,7 @@ const ProductFooter = () => {
                     <Link className='product-footer-link' to='/support'>Support</Link>
                     <Link className='product-footer-link' to='/faq'>FAQ</Link>
                     <Link className='product-footer-link' to='/report'>Bug Report</Link>
-                    <a className='product-footer-link'>Cookie Settings</a> {/*not a link, but a button*/}
+                    <span className='product-footer-link'>Cookie Settings</span> {/*not a link, but a button*/}
                 </nav>
 
                 <nav> {/*mostly external links*/}

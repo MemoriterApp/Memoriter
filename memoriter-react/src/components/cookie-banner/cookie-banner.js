@@ -1,4 +1,5 @@
-import '../styles/cookie-banner.css';
+import '../../styles/cookie-banner/cookie-banner.css';
+import CookieBannerSettings from './cookie-banner-settings';
 import { useState } from 'react';
 
 const CookieBanner = () => {
@@ -16,10 +17,12 @@ const CookieBanner = () => {
         setTimeout(() => {setDisplay('0'); }, 600); //executing move animation
     }
 
-    function acceptCookies() {
+    function acceptCookies() { //item is set in local storage for cookie banner not showng again if accepted
         setDisplay('-180px');
         localStorage.setItem('cookies-accepted', true);
     }
+
+    const [openSettings, setOpenSettings] = useState(false); //state for settings modal when clicking at the more-information-button
 
     return (
         <div className='cookie-banner' style={{bottom: display}}> {/*style is for if the banner is shown or not*/}
@@ -29,7 +32,7 @@ const CookieBanner = () => {
 
             {/*accept and more information buttons*/}
             <div className='cookie-banner-more-information' to='/login'>
-                <span className='cookie-banner-more-information-gradient'>More Information</span>
+                <span className='cookie-banner-more-information-gradient' onClick={() => setOpenSettings(true)}>More Information</span>
             </div>
             <div className='cookie-banner-accept'
                 onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}
@@ -38,6 +41,9 @@ const CookieBanner = () => {
                 <div className='cookie-banner-accept-background' style={{filter: onHover}}/>
                 <span className='cookie-banner-accept-text'>Accept</span>
             </div>
+
+            {/*settings modal opening when clicking the more-information-button*/}
+            {openSettings && <CookieBannerSettings/>}
 
         </div>
     );

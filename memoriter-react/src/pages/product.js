@@ -3,7 +3,7 @@ import ProductHeader from '../components/product/product-header';
 import ProductBanner from '../components/product/product-banner';
 import ProductMain from '../components/product/product-main';
 import ProductFooter from '../components/product/product-footer';
-import CookieBanner from '../components/cookie-banner';
+import CookieBanner from '../components/cookie-banner/cookie-banner';
 import WindowSizeAlert from '../components/window-size-alert';
 
 const Product = () => {
