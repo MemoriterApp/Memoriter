@@ -26,7 +26,7 @@
 
 .cookie-banner-settings-switch { /*toggle switch*/
     position: relative;
-    float: right;
+    display: inline-block;
     width: 60px;
     height: 34px;
 }
@@ -53,7 +53,8 @@
     width: 26px;
     border-radius: 50%;
     background-color: rgba(54, 54, 54, 1);
-    transition: 400ms;
+    transition: background-color 400ms;
+    transition: transform 400ms;
 }
 .cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider { /*background color change on toggle*/
     background-color: rgba(40, 185, 125, 1);
