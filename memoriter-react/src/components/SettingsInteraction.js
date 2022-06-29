@@ -21,6 +21,8 @@ function SettingsClick() {
     //states to store user data
     const [newPassword, setNewPassword] = useState('');
     const [newEmail, setNewEmail] = useState('');
+    const [confirmEmail, setConfirmEmail] = useState('')
+    const [accountPassword, setAccountPassword] = useState('')
 
 
     onAuthStateChanged(firebase.auth, (currentUser) => {
@@ -105,15 +107,15 @@ function SettingsClick() {
                                     type="mail"
                                     id="nmail"
                                     name="nmail"
-                                    onChange={event => setNewEmail(event.target.value)}
-                                    value={newEmail}
+                                    onChange={event => setConfirmEmail(event.target.value)}
+                                    value={confirmEmail}
                                 />
                                 <br></br>
                                 <br></br>
                                 <input className='Settings-changemail-form Add_Folder_Form_Input'
                                     placeholder="Account Password"
                                     onChange={event => setNewEmail(event.target.value)}
-                                    value={newEmail}
+                                    value={accountPassword}
                                 />
                                 <form>
 
