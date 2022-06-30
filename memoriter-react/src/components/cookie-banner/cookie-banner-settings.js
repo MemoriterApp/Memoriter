@@ -5,8 +5,8 @@ const CookieBannerSettings = () => {
         <div className='cookie-banner-settings-backdrop'>
             <div className='cookie-banner-settings'>
 
-            <div>
-                <p>Strictly Necessary Cookies</p>
+            <div className='cookie-banner-settings-container'>
+                <p className='cookie-banner-settings-label'>Strictly Necessary Cookies</p>
                 {/*toggle slider*/}
                 <label class='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
@@ -14,8 +14,8 @@ const CookieBannerSettings = () => {
                 </label>
             </div>
 
-            <div>
-                <p>Functional Cookies</p>
+            <div className='cookie-banner-settings-container'>
+                <p className='cookie-banner-settings-label'>Functional Cookies</p>
                 {/*toggle slider*/}
                 <label class='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
@@ -23,8 +23,8 @@ const CookieBannerSettings = () => {
                 </label>
             </div>
 
-            <div>
-                <p>Analytics Cookies</p>
+            <div className='cookie-banner-settings-container'>
+                <p className='cookie-banner-settings-label'>Analytics Cookies</p>
                 {/*toggle slider*/}
                 <label class='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
@@ -32,8 +32,8 @@ const CookieBannerSettings = () => {
                 </label>
             </div>
 
-            <div>
-                <p>Advertising Cookies</p>
+            <div className='cookie-banner-settings-container'>
+                <p className='cookie-banner-settings-label'>Advertising Cookies</p>
                 {/*toggle slider*/}
                 <label class='cookie-banner-settings-switch'>
                     <input type='checkbox'/>

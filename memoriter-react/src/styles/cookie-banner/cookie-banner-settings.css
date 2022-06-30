@@ -24,9 +24,22 @@
     border-radius: 12px;
 }
 
+.cookie-banner-settings-container { /*contains toggle switches and labels*/
+    margin-top: 40px;
+}
+
+.cookie-banner-settings-label  { /*label for toggle switches*/
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    line-height: 2rem;
+    margin-left: 40px;
+}
+
 .cookie-banner-settings-switch { /*toggle switch*/
-    position: relative;
-    display: inline-block;
+    position: absolute;
+    right: 20px;
+    transform: translate(-50%, -160%);
     width: 60px;
     height: 34px;
 }
@@ -57,7 +70,7 @@
     transition: transform 400ms;
 }
 .cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider { /*background color change on toggle*/
-    background-color: rgba(40, 185, 125, 1);
+    background-color: rgba(72, 180, 72, 1);
 } 
 .cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider:before { /*knob position change on toggle*/
     transform: translateX(26px);
