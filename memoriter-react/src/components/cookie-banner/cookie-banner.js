@@ -31,7 +31,7 @@ const CookieBanner = () => {
             <p className='cookie-banner-text'>This website uses cookies for making the site work and to enhance your experience.</p>
 
             {/*accept and more information buttons*/}
-            <div className='cookie-banner-more-information' to='/login'>
+            <div className='cookie-banner-more-information'>
                 <span className='cookie-banner-more-information-gradient' onClick={() => setOpenSettings(true)}>More Information</span>
             </div>
             <div className='cookie-banner-accept'
