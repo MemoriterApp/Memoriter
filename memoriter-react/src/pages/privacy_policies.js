@@ -30,7 +30,7 @@ function PrivacyPage() {
             <body>
                 <article className="Legal_Text">
                     <p>
-                        Last Changed: June 8th, 2022
+                        Last Changed: July 1st, 2022
                     </p>
                     <p>
                         We are happy that you decided to use our app Memoriter.
@@ -68,6 +68,7 @@ function PrivacyPage() {
                     <p>
                         All user data is stored at a Firebase database, a service provided by Google. For storing data, the privacy policies of Google apply.
                         If you have concerns about how Google might be process the data, the privacy policies can be viewed <a href="https://policies.google.com/u/0/privacy" target='_blank' rel="noreferrer" style={{ color: '#274b65' }}>here</a>.
+                        The Firebase privacy policy can be found <a href='https://firebase.google.com/support/privacy' target='_blank' rel="noreferrer" style={{ color: '#274b65' }}>here</a>.
                     </p>
                     <p>
                         All of the data regarding the user such as passwords are being stored inside the firebase authorisation database.
