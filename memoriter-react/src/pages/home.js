@@ -7,7 +7,7 @@ import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
 import { onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
 
@@ -107,6 +107,7 @@ function HomePage() {
   const deleteFolder = async (id, pos) => {
     const folderDoc = doc(db, 'folders', id);
     await deleteDoc(folderDoc);
+
     setFolders((folders) =>
       folders
         .map((folder) =>
@@ -116,6 +117,17 @@ function HomePage() {
         )
         .filter((folder) => folder.id !== id)
     )
+
+    //delete folder flashcards stuff
+    const flashcardsCollectionRef = collection(db, "flashcards");
+    const q = query(flashcardsCollectionRef, where("syncedFolder", "==", id));
+    const snapshot = await getDocs(q);
+
+    const results = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    results.forEach(async (result) => {
+      const flashcardDocRef = doc(db, "flashcards", result.id);
+      await deleteDoc(flashcardDocRef);
+    })
   }
 
 
