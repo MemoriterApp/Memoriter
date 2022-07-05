@@ -34,10 +34,6 @@ function SignUpPage(props) {
         setUser(currentUser);
     })
 
-    if (user !== null) {
-        navigate('/')
-    }
-
     useEffect(() => {
         localStorage.setItem('lastPage', "/signup");
     })

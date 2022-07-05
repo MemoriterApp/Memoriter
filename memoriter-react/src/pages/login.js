@@ -28,10 +28,6 @@ function LoginPage() {
         setUser(currentUser);
     })
 
-    if (user !== null) {
-        navigate('/')
-    }
-
     useEffect(() => {
         localStorage.setItem('lastPage', "/login");
     });

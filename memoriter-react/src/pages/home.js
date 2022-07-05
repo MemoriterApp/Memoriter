@@ -11,12 +11,7 @@ import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } 
 import { onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
 
-
 function HomePage() {
-
-  //firestore stuff
-  // connection to the folders firestore
-  const foldersCollectionRef = collection(db, "folders");
 
   //user stuff
   const [user, setUser] = useState({})
@@ -27,6 +22,10 @@ function HomePage() {
 
   // Folder Data
   const [folders, setFolders] = useState([])
+
+  //firestore stuff
+  // connection to the folders firestore
+  const foldersCollectionRef = query(collection(db, "folders"), where("user", "==", localStorage.getItem('userID')));
 
   //Use Effect für folders
   useEffect(() => {
