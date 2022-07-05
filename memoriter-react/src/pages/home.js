@@ -119,14 +119,14 @@ function HomePage() {
     )
 
     //delete folder flashcards stuff
-    const flashcardsCollectionRef = collection(db, "flashcards");
-    const q = query(flashcardsCollectionRef, where("syncedFolder", "==", id));
-    const snapshot = await getDocs(q);
+    const flashcardsCollectionRef = collection(db, "flashcards"); //link zur flashcard-collection
+    const q = query(flashcardsCollectionRef, where("syncedFolder", "==", id)); //Aariable zur Filtrierung nach den richtigen flashcards
+    const snapshot = await getDocs(q); //gefilterte flashcards werden abgefragt
 
-    const results = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-    results.forEach(async (result) => {
-      const flashcardDocRef = doc(db, "flashcards", result.id);
-      await deleteDoc(flashcardDocRef);
+    const results = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
+    results.forEach(async (result) => { //für jedes object wird die function ausgelöst
+      const flashcardDocRef = doc(db, "flashcards", result.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
+      await deleteDoc(flashcardDocRef); //Zieldaten werden gelöscht
     })
   }
 
