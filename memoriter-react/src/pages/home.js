@@ -28,20 +28,11 @@ function HomePage() {
   // Folder Data
   const [folders, setFolders] = useState([])
 
-  //show correct folders
-  const [renderedFolder, setRenderedFolder] = useState(true);
-
-  if (renderedFolder === false) {
-    setFolders(folders.filter((folder) => folder.user === user.uid));
-    setRenderedFolder(true);
-  }
-
   //Use Effect für folders
   useEffect(() => {
     const getFolder = async () => {
       const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
       setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      setRenderedFolder(false)
     };
 
     getFolder();
@@ -94,11 +85,10 @@ function HomePage() {
   //Add Folder
   const addFolder = async (folder) => {
     const pos = folders.length + 1
-    await addDoc(foldersCollectionRef, { pos, title: folder.title, user: user.uid })
+    await addDoc(collection(db, "folders"), { pos, title: folder.title, user: user.uid })
 
     const allFolders = await getDocs(foldersCollectionRef)
     setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Ordner
-    setRenderedFolder(false)
 
     setModalIsOpen(false)
   }
@@ -120,7 +110,7 @@ function HomePage() {
 
     //delete folder flashcards stuff
     const flashcardsCollectionRef = collection(db, "flashcards"); //link zur flashcard-collection
-    const q = query(flashcardsCollectionRef, where("syncedFolder", "==", id)); //Aariable zur Filtrierung nach den richtigen flashcards
+    const q = query(flashcardsCollectionRef, where("syncedFolder", "==", id)); //Variable zur Filtrierung nach den richtigen flashcards
     const snapshot = await getDocs(q); //gefilterte flashcards werden abgefragt
 
     const results = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects

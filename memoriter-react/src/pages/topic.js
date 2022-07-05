@@ -8,14 +8,14 @@ import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
 import { Link, } from 'react-router-dom';
 import { firebase } from '../utils/firebase'
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
 const { db } = firebase;
 
 function TopicPage() {
 
     //firebase stuff
     //link zur db
-    const flashcardCollectionRef = collection(db, "flashcards")
+    const flashcardCollectionRef = query(collection(db, "flashcards"), where("syncedFolder", "==", localStorage.getItem('syncedFolderID')));
 
     //Flashcard Data
     const [flashcards, setFlashcards] = useState([])
@@ -25,25 +25,15 @@ function TopicPage() {
         const getFlashcards = async () => {
             const allFlashcards = await getDocs(flashcardCollectionRef)
             setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-            setRenderedFlashcard(false)
         };
 
         getFlashcards();
         localStorage.setItem('lastPage', "/topic");
     }, [])
 
-    //show correct flashcards and title
-    const [renderedFlashcard, setRenderedFlashcard] = useState(true);
-
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
     let syncedFolderID = localStorage.getItem('syncedFolderID')
-
-    if (renderedFlashcard === false) {
-        setFlashcards(flashcards.filter((flashcard) => flashcard.syncedFolder === syncedFolderID));
-        setRenderedFlashcard(true);
-    }
-
 
     const [modalIsOpenA, setModalIsOpenA] = useState(false);
 
@@ -115,12 +105,11 @@ function TopicPage() {
     //Add Flashcard
     const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
-        await addDoc(flashcardCollectionRef, { pos, title: flashcard.title, content: flashcard.content,
+        await addDoc(collection(db, "flashcards"), { pos, title: flashcard.title, content: flashcard.content,
             textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)', syncedFolder: flashcard.syncedFolder })
 
         const allFlashcards = await getDocs(flashcardCollectionRef)
         setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Flashcards
-        setRenderedFlashcard(false)
 
         setModalIsOpenA(false)
     }
