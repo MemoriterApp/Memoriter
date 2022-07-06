@@ -35,7 +35,6 @@ function LoginPage() {
         try {
             setLoading(true);
             const user = signInWithEmailAndPassword(firebase.auth, email, password)
-                .then(localStorage.setItem('currentUserID', user.uid))
                 .catch(error => {
                     switch (error.code) {
                         case 'auth/wrong-password':

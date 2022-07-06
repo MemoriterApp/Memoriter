@@ -18,13 +18,14 @@ function HomePage() {
 
   let currentUserID = localStorage.getItem('currentUserID')
 
+  //firestore stuff
+  // connection to the folders firestore
+  const foldersCollectionRef = query(collection(db, "folders"), where("user", "==", currentUserID));
+
   onAuthStateChanged(firebase.auth, (currentUser) => {
     setUser(currentUser);
   })
 
-  //firestore stuff
-  // connection to the folders firestore
-  const foldersCollectionRef = query(collection(db, "folders"), where("user", "==", currentUserID));
   
   // Folder Data
   const [folders, setFolders] = useState([])
@@ -39,10 +40,6 @@ function HomePage() {
     getFolder();
     localStorage.setItem('lastPage', "/");
   }, [])
-
-  if (!currentUserID) {
-    console.log('yes')
-  }
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 

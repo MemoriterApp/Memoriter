@@ -58,7 +58,6 @@ function SignUpPage() {
             setError(false);
             setLoading(true);
             const user = createUserWithEmailAndPassword(firebase.auth, email, password)
-                .then(localStorage.setItem('currentUserID', user.uid))
                 .catch(error => {
                     switch (error.code) {
                         case 'auth/email-already-in-use':
