@@ -25,6 +25,10 @@ function SettingsClick() {
     const [accountPassword, setAccountPassword] = useState('')
     const [newPassword, setNewPassword] = useState('');
 
+    //error states
+    const [redBorderEmail, setRedBorderEmail] = useState({});
+    const [redBorderAccountPassword, setRedBorderAccountPassword] = useState({});
+    
     //logout stuff
     const navigate = useNavigate();
 
@@ -44,18 +48,32 @@ function SettingsClick() {
             accountPassword
         )
 
-        if (newEmail !== confirmEmail) {
-            alert('nope');
+        if (newEmail === '') {
+            setRedBorderEmail({borderColor: 'rgb(228, 48, 48)'});
+            setRedBorderAccountPassword({});
+        } else if (newEmail !== confirmEmail) {
+            setRedBorderEmail({borderColor: 'rgb(228, 48, 48)'});
+            setRedBorderAccountPassword({});
         } else {
             reauthenticateWithCredential(auth.currentUser, credential)
-            .then(result => {
-                updateEmail(auth.currentUser, newEmail).then(() => {
-                    return(
-                        openChangeEmail(false),
-                        setNewEmail(''),
-                        setConfirmEmail(''),
-                        setAccountPassword(''))
-                });
+                .then(result => {
+                    updateEmail(auth.currentUser, newEmail).then(() => {
+                        return(
+                            openChangeEmail(false),
+                            setNewEmail(''),
+                            setConfirmEmail(''),
+                            setAccountPassword('')),
+                            setRedBorderEmail({}),
+                            setRedBorderAccountPassword({})
+                });  
+            })
+            .catch(error => {
+                switch (error.code) {
+                    case error.code:
+                        setRedBorderEmail({});
+                        setRedBorderAccountPassword({borderColor: 'rgb(228, 48, 48)'});
+                        break;
+                }
             })
         }
     }
@@ -99,30 +117,33 @@ function SettingsClick() {
                             <form onSubmit={newEmailSubmit}>
 
                                 <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                    placeholder="New Email"
+                                    placeholder="New Email..."
                                     type="mail"
                                     id="email"
                                     name="email"
+                                    style={redBorderEmail}
                                     onChange={event => setNewEmail(event.target.value)}
                                     value={newEmail}
                                 />
                                 <br/>
                                 <br/>
                                 <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                    placeholder="Confirm Email"
+                                    placeholder="Confirm Email..."
                                     type="mail"
                                     id="confirmEmail"
                                     name="confirmEmail"
+                                    style={redBorderEmail}
                                     onChange={event => setConfirmEmail(event.target.value)}
                                     value={confirmEmail}
                                 />
                                 <br/>
                                 <br/>
                                 <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                    placeholder="Account Password"
+                                    placeholder="Account Password..."
                                     type="password"
                                     id="accountPassword"
                                     name="accountPassword"
+                                    style={redBorderAccountPassword}
                                     onChange={event => setAccountPassword(event.target.value)}
                                     value={accountPassword}
                                 />
@@ -135,7 +156,9 @@ function SettingsClick() {
                                         openChangeEmail(false);
                                         setNewEmail('');
                                         setConfirmEmail('');
-                                        setAccountPassword('')}}
+                                        setAccountPassword('');
+                                        setRedBorderEmail({});
+                                        setRedBorderAccountPassword({});}}
                                 >Cancel</button>
 
                                 <button 
