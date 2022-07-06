@@ -46,7 +46,11 @@ function SettingsClick() {
             alert('nope v2');
         }*/ else {
             updateEmail(auth.currentUser, newEmail).then(() => {
-                return openChangeEmail(false);
+                return(
+                    openChangeEmail(false),
+                    setNewEmail(''),
+                    setConfirmEmail(''),
+                    setAccountPassword(''))
             });
         }
     }
@@ -122,7 +126,11 @@ function SettingsClick() {
 
                                 <button
                                     className='Settings-changemail-cancel'
-                                    onClick={() => openChangeEmail(false)}
+                                    onClick={() => {
+                                        openChangeEmail(false);
+                                        setNewEmail('');
+                                        setConfirmEmail('');
+                                        setAccountPassword('')}}
                                 >Cancel</button>
 
                                 <button 
