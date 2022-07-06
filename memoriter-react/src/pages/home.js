@@ -8,19 +8,19 @@ import Footer from '../components/Footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
-import { onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
 
 function HomePage() {
 
   //user stuff
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
 
-  let currentUserID = localStorage.getItem('currentUserID')
+  const auth = getAuth();
 
   //firestore stuff
   // connection to the folders firestore
-  const foldersCollectionRef = query(collection(db, "folders"), where("user", "==", currentUserID));
+  const foldersCollectionRef = query(collection(db, "folders"), where("user", "==", auth.currentUser.uid));
 
   onAuthStateChanged(firebase.auth, (currentUser) => {
     setUser(currentUser);
