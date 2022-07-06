@@ -43,7 +43,7 @@ function SettingsClick() {
         if (newEmail !== confirmEmail) {
             alert('nope');
         } /*else if (accountPassword !== user.password) {
-            alert('nope v2');
+            alert('nope v2'); (not working yet, cannot get current password)
         }*/ else {
             updateEmail(auth.currentUser, newEmail).then(() => {
                 return(
