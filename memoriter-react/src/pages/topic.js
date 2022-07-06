@@ -9,9 +9,17 @@ import Backdrop from '../components/backdrop';
 import { Link, } from 'react-router-dom';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
+import { onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
 
 function TopicPage() {
+
+    //user stuff
+    const [user, setUser] = useState({})
+
+    onAuthStateChanged(firebase.auth, (currentUser) => {
+        setUser(currentUser);
+      })
 
     //firebase stuff
     //link zur db
@@ -107,7 +115,7 @@ function TopicPage() {
     const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
         await addDoc(collection(db, "flashcards"), { pos, title: flashcard.title, content: flashcard.content,
-            textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)', syncedFolder: flashcard.syncedFolder })
+            textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)', syncedFolder: flashcard.syncedFolder, user: user.uid })
 
         const allFlashcards = await getDocs(flashcardCollectionRef)
         setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Flashcards
