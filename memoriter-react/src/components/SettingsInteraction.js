@@ -2,9 +2,8 @@ import React from 'react';
 import Backdrop from './backdrop';
 import { useState } from 'react';
 import { firebase } from '../utils/firebase';
-import { signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-import { getAuth, updateEmail } from "firebase/auth";
+import { signOut, getAuth, updateEmail, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
 
 function SettingsClick() {
 
@@ -39,19 +38,25 @@ function SettingsClick() {
     //change email function
     async function newEmailSubmit(e) {
         e.preventDefault();
-        
+
+        const credential = EmailAuthProvider.credential( //required input for password confirm
+            user.email,
+            accountPassword
+        )
+
         if (newEmail !== confirmEmail) {
             alert('nope');
-        } /*else if (accountPassword !== user.password) {
-            alert('nope v2'); (not working yet, cannot get current password)
-        }*/ else {
-            updateEmail(auth.currentUser, newEmail).then(() => {
-                return(
-                    openChangeEmail(false),
-                    setNewEmail(''),
-                    setConfirmEmail(''),
-                    setAccountPassword(''))
-            });
+        } else {
+            reauthenticateWithCredential(auth.currentUser, credential)
+            .then(result => {
+                updateEmail(auth.currentUser, newEmail).then(() => {
+                    return(
+                        openChangeEmail(false),
+                        setNewEmail(''),
+                        setConfirmEmail(''),
+                        setAccountPassword(''))
+                });
+            })
         }
     }
 
