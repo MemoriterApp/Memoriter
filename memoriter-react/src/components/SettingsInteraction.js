@@ -2,7 +2,7 @@ import React from 'react';
 import Backdrop from './backdrop';
 import { useState } from 'react';
 import { firebase } from '../utils/firebase';
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { getAuth, updateEmail } from "firebase/auth";
 
@@ -12,23 +12,21 @@ function SettingsClick() {
 
     const [signOutView, openSignOutView] = useState(false);
 
-    const [user, setUser] = useState({});
+    const auth = getAuth();
+
+    const user = auth.currentUser
 
     //states to check wether overlay is open
     const [changePassword, openChangePassword] = useState(false);
     const [changeEmail, openChangeEmail] = useState(false);
 
     //states to store user data
-    const [newPassword, setNewPassword] = useState('');
     const [newEmail, setNewEmail] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('')
     const [accountPassword, setAccountPassword] = useState('')
+    const [newPassword, setNewPassword] = useState('');
 
-
-    onAuthStateChanged(firebase.auth, (currentUser) => {
-        setUser(currentUser);
-    })
-
+    //logout stuff
     const navigate = useNavigate();
 
     const logOut = async () => {
@@ -38,25 +36,20 @@ function SettingsClick() {
         navigate('/login');
     }
 
-    //important stuff for handling user input
-
-    const handleSubmit = event => {
-        event.preventDefault();
-    } //this prevents the page from refreshin
-
-    //firebase stuff
-    const auth = getAuth();
-    updateEmail(auth.currentUser, newEmail).then(() => {
-        return console.log("success!")
-    }).catch((error) => {
-        return console.log("error!!!")
-    });
-
-    function bigFunction() {
-       return updateEmail;
-       return openChangeEmail(false);
+    //change email function
+    async function newEmailSubmit(e) {
+        e.preventDefault();
+        
+        if (newEmail !== confirmEmail) {
+            alert('nope');
+        } /*else if (accountPassword !== user.password) {
+            alert('nope v2');
+        }*/ else {
+            updateEmail(auth.currentUser, newEmail).then(() => {
+                return openChangeEmail(false);
+            });
+        }
     }
-
 
     return (
         <div className='settings-overlay'>
@@ -88,43 +81,57 @@ function SettingsClick() {
                             <div className='Settings-profile-text' style={{ color: '#bbb',  margin: '5px' }}>{user.email}</div>
                             <div className='Settings-profile-text' style={{ margin: '5px' }} onClick={() => openChangeEmail(true)}>Edit</div>
                         </div>
+
                         {changeEmail && <div>
                             <div className='Settings-changemail-body'>
 
-                                <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Update "{user.email}"</div>
-                                <form onSubmit={handleSubmit}>
+                            <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Update "{user.email}"</div>
 
-                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                        placeholder="New Email"
-                                        type="mail"
-                                        id="nmail"
-                                        name="nmail"
-                                        onChange={event => setNewEmail(event.target.value)}
-                                        value={newEmail}
-                                    />
-                                    {/*<input type="submit" value="Submit"></input> */}
-                                </form>
-                                <br></br>
+                            <form onSubmit={newEmailSubmit}>
+
+                                <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                    placeholder="New Email"
+                                    type="mail"
+                                    id="email"
+                                    name="email"
+                                    onChange={event => setNewEmail(event.target.value)}
+                                    value={newEmail}
+                                />
+                                <br/>
+                                <br/>
                                 <input className='Settings-changemail-form Add_Folder_Form_Input'
                                     placeholder="Confirm Email"
                                     type="mail"
-                                    id="nmail"
-                                    name="nmail"
+                                    id="confirmEmail"
+                                    name="confirmEmail"
                                     onChange={event => setConfirmEmail(event.target.value)}
                                     value={confirmEmail}
                                 />
-                                <br></br>
-                                <br></br>
+                                <br/>
+                                <br/>
                                 <input className='Settings-changemail-form Add_Folder_Form_Input'
                                     placeholder="Account Password"
-                                    onChange={event => setNewEmail(event.target.value)}
+                                    type="password"
+                                    id="accountPassword"
+                                    name="accountPassword"
+                                    onChange={event => setAccountPassword(event.target.value)}
                                     value={accountPassword}
                                 />
-                                <form>
 
-                                </form>
-                                <button className='Settings-changemail-cancel' onClick={() => openChangeEmail(false)}>Cancel</button>
-                                <button className='Settings-changemail-change' onClick={bigFunction}>Update Email</button>
+                                <br/>
+
+                                <button
+                                    className='Settings-changemail-cancel'
+                                    onClick={() => openChangeEmail(false)}
+                                >Cancel</button>
+
+                                <button 
+                                    className='Settings-changemail-change'
+                                    type='submit'
+                                    >Update Email</button>
+
+                            </form>
+
                             </div>
                             <Backdrop onClick={() => openChangeEmail(false)} />
                         </div>}
@@ -161,7 +168,7 @@ function SettingsClick() {
                                         value={newEmail}
                                     />
                                 </form>
-                                <form onChange={handleSubmit}>
+                                <form>
                                     <br></br>
                                     <input className='Settings-changemail-form Add_Folder_Form_Input'
                                         placeholder="New Password"
@@ -172,7 +179,7 @@ function SettingsClick() {
                                         value={newPassword}
                                     />
                                 </form>
-                                <form onChange={handleSubmit}>
+                                <form>
                                     <br></br>
                                     <input className='Settings-changemail-form Add_Folder_Form_Input'
                                         placeholder="Confirm New Password"
