@@ -28,6 +28,7 @@ function TopicPage() {
         };
 
         getFlashcards();
+        sessionStorage.setItem('flashcard-content', '');
         localStorage.setItem('lastPage', "/topic");
     }, [])
 

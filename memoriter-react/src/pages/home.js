@@ -20,12 +20,12 @@ function HomePage() {
     setUser(currentUser);
   })
 
-  // Folder Data
-  const [folders, setFolders] = useState([])
-
   //firestore stuff
   // connection to the folders firestore
-  const foldersCollectionRef = query(collection(db, "folders"), where("user", "==", localStorage.getItem('userID')));
+  const foldersCollectionRef = query(collection(db, "folders"), where("user", "==", 'VEqxV0oaI6Uq81F9DRMJMApyUN83'));
+  
+  // Folder Data
+  const [folders, setFolders] = useState([])
 
   //Use Effect für folders
   useEffect(() => {

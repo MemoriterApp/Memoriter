@@ -3,13 +3,10 @@ import { useState, useEffect } from "react";
 import Logo from './Logo.png';
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { firebase } from "../utils/firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 function LoginPage() {
-
-    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
