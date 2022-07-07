@@ -30,7 +30,7 @@ function PrivacyPage() {
             <body>
                 <article className="Legal_Text">
                     <p>
-                        Last Changed: July 1st, 2022
+                        Last Changed: July 7th, 2022
                     </p>
                     <p>
                         We are happy that you decided to use our app Memoriter.

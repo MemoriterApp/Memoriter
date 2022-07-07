@@ -82,9 +82,11 @@ const PasswordReset = ({closePasswordResetModal}) => {
             {modalIsOpen && <div>
                 <br/>
                 <h2 className='Add_folder_Form_Header' style={{textAlign: 'center'}}>Password Reset</h2>
-                <br/><br/>
-                <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal'}}>
+                <br/>
+                <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal', width: '90%', marginInline: '5%'}}>
                     We have sent you your password reset email!
+                    If you did not recieve an email, please try again in a few minutes.
+                    The Email might also be falsely detected as spam by some email providers.
                 </p>
                 <br/><br/>
                 <button
