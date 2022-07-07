@@ -506,7 +506,8 @@ function SettingsClick() {
                                     <button
                                         className='settings-delete-account-confirm-button'
                                         onClick={() => {
-                                            openDeleteAccountConfirm(false);}}
+                                            openDeleteAccountConfirm(false);
+                                            setUserIdInput('');}}
                                     >Cancel</button>
                                     
                                     </form>
