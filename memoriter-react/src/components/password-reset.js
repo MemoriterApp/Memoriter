@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import Backdrop from "./backdrop";
 
 const PasswordReset = ({closePasswordResetModal}) => {
 
@@ -8,6 +9,8 @@ const PasswordReset = ({closePasswordResetModal}) => {
     const [email, setEmail] = useState('');
 
     const [redBorder, setRedBorder] = useState({});
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     async function passwordReset(e) {
         e.preventDefault();
@@ -18,7 +21,7 @@ const PasswordReset = ({closePasswordResetModal}) => {
             sendPasswordResetEmail(auth, email)
                 .then(() => {
                     return(
-                        closePasswordResetModal(),
+                        setModalIsOpen(true),
                         setRedBorder({}))
                 })
                 .catch(error => {
@@ -37,42 +40,59 @@ const PasswordReset = ({closePasswordResetModal}) => {
     return (
         <div className='settings-delete-account-confirm-body' style={{height: '360px'}}>
 
-            <br/>
-            <h2 className='Add_folder_Form_Header' style={{textAlign: 'center'}}>Password Reset</h2>
-            <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal'}}>
-                We will send you an email with further instructions how to reset your password.
-            </p>
-            <br/>
-
-            <form onSubmit={passwordReset}>
-
-                <input
-                    className='Settings-changemail-form Add_Folder_Form_Input'
-                    style={{left: '50%', transform: 'translateX(-50%)', width: '80%', borderColor: redBorder}}
-                    type='email'
-                    placeholder='Please enter account email...'
-                    id="email"
-                    name="email"
-                    onChange={event => {setEmail(event.target.value)}}
-                    value={email}
-                />
-
+            {modalIsOpen || <div>
+                <br/>
+                <h2 className='Add_folder_Form_Header' style={{textAlign: 'center'}}>Password Reset</h2>
+                <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal'}}>
+                    We will send you an email with further instructions how to reset your password.
+                </p>
                 <br/>
 
-                <button 
-                    className='settings-delete-account-confirm-button'
-                    style={{backgroundColor: 'rgba(39,75,101,1)', borderColor: 'rgba(39,75,101,1)'}}
-                    type='submit'
-                >Send Email</button>
+                <form onSubmit={passwordReset}>
 
+                    <input
+                        className='Settings-changemail-form Add_Folder_Form_Input'
+                        style={{left: '50%', transform: 'translateX(-50%)', width: '80%', borderColor: redBorder}}
+                        type='email'
+                        placeholder='Please enter account email...'
+                        id="email"
+                        name="email"
+                        onChange={event => {setEmail(event.target.value)}}
+                        value={email}
+                    />
+
+                    <br/>
+
+                    <button 
+                        className='settings-delete-account-confirm-button'
+                        style={{backgroundColor: 'rgba(39,75,101,1)', borderColor: 'rgba(39,75,101,1)'}}
+                        type='submit'
+                    >Send Email</button>
+
+                    <br/>
+
+                    <button
+                        className='settings-delete-account-confirm-button'
+                        onClick={() => {closePasswordResetModal(); setRedBorder({});}}
+                    >Cancel</button>
+
+                </form>
+            </div>}
+
+            {modalIsOpen && <div>
                 <br/>
-
+                <h2 className='Add_folder_Form_Header' style={{textAlign: 'center'}}>Password Reset</h2>
+                <br/><br/>
+                <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal'}}>
+                    We have sent you your password reset email!
+                </p>
+                <br/><br/>
                 <button
                     className='settings-delete-account-confirm-button'
-                    onClick={() => {closePasswordResetModal(); setRedBorder({});}}
-                >Cancel</button>
+                    onClick={() => {closePasswordResetModal()}}
+                >Close</button>
+            </div>}
 
-            </form>
         </div>
     );
 }
