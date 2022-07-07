@@ -199,6 +199,9 @@ function TopicPage() {
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo"></img>
                 </Link>
+                <div className='study-now'>
+                    <p className='study-now-text'>study now!</p>
+                </div>
             </header>
             <body>
                 <div className="rechteck">
