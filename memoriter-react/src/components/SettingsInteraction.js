@@ -197,14 +197,14 @@ function SettingsClick() {
         const flashcardDocRef = doc(db, "flashcards", flashcardsResult.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
         await deleteDoc(flashcardDocRef); //Zieldaten werden gelöscht
         })
-    }
 
-//delete user function (https://firebase.google.com/docs/auth/web/manage-users?hl=en)
-/*deleteUser(user).then(() => {
-    console.log("user has been deleted")
-  }).catch((error) => {
-    console.log("an error has occurred")
-  });*/
+        //delete user function (https://firebase.google.com/docs/auth/web/manage-users?hl=en)
+        deleteUser(user).then(() => {
+            return navigate('/login');
+        }).catch((error) => {
+            alert("An error has occurred while trying to delete your account, please try again later!");
+        });
+    }
 
     return (
         <div className='settings-overlay'>
