@@ -202,7 +202,7 @@ function SettingsClick() {
         deleteUser(user).then(() => {
             return navigate('/login');
         }).catch((error) => {
-            alert("An error has occurred while trying to delete your account, please try again later!");
+            alert('An error has occurred while trying to delete your account, please try again later!" ('+error+')');
         });
     }
 
