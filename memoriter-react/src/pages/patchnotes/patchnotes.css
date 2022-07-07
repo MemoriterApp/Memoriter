@@ -1,0 +1,8 @@
+.patchnotes-releases-box {
+    padding: 1em;
+    margin-bottom: 1em;
+    margin-inline: 10em;
+    color: white;
+    border-radius: 0.5em;
+    border: 5px solid #274b65
+}

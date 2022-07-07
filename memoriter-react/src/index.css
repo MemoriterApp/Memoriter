@@ -528,12 +528,13 @@ body {
     border: 5px solid #274b65;
     padding: 1rem;
     text-align: center;
-    width: 3rem;
+    width: 3.4rem;
     height: 4rem;
     z-index: 10;
     position: absolute;
     right: 15px;
     top: 20px;
+    white-space: nowrap;
 }
 .folder-settings-sub {
     color: rgba(58,109,112,1);
@@ -542,7 +543,7 @@ body {
     cursor: pointer;
     margin: 2px;
     width: 100%;
-    top: -16%;
+    top: -20%;
     font-weight: bold;
     left: -12%;
 }
@@ -952,7 +953,7 @@ body {
     width: calc(100% - 34px);
     height: calc(100% - 270px);
     color: white;
-    text-align: justify;
+    text-align: left;
     background-color: #353535;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -961,6 +962,8 @@ body {
     resize: none;
     border: 2px solid rgba(112, 112 ,112 ,1);
     border-radius: 3px;
+    overflow-y: auto;
+    overflow-x: auto;
 }
 .Edit_Flashcard_Open_Body {
     position: fixed;
@@ -1838,7 +1841,31 @@ body {
 .About-Start:hover:after{
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
+}
+.patch-notes-Start {
+    top: 90px;
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    position:absolute;
+    text-decoration: none;
+}
+.patch-notes-Start:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.patch-notes-Start:hover:after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
 /* Johan Startpage*/
 .how-does-it-work-body {
     position: relative;
@@ -2028,4 +2055,19 @@ body {
     font-size: 20px;
     cursor: pointer;
     margin-top: 1.5vw;
+}
+
+/*Text Editor Buttons*/
+.text-editor-button {
+    display: inline;
+    cursor: pointer;
+    margin: 10px 10px 10px 0;
+    line-height: 2;
+    border: 2px solid rgba(112, 112 ,112 ,1);
+    border-radius: 4px;
+    padding: 4px 4px 4px 4px;
+    white-space: nowrap;
+}
+.text-editor-button-active {
+    background-color: rgba(112, 112 ,112 ,1);
 }

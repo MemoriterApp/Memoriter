@@ -7,41 +7,34 @@ import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
-import { onAuthStateChanged } from "firebase/auth";
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
-
 
 function HomePage() {
 
+  //user stuff
+  const [user, setUser] = useState({});
+
+  const auth = getAuth();
+
   //firestore stuff
   // connection to the folders firestore
-  const foldersCollectionRef = collection(db, "folders");
-
-  //user stuff
-  const [user, setUser] = useState({})
+  const foldersCollectionRef = query(collection(db, "folders"), where("user", "==", auth.currentUser.uid));
 
   onAuthStateChanged(firebase.auth, (currentUser) => {
     setUser(currentUser);
   })
 
+  
   // Folder Data
   const [folders, setFolders] = useState([])
-
-  //show correct folders
-  const [renderedFolder, setRenderedFolder] = useState(true);
-
-  if (renderedFolder === false) {
-    setFolders(folders.filter((folder) => folder.user === user.uid));
-    setRenderedFolder(true);
-  }
 
   //Use Effect für folders
   useEffect(() => {
     const getFolder = async () => {
       const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
       setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      setRenderedFolder(false)
     };
 
     getFolder();
@@ -94,11 +87,10 @@ function HomePage() {
   //Add Folder
   const addFolder = async (folder) => {
     const pos = folders.length + 1
-    await addDoc(foldersCollectionRef, { pos, title: folder.title, user: user.uid })
+    await addDoc(collection(db, "folders"), { pos, title: folder.title, user: user.uid })
 
     const allFolders = await getDocs(foldersCollectionRef)
     setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Ordner
-    setRenderedFolder(false)
 
     setModalIsOpen(false)
   }
@@ -107,6 +99,7 @@ function HomePage() {
   const deleteFolder = async (id, pos) => {
     const folderDoc = doc(db, 'folders', id);
     await deleteDoc(folderDoc);
+
     setFolders((folders) =>
       folders
         .map((folder) =>
@@ -116,6 +109,17 @@ function HomePage() {
         )
         .filter((folder) => folder.id !== id)
     )
+
+    //delete folder flashcards stuff
+    const flashcardsCollectionRef = collection(db, "flashcards"); //link zur flashcard-collection
+    const q = query(flashcardsCollectionRef, where("syncedFolder", "==", id)); //Variable zur Filtrierung nach den richtigen flashcards
+    const snapshot = await getDocs(q); //gefilterte flashcards werden abgefragt
+
+    const results = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
+    results.forEach(async (result) => { //für jedes object wird die function ausgelöst
+      const flashcardDocRef = doc(db, "flashcards", result.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
+      await deleteDoc(flashcardDocRef); //Zieldaten werden gelöscht
+    })
   }
 
 
