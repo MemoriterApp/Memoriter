@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from "firebase/auth";
+import { async } from '@firebase/util';
 
 function SettingsClick() {
 
@@ -20,6 +21,7 @@ function SettingsClick() {
     const [changeEmail, openChangeEmail] = useState(false);
     const [deleteAccount, openDeleteAccount] = useState(false);
     const [deleteAccountConfirm, openDeleteAccountConfirm] = useState(false);
+    const [deleteAccountUidCompare, setDeleteAccountUidCompare] = useState(false);
 
     //states to store user data
     const [newEmail, setNewEmail] = useState('');
@@ -28,7 +30,9 @@ function SettingsClick() {
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const [accountPassword, setAccountPassword] = useState('')
+    const [userIdInput, setUserIdInput] = useState('');
+
+    const [accountPassword, setAccountPassword] = useState('');
 
     //error states
     const [redBorderNewData, setRedBorderNewData] = useState({});
@@ -141,7 +145,9 @@ function SettingsClick() {
                 .then(result => {
                     updateEmail(auth.currentUser, newEmail).then(() => {
                         return(
-                            openDeleteAccountConfirm(true))
+                            openDeleteAccountConfirm(true),
+                            openDeleteAccount(false),
+                            setAccountPassword(''))
                 });  
             })
                 .catch(error => {
@@ -152,6 +158,25 @@ function SettingsClick() {
                     }
             })
     }
+
+    //delete user compare uid-input with uid
+    const [deleteAccountConfirmUidMatchRerenderPrevent, setDeleteAccountConfirmUidMatchRerenderPrevent] = useState(false);
+
+    if (deleteAccountConfirmUidMatchRerenderPrevent) {
+        if (user.uid === userIdInput) {
+            setDeleteAccountUidCompare(true)
+            setDeleteAccountConfirmUidMatchRerenderPrevent(false)
+        } else {
+            setDeleteAccountUidCompare(false)
+            setDeleteAccountConfirmUidMatchRerenderPrevent(false)
+        }
+    }
+
+    async function deleteAccountFinal(e) {
+        e.preventDefault();
+        alert('nope');
+    }
+
 //delete user function (https://firebase.google.com/docs/auth/web/manage-users?hl=en)
 /*deleteUser(user).then(() => {
     console.log("user has been deleted")
@@ -209,6 +234,7 @@ function SettingsClick() {
                                 <input className='Settings-changemail-form Add_Folder_Form_Input'
                                     placeholder="New Email..."
                                     type="mail"
+                                    autocomplete='off'
                                     id="email"
                                     name="email"
                                     style={redBorderNewData}
@@ -220,6 +246,7 @@ function SettingsClick() {
                                 <input className='Settings-changemail-form Add_Folder_Form_Input'
                                     placeholder="Confirm New Email..."
                                     type="mail"
+                                    autocomplete='off'
                                     id="confirmEmail"
                                     name="confirmEmail"
                                     style={redBorderNewData}
@@ -309,6 +336,7 @@ function SettingsClick() {
                                 <input className='Settings-changemail-form Add_Folder_Form_Input'
                                     placeholder="New Password..."
                                     type="password"
+                                    autocomplete='off'
                                     id="newPassword"
                                     name="newPassword"
                                     style={redBorderNewData}
@@ -320,6 +348,7 @@ function SettingsClick() {
                                 <input className='Settings-changemail-form Add_Folder_Form_Input'
                                     placeholder="Confirm New Password..."
                                     type="password"
+                                    autocomplete='off'
                                     id="confirmPassword"
                                     name="confirmPassword"
                                     style={redBorderNewData}
@@ -401,17 +430,74 @@ function SettingsClick() {
                                     type='submit'
                                 >Proceed</button>
 
-                                {deleteAccountConfirm && <div>
-                                    success!
-                                </div>}
-
                             </form>
 
                             </div>
                             <Backdrop onClick={() => openDeleteAccount(false)} />
 
-
                         </div>}
+
+                        {deleteAccountConfirm && <div>
+                            <div className='settings-delete-account-confirm-body'>
+                                <br/>
+                                <h2 className='Add_folder_Form_Header' style={{textAlign: 'center'}}>Do you really want to delete your account?</h2>
+                                <p className='settings-delete-account-confirm-text' style={{fontSize: '20px'}}>
+                                    If you delete your account, your data will be gone forever and cannot be restored.
+                                </p>
+                                <br/>
+                                <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal'}}>
+                                    Please enter your user id to confirm the deletion:
+                                    <br/><br/>
+                                    <span style={{color: '#bbb', fontWeight: 'normal'}}>{user.uid}</span>
+                                </p>
+                                <br/>
+
+                                <form onSubmit={deleteAccountFinal}>
+                                    <input
+                                        className='Settings-changemail-form Add_Folder_Form_Input'
+                                        style={{left: '50%', transform: 'translateX(-50%)', width: '80%'}}
+                                        type='text'
+                                        autocomplete='off'
+                                        placeholder='Please enter your user id...'
+                                        id="userId"
+                                        name="userId"
+                                        onChange={event => {setUserIdInput(event.target.value); setDeleteAccountConfirmUidMatchRerenderPrevent(true);}}
+                                        value={userIdInput}
+                                    />
+
+                                    <br/>
+
+                                    {deleteAccountUidCompare || <button 
+                                        className='settings-delete-account-confirm-button'
+                                        style={{backgroundColor: 'rgb(228, 48, 48)', borderColor: 'rgb(228, 48, 48)', opacity: '0.2', cursor: 'not-allowed'}}
+                                        onClick={(e) => e.preventDefault()}
+                                    >I understand the consequences, delete my account.</button>}
+
+                                    {deleteAccountUidCompare && <button 
+                                        className='settings-delete-account-confirm-button'
+                                        style={{backgroundColor: 'rgb(228, 48, 48)', borderColor: 'rgb(228, 48, 48)'}}
+                                        type='submit'
+                                    >I understand the consequences, delete my account.</button>}
+
+                                    <br/>
+
+                                    <button
+                                        className='settings-delete-account-confirm-button'
+                                        onClick={() => {
+                                            openDeleteAccountConfirm(false);}}
+                                    >Cancel</button>
+                                    
+                                    </form>
+
+                            </div>
+                            <Backdrop
+                                onClick={() => {
+                                    openDeleteAccountConfirm(false);
+                                    setAccountPassword('');
+                                }} />
+                        </div>
+                        }
+
                     </div>
                 </div>
             </div> }      

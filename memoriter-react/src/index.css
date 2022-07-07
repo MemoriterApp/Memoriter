@@ -1988,3 +1988,42 @@ body {
         left:7vw;
     }
 }
+
+.settings-delete-account-confirm-body {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+    width: 650px;
+    height: 500px;
+    background-color: #353535;
+    border: 5px solid rgba(39,75,101,1);
+    border-radius: 6px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.settings-delete-account-confirm-text {
+    text-align: center;
+    font-size: 18px;
+    color:rgb(228, 48, 48); 
+    font-weight: bold;
+}
+
+.settings-delete-account-confirm-button {
+    position: relative;
+    width: calc(80% + 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid rgba(112,112,112,1);
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+    background-color: rgba(112,112,112,1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 1.5vw;
+}
