@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from "firebase/auth";
-import { async } from '@firebase/util';
+import { collection, query, where, doc, getDocs, deleteDoc } from 'firebase/firestore/lite';
+const { db } = firebase
 
 function SettingsClick() {
 
@@ -174,7 +175,28 @@ function SettingsClick() {
 
     async function deleteAccountFinal(e) {
         e.preventDefault();
-        alert('nope');
+
+        //delete user folders
+        const foldersCollectionRef = collection(db, "folders"); //link zur folder-collection
+        const foldersQuery = query(foldersCollectionRef, where("user", "==", auth.currentUser.uid)); //Variable zur Filtrierung nach den richtigen folders
+        const foldersSnapshot = await getDocs(foldersQuery); //gefilterte folders werden abgefragt
+
+        const foldersResults = foldersSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
+        foldersResults.forEach(async (foldersResult) => { //für jedes object wird die function ausgelöst
+        const folderDocRef = doc(db, "folders", foldersResult.id); //Definition der Zieldaten (folders, die gelöscht werden)
+        await deleteDoc(folderDocRef); //Zieldaten werden gelöscht
+        })
+        
+        //delete user flashcards
+        const flashcardsCollectionRef = collection(db, "flashcards"); //link zur flashcard-collection
+        const flashcardsQuery = query(flashcardsCollectionRef, where("user", "==", auth.currentUser.uid)); //Variable zur Filtrierung nach den richtigen flashcards
+        const flashcardsSnapshot = await getDocs(flashcardsQuery); //gefilterte flashcards werden abgefragt
+
+        const flashcardsResults = flashcardsSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
+        flashcardsResults.forEach(async (flashcardsResult) => { //für jedes object wird die function ausgelöst
+        const flashcardDocRef = doc(db, "flashcards", flashcardsResult.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
+        await deleteDoc(flashcardDocRef); //Zieldaten werden gelöscht
+        })
     }
 
 //delete user function (https://firebase.google.com/docs/auth/web/manage-users?hl=en)
