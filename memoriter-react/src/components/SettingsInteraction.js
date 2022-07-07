@@ -18,6 +18,8 @@ function SettingsClick() {
     //states to check wether overlay is open
     const [changePassword, openChangePassword] = useState(false);
     const [changeEmail, openChangeEmail] = useState(false);
+    const [deleteAccount, openDeleteAccount] = useState(false);
+    const [deleteAccountConfirm, openDeleteAccountConfirm] = useState(false);
 
     //states to store user data
     const [newEmail, setNewEmail] = useState('');
@@ -69,10 +71,10 @@ function SettingsClick() {
                             openChangeEmail(false),
                             setNewEmail(''),
                             setConfirmEmail(''),
-                            setAccountPassword('')),
+                            setAccountPassword(''),
                             setRedBorderNewData({}),
                             setRedBorderAccountPassword({}),
-                            setUpdatedEmail(true)
+                            setUpdatedEmail(true))
                 });  
             })
                 .catch(error => {
@@ -109,10 +111,10 @@ function SettingsClick() {
                             openChangePassword(false),
                             setNewPassword(''),
                             setConfirmPassword(''),
-                            setAccountPassword('')),
+                            setAccountPassword(''),
                             setRedBorderNewData({}),
                             setRedBorderAccountPassword({}),
-                            setUpdatedPassword(true);
+                            setUpdatedPassword(true))
                 });  
             })
                 .catch(error => {
@@ -126,12 +128,36 @@ function SettingsClick() {
         }
     }
 
+    //delete account password confirm
+    async function deleteAccountPasswordSubmit(e) {
+        e.preventDefault();
+
+        const credential = EmailAuthProvider.credential( //required input for password confirm
+            user.email,
+            accountPassword
+        )
+
+        reauthenticateWithCredential(auth.currentUser, credential)
+                .then(result => {
+                    updateEmail(auth.currentUser, newEmail).then(() => {
+                        return(
+                            openDeleteAccountConfirm(true))
+                });  
+            })
+                .catch(error => {
+                    switch (error.code) {
+                        case error.code:
+                            setRedBorderAccountPassword({borderColor: 'rgb(228, 48, 48)'});
+                            break;
+                    }
+            })
+    }
 //delete user function (https://firebase.google.com/docs/auth/web/manage-users?hl=en)
-deleteUser(user).then(() => {
+/*deleteUser(user).then(() => {
     console.log("user has been deleted")
   }).catch((error) => {
     console.log("an error has occurred")
-  });
+  });*/
 
     return (
         <div className='settings-overlay'>
@@ -330,8 +356,62 @@ deleteUser(user).then(() => {
                         <h1 className='Settings-profile-header' style={{ fontSize: '21px',  margin: '5px'}}>Account</h1>
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '20px' }} />
-                        <div className='Settings-profile-text' style={{ color: '#d83232', margin: '5px',cursor:'pointer' }} onClick={() => openSignOutView(true)}>Delete Account</div>
-                        <div className='Settings-profile-text' style={{ fontSize: '15px', color: 'rgb(88, 167, 172)', margin: '5px', cursor:'default' }} >If you delete your account, your data will be gone forever!</div>
+                        <div className='Settings-profile-text' style={{ color: '#d83232', margin: '5px' }}
+                            onClick={() => {
+                                openDeleteAccount(true);
+                                setUpdatedEmail(false);
+                                setUpdatedPassword(false);
+                            }}>Delete Account</div>
+                        <div className='Settings-profile-text' style={{ fontSize: '15px', color: 'rgb(88, 167, 172)', margin: '5px' }} >If you delete your account, your data will be gone forever!</div>
+
+                        {deleteAccount && <div>
+                            <div className='Settings-changemail-body'>
+
+                            <br/><br/><br/><br/>
+
+                            <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Please enter your password to proceed!</div>
+
+                            <form onSubmit={deleteAccountPasswordSubmit}>
+
+                                <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                    placeholder="Password..."
+                                    type="password"
+                                    id="accountPassword"
+                                    name="accountPassword"
+                                    style={redBorderAccountPassword}
+                                    onChange={event => setAccountPassword(event.target.value)}
+                                    value={accountPassword}
+                                />
+
+                                <br/>
+
+                                <button
+                                    className='Settings-changemail-cancel'
+                                    onClick={() => {
+                                        openDeleteAccount(false);
+                                        setNewEmail('');
+                                        setConfirmEmail('');
+                                        setAccountPassword('');
+                                        setRedBorderNewData({});
+                                        setRedBorderAccountPassword({});}}
+                                >Cancel</button>
+
+                                <button 
+                                    className='Settings-changemail-change'
+                                    type='submit'
+                                >Proceed</button>
+
+                                {deleteAccountConfirm && <div>
+                                    success!
+                                </div>}
+
+                            </form>
+
+                            </div>
+                            <Backdrop onClick={() => openDeleteAccount(false)} />
+
+
+                        </div>}
                     </div>
                 </div>
             </div> }      
