@@ -1891,6 +1891,7 @@ body {
     font-size: 21px;
     text-align: left;
     margin: 5px;
+    cursor: default;
 }
 .Settings-profile-text {
     font-size: 20px;
@@ -1899,6 +1900,7 @@ body {
     font-weight: bold;
     display: inline-block;
     text-align: left;
+    cursor: default;
 }
 .Settings-line {
     background-color: rgba(112,112,112,1);

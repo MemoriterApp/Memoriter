@@ -153,7 +153,7 @@ deleteUser(user).then(() => {
 
             {profile && <div>
                 <div className='Settings-profile-body'>
-                    <h2 className='Add_Folder_Form_Header' style={{ fontSize: '30px' }}>Profile</h2>
+                    <h2 className='Add_Folder_Form_Header' style={{ fontSize: '30px',cursor:'default' }}>Profile</h2>
                     <div>
                         <h1 className='Settings-profile-header' style={{ fontSize: '21px', textAlign: 'left', margin: '5px' }}>
                             Personal Info
@@ -163,9 +163,9 @@ deleteUser(user).then(() => {
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '10px' }} />
                         <div style={{textAlign: 'left'}}>
-                            <div className='Settings-profile-text' style={{ margin: '5px'}}>Personal Email:</div>
+                            <div className='Settings-profile-text' style={{ margin: '5px',}}>Personal Email:</div>
                             <div className='Settings-profile-text' style={{ color: '#bbb',  margin: '5px' }}>{user.email}</div>
-                            <div className='Settings-profile-text' style={{ margin: '5px' }}
+                            <div className='Settings-profile-text' style={{ margin: '5px',cursor:'pointer' }}
                                 onClick={() => {
                                     openChangeEmail(true);
                                     setUpdatedEmail(false);
@@ -253,7 +253,7 @@ deleteUser(user).then(() => {
                         </h1>
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '10px' }} />
-                        <div className='Settings-profile-text' style={{ margin: '5px',}}
+                        <div className='Settings-profile-text' style={{ margin: '5px',cursor:'pointer'}}
                             onClick={() => {
                                 openChangePassword(true);
                                 setUpdatedEmail(false);
@@ -330,8 +330,8 @@ deleteUser(user).then(() => {
                         <h1 className='Settings-profile-header' style={{ fontSize: '21px',  margin: '5px'}}>Account</h1>
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '20px' }} />
-                        <div className='Settings-profile-text' style={{ color: '#d83232', margin: '5px' }} onClick={() => openSignOutView(true)}>Delete Account</div>
-                        <div className='Settings-profile-text' style={{ fontSize: '15px', color: 'rgb(88, 167, 172)', margin: '5px' }} >If you delete your account, your data will be gone forever!</div>
+                        <div className='Settings-profile-text' style={{ color: '#d83232', margin: '5px',cursor:'pointer' }} onClick={() => openSignOutView(true)}>Delete Account</div>
+                        <div className='Settings-profile-text' style={{ fontSize: '15px', color: 'rgb(88, 167, 172)', margin: '5px', cursor:'default' }} >If you delete your account, your data will be gone forever!</div>
                     </div>
                 </div>
             </div> }      
