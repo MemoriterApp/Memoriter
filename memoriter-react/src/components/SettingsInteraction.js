@@ -3,7 +3,7 @@ import Backdrop from './backdrop';
 import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
-import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
+import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from "firebase/auth";
 
 function SettingsClick() {
 
@@ -152,6 +152,12 @@ function SettingsClick() {
                     }
             })
     }
+//delete user function (https://firebase.google.com/docs/auth/web/manage-users?hl=en)
+/*deleteUser(user).then(() => {
+    console.log("user has been deleted")
+  }).catch((error) => {
+    console.log("an error has occurred")
+  });*/
 
     return (
         <div className='settings-overlay'>
