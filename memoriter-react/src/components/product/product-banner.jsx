@@ -28,10 +28,14 @@ const ProductBanner = () => {
         <div className='product-banner'>
 
             {/*background triangles*/}
-            <div className='product-banner-background-triangle-top'
-                style={{right: `calc(-1 * ${scrollProgress}vh - ${triangleEffect}vh`, transition: triangleTransition}}/>
-            <div className='product-banner-background-triangle-bottom'
-                style={{left: `calc(-1 * ${scrollProgress}vh - ${triangleEffect}vh`, transition: triangleTransition}}/>
+            <div
+                className='product-banner-background-triangle-top'
+                style={{right: `calc(-1 * ${scrollProgress}vh - ${triangleEffect}vh`, transition: triangleTransition}}
+            />
+            <div
+                className='product-banner-background-triangle-bottom'
+                style={{left: `calc(-1 * ${scrollProgress}vh - ${triangleEffect}vh`, transition: triangleTransition}}
+            />
             {/*the size of the triangles changes a bit when you scroll down and when hovering over the get started button*/}
 
             {/*content*/}
@@ -40,10 +44,12 @@ const ProductBanner = () => {
                 <p className='product-banner-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
 
                 {/*get started button for redirecting to register page*/}
-                <Link className='product-banner-get-started' to='/signup'
+                <Link
+                    className='product-banner-get-started' to='/signup'
                     onMouseEnter={() => {setOnHover('brightness(0.75)'); setTriangleEffect('10'); setTriangleTransition('400ms');}}
-                    onMouseLeave={() => {setOnHover('brightness(1)'); setTriangleEffect('0'); setTimeout(() => {setTriangleTransition('none')}, 400);}}>
-                    {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation*/}
+                    onMouseLeave={() => {setOnHover('brightness(1)'); setTriangleEffect('0'); setTimeout(() => {setTriangleTransition('none')}, 400);}}
+                >
+                {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation*/}
                     <div className='product-banner-get-started-background' style={{filter: onHover}}/>
                     <span className='product-banner-get-started-text'>Get Started!</span>
                 </Link>

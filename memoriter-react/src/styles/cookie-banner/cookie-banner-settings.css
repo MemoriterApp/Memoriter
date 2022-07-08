@@ -16,7 +16,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 800px;
+    width: 540px;
     max-width: calc(100% - 40px);
     height: 700px;
     max-height: calc(100% - 40px);
@@ -37,8 +37,8 @@
     color: rgba(255, 255, 255, 1);
     font-family: 'Inter';
     line-height: 1.5rem;
-    text-align: center;
-    margin: 40px 96px 40px 96px;
+    text-align: justify;
+    margin: 0 40px 60px 40px;
 }
 
 .cookie-banner-settings-container { /*contains toggle switches and labels*/
@@ -46,7 +46,7 @@
 }
 
 .cookie-banner-settings-label  { /*label for toggle switches*/
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
     margin-left: 40px;
@@ -61,13 +61,44 @@
     margin-left: 40px;
     width: calc(100% - 200px);
 }
+.cookie-banner-settings-switch-static { /*static switch for always active cookies*/
+    position: absolute;
+    right: 20px;
+    transform: translate(-50%, -46px);
+    width: 56px;
+    height: 30px;
+}
+.cookie-banner-settings-switch-static input { /*hides default checkbox*/
+    display: none;
+}
+.cookie-banner-settings-switch-slider-static { /*static slider background shape*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    background-color: rgba(35, 170, 170, 1);
+    filter: saturate(0.6);
+    cursor: pointer;
+}
+.cookie-banner-settings-switch-slider-static:before { /*static slider knob (the circle)*/
+    content: '';
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    background-color: rgba(54, 54, 54, 1);
+}
 
 .cookie-banner-settings-switch { /*toggle switch*/
     position: absolute;
     right: 20px;
-    transform: translate(-50%, -56px);
-    width: 60px;
-    height: 34px;
+    transform: translate(-50%, -46px);
+    width: 56px;
+    height: 30px;
 }
 .cookie-banner-settings-switch input { /*hides default checkbox*/
     display: none;
@@ -78,9 +109,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 34px;
+    border-radius: 30px;
     background-color: rgba(18, 18, 18, 1);
-    transition: 400ms;
+    transition: background-color 400ms;
     cursor: pointer;
 }
 .cookie-banner-settings-switch-slider:before { /*slider knob (the circle)*/
@@ -88,11 +119,10 @@
     position: absolute;
     left: 4px;
     top: 4px;
-    height: 26px;
-    width: 26px;
+    height: 22px;
+    width: 22px;
     border-radius: 50%;
     background-color: rgba(54, 54, 54, 1);
-    transition: background-color 400ms;
     transition: transform 400ms;
 }
 .cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider { /*background color change on toggle*/
@@ -105,7 +135,7 @@
 .cookie-banner-settings-save { /*save current button*/
     position: absolute;
     left: 44px;
-    bottom: 16px;
+    bottom: 12px;
     transform: translate(0, -50%);
     width: calc(50% - 80px);
     height: 30px;
@@ -133,10 +163,11 @@
 
 .cookie-banner-settings-accept { /*accept button, needed to be split in multiple classes, this class is for the positionig of the button*/
     position: absolute;
-    right: 64px;
-    bottom: 16px;
+    right: 54px;
+    bottom: 12px;
     transform: translate(0, -50%);
     width: calc(50% - 80px);
+    padding: 0 10px 0 0;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     cursor: pointer;
