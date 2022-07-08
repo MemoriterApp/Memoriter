@@ -74,10 +74,10 @@
     font-size: 0.8rem;
 }
 .cookie-banner-settings-label-more-info-text { /*description for the different labels*/
-    display: none;
     position: absolute;
+    top: 50%;
+    left: 50%;
     width: 300px;
-    transform: translate(5px, 24px);
     font-size: 1rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Inter';

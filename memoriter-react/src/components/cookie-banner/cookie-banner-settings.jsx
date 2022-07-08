@@ -25,10 +25,6 @@ const CookieBannerSettings = ({ onAccept }) => {
                     Strictly Necessary Cookies
                     <div className='cookie-banner-settings-label-more-info'>
                         <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
-                        <div className='cookie-banner-settings-label-more-info-text'>
-                            These Cookies are essential for the basic functionality of the site to work.
-                            They are technically necessary and cannot be disabled.
-                        </div>
                     </div>
                 </p>
                 {/*toggle slider*/}
@@ -44,9 +40,6 @@ const CookieBannerSettings = ({ onAccept }) => {
                     Functional Cookies
                     <div className='cookie-banner-settings-label-more-info'>
                         <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
-                        <div className='cookie-banner-settings-label-more-info-text'>
-                            Functional cookies provide enhanced features and preferences to provide a better experience when using the site.
-                        </div>
                     </div>
                 </p>
                 {/*toggle slider*/}
@@ -62,9 +55,6 @@ const CookieBannerSettings = ({ onAccept }) => {
                     Analytics Cookies
                     <div className='cookie-banner-settings-label-more-info'>
                         <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
-                        <div className='cookie-banner-settings-label-more-info-text'>
-                            These cookies collect data used to analyze the visitors behavior for optimizing and improving the website.
-                        </div>
                     </div>
                 </p>
                 {/*toggle slider*/}
@@ -80,9 +70,6 @@ const CookieBannerSettings = ({ onAccept }) => {
                     Advertising Cookies
                     <div className='cookie-banner-settings-label-more-info'>
                         <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
-                        <div className='cookie-banner-settings-label-more-info-text'>
-                            These cookies are used for marketing services (e.g targeted advertising).
-                        </div>
                     </div>
                 </p>
                 {/*toggle slider*/}
@@ -114,6 +101,30 @@ const CookieBannerSettings = ({ onAccept }) => {
             </div>
 
             </div>
+
+            {/*descriptions are here due clipping problems*/}
+            {/*strictly necessary cookies more info field*/}
+            <div className='cookie-banner-settings-label-more-info-text'
+                style={{transform: 'translate(calc(-50% + 202px), calc(-50% + 56px))'}}> {/*style for position*/}
+                These Cookies are essential for the basic functionality of the site to work.
+                They are technically necessary and cannot be disabled.
+            </div>
+            {/*functional cookies more info field*/}
+            <div className='cookie-banner-settings-label-more-info-text'
+                style={{transform: 'translate(calc(-50% + 135px), calc(-50% + 102px))'}}> {/*style for position*/}
+                Functional cookies provide enhanced features and preferences to provide a better experience when using the site.
+            </div>
+            {/*analytics cookies more info field*/}
+            <div className='cookie-banner-settings-label-more-info-text'
+                style={{transform: 'translate(calc(-50% + 123px), calc(-50% + 161px))'}}> {/*style for position*/}
+                These cookies collect data used to analyze the visitors behavior for optimizing and improving the website.
+            </div>
+            {/*advertising cookies more info field*/}
+            <div className='cookie-banner-settings-label-more-info-text'
+                style={{transform: 'translate(calc(-50% + 143px), calc(-50% + 211px))'}}> {/*style for position*/}
+                These cookies are used for marketing services (e.g targeted advertising).
+            </div>
+
         </div>
     );
 }
