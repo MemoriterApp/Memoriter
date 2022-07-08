@@ -163,7 +163,7 @@
 
 .cookie-banner-settings-save { /*save current button*/
     position: absolute;
-    left: 44px;
+    left: 40px;
     bottom: 12px;
     transform: translate(0, -50%);
     width: calc(50% - 80px);
@@ -192,7 +192,7 @@
 
 .cookie-banner-settings-accept { /*accept button, needed to be split in multiple classes, this class is for the positionig of the button*/
     position: absolute;
-    right: 54px;
+    right: 50px;
     bottom: 12px;
     transform: translate(0, -50%);
     width: calc(50% - 80px);
