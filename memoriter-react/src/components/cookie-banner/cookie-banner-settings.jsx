@@ -21,55 +21,75 @@ const CookieBannerSettings = ({ onAccept }) => {
 
             {/*strictly necessary cookies switch*/}
             <div className='cookie-banner-settings-container'>
-                <p className='cookie-banner-settings-label'>Strictly Necessary Cookies</p>
+                <p className='cookie-banner-settings-label'>
+                    Strictly Necessary Cookies
+                    <div className='cookie-banner-settings-label-more-info'>
+                        <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
+                        <div className='cookie-banner-settings-label-more-info-text'>
+                            These Cookies are essential for the basic functionality of the site to work.
+                            They are technically necessary and cannot be disabled.
+                        </div>
+                    </div>
+                </p>
                 {/*toggle slider*/}
                 <label className='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
                     <div className='cookie-banner-settings-switch-slider-static'/>
                 </label>
-                <p className='cookie-banner-settings-info'>
-                    These Cookies are essential for the basic functionality of the site to work.
-                    They are technically necessary and cannot be disabled.
-                </p>
             </div>
 
             {/*functional cookies switch*/}
             <div className='cookie-banner-settings-container'>
-                <p className='cookie-banner-settings-label'>Functional Cookies</p>
+                <p className='cookie-banner-settings-label'>
+                    Functional Cookies
+                    <div className='cookie-banner-settings-label-more-info'>
+                        <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
+                        <div className='cookie-banner-settings-label-more-info-text'>
+                            Functional cookies provide enhanced features and preferences to provide a better experience when using the site.
+                        </div>
+                    </div>
+                </p>
                 {/*toggle slider*/}
                 <label className='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
                     <div className='cookie-banner-settings-switch-slider'/>
                 </label>
-                <p className='cookie-banner-settings-info'>
-                    Functional cookies provide enhanced features and preferences to provide a better experience when using the site.
-                </p>
             </div>
 
             {/*analytics cookies switch*/}
             <div className='cookie-banner-settings-container'>
-                <p className='cookie-banner-settings-label'>Analytics Cookies</p>
+                <p className='cookie-banner-settings-label'>
+                    Analytics Cookies
+                    <div className='cookie-banner-settings-label-more-info'>
+                        <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
+                        <div className='cookie-banner-settings-label-more-info-text'>
+                            These cookies collect data used to analyze the visitors behavior for optimizing and improving the website.
+                        </div>
+                    </div>
+                </p>
                 {/*toggle slider*/}
                 <label className='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
                     <div className='cookie-banner-settings-switch-slider'/>
                 </label>
-                <p className='cookie-banner-settings-info'>
-                    These cookies collect data used to analyze the visitors behavior for optimizing and improving the website.
-                </p>
             </div>
 
             {/*advertising cookies switch*/}
             <div className='cookie-banner-settings-container'>
-                <p className='cookie-banner-settings-label'>Advertising Cookies</p>
+                <p className='cookie-banner-settings-label'>
+                    Advertising Cookies
+                    <div className='cookie-banner-settings-label-more-info'>
+                        <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
+                        <div className='cookie-banner-settings-label-more-info-text'>
+                            These cookies are used for marketing services (e.g targeted advertising).
+                        </div>
+                    </div>
+                </p>
                 {/*toggle slider*/}
                 <label className='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
                     <div className='cookie-banner-settings-switch-slider'/>
                 </label>
-                <p className='cookie-banner-settings-info'>
-                    These cookies are used for marketing services (e.g targeted advertising).
-                </p>
             </div>
 
             <nav className='cookie-banner-settings-links'>
