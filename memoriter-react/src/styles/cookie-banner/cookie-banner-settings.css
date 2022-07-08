@@ -79,7 +79,7 @@
     bottom: 0;
     border-radius: 30px;
     background-color: rgba(35, 170, 170, 1);
-    filter: saturate(0.6);
+    filter: saturate(0.5);
     cursor: pointer;
 }
 .cookie-banner-settings-switch-slider-static:before { /*static slider knob (the circle)*/
