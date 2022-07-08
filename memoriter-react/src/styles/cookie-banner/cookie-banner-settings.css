@@ -192,6 +192,30 @@
     transition: 200ms;
 }
 
+.cookie-banner-settings-links { /*further information links at the bottom*/
+    display: flex; /*display: flex creates columns*/
+    position: absolute;
+    gap: 20px;
+    bottom: 105px;
+    left: 60px;
+    width: calc(100% - 120px);
+    text-align: center;
+}
+.cookie-banner-settings-links > * { /*layout optimization*/
+    flex: 1; /*used for equal columns*/
+}
+.cookie-banner-settings-link { /*link font style*/
+    font-size: 0.95rem;
+    color: rgba(200, 200, 200, 1);
+    font-family: 'Inter';
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 200ms;
+}
+.cookie-banner-settings-link:hover { /*link hover effect*/
+    color: rgba(255, 255, 255, 1);
+}
+
 @media (max-width: 960px) {
     .cookie-banner-settings-backdrop {
         top: calc(-50vh + 120px);

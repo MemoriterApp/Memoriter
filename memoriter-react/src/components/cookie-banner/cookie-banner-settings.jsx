@@ -1,5 +1,6 @@
 import '../../styles/cookie-banner/cookie-banner-settings.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const CookieBannerSettings = ({ onAccept }) => {
 
@@ -70,6 +71,12 @@ const CookieBannerSettings = ({ onAccept }) => {
                     These cookies are used for marketing services (e.g targeted advertising).
                 </p>
             </div>
+
+            <nav className='cookie-banner-settings-links'>
+                <Link className='cookie-banner-settings-link' to='/privacy' target='_blank'>Privacy Policy</Link>
+                <Link className='cookie-banner-settings-link' to='/cookies' target='_blank'>Cookie Policy</Link>
+                <Link className='cookie-banner-settings-link' to='/impressum' target='_blank'>Impressum</Link>
+            </nav>
 
             {/*button for saving changes*/}
             <div className='cookie-banner-settings-save' onClick={() => onAccept()}>
