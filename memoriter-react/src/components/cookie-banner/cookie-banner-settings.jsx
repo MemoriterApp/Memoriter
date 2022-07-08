@@ -6,6 +6,12 @@ const CookieBannerSettings = ({ onAccept }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the accept all button
 
+    //variables for showing more information for labels
+    const [strictlyNecessaryInfo, setStrictlyNecessaryInfo] = useState({display: 'none'});
+    const [functionalInfo, setFunctionalInfo] = useState({display: 'none'});
+    const [analyticsInfo, setAnalyticsInfo] = useState({display: 'none'});
+    const [advertisingInfo, setAdvertisingInfo] = useState({display: 'none'});
+
     return (
         <div className='cookie-banner-settings-backdrop'>
             <div className='cookie-banner-settings'>
@@ -23,7 +29,16 @@ const CookieBannerSettings = ({ onAccept }) => {
             <div className='cookie-banner-settings-container'>
                 <p className='cookie-banner-settings-label'>
                     Strictly Necessary Cookies
-                    <div className='cookie-banner-settings-label-more-info'>
+                    <div className='cookie-banner-settings-label-more-info'
+                        onMouseEnter={() => {
+                            setStrictlyNecessaryInfo({display: 'block', transform: 'translate(calc(-50% + 202px), calc(-50% + 56px))', opacity: '0'});
+                            setTimeout(() => {setStrictlyNecessaryInfo({display: 'block', transform: 'translate(calc(-50% + 202px), calc(-50% + 56px))', opacity: '1'})}, 0);
+                        }}
+                        onMouseLeave={() => {
+                            setStrictlyNecessaryInfo({display: 'block', transform: 'translate(calc(-50% + 202px), calc(-50% + 56px))', opacity: '0'});
+                            setTimeout(() => {setStrictlyNecessaryInfo({display: 'none'})}, 400);
+                        }}>
+                        {/*the onMouseEnter and -Leave is for showing and hiding the more information box*/}
                         <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
                     </div>
                 </p>
@@ -38,7 +53,16 @@ const CookieBannerSettings = ({ onAccept }) => {
             <div className='cookie-banner-settings-container'>
                 <p className='cookie-banner-settings-label'>
                     Functional Cookies
-                    <div className='cookie-banner-settings-label-more-info'>
+                    <div className='cookie-banner-settings-label-more-info'
+                        onMouseEnter={() => {
+                            setFunctionalInfo({display: 'block', transform: 'translate(calc(-50% + 135px), calc(-50% + 102px))', opacity: '0'});
+                            setTimeout(() => {setFunctionalInfo({display: 'block', transform: 'translate(calc(-50% + 135px), calc(-50% + 102px))', opacity: '1'})}, 0);
+                        }}
+                        onMouseLeave={() => {
+                            setFunctionalInfo({display: 'block', transform: 'translate(calc(-50% + 135px), calc(-50% + 102px))', opacity: '0'});
+                            setTimeout(() => {setFunctionalInfo({display: 'none'})}, 400);
+                        }}>
+                        {/*the onMouseEnter and -Leave is for showing and hiding the more information box*/}
                         <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
                     </div>
                 </p>
@@ -53,7 +77,16 @@ const CookieBannerSettings = ({ onAccept }) => {
             <div className='cookie-banner-settings-container'>
                 <p className='cookie-banner-settings-label'>
                     Analytics Cookies
-                    <div className='cookie-banner-settings-label-more-info'>
+                    <div className='cookie-banner-settings-label-more-info'
+                        onMouseEnter={() => {
+                            setAnalyticsInfo({display: 'block', transform: 'translate(calc(-50% + 123px), calc(-50% + 161px))', opacity: '0'});
+                            setTimeout(() => {setAnalyticsInfo({display: 'block', transform: 'translate(calc(-50% + 123px), calc(-50% + 161px))', opacity: '1'})}, 0);
+                        }}
+                        onMouseLeave={() => {
+                            setAnalyticsInfo({display: 'block', transform: 'translate(calc(-50% + 123px), calc(-50% + 161px))', opacity: '0'});
+                            setTimeout(() => {setAnalyticsInfo({display: 'none'})}, 400);
+                        }}>
+                        {/*the onMouseEnter and -Leave is for showing and hiding the more information box*/}
                         <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
                     </div>
                 </p>
@@ -68,7 +101,16 @@ const CookieBannerSettings = ({ onAccept }) => {
             <div className='cookie-banner-settings-container'>
                 <p className='cookie-banner-settings-label'>
                     Advertising Cookies
-                    <div className='cookie-banner-settings-label-more-info'>
+                    <div className='cookie-banner-settings-label-more-info'
+                        onMouseEnter={() => {
+                            setAdvertisingInfo({display: 'block', transform: 'translate(calc(-50% + 143px), calc(-50% + 221px))', opacity: '0'});
+                            setTimeout(() => {setAdvertisingInfo({display: 'block', transform: 'translate(calc(-50% + 143px), calc(-50% + 221px))', opacity: '1'})}, 0);
+                        }}
+                        onMouseLeave={() => {
+                            setAdvertisingInfo({display: 'block', transform: 'translate(calc(-50% + 143px), calc(-50% + 221px))', opacity: '0'});
+                            setTimeout(() => {setAdvertisingInfo({display: 'none'})}, 400);
+                        }}>
+                        {/*the onMouseEnter and -Leave is for showing and hiding the more information box*/}
                         <span className='cookie-banner-settings-label-more-info-symbol'>i</span>
                     </div>
                 </p>
@@ -105,24 +147,24 @@ const CookieBannerSettings = ({ onAccept }) => {
             {/*descriptions are here due clipping problems*/}
             {/*strictly necessary cookies more info field*/}
             <div className='cookie-banner-settings-label-more-info-text'
-                style={{transform: 'translate(calc(-50% + 202px), calc(-50% + 56px))'}}> {/*style for position*/}
+                style={strictlyNecessaryInfo}> {/*style for position and visibility*/}
                 These Cookies are essential for the basic functionality of the site to work.
                 They are technically necessary and cannot be disabled.
             </div>
             {/*functional cookies more info field*/}
             <div className='cookie-banner-settings-label-more-info-text'
-                style={{transform: 'translate(calc(-50% + 135px), calc(-50% + 102px))'}}> {/*style for position*/}
+                style={functionalInfo}> {/*style for position and visibility*/}
                 Functional cookies provide enhanced features and preferences to provide a better experience when using the site.
             </div>
             {/*analytics cookies more info field*/}
             <div className='cookie-banner-settings-label-more-info-text'
-                style={{transform: 'translate(calc(-50% + 123px), calc(-50% + 161px))'}}> {/*style for position*/}
+                style={analyticsInfo}> {/*style for position and visibility*/}
                 These cookies collect data used to analyze the visitors behavior for optimizing and improving the website.
             </div>
             {/*advertising cookies more info field*/}
             <div className='cookie-banner-settings-label-more-info-text'
-                style={{transform: 'translate(calc(-50% + 143px), calc(-50% + 211px))'}}> {/*style for position*/}
-                These cookies are used for marketing services (e.g targeted advertising).
+                style={advertisingInfo}> {/*style for position and visibility*/}
+                These cookies are used for marketing services (for instance they are used for targeted advertising).
             </div>
 
         </div>

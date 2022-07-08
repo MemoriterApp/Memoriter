@@ -87,6 +87,7 @@
     background-color: rgba(32, 32, 32, 1);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4);
     border-radius: 6px;
+    transition: opacity 400ms;
     cursor: auto;
 }
 
@@ -108,7 +109,7 @@
     bottom: 0;
     border-radius: 30px;
     background-color: rgba(35, 170, 170, 1);
-    filter: saturate(0.5);
+    filter: saturate(0.4);
     cursor: pointer;
 }
 .cookie-banner-settings-switch-slider-static:before { /*static slider knob (the circle)*/
