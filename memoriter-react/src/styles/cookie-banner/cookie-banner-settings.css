@@ -96,7 +96,7 @@
     transition: transform 400ms;
 }
 .cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider { /*background color change on toggle*/
-    background-color: rgb(72, 180, 180);
+    background-color: rgba(35, 170, 170, 1);
 } 
 .cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider:before { /*knob position change on toggle*/
     transform: translateX(26px);
@@ -104,22 +104,31 @@
 
 .cookie-banner-settings-save { /*save current button*/
     position: absolute;
-    left: 64px;
-    bottom: 32px;
+    left: 44px;
+    bottom: 16px;
     transform: translate(0, -50%);
+    width: calc(50% - 80px);
+    height: 30px;
+    padding: 8px 10px 8px 10px;
+    background-color: rgba(55, 55, 55, 1);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 200ms;
+}
+.cookie-banner-settings-save:hover { /*hover effect on button*/
+    background-color: rgba(55, 55, 55, 0.65);
+}
+.cookie-banner-settings-save-text { /*text which is not supposed to change color*/
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%);
     font-size: 1.4rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
     text-decoration: none;
-    padding: 4px 6px 4px 6px;
-    border: none;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    transition: background-color 200ms;
-}
-.cookie-banner-settings-save:hover { /*hover effect on button*/
-    background-color: rgba(55, 55, 55, 0.75);
+    white-space: nowrap;
 }
 
 .cookie-banner-settings-accept { /*accept button, needed to be split in multiple classes, this class is for the positionig of the button*/

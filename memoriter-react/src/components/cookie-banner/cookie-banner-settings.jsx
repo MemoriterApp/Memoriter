@@ -1,6 +1,10 @@
 import '../../styles/cookie-banner/cookie-banner-settings.css';
+import { useState } from 'react';
 
 const CookieBannerSettings = () => {
+
+    const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the accept all button
+
     return (
         <div className='cookie-banner-settings-backdrop'>
             <div className='cookie-banner-settings'>
@@ -18,7 +22,7 @@ const CookieBannerSettings = () => {
             <div className='cookie-banner-settings-container'>
                 <p className='cookie-banner-settings-label'>Strictly Necessary Cookies</p>
                 {/*toggle slider*/}
-                <label class='cookie-banner-settings-switch'>
+                <label className='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
                     <div className='cookie-banner-settings-switch-slider'/>
                 </label>
@@ -32,7 +36,7 @@ const CookieBannerSettings = () => {
             <div className='cookie-banner-settings-container'>
                 <p className='cookie-banner-settings-label'>Functional Cookies</p>
                 {/*toggle slider*/}
-                <label class='cookie-banner-settings-switch'>
+                <label className='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
                     <div className='cookie-banner-settings-switch-slider'/>
                 </label>
@@ -45,7 +49,7 @@ const CookieBannerSettings = () => {
             <div className='cookie-banner-settings-container'>
                 <p className='cookie-banner-settings-label'>Analytics Cookies</p>
                 {/*toggle slider*/}
-                <label class='cookie-banner-settings-switch'>
+                <label className='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
                     <div className='cookie-banner-settings-switch-slider'/>
                 </label>
@@ -58,7 +62,7 @@ const CookieBannerSettings = () => {
             <div className='cookie-banner-settings-container'>
                 <p className='cookie-banner-settings-label'>Advertising Cookies</p>
                 {/*toggle slider*/}
-                <label class='cookie-banner-settings-switch'>
+                <label className='cookie-banner-settings-switch'>
                     <input type='checkbox'/>
                     <div className='cookie-banner-settings-switch-slider'/>
                 </label>
@@ -68,10 +72,15 @@ const CookieBannerSettings = () => {
             </div>
 
             {/*button for saving changes*/}
-            <div className='cookie-banner-settings-save'>Save Current</div>
+            <div className='cookie-banner-settings-save'>
+                <span className='cookie-banner-settings-save-text'>Save Current</span>
+            </div>
 
-            <div className='cookie-banner-settings-accept'>
-                <div className='cookie-banner-settings-accept-background'/>
+            {/*button for accepting all cookies*/}
+            <div className='cookie-banner-settings-accept'
+                onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
+                {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation*/}
+                <div className='cookie-banner-settings-accept-background' style={{filter: onHover}}/>
                 <span className='cookie-banner-settings-accept-text'>Accept All</span>
             </div>
 
