@@ -30,77 +30,50 @@
     font-family: 'Rubik';
     text-align: center;
     margin-top: 40px;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cookie-banner-settings-scroll-field { /*container for scrollable items*/
+    position: absolute;
+    height: calc(100% - 200px);
+    padding-top: 10px;
+    margin-top: -20px;
+    overflow-y: auto;
 }
 
 .cookie-banner-settings-description { /*main description for the banner*/
-    font-size: 1rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Inter';
     line-height: 1.5rem;
     text-align: justify;
-    margin: 0 40px 60px 40px;
+    margin: -10px 40px 30px 40px;
 }
 
 .cookie-banner-settings-container { /*contains toggle switches and labels*/
-    margin-top: -4px;
-    margin-bottom: 40px;
+    margin-inline: 40px;
+    padding: 8px 40px 24px 40px;
+    border-radius: 6px;
+    background-color: rgba(55, 55, 55, 1);
 }
 
 .cookie-banner-settings-label  { /*label for toggle switches*/
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
-    margin-left: 40px;
+    margin-bottom: -10px;
 }
-.cookie-banner-settings-label-more-info { /*more info circle*/
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    transform: translate(0, 15%);
-    margin-left: 16px;
-    border: 2.2px solid rgba(255, 255, 255, 1);
-    border-radius: 50%;
-    transition: background-color 200ms;
-    cursor: pointer;
-}
-.cookie-banner-settings-label-more-info:hover { /*hover effect*/
-    background-color: rgba(55, 55, 55, 0.75);
-}
-.cookie-banner-settings-label-more-info-symbol { /*i in circle*/
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.8rem;
-}
-.cookie-banner-settings-label-more-info-text { /*description for the different labels*/
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    font-size: 1rem;
+.cookie-banner-settings-label-description { /*label description texts*/
+    width: calc(100% - 50px);
+    font-size: 0.95rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Inter';
-    line-height: 1.5rem;
+    line-height: 1.2rem;
     text-align: justify;
-    padding: 16px 20px 16px 20px;
-    background-color: rgba(32, 32, 32, 1);
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4);
-    border-radius: 6px;
-    transition: opacity 400ms;
-    cursor: auto;
 }
 
-.cookie-banner-settings-switch-static { /*static switch for always active cookies*/
-    position: absolute;
-    right: 20px;
-    transform: translate(-50%, -46px);
-    width: 56px;
-    height: 30px;
-}
-.cookie-banner-settings-switch-static input { /*hides default checkbox*/
-    display: none;
-}
 .cookie-banner-settings-switch-slider-static { /*static slider background shape*/
     position: absolute;
     top: 0;
@@ -117,18 +90,18 @@
     position: absolute;
     right: 4px;
     top: 4px;
-    height: 22px;
-    width: 22px;
+    height: 16px;
+    width: 16px;
     border-radius: 50%;
     background-color: rgba(54, 54, 54, 1);
 }
 
 .cookie-banner-settings-switch { /*toggle switch*/
     position: absolute;
-    right: 20px;
-    transform: translate(-50%, -46px);
-    width: 56px;
-    height: 30px;
+    right: 70px;
+    transform: translate(0, -120px);
+    width: 40px;
+    height: 24px;
 }
 .cookie-banner-settings-switch input { /*hides default checkbox*/
     display: none;
@@ -149,8 +122,8 @@
     position: absolute;
     left: 4px;
     top: 4px;
-    height: 22px;
-    width: 22px;
+    height: 16px;
+    width: 16px;
     border-radius: 50%;
     background-color: rgba(54, 54, 54, 1);
     transition: transform 400ms;
@@ -159,13 +132,36 @@
     background-color: rgba(35, 170, 170, 1);
 } 
 .cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider:before { /*knob position change on toggle*/
-    transform: translateX(26px);
+    transform: translateX(16px);
+}
+
+.cookie-banner-settings-links { /*further information links at the bottom*/
+    display: flex; /*display: flex creates columns*/
+    position: relative;
+    width: calc(100% + 40px);
+    margin-inline: -20px;
+    margin-top: 24px;
+    text-align: center;
+}
+.cookie-banner-settings-links > * { /*layout optimization*/
+    flex: 1; /*used for equal columns*/
+}
+.cookie-banner-settings-link { /*link font style*/
+    font-size: 0.95rem;
+    color: rgba(200, 200, 200, 1);
+    font-family: 'Inter';
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 200ms;
+}
+.cookie-banner-settings-link:hover { /*link hover effect*/
+    color: rgba(255, 255, 255, 1);
 }
 
 .cookie-banner-settings-save { /*save current button*/
     position: absolute;
     left: 40px;
-    bottom: 12px;
+    bottom: 6px;
     transform: translate(0, -50%);
     width: calc(50% - 80px);
     height: 30px;
@@ -194,7 +190,7 @@
 .cookie-banner-settings-accept { /*accept button, needed to be split in multiple classes, this class is for the positionig of the button*/
     position: absolute;
     right: 50px;
-    bottom: 12px;
+    bottom: 6px;
     transform: translate(0, -50%);
     width: calc(50% - 80px);
     padding: 0 10px 0 0;
@@ -220,30 +216,6 @@
     border-radius: 6px;
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     transition: 200ms;
-}
-
-.cookie-banner-settings-links { /*further information links at the bottom*/
-    display: flex; /*display: flex creates columns*/
-    position: absolute;
-    gap: 20px;
-    bottom: 110px;
-    left: 60px;
-    width: calc(100% - 120px);
-    text-align: center;
-}
-.cookie-banner-settings-links > * { /*layout optimization*/
-    flex: 1; /*used for equal columns*/
-}
-.cookie-banner-settings-link { /*link font style*/
-    font-size: 0.95rem;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 200ms;
-}
-.cookie-banner-settings-link:hover { /*link hover effect*/
-    color: rgba(255, 255, 255, 1);
 }
 
 @media (max-width: 960px) {
