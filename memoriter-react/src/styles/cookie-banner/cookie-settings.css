@@ -67,6 +67,9 @@
     background-color: rgba(18, 18, 18, 1);
     border-radius: 4px;
 }
+.cookie-settings-scroll::-webkit-scrollbar-thumb:hover { /*hover effect*/
+    background-color: rgba(12, 12, 12, 1);
+}
 
 .cookie-settings-description { /*main description for the banner*/
     color: rgba(255, 255, 255, 1);
@@ -84,14 +87,14 @@
     background-color: rgba(55, 55, 55, 1);
 }
 
-.cookie-settings-label  { /*label for toggle switches*/
+.cookie-settings-label { /*label for toggle switches*/
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
     margin-bottom: -10px;
 }
 .cookie-settings-label-description { /*label description texts*/
-    width: calc(100% - 50px);
+    width: calc(100% - 60px);
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Inter';
@@ -124,7 +127,7 @@
 .cookie-settings-switch { /*toggle switch*/
     position: absolute;
     right: 70px;
-    transform: translate(0, -120px);
+    transform: translate(0, -10px);
     width: 40px;
     height: 24px;
 }

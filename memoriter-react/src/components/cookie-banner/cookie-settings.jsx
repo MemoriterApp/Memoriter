@@ -27,52 +27,60 @@ const CookieSettings = () => {
                 <div className='cookie-settings-container'>
                     {/*strictly necessary cookies switch*/}
                     <div>
-                        <p className='cookie-settings-label'>Strictly Necessary Cookies</p>
+                        <div>
+                            <p className='cookie-settings-label'>Strictly Necessary Cookies</p>
+                            {/*toggle slider*/}
+                            <label className='cookie-settings-switch'>
+                                <input type='checkbox'/>
+                                <div className='cookie-settings-switch-slider-static'/>
+                            </label>
+                        </div>
                         <p className='cookie-settings-label-description'>
                             These Cookies are essential for the basic functionality of the site to work.
                             They are technically necessary and cannot be disabled.
                         </p>
-                        {/*toggle slider*/}
-                        <label className='cookie-settings-switch'>
-                            <input type='checkbox'/>
-                            <div className='cookie-settings-switch-slider-static'/>
-                        </label>
                     </div>
                     {/*functional cookies switch*/}
                     <div>
-                        <p className='cookie-settings-label'>Functional Cookies</p>
+                        <div>
+                            <p className='cookie-settings-label'>Functional Cookies</p>
+                            {/*toggle slider*/}
+                            <label className='cookie-settings-switch'>
+                                <input type='checkbox'/>
+                                <div className='cookie-settings-switch-slider'/>
+                            </label>
+                        </div>
                         <p className='cookie-settings-label-description'>
                             Functional cookies provide enhanced features and preferences to provide a better experience when using the site.
                         </p>
-                        {/*toggle slider*/}
-                        <label className='cookie-settings-switch'>
-                            <input type='checkbox'/>
-                            <div className='cookie-settings-switch-slider'/>
-                        </label>
                     </div>
                     {/*analytics cookies switch*/}
                     <div>
-                        <p className='cookie-settings-label'>Analytics Cookies</p>
+                        <div>
+                            <p className='cookie-settings-label'>Analytics Cookies</p>
+                            {/*toggle slider*/}
+                            <label className='cookie-settings-switch'>
+                                <input type='checkbox'/>
+                                <div className='cookie-settings-switch-slider'/>
+                            </label>
+                        </div>
                         <p className='cookie-settings-label-description'>
                             These cookies collect data used to analyze the visitors behavior for optimizing and improving the website.
                         </p>
-                        {/*toggle slider*/}
-                        <label className='cookie-settings-switch'>
-                            <input type='checkbox'/>
-                            <div className='cookie-settings-switch-slider'/>
-                        </label>
                     </div>
                     {/*advertising cookies switch*/}
                     <div>
-                        <p className='cookie-settings-label'>Advertising Cookies</p>
+                        <div>
+                            <p className='cookie-settings-label'>Advertising Cookies</p>
+                            {/*toggle slider*/}
+                            <label className='cookie-settings-switch'>
+                                <input type='checkbox'/>
+                                <div className='cookie-settings-switch-slider'/>
+                            </label>
+                        </div>
                         <p className='cookie-settings-label-description'>
                             These cookies are used for marketing services (for instance they are used for targeted advertising).
                         </p>
-                        {/*toggle slider*/}
-                        <label className='cookie-settings-switch'>
-                            <input type='checkbox'/>
-                            <div className='cookie-settings-switch-slider'/>
-                        </label>
                     </div>
                     <nav className='cookie-settings-links'>
                         <Link className='cookie-settings-link' to='/privacy' target='_blank'>Privacy Policy</Link>
