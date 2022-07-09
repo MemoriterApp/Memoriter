@@ -4,7 +4,9 @@ import ProductBanner from '../components/product/product-banner';
 import ProductMain from '../components/product/product-main';
 import ProductFooter from '../components/product/product-footer';
 import CookieBanner from '../components/cookie-banner/cookie-banner';
+import CookieSettings from '../components/cookie-banner/cookie-settings';
 import WindowSizeAlert from '../components/window-size-alert';
+
 
 const Product = () => {
     return (
@@ -33,6 +35,9 @@ const Product = () => {
 
             {/*cookie banner*/}
             <CookieBanner/>
+
+            {/*cookie settings view*/}
+            <CookieSettings/>
 
             {/*alert for too small screens*/}
             <WindowSizeAlert/>

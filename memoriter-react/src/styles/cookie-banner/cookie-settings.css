@@ -1,17 +1,16 @@
 /*styles used for the cookie banner settings view (when clicking the moreinformation-button)*/
 
-.cookie-banner-settings-backdrop { /*backdrop for settings view*/
+.cookie-settings-backdrop { /*backdrop for settings view*/
     position: fixed;
-    left: 50%;
-    top: calc(-50vh + 60px);
-    transform: translate(-50%, -50%);
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 3;
 }
 
-.cookie-banner-settings { /*settings view box*/
+.cookie-settings { /*settings view box*/
     position: fixed;
     left: 50%;
     top: 50%;
@@ -24,48 +23,74 @@
     border-radius: 12px;
 }
 
-.cookie-banner-settings-title { /*cookie settings title*/
+.cookie-settings-title { /*cookie settings title*/
+    position: relative;
+    top: 0;
+    height: 72px;
+}
+.cookie-settings-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%);
+    width: calc(100% - 60px);
+    height: 1px;
+    background-color: rgba(55, 55, 55, 1);
+}
+.cookie-settings-title-text {
     font-size: 2rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
     text-align: center;
-    margin-top: 40px;
+    padding-top: 20px;
+    margin-top: 0;
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.cookie-banner-settings-scroll-field { /*container for scrollable items*/
-    position: absolute;
-    height: calc(100% - 200px);
-    padding-top: 10px;
-    margin-top: -20px;
+.cookie-settings-scroll { /*area with scrollbar*/
+    position: relative;
+    width: calc(100% - 2px);
+    height: calc(100% - 152px);
     overflow-y: auto;
 }
+.cookie-settings-scroll::-webkit-scrollbar { /*custom scrollbar size*/
+    width: 8px;
+}
+.cookie-settings-scroll::-webkit-scrollbar-track { /*hides bar background*/
+    background-color: rgba(0, 0, 0, 0);
+}
+.cookie-settings-scroll::-webkit-scrollbar-thumb { /*custom scrollbar design*/
+    background-color: rgba(18, 18, 18, 1);
+    border-radius: 4px;
+}
 
-.cookie-banner-settings-description { /*main description for the banner*/
+.cookie-settings-description { /*main description for the banner*/
     color: rgba(255, 255, 255, 1);
     font-family: 'Inter';
     line-height: 1.5rem;
     text-align: justify;
-    margin: -10px 40px 30px 40px;
+    margin: 12px 30px 30px 40px;
 }
 
-.cookie-banner-settings-container { /*contains toggle switches and labels*/
-    margin-inline: 40px;
+.cookie-settings-container { /*contains toggle switches and labels*/
+    margin-inline: 40px 30px;
+    margin-bottom: 20px;
     padding: 8px 40px 24px 40px;
     border-radius: 6px;
     background-color: rgba(55, 55, 55, 1);
 }
 
-.cookie-banner-settings-label  { /*label for toggle switches*/
+.cookie-settings-label  { /*label for toggle switches*/
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
     margin-bottom: -10px;
 }
-.cookie-banner-settings-label-description { /*label description texts*/
+.cookie-settings-label-description { /*label description texts*/
     width: calc(100% - 50px);
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 1);
@@ -74,7 +99,7 @@
     text-align: justify;
 }
 
-.cookie-banner-settings-switch-slider-static { /*static slider background shape*/
+.cookie-settings-switch-slider-static { /*static slider background shape*/
     position: absolute;
     top: 0;
     left: 0;
@@ -85,7 +110,7 @@
     filter: saturate(0.4);
     cursor: pointer;
 }
-.cookie-banner-settings-switch-slider-static:before { /*static slider knob (the circle)*/
+.cookie-settings-switch-slider-static:before { /*static slider knob (the circle)*/
     content: '';
     position: absolute;
     right: 4px;
@@ -96,17 +121,17 @@
     background-color: rgba(54, 54, 54, 1);
 }
 
-.cookie-banner-settings-switch { /*toggle switch*/
+.cookie-settings-switch { /*toggle switch*/
     position: absolute;
     right: 70px;
     transform: translate(0, -120px);
     width: 40px;
     height: 24px;
 }
-.cookie-banner-settings-switch input { /*hides default checkbox*/
+.cookie-settings-switch input { /*hides default checkbox*/
     display: none;
 }
-.cookie-banner-settings-switch-slider { /*toggle slider background shape*/
+.cookie-settings-switch-slider { /*toggle slider background shape*/
     position: absolute;
     top: 0;
     left: 0;
@@ -117,7 +142,7 @@
     transition: background-color 400ms;
     cursor: pointer;
 }
-.cookie-banner-settings-switch-slider:before { /*slider knob (the circle)*/
+.cookie-settings-switch-slider:before { /*slider knob (the circle)*/
     content: '';
     position: absolute;
     left: 4px;
@@ -128,14 +153,14 @@
     background-color: rgba(54, 54, 54, 1);
     transition: transform 400ms;
 }
-.cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider { /*background color change on toggle*/
+.cookie-settings-switch input:checked + .cookie-settings-switch-slider { /*background color change on toggle*/
     background-color: rgba(35, 170, 170, 1);
 } 
-.cookie-banner-settings-switch input:checked + .cookie-banner-settings-switch-slider:before { /*knob position change on toggle*/
+.cookie-settings-switch input:checked + .cookie-settings-switch-slider:before { /*knob position change on toggle*/
     transform: translateX(16px);
 }
 
-.cookie-banner-settings-links { /*further information links at the bottom*/
+.cookie-settings-links { /*further information links at the bottom*/
     display: flex; /*display: flex creates columns*/
     position: relative;
     width: calc(100% + 40px);
@@ -143,10 +168,10 @@
     margin-top: 24px;
     text-align: center;
 }
-.cookie-banner-settings-links > * { /*layout optimization*/
+.cookie-settings-links > * { /*layout optimization*/
     flex: 1; /*used for equal columns*/
 }
-.cookie-banner-settings-link { /*link font style*/
+.cookie-settings-link { /*link font style*/
     font-size: 0.95rem;
     color: rgba(200, 200, 200, 1);
     font-family: 'Inter';
@@ -154,14 +179,29 @@
     cursor: pointer;
     transition: color 200ms;
 }
-.cookie-banner-settings-link:hover { /*link hover effect*/
+.cookie-settings-link:hover { /*link hover effect*/
     color: rgba(255, 255, 255, 1);
 }
 
-.cookie-banner-settings-save { /*save current button*/
+.cookie-settings-buttons {
+    position: relative;
+    height: 80px;
+}
+.cookie-settings-buttons::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%);
+    width: calc(100% - 60px);
+    height: 1px;
+    background-color: rgba(55, 55, 55, 1);
+}
+
+.cookie-settings-save { /*save current button*/
     position: absolute;
     left: 40px;
-    bottom: 6px;
+    top: 50%;
     transform: translate(0, -50%);
     width: calc(50% - 80px);
     height: 30px;
@@ -172,10 +212,10 @@
     cursor: pointer;
     transition: 200ms;
 }
-.cookie-banner-settings-save:hover { /*hover effect on button*/
+.cookie-settings-save:hover { /*hover effect on button*/
     background-color: rgba(55, 55, 55, 0.65);
 }
-.cookie-banner-settings-save-text { /*text which is not supposed to change color*/
+.cookie-settings-save-text { /*text which is not supposed to change color*/
     position: absolute;
     left: 50%;
     top: 10px;
@@ -187,10 +227,10 @@
     white-space: nowrap;
 }
 
-.cookie-banner-settings-accept { /*accept button, needed to be split in multiple classes, this class is for the positionig of the button*/
+.cookie-settings-accept { /*accept button, needed to be split in multiple classes, this class is for the positionig of the button*/
     position: absolute;
     right: 50px;
-    bottom: 6px;
+    top: 50%;
     transform: translate(0, -50%);
     width: calc(50% - 80px);
     padding: 0 10px 0 0;
@@ -198,7 +238,7 @@
     border: none;
     cursor: pointer;
 }
-.cookie-banner-settings-accept-text { /*text which is not supposed to change color*/
+.cookie-settings-accept-text { /*text which is not supposed to change color*/
     position: absolute;
     left: 50%;
     top: 10px;
@@ -209,23 +249,11 @@
     text-decoration: none;
     white-space: nowrap;
 }
-.cookie-banner-settings-accept-background { /*the hover background was done in React because it did not work in CSS*/
+.cookie-settings-accept-background { /*the hover background was done in React because it did not work in CSS*/
     width: 100%;
     height: 30px;
     padding: 8px 10px 8px 10px;
     border-radius: 6px;
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     transition: 200ms;
-}
-
-@media (max-width: 960px) {
-    .cookie-banner-settings-backdrop {
-        top: calc(-50vh + 120px);
-    }
-}
-
-@media (max-width: 360px) {
-    .cookie-banner-settings-backdrop {
-        top: calc(-50vh + 160px);
-    }
 }
