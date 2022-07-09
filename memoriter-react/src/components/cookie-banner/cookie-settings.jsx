@@ -1,17 +1,19 @@
 import '../../styles/cookie-banner/cookie-settings.css';
+import Backdrop from '../backdrop';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const CookieSettings = () => {
+const CookieSettings = ({ closeCookieSettings }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the accept all button
 
     return (
-        <div className='cookie-settings-backdrop'>
+        <>
             <div className='cookie-settings'>
 
             <div className='cookie-settings-title'>
                 <p className='cookie-settings-title-text'>Cookie Settings</p>
+                <div className='cookie-settings-close' onClick={() => closeCookieSettings()}/>
             </div>
 
             <div className='cookie-settings-scroll'>
@@ -106,7 +108,9 @@ const CookieSettings = () => {
             </div>
 
             </div>
-        </div>
+
+            <Backdrop onClick={() => closeCookieSettings()}/>
+        </>
     );
 }
 

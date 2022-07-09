@@ -6,9 +6,13 @@ import ProductFooter from '../components/product/product-footer';
 import CookieBanner from '../components/cookie-banner/cookie-banner';
 import CookieSettings from '../components/cookie-banner/cookie-settings';
 import WindowSizeAlert from '../components/window-size-alert';
+import { useState } from 'react';
 
 
 const Product = () => {
+
+    const [cookieSettings, setCookieSettings] = useState(false); //opens or closes cookie settings
+
     return (
         <>
         
@@ -34,10 +38,10 @@ const Product = () => {
             <ProductFooter/>
 
             {/*cookie banner*/}
-            <CookieBanner/>
+            <CookieBanner openCookieSettings={() => setCookieSettings(true)}/>
 
             {/*cookie settings view*/}
-            <CookieSettings/>
+            {cookieSettings && <CookieSettings closeCookieSettings={() => setCookieSettings(false)}/>}
 
             {/*alert for too small screens*/}
             <WindowSizeAlert/>

@@ -1,15 +1,5 @@
 /*styles used for the cookie banner settings view (when clicking the moreinformation-button)*/
 
-.cookie-settings-backdrop { /*backdrop for settings view*/
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    z-index: 3;
-}
-
 .cookie-settings { /*settings view box*/
     position: fixed;
     left: 50%;
@@ -21,6 +11,7 @@
     max-height: calc(100% - 40px);
     background-color: rgba(32, 32, 32, 1);
     border-radius: 12px;
+    z-index: 4;
 }
 
 .cookie-settings-title { /*cookie settings title*/
@@ -49,6 +40,32 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.cookie-settings-close { /*x-button for closing settings*/
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+.cookie-settings-close::after {
+    content: '\d7';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: rgba(200, 200, 200, 1);
+}
+.cookie-settings-close:hover { /*background on hover*/
+    background-color: rgba(55, 55, 55, 0.75);
 }
 
 .cookie-settings-scroll { /*area with scrollbar*/
@@ -94,7 +111,7 @@
     margin-bottom: -10px;
 }
 .cookie-settings-label-description { /*label description texts*/
-    width: calc(100% - 60px);
+    width: calc(100% - 72px);
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Inter';
@@ -121,7 +138,7 @@
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background-color: rgba(54, 54, 54, 1);
+    background-color: rgba(55, 55, 55, 1);
 }
 
 .cookie-settings-switch { /*toggle switch*/
@@ -141,7 +158,7 @@
     right: 0;
     bottom: 0;
     border-radius: 30px;
-    background-color: rgba(18, 18, 18, 1);
+    background-color: rgba(32, 32, 32, 1);
     transition: background-color 400ms;
     cursor: pointer;
 }
@@ -153,7 +170,7 @@
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background-color: rgba(54, 54, 54, 1);
+    background-color: rgba(55, 55, 55, 1);
     transition: transform 400ms;
 }
 .cookie-settings-switch input:checked + .cookie-settings-switch-slider { /*background color change on toggle*/

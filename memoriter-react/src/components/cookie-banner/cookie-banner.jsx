@@ -1,7 +1,7 @@
 import '../../styles/cookie-banner/cookie-banner.css';
 import { useState } from 'react';
 
-const CookieBanner = () => {
+const CookieBanner = ({ openCookieSettings }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the accept button
     
@@ -30,9 +30,7 @@ const CookieBanner = () => {
             <p className='cookie-banner-text'>This website uses cookies for making the site work and to enhance your experience.</p>
 
             {/*accept and more information buttons*/}
-            <div className='cookie-banner-more-information'>
-                <span className='cookie-banner-more-information-gradient'>More Information</span>
-            </div>
+            <div className='cookie-banner-more-information' onClick={() => openCookieSettings()}>More Information</div>
             <div className='cookie-banner-accept'
                 onMouseEnter={() => setOnHover('brightness(0.75)')}
                 onMouseLeave={() => setOnHover('brightness(1)')}
