@@ -55,8 +55,8 @@
     cursor: pointer;
     transition: background-color 200ms;
 }
-.cookie-settings-close::after {
-    content: '\d7';
+.cookie-settings-close::after { /*x-shape*/
+    content: '\d7'; /*symbol for shape*/
     position: absolute;
     left: 50%;
     top: 50%;

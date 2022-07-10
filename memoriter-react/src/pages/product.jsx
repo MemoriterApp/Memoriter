@@ -6,12 +6,27 @@ import ProductFooter from '../components/product/product-footer';
 import CookieBanner from '../components/cookie-banner/cookie-banner';
 import CookieSettings from '../components/cookie-banner/cookie-settings';
 import WindowSizeAlert from '../components/window-size-alert';
+import Backdrop from '../components/backdrop';
 import { useState } from 'react';
 
 
 const Product = () => {
 
     const [cookieSettings, setCookieSettings] = useState(false); //opens or closes cookie settings
+
+    const [backdropAnimation, setBackdropAnimation] = useState('0'); //backdrop opacity (used for fade in and out animation)
+
+    function openCookieSettings() { //function for opening the cookie settings
+        setCookieSettings(true);
+        setTimeout(() => {setBackdropAnimation('1');}, 0);
+        //setBackdropAnimation triggers a transition in the backdrop component creating the fade in effect, does not work without timeout
+    }
+
+    function closeCookieSettings() { //function for closing the cookie settings
+        setTimeout(() => {setCookieSettings(false);}, 800); //timeout is needed for finishing the fade effect before closing everything
+        setTimeout(() => {setBackdropAnimation('0');}, 0);
+        //setBackdropAnimation triggers a transition in the backdrop component creating the fade out effect, does not work without timeout
+    }
 
     return (
         <>
@@ -38,10 +53,13 @@ const Product = () => {
             <ProductFooter/>
 
             {/*cookie banner*/}
-            <CookieBanner openCookieSettings={() => setCookieSettings(true)}/>
+            <CookieBanner onOpenCookieSettings={openCookieSettings}/>
 
             {/*cookie settings view*/}
-            {cookieSettings && <CookieSettings closeCookieSettings={() => setCookieSettings(false)}/>}
+            {cookieSettings && <>
+                    <CookieSettings style={{}} onCloseCookieSettings={closeCookieSettings}/>
+                    <Backdrop onFade={backdropAnimation} onClick={closeCookieSettings}/>
+            </>}
 
             {/*alert for too small screens*/}
             <WindowSizeAlert/>
