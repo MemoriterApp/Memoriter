@@ -21,6 +21,7 @@ const Product = () => {
     const [backdropAnimation, setBackdropAnimation] = useState('0'); //backdrop opacity (used for fade in and out animation)
     
     function openCookieSettings() { //function for opening the cookie settings
+        document.body.style.overflow = 'hidden'; //disables page scrolling
         setCookieSettings(true);
         setTimeout(() => {
             setBackdropAnimation('1');
@@ -33,6 +34,7 @@ const Product = () => {
     }
 
     function closeCookieSettings() { //function for closing the cookie settings
+        document.body.style.overflow = 'auto'; //re-enables page scrolling
         setTimeout(() => {setCookieSettings(false);}, 800); //timeout is needed for finishing the fade effect before closing everything
         setTimeout(() => {
             setBackdropAnimation('0');
