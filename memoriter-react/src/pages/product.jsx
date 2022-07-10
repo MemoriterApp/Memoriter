@@ -68,7 +68,7 @@ const Product = () => {
             </div>
 
             {/*footer*/}
-            <ProductFooter/>
+            <ProductFooter onOpenCookieSettings={openCookieSettings}/>
 
             {/*cookie banner*/}
             <CookieBanner onOpenCookieSettings={openCookieSettings}/>
