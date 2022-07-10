@@ -17,7 +17,6 @@ const CookieBanner = ({ onOpenCookieSettings }) => {
     }
 
     function acceptCookies() { //item is set in local storage for cookie banner not showng again if accepted
-        setDisplay('-180px');
         localStorage.setItem('cookies-accepted', true);
     }
 

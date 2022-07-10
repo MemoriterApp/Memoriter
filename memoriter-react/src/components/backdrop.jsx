@@ -1,8 +1,8 @@
 function Backdrop({ onFade, onClick }) {
 
-    const opacity = onFade //variable for possible fade animation (opacity)
+    const opacity = onFade; //variable for possible fade animation (opacity)
 
-    const backdropStyle = { //css for backdrop
+    const backdropStyles = { //css for backdrop
         position: 'fixed',
         zIndex: '3',
         backgroundColor: 'rgba(0, 0, 0, 0.75)',
@@ -15,7 +15,7 @@ function Backdrop({ onFade, onClick }) {
     }
 
     return (
-        <div style={backdropStyle} onClick={() => onClick()}/>
+        <div style={backdropStyles} onClick={() => onClick()}/>
     );
 }
 

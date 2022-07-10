@@ -2,13 +2,20 @@ import '../../styles/cookie-banner/cookie-settings.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const CookieSettings = ({ onCloseCookieSettings }) => {
+const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the accept all button
 
+    const animationStyles = onAnimation;
+
+    function acceptCookies() { //item is set in local storage for cookie banner not showng again if accepted
+        localStorage.setItem('cookies-accepted', true);
+        onCloseCookieSettings();
+    }
+
     return (
         <>
-            <div className='cookie-settings'>
+            <div className='cookie-settings' style={animationStyles}>
 
                 <div className='cookie-settings-title'>
                     <p className='cookie-settings-title-text'>Cookie Settings</p>
@@ -94,11 +101,11 @@ const CookieSettings = ({ onCloseCookieSettings }) => {
 
                 <div className='cookie-settings-buttons'>
                     {/*button for saving changes*/}
-                    <div className='cookie-settings-save'>
+                    <div className='cookie-settings-save' onClick={acceptCookies}>
                         <span className='cookie-settings-save-text'>Save Current</span>
                     </div>
                     {/*button for accepting all cookies*/}
-                    <div className='cookie-settings-accept'
+                    <div className='cookie-settings-accept' onClick={acceptCookies}
                         onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
                         {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
                         <div className='cookie-settings-accept-background' style={{filter: onHover}}/>

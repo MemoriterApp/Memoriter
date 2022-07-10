@@ -14,17 +14,33 @@ const Product = () => {
 
     const [cookieSettings, setCookieSettings] = useState(false); //opens or closes cookie settings
 
+    const [cookieSettingsAnimation, setCookieSettingsAnimation] = useState({
+        transform: 'translate(-50%, calc(-50% - 16px))',
+        opacity: '0',
+    }); //styles used for the cookie settings fade in and out animation
     const [backdropAnimation, setBackdropAnimation] = useState('0'); //backdrop opacity (used for fade in and out animation)
-
+    
     function openCookieSettings() { //function for opening the cookie settings
         setCookieSettings(true);
-        setTimeout(() => {setBackdropAnimation('1');}, 0);
+        setTimeout(() => {
+            setBackdropAnimation('1');
+            setCookieSettingsAnimation({
+                transform: 'translate(-50%, -50%)',
+                opacity: '1'
+            });
+        }, 0);
         //setBackdropAnimation triggers a transition in the backdrop component creating the fade in effect, does not work without timeout
     }
 
     function closeCookieSettings() { //function for closing the cookie settings
         setTimeout(() => {setCookieSettings(false);}, 800); //timeout is needed for finishing the fade effect before closing everything
-        setTimeout(() => {setBackdropAnimation('0');}, 0);
+        setTimeout(() => {
+            setBackdropAnimation('0');
+            setCookieSettingsAnimation({
+                transform: 'translate(-50%, calc(-50% - 16px))',
+                opacity: '0'
+            });
+        }, 0);
         //setBackdropAnimation triggers a transition in the backdrop component creating the fade out effect, does not work without timeout
     }
 
@@ -57,7 +73,7 @@ const Product = () => {
 
             {/*cookie settings view*/}
             {cookieSettings && <>
-                    <CookieSettings style={{}} onCloseCookieSettings={closeCookieSettings}/>
+                    <CookieSettings onAnimation={cookieSettingsAnimation} onCloseCookieSettings={closeCookieSettings}/>
                     <Backdrop onFade={backdropAnimation} onClick={closeCookieSettings}/>
             </>}
 
