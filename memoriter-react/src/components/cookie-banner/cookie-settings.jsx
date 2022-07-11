@@ -10,18 +10,17 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
     const animationStyles = onAnimation;
 
     const [acceptedCookies, setAcceptedCookies] = useState({ //variable stored as a cookie for saving the accepted cookie types for later
-        necessary: 'true',
-        functional: 'false',
-        analytics: 'false',
-        advertising: 'false'
+        necessary: true,
+        functional: false,
+        analytics: false,
+        advertising: false
     });
 
     function saveCurrentCookies() { //item is set in local storage for cookie banner not showng again if accepted
-        /*const expires = new Date(); //cookie expiration date
+        const expires = new Date(); //cookie expiration date
         expires.setTime(+ expires + (365 * 86400000)); //sets expiration date (in one year)
         cookies.setCookie('accepted-cookies', JSON.stringify(acceptedCookies), expires) //sets cookie
-        onCloseCookieSettings();*/
-        console.log(acceptedCookies);
+        onCloseCookieSettings();
     };
 
     function acceptAllCookies() {
@@ -79,7 +78,7 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
                                 <p className='cookie-settings-label'>Functional Cookies</p>
                                 {/*toggle slider*/}
                                 <label className='cookie-settings-switch'>
-                                    <input type='checkbox'/>
+                                    <input type='checkbox' onChange={() => setAcceptedCookies({ ...acceptedCookies, functional: !acceptedCookies.functional})}/>
                                     <div className='cookie-settings-switch-slider'/>
                                 </label>
                             </div>
@@ -92,7 +91,7 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
                             <div>
                                 <p className='cookie-settings-label'>Analytics Cookies</p>
                                 {/*toggle slider*/}
-                                <label className='cookie-settings-switch'>
+                                <label className='cookie-settings-switch'  onChange={() => setAcceptedCookies({ ...acceptedCookies, analytics: !acceptedCookies.analytics})}>
                                     <input type='checkbox'/>
                                     <div className='cookie-settings-switch-slider'/>
                                 </label>
@@ -106,7 +105,7 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
                             <div>
                                 <p className='cookie-settings-label'>Advertising Cookies</p>
                                 {/*toggle slider*/}
-                                <label className='cookie-settings-switch'>
+                                <label className='cookie-settings-switch'  onChange={() => setAcceptedCookies({ ...acceptedCookies, advertising: !acceptedCookies.advertising})}>
                                     <input type='checkbox'/>
                                     <div className='cookie-settings-switch-slider'/>
                                 </label>
