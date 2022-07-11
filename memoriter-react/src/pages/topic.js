@@ -20,6 +20,9 @@ function TopicPage() {
     //Flashcard Data
     const [flashcards, setFlashcards] = useState([])
 
+    //to check wether you are studying
+    const [studyView, openStudyView] = useState(false)
+
     //Use Effect für Notes
     useEffect(() => {
         const getFlashcards = async () => {
@@ -199,7 +202,7 @@ function TopicPage() {
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo"></img>
                 </Link>
-                <div className='study-now'>
+                <div className='study-now' onClick={() => openStudyView(true)}>
                     <p className='study-now-text'>study now!</p>
                 </div>
             </header>
