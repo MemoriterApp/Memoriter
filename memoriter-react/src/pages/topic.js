@@ -239,6 +239,7 @@ function TopicPage() {
                         <div onClick={backdropClick}>
                             {modalIsOpenA && <Backdrop />}
                         </div>
+                        {studyView && {/*Hier müsste die Flashcard rein.*/}}
                     </div>
                     <BackButton />
                     <SettingsIcon />
