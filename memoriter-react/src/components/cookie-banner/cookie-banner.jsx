@@ -4,8 +4,8 @@ import { useState } from 'react';
 const CookieBanner = ({ onOpenCookieSettings }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the accept button
-    
-    const accepted = localStorage.getItem('cookies-accepted') //used for if the banner is first dieplayed or not
+
+    const accepted = localStorage.getItem('accepted-cookies'); //used for if the banner is first dieplayed or not
 
     const [display, setDisplay] = useState('-180px'); //variable for showing the cookie banner and the move animation
     if (accepted) { //if else is for only displaying it before accepting cookies
@@ -17,7 +17,13 @@ const CookieBanner = ({ onOpenCookieSettings }) => {
     }
 
     function acceptCookies() { //item is set in local storage for cookie banner not showng again if accepted
-        localStorage.setItem('cookies-accepted', true);
+        const acceptedCookies = [ //variable stored as a cookie for saving the accepted cookie types for later
+            {necessary: true},
+            {functional: true},
+            {analytics: true},
+            {advertising: true}
+        ];
+        localStorage.setItem('accepted-cookies', JSON.stringify(acceptedCookies));
     }
 
     return (

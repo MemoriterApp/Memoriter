@@ -8,8 +8,15 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
 
     const animationStyles = onAnimation;
 
+    const [acceptedCookies, setAcceptedCookies] = useState([ //variable stored as a cookie for saving the accepted cookie types for later
+        {necessary: true},
+        {functional: false},
+        {analytics: false},
+        {advertising: false}
+    ]);
+
     function acceptCookies() { //item is set in local storage for cookie banner not showng again if accepted
-        localStorage.setItem('cookies-accepted', true);
+        localStorage.setItem('accepted-cookies', JSON.stringify(acceptedCookies));
         onCloseCookieSettings();
     }
 
