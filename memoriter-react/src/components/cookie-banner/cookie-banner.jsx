@@ -18,15 +18,16 @@ const CookieBanner = ({ onOpenCookieSettings }) => {
     }
 
     function acceptCookies() { //item is set in local storage for cookie banner not showng again if accepted
-        const acceptedCookies = [ //variable stored as a cookie for saving the accepted cookie types for later
-            {necessary: true},
-            {functional: true},
-            {analytics: true},
-            {advertising: true}
-        ];
+        const acceptedAllCookies = { //variable stored as a cookie for saving the accepted cookie types for later
+            necessary: true,
+            functional: true,
+            analytics: true,
+            advertising: true
+        };
+        
         const expires = new Date(); //cookie expiration date
         expires.setTime(+ expires + (365 * 86400000)); //sets expiration date (in one year)
-        cookies.setCookie('accepted-cookies', JSON.stringify(acceptedCookies), expires) //sets cookie
+        cookies.setCookie('accepted-cookies', JSON.stringify(acceptedAllCookies), expires) //sets cookie
     }
 
     return (

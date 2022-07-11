@@ -9,19 +9,34 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
 
     const animationStyles = onAnimation;
 
-    const [acceptedCookies, setAcceptedCookies] = useState([ //variable stored as a cookie for saving the accepted cookie types for later
-        {necessary: true},
-        {functional: false},
-        {analytics: false},
-        {advertising: false}
-    ]);
+    const [acceptedCookies, setAcceptedCookies] = useState({ //variable stored as a cookie for saving the accepted cookie types for later
+        necessary: 'true',
+        functional: 'false',
+        analytics: 'false',
+        advertising: 'false'
+    });
 
-    function acceptCookies() { //item is set in local storage for cookie banner not showng again if accepted
-        const expires = new Date(); //cookie expiration date
+    function saveCurrentCookies() { //item is set in local storage for cookie banner not showng again if accepted
+        /*const expires = new Date(); //cookie expiration date
         expires.setTime(+ expires + (365 * 86400000)); //sets expiration date (in one year)
         cookies.setCookie('accepted-cookies', JSON.stringify(acceptedCookies), expires) //sets cookie
+        onCloseCookieSettings();*/
+        console.log(acceptedCookies);
+    };
+
+    function acceptAllCookies() {
+        const acceptedAllCookies = { //variable stored as a cookie for saving the accepted cookie types for later (sets value to all accepted)
+            necessary: true,
+            functional: true,
+            analytics: true,
+            advertising: true
+        };
+        
+        const expires = new Date(); //cookie expiration date
+        expires.setTime(+ expires + (365 * 86400000)); //sets expiration date (in one year)
+        cookies.setCookie('accepted-cookies', JSON.stringify(acceptedAllCookies), expires) //sets cookie
         onCloseCookieSettings();
-    }
+    };
 
     return (
         <>
@@ -111,11 +126,11 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
 
                 <div className='cookie-settings-buttons'>
                     {/*button for saving changes*/}
-                    <div className='cookie-settings-save' onClick={acceptCookies}>
+                    <div className='cookie-settings-save' onClick={saveCurrentCookies}>
                         <span className='cookie-settings-save-text'>Save Current</span>
                     </div>
                     {/*button for accepting all cookies*/}
-                    <div className='cookie-settings-accept' onClick={acceptCookies}
+                    <div className='cookie-settings-accept' onClick={acceptAllCookies}
                         onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
                         {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
                         <div className='cookie-settings-accept-background' style={{filter: onHover}}/>
