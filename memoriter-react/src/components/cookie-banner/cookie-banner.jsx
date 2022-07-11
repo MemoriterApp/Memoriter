@@ -1,11 +1,12 @@
 import '../../styles/cookie-banner/cookie-banner.css';
 import { useState } from 'react';
+import cookies from '../../utils/cookies';
 
 const CookieBanner = ({ onOpenCookieSettings }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the accept button
-
-    const accepted = localStorage.getItem('accepted-cookies'); //used for if the banner is first dieplayed or not
+    
+    const accepted = cookies.getCookie('accepted-cookies'); //used for if the banner is first dieplayed or not
 
     const [display, setDisplay] = useState('-180px'); //variable for showing the cookie banner and the move animation
     if (accepted) { //if else is for only displaying it before accepting cookies
@@ -23,7 +24,9 @@ const CookieBanner = ({ onOpenCookieSettings }) => {
             {analytics: true},
             {advertising: true}
         ];
-        localStorage.setItem('accepted-cookies', JSON.stringify(acceptedCookies));
+        const expires = new Date(); //cookie expiration date
+        expires.setTime(+ expires + (365 * 86400000)); //sets expiration date (in one year)
+        cookies.setCookie('accepted-cookies', JSON.stringify(acceptedCookies), expires) //sets cookie
     }
 
     return (

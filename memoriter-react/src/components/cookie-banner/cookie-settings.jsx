@@ -1,6 +1,7 @@
 import '../../styles/cookie-banner/cookie-settings.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import cookies from '../../utils/cookies';
 
 const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
 
@@ -16,7 +17,9 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
     ]);
 
     function acceptCookies() { //item is set in local storage for cookie banner not showng again if accepted
-        localStorage.setItem('accepted-cookies', JSON.stringify(acceptedCookies));
+        const expires = new Date(); //cookie expiration date
+        expires.setTime(+ expires + (365 * 86400000)); //sets expiration date (in one year)
+        cookies.setCookie('accepted-cookies', JSON.stringify(acceptedCookies), expires) //sets cookie
         onCloseCookieSettings();
     }
 
