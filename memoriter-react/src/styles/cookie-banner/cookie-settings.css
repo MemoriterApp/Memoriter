@@ -340,6 +340,17 @@
     }
 }
 
+@media (max-width: 290px) { /*some last changes fixing text overlapping*/
+    .cookie-settings-label {
+        margin-bottom: 36px;
+    }
+
+    .cookie-settings-switch {
+        left: calc(50% + 10px);
+        transform: translate(-50%, -30px);
+    }
+}
+
 @media (max-width: 240px) { /*hidden on to small */
     .cookie-settings {
         display: none;
