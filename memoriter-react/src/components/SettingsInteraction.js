@@ -38,11 +38,11 @@ function SettingsClick() {
     //error states
     const [redBorderNewData, setRedBorderNewData] = useState({});
     const [redBorderAccountPassword, setRedBorderAccountPassword] = useState({});
-    
+
     //success states
     const [updatedEmail, setUpdatedEmail] = useState(false);
     const [updatedPassword, setUpdatedPassword] = useState(false);
-    
+
     //logout stuff
     const navigate = useNavigate();
 
@@ -63,16 +63,16 @@ function SettingsClick() {
         )
 
         if (newEmail === '') {
-            setRedBorderNewData({borderColor: 'rgb(228, 48, 48)'});
+            setRedBorderNewData({ borderColor: 'rgb(228, 48, 48)' });
             setRedBorderAccountPassword({});
         } else if (newEmail !== confirmEmail) {
-            setRedBorderNewData({borderColor: 'rgb(228, 48, 48)'});
+            setRedBorderNewData({ borderColor: 'rgb(228, 48, 48)' });
             setRedBorderAccountPassword({});
         } else {
             reauthenticateWithCredential(auth.currentUser, credential)
                 .then(result => {
                     updateEmail(auth.currentUser, newEmail).then(() => {
-                        return(
+                        return (
                             openChangeEmail(false),
                             setNewEmail(''),
                             setConfirmEmail(''),
@@ -80,16 +80,16 @@ function SettingsClick() {
                             setRedBorderNewData({}),
                             setRedBorderAccountPassword({}),
                             setUpdatedEmail(true))
-                });  
-            })
+                    });
+                })
                 .catch(error => {
                     switch (error.code) {
                         case error.code:
                             setRedBorderNewData({});
-                            setRedBorderAccountPassword({borderColor: 'rgb(228, 48, 48)'});
+                            setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
                             break;
                     }
-            })
+                })
         }
     }
 
@@ -103,16 +103,16 @@ function SettingsClick() {
         )
 
         if (newPassword === '') {
-            setRedBorderNewData({borderColor: 'rgb(228, 48, 48)'});
+            setRedBorderNewData({ borderColor: 'rgb(228, 48, 48)' });
             setRedBorderAccountPassword({});
         } else if (newPassword !== confirmPassword) {
-            setRedBorderNewData({borderColor: 'rgb(228, 48, 48)'});
+            setRedBorderNewData({ borderColor: 'rgb(228, 48, 48)' });
             setRedBorderAccountPassword({});
         } else {
             reauthenticateWithCredential(auth.currentUser, credential)
                 .then(result => {
                     updatePassword(auth.currentUser, newPassword).then(() => {
-                        return(
+                        return (
                             openChangePassword(false),
                             setNewPassword(''),
                             setConfirmPassword(''),
@@ -120,16 +120,16 @@ function SettingsClick() {
                             setRedBorderNewData({}),
                             setRedBorderAccountPassword({}),
                             setUpdatedPassword(true))
-                });  
-            })
+                    });
+                })
                 .catch(error => {
                     switch (error.code) {
                         case error.code:
                             setRedBorderNewData({});
-                            setRedBorderAccountPassword({borderColor: 'rgb(228, 48, 48)'});
+                            setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
                             break;
                     }
-            })
+                })
         }
     }
 
@@ -143,20 +143,20 @@ function SettingsClick() {
         )
 
         reauthenticateWithCredential(auth.currentUser, credential)
-                .then(result => {
-                    updateEmail(auth.currentUser, newEmail).then(() => {
-                        return(
-                            openDeleteAccountConfirm(true),
-                            openDeleteAccount(false),
-                            setAccountPassword(''))
-                });  
+            .then(result => {
+                updateEmail(auth.currentUser, newEmail).then(() => {
+                    return (
+                        openDeleteAccountConfirm(true),
+                        openDeleteAccount(false),
+                        setAccountPassword(''))
+                });
             })
-                .catch(error => {
-                    switch (error.code) {
-                        case error.code:
-                            setRedBorderAccountPassword({borderColor: 'rgb(228, 48, 48)'});
-                            break;
-                    }
+            .catch(error => {
+                switch (error.code) {
+                    case error.code:
+                        setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
+                        break;
+                }
             })
     }
 
@@ -183,10 +183,10 @@ function SettingsClick() {
 
         const foldersResults = foldersSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
         foldersResults.forEach(async (foldersResult) => { //für jedes object wird die function ausgelöst
-        const folderDocRef = doc(db, "folders", foldersResult.id); //Definition der Zieldaten (folders, die gelöscht werden)
-        await deleteDoc(folderDocRef); //Zieldaten werden gelöscht
+            const folderDocRef = doc(db, "folders", foldersResult.id); //Definition der Zieldaten (folders, die gelöscht werden)
+            await deleteDoc(folderDocRef); //Zieldaten werden gelöscht
         })
-        
+
         //delete user flashcards
         const flashcardsCollectionRef = collection(db, "flashcards"); //link zur flashcard-collection
         const flashcardsQuery = query(flashcardsCollectionRef, where("user", "==", auth.currentUser.uid)); //Variable zur Filtrierung nach den richtigen flashcards
@@ -194,15 +194,15 @@ function SettingsClick() {
 
         const flashcardsResults = flashcardsSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
         flashcardsResults.forEach(async (flashcardsResult) => { //für jedes object wird die function ausgelöst
-        const flashcardDocRef = doc(db, "flashcards", flashcardsResult.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
-        await deleteDoc(flashcardDocRef); //Zieldaten werden gelöscht
+            const flashcardDocRef = doc(db, "flashcards", flashcardsResult.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
+            await deleteDoc(flashcardDocRef); //Zieldaten werden gelöscht
         })
 
         //delete user function (https://firebase.google.com/docs/auth/web/manage-users?hl=en)
         deleteUser(user).then(() => {
             return navigate('/login');
         }).catch((error) => {
-            alert('An error has occurred while trying to delete your account, please try again later!" ('+error+')');
+            alert('An error has occurred while trying to delete your account, please try again later!" (' + error + ')');
         });
     }
 
@@ -226,19 +226,33 @@ function SettingsClick() {
 
             {profile && <div>
                 <div className='Settings-profile-body'>
-                    <h2 className='Add_Folder_Form_Header' style={{ fontSize: '30px',cursor:'default' }}>Profile</h2>
+                    <h2 className='Add_Folder_Form_Header' style={{ fontSize: '30px', cursor: 'default' }}>Profile</h2>
                     <div>
+                        <h1 className='Settings-profile-header'>General</h1>
+                        <div className='Settings-line'></div>
+                        <p className='Settings-profile-text' style={{ position: 'relative', right: '142px' }}>Flashcard appearence:</p>
+                        <div className='Settings-profile-text' style={{ color: '#bbb',margin:'10px', }}>
+                            <span  style={{ margin:'10px', cursor:'pointer', color:'rgba(58,109,112,1);'}}>only title</span>
+                            <span  style={{ margin:'10px'}}>|</span>
+                            <span style={{ margin:'10px', cursor:'pointer'}}>title and content</span>
+                            <span  style={{ margin:'10px'}}>|</span>
+                            <span style={{ margin:'10px', cursor:'pointer'}}>only content</span>
+                        </div>
+                    </div>
+                    <p style={{ fontSize: '10px' }} />
+                    <div>
+
                         <h1 className='Settings-profile-header' style={{ fontSize: '21px', textAlign: 'left', margin: '5px' }}>
                             Personal Info
-                            {updatedEmail && <span className='Settings-profile-header' style={{position: 'absolute', color: 'rgb(45, 119, 45)', right: '0', margin: '0px 5px 5px 5px'}}>Email Updated!</span>}
+                            {updatedEmail && <span className='Settings-profile-header' style={{ position: 'absolute', color: 'rgb(45, 119, 45)', right: '0', margin: '0px 5px 5px 5px' }}>Email Updated!</span>}
                         </h1>
 
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '10px' }} />
-                        <div style={{textAlign: 'left'}}>
-                            <div className='Settings-profile-text' style={{ margin: '5px',}}>Personal Email:</div>
-                            <div className='Settings-profile-text' style={{ color: '#bbb',  margin: '5px' }}>{user.email}</div>
-                            <div className='Settings-profile-text' style={{ margin: '5px',cursor:'pointer' }}
+                        <div style={{ textAlign: 'left' }}>
+                            <div className='Settings-profile-text' style={{ margin: '5px', }}>Personal Email:</div>
+                            <div className='Settings-profile-text' style={{ color: '#bbb', margin: '5px' }}>{user.email}</div>
+                            <div className='Settings-profile-text' style={{ margin: '5px', cursor: 'pointer' }}
                                 onClick={() => {
                                     openChangeEmail(true);
                                     setUpdatedEmail(false);
@@ -249,63 +263,64 @@ function SettingsClick() {
                         {changeEmail && <div>
                             <div className='Settings-changemail-body'>
 
-                            <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Update "{user.email}"</div>
+                                <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Update "{user.email}"</div>
 
-                            <form onSubmit={newEmailSubmit}>
+                                <form onSubmit={newEmailSubmit}>
 
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                    placeholder="New Email..."
-                                    type="mail"
-                                    autocomplete='off'
-                                    id="email"
-                                    name="email"
-                                    style={redBorderNewData}
-                                    onChange={event => setNewEmail(event.target.value)}
-                                    value={newEmail}
-                                />
-                                <br/>
-                                <br/>
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                    placeholder="Confirm New Email..."
-                                    type="mail"
-                                    autocomplete='off'
-                                    id="confirmEmail"
-                                    name="confirmEmail"
-                                    style={redBorderNewData}
-                                    onChange={event => setConfirmEmail(event.target.value)}
-                                    value={confirmEmail}
-                                />
-                                <br/>
-                                <br/>
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                    placeholder="Password..."
-                                    type="password"
-                                    id="accountPassword"
-                                    name="accountPassword"
-                                    style={redBorderAccountPassword}
-                                    onChange={event => setAccountPassword(event.target.value)}
-                                    value={accountPassword}
-                                />
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                        placeholder="New Email..."
+                                        type="mail"
+                                        autocomplete='off'
+                                        id="email"
+                                        name="email"
+                                        style={redBorderNewData}
+                                        onChange={event => setNewEmail(event.target.value)}
+                                        value={newEmail}
+                                    />
+                                    <br />
+                                    <br />
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                        placeholder="Confirm New Email..."
+                                        type="mail"
+                                        autocomplete='off'
+                                        id="confirmEmail"
+                                        name="confirmEmail"
+                                        style={redBorderNewData}
+                                        onChange={event => setConfirmEmail(event.target.value)}
+                                        value={confirmEmail}
+                                    />
+                                    <br />
+                                    <br />
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                        placeholder="Password..."
+                                        type="password"
+                                        id="accountPassword"
+                                        name="accountPassword"
+                                        style={redBorderAccountPassword}
+                                        onChange={event => setAccountPassword(event.target.value)}
+                                        value={accountPassword}
+                                    />
 
-                                <br/>
+                                    <br />
 
-                                <button
-                                    className='Settings-changemail-cancel'
-                                    onClick={() => {
-                                        openChangeEmail(false);
-                                        setNewEmail('');
-                                        setConfirmEmail('');
-                                        setAccountPassword('');
-                                        setRedBorderNewData({});
-                                        setRedBorderAccountPassword({});}}
-                                >Cancel</button>
+                                    <button
+                                        className='Settings-changemail-cancel'
+                                        onClick={() => {
+                                            openChangeEmail(false);
+                                            setNewEmail('');
+                                            setConfirmEmail('');
+                                            setAccountPassword('');
+                                            setRedBorderNewData({});
+                                            setRedBorderAccountPassword({});
+                                        }}
+                                    >Cancel</button>
 
-                                <button 
-                                    className='Settings-changemail-change'
-                                    type='submit'
-                                >Update</button>
+                                    <button
+                                        className='Settings-changemail-change'
+                                        type='submit'
+                                    >Update</button>
 
-                            </form>
+                                </form>
 
                             </div>
                             <Backdrop onClick={() => openChangeEmail(false)} />
@@ -321,14 +336,14 @@ function SettingsClick() {
                         {/*Wenn man etwas vor diesem punkt addiert muss man das <p> direkt hier drunter vergrößern */}
                         <p style={{ fontSize: '30px' }} />
                     </div>
-                    <div style={{textAlign: 'left'}}>
+                    <div style={{ textAlign: 'left' }}>
                         <h1 className='Settings-profile-header' style={{ fontSize: '21px', textAlign: 'left', margin: '5px' }}>
                             Password
-                            {updatedPassword && <span className='Settings-profile-header' style={{position: 'absolute', color: 'rgb(45, 119, 45)', right: '0', margin: '0px 5px 5px 5px'}}>Password Updated!</span>}
+                            {updatedPassword && <span className='Settings-profile-header' style={{ position: 'absolute', color: 'rgb(45, 119, 45)', right: '0', margin: '0px 5px 5px 5px' }}>Password Updated!</span>}
                         </h1>
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '10px' }} />
-                        <div className='Settings-profile-text' style={{ margin: '5px',cursor:'pointer'}}
+                        <div className='Settings-profile-text' style={{ margin: '5px', cursor: 'pointer' }}
                             onClick={() => {
                                 openChangePassword(true);
                                 setUpdatedEmail(false);
@@ -339,120 +354,122 @@ function SettingsClick() {
 
                         {changePassword && <div>
                             <div className='Settings-changemail-body' style={{ height: '350px' }}>
-                                
+
                                 <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Change Password</div>
-                                
+
                                 <form onSubmit={newPasswordSubmit}>
 
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                    placeholder="Current Password..."
-                                    type="password"
-                                    id="accountPassword"
-                                    name="accountPassword"
-                                    style={redBorderAccountPassword}
-                                    onChange={event => setAccountPassword(event.target.value)}
-                                    value={accountPassword}
-                                />
-                                <br/>
-                                <br/>
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                    placeholder="New Password..."
-                                    type="password"
-                                    autocomplete='off'
-                                    id="newPassword"
-                                    name="newPassword"
-                                    style={redBorderNewData}
-                                    onChange={event => setNewPassword(event.target.value)}
-                                    value={newPassword}
-                                />
-                                <br/>
-                                <br/>
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                    placeholder="Confirm New Password..."
-                                    type="password"
-                                    autocomplete='off'
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    style={redBorderNewData}
-                                    onChange={event => setConfirmPassword(event.target.value)}
-                                    value={confirmPassword}
-                                />
-                                <br/>
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                        placeholder="Current Password..."
+                                        type="password"
+                                        id="accountPassword"
+                                        name="accountPassword"
+                                        style={redBorderAccountPassword}
+                                        onChange={event => setAccountPassword(event.target.value)}
+                                        value={accountPassword}
+                                    />
+                                    <br />
+                                    <br />
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                        placeholder="New Password..."
+                                        type="password"
+                                        autocomplete='off'
+                                        id="newPassword"
+                                        name="newPassword"
+                                        style={redBorderNewData}
+                                        onChange={event => setNewPassword(event.target.value)}
+                                        value={newPassword}
+                                    />
+                                    <br />
+                                    <br />
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                        placeholder="Confirm New Password..."
+                                        type="password"
+                                        autocomplete='off'
+                                        id="confirmPassword"
+                                        name="confirmPassword"
+                                        style={redBorderNewData}
+                                        onChange={event => setConfirmPassword(event.target.value)}
+                                        value={confirmPassword}
+                                    />
+                                    <br />
 
-                                <button
-                                    className='Settings-changemail-cancel'
-                                    onClick={() => {
-                                        openChangePassword(false);
-                                        setNewPassword('');
-                                        setConfirmPassword('');
-                                        setAccountPassword('');
-                                        setRedBorderNewData({});
-                                        setRedBorderAccountPassword({});}}
-                                >Cancel</button>
+                                    <button
+                                        className='Settings-changemail-cancel'
+                                        onClick={() => {
+                                            openChangePassword(false);
+                                            setNewPassword('');
+                                            setConfirmPassword('');
+                                            setAccountPassword('');
+                                            setRedBorderNewData({});
+                                            setRedBorderAccountPassword({});
+                                        }}
+                                    >Cancel</button>
 
-                                <button 
-                                    className='Settings-changemail-change'
-                                    type='submit'
-                                >Update</button>
+                                    <button
+                                        className='Settings-changemail-change'
+                                        type='submit'
+                                    >Update</button>
 
-                            </form>
-                            
+                                </form>
+
                             </div>
                             <Backdrop onClick={() => openChangePassword(false)} />
                         </div>}
 
                         <p style={{ fontSize: '30px' }} />
                     </div>
-                    <div style={{textAlign: 'left'}}>
-                        <h1 className='Settings-profile-header' style={{ fontSize: '21px',  margin: '5px'}}>Account</h1>
+                    <div style={{ textAlign: 'left' }}>
+                        <h1 className='Settings-profile-header' style={{ fontSize: '21px', margin: '5px' }}>Account</h1>
                         <div className='Settings-line'></div>
                         <p style={{ fontSize: '20px' }} />
-                        <div className='Settings-profile-text' style={{ color: '#d83232', margin: '5px', cursor:'pointer'  }}
+                        <div className='Settings-profile-text' style={{ color: '#d83232', margin: '5px', cursor: 'pointer' }}
                             onClick={() => {
                                 openDeleteAccount(true);
                                 setUpdatedEmail(false);
                                 setUpdatedPassword(false);
                             }}>Delete Account</div>
-                        <div className='Settings-profile-text' style={{ fontSize: '15px', color: 'rgb(88, 167, 172)', margin: '5px'}} >If you delete your account, your data will be gone forever!</div>
+                        <div className='Settings-profile-text' style={{ fontSize: '15px', color: 'rgb(88, 167, 172)', margin: '5px' }} >If you delete your account, your data will be gone forever!</div>
 
                         {deleteAccount && <div>
                             <div className='Settings-changemail-body'>
 
-                            <br/><br/><br/><br/>
+                                <br /><br /><br /><br />
 
-                            <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Please enter your password to proceed!</div>
+                                <div className='Settings-profile-text' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Please enter your password to proceed!</div>
 
-                            <form onSubmit={deleteAccountPasswordSubmit}>
+                                <form onSubmit={deleteAccountPasswordSubmit}>
 
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
-                                    placeholder="Password..."
-                                    type="password"
-                                    id="accountPassword"
-                                    name="accountPassword"
-                                    style={redBorderAccountPassword}
-                                    onChange={event => setAccountPassword(event.target.value)}
-                                    value={accountPassword}
-                                />
+                                    <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                        placeholder="Password..."
+                                        type="password"
+                                        id="accountPassword"
+                                        name="accountPassword"
+                                        style={redBorderAccountPassword}
+                                        onChange={event => setAccountPassword(event.target.value)}
+                                        value={accountPassword}
+                                    />
 
-                                <br/>
+                                    <br />
 
-                                <button
-                                    className='Settings-changemail-cancel'
-                                    onClick={() => {
-                                        openDeleteAccount(false);
-                                        setNewEmail('');
-                                        setConfirmEmail('');
-                                        setAccountPassword('');
-                                        setRedBorderNewData({});
-                                        setRedBorderAccountPassword({});}}
-                                >Cancel</button>
+                                    <button
+                                        className='Settings-changemail-cancel'
+                                        onClick={() => {
+                                            openDeleteAccount(false);
+                                            setNewEmail('');
+                                            setConfirmEmail('');
+                                            setAccountPassword('');
+                                            setRedBorderNewData({});
+                                            setRedBorderAccountPassword({});
+                                        }}
+                                    >Cancel</button>
 
-                                <button 
-                                    className='Settings-changemail-change'
-                                    type='submit'
-                                >Proceed</button>
+                                    <button
+                                        className='Settings-changemail-change'
+                                        type='submit'
+                                    >Proceed</button>
 
-                            </form>
+                                </form>
 
                             </div>
                             <Backdrop onClick={() => openDeleteAccount(false)} />
@@ -461,56 +478,57 @@ function SettingsClick() {
 
                         {deleteAccountConfirm && <div>
                             <div className='settings-delete-account-confirm-body'>
-                                <br/>
-                                <h2 className='Add_folder_Form_Header' style={{textAlign: 'center'}}>Do you really want to delete your account?</h2>
-                                <p className='settings-delete-account-confirm-text' style={{fontSize: '20px'}}>
+                                <br />
+                                <h2 className='Add_folder_Form_Header' style={{ textAlign: 'center' }}>Do you really want to delete your account?</h2>
+                                <p className='settings-delete-account-confirm-text' style={{ fontSize: '20px' }}>
                                     If you delete your account, your data will be gone forever and cannot be restored.
                                 </p>
-                                <br/>
-                                <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal'}}>
+                                <br />
+                                <p className='settings-delete-account-confirm-text' style={{ color: 'white', fontWeight: 'normal' }}>
                                     Please enter your user id to confirm the deletion:
-                                    <br/><br/>
-                                    <span style={{color: '#bbb', fontWeight: 'normal'}}>{user.uid}</span>
+                                    <br /><br />
+                                    <span style={{ color: '#bbb', fontWeight: 'normal' }}>{user.uid}</span>
                                 </p>
-                                <br/>
+                                <br />
 
                                 <form onSubmit={deleteAccountFinal}>
                                     <input
                                         className='Settings-changemail-form Add_Folder_Form_Input'
-                                        style={{left: '50%', transform: 'translateX(-50%)', width: '80%'}}
+                                        style={{ left: '50%', transform: 'translateX(-50%)', width: '80%' }}
                                         type='text'
                                         autocomplete='off'
                                         placeholder='Please enter your user id...'
                                         id="userId"
                                         name="userId"
-                                        onChange={event => {setUserIdInput(event.target.value); setDeleteAccountConfirmUidMatchRerenderPrevent(true);}}
+                                        onChange={event => { setUserIdInput(event.target.value); setDeleteAccountConfirmUidMatchRerenderPrevent(true); }}
                                         value={userIdInput}
                                     />
 
-                                    <br/>
+                                    <br />
 
-                                    {deleteAccountUidCompare || <button 
+                                    {deleteAccountUidCompare || <button
                                         className='settings-delete-account-confirm-button'
-                                        style={{backgroundColor: 'rgb(228, 48, 48)', borderColor: 'rgb(228, 48, 48)', opacity: '0.2', cursor: 'not-allowed'}}
+                                        style={{ backgroundColor: 'rgb(228, 48, 48)', borderColor: 'rgb(228, 48, 48)', opacity: '0.2', cursor: 'not-allowed' }}
                                         onClick={(e) => e.preventDefault()}
                                     >I understand the consequences, delete my account.</button>}
 
-                                    {deleteAccountUidCompare && <button 
+                                    {deleteAccountUidCompare && <button
                                         className='settings-delete-account-confirm-button'
-                                        style={{backgroundColor: 'rgb(228, 48, 48)', borderColor: 'rgb(228, 48, 48)'}}
+                                        style={{ backgroundColor: 'rgb(228, 48, 48)', borderColor: 'rgb(228, 48, 48)' }}
                                         type='submit'
                                     >I understand the consequences, delete my account.</button>}
 
-                                    <br/>
+                                    <br />
 
                                     <button
                                         className='settings-delete-account-confirm-button'
                                         onClick={() => {
                                             openDeleteAccountConfirm(false);
-                                            setUserIdInput('');}}
+                                            setUserIdInput('');
+                                        }}
                                     >Cancel</button>
-                                    
-                                    </form>
+
+                                </form>
 
                             </div>
                             <Backdrop
@@ -523,7 +541,7 @@ function SettingsClick() {
 
                     </div>
                 </div>
-            </div> }      
+            </div>}
         </div>
     );
 }

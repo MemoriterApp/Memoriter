@@ -1,7 +1,6 @@
 import Footer from "../components/Footer";
 import Logo from './Logo.png';
 import { Link } from 'react-router-dom';
-import Group from './Group.png'
 
 function About() {
 
