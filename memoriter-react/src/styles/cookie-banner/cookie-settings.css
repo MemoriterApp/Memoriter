@@ -109,10 +109,11 @@
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
-    margin-bottom: -10px;
+    margin-right: 50px;
+    margin-bottom: 0;
 }
 .cookie-settings-label-description { /*label description texts*/
-    width: calc(100% - 72px);
+    width: 100%;
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Inter';
@@ -145,7 +146,7 @@
 .cookie-settings-switch { /*toggle switch*/
     position: absolute;
     right: 70px;
-    transform: translate(0, -10px);
+    transform: translate(0, -24px);
     width: 40px;
     height: 24px;
 }
@@ -184,8 +185,9 @@
 .cookie-settings-links { /*further information links at the bottom*/
     display: flex; /*display: flex creates columns*/
     position: relative;
-    width: calc(100% + 40px);
-    margin-inline: -20px;
+    left: 50%;
+    transform: translate(-50%);
+    gap: 8px;
     margin-top: 24px;
     text-align: center;
 }
@@ -193,6 +195,7 @@
     flex: 1; /*used for equal columns*/
 }
 .cookie-settings-link { /*link font style*/
+    width: fit-content;
     font-size: 0.95rem;
     color: rgba(200, 200, 200, 1);
     font-family: 'Inter';
@@ -231,7 +234,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: 200ms;
+    transition: background-color 200ms;
 }
 .cookie-settings-save:hover { /*hover effect on button*/
     background-color: rgba(55, 55, 55, 0.65);
@@ -263,7 +266,7 @@
     position: absolute;
     left: 50%;
     top: 10px;
-    transform: translate(-50%);
+    transform: translate(-45%);
     font-size: 1.4rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
@@ -279,8 +282,76 @@
     transition: 200ms;
 }
 
+@media (max-width: 460px) { /*some layout changes for very small screens*/
+    .cookie-settings-title-text {
+        font-size: 1.6rem;
+        text-align: left;
+        margin-left: 30px;
+    }
+    
+    .cookie-settings-scroll {
+        height: calc(100% - 212px);
+    }
+
+    .cookie-settings-description {
+        margin: 12px 20px 30px 30px;
+    }
+
+    .cookie-settings-container {
+        margin: 12px 20px 30px 30px;
+        padding: 8px 20px 24px 20px;
+    }
+
+    .cookie-settings-switch {
+        right: 40px;
+    }
+
+    .cookie-settings-links {
+        flex-direction: column;
+    }
+
+    .cookie-settings-buttons {
+        height: 140px;
+    }
+
+    .cookie-settings-save {
+        left: 30px;
+        top: 100px;
+        width: calc(100% - 80px);
+    }
+
+    .cookie-settings-accept {
+        left: 30px;
+        top: 40px;
+        width: calc(100% - 80px);
+    }
+}
+
+@media (max-width: 310px) { /*some optimizations for very very small screens*/
+    .cookie-settings-title {
+        height: 102px;
+    }
+    .cookie-settings-title-text {
+        margin-right: 60px;
+    }
+
+    .cookie-settings-scroll {
+        height: calc(100% - 242px);
+    }
+}
+
 @media (max-width: 240px) { /*hidden on to small */
-    .cookie-banner {
+    .cookie-settings {
         display: none;
+    }
+}
+
+@media (max-height: 360px) { /*changes scroll part because it becomes too small*/
+    .cookie-settings {
+        overflow-y: auto;
+    }
+
+    .cookie-settings-scroll {
+        height: unset;
     }
 }

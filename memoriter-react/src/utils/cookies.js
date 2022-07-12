@@ -2,7 +2,7 @@
 
 const cookies = {
     getCookie: (key) => {
-        var cookie = document.cookie.match('(^|;)\\s*' + key + '\\s*=\\s*([^;]+)');
+        const cookie = document.cookie.match('(^|;)\\s*' + key + '\\s*=\\s*([^;]+)');
         return cookie ? cookie.pop() : '';
     },
     setCookie: (key, value, expires) => {

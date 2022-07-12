@@ -115,9 +115,18 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
                             </p>
                         </div>
                         <nav className='cookie-settings-links'>
-                            <Link className='cookie-settings-link' to='/privacy' target='_blank'>Privacy Policy</Link>
-                            <Link className='cookie-settings-link' to='/cookies' target='_blank'>Cookie Policy</Link>
-                            <Link className='cookie-settings-link' to='/impressum' target='_blank'>Impressum</Link>
+                            {/*divs are needed for layout to work correctly*/}
+                            <div>
+                                <Link className='cookie-settings-link' to='/privacy' target='_blank'>Privacy Policy</Link>
+                            </div>
+                            <div>
+                                <Link className='cookie-settings-link' to='/cookies' target='_blank'>Cookie Policy</Link>
+                            </div>
+                            <div>
+                                <Link className='cookie-settings-link' to='/impressum' target='_blank'>Impressum</Link>
+                            </div>
+                            
+                            
                         </nav>
                     </div>
 
