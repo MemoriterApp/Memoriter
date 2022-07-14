@@ -10,6 +10,8 @@ import { Link, } from 'react-router-dom';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
 import { onAuthStateChanged } from "firebase/auth";
+import Masonry from 'react-masonry-css';
+import '../components/masonry.css';
 const { db } = firebase;
 
 function TopicPage() {
@@ -215,18 +217,23 @@ function TopicPage() {
                                 )*/}
                         </>
 
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '400px'}}>1</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '200px'}}>2</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '600px'}}>3</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '700px'}}>4</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '100px'}}>5</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '300px'}}>6</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '400px'}}>7</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '400px'}}>8</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '500px'}}>9</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '800px'}}>10</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '400px'}}>11</div>
-                        <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '500px'}}>12</div>
+                        <Masonry
+                            breakpointCols={5}
+                            className='masonry-grid'
+                            columnClassName='my-masonry-grid_column'>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '400px'}}>1</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '200px'}}>2</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '600px'}}>3</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '700px'}}>4</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '100px'}}>5</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '300px'}}>6</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '400px'}}>7</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '400px'}}>8</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '500px'}}>9</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '800px'}}>10</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '400px'}}>11</div>
+                            <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '500px'}}>12</div>
+                        </Masonry>
 
                         {/*<div className='Flashcard_Body'>
                             <div className='Flashcard_Settings_Bar' onClick={NewFlashcardClick} />

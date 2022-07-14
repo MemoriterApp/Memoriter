@@ -2083,4 +2083,7 @@ body {
     padding: 12px;
     border-radius: 4px;
     background-color: red;
+    width: 200px;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
