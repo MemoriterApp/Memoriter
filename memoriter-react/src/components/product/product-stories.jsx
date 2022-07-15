@@ -21,7 +21,7 @@ const ProductStories = () => {
         },
     ];
 
-    const [number, setNumber] = useState(0); //number of the currently shown story (position in thr array)
+    const [number, setNumber] = useState(Math.floor(Math.random() * 3)); //number of the currently shown story (position in thr array), is random on page render
 
     function previousStory() { //function for switching to previous story
         if (number === 0) { //if the first story is shown it switches to the last one
@@ -35,7 +35,7 @@ const ProductStories = () => {
         if (number === stories.length - 1) { //if the last story is shown it switches to the first one
             setNumber(0);
         } else { //else it switches to the next one
-            setNumber(number + 1); 
+            setNumber(number + 1);
         };
     };
 
