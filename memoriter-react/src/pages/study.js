@@ -33,7 +33,6 @@ const StudyPage = () => {
     }, [])
 
     const [settingsHandlerOpen, setSettingsHandlerOpen] = useState(false);
-    const [backdropfsOpen, setBackdropfsOpen] = useState(false);
 
     return (
         <div>
@@ -62,31 +61,29 @@ const StudyPage = () => {
                 </Link>
 
                 <div className='study-flashcard-box'>
-                    <div className='Flashcard_Open_Settings' onClick={() => {setSettingsHandlerOpen(true); setBackdropfsOpen(true);}}>
+                    <div className='Flashcard_Open_Settings' onClick={() => setSettingsHandlerOpen(true)}>
                         <span className='big-dot'/>
                         <span className='big-dot'/>
                         <span className='big-dot'/>
                     </div>
-
-                    <h1>{flashcards[0].title}</h1>
-
-                    {settingsHandlerOpen && <div className='flashcard-open-settings-overlay-position-field'>
-                        <div className='flashcard-open-settings-overlay-position-field-click'/>
-                        <div className='flashcard-open-settings-overlay' style={{width: '90px', height: '100px', padding: '14px 0 14px 14px'}}>
-                            <div className='folder-settings-sub'>
-                                <p>Text Align:<br/>
-                                    {<span style={{color: flashcards[0].textAlignColor}}>{flashcards[0].textAlignSymbol}</span>} {flashcards[0].textAlign}</p>
-                                <p><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
-                                <p style={{color: 'rgb(228, 48, 48)'}}>✕ Delete</p>
-                            </div>
-
-                        </div>
-                    </div>}
                 </div>
-                {backdropfsOpen && <Backdropfs onClick={() => {
-                    setBackdropfsOpen(false);
-                    setSettingsHandlerOpen(false);
-                }}/>}
+
+                {settingsHandlerOpen && <div>
+                    <div className='flashcard-open-settings-overlay' style={{width: '90px', height: '100px', padding: '14px 0 14px 14px', right: 'calc(100vh / 3 * 2 + 96px)', top: '108px'}}>
+                        <div className='folder-settings-sub'>
+                            <p>Text Align:<br/>
+                                {<span style={{color: flashcards[0].textAlignColor}}>{flashcards[0].textAlignSymbol}</span>} {flashcards[0].textAlign}</p>
+                            <p><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
+                            <p style={{color: 'rgb(228, 48, 48)'}}>✕ Delete</p>
+                        </div>
+                    </div>
+                    
+                    <div onClick={() => {setSettingsHandlerOpen(false);}}>
+                        <Backdropfs onClick={() => {
+                            setSettingsHandlerOpen(false);
+                        }}/>
+                    </div>
+                </div>}
 
                 <Footer/>
             </body>
