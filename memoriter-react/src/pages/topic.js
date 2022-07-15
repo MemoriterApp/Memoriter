@@ -6,12 +6,14 @@ import Footer from '../components/Footer';
 import Flashcard from '../components/Flashcard';
 import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
-import { Link, } from 'react-router-dom';
+import { Link, useNavigate, } from 'react-router-dom';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
 function TopicPage() {
+
+    const navigate = useNavigate();
 
     //firebase stuff
     //link zur db
@@ -19,9 +21,6 @@ function TopicPage() {
 
     //Flashcard Data
     const [flashcards, setFlashcards] = useState([])
-
-    //to check wether you are studying
-    const [studyView, openStudyView] = useState(false)
 
     //Use Effect für Notes
     useEffect(() => {
@@ -40,7 +39,7 @@ function TopicPage() {
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
-    let syncedFolderID = localStorage.getItem('syncedFolderID')
+    let syncedFolderID = localStorage.getItem('syncedFolderID');
 
     if (renderedFlashcard === false) {
         setFlashcards(flashcards.filter((flashcard) => flashcard.syncedFolder === syncedFolderID));
@@ -202,7 +201,7 @@ function TopicPage() {
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo"></img>
                 </Link>
-                <div className='study-now' onClick={() => openStudyView(true)}>
+                <div className='study-now' onClick={() => navigate('/study')}>
                     <p className='study-now-text'>study now!</p>
                 </div>
             </header>
@@ -239,7 +238,6 @@ function TopicPage() {
                         <div onClick={backdropClick}>
                             {modalIsOpenA && <Backdrop />}
                         </div>
-                        {studyView && {/*Hier müsste die Flashcard rein.*/}}
                     </div>
                     <BackButton />
                     <SettingsIcon />

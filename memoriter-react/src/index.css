@@ -1921,3 +1921,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 
 }
+.study-flashcard-box {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: calc(100vh - 160px);
+    width: calc((100vh - 160px) * 2 / 3);
+    border: 5px solid rgba(39,75,101,1);
+    border-radius: 6px;
+}
