@@ -9,7 +9,7 @@
     transform: translate(-50%);
     max-width: 2400px; /*looks better on large screens*/
     margin-top: 100vh;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
     overflow-x: hidden;
 }
 

@@ -15,7 +15,7 @@ const CookieBanner = ({ onOpenCookieSettings }) => {
         }
     } else {
         setTimeout(() => {setDisplay('0'); }, 600); //executing move animation
-    }
+    };
 
     function acceptCookies() { //item is set in local storage for cookie banner not showng again if accepted
         const acceptedAllCookies = { //variable stored as a cookie for saving the accepted cookie types for later
@@ -28,7 +28,7 @@ const CookieBanner = ({ onOpenCookieSettings }) => {
         const expires = new Date(); //cookie expiration date
         expires.setTime(+ expires + (365 * 86400000)); //sets expiration date (in one year)
         cookies.setCookie('accepted-cookies', JSON.stringify(acceptedAllCookies), expires) //sets cookie
-    }
+    };
 
     return (
         <div

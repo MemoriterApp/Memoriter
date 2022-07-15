@@ -1,0 +1,58 @@
+/*Styles used for the slider thing with customer stories at the bottom of the product page*/
+
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap'); /*italic serif font*/
+
+.product-stories { /*box with everything*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 1000px;
+    height: 600px;
+    margin-bottom: 280px;
+    background-color: rebeccapurple;
+}
+
+.product-stories-textarea { /*box where the texts are displayed*/
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 80%;
+    height: 90%;
+    background-color: red;
+}
+
+.product-stories-arrow-left { /*previous-story-button*/
+    position: absolute;
+    left: 10px;
+    top: 250px;
+    transform: translate(0, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: greenyellow;
+}
+
+.product-stories-arrow-right { /*next-story-button*/
+    position: absolute;
+    right: 10px;
+    top: 250px;
+    width: 50px;
+    height: 50px;
+    background-color: greenyellow;
+}
+
+.product-stories-dots { /*the bar of dots at the bottom for selecting a story*/
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%);
+    height: 40px;
+    gap: 10px;
+    background-color: chocolate;
+}
+.product-stories-dot { /*single dots*/
+    width: 20px;
+    height: 20px;
+    background-color: limegreen;
+}

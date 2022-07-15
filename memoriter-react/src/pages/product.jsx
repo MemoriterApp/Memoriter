@@ -2,6 +2,7 @@ import Head from '../components/head';
 import ProductHeader from '../components/product/product-header';
 import ProductBanner from '../components/product/product-banner';
 import ProductMain from '../components/product/product-main';
+import ProductStories from '../components/product/product-stories';
 import ProductFooter from '../components/product/product-footer';
 import CookieBanner from '../components/cookie-banner/cookie-banner';
 import CookieSettings from '../components/cookie-banner/cookie-settings';
@@ -64,6 +65,9 @@ const Product = () => {
 
                 {/*basic main layout and texts*/}
                 <ProductMain/>
+
+                {/*slider with customer stories*/}
+                <ProductStories/>
 
             </div>
 
