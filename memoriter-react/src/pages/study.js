@@ -167,7 +167,7 @@ const StudyPage = () => {
                         <span className='big-dot'/>
                     </div>
 
-                    <h1 style={{textAlign: 'center'}}>{flashcards[0].title}</h1>
+                    <h2 style={{textAlign: 'center'}}>{flashcards[0].title}</h2>
                     <text style={{textAlign: flashcards[0].textAlign}}>{parse(flashcards[0].content)}</text>
 
                 </div>
