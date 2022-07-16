@@ -1,43 +1,118 @@
 /*Styles used for the slider thing with customer stories at the bottom of the product page*/
 
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap'); /*italic serif font*/
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap'); /*italic serif font fot text*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*sans serif font for author*/
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@700&display=swap'); /*font for quotation mark*/
 
 .product-stories { /*box with everything*/
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    width: 1000px;
-    height: 600px;
-    margin-bottom: 280px;
-    background-color: rebeccapurple;
+    width: calc(100% - 40px);
+    max-width: 850px;
+    height: calc(100vw / 2 - 20px);
+    max-height: 425px;
+    margin-bottom: 250px;
 }
 
 .product-stories-textarea { /*box where the texts are displayed*/
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    width: 80%;
-    height: 90%;
-    background-color: red;
+    width: calc(100% - 150px);
+    height: calc(100% - 40px);
+    border-radius: 10px;
+    background-color: rgba(55, 55, 55, 1);
+}
+.product-stories-textarea::after { /*quotation mark at the upper left corner*/
+    content: '"'; /*the quotation mark symbol*/
+    position: absolute;
+    left: -27px;
+    top: -18px;
+    font-size: 12rem;
+    font-family: 'BIZ UDPGothic';
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.product-stories-textarea-quote {
+    color: rgba(255, 255, 255, 1);
+    font-style: italic;
+    font-size: 1.4rem;
+    font-family: 'Kaisei HarunoUmi';
+    text-align: justify;
+    margin: 60px 60px -40px 60px;
+}
+.product-stories-textarea-author {
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.4rem;
+    font-family: 'Rubik';
+    margin: 60px 60px -40px 60px;
 }
 
 .product-stories-arrow-left { /*previous-story-button*/
     position: absolute;
-    left: 10px;
-    top: 250px;
+    left: 0;
+    top: calc(50% - 20px);
     transform: translate(0, -50%);
-    width: 50px;
-    height: 50px;
-    background-color: greenyellow;
+    width: 36px;
+    height: 64px;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+.product-stories-arrow-left::before { /*upper half of the arrow*/
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 0;
+    width: 15px;
+    height: 30px;
+    transform: skew(-30deg);
+    background-color: rgba(200, 200, 200, 1);
+}
+.product-stories-arrow-left::after { /*lower half of the arrow*/
+    content: '';
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+    width: 15px;
+    height: 30px;
+    transform: skew(30deg);
+    background-color: rgba(200, 200, 200, 1);
 }
 
 .product-stories-arrow-right { /*next-story-button*/
     position: absolute;
-    right: 10px;
-    top: 250px;
-    width: 50px;
-    height: 50px;
-    background-color: greenyellow;
+    right: 0;
+    top: calc(50% - 20px);
+    transform: translate(0, -50%);
+    width: 36px;
+    height: 64px;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+.product-stories-arrow-right::before { /*upper half of the arrow*/
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    width: 15px;
+    height: 30px;
+    transform: skew(30deg);
+    background-color: rgba(200, 200, 200, 1);
+}
+.product-stories-arrow-right::after { /*lower half of the arrow*/
+    content: '';
+    position: absolute;
+    left: 8px;
+    bottom: 0;
+    width: 15px;
+    height: 30px;
+    transform: skew(-30deg);
+    background-color: rgba(200, 200, 200, 1);
 }
 
 .product-stories-dots { /*the bar of dots at the bottom for selecting a story*/
@@ -47,12 +122,12 @@
     left: 50%;
     bottom: 0;
     transform: translate(-50%);
-    height: 40px;
-    gap: 10px;
-    background-color: chocolate;
+    gap: 8px;
 }
 .product-stories-dot { /*single dots*/
-    width: 20px;
-    height: 20px;
-    background-color: limegreen;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%; /*circle shape*/
+    background-color: rgba(55, 55, 55, 1);
+    cursor: pointer;
 }

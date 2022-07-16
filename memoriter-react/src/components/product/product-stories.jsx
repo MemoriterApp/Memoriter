@@ -3,21 +3,21 @@ import { useState } from 'react';
 
 const ProductStories = () => {
 
-    const stories = [ //array with all stories
+    const stories = [ //array with all story data
         {
             number: 0,
-            author: 'ich',
-            quote: 'Memoriter'
+            author: 'Placeholder',
+            quote: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,'
         },
         {
             number: 1,
-            author: 'nicht ich',
-            quote: 'ist'
+            author: 'Placeholder',
+            quote: 'no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et'
         },
         {
             number: 2,
-            author: 'du',
-            quote: 'gut.'
+            author: 'Placeholder',
+            quote: 'accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
         },
     ];
 
@@ -41,9 +41,9 @@ const ProductStories = () => {
 
     return (
         <div className='product-stories'>
-            <div className='product-stories-textarea'>
-                <p>{stories[number].quote}</p>
-                <p>- {stories[number].author}</p>
+            <div className='product-stories-textarea'> {/*the values from the array are used here*/}
+                    <p className='product-stories-textarea-quote'>{stories[number].quote}</p>
+                    <p className='product-stories-textarea-author'>- {stories[number].author}</p>   
             </div>
 
             {/*buttons for switching to next or previous*/}
@@ -54,7 +54,7 @@ const ProductStories = () => {
             <div className='product-stories-dots'>
                 {stories.map((story) => (
                     story.number === number? (
-                        <div className='product-stories-dot' style={{backgroundColor: 'green'}} key={story.number} onClick={() => setNumber(story.number)}/>
+                        <div className='product-stories-dot' key={story.number} style={{background: 'linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1))'}}/>
                     ) : (
                         <div className='product-stories-dot' key={story.number} onClick={() => setNumber(story.number)}/>
                     )
