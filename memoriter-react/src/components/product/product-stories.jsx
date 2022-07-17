@@ -21,29 +21,60 @@ const ProductStories = () => {
         },
     ];
 
-    const [number, setNumber] = useState(Math.floor(Math.random() * 3)); //number of the currently shown story (position in thr array), is random on page render
+    const [number, setNumber] = useState(Math.floor(Math.random() * stories.length)); //number of the currently shown story (position in the array), is random on page render
+
+    const [textAreaAnimation, setTextAreaAnimation] = useState('1'); //value used for the animation on next or previous story
+    const [dotAnimation, setDotAnimation] = useState('rgba(37.5, 177.5, 147.5, 1)');
 
     function previousStory() { //function for switching to previous story
-        if (number === 0) { //if the first story is shown it switches to the last one
-            setNumber(stories.length - 1);
-        } else { //else it switches to the previous one
-            setNumber(number - 1);
-        };
+        setTextAreaAnimation('0'); //fade out effect
+        setTimeout(() => {setTextAreaAnimation('1')}, 400); //fade in effect
+
+        setDotAnimation('rgba(55, 55, 55, 1)'); //dot fade out
+        setTimeout(() => {setDotAnimation('rgba(37.5, 177.5, 147.5, 1)')}, 400); //dot fade in
+        
+        setTimeout(() => { //timeout needed for correctly executed animation
+            if (number === 0) { //if the first story is shown it switches to the last one
+                setNumber(stories.length - 1);
+            } else { //else it switches to the previous one
+                setNumber(number - 1);
+            };
+        }, 400);
     };
 
     function nextStory() { //function for switching to next story
-        if (number === stories.length - 1) { //if the last story is shown it switches to the first one
-            setNumber(0);
-        } else { //else it switches to the next one
-            setNumber(number + 1);
-        };
+        setTextAreaAnimation('0'); //fade out effect
+        setTimeout(() => {setTextAreaAnimation('1');}, 400); //fade in effect
+
+        setDotAnimation('rgba(55, 55, 55, 1)'); //dot fade out
+        setTimeout(() => {setDotAnimation('rgba(37.5, 177.5, 147.5, 1)')}, 400); //dot fade in
+        
+        setTimeout(() => { //timeout needed for correctly executed animation
+            if (number === stories.length - 1) { //if the first story is shown it switches to the last one
+                setNumber(0);
+            } else { //else it switches to the previous one
+                setNumber(number + 1);
+            };
+        }, 400);
+    };
+
+    function chosenStory(story) { //function for switching to the story of the clicked dot
+        setTextAreaAnimation('0'); //fade out effect
+        setTimeout(() => {setTextAreaAnimation('1');}, 400); //fade in effect
+
+        setDotAnimation('rgba(55, 55, 55, 1)'); //dot fade out
+        setTimeout(() => {setDotAnimation('rgba(37.5, 177.5, 147.5, 1)')}, 400); //dot fade in
+        
+        setTimeout(() => {setNumber(story.number)}, 400); //timeout needed for correctly executed animation
     };
 
     return (
         <div className='product-stories'>
             <div className='product-stories-textarea'> {/*the values from the array are used here*/}
+                <article style={{opacity: textAreaAnimation, transition: 'opacity 400ms'}}> {/*style used for animation*/}
                     <p className='product-stories-textarea-quote'>{stories[number].quote}</p>
-                    <p className='product-stories-textarea-author'>- {stories[number].author}</p>   
+                    <p className='product-stories-textarea-author'>- {stories[number].author}</p>  
+                </article>
             </div>
 
             {/*buttons for switching to next or previous*/}
@@ -53,10 +84,10 @@ const ProductStories = () => {
             {/*the bar of dots at the bottom for selecting a story*/}
             <div className='product-stories-dots'>
                 {stories.map((story) => (
-                    story.number === number? (
-                        <div className='product-stories-dot' key={story.number} style={{background: 'linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1))'}}/>
+                    story.number === number? ( //dot for the current story is highlighted
+                        <div className='product-stories-dot' key={story.number} style={{background: dotAnimation}}/>
                     ) : (
-                        <div className='product-stories-dot' key={story.number} onClick={() => setNumber(story.number)}/>
+                        <div className='product-stories-dot' key={story.number} onClick={() => chosenStory(story)}/>
                     )
                 ))}
             </div>
