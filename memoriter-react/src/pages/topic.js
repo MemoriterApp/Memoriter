@@ -1,4 +1,4 @@
-import { useState, useEffect, } from 'react';
+import { useState, useEffect } from 'react';
 import Logo from './Logo.png';
 import BackButton from '../components/BackButton';
 import SettingsIcon from '../components/SettingsIcon';
@@ -204,20 +204,23 @@ function TopicPage() {
                 <div className="rechteck">
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
-                        <>
-                            {/*flashcards
+                        <Masonry
+                            breakpointCols={2}
+                            className='masonry-grid'
+                            columnClassName='my-masonry-grid_column'>
+                            {flashcards
                                 .map((flashcard) => (
-                                    <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                    <Flashcard style={{gridRowEnd: 'span 25'}} key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                                         onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
                                         onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
                                         onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
                                         onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
                                         onChangeTextAlign={changeTextAlign}
                                     />)
-                                )*/}
-                        </>
+                                )}
+                        </Masonry>
 
-                        <Masonry
+                        {/*<Masonry
                             breakpointCols={5}
                             className='masonry-grid'
                             columnClassName='my-masonry-grid_column'>
@@ -233,17 +236,17 @@ function TopicPage() {
                             <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '800px'}}>10</div>
                             <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '400px'}}>11</div>
                             <div className='TESTBOX' style={{gridRowEnd: 'span 25', height: '500px'}}>12</div>
-                        </Masonry>
+                        </Masonry>*/}
 
-                        {/*<div className='Flashcard_Body'>
+                        {<div className='Flashcard_Body' style={{height: '270px'}}>
                             <div className='Flashcard_Settings_Bar' onClick={NewFlashcardClick} />
-                            <div className='Flashcard_Rechteck' onClick={NewFlashcardClick}>
+                            <div className='Flashcard_Rechteck' style={{height: '270px'}} onClick={NewFlashcardClick}>
                                 <div className='New_Flashcard_Circle'>
                                     <div className='New_Flashcard_Plus_h' />
                                     <div className='New_Flashcard_Plus_v' />
                                 </div>
                             </div>
-                        </div>*/}
+                        </div>}
 
                         <div>
                             {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} syncedFolderID={syncedFolderID} />}

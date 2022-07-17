@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Backdrop from './backdrop';
 import Backdropfs from './backdropfs';
 import BackdropOpenFlashcard from './backdropOpenFlashcard';
@@ -191,8 +191,11 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
         setEditorState(newState);
     };
 
+    const elementRef = useRef(10);
+    const flashcardBodyHeight = elementRef.current.clientHeight;
+
     return (
-        <div className='Flashcard_Body'>
+        <div className='Flashcard_Body' style={{height: `calc(${flashcardBodyHeight} + 200px)`}}>
             <div className='Flashcard_Settings_Bar'>
                 <div className='Flashcard_Settings' onClick={settingsHandler}>
                     <span className='dot'/>
@@ -210,7 +213,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                     <div className='Flashcard_Pos_Arrow_Right' />
                 </div>
             </div>
-            <div className='Flashcard_Rechteck' onClick={openFlashcard}>
+            <div className='Flashcard_Rechteck' onClick={openFlashcard} ref={elementRef}>
                 <h3 className='Flashcard_Title'>{flashcard.title}</h3>
                 <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</div>
             </div>
