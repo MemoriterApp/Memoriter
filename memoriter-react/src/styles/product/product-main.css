@@ -52,12 +52,27 @@
 }
 
 @media (max-width: 960px) { /*simplyfied layout for smaller screens*/
+    .product-main-header {
+        font-size: 3rem;
+        hyphens: auto; /*allows linebreaks within words*/
+    }
+
+    .product-main-text {
+        font-size: 1.2rem;
+    }
+
     .product-main-container {
         display: block;
         margin: 120px 20px 20px 20px;
     }
     .product-main-container > * + * { /*children of container*/
         margin-left: unset;
+    }
+}
+
+@media (max-width: 660px) { /*pushes the footer down when the customer stories disappear*/
+    .product-main {
+        margin-bottom: 240px;
     }
 }
 

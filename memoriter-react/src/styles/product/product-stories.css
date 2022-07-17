@@ -10,8 +10,8 @@
     transform: translate(-50%);
     width: calc(100% - 40px);
     max-width: 850px;
-    height: calc(100vw / 2 - 20px);
-    max-height: 425px;
+    height: 425px;
+    margin-top: 80px;
     margin-bottom: 250px;
 }
 
@@ -61,7 +61,7 @@
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-    transition: 400ms;
+    transition: transform 400ms, filter 400ms;
 }
 .product-stories-arrow-left::before { /*upper half of the arrow*/
     content: '';
@@ -70,7 +70,7 @@
     top: 0;
     width: 15px;
     height: 30px;
-    transform: skew(-30deg);
+    transform: skew(-30deg); /*creates a parallelogram shape*/
     background-color: rgba(200, 200, 200, 1);
 }
 .product-stories-arrow-left::after { /*lower half of the arrow*/
@@ -80,10 +80,10 @@
     bottom: 0;
     width: 15px;
     height: 30px;
-    transform: skew(30deg);
+    transform: skew(30deg); /*creates a parallelogram shape*/
     background-color: rgba(200, 200, 200, 1);
 }
-.product-stories-arrow-left:hover {
+.product-stories-arrow-left:hover { /*hover effect*/
     transform: translate(-8px, -50%);
     filter: brightness(0.8);
 }
@@ -98,7 +98,7 @@
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-    transition: 400ms;
+    transition: transform 400ms, filter 400ms;
 }
 .product-stories-arrow-right::before { /*upper half of the arrow*/
     content: '';
@@ -107,7 +107,7 @@
     top: 0;
     width: 15px;
     height: 30px;
-    transform: skew(30deg);
+    transform: skew(30deg); /*creates a parallelogram shape*/
     background-color: rgba(200, 200, 200, 1);
 }
 .product-stories-arrow-right::after { /*lower half of the arrow*/
@@ -117,10 +117,10 @@
     bottom: 0;
     width: 15px;
     height: 30px;
-    transform: skew(-30deg);
+    transform: skew(-30deg); /*creates a parallelogram shape*/
     background-color: rgba(200, 200, 200, 1);
 }
-.product-stories-arrow-right:hover {
+.product-stories-arrow-right:hover { /*hover effect*/
     transform: translate(8px, -50%);
     filter: brightness(0.8);
 }
@@ -141,4 +141,19 @@
     background-color: rgba(55, 55, 55, 1);
     cursor: pointer;
     transition: 400ms;
+}
+
+@media (max-width: 960px) { /*small changes for smaller screens*/
+    .product-stories-textarea-quote {
+        font-size: 1.1rem;
+    }
+    .product-stories-textarea-author {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 660px) { /*hides everything on too small screens*/
+    .product-stories {
+        display: none;
+    }
 }
