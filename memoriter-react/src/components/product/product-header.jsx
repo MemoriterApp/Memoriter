@@ -1,5 +1,5 @@
 import '../../styles/product/product-header.css';
-import memoriterLogo from '../../images/memoriter-logo.svg'
+import memoriterLogo from '../../images/memoriter-logo.svg';
 import languageIcon from '../../images/language-icon.svg';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -80,7 +80,7 @@ const ProductHeader = ({ currentPage }) => {
                 <Link className='product-header-sign-in' to='/login'>
                     <span className='product-header-text-gradient'>Sign in</span>
                 </Link>
-                <Link className='product-header-register' to='/signup'
+                <Link className='product-header-register' to='/register'
                     onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
                     {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css*/}
                     <div className='product-header-register-background' style={{filter: onHover}}/>
@@ -94,7 +94,7 @@ const ProductHeader = ({ currentPage }) => {
             <Link className='product-header-sign-in-alt' to='/login'>
                 <span className='product-header-text-gradient'>Sign in</span>
             </Link>
-            <Link className='product-header-register-alt' to='/signup'
+            <Link className='product-header-register-alt' to='/register'
                 onMouseEnter={() => setOnHoverAlt('brightness(0.75)')} onMouseLeave={() => setOnHoverAlt('brightness(1)')}>
                 <div className='product-header-register-background' style={{filter: onHoverAlt}}/>
                 <span className='product-header-register-text'>Register</span>

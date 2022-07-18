@@ -12,6 +12,7 @@ import { getAuth } from 'firebase/auth';
 import Startpage from './pages/Start';
 import Product from './pages/product';
 import About from './pages/about';
+import Register from './pages/register';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { AuthProvider } from './contexts/AuthContext';
@@ -131,15 +132,11 @@ function App() {
     <div>
       <AuthProvider>
       <Routes>
-        <Route path='/' element={<HomePage />}>
-        </Route>
+        <Route path='/' element={<HomePage/>}/>
 
-        <Route path='/topic' element={<TopicPage />}>
-        </Route>
+        <Route path='/topic' element={<TopicPage/>}/>
 
-        <Route path='/impressum' element={<ImpressumPage />}>
-
-        </Route>
+        <Route path='/impressum' element={<ImpressumPage/>}/>
 
         <Route path='/privacy' element={<PrivacyPage />}>
 
@@ -157,7 +154,9 @@ function App() {
         <Route element={<PrivateRoutes/>}>
           <Route path='/home' element={<HomePage />}></Route>
         </Route>
+
         <Route path='/product' element={<Product/>}/>
+
       </Routes>
       </AuthProvider>
 
@@ -204,6 +203,9 @@ function App() {
 
         </Route>
         <Route path='/product' element={<Product/>}/>
+
+        <Route path='/register' element={<Register/>}/>
+        
       </Routes>
       </AuthProvider>
 

@@ -45,7 +45,7 @@ const ProductFooter = ({ onOpenCookieSettings }) => {
                     <p className='product-footer-header'>Help</p>
                     <Link className='product-footer-link' to='/support'>Support</Link>
                     <Link className='product-footer-link' to='/faq'>FAQ</Link>
-                    <Link className='product-footer-link' to='/report'>Bug Report</Link>
+                    <Link className='product-footer-link' to='/bugs'>Bug Report</Link>
                     <span className='product-footer-link'  onClick={() => onOpenCookieSettings()}>Cookie Settings</span> {/*opens cookie settings banner*/}
                 </nav>
 

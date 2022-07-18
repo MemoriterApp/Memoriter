@@ -51,7 +51,7 @@ const Product = () => {
         <>
         
             {/*head*/}
-            <Head title='The all-in-one learning environment' description='memoriter, learning, notes, home'/>
+            <Head title='The all-in-one learning environment' description=''/>
             {/*title property is for displaying a custom page title, description is for a custom meta description*/}
 
             {/*header*/}

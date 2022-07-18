@@ -1,0 +1,66 @@
+/*styles for most of the sign in and register page*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*larger font*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@700&display=swap'); /*large header font*/
+
+.sign-in-main { /*container with everything*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width:400px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: rgba(55, 55, 55, 0.75);
+}
+
+.sign-in-main-header { /*large heading*/
+    color: rgba(255, 255, 255, 1);
+    font-size: 3rem;
+    font-family: 'Heebo';
+    text-align: center;
+    margin-top: 40px;
+}
+
+.sign-in-main-input { /*input fields*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: calc(100% - 120px);
+    height: 42px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.2rem;
+    font-family: 'Inter';
+    padding: 0 12px 0 12px;
+    margin-bottom: 32px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(32, 32, 32, 1);
+    outline: none;
+}
+
+.sign-in-main-button { /*sign in/register button*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: calc(100% - 96px);
+    height: 42px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+.sign-in-main-button-background {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    transition: 200ms;
+}
+.sign-in-main-button-text {
+    position: relative;
+    top: -34px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.4rem;
+    font-family: 'Rubik';
+}

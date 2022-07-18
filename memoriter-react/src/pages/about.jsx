@@ -8,7 +8,7 @@ const About = () => {
         <>
 
             {/*head*/}
-            <Head title='About' description='memoriter, learning, notes, about'/>
+            <Head title='About' description=''/>
             {/*title property is for displaying a custom page title, description is for a custom meta description*/}
 
             {/*header, same as product*/}
