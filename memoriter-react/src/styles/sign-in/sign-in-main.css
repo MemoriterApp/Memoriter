@@ -10,7 +10,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width:400px;
-    height: 500px;
+    height: 600px;
     border-radius: 10px;
     background-color: rgba(55, 55, 55, 0.75);
 }
@@ -38,6 +38,17 @@
     border-radius: 6px;
     background-color: rgba(32, 32, 32, 1);
     outline: none;
+}
+
+.sign-in-main-forgot-password { /*password reset link*/
+    position: relative;
+    color: rgba(200, 200, 200, 1);
+    font-size: 1.1rem;
+    font-family: 'Inter';
+    margin-top: -10px;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .sign-in-main-button { /*sign in/register button*/
