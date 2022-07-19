@@ -58,9 +58,11 @@
     transition: 200ms;
 }
 .sign-in-main-button-text {
-    position: relative;
-    top: -34px;
+    position: absolute;
+    top: 8px;
+    transform: translate(-50%);
     color: rgba(255, 255, 255, 1);
     font-size: 1.4rem;
     font-family: 'Rubik';
+    white-space: nowrap;
 }
