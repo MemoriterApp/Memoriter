@@ -75,7 +75,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
     function editOpenFlashcardReq() {
         setModalIsOpenE(true);
         setModalIsOpenEbackdropfs(true);
-      }
+    }
     function backdropClickE() {
         setTitle(flashcard.title);
         //setContent(flashcard.content);

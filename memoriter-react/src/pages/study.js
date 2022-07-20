@@ -1,14 +1,10 @@
 import Logo from './Logo.png';
 import Footer from '../components/Footer';
-import Backdropfs from '../components/backdropfs';
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { firebase } from '../utils/firebase'
-import { collection, getDocs, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
-import parse from 'html-react-parser';
-import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
-import { convertFromHTML, convertToHTML } from 'draft-convert';
-import Backdrop from '../components/backdrop';
+import { collection, getDocs, query, where } from 'firebase/firestore/lite';
+import FlashcardStudy from '../components/flashcard-study';
 const { db } = firebase;
 
 const StudyPage = () => {
@@ -17,14 +13,15 @@ const StudyPage = () => {
 
     let syncedFolderID = localStorage.getItem('syncedFolderID');
 
-    const [currentNumber, setCurrentNumber] = useState(1); //state, welche flashcard angezeigt wird
 
     //firestore stuff
     // connection to the flashcards firestore
     const flashcardsCollectionRef = query(collection(db, "flashcards"), where("syncedFolder", "==", syncedFolderID));
 
     //Flashcard Data
-    const [flashcards, setFlashcards] = useState([])
+    const [flashcards, setFlashcards] = useState([]);
+
+    const [currentNumber, setCurrentNumber] = useState(null); //state, welche flashcard angezeigt wird
 
     //Use Effect für Notes
     useEffect(() => {
@@ -35,7 +32,22 @@ const StudyPage = () => {
 
         getFlashcards();
         localStorage.setItem('lastPage', "/study");
-    }, [])
+    }, []);
+
+    const [started, setStarted] = useState(false); //state to set if the session was started or not
+
+    function start() {
+        setCurrentNumber(Math.floor(Math.random() * flashcards.length));
+    }
+
+    function incorrect() { //function if an answer was defined as incorrect (reshuffles the array)
+        setCurrentNumber(Math.floor(Math.random() * flashcards.length));
+    }
+
+    function correct(id) { //function if an answer was defined as correct (reshuffles the array and removes the correct flashcard)
+        setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
+        setCurrentNumber(Math.floor(Math.random() * flashcards.length));
+    }
 
     return (
         <div>
@@ -63,15 +75,18 @@ const StudyPage = () => {
                     </div>
                 </Link>
 
-                <> {/*nur eine flashcard der Liste wird angezeigt*/}
+                {started || <button 
+                    style={{position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
+                    onClick={() => {setStarted(true); start();}}
+                >Start Studying</button>}
+
+                <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                     {flashcards.map((flashcard) => (
-                        flashcard.pos === currentNumber ? (
-                            <div className='study-flashcard-box'>
-                                <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
-                                <article>{parse(flashcard.content)}</article>
-                            </div>
+                        flashcards.indexOf(flashcard) === currentNumber ? (
+                            <FlashcardStudy key={flashcard.id} flashcard={flashcard}
+                                onIncorrect={incorrect} onCorrect={correct}/>
                         ) : (
-                            <div style={{display: 'none'}}/>
+                            <div key={flashcard.id} style={{display: 'none'}}/>
                         )
                     ))}
                 </>
