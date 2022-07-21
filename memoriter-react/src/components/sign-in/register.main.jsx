@@ -4,6 +4,7 @@ import appleIcon from '../../images/apple-icon.svg';
 import facebookIcon from '../../images/facebook-icon.svg';
 import githubIcon from '../../images/github-icon.svg';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const RegisterMain = () => {
 
@@ -41,7 +42,22 @@ const RegisterMain = () => {
                 <input className='sign-in-main-input' type='password' placeholder='Password'/>
 
                 <input className='sign-in-main-input' type='password' placeholder='Confirm Password'/>
-
+                
+                {/*agree to terms and policies checkbox*/}
+                <div>
+                    <p className='sign-in-main-checkbox-label'>
+                        I have read and understood the <Link
+                            className='sign-in-main-text-link' to='/terms' target='_blank'
+                        >terms of use</Link> and <Link
+                            className='sign-in-main-text-link' to='/privacy' target='_blank'
+                        >privacy policy</Link>.
+                    </p>
+                    <label className='sign-in-main-checkbox'>
+                        <input type='checkbox'/>
+                        <div className='sign-in-main-checkbox-style'/>
+                    </label>
+                </div>
+                
                 <div className='sign-in-main-button'
                     onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
                     {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
@@ -50,6 +66,13 @@ const RegisterMain = () => {
                 </div>
 
             </form>
+
+            <p className='sign-in-main-text'>
+                Already have an account? <Link
+                    className='sign-in-main-text-link'
+                    to='/login'
+                >Sign in here</Link>.
+            </p>
 
         </div>
     );
