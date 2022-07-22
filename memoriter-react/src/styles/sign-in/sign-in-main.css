@@ -147,6 +147,23 @@
     z-index: 2;
 }
 
+.sign-in-main-forgot-password { /*password reset link*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: fit-content;
+    color: rgba(200, 200, 200, 1);
+    font-family: 'Inter';
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: color 200ms;
+}
+.sign-in-main-forgot-password:hover { /*hover effect*/
+    color: rgba(255, 255, 255, 1);
+}
+
 .sign-in-main-checkbox { /*checkbox position*/
     position: relative;
     left: 60px;
@@ -155,8 +172,8 @@
     display: none;
 }
 .sign-in-main-checkbox-style { /*actual checkbox styling*/
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border: 1.5px solid rgba(100, 100, 100, 1);
     border-radius: 4px;
     background-color: rgba(32, 32, 32, 1);
@@ -170,7 +187,7 @@
     left: 2.5px;
     top: -4.5px;
     color: rgba(255, 255, 255, 1);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-family: 'Inter';
     opacity: 0; /*hidden on default*/
 }
@@ -193,6 +210,20 @@
     text-align: center;
 }
 .sign-in-main-text-link { /*changed color for links*/
+    color: rgba(255, 255, 255, 1);
+}
+
+.sign-in-main-link { /*standalone links (other color)*/
+    position: relative;
+    color: rgba(200, 200, 200, 1);
+    font-family: 'Inter';
+    text-decoration: none;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: color 200ms;
+}
+.sign-in-main-link:hover { /*hover effect*/
     color: rgba(255, 255, 255, 1);
 }
 

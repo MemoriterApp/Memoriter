@@ -77,7 +77,7 @@ const ProductHeader = ({ currentPage }) => {
                 </button>
             
                 {/*sign in and register buttons*/}
-                <Link className='product-header-sign-in' to='/login'>
+                <Link className='product-header-sign-in' to='/signin'>
                     <span className='product-header-text-gradient'>Sign in</span>
                 </Link>
                 <Link className='product-header-register' to='/register'

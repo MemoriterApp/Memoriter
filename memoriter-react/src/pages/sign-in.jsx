@@ -1,21 +1,21 @@
 import Head from '../components/head';
 import SignInHeader from '../components/sign-in/sign-in-header';
-import RegisterMain from '../components/sign-in/register-main';
+import SignInMain from '../components/sign-in/sign-in-main';
 import WindowSizeAlert from '../components/window-size-alert';
 
-const Register = () => {
+const SignIn = () => {
     return (
         <>
             
             {/*head*/}
-            <Head title='Register' description='Create a new Memoriter account.'/>
+            <Head title='Sign In' description='Sign in with your Memoriter account.'/>
             {/*title property is for displaying a custom page title, description is for a custom meta description*/}
 
             {/*header*/}
             <SignInHeader/>
 
             {/*container with content*/}
-            <RegisterMain/>
+            <SignInMain/>
 
             {/*alert for too small screens*/}
             <WindowSizeAlert/>
@@ -24,4 +24,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default SignIn;
