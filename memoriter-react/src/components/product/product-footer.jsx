@@ -19,8 +19,8 @@ const ProductFooter = ({ onOpenCookieSettings }) => {
                 {/*lists of footer links*/}
                 <nav>
                     <p className='product-footer-header'>App</p>
-                    <Link className='product-footer-link' to='/login'>Sign In</Link>
-                    <Link className='product-footer-link' to='/signup'>Register</Link>
+                    <Link className='product-footer-link' to='/signin'>Sign In</Link>
+                    <Link className='product-footer-link' to='/register'>Register</Link>
                     <Link className='product-footer-link' to='/download'>Download</Link>
                     <Link className='product-footer-link' to='/releases'>Release Notes</Link>
                 </nav>
