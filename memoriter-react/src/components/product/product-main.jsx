@@ -6,6 +6,33 @@ const ProductMain = () => {
     return (
         <div className='product-main'>
 
+            {/*three small overview items*/}
+            <div className='product-main-overview'>
+
+                <div>
+                    <img className='product-main-overview-image' src={placeholderImage} alt='placeholder'/>
+                    <p className='product-main-overview-text'>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+                    </p>
+                </div>
+
+                <div>
+                    <img className='product-main-overview-image' src={placeholderImage} alt='placeholder'/>
+                    <p className='product-main-overview-text'>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+                    </p>
+                </div>
+
+                <div>
+                    <img className='product-main-overview-image' src={placeholderImage} alt='placeholder'/>
+                    <p className='product-main-overview-text'>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+                    </p>
+                </div>
+                
+            </div>
+
+            {/*main parts with texts and images*/}
             <div className='product-main-container'>
                 <div className='product-main-container-sub'>
                     <ScrollAnimation animateIn='product-main-animation-fade-in-right' animateOut='product-main-animation-fade-out-right'>

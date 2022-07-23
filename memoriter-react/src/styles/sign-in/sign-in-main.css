@@ -274,7 +274,7 @@
     }
 }
 
-@media (max-height: 720px) {
+@media (max-height: 720px) { /*scroll for less high screens (e.g. rotated mobile devices) in order to make everything visible*/
     .sign-in-main {
         top: 360px;
     }

@@ -13,6 +13,38 @@
     overflow-x: hidden;
 }
 
+.product-main-overview { /*basic layout of three columns for overview texts at the top*/
+    display: flex; /*creates the clumn layout*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: calc(100% - 80px);
+    max-width: 1200px;
+    gap: 80px; /*gaps between child items*/
+    margin: 140px 0 200px 0;
+}
+.product-main-overview > * { /*children of overview*/
+    flex: 1; /*used for equal columns*/
+}
+.product-main-overview-image { /*images above the small texts*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    height: 120px;
+}
+.product-main-overview-text { /*small overview texts*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 200px;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    line-height: 2rem;
+    text-align: center;
+    margin-top: 40px;
+}
+
 .product-main-container { /*contains all of the main sections, is used for positioning*/
     display: flex;
     margin: 160px 40px 200px 40px;
@@ -52,6 +84,10 @@
 }
 
 @media (max-width: 960px) { /*simplyfied layout for smaller screens*/
+    .product-main-overview {
+        flex-direction: column; /*renders items above each other instead of next to each other*/
+    }
+    
     .product-main-header {
         font-size: 3rem;
         hyphens: auto; /*allows linebreaks within words*/
