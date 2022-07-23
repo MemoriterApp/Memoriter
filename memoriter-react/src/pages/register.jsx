@@ -4,6 +4,15 @@ import RegisterMain from '../components/sign-in/register-main';
 import WindowSizeAlert from '../components/window-size-alert';
 
 const Register = () => {
+
+    const RegisterMainBottomSpace = { //styles for extra space at the bottom on page scroll
+        position: 'absolute',
+        left: '0',
+        top: '660px',
+        width: '100%',
+        height: '20px'
+    }
+
     return (
         <>
             
@@ -16,6 +25,7 @@ const Register = () => {
 
             {/*container with content*/}
             <RegisterMain/>
+            <div style={RegisterMainBottomSpace}/> {/*space at the bottom on page scroll*/}
 
             {/*alert for too small screens*/}
             <WindowSizeAlert/>

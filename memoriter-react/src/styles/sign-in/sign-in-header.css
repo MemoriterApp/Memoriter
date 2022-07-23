@@ -1,7 +1,7 @@
 /*styles used for the (very) simple header for the sign in and register page*/
 
 .sign-in-header { /*the header box at the top of the page*/
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     width: 100%;

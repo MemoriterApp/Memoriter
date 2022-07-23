@@ -13,6 +13,7 @@
     height: 600px;
     border-radius: 10px;
     background-color: rgba(55, 55, 55, 0.75);
+    overflow: hidden;
 }
 
 .sign-in-main-header { /*large heading*/
@@ -254,3 +255,27 @@
     font-family: 'Rubik';
     white-space: nowrap;
 }
+
+@media (max-width: 460px) { /*makes everything smaller on too small screens*/
+    .sign-in-main {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+@media (max-width: 360px) { /*makes everything even more smaller on way too small screens*/
+    .sign-in-main {
+        transform: translate(-50%, -50%) scale(0.6);
+    }
+}
+
+@media (max-width: 240px) { /*hides everything on incompatible screen sizes*/
+    .sign-in-main {
+        display: none;
+    }
+}
+
+@media (max-height: 720px) {
+    .sign-in-main {
+        top: 360px;
+    }
+}   
