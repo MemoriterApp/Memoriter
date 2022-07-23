@@ -79,8 +79,8 @@ const Product = () => {
 
             {/*cookie settings view*/}
             {cookieSettings && <>
-                    <CookieSettings onAnimation={cookieSettingsAnimation} onCloseCookieSettings={closeCookieSettings}/>
-                    <Backdrop onFade={backdropAnimation} onClick={closeCookieSettings}/>
+                <CookieSettings onAnimation={cookieSettingsAnimation} onCloseCookieSettings={closeCookieSettings}/>
+                <Backdrop onFade={backdropAnimation} onClick={closeCookieSettings}/>
             </>}
 
             {/*alert for too small screens*/}
