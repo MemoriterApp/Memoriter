@@ -17,9 +17,9 @@ const Privacy = () => {
             {/*main body with text*/}
             <div className='legal-main'>
 
-                <h1>Privacy Policy</h1>
+                <h1>Memoriter Privacy Policy</h1>
 
-                <p><strong>Last Changed: June 8th, 2022</strong></p>
+                <p><strong>Last Updated: June 8th, 2022</strong></p>
                 <p>
                     We are happy that you decided to use our app Memoriter.
                     The collection of user data is crucial for the app to work, therefore the collection of personal data is unavoidable,
