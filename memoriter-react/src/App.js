@@ -14,6 +14,7 @@ import Product from './pages/product';
 import About from './pages/about';
 import SignIn from './pages/sign-in';
 import Register from './pages/register';
+import Impressum from './pages/impressum';
 import Privacy from './pages/privacy';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -138,7 +139,7 @@ function App() {
 
         <Route path='/topic' element={<TopicPage/>}/>
 
-        <Route path='/impressum' element={<ImpressumPage/>}/>
+        <Route path='/impressum' element={<Impressum/>}/>
 
         <Route path='/privacy' element={<Privacy/>}>
 
@@ -177,7 +178,7 @@ function App() {
         <Route path='/topic' element={<TopicPage />}>
         </Route>
 
-        <Route path='/impressum' element={<ImpressumPage />}>
+        <Route path='/impressum' element={<Impressum/>}>
 
         </Route>
 

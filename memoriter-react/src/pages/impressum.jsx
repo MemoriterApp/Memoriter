@@ -1,17 +1,15 @@
+import '../styles/legal.css';
 import Head from '../components/head';
 import ProductHeader from '../components/product/product-header';
-import ProductBanner from '../components/product/product-banner';
-import ProductMain from '../components/product/product-main';
-import ProductStories from '../components/product/product-stories';
 import ProductFooter from '../components/product/product-footer';
-import CookieBanner from '../components/cookie-banner/cookie-banner';
 import CookieSettings from '../components/cookie-banner/cookie-settings';
 import WindowSizeAlert from '../components/window-size-alert';
 import Backdrop from '../components/backdrop';
 import { useState } from 'react';
 
+import React from 'react';
 
-const Product = () => {
+const Impressum = () => {
 
     const [cookieSettings, setCookieSettings] = useState(false); //opens or closes cookie settings
 
@@ -49,33 +47,39 @@ const Product = () => {
 
     return (
         <>
-        
+
             {/*head*/}
-            <Head title='The all-in-one learning environment' description=''/>
-            {/*title property is for displaying a custom page title, description is for a custom meta description*/}
+            <Head title='Impressum' description='Where to contact us'/>
 
             {/*header*/}
-            <ProductHeader currentPage='product'/> {/*The currentPage property defines the highlighted quicklink ath the navigation bar.*/}
+            <ProductHeader/>
 
-            {/*style is needed for aligning the items correctly*/}
-            <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
+            {/*main body with text*/}
+            <div className='legal-main'>
 
-                {/*banner with slogan and get started button*/}
-                <ProductBanner/>
+                <h1>Impressum</h1>
 
-                {/*basic main layout and texts*/}
-                <ProductMain/>
+                <p>
+                    Memoriter is a student company at the Bertha-von-Bertha-Suttner-Gymnasium Babelsberg in Potsdam, Germany,
+                    under the supervision of JUNIOR, a project by the Institut der Deutchen Wirtschaft (IW),
+                    supported by the Bundesministerium für Wirtschaft und Klimaschutz (BMWK).
+                    Further information about the JUNIOR project can be found <a href='https://www.junior-programme.de/startseite' target='_blank' rel='noreferrer'>here</a>.
+                </p>
 
-                {/*slider with customer stories*/}
-                <ProductStories/>
+                <h2>Contact:</h2>
+                <ul>
+                    <li>Johan Trieloff</li>
+                    <li>Kopernikusstraße 30</li>
+                    <li>14482 Potsdam, Germany</li>
+                    <li>Phone: +49 (0)221 | 4981-707</li>
+                    <li>Email: johan@trieloff.net</li>
+                </ul>
+                
 
             </div>
 
             {/*footer*/}
             <ProductFooter onOpenCookieSettings={openCookieSettings}/>
-
-            {/*cookie banner*/}
-            <CookieBanner onOpenCookieSettings={openCookieSettings}/>
 
             {/*cookie settings modal*/}
             {cookieSettings && <>
@@ -85,9 +89,9 @@ const Product = () => {
 
             {/*alert for too small screens*/}
             <WindowSizeAlert/>
-
+            
         </>
     );
 }
 
-export default Product;
+export default Impressum;
