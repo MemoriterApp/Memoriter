@@ -16,11 +16,11 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 function App() {
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({}); //variable for currently signed in user
 
-    onAuthStateChanged(firebase.auth, (currentUser) => {
-        setUser(currentUser);
-    });
+  onAuthStateChanged(firebase.auth, (currentUser) => { //updates user variable when user changes
+    setUser(currentUser);
+  });
 
   //routing (connections to different sub-pages)
   return (
@@ -37,23 +37,19 @@ function App() {
       <Route path='/privacy' element={<Privacy/>}/>
 
       {user ? (<> {/*part of the routing changes if a user is logged in*/}
+        <Route path='/' element={<HomePage/>}/>
 
-      <Route path='/' element={<HomePage/>}/>
+        <Route path='/topic' element={<TopicPage/>}/>
 
-      <Route path='/topic' element={<TopicPage/>}/>
+        <Route path='/signin' element={<HomePage/>}/>
 
-      <Route path='/signin' element={<HomePage/>}/>
-
-      <Route path='/register' element={<HomePage/>}/>
-
-      </>) : (<>
-          
+        <Route path='/register' element={<HomePage/>}/>
+      </>) : (<> 
         <Route path='/' element={<StartPage/>}/>
 
         <Route path='/signin' element={<SignIn/>}/>
 
         <Route path='/register' element={<Register/>}/>
-
       </>)}
 
     </Routes>
