@@ -18,7 +18,10 @@ const SignInMain = () => {
     const [errorMessage, setErrorMessage] = useState(''); //error message if sign in fails
     const [errorStyleChanges, setErrorStyleChanges] = useState({}); //style adjustments when an error popup displays
 
-    function changeErrorStyles() { //function for changing styles when the error popup displays
+    function displayError(errorMessage) { //function for displaying the error popup when sign in fails
+        setErrorMessage(errorMessage);
+        
+        //style changes for container (needs to be bigger so that the error popup can fit in)
         if (window.innerHeight <= 721) { //optimization for smaller screens (no conflict with media query)
             setErrorStyleChanges({
                 height: '650px',
@@ -37,32 +40,21 @@ const SignInMain = () => {
 
         signInWithEmailAndPassword(firebase.auth, email, password) //firebase pre-built sign in function
             .catch(error => { //displays error if sign in fails
-
                 switch (error.code) { //reads error code
-                    
                     case 'auth/wrong-password': //wrong password
-                        setErrorMessage('Wrong password!');
-                        changeErrorStyles();
+                        displayError('Wrong Password!');
                         break;
-
                     case 'auth/user-not-found': //wrong email
-                        setErrorMessage('User not found!');
-                        changeErrorStyles();
+                        displayError('User not found!');
                         break;
-
                     case 'auth/invalid-email': //wrong email
-                        setErrorMessage('Invalid email!');
-                        changeErrorStyles();
+                        displayError('Invalid email!');
                         break;
-
                     case 'auth/too-many-requests': //too many sign in requests
-                        setErrorMessage('Too many requests!');
-                        changeErrorStyles();
+                        displayError('Too many requests!');
                         break;
-
                     default: //all other errors
-                        setErrorMessage(`Error: ${error.code}`);
-                        changeErrorStyles();
+                        displayError(`Error: ${error.code}`);
                         break;
                 };
             });
