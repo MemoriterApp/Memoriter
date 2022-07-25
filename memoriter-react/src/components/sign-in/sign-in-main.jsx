@@ -9,7 +9,7 @@ import { firebase } from '../../utils/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { signInWithGoogle, signInWithApple, signInWithFacebook, signInWithGithub } from '../../utils/third-party-authentication';
 
-const SignInMain = () => {
+const SignInMain = ({ onOpenPasswordReset }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the create account button
 
@@ -104,7 +104,7 @@ const SignInMain = () => {
                 <input className='sign-in-main-input' type='password' placeholder='Password' value={password}
                     onChange={(e) => setPassword(e.target.value)}/>
 
-                <p className='sign-in-main-forgot-password'>Forgot Password?</p>{/*password reset link*/}
+                <p className='sign-in-main-forgot-password' onClick={() => onOpenPasswordReset()}>Forgot Password?</p>{/*password reset link*/}
                 
                 {/*sign in button*/}
                 <label>
