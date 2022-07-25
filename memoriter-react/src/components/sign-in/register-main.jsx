@@ -5,6 +5,7 @@ import facebookIcon from '../../images/facebook-icon.svg';
 import githubIcon from '../../images/github-icon.svg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { signInWithGoogle } from '../../utils/third-party-authentication';
 
 const RegisterMain = () => {
 
@@ -19,7 +20,7 @@ const RegisterMain = () => {
 
             {/*buttons for third party authenticationmethods*/}
             <div className='sign-in-main-third-party'>
-                <button className='sign-in-main-google'>
+                <button className='sign-in-main-google' onClick={signInWithGoogle /*imported function*/}>
                     <img src={googleIcon} alt='google-icon' className='sign-in-main-google-icon'/>
                 </button>
 

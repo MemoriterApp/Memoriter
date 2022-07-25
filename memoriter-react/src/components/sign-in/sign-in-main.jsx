@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { firebase } from '../../utils/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithGoogle } from '../../utils/third-party-authentication';
 
 const SignInMain = () => {
 
@@ -73,9 +74,9 @@ const SignInMain = () => {
                 >&#215;</span> {/*close popup button*/}
             </div>}
 
-            {/*buttons for third party authenticationmethods*/}
+            {/*buttons for third party authentication methods*/}
             <div className='sign-in-main-third-party'>
-                <button className='sign-in-main-google'>
+                <button className='sign-in-main-google' onClick={signInWithGoogle /*imported function*/}>
                     <img src={googleIcon} alt='google-icon' className='sign-in-main-google-icon'/>
                 </button>
 
