@@ -20,10 +20,12 @@ const SignInMain = () => {
     const [errorStyleChanges, setErrorStyleChanges] = useState({}); //style adjustments when an error popup displays
 
     function displayError(errorMessage) { //function for displaying the error popup when sign in fails
-        setErrorMessage(errorMessage);
+        setErrorMessage(errorMessage); //configures message
+
+        setPassword(''); //clears password input field
         
         //style changes for container (needs to be bigger so that the error popup can fit in)
-        if (window.innerHeight <= 721) { //optimization for smaller screens (no conflict with media query)
+        if (window.innerHeight <= 721) { //optimization for smaller screens (no conflict with css media query)
             setErrorStyleChanges({
                 height: '650px',
                 top: '385px'
@@ -36,7 +38,7 @@ const SignInMain = () => {
         };
     };
 
-    async function emailSignIn(e) { //function to sign in
+    async function defaultSignIn(e) { //function to sign in with email and password
         e.preventDefault(); //removes the default html submit
 
         signInWithEmailAndPassword(firebase.auth, email, password) //firebase pre-built sign in function
@@ -48,7 +50,7 @@ const SignInMain = () => {
                     case 'auth/user-not-found': //wrong email
                         displayError('User not found!');
                         break;
-                    case 'auth/invalid-email': //wrong email
+                    case 'auth/invalid-email': //invalid email
                         displayError('Invalid email!');
                         break;
                     case 'auth/too-many-requests': //too many sign in requests
@@ -66,7 +68,7 @@ const SignInMain = () => {
             
             <h1 className='sign-in-main-header'>Sign In</h1>
 
-            {/*popup dor sign in errors*/}
+            {/*popup for sign in errors*/}
             {errorMessage && <div className='sign-in-main-error'>
                 <span>{errorMessage}</span> {/*error message*/}
                 <span className='sign-in-main-error-close'
@@ -94,7 +96,7 @@ const SignInMain = () => {
             </div>
 
             {/*sign up with email form*/}
-            <form onSubmit={emailSignIn}>
+            <form onSubmit={defaultSignIn}>
 
                 <input className='sign-in-main-input' type='email' placeholder='Email Adress' value={email}
                     onChange={(e) => setEmail(e.target.value)}/>
