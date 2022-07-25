@@ -10,7 +10,7 @@ const Register = () => {
         left: '0',
         top: '660px',
         width: '100%',
-        height: '20px'
+        height: '40px'
     };
 
     return (

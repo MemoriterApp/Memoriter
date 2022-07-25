@@ -8,10 +8,12 @@ import { Link } from 'react-router-dom';
 
 const RegisterMain = () => {
 
+    const [height, setHeight] = useState('600px');
+
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the create account button
 
     return (
-        <div className='sign-in-main'>
+        <div className='sign-in-main' style={{height: height}}>
             
             <h1 className='sign-in-main-header'>Register</h1>
 
@@ -59,12 +61,15 @@ const RegisterMain = () => {
                 </div>
                 
                 {/*create account button*/}
-                <div className='sign-in-main-button'
-                    onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
-                    {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
-                    <div className='sign-in-main-button-background' style={{filter: onHover}}/>
-                    <span className='sign-in-main-button-text'>Create Account</span>
-                </div>
+                <label>
+                    <input type='submit' style={{display: 'none'}}/> {/*style hides the default submit button*/}
+                    <div className='sign-in-main-button'
+                        onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
+                        {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
+                        <div className='sign-in-main-button-background' style={{filter: onHover}}/>
+                        <span className='sign-in-main-button-text'>Create Account</span>
+                    </div>
+                </label>
 
             </form>
 

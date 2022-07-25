@@ -5,15 +5,81 @@ import facebookIcon from '../../images/facebook-icon.svg';
 import githubIcon from '../../images/github-icon.svg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { firebase } from '../../utils/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const SignInMain = () => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the create account button
 
+    const [email, setEmail] = useState(''); //email input value
+    const [password, setPassword] = useState(''); //password input value
+
+    const [errorMessage, setErrorMessage] = useState(''); //error message if sign in fails
+    const [errorStyleChanges, setErrorStyleChanges] = useState({}); //style adjustments when an error popup displays
+
+    function changeErrorStyles() { //function for changing styles when the error popup displays
+        if (window.innerHeight <= 721) { //optimization for smaller screens (no conflict with media query)
+            setErrorStyleChanges({
+                height: '650px',
+                top: '385px'
+            });
+        } else { //larger screens
+            setErrorStyleChanges({ 
+                height: '650px',
+                top: 'calc(50% + 25px)'
+            });
+        };
+    };
+
+    async function emailSignIn(e) { //function to sign in
+        e.preventDefault(); //removes the default html submit
+
+        signInWithEmailAndPassword(firebase.auth, email, password) //firebase pre-built sign in function
+            .catch(error => { //displays error if sign in fails
+
+                switch (error.code) { //reads error code
+                    
+                    case 'auth/wrong-password': //wrong password
+                        setErrorMessage('Wrong password!');
+                        changeErrorStyles();
+                        break;
+
+                    case 'auth/user-not-found': //wrong email
+                        setErrorMessage('User not found!');
+                        changeErrorStyles();
+                        break;
+
+                    case 'auth/invalid-email': //wrong email
+                        setErrorMessage('Invalid email!');
+                        changeErrorStyles();
+                        break;
+
+                    case 'auth/too-many-requests': //too many sign in requests
+                        setErrorMessage('Too many requests!');
+                        changeErrorStyles();
+                        break;
+
+                    default: //all other errors
+                        setErrorMessage(`Error: ${error.code}`);
+                        changeErrorStyles();
+                        break;
+                };
+            });
+    };
+
     return (
-        <div className='sign-in-main'>
+        <div className='sign-in-main' style={errorStyleChanges}>
             
             <h1 className='sign-in-main-header'>Sign In</h1>
+
+            {/*popup dor sign in errors*/}
+            {errorMessage && <div className='sign-in-main-error'>
+                <span>{errorMessage}</span> {/*error message*/}
+                <span className='sign-in-main-error-close'
+                    onClick={() => {setErrorMessage(''); setErrorStyleChanges({});}}
+                >&#215;</span> {/*close popup button*/}
+            </div>}
 
             {/*buttons for third party authenticationmethods*/}
             <div className='sign-in-main-third-party'>
@@ -35,22 +101,27 @@ const SignInMain = () => {
             </div>
 
             {/*sign up with email form*/}
-            <form>
+            <form onSubmit={emailSignIn}>
 
-                <input className='sign-in-main-input' type='email' placeholder='Email Adress'/>
+                <input className='sign-in-main-input' type='email' placeholder='Email Adress' value={email}
+                    onChange={(e) => setEmail(e.target.value)}/>
 
-                <input className='sign-in-main-input' type='password' placeholder='Password'/>
+                <input className='sign-in-main-input' type='password' placeholder='Password' value={password}
+                    onChange={(e) => setPassword(e.target.value)}/>
 
                 <p className='sign-in-main-forgot-password'>Forgot Password?</p>{/*password reset link*/}
                 
                 {/*sign in button*/}
-                <div className='sign-in-main-button'
-                    onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
-                    {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
-                    <div className='sign-in-main-button-background' style={{filter: onHover}}/>
-                    <span className='sign-in-main-button-text'>Sign In</span>
-                </div>
-
+                <label>
+                    <input type='submit' style={{display: 'none'}}/> {/*style hides the default submit button*/}
+                    <div className='sign-in-main-button'
+                        onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
+                        {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
+                        <div className='sign-in-main-button-background' style={{filter: onHover}}/>
+                        <span className='sign-in-main-button-text'>Sign In</span>
+                    </div>
+                </label>
+                
             </form>
 
             {/*link to privacy policiy and terms of use page*/}
