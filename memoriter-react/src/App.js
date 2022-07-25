@@ -1,26 +1,26 @@
-import { firebase } from './utils/firebase';
-import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import ImpressumPage from './pages/impressum';
-import PrivacyPage from './pages/privacy_policies';
-import HomePage from './pages/home';
-import TopicPage from './pages/topic';
-import LoginPage from './pages/login';
-import SignUpPage from './pages/signup';
-import { getAuth } from 'firebase/auth';
-import Startpage from './pages/Start';
 import Product from './pages/product';
 import About from './pages/about';
 import SignIn from './pages/sign-in';
 import Register from './pages/register';
 import Impressum from './pages/impressum';
+import Terms from './pages/terms';
 import Privacy from './pages/privacy';
+
+import HomePage from './pages/home';
+import TopicPage from './pages/topic';
+import LoginPage from './pages/login';
+import SignUpPage from './pages/signup';
+import Startpage from './pages/Start';
 import 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { AuthProvider } from './contexts/AuthContext';
 import { onAuthStateChanged } from "firebase/auth";
 import PrivateRoutes from './components/PrivateRoutes';
+import { firebase } from './utils/firebase';
+import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { getAuth } from 'firebase/auth';
 
 function App() {
 
@@ -130,37 +130,36 @@ function App() {
     );
   }
   */
+
  if (user) {
   return (
     <div>
       <AuthProvider>
-      <Routes>
-        <Route path='/' element={<HomePage/>}/>
+        <Routes>
 
-        <Route path='/topic' element={<TopicPage/>}/>
+          <Route element={<PrivateRoutes/>}>
+            <Route path='/home' element={<HomePage />}></Route>
+          </Route>
 
-        <Route path='/impressum' element={<Impressum/>}/>
+          <Route path='/' element={<HomePage/>}/>
 
-        <Route path='/privacy' element={<Privacy/>}>
+          <Route path='/topic' element={<TopicPage/>}/>
 
-        </Route>
+          <Route path='/impressum' element={<Impressum/>}/>
 
-        <Route path='/topic' element={<TopicPage />}>
+          <Route path='/terms' element={<Terms/>}/>
 
-        </Route>
+          <Route path='/privacy' element={<Privacy/>}/>
 
-        <Route path='/login' element={<HomePage />}>
-        </Route>
-        <Route path='/signup' element={<HomePage />}>
+          <Route path='/topic' element={<TopicPage/>}/>
 
-        </Route>
-        <Route element={<PrivateRoutes/>}>
-          <Route path='/home' element={<HomePage />}></Route>
-        </Route>
+          <Route path='/login' element={<HomePage/>}/>
 
-        <Route path='/product' element={<Product/>}/>
+          <Route path='/signup' element={<HomePage/>}/>
 
-      </Routes>
+          <Route path='/product' element={<Product/>}/>
+
+        </Routes>
       </AuthProvider>
 
     </div>
@@ -170,50 +169,41 @@ function App() {
   return (
     <div>
       <AuthProvider>
-      <Routes>
-      <Route element={<PrivateRoutes/>}>
-        <Route path='/home' element={<HomePage />}></Route>
-      </Route>
+        <Routes>
 
-        <Route path='/topic' element={<TopicPage />}>
-        </Route>
+          <Route element={<PrivateRoutes/>}>
+            <Route path='/home' element={<HomePage />}/>
+          </Route>
 
-        <Route path='/impressum' element={<Impressum/>}>
+          <Route path='/topic' element={<TopicPage />}/>
 
-        </Route>
+          <Route path='/impressum' element={<Impressum/>}/>
 
-        <Route path='/' element={<Startpage />}>
+          <Route path='/' element={<Startpage/>}/>
 
-        </Route>
+          <Route path='/about' element={<About/>}/>
 
-        <Route path='/about' element={<About/>}/>
+          <Route path='/terms' element={<Terms/>}/>
 
-        <Route path='/privacy' element={<Privacy/>}>
+          <Route path='/privacy' element={<Privacy/>}/>
 
-        </Route>
+          <Route path='/topic' element={<TopicPage/>}/>
 
-        <Route path='/topic' element={<TopicPage />}>
+          <Route path='/login' element={<LoginPage/>}/>
 
-        </Route>
+          <Route path='/Signup' element={<SignUpPage/>}/>
 
-        <Route path='/login' element={<LoginPage />}>
+          <Route path='/home' element={<HomePage />}/>
 
-        </Route>
-        <Route path='/Signup' element={<SignUpPage />}>
+          <Route path='/product' element={<Product/>}/>
 
-        </Route>
-        <Route path='/home' element={<HomePage />}>
+          <Route path='/signin' element={<SignIn/>}/>
 
-        </Route>
-        <Route path='/product' element={<Product/>}/>
+          <Route path='/register' element={<Register/>}/>
+          
+        </Routes>
 
-        <Route path='/signin' element={<SignIn/>}/>
-
-        <Route path='/register' element={<Register/>}/>
-        
-      </Routes>
       </AuthProvider>
-
     </div>
   );
  }

@@ -7,9 +7,7 @@ import WindowSizeAlert from '../components/window-size-alert';
 import Backdrop from '../components/backdrop';
 import { useState } from 'react';
 
-import React from 'react';
-
-const Impressum = () => {
+const Terms = () => {
 
     const [cookieSettings, setCookieSettings] = useState(false); //opens or closes cookie settings
 
@@ -49,7 +47,7 @@ const Impressum = () => {
         <>
 
             {/*head*/}
-            <Head title='Impressum' description='Where to contact us'/>
+            <Head title='Privacy Policy' description='This page contains information regarding how Memoriter uses and processes personal data.'/>
 
             {/*header*/}
             <ProductHeader/>
@@ -57,24 +55,11 @@ const Impressum = () => {
             {/*main body with text*/}
             <div className='legal-main'>
 
-                <h1>Impressum</h1>
+                <h1>Memoriter Terms of Use</h1>
 
-                <p>
-                    Memoriter is a student company at the Bertha-von-Bertha-Suttner-Gymnasium Babelsberg in Potsdam, Germany,
-                    under the supervision of JUNIOR, a project by the Institut der Deutchen Wirtschaft (IW),
-                    supported by the Bundesministerium für Wirtschaft und Klimaschutz (BMWK).
-                    Further information about the JUNIOR project can be found <a href='https://www.junior-programme.de/startseite' target='_blank' rel='noreferrer'>here</a>.
-                </p>
+                <p><strong>Last Updated: July 15th, 2022</strong></p>
 
-                <h2>Contact:</h2>
-                <ul>
-                    <li>Johan Trieloff</li>
-                    <li>Kopernikusstraße 30</li>
-                    <li>14482 Potsdam, Germany</li>
-                    <li>Phone: +49 (0)221 | 4981-707</li>
-                    <li>Email: johan@trieloff.net</li>
-                </ul>
-                
+                <p>Work in Progress.</p>
 
             </div>
 
@@ -94,4 +79,4 @@ const Impressum = () => {
     );
 }
 
-export default Impressum;
+export default Terms;
