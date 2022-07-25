@@ -1,7 +1,7 @@
 import Head from '../components/head';
 import SignInHeader from '../components/sign-in/sign-in-header';
 import SignInMain from '../components/sign-in/sign-in-main';
-import SignInMainPasswordReset from '../components/sign-in/sign-in-password-reset';
+import SignInPasswordReset from '../components/sign-in/sign-in-password-reset';
 import Backdrop from '../components/backdrop';
 import WindowSizeAlert from '../components/window-size-alert';
 import { useState } from 'react';
@@ -65,7 +65,7 @@ const SignIn = () => {
             <div style={SignInMainBottomSpace}/> {/*space at the bottom on page scroll*/}
 
             {passwordReset && <>
-                <SignInMainPasswordReset onAnimation={passwordResetAnimation} onClosePasswordReset={closePasswordReset}/>
+                <SignInPasswordReset onAnimation={passwordResetAnimation} onClosePasswordReset={closePasswordReset}/>
                 <Backdrop onFade={backdropAnimation} onClick={closePasswordReset}/>
             </>}
 

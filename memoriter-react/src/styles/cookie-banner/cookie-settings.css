@@ -14,7 +14,7 @@
     max-height: calc(100% - 40px);
     background-color: rgba(32, 32, 32, 1);
     border-radius: 12px;
-    transition: 400ms; /*fade in/out animation transition*/
+    transition: transform 400ms, opacity 400ms; /*fade in/out animation transition*/
     z-index: 4;
 }
 
@@ -35,7 +35,6 @@
 }
 .cookie-settings-title-text {
     font-size: 2rem;
-    color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
     text-align: center;
     padding-top: 20px;
