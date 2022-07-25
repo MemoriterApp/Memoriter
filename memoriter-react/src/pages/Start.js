@@ -3,7 +3,7 @@ import FooterStart from '../components/FooterStart';
 import { Link } from "react-router-dom";
 import { useEffect } from 'react';
 
-function Start() {
+function StartPage() {
 
     useEffect(() => {
         localStorage.setItem('lastPage', "/");
@@ -20,10 +20,10 @@ function Start() {
             <header className='Page_Header-Start'>
                 <img className="Logo-Start" src={Logo} alt="site-logo" />
                 <div>
-                    <Link to='/signup'>
+                    <Link to='/register'>
                         <button type="submit" className="SignupButton-Start">Sign Up</button>
                     </Link>
-                    <Link to='/login'>
+                    <Link to='/signin'>
                         <button type="submit" className="LoginButton-Start">Login</button>
                     </Link>
                 </div>
@@ -120,4 +120,4 @@ function Start() {
         </div>
     );
 }
-export default Start;
+export default StartPage;
