@@ -5,7 +5,7 @@ import facebookIcon from '../../images/facebook-icon.svg';
 import githubIcon from '../../images/github-icon.svg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { signInWithGoogle } from '../../utils/third-party-authentication';
+import { signInWithGoogle, signInWithApple, signInWithFacebook, signInWithGithub } from '../../utils/third-party-authentication';
 
 const RegisterMain = () => {
 
@@ -24,15 +24,15 @@ const RegisterMain = () => {
                     <img src={googleIcon} alt='google-icon' className='sign-in-main-google-icon'/>
                 </button>
 
-                <button className='sign-in-main-apple'>
+                <button className='sign-in-main-apple' onClick={signInWithApple /*imported function*/}>
                     <img src={appleIcon} alt='apple-icon' className='sign-in-main-apple-icon'/>
                 </button>
 
-                <button className='sign-in-main-facebook'>
+                <button className='sign-in-main-facebook' onClick={signInWithFacebook /*imported function*/}>
                     <img src={facebookIcon} alt='facebook-icon' className='sign-in-main-facebook-icon'/>
                 </button>
 
-                <button className='sign-in-main-github'>
+                <button className='sign-in-main-github' onClick={signInWithGithub /*imported function*/}>
                     <img src={githubIcon} alt='github-icon' className='sign-in-main-github-icon'/>
                 </button>
             </div>
