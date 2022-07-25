@@ -10,7 +10,7 @@ export function signInWithGoogle() { //google sign in function
 };
 
 export function signInWithApple() { //apple sign in function
-    const provider = OAuthProvider('google.com'); //connection to apple sign in
+    const provider = OAuthProvider('apple.com'); //connection to apple sign in
 
     signInWithPopup(firebase.auth, provider); //firebase pre-built sign in function
 }
