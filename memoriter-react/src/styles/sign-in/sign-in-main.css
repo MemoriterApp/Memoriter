@@ -287,7 +287,7 @@
     }
 }
 
-@media (max-width: 360px) { /*makes everything even more smaller on way too small screens*/
+@media (max-width: 320px) { /*makes everything even more smaller on way too small screens*/
     .sign-in-main {
         transform: translate(-50%, -50%) scale(0.6);
     }

@@ -12,24 +12,11 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
     const [email, setEmail] = useState(''); //email input value
 
     const [errorMessage, setErrorMessage] = useState(''); //error message if sign up fails
-    const [errorStyleChanges, setErrorStyleChanges] = useState({}); //style adjustments when an error popup displays
-
-    const styleChanges = {
-        top: errorStyleChanges.top,
-        transform: animationStyles.transform,
-        height: errorStyleChanges.height,
-        opacity: animationStyles.opacity
-    }
 
     function displayError(errorMessage) { //function for displaying the error popup when sign up fails
         setErrorMessage(errorMessage); //configures message
 
         setEmail(''); //clears email input field
-         
-        setErrorStyleChanges({ //style changes for container (needs to be bigger so that the error popup can fit in)
-            height: '474px',
-            top: 'calc(50% + 37px)'
-        });
     };
 
     function passwordReset(e) { //function for sending password reset email
@@ -58,7 +45,7 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
     }
 
     return (
-        <div className='sign-in-password-reset' style={styleChanges}>
+        <div className='sign-in-password-reset' style={animationStyles}>
 
             <div className='sign-in-password-reset-close' onClick={() => onClosePasswordReset()}/>
             <p className='sign-in-password-reset-title'>Reset Password</p>
@@ -67,7 +54,7 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
             {errorMessage && <div className='sign-in-password-reset-error'>
                 <span>{errorMessage}</span> {/*error message*/}
                 <span className='sign-in-password-reset-error-close'
-                    onClick={() => {setErrorMessage(''); setErrorStyleChanges({});}}
+                    onClick={() => setErrorMessage('')}
                 >&#215;</span> {/*close popup button*/}
             </div>}
 
@@ -76,7 +63,7 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
             <form onSubmit={passwordReset}>
 
                 {/*email input*/}
-                <p className='sign-in-password-reset-enter-email'>Please enter your email:</p>
+                <p className='sign-in-password-reset-enter-email'>Please enter your email adress:</p>
                 <input className='sign-in-password-reset-input' type='email' placeholder='Account Email' value={email}
                     onChange={(e) => setEmail(e.target.value)}/>
                 <p className='sign-in-password-reset-text'>We will send a password reset link to the given email adress.</p>
