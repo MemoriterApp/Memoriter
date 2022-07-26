@@ -1,0 +1,103 @@
+/*a few styles for the page not found page*/
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large font*/
+@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap'); /*question mark font*/
+
+.page-not-found { /*container with everything*/
+    display: flex; /*for layout (queston mark needs to be at the side)*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: calc(100% - 40px);
+    gap: 40px; /*gap between question mark and text*/
+}
+
+.page-not-found-question-mark { /*large question mark at the left side*/
+    font-size: 20rem;
+    font-family: 'Quantico';
+    margin-left: -20px;
+    margin-bottom: -80px;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-not-found-logo { /*memoriter logo*/
+    width: 180px;
+}
+
+.page-not-found-heading { /*page not found heading*/
+    font-size: 3.2rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Heebo';
+}
+
+.page-not-found-text { /*basic (large) text*/
+    margin-top: -20px;
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+}
+
+.page-not-found-button { /*return button, needed to be split in multiple classes, this class is for the positionig of the button*/
+    position: absolute;
+    width: 212px;
+    height: 42px;
+    text-align: center;
+    cursor: pointer;
+}
+.page-not-found-button-text { /*text which is not supposed to change color*/
+    position: absolute;
+    top: 8px;
+    transform: translate(-50%);
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.4rem;
+    font-family: 'Rubik';
+    white-space: nowrap;
+}
+.page-not-found-button-background { /*the hover background was done in React because it did not work in CSS*/
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    transition: filter 200ms;
+}
+
+@media (max-width: 600px) { /*mobile version of the page*/
+    .page-not-found {
+        display: unset;
+        top: 20px;
+        transform: translate(-50%);
+        width: 400px;
+        text-align: center;
+    }
+
+    .page-not-found-question-mark {
+        font-size: 14rem;
+        margin-left: unset;
+        margin-bottom: -20px;
+    }
+
+    .page-not-found-button {
+        left: 50%;
+        transform: translate(-50%);
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 240px) { /*hides the content on too small screens (when the warning modal is open*/
+    .page-not-found {
+        display: none;
+    }
+}
+
+@media (max-height: 430px) { /*new position on less high screens (otherwise some parts would be off screen)*/
+    .page-not-found {
+        top: 20px;
+        transform: translate(-50%);
+    }
+}

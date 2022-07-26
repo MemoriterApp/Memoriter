@@ -5,6 +5,8 @@ import Register from './pages/register';
 import Impressum from './pages/impressum';
 import Terms from './pages/terms';
 import Privacy from './pages/privacy';
+import Cookies from './pages/cookies';
+import PageNotFound from './pages/page-not-found';
 
 import StartPage from './pages/Start';
 import HomePage from './pages/home';
@@ -36,6 +38,8 @@ function App() {
 
       <Route path='/privacy' element={<Privacy/>}/>
 
+      <Route path='/cookies' element={<Cookies/>}/>
+
       {user ? (<> {/*part of the routing changes if a user is logged in*/}
         <Route path='/' element={<HomePage/>}/>
 
@@ -51,6 +55,8 @@ function App() {
 
         <Route path='/register' element={<Register/>}/>
       </>)}
+
+      <Route path='*' element={<PageNotFound/>}/> {/*loads page not found page for all unset routes*/}
 
     </Routes>
   );

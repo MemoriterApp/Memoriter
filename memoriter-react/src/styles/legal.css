@@ -12,6 +12,7 @@
     top: 120px;
     transform: translate(-50%);
     width: calc(100% - 320px);
+    min-height: 100vh;
     padding: 40px 60px 80px 60px;
     margin-bottom: 320px;
 }

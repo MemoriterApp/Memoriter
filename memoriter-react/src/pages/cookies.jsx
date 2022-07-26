@@ -7,7 +7,7 @@ import WindowSizeAlert from '../components/window-size-alert';
 import Backdrop from '../components/backdrop';
 import { useState } from 'react';
 
-const Terms = () => {
+const Cookies = () => {
 
     const [cookieSettings, setCookieSettings] = useState(false); //opens or closes cookie settings
 
@@ -47,7 +47,7 @@ const Terms = () => {
         <>
 
             {/*head*/}
-            <Head title='Terms of Use' description='This page contains information about the legal agreement between Memoriter and customers.'/>
+            <Head title='Cookie Policy' description='This page contains further information how Memoriter uses cookies.'/>
 
             {/*header*/}
             <ProductHeader/>
@@ -55,9 +55,9 @@ const Terms = () => {
             {/*main body with text*/}
             <div className='legal-main'>
 
-                <h1>Memoriter Terms of Use</h1>
+                <h1>Memoriter Cookie Policy</h1>
 
-                <p><strong>Last Updated: July 25th, 2022</strong></p>
+                <p><strong>Last Updated: July 26th, 2022</strong></p>
 
                 <p>Work in Progress.</p>
 
@@ -79,4 +79,4 @@ const Terms = () => {
     );
 }
 
-export default Terms;
+export default Cookies;

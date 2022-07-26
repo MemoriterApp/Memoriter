@@ -269,7 +269,7 @@
     height: 100%;
     border-radius: 6px;
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
-    transition: 200ms;
+    transition: filter 200ms;
 }
 .sign-in-main-button-text { /*text which is not supposed to change color on hover*/
     position: absolute;
