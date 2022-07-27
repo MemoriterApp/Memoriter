@@ -1,12 +1,10 @@
-/*In this file all classes for the terms of use, privacy policy and all other legal condition pages are defined*/
+/*here are the styles used for the current version in the release notes, older versions are using a seperate stylesheet*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*sub heading font*/
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*header font*/
 
-.legal-main { /*main container*/
-    display: flex; /*needed to push the footer down*/
-    flex-direction: column; /*needed to push the footer down*/
+.current-release { /*main container*/
     position: relative;
     left: 50%;
     top: 120px;
@@ -15,25 +13,33 @@
     max-width: 2400px;
     min-height: 100vh;
     padding: 40px 60px 80px 60px;
-    margin-bottom: 320px;
 }
-.legal-main h1 { /*the big page heading (<h1/>) of legal-main*/
+.current-release h1 { /*the big page heading (<h1/>) of current-release*/
     font-size: 2.8rem;
     font-family: 'Heebo';
+    margin-bottom: 40px;
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.legal-main h2 { /*all html sub headings (<h2/>) of legal-main*/
-    font-size: 1.6rem;
+.current-release h2 { /*all html sub headings (<h2/>) of current-release*/
+    font-size: 2rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     font-family: 'Rubik';
-    margin-top: 60px;
+    margin-top: 20px;
+    margin-bottom: 32px;
+}
+.current-release h3 { /*all html sub headings (<h2/>) of current-release*/
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    margin-top: 40px;
     margin-bottom: 12px;
 }
-.legal-main p { /*all html text paragraps (<p/>) of legal-main*/
+.current-release p { /*all html text paragraps (<p/>) of current-release*/
     font-size: 1.1rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
@@ -42,7 +48,7 @@
     text-align: justify;
     margin-bottom: 0;
 }
-.legal-main ul { /*all html unordered lists (<ul/>) of legal-main*/
+.current-release ul { /*all html unordered lists (<ul/>) of current-release*/
     font-size: 1.1rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
@@ -50,24 +56,17 @@
     line-height: 1.8rem;
     text-align: justify;
     margin-bottom: 0;
-}
-.legal-main a { /*all html links (<a/>) of legal-main*/
-    color: rgba(255, 255, 255, 1);
-    transition: color 200ms;
-}
-.legal-main a:hover{ /*hover effect for all html links (<a/>) of legal-main*/
-    color: rgba(200, 200, 200, 1);
 }
 
 @media (max-width: 960px) { /*removes space at the sides on small screens*/
-    .legal-main {
+    .current-release {
         width: calc(100% - 40px);
         padding: 40px 0 80px 0;
     }
 }
 
 @media (max-width: 240px) { /*hides the content on too small screens (when the warning modal is open)*/
-    .legal-main {
+    .current-release {
         display: none;
     }
 }

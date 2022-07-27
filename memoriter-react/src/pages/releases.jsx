@@ -44,21 +44,7 @@ const Releases = () => {
     };
 
     const releases = [ //variable with all components with the notes of all older/outdated updates
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>,
-        <CurrentRelease/>
+
     ];
 
     const [loadedReleases, setLoadedReleases] = useState(5); //number of releases shown before clicking on the load more button
@@ -73,8 +59,8 @@ const Releases = () => {
             <ProductHeader/>
 
             {/*style is needed for aligning the items correctly*/}
-            <div style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 80px)', marginBottom: '80px'}}>
-                
+            <div style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh)', marginBottom: '250px'}}>
+
                 {/*current version with other style*/}
                 <CurrentRelease/>
 

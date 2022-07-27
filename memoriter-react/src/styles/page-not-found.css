@@ -89,7 +89,7 @@
     }
 }
 
-@media (max-width: 240px) { /*hides the content on too small screens (when the warning modal is open*/
+@media (max-width: 240px) { /*hides the content on too small screens (when the warning modal is open)*/
     .page-not-found {
         display: none;
     }
