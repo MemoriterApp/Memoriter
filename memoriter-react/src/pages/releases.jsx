@@ -48,7 +48,7 @@ const Releases = () => {
     };
 
     const releases = [ //variable with all components with the notes of all older/outdated updates
-        <ReleaseV101/>
+        <ReleaseV101 key={1.01}/>
     ];
 
     const [loadedReleases, setLoadedReleases] = useState(5); //number of releases shown before clicking on the load more button

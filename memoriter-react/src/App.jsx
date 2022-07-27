@@ -18,6 +18,7 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { firebase } from './utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import { AuthProvider } from './components/auth-provider';
 
 function App() {
 
@@ -27,58 +28,46 @@ function App() {
     setUser(currentUser);
   });
 
-  const permanentRoutes = [ //routes which are always needed (are stored in array to shorten the file)
-    <Route path='/signin' element={<SignIn/>}/>,
-
-    <Route path='/register' element={<Register/>}/>,
-
-    <Route path='/product' element={<Product/>}/>,
-
-    <Route path='/about' element={<About/>}/>,
-
-    <Route path='/releases' element={<Releases/>}/>,
-
-    <Route path='/impressum' element={<Impressum/>}/>,
-
-    <Route path='/terms' element={<Terms/>}/>,
-
-    <Route path='/privacy' element={<Privacy/>}/>,
-
-    <Route path='/cookies' element={<Cookies/>}/>,
-
-    <Route path='*' element={<PageNotFound/>}/> //loads page not found page for all unset routes
-  ];
-
   //routing (connections to different sub-pages)
-  if (user) {
-    return (
-      <ScrollReset> {/*scrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/}
+  return (
+    <AuthProvider> {/*AuthProvider fixes an issue where wrong pages are displayed for a short amound of time on page load*/}
+      <ScrollReset> {/*ScrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/}
         <Routes>
 
-          {permanentRoutes} {/*all routes from the array*/}
+          <Route path='/signin' element={<SignIn/>}/>
 
-          <Route path='/' element={<HomePage/>}/>
+          <Route path='/register' element={<Register/>}/>
 
-          <Route path='/topic' element={<TopicPage/>}/>
+          <Route path='/product' element={<Product/>}/>
+
+          <Route path='/about' element={<About/>}/>
+
+          <Route path='/releases' element={<Releases/>}/>
+
+          <Route path='/impressum' element={<Impressum/>}/>
+
+          <Route path='/terms' element={<Terms/>}/>
+
+          <Route path='/privacy' element={<Privacy/>}/>
+
+          <Route path='/cookies' element={<Cookies/>}/>
+
+          <Route path='*' element={<PageNotFound/>}/> {/*loads page not found page for all unset routes*/}
+
+          {user? (<> {/*some of the active routes are altered if a user is signed in*/}
+            <Route path='/' element={<HomePage/>}/>
+
+            <Route path='/topic' element={<TopicPage/>}/>
+          </>) : (<>
+            <Route path='/' element={<Redirect/>}/>
+
+            <Route path='/topic' element={<Redirect/>}/>
+          </>)}
 
         </Routes>
       </ScrollReset>
-    );
-  } else {
-    return (
-      <ScrollReset> {/*scrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/}
-        <Routes>
-
-          {permanentRoutes} {/*all routes from the array*/}
-
-          <Route path='/' element={<Redirect/>}/>
-
-          <Route path='/topic' element={<Redirect/>}/>
-
-        </Routes>
-      </ScrollReset>
-    );
-  };
+    </AuthProvider>
+  );
 }
 
 export default App;

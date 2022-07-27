@@ -1,4 +1,3 @@
-import Head from './head';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,9 +8,7 @@ const Redirect = () => {
         navigate('/signin');
     });
 
-    return(
-        <Head title='Redirecting...' description='Redirecting...'/> //just returns the head for displaying a tab title
-    );
+    return null;
 }
 
 export default Redirect;
