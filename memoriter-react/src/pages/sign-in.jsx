@@ -3,8 +3,11 @@ import SignInHeader from '../components/sign-in/sign-in-header';
 import SignInMain from '../components/sign-in/sign-in-main';
 import SignInPasswordReset from '../components/sign-in/sign-in-password-reset';
 import Backdrop from '../components/backdrop';
+import AlreadySignedIn from '../components/sign-in/already-signed-in';
 import WindowSizeAlert from '../components/window-size-alert';
 import { useState } from 'react';
+import { firebase } from '../utils/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const SignIn = () => {
 
@@ -14,7 +17,13 @@ const SignIn = () => {
         top: '660px',
         width: '100%',
         height: '40px'
-    }
+    };
+
+    const [user, setUser] = useState({}); //variable for currently signed in user
+
+    onAuthStateChanged(firebase.auth, (currentUser) => { //updates user variable when user changes
+    setUser(currentUser);
+    });
 
     const [passwordReset, setPasswordReset] = useState(false); //opens or closes password reset modal
     
@@ -60,14 +69,24 @@ const SignIn = () => {
             {/*header*/}
             <SignInHeader/>
                 
-            {/*container with content*/}
-            <SignInMain onOpenPasswordReset={openPasswordReset}/>
-            <div style={SignInMainBottomSpace}/> {/*space at the bottom on page scroll*/}
+            {!user ? (<> {/*when user is logged in an already signed in page displays*/}
 
-            {passwordReset && <>
-                <SignInPasswordReset onAnimation={passwordResetAnimation} onClosePasswordReset={closePasswordReset}/>
-                <Backdrop onFade={backdropAnimation} onClick={closePasswordReset}/>
-            </>}
+                {/*container with content*/}
+                <SignInMain onOpenPasswordReset={openPasswordReset}/>
+                <div style={SignInMainBottomSpace}/> {/*space at the bottom on page scroll*/}
+
+                {passwordReset && <>
+                    <SignInPasswordReset onAnimation={passwordResetAnimation} onClosePasswordReset={closePasswordReset}/>
+                    <Backdrop onFade={backdropAnimation} onClick={closePasswordReset}/>
+                </>}
+
+            </>) : (<> 
+
+                {/*already signed in page*/}
+                <AlreadySignedIn title='Sign In'/>
+                <div style={SignInMainBottomSpace}/> {/*space at the bottom on page scroll*/}
+                
+            </>)}
 
             {/*alert for too small screens*/}
             <WindowSizeAlert/>

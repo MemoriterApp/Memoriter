@@ -23,7 +23,7 @@
     top: 0;
     height: 72px;
 }
-.cookie-settings-title::after {
+.cookie-settings-title::after { /*small lie at the bottom*/
     content: '';
     position: absolute;
     left: 50%;
@@ -33,7 +33,7 @@
     height: 1px;
     background-color: rgba(55, 55, 55, 1);
 }
-.cookie-settings-title-text {
+.cookie-settings-title-text { /*heading*/
     font-size: 2rem;
     font-family: 'Rubik';
     text-align: center;
@@ -209,11 +209,11 @@
     color: rgba(255, 255, 255, 1);
 }
 
-.cookie-settings-buttons {
+.cookie-settings-buttons { /*positioning for save/accept buttons*/
     position: relative;
     height: 80px;
 }
-.cookie-settings-buttons::after {
+.cookie-settings-buttons::after { /*small line at the top*/
     content: '';
     position: absolute;
     left: 50%;

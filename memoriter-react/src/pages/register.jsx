@@ -1,7 +1,11 @@
 import Head from '../components/head';
 import SignInHeader from '../components/sign-in/sign-in-header';
 import RegisterMain from '../components/sign-in/register-main';
+import AlreadySignedIn from '../components/sign-in/already-signed-in';
 import WindowSizeAlert from '../components/window-size-alert';
+import { useState } from 'react';
+import { firebase } from '../utils/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const Register = () => {
 
@@ -13,6 +17,12 @@ const Register = () => {
         height: '40px'
     };
 
+    const [user, setUser] = useState({}); //variable for currently signed in user
+
+    onAuthStateChanged(firebase.auth, (currentUser) => { //updates user variable when user changes
+    setUser(currentUser);
+    });
+
     return (
         <>
             
@@ -23,9 +33,19 @@ const Register = () => {
             {/*header*/}
             <SignInHeader/>
 
-            {/*container with content*/}
-            <RegisterMain/>
-            <div style={RegisterMainBottomSpace}/> {/*space at the bottom on page scroll*/}
+            {!user ? (<> {/*when user is logged in an already signed in page displays*/}
+
+                {/*container with content*/}
+                <RegisterMain/>
+                <div style={RegisterMainBottomSpace}/> {/*space at the bottom on page scroll*/}
+
+            </>) : (<> 
+
+                {/*already signed in page*/}
+                <AlreadySignedIn title='Register'/>
+                <div style={RegisterMainBottomSpace}/> {/*space at the bottom on page scroll*/}
+                
+            </>)}
 
             {/*alert for too small screens*/}
             <WindowSizeAlert/>

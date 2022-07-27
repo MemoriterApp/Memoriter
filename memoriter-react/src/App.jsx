@@ -29,8 +29,12 @@ function App() {
 
   //routing (connections to different sub-pages)
   return (
-    <ScrollReset>
+    <ScrollReset> {/*scrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/}
       <Routes>
+
+        <Route path='/signin' element={<SignIn/>}/>
+
+        <Route path='/register' element={<Register/>}/>
 
         <Route path='/product' element={<Product/>}/>
 
@@ -50,16 +54,8 @@ function App() {
           <Route path='/' element={<HomePage/>}/>
 
           <Route path='/topic' element={<TopicPage/>}/>
-
-          <Route path='/signin' element={<HomePage/>}/>
-
-          <Route path='/register' element={<HomePage/>}/>
         </>) : (<> 
           <Route path='/' element={<StartPage/>}/>
-
-          <Route path='/signin' element={<SignIn/>}/>
-
-          <Route path='/register' element={<Register/>}/>
         </>)}
 
         <Route path='*' element={<PageNotFound/>}/> {/*loads page not found page for all unset routes*/}

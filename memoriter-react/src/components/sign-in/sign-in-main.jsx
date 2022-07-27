@@ -11,7 +11,7 @@ import { signInWithGoogle, signInWithApple, signInWithFacebook, signInWithGithub
 
 const SignInMain = ({ onOpenPasswordReset }) => {
 
-    const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the create account button
+    const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the sign in button
 
     const [email, setEmail] = useState(''); //email input value
     const [password, setPassword] = useState(''); //password input value
