@@ -1,6 +1,7 @@
 import Product from './pages/product';
 import About from './pages/about';
 import SignIn from './pages/sign-in';
+import Releases from './pages/releases';
 import Register from './pages/register';
 import Impressum from './pages/impressum';
 import Terms from './pages/terms';
@@ -31,6 +32,8 @@ function App() {
       <Route path='/product' element={<Product/>}/>
 
       <Route path='/about' element={<About/>}/>
+
+      <Route path='/releases' element={<Releases/>}/>
 
       <Route path='/impressum' element={<Impressum/>}/>
 
