@@ -69,7 +69,7 @@ const Releases = () => {
                 {/*current version with other style*/}
                 <CurrentRelease/>
 
-                {/*older versions, just gets a part of the array*/}
+                {/*older versions, gets data from the loadedReleases array, where all components are stored, just gets a part of the array*/}
                 {releases.slice(0, loadedReleases).map((release) => (release))}
 
                 {/*load more button, onClick just adds five on the number of the maximum of shown releases. The button is just shown if necessary.*/}
