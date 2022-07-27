@@ -1,11 +1,16 @@
+import '../styles/releases/releases-main.css';
 import Head from '../components/head';
 import ProductHeader from '../components/product/product-header';
+
 import CurrentRelease from '../components/releases/current-release';
+import ReleaseV101 from '../components/releases/release-v1.01';
+
 import ProductFooter from '../components/product/product-footer';
 import CookieSettings from '../components/cookie-banner/cookie-settings';
 import Backdrop from '../components/backdrop';
 import WindowSizeAlert from '../components/window-size-alert';
 import { useState } from 'react';
+import { version } from 'react';
 
 const Releases = () => {
 
@@ -44,7 +49,7 @@ const Releases = () => {
     };
 
     const releases = [ //variable with all components with the notes of all older/outdated updates
-
+        <ReleaseV101 key={1.01}/>
     ];
 
     const [loadedReleases, setLoadedReleases] = useState(5); //number of releases shown before clicking on the load more button
@@ -58,8 +63,8 @@ const Releases = () => {
             {/*header*/}
             <ProductHeader/>
 
-            {/*style is needed for aligning the items correctly*/}
-            <div style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh)', marginBottom: '250px'}}>
+            {/*main body*/}
+            <div className='releases-main'>
 
                 {/*current version with other style*/}
                 <CurrentRelease/>
@@ -69,7 +74,7 @@ const Releases = () => {
 
                 {/*load more button, onClick just adds five on the number of the maximum of shown releases. The button is just shown if necessary.*/}
                 {loadedReleases <= releases.length - 1 ? (
-                    <button onClick={() => setLoadedReleases(loadedReleases + 5)}>Load More...</button>) : (<div/>)
+                    <button className='releases-main-button' onClick={() => setLoadedReleases(loadedReleases + 5)}>Load More...</button>) : (<div/>)
                 }
 
             </div>

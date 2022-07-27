@@ -1,0 +1,68 @@
+/*here are the styles used for the older versions in the release notes, the current version at the top is using a seperate stylesheet*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*heading font*/
+
+.old-release { /*main container*/
+    position: relative;
+    left: 50%;
+    top: 120px;
+    transform: translate(-50%);
+    width: calc(100% - 320px);
+    max-width: 2400px;
+    padding: 40px 0 80px 0;
+    margin-bottom: 120px;
+    background-color: rgba(55, 55, 55, 1);
+    border-radius: 12px;
+}
+.old-release h2 { /*all html sub headings (<h2/>) of current-release*/
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    margin: 20px 40px 32px 40px;
+}
+.old-release h3 { /*all html sub headings (<h2/>) of current-release*/
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    margin: 40px 40px 12px 40px;
+}
+.old-release p { /*all html text paragraps (<p/>) of current-release*/
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    line-height: 1.8rem;
+    text-align: justify;
+    margin: 20px 40px 0 40px;
+}
+.old-release ul { /*all html unordered lists (<ul/>) of current-release*/
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    line-height: 1.8rem;
+    text-align: justify;
+    margin: 20px 40px 0 40px;
+}
+
+@media (max-width: 960px) { /*removes space at the sides on small screens*/
+    .old-release {
+        width: calc(100% - 40px);
+        padding: 10px 0 56px 0;
+    }
+    .old-release h2 {
+        margin: 20px 20px 32px 20px;
+    }
+    .old-release h3 { /*all html sub headings (<h2/>) of current-release*/
+        margin: 40px 20px 12px 20px;
+    }
+    .old-release p { /*all html text paragraps (<p/>) of current-release*/
+        margin: 20px 20px 0 20px;
+    }
+    .old-release ul { /*all html unordered lists (<ul/>) of current-release*/
+        margin: 20px 20px 0 20px;
+    }
+}

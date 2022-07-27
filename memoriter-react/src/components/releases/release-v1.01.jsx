@@ -1,16 +1,14 @@
-import '../../styles/releases/current-release.css';
+import '../../styles/releases/old-release.css';
 
-const CurrentRelease = () => {
+const ReleaseV101 = () => {
 
     return (
-        <div className='current-release'>
-        
-            <h1>Release Notes</h1> {/*The page title is here for optimization reasons.*/}
-       
-            <p style={{color: 'rgba(200, 200, 200, 1)', textAlign: 'left'}}>March 14th, 3014</p> {/*release date*/}
+        <div className='old-release'>
 
+            <p style={{color: 'rgba(200, 200, 200, 1)', textAlign: 'left'}}>Month XXth, 2022</p> {/*release date*/}
+            
             {/*small introduction*/}
-            <h2>Memoriter v3.14</h2>
+            <h2>Memoriter v1.01</h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo diam id ante ultrices, vel pharetra urna vestibulum. Ut mattis congue magna vulputate congue. Vivamus sed dui nec urna lacinia finibus nec in sem. Praesent ex nibh, luctus et tempus ut, facilisis pharetra ante. Sed vel blandit elit, id aliquet mi. Integer et neque imperdiet, varius sem at, sagittis libero. Aenean a porttitor arcu, ut dapibus ante. Donec vestibulum ligula et luctus venenatis. Nulla vulputate mattis sodales. Sed hendrerit ex vitae magna ultricies rutrum. Aliquam sodales, justo nec condimentum vulputate, arcu ipsum efficitur quam, id venenatis velit justo id eros.
             </p>
@@ -37,16 +35,15 @@ const CurrentRelease = () => {
                 <li>Lorem ipsum dolor sit amet.</li>
             </ul>
 
-            <p style={{fontFamily: 'Rubik', textAlign: 'left', marginTop: '40px', marginBottom: '60px'}}>
-                We hope you enjoy the new update!
+            <p style={{fontFamily: 'Rubik', textAlign: 'left', marginBottom: '-32px'}}>
+                <br/>
+                We hope you enjoyed this update!
                 <br/>
                 - Memoriter Development Team
             </p>
-
-            <h2 style={{marginBottom: '-20px'}}>Older Releases:</h2>
 
         </div>
     );
 }
 
-export default CurrentRelease;
+export default ReleaseV101;

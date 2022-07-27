@@ -1,0 +1,36 @@
+/*some extra styles for the layout and load more button of the release notes page*/
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*button font*/
+
+.releases-main { /*layout container for the content*/
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-bottom: 250px;
+}
+
+.releases-main-button {
+    position: relative;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 164px;
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    padding: 8px 6px 8px 6px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+.releases-main-button:hover { /*for the fading background box on hover*/
+    background-color: rgba(55, 55, 55, 0.75);
+}
+
+@media (max-width: 240px) { /*hides the content on too small screens (when the warning modal is open)*/
+    .releases-main {
+        display: none;
+    }
+}
