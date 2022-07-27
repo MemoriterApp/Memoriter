@@ -66,6 +66,9 @@ const RegisterMain = () => {
                         case 'auth/invalid-email': //invalid email
                             displayError('Invalid email!');
                             break;
+                        case 'auth/internal-error': //internal error
+                            displayError('Internal error!');
+                            break;
                         default: //all other errors
                             displayError(`Error: ${error.code}`);
                             break;

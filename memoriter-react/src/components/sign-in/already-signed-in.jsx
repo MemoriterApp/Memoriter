@@ -11,6 +11,10 @@ const AlreadySignedIn = ({ title }) => {
     const [onHoverReturn, setOnHoverReturn] = useState('brightness(1)'); //variable for the hover effect for the return to website button
     const [onHoverContinue, setOnHoverContinue] = useState('brightness(1)'); //variable for the hover effect for the continue to app button
 
+    function signOutFunction() { /*function for sign out*/
+        signOut(firebase.auth); /*pre-built sign out firebase function*/
+    };
+
     return(
         <div className='sign-in-main'>
 
@@ -25,7 +29,7 @@ const AlreadySignedIn = ({ title }) => {
             </p>
 
             {/*sign out button*/}
-            <button className='sign-in-main-button' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}} onClick={() => signOut(firebase.auth) /*pre-built firebase function*/}
+            <button className='sign-in-main-button' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}} onClick={signOutFunction}
                 onMouseEnter={() => setOnHoverSignOut('brightness(0.82)')} onMouseLeave={() => setOnHoverSignOut('brightness(1)')}>
                 {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
                 <div className='sign-in-main-button-background-gray' 

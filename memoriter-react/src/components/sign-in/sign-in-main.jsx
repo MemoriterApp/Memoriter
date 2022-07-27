@@ -56,6 +56,12 @@ const SignInMain = ({ onOpenPasswordReset }) => {
                     case 'auth/too-many-requests': //too many sign in requests
                         displayError('Too many requests!');
                         break;
+                    case 'auth/user-disabled': //user disabled
+                        displayError('User disabled!');
+                        break;
+                    case 'auth/internal-error': //internal error
+                        displayError('Internal error!');
+                        break;
                     default: //all other errors
                         displayError(`Error: ${error.code}`);
                         break;
