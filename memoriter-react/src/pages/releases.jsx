@@ -10,7 +10,6 @@ import CookieSettings from '../components/cookie-banner/cookie-settings';
 import Backdrop from '../components/backdrop';
 import WindowSizeAlert from '../components/window-size-alert';
 import { useState } from 'react';
-import { version } from 'react';
 
 const Releases = () => {
 

@@ -12,6 +12,8 @@ import PageNotFound from './pages/page-not-found';
 import StartPage from './pages/Start';
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
+
+import ScrollReset from './components/scroll-reset';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { firebase } from './utils/firebase';
@@ -27,41 +29,43 @@ function App() {
 
   //routing (connections to different sub-pages)
   return (
-    <Routes>
+    <ScrollReset>
+      <Routes>
 
-      <Route path='/product' element={<Product/>}/>
+        <Route path='/product' element={<Product/>}/>
 
-      <Route path='/about' element={<About/>}/>
+        <Route path='/about' element={<About/>}/>
 
-      <Route path='/releases' element={<Releases/>}/>
+        <Route path='/releases' element={<Releases/>}/>
 
-      <Route path='/impressum' element={<Impressum/>}/>
+        <Route path='/impressum' element={<Impressum/>}/>
 
-      <Route path='/terms' element={<Terms/>}/>
+        <Route path='/terms' element={<Terms/>}/>
 
-      <Route path='/privacy' element={<Privacy/>}/>
+        <Route path='/privacy' element={<Privacy/>}/>
 
-      <Route path='/cookies' element={<Cookies/>}/>
+        <Route path='/cookies' element={<Cookies/>}/>
 
-      {user ? (<> {/*part of the routing changes if a user is logged in*/}
-        <Route path='/' element={<HomePage/>}/>
+        {user ? (<> {/*part of the routing changes if a user is logged in*/}
+          <Route path='/' element={<HomePage/>}/>
 
-        <Route path='/topic' element={<TopicPage/>}/>
+          <Route path='/topic' element={<TopicPage/>}/>
 
-        <Route path='/signin' element={<HomePage/>}/>
+          <Route path='/signin' element={<HomePage/>}/>
 
-        <Route path='/register' element={<HomePage/>}/>
-      </>) : (<> 
-        <Route path='/' element={<StartPage/>}/>
+          <Route path='/register' element={<HomePage/>}/>
+        </>) : (<> 
+          <Route path='/' element={<StartPage/>}/>
 
-        <Route path='/signin' element={<SignIn/>}/>
+          <Route path='/signin' element={<SignIn/>}/>
 
-        <Route path='/register' element={<Register/>}/>
-      </>)}
+          <Route path='/register' element={<Register/>}/>
+        </>)}
 
-      <Route path='*' element={<PageNotFound/>}/> {/*loads page not found page for all unset routes*/}
+        <Route path='*' element={<PageNotFound/>}/> {/*loads page not found page for all unset routes*/}
 
-    </Routes>
+      </Routes>
+    </ScrollReset>
   );
 }
 
