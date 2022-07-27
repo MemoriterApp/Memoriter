@@ -8,8 +8,8 @@ import Terms from './pages/terms';
 import Privacy from './pages/privacy';
 import Cookies from './pages/cookies';
 import PageNotFound from './pages/page-not-found';
+import Redirect from './components/redirect';
 
-import StartPage from './pages/Start';
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
 
@@ -27,42 +27,58 @@ function App() {
     setUser(currentUser);
   });
 
+  const permanentRoutes = [ //routes which are always needed (are stored in array to shorten the file)
+    <Route path='/signin' element={<SignIn/>}/>,
+
+    <Route path='/register' element={<Register/>}/>,
+
+    <Route path='/product' element={<Product/>}/>,
+
+    <Route path='/about' element={<About/>}/>,
+
+    <Route path='/releases' element={<Releases/>}/>,
+
+    <Route path='/impressum' element={<Impressum/>}/>,
+
+    <Route path='/terms' element={<Terms/>}/>,
+
+    <Route path='/privacy' element={<Privacy/>}/>,
+
+    <Route path='/cookies' element={<Cookies/>}/>,
+
+    <Route path='*' element={<PageNotFound/>}/> //loads page not found page for all unset routes
+  ];
+
   //routing (connections to different sub-pages)
-  return (
-    <ScrollReset> {/*scrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/}
-      <Routes>
+  if (user) {
+    return (
+      <ScrollReset> {/*scrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/}
+        <Routes>
 
-        <Route path='/signin' element={<SignIn/>}/>
+          {permanentRoutes} {/*all routes from the array*/}
 
-        <Route path='/register' element={<Register/>}/>
-
-        <Route path='/product' element={<Product/>}/>
-
-        <Route path='/about' element={<About/>}/>
-
-        <Route path='/releases' element={<Releases/>}/>
-
-        <Route path='/impressum' element={<Impressum/>}/>
-
-        <Route path='/terms' element={<Terms/>}/>
-
-        <Route path='/privacy' element={<Privacy/>}/>
-
-        <Route path='/cookies' element={<Cookies/>}/>
-
-        {user ? (<> {/*part of the routing changes if a user is logged in*/}
           <Route path='/' element={<HomePage/>}/>
 
           <Route path='/topic' element={<TopicPage/>}/>
-        </>) : (<> 
-          <Route path='/' element={<StartPage/>}/>
-        </>)}
 
-        <Route path='*' element={<PageNotFound/>}/> {/*loads page not found page for all unset routes*/}
+        </Routes>
+      </ScrollReset>
+    );
+  } else {
+    return (
+      <ScrollReset> {/*scrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/}
+        <Routes>
 
-      </Routes>
-    </ScrollReset>
-  );
+          {permanentRoutes} {/*all routes from the array*/}
+
+          <Route path='/' element={<Redirect/>}/>
+
+          <Route path='/topic' element={<Redirect/>}/>
+
+        </Routes>
+      </ScrollReset>
+    );
+  };
 }
 
 export default App;

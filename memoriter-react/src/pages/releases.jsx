@@ -48,7 +48,7 @@ const Releases = () => {
     };
 
     const releases = [ //variable with all components with the notes of all older/outdated updates
-        <ReleaseV101 key={1.01}/>
+        <ReleaseV101/>
     ];
 
     const [loadedReleases, setLoadedReleases] = useState(5); //number of releases shown before clicking on the load more button
@@ -69,7 +69,7 @@ const Releases = () => {
                 <CurrentRelease/>
 
                 {/*older versions, gets data from the releases array, where all components are stored, just gets a part of the array*/}
-                {releases.slice(0, loadedReleases).map((release) => (release))}
+                {releases.slice(0, loadedReleases)}
 
                 {/*load more button, onClick just adds five on the number of the maximum of shown releases. The button is just shown if necessary.*/}
                 {loadedReleases <= releases.length - 1 ? (
