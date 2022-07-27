@@ -23,6 +23,8 @@ function SettingsClick() {
         await signOut(firebase.auth);
         localStorage.removeItem('syncedFolderID');
         localStorage.removeItem('syncedFolderTitle');
+
+        sessionStorage.setItem('authentication-success', 'Successfully signed out!'); //sets sessionStorage item for the sign-in-main component to read
         navigate('/signin');
     }
 

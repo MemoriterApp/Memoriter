@@ -4,12 +4,14 @@ import appleIcon from '../../images/apple-icon.svg';
 import facebookIcon from '../../images/facebook-icon.svg';
 import githubIcon from '../../images/github-icon.svg';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../utils/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { signInWithGoogle, signInWithApple, signInWithFacebook, signInWithGithub } from '../../utils/third-party-authentication';
 
 const RegisterMain = () => {
+
+    const navigate = useNavigate(); //variable for routing, alternative option for links
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the create account button
 
@@ -52,6 +54,7 @@ const RegisterMain = () => {
             displayError('Passwords do not match!')
         } else {
             createUserWithEmailAndPassword(firebase.auth, email, password)
+                .then(() => navigate('/')) //navigates to app (only accessable when signed in)
                 .catch(error => { //displays error if sign in fails
                     switch (error.code) { //reads error code
                         case 'auth/weak-password': //password too short

@@ -11,8 +11,9 @@ const AlreadySignedIn = ({ title }) => {
     const [onHoverReturn, setOnHoverReturn] = useState('brightness(1)'); //variable for the hover effect for the return to website button
     const [onHoverContinue, setOnHoverContinue] = useState('brightness(1)'); //variable for the hover effect for the continue to app button
 
-    function signOutFunction() { /*function for sign out*/
-        signOut(firebase.auth); /*pre-built sign out firebase function*/
+    function signOutFunction() { //function for sign out
+        signOut(firebase.auth); //pre-built sign out firebase function
+        sessionStorage.setItem('authentication-success', 'Successfully signed out!'); //sets sessionStorage item for the sign-in-main component to read
     };
 
     return(

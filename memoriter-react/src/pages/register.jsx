@@ -14,7 +14,8 @@ const Register = () => {
         left: '0',
         top: '660px',
         width: '100%',
-        height: '40px'
+        height: '40px',
+        zIndex: '-1'
     };
 
     const [user, setUser] = useState({}); //variable for currently signed in user

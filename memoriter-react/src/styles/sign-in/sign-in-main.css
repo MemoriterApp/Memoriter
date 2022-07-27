@@ -49,6 +49,31 @@
     cursor: pointer;
 }
 
+.sign-in-main-success { /*sucess message popup, like error, but green*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: calc(100% - 120px);
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    padding: 24px 12px 0 12px;
+    padding: 12px 8px 12px 16px;
+    margin-top: -12px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(20, 180, 20, 1);
+    border-radius: 6px;
+    background-color: rgba(20, 75, 20, 1);
+}
+.sign-in-main-success-close { /*button for closing the sucess popup*/
+    position: absolute;
+    right: 12px;
+    top: 45%;
+    transform: translate(0, -50%);
+    font-size: 1.6rem;
+    color: rgba(20, 180, 20, 1);
+    cursor: pointer;
+}
+
 .sign-in-main-third-party { /*buttons for third party authentication*/
     display: flex; /*display: flex creates columns*/
     position: relative;

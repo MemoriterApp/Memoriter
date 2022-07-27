@@ -4,12 +4,14 @@ import appleIcon from '../../images/apple-icon.svg';
 import facebookIcon from '../../images/facebook-icon.svg';
 import githubIcon from '../../images/github-icon.svg';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../utils/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { signInWithGoogle, signInWithApple, signInWithFacebook, signInWithGithub } from '../../utils/third-party-authentication';
 
 const SignInMain = ({ onOpenPasswordReset }) => {
+
+    const navigate = useNavigate(); //variable for routing, alternative option for links
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the sign in button
 
@@ -38,10 +40,38 @@ const SignInMain = ({ onOpenPasswordReset }) => {
         };
     };
 
+    const [successMessage, setSuccessMessage] = useState(''); //success message for sign out or account deletion
+
+    function displaySuccess(successMessage) { //function for displaying the success popup when sign in fails
+        setSuccessMessage(successMessage); //configures message
+
+        sessionStorage.removeItem('authentication-success'); //removes unnecessary sessionStorage item
+
+        //style changes for container (needs to be bigger so that the error popup can fit in)
+        if (window.innerHeight <= 721) { //optimization for smaller screens (no conflict with css media query)
+            setErrorStyleChanges({ //can reuse errorStyleChanges (same changes like with error handling)
+                height: '650px',
+                top: '385px'
+            });
+        } else { //larger screens
+            setErrorStyleChanges({ //can reuse errorStyleChanges (same changes like with error handling)
+                height: '650px',
+                top: 'calc(50% + 25px)'
+            });
+        };
+    };
+    const authenticationSuccess = sessionStorage.getItem('authentication-success'); //detects if the user signed out or deletet their account
+    if (authenticationSuccess) { //if the sessionStorage item exists the function for displaying the popup is called
+        displaySuccess(authenticationSuccess);
+    };
+
     async function defaultSignIn(e) { //function to sign in with email and password
         e.preventDefault(); //removes the default html submit
 
+        setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
+
         signInWithEmailAndPassword(firebase.auth, email, password) //firebase pre-built sign in function
+            .then(() => navigate('/')) //navigates to app (only accessable when signed in)
             .catch(error => { //displays error if sign in fails
                 switch (error.code) { //reads error code
                     case 'auth/wrong-password': //wrong password
@@ -79,6 +109,14 @@ const SignInMain = ({ onOpenPasswordReset }) => {
                 <span>{errorMessage}</span> {/*error message*/}
                 <span className='sign-in-main-error-close'
                     onClick={() => {setErrorMessage(''); setErrorStyleChanges({});}}
+                >&#215;</span> {/*close popup button*/}
+            </div>}
+
+            {/*popup for successful sign out or account deletion*/}
+            {successMessage && <div className='sign-in-main-success'>
+                <span>{successMessage}</span> {/*error message*/}
+                <span className='sign-in-main-success-close'
+                    onClick={() => {setSuccessMessage(''); setErrorStyleChanges({});}}
                 >&#215;</span> {/*close popup button*/}
             </div>}
 
