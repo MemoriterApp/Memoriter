@@ -6,8 +6,7 @@ import githubIcon from '../../images/github-icon.svg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../utils/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { signInWithGoogle, signInWithApple, signInWithFacebook, signInWithGithub } from '../../utils/third-party-authentication';
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, OAuthProvider, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
 const RegisterMain = () => {
 
@@ -45,6 +44,35 @@ const RegisterMain = () => {
         };
     };
 
+    const error = (error => { //function instructions what to do if sign in fails (.catch()), is seperate to shorten the code by reusing it
+        switch (error.code) { //reads error code
+            case 'auth/weak-password': //password too short
+                displayError('Password is too short!');
+                break;
+            case 'auth/email-already-in-use': //existing account with email
+                displayError('Email already in use!');
+                break;
+            case 'auth/missing-email': //missing email
+                displayError('Invalid email!');
+                break;
+            case 'auth/invalid-email': //invalid email
+                displayError('Invalid email!');
+                break;
+            case 'auth/too-many-requests': //too many sign in requests
+                displayError('Too many requests!');
+                break;
+            case 'auth/user-disabled': //user disabled
+                displayError('User disabled!');
+                break;
+            case 'auth/internal-error': //internal error
+                displayError('Internal error!');
+                break;
+            default: //all other errors
+                displayError(`Error: ${error.code}`);
+                break;
+        };
+    });
+
     async function defaultRegister(e) { //function to sign up with email and password
         e.preventDefault();
 
@@ -55,31 +83,41 @@ const RegisterMain = () => {
         } else {
             createUserWithEmailAndPassword(firebase.auth, email, password)
                 .then(() => navigate('/')) //navigates to app (only accessable when signed in)
-                .catch(error => { //displays error if sign in fails
-                    switch (error.code) { //reads error code
-                        case 'auth/weak-password': //password too short
-                            displayError('Password is too short!');
-                            break;
-                        case 'auth/email-already-in-use': //existing account with email
-                            displayError('Email already in use!');
-                            break;
-                        case 'auth/missing-email': //missing email
-                            displayError('Invalid email!');
-                            break;
-                        case 'auth/invalid-email': //invalid email
-                            displayError('Invalid email!');
-                            break;
-                        case 'auth/internal-error': //internal error
-                            displayError('Internal error!');
-                            break;
-                        default: //all other errors
-                            displayError(`Error: ${error.code}`);
-                            break;
-                    };
-                });
-        }
+                .catch(error); //displays error if sign in fails (uses error const)
+        };
+    };
 
-    }
+    function signInWithGoogle() { //google sign in function
+        const provider = new GoogleAuthProvider(); //connection to google sign in
+
+        signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
+            .then(() => navigate('/')) //navigates to app (only accessable when signed in)
+            .catch(error); //displays error if sign in fails (uses error const)
+    };
+
+    function signInWithApple() { //google sign in function
+        const provider = new OAuthProvider('apple.com'); //connection to apple sign in
+
+        signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
+            .then(() => navigate('/')) //navigates to app (only accessable when signed in)
+            .catch(error); //displays error if sign in fails (uses error const)
+    };
+
+    function signInWithFacebook() { //google sign in function
+        const provider = new FacebookAuthProvider(); //connection to facebook sign in
+
+        signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
+            .then(() => navigate('/')) //navigates to app (only accessable when signed in)
+            .catch(error); //displays error if sign in fails (uses error const)
+    };
+
+    function signInWithGithub() { //google sign in function
+        const provider = new GithubAuthProvider(); //connection to github sign in
+
+        signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
+            .then(() => navigate('/')) //navigates to app (only accessable when signed in)
+            .catch(error); //displays error if sign in fails (uses error const)
+    };
 
     return (
         <div className='sign-in-main' style={errorStyleChanges}>

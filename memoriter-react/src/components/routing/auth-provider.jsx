@@ -3,8 +3,7 @@ When no user is signed in, the sign in only pages display before checking if a u
 This component adds an extra condition (loading) wich prevents the page rendering during unclear user status.*/
 
 import React, { useContext, useState, useEffect, createContext } from 'react';
-import { firebase } from '../utils/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { firebase } from '../../utils/firebase';
 
 const AuthContext = createContext(); //necessary to work
 
@@ -17,10 +16,12 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true); //when loading is true the wrong page cannot display
 
     useEffect(() => {
-        return onAuthStateChanged(firebase.auth, (currentUser) => {
+        const unsubscribe = firebase.auth.onAuthStateChanged(currentUser => {
             setUser(currentUser); //sets user
             setLoading(false); //disables loading
         });
+
+        return unsubscribe;
     }, []);
 
     const value = {user}; //currently signed in user

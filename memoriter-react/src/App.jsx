@@ -8,17 +8,18 @@ import Terms from './pages/terms';
 import Privacy from './pages/privacy';
 import Cookies from './pages/cookies';
 import PageNotFound from './pages/page-not-found';
-import Redirect from './components/redirect';
 
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
 
-import ScrollReset from './components/scroll-reset';
+import { AuthProvider } from './components/routing/auth-provider';
+import ScrollReset from './components/routing/scroll-reset';
+import Redirect from './components/routing/redirect';
+
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { firebase } from './utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import { AuthProvider } from './components/auth-provider';
 
 function App() {
 
