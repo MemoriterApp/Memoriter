@@ -87,7 +87,7 @@ const RegisterMain = () => {
         };
     };
 
-    function signInWithGoogle() { //google sign in function
+    async function signInWithGoogle() { //google sign in function
         const provider = new GoogleAuthProvider(); //connection to google sign in
 
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
@@ -95,7 +95,7 @@ const RegisterMain = () => {
             .catch(error); //displays error if sign in fails (uses error const)
     };
 
-    function signInWithApple() { //google sign in function
+    async function signInWithApple() { //google sign in function
         const provider = new OAuthProvider('apple.com'); //connection to apple sign in
 
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
@@ -103,7 +103,7 @@ const RegisterMain = () => {
             .catch(error); //displays error if sign in fails (uses error const)
     };
 
-    function signInWithFacebook() { //google sign in function
+    async function signInWithFacebook() { //google sign in function
         const provider = new FacebookAuthProvider(); //connection to facebook sign in
 
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
@@ -111,7 +111,7 @@ const RegisterMain = () => {
             .catch(error); //displays error if sign in fails (uses error const)
     };
 
-    function signInWithGithub() { //google sign in function
+    async function signInWithGithub() { //google sign in function
         const provider = new GithubAuthProvider(); //connection to github sign in
 
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function

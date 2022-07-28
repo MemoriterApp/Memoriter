@@ -100,7 +100,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
             .catch(error); //displays error if sign in fails (uses error const)
     };
 
-    function signInWithGoogle() { //google sign in function
+    async function signInWithGoogle() { //google sign in function
         setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new GoogleAuthProvider(); //connection to google sign in
@@ -110,7 +110,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
             .catch(error); //displays error if sign in fails (uses error const)
     };
 
-    function signInWithApple() { //google sign in function
+    async function signInWithApple() { //google sign in function
         setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new OAuthProvider('apple.com'); //connection to apple sign in
@@ -120,7 +120,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
             .catch(error); //displays error if sign in fails (uses error const)
     };
 
-    function signInWithFacebook() { //google sign in function
+    async function signInWithFacebook() { //google sign in function
         setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new FacebookAuthProvider(); //connection to facebook sign in
@@ -130,7 +130,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
             .catch(error); //displays error if sign in fails (uses error const)
     };
 
-    function signInWithGithub() { //google sign in function
+    async function signInWithGithub() { //google sign in function
         setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new GithubAuthProvider(); //connection to github sign in
