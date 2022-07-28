@@ -2,8 +2,8 @@ import React from 'react';
 import Backdrop from './backdrop';
 import { useState } from 'react';
 import { firebase } from '../utils/firebase';
-import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 function SettingsClick() {
 
@@ -11,11 +11,7 @@ function SettingsClick() {
 
     const [signOutView, openSignOutView] = useState(false);
 
-    const [user, setUser] = useState({});
-
-    onAuthStateChanged(firebase.auth, (currentUser) => {
-        setUser(currentUser);
-    })
+    const user = firebase.auth.currentUser;
 
     const navigate = useNavigate();
 
