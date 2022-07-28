@@ -3,6 +3,7 @@ import Head from '../components/head';
 import ProductHeader from '../components/product/product-header';
 
 import CurrentRelease from '../components/releases/current-release';
+import ReleaseV10 from '../components/releases/release-v1.0';
 import ReleaseV101 from '../components/releases/release-v1.01';
 
 import ProductFooter from '../components/product/product-footer';
@@ -48,7 +49,8 @@ const Releases = () => {
     };
 
     const releases = [ //variable with all components with the notes of all older/outdated updates
-        <ReleaseV101 key={1.01}/>
+        <ReleaseV101 key={1.01}/>,
+        <ReleaseV10 key={1.0}/>
     ];
 
     const [loadedReleases, setLoadedReleases] = useState(5); //number of releases shown before clicking on the load more button
