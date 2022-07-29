@@ -56,13 +56,13 @@
     .old-release h2 {
         margin: 20px 20px 32px 20px;
     }
-    .old-release h3 { /*all html sub headings (<h2/>) of current-release*/
+    .old-release h3 {
         margin: 40px 20px 12px 20px;
     }
-    .old-release p { /*all html text paragraps (<p/>) of current-release*/
+    .old-release p {
         margin: 20px 20px 0 20px;
     }
-    .old-release ul { /*all html unordered lists (<ul/>) of current-release*/
+    .old-release ul {
         margin: 20px 20px 0 20px;
     }
 }

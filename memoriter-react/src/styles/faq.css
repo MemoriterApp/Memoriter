@@ -83,3 +83,16 @@
     border-right: 2px solid rgba(200, 200, 200, 1);
     transition: opacity 400ms;
 }
+
+@media (max-width: 960px) { /*removes space at the sides on small screens*/
+    .faq-main {
+        width: calc(100% - 40px);
+        padding: 40px 0 80px 0;
+    }
+}
+
+@media (max-width: 240px) { /*hides the content on too small screens (when the warning modal is open)*/
+    .faq-main {
+        display: none;
+    }
+}
