@@ -1,0 +1,85 @@
+/*all styles for the faq page and its components*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*sub heading font*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
+
+.faq { /*main container*/
+    display: flex; /*needed to push the footer down*/
+    flex-direction: column; /*needed to push the footer down*/
+    position: relative;
+    left: 50%;
+    top: 120px;
+    transform: translate(-50%);
+    width: calc(100% - 320px);
+    max-width: 2400px;
+    min-height: 100vh;
+    padding: 40px 60px 80px 60px;
+    margin-bottom: 320px;
+}
+
+.faq-header { /*the page heading/title*/
+    font-size: 2.8rem;
+    font-family: 'Heebo';
+    margin-bottom: -100px;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.faq-sub-heading { /*sub headings dividing the page in different sections*/
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    margin-top: 160px;
+    margin-bottom: -80px;
+}
+
+.faq-question { /*styles for the question component*/
+    position: relative;
+    left: 50%;
+    top: 120px;
+    transform: translate(-50%);
+    width: 100%;
+    max-width: 2400px;
+    padding-top: 32px;
+    margin-bottom: 32px;
+    background-color: rgba(55, 55, 55, 1);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: height 400ms, background-color 200ms;
+}
+.faq-question:hover { /*hover effect for question box*/
+    background-color: rgba(55, 55, 55, 0.75);
+}
+.faq-question-question { /*question title*/
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    margin: -20px 16px 32px 16px;
+}
+.faq-question-answer { /*answer test*/
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    line-height: 1.8rem;
+    text-align: justify;
+    margin: -12px 20px 12px 20px;
+    transition: opacity 400ms;
+}
+.faq-question-open { /*arrow to show the answer*/
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    transform: translate(0, -50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid rgba(200, 200, 200, 1);
+    border-right: 2px solid rgba(200, 200, 200, 1);
+    transition: opacity 400ms;
+}

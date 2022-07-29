@@ -7,6 +7,7 @@ import Impressum from './pages/impressum';
 import Terms from './pages/terms';
 import Privacy from './pages/privacy';
 import Cookies from './pages/cookies';
+import Faq from './pages/faq';
 import PageNotFound from './pages/page-not-found';
 
 import HomePage from './pages/home';
@@ -52,6 +53,8 @@ function App() {
           <Route path='/privacy' element={<Privacy/>}/>
 
           <Route path='/cookies' element={<Cookies/>}/>
+
+          <Route path='faq' element={<Faq/>}/>
 
           <Route path='*' element={<PageNotFound/>}/> {/*loads page not found page for all unset routes*/}
 
