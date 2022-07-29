@@ -79,9 +79,15 @@ const Faq = () => {
         }
     ]);
 
-    function openQuestion(openedQuestion, isOpen) {
-        setQuestions((questions) => questions.map((question) => 
-            question.question === openedQuestion ? { ...question, isOpen: true } : { ...question, isOpen: false }
+    function openQuestion(openedQuestion) { //function is called when a question is clicked
+        setQuestions((questions) => questions.map((question) => //question array is changed
+            question.question === openedQuestion && !question.isOpen ? { 
+                ...question, isOpen: true //clicked question opens if it is closed
+            } : question.question === openedQuestion && question.isOpen ? {
+                ...question, isOpen: false //clicked question closes if it is open
+            } : {
+                ...question, isOpen: false //all other questions are closing, only one can be opened at the same time
+            }
         ))
     }
 
@@ -95,17 +101,17 @@ const Faq = () => {
             <ProductHeader/>
 
             {/*main body*/}
-            <div className='faq'>
+            <div className='faq-main'>
 
-                <h1 className='faq-header'>Frequently Asked Questions</h1>
+                <h1 className='faq-main-header'>Frequently Asked Questions</h1>
 
-                <h2 className='faq-sub-heading'>Sub Heading</h2>
+                <h2 className='faq-main-sub-heading'>Sub Heading</h2>
                 {/*displays a list for a section of questions*/}
                 {questions.slice(0, 3).map((question) => (
                     <FaqQuestion key={question.question} question={question} onOpenQuestion={openQuestion}/>
                 ))}
 
-                <h2 className='faq-sub-heading'>Sub Heading</h2>
+                <h2 className='faq-main-sub-heading'>Sub Heading</h2>
                 {/*displays a list for a section of questions*/}
                 {questions.slice(3, 6).map((question) => (
                     <FaqQuestion key={question.question} question={question} onOpenQuestion={openQuestion}/>
