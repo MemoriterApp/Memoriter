@@ -1,15 +1,12 @@
-import '../styles/blog/blog-main.css';
 import Head from '../components/head';
 import ProductHeader from '../components/product/product-header';
+import BlogSidebar from '../components/blog/blog-sidebar';
+import BlogMain from '../components/blog/blog-main';
 import ProductFooter from '../components/product/product-footer';
 import CookieSettings from '../components/cookie-banner/cookie-settings';
 import Backdrop from '../components/backdrop';
 import WindowSizeAlert from '../components/window-size-alert';
-
-import Test1MainImage from '../images/blog-images/test-1/test-1-main.jpeg';
-
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const Blog = () => {
 
@@ -47,33 +44,6 @@ const Blog = () => {
         //setBackdropAnimation triggers a transition in the backdrop component creating the fade out effect, does not work without timeout
     };
 
-    const blogs = [ //variable for listing all blog articles/posts
-        {
-            title: 'Test 1',
-            description: 'A test page during development',
-            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
-            link: 'test-1'
-        },
-        {
-            title: 'Test 2',
-            description: 'A test page during development',
-            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
-            link: 'test-1'
-        },
-        {
-            title: 'Test 3',
-            description: 'A test page during development A test page during development A test page during developmentA test page during development A test page during development A test page during development',
-            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
-            link: 'test-1'
-        },
-        {
-            title: 'Test 4',
-            description: 'A test page during development A test page during development',
-            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
-            link: 'test-1'
-        }
-    ];
-
     return (
         <>
 
@@ -83,29 +53,14 @@ const Blog = () => {
             {/*header*/}
             <ProductHeader currentPage='blog'/>
 
-            <div className='blog-main'>
+            {/*style is needed for two column layout*/}
+            <div style={{display: 'flex', position: 'relative', left: '50%', transform: 'translate(-50%)', width: 'calc(100% - 140px)', gap: '80px'}}>
 
-                {/*three newest blog articles*/}
-                <div className='blog-main-new-blog-container'>
-                    {blogs.slice(0, 2).map((blog) => (
-                        <div className='blog-main-new-blog' key={blog.title}>
-                            {blog.mainImage}
-                            <h1>{blog.title}</h1>
-                            <p>{blog.description}</p>
-                            <Link className='blog-main-new-blog-link' to={blog.link}>Read more...</Link>
-                        </div>
-                    ))}
-                </div>
-                <div className='blog-main-new-blog-container'>
-                    {blogs.slice(2, 4).map((blog) => (
-                        <div className='blog-main-new-blog' key={blog.title}>
-                            {blog.mainImage}
-                            <h1>{blog.title}</h1>
-                            <p>{blog.description}</p>
-                            <Link className='blog-main-new-blog-link' to={blog.link}>Read more...</Link>
-                        </div>
-                    ))}
-                </div>
+                {/*sidebar with filter options*/}
+                <BlogSidebar/>
+
+                {/*main part with blog articles*/}
+                <BlogMain/>
 
             </div>
 

@@ -1,53 +1,39 @@
 /*all styles for the blog overview page (list of all blog articles)*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*sub heading font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*heading font*/
 
 .blog-main { /*layout container for the content*/
     display: flex; /*needed to push the footer down*/
     flex-direction: column; /*needed to push the footer down*/
     position: relative;
-    left: 50%;
-    top: 120px;
-    transform: translate(-50%);
-    width: calc(100% - 140px);
+    top: 160px;
+    width: 100%;
     max-width: 2400px;
     min-height: 100vh;
-    padding: 40px 60px 80px 60px;
-    margin-bottom: 360px;
-}
-
-.blog-main-header { /*the page heading/title*/
-    font-size: 2.8rem;
-    font-family: 'Heebo';
-    margin-bottom: -100px;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin-bottom: 280px;
 }
 
 .blog-main-new-blog-container {
     display: flex;
     gap: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
-
 .blog-main-new-blog {
-    background-color: rgba(55, 55, 55, 1);
-    border-radius: 6px;
-    overflow: hidden;
+    cursor: pointer;
 }
 .blog-main-new-blog img {
     width: 100%;
+    margin-top: -8px;
+    border-radius: 6px;
 }
-.blog-main-new-blog h1 {
-    margin-inline: 8px;
+.blog-main-new-blog h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: 'Rubik';
+    color: rgba(255, 255, 255, 1);
 }
 .blog-main-new-blog p {
-    margin-inline: 8px;
-}
-.blog-main-new-blog-link {
-    margin-inline: 8px;
+    font-family: 'Inter';
+    color: rgba(200, 200, 200, 1);
 }

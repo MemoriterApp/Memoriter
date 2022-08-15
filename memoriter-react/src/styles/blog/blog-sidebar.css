@@ -1,0 +1,23 @@
+/*styles used for the menu sidebar for to filter the posts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
+
+.blog-sidebar {
+    position: sticky;
+    top: 170px;
+    width: 200px;
+    height: 400px;
+    margin-bottom: 200px;
+    border-right: 1px solid rgba(55, 55, 55, 1);
+}
+
+.blog-sidebar-header { /*the component heading/title*/
+    font-size: 2.8rem;
+    font-family: 'Heebo';
+    margin-top: -12px;
+    margin-bottom: -100px;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
