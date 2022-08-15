@@ -73,7 +73,7 @@ const Releases = () => {
                 {/*older versions, gets data from the releases array, where all components are stored, just gets a part of the array*/}
                 {releases.slice(0, loadedReleases)}
 
-                {/*load more button, onClick just adds five on the number of the maximum of shown releases. The button is just shown if necessary.*/}
+                {/*load more button, onClick just adds five to the number of the maximum of shown releases. The button is just shown if necessary.*/}
                 {loadedReleases <= releases.length - 1 ? (
                     <button className='releases-main-button' onClick={() => setLoadedReleases(loadedReleases + 5)}>Load More...</button>) : (<div/>)
                 }

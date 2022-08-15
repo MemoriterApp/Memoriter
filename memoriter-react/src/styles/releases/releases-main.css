@@ -9,7 +9,7 @@
     margin-bottom: 250px;
 }
 
-.releases-main-button {
+.releases-main-button { /*load more button*/
     position: relative;
     top: 60px;
     left: 50%;
