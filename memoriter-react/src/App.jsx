@@ -1,5 +1,6 @@
 import Product from './pages/product';
 import About from './pages/about';
+import Blog from './pages/blog';
 import SignIn from './pages/sign-in';
 import Releases from './pages/releases';
 import Register from './pages/register';
@@ -22,6 +23,8 @@ import { Routes, Route } from 'react-router-dom';
 import { firebase } from './utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
+import Test1 from './pages/blog-articles/test-1';
+
 function App() {
 
   const [user, setUser] = useState({}); //variable for currently signed in user
@@ -43,6 +46,8 @@ function App() {
           <Route path='/product' element={<Product/>}/>
 
           <Route path='/about' element={<About/>}/>
+
+          <Route path='/blog' element={<Blog/>}/>
 
           <Route path='/releases' element={<Releases/>}/>
 
@@ -67,6 +72,9 @@ function App() {
 
             <Route path='/topic' element={<Redirect/>}/>
           </>)}
+
+          {/*blog articles*/}
+          <Route path='/blog/test-1' element={<Test1/>}/>
 
         </Routes>
       </ScrollReset>

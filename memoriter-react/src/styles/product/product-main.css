@@ -47,7 +47,7 @@
 
 .product-main-container { /*contains all of the main sections, is used for positioning*/
     display: flex;
-    margin: 160px 40px 200px 40px;
+    margin: 160px 70px 200px 70px;
 }
 .product-main-container > * + * { /*children of container*/
     margin-left: 60px;
