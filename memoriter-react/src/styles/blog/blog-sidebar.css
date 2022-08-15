@@ -1,10 +1,11 @@
 /*styles used for the menu sidebar for to filter the posts*/
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
 
 .blog-sidebar {
     position: sticky;
-    top: 170px;
+    top: calc(50vh - 200px);
     width: 200px;
     height: 400px;
     margin-bottom: 320px;
@@ -12,6 +13,8 @@
 }
 
 .blog-sidebar-header { /*the component heading/title*/
+    position: relative;
+    top: 10px;
     font-size: 2.8rem;
     font-family: 'Heebo';
     margin-top: -12px;
@@ -20,4 +23,37 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.blog-sidebar-description { /*a small text under the heading*/
+    position: relative;
+    top: 110px;
+    font-size: 1.1rem;
+    font-family: 'Inter';
+    color: rgba(255, 255, 255, 1);
+    line-height: 1.4rem;
+    margin-right: 20px;
+}
+
+.blog-sidebar-divider { /*line between description and links*/
+    position: relative;
+    top: 120px;
+    width: 80px;
+    border-top: 1px solid rgba(55, 55, 55, 1);
+}
+
+.blog-sidebar-topics { /*filter links*/
+    position: relative;
+    left: -40px;
+    top: 130px;
+    width: fit-content;
+    font-size: 1.2rem;
+    font-family: 'Inter';
+    color: rgba(255, 255, 255, 1);
+    list-style: none; /*removes bullet points*/
+}
+.blog-sidebar-topics li { /*list items*/
+    width: fit-content;
+    margin-top: 8px;
+    cursor: pointer;
 }

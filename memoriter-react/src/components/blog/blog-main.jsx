@@ -15,7 +15,88 @@ const BlogMain = () => {
             description: 'A test page during development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development',
             mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
             link: 'test-1'
-        }
+        },
+        {
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 2',
+            description: 'A test page during development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-2'
+        },
+        {
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 1',
+            description: 'A test page during development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-1'
+        },
+        {
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 2',
+            description: 'A test page during development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-2'
+        },
+        {
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 3',
+            description: 'A test page during development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-2'
+        },{
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 4',
+            description: 'A test page during development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-2'
+        },{
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 5',
+            description: 'A test page during development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-2'
+        },{
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 6',
+            description: 'A test page during development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-2'
+        },{
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 7',
+            description: 'A test page during development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-2'
+        },{
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 8',
+            description: 'A test page during development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-2'
+        },{
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 9',
+            description: 'A test page during development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-2'
+        },{
+            tag: 'Test',
+            date: 'none',
+            title: 'Test 10',
+            description: 'A test page during development',
+            mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
+            link: 'test-2'
+        },
     ];
 
     const [loadedBlogs, setLoadedBlogs] = useState(8); //number of blog articles shown before clicking on the load more button

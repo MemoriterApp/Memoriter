@@ -7,7 +7,7 @@
     display: flex; /*needed to push the footer down*/
     flex-direction: column; /*needed to push the footer down*/
     position: relative;
-    top: 140px;
+    top: 150px;
     width: 100%;
     max-width: 2400px;
     min-height: 100vh;
@@ -15,7 +15,7 @@
 }
 
 .blog-main-new-blog-container { /*container for the four newest articles*/
-    display: flex;
+    display: flex; /*two column layout*/
     gap: 40px;
     margin-bottom: 60px;
 }
@@ -88,7 +88,7 @@
 .blog-main-old-blog img { /*old blog preview image*/
     display: inline-block;
     width: 200px;
-    object-fit: cover;
+    object-fit: cover; /*optimizes image scaling*/
     border-radius: 6px;
 }
 

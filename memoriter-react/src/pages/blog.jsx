@@ -48,7 +48,7 @@ const Blog = () => {
         <>
 
             {/*Head*/}
-            <Head title='Blog' description='Updates, news and stories about the Memoriter project.'/>
+            <Head title='Blog' description='Thoughts, inspirations and stories by the people creating Memoriter.'/>
 
             {/*header*/}
             <ProductHeader currentPage='blog'/>
