@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
 
 .blog-sidebar {
-    position: sticky;
+    position: sticky; /*pushes the sidebar up on scroll when the footer is reached*/
     top: calc(50vh - 200px);
     width: 200px;
     height: 400px;

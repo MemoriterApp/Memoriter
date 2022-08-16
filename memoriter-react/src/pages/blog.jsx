@@ -44,6 +44,14 @@ const Blog = () => {
         //setBackdropAnimation triggers a transition in the backdrop component creating the fade out effect, does not work without timeout
     };
 
+    const [filter, setFilter] = useState('Latest'); //variable for filtering the blog articles
+
+    function setCategory(filter) { //sets filter/category when one of the catogories from the sidebar is clicked
+        setFilter(filter); //sets filter which is passed to the blog main component
+
+        window.scrollTo(0, 0); //scrolls back to top
+    };
+
     return (
         <>
 
@@ -57,10 +65,10 @@ const Blog = () => {
             <div style={{display: 'flex', position: 'relative', left: '50%', transform: 'translate(-50%)', width: 'calc(100% - 140px)', gap: '80px'}}>
 
                 {/*sidebar with filter options*/}
-                <BlogSidebar/>
+                <BlogSidebar filter={filter} onSetCategory={setCategory}/>
 
                 {/*main part with blog articles*/}
-                <BlogMain/>
+                <BlogMain filter={filter}/>
 
             </div>
 

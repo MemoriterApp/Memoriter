@@ -3,13 +3,13 @@ import Test1MainImage from '../../images/blog-images/test-1/test-1-main.jpeg';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const BlogMain = () => {
+const BlogMain = ({ filter }) => {
 
     const navigate = useNavigate(); //variable for routing, alternative option for links
 
     const blogs = [ //variable for listing all blog articles/posts
         {
-            tag: 'Test',
+            category: 'Company',
             date: 'none',
             title: 'Test 1',
             description: 'A test page during development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development',
@@ -17,7 +17,7 @@ const BlogMain = () => {
             link: 'test-1'
         },
         {
-            tag: 'Test',
+            category: 'Technology',
             date: 'none',
             title: 'Test 2',
             description: 'A test page during development',
@@ -25,72 +25,72 @@ const BlogMain = () => {
             link: 'test-2'
         },
         {
-            tag: 'Test',
+            category: 'Company',
             date: 'none',
-            title: 'Test 1',
+            title: 'Test 11',
             description: 'A test page during development',
             mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
             link: 'test-1'
         },
         {
-            tag: 'Test',
+            category: 'Company',
             date: 'none',
-            title: 'Test 2',
+            title: 'Test 12',
             description: 'A test page during development',
             mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
             link: 'test-2'
         },
         {
-            tag: 'Test',
+            category: 'Productivity',
             date: 'none',
             title: 'Test 3',
             description: 'A test page during development',
             mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
             link: 'test-2'
         },{
-            tag: 'Test',
+            category: 'Company',
             date: 'none',
             title: 'Test 4',
             description: 'A test page during development',
             mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
             link: 'test-2'
         },{
-            tag: 'Test',
+            category: 'Miscellaneous',
             date: 'none',
             title: 'Test 5',
             description: 'A test page during development',
             mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
             link: 'test-2'
         },{
-            tag: 'Test',
+            category: 'Productivity',
             date: 'none',
             title: 'Test 6',
             description: 'A test page during development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development development',
             mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
             link: 'test-2'
         },{
-            tag: 'Test',
+            category: 'Productivity',
             date: 'none',
             title: 'Test 7',
             description: 'A test page during development',
             mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
             link: 'test-2'
         },{
-            tag: 'Test',
+            category: 'Company',
             date: 'none',
             title: 'Test 8',
             description: 'A test page during development',
             mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
             link: 'test-2'
         },{
-            tag: 'Test',
+            category: 'Company',
             date: 'none',
             title: 'Test 9',
             description: 'A test page during development',
             mainImage: <img src={Test1MainImage} alt='test-1-main'/>,
             link: 'test-2'
         },{
-            tag: 'Test',
+            category: 'Company',
             date: 'none',
             title: 'Test 10',
             description: 'A test page during development',
@@ -106,10 +106,11 @@ const BlogMain = () => {
 
                 {/*four newest blog articles*/}
                 <div className='blog-main-new-blog-container'>
-                    {blogs.slice(0, 2).map((blog) => (
+                    {blogs.filter((blog) => filter !== 'Latest' ? blog.category === filter : blog.category !== filter).slice(0, 2).map((blog) => (
+                        //gets the first two objects from the blogs array, is filtered when a filter (e.g. 'company') is active
                         <div className='blog-main-new-blog' key={blog.title} onClick={() => navigate(blog.link)}>
                             
-                            <p style={{lineHeight: '1rem'}}>{blog.tag}</p>
+                            <p style={{lineHeight: '1rem'}}>{blog.category}</p>
                             <p style={{lineHeight: '1rem', marginTop: '-2.1rem', textAlign: 'right'}}>{blog.date}</p>
                             
                             {blog.mainImage}
@@ -121,10 +122,11 @@ const BlogMain = () => {
                     ))}
                 </div>
                 <div className='blog-main-new-blog-container'>
-                    {blogs.slice(2, 4).map((blog) => (
+                    {blogs.filter((blog) => filter !== 'Latest' ? blog.category === filter : blog.category !== filter).slice(2, 4).map((blog) => (
+                        //gets the objects three to four from the blogs array, is filtered when a filter (e.g. 'company') is active
                         <div className='blog-main-new-blog' key={blog.title} onClick={() => navigate(blog.link)}>
                             
-                            <p style={{lineHeight: '1rem'}}>{blog.tag}</p>
+                            <p style={{lineHeight: '1rem'}}>{blog.category}</p>
                             <p style={{lineHeight: '1rem', marginTop: '-2.1rem', textAlign: 'right'}}>{blog.date}</p>
                             
                             {blog.mainImage}
@@ -137,10 +139,11 @@ const BlogMain = () => {
 
                 {/*older blog articles (different, more compact style)*/}
                 <div>
-                    {blogs.slice(4, loadedBlogs).map((blog) => (
+                    {blogs.filter((blog) => filter !== 'Latest' ? blog.category === filter : blog.category !== filter).slice(4, loadedBlogs).map((blog) => (
+                        //gets more objects from the blogs array, is filtered when a filter (e.g. 'company') is active
                         <div className='blog-main-old-blog' key={blog.title} onClick={() => navigate(blog.link)}>
                             
-                            <p className='blog-main-old-blog-outside'>{blog.tag}</p>
+                            <p className='blog-main-old-blog-outside'>{blog.category}</p>
                             <p className='blog-main-old-blog-outside' style={{marginTop: '-35px', textAlign: 'right'}}>{blog.date}</p>
                             
                             <div style={{display: 'flex', gap: '20px'}}>
@@ -159,7 +162,7 @@ const BlogMain = () => {
                 </div>
                 
                 {/*load more button, onClick just adds eight to the number of the maximum of shown blogs. The button is just shown if necessary.*/}
-                {loadedBlogs <= blogs.length - 1 ? (
+                {loadedBlogs <= blogs.filter((blog) => filter !== 'Latest' ? blog.category === filter : blog.category !== filter).length - 1 ? (
                     <button className='blog-main-button' onClick={() => setLoadedBlogs(loadedBlogs + 8)}>Load More...</button>) : (<div/>)
                 }
 

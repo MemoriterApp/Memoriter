@@ -1,6 +1,9 @@
 import '../../styles/blog/blog-sidebar.css';
 
-const BlogSidebar = () => {
+const BlogSidebar = ({ filter, onSetCategory }) => {
+
+    const categories = ['Latest', 'Company', 'Productivity', 'Technology', 'Miscellaneous']; //all categories
+
     return (
         <aside className='blog-sidebar'>
 
@@ -11,11 +14,13 @@ const BlogSidebar = () => {
             <div className='blog-sidebar-divider'/>
 
             <ul className='blog-sidebar-topics'>
-                <li>Latest</li>
-                <li>Company</li>
-                <li>Productivity</li>
-                <li>Technology</li>
-                <li>Miscellaneous</li>
+                {categories.map((category) => ( //gets and displays the categories from the array
+                    category === filter? ( //link for the current category is highlighted
+                        <li onClick={() => onSetCategory(category)}><strong>{category}</strong></li>
+                    ) : (
+                        <li onClick={() => onSetCategory(category)}>{category}</li>
+                    )
+                ))}
             </ul>
             
         </aside>
