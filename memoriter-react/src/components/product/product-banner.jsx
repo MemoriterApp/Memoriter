@@ -45,7 +45,7 @@ const ProductBanner = () => {
 
                 {/*get started button for redirecting to register page*/}
                 <Link
-                    className='product-banner-get-started' to='/signup'
+                    className='product-banner-get-started' to='/register'
                     onMouseEnter={() => {setOnHover('brightness(0.75)'); setTriangleEffect('10'); setTriangleTransition('400ms');}}
                     onMouseLeave={() => {setOnHover('brightness(1)'); setTriangleEffect('0'); setTimeout(() => {setTriangleTransition('none')}, 400);}}
                 >
