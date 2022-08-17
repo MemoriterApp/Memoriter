@@ -19,7 +19,7 @@ const BlogMain = ({ topic }) => {
                     <div className='blog-main-new-blog' key={blog.title} onClick={() => navigate(`/blog/${blog.link}`)}>
                             
                         <p style={{lineHeight: '1rem'}}>{blog.topic}</p>
-                        <p style={{lineHeight: '1rem', marginTop: '-2.1rem', textAlign: 'right'}}>{blog.date}</p>
+                        <p className='blog-main-blog-date' style={{lineHeight: '1rem'}}>{blog.date}</p>
                             
                         {blog.mainImage}
                             
@@ -35,7 +35,7 @@ const BlogMain = ({ topic }) => {
                     <div className='blog-main-new-blog' key={blog.title} onClick={() => navigate(`/blog/${blog.link}`)}>
                             
                         <p style={{lineHeight: '1rem'}}>{blog.topic}</p>
-                        <p style={{lineHeight: '1rem', marginTop: '-2.1rem', textAlign: 'right'}}>{blog.date}</p>
+                        <p className='blog-main-blog-date' style={{lineHeight: '1rem'}}>{blog.date}</p>
                             
                         {blog.mainImage}
                             
@@ -52,7 +52,7 @@ const BlogMain = ({ topic }) => {
                     <div className='blog-main-old-blog' key={blog.title} onClick={() => navigate(`/blog/${blog.link}`)}>
                             
                         <p className='blog-main-old-blog-outside'>{blog.topic}</p>
-                        <p className='blog-main-old-blog-outside' style={{marginTop: '-35px', textAlign: 'right'}}>{blog.date}</p>
+                        <p className='blog-main-blog-date blog-main-old-blog-outside' style={{lineHeight: '1rem'}}>{blog.date}</p> {/*two classes*/}
                             
                         <div style={{display: 'flex', gap: '20px'}}>
 

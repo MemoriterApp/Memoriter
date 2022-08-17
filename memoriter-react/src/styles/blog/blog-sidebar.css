@@ -59,6 +59,52 @@
     font-family: 'Inter';
     color: rgba(255, 255, 255, 1);
     text-decoration: none;
+    transition: color 200ms;
+}
+.blog-sidebar-topics-link:hover { /*link hover effect*/
+    color: rgba(200, 200, 200, 1);
+}
+
+@media (max-width: 960px) { /*optimizations for smaller screens*/
+    .blog-sidebar {
+        position: relative;
+        top: 140px;
+        width: unset;
+        height: unset;
+        margin-bottom: 0;
+        border-right: unset;
+    }
+
+    .blog-sidebar-description {
+        max-width: 320px;
+        margin-bottom: 32px;
+    }
+
+    .blog-sidebar-divider {
+        width: 100%;
+    }
+
+    .blog-sidebar-topics {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 160px;
+    }
+
+    .blog-sidebar-topics li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 660px) { /*optimizations for mobile devices*/
+    .blog-sidebar-topics {
+        text-align: center;
+    }
+
+    .blog-sidebar-topics li {
+        margin-right: unset;
+        margin: 8px 10px 0 10px;
+    }
 }
 
 @media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/

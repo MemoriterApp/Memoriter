@@ -87,6 +87,7 @@
 
 @media (max-width: 960px) { /*removes space at the sides on small screens*/
     .faq-main {
+        top: 60px;
         width: calc(100% - 40px);
         padding: 40px 0 80px 0;
     }
