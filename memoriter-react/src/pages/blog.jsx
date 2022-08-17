@@ -3,6 +3,7 @@ import ProductHeader from '../components/product/product-header';
 import BlogSidebar from '../components/blog/blog-sidebar';
 import BlogMain from '../components/blog/blog-main';
 import ProductFooter from '../components/product/product-footer';
+import CookieBanner from '../components/cookie-banner/cookie-banner';
 import CookieSettings from '../components/cookie-banner/cookie-settings';
 import Backdrop from '../components/backdrop';
 import WindowSizeAlert from '../components/window-size-alert';
@@ -68,6 +69,9 @@ const Blog = ({ topic }) => {
 
             {/*footer*/}
             <ProductFooter onOpenCookieSettings={openCookieSettings}/>
+
+            {/*cookie banner*/}
+            <CookieBanner onOpenCookieSettings={openCookieSettings}/>
 
             {/*cookie settings modal*/}
             {cookieSettings && <>

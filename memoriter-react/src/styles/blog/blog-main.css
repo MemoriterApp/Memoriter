@@ -20,7 +20,7 @@
     width: 100%;
     max-width: 2400px;
     min-height: 100vh;
-    margin-bottom: 480px;
+    margin-bottom: 400px;
 }
 
 .blog-main-blog-date { /*some extra layout styles for the date of publication for each blog post*/
