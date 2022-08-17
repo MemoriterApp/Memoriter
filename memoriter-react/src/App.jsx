@@ -23,7 +23,7 @@ import { Routes, Route } from 'react-router-dom';
 import { firebase } from './utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
-import Test1 from './pages/blog-articles/test-1';
+import Test1 from './pages/blog-posts/test-1';
 
 function App() {
 
@@ -47,7 +47,15 @@ function App() {
 
           <Route path='/about' element={<About/>}/>
 
-          <Route path='/blog' element={<Blog/>}/>
+          <Route path='/blog' element={<Blog topic='Latest'/>}/> {/*blog topics are different routes with the same page, but with filtered content*/}
+
+          <Route path='/blog/topic/company' element={<Blog topic='Company'/>}/>
+
+          <Route path='/blog/topic/productivity' element={<Blog topic='Productivity'/>}/>
+
+          <Route path='/blog/topic/technology' element={<Blog topic='Technology'/>}/>
+
+          <Route path='/blog/topic/miscellaneous' element={<Blog topic='Miscellaneous'/>}/>
 
           <Route path='/releases' element={<Releases/>}/>
 
@@ -73,7 +81,7 @@ function App() {
             <Route path='/topic' element={<Redirect/>}/>
           </>)}
 
-          {/*blog articles*/}
+          {/*blog posts*/}
           <Route path='/blog/test-1' element={<Test1/>}/>
 
         </Routes>

@@ -47,13 +47,22 @@
     left: -40px;
     top: 130px;
     width: fit-content;
-    font-size: 1.2rem;
-    font-family: 'Inter';
-    color: rgba(255, 255, 255, 1);
     list-style: none; /*removes bullet points*/
 }
 .blog-sidebar-topics li { /*list items*/
     width: fit-content;
     margin-top: 8px;
     cursor: pointer;
+}
+.blog-sidebar-topics-link { /*styles for the react router links of the list*/
+    font-size: 1.2rem;
+    font-family: 'Inter';
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+
+@media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/
+    .blog-sidebar {
+        display: none;
+    }
 }

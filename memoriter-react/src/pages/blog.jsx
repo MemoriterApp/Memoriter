@@ -8,7 +8,7 @@ import Backdrop from '../components/backdrop';
 import WindowSizeAlert from '../components/window-size-alert';
 import { useState } from 'react';
 
-const Blog = () => {
+const Blog = ({ topic }) => {
 
     const [cookieSettings, setCookieSettings] = useState(false); //opens or closes cookie settings
 
@@ -44,13 +44,7 @@ const Blog = () => {
         //setBackdropAnimation triggers a transition in the backdrop component creating the fade out effect, does not work without timeout
     };
 
-    const [filter, setFilter] = useState('Latest'); //variable for filtering the blog articles
-
-    function setCategory(filter) { //sets filter/category when one of the catogories from the sidebar is clicked
-        setFilter(filter); //sets filter which is passed to the blog main component
-
-        window.scrollTo(0, 0); //scrolls back to top
-    };
+    const filter = topic; //variable for filtering the blog posts
 
     return (
         <>
@@ -62,13 +56,13 @@ const Blog = () => {
             <ProductHeader currentPage='blog'/>
 
             {/*style is needed for two column layout*/}
-            <div style={{display: 'flex', position: 'relative', left: '50%', transform: 'translate(-50%)', width: 'calc(100% - 140px)', gap: '80px'}}>
+            <div className='blog-main-body'>
 
                 {/*sidebar with filter options*/}
-                <BlogSidebar filter={filter} onSetCategory={setCategory}/>
+                <BlogSidebar topic={filter}/>
 
-                {/*main part with blog articles*/}
-                <BlogMain filter={filter}/>
+                {/*main part with blog posts*/}
+                <BlogMain topic={filter}/>
 
             </div>
 
