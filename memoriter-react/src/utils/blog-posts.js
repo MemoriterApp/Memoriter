@@ -2,7 +2,7 @@
 The list is used by the blog main component.
 If a new post is created, the link must be put in here or the post will not be shown on the blog page*/
 
-import Test1MainImage from '../images/blog-images/test-1/test-1-main.jpeg';
+import Test1MainImage from '../images/blog/test-1/test-1-main.jpeg';
 
 const blogs = [ //variable for listing all blog posts
     {

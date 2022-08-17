@@ -1,5 +1,5 @@
 import '../../styles/product/product-main.css';
-import placeholderImage from '../../images/placeholder.jpeg';
+import placeholderImage from '../../images/product/placeholder.jpeg';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 const ProductMain = () => {

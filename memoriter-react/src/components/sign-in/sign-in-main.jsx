@@ -1,8 +1,8 @@
 import '../../styles/sign-in/sign-in-main.css';
-import googleIcon from '../../images/google-icon.svg';
-import appleIcon from '../../images/apple-icon.svg';
-import facebookIcon from '../../images/facebook-icon.svg';
-import githubIcon from '../../images/github-icon.svg';
+import googleIcon from '../../images/icons/google-icon.svg';
+import appleIcon from '../../images/icons/apple-icon.svg';
+import facebookIcon from '../../images/icons/facebook-icon.svg';
+import githubIcon from '../../images/icons/github-icon.svg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../utils/firebase';

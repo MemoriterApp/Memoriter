@@ -1,8 +1,8 @@
 import '../../styles/product/product-footer.css';
-import youtubeIcon from '../../images/youtube-icon.svg';
-import twitterIcon from '../../images/twitter-icon.svg';
-import instagramIcon from '../../images/instagram-icon.svg';
-import newsletterIcon from '../../images/newsletter-icon.svg';
+import youtubeIcon from '../../images/icons/youtube-icon.svg';
+import twitterIcon from '../../images/icons/twitter-icon.svg';
+import instagramIcon from '../../images/icons/instagram-icon.svg';
+import newsletterIcon from '../../images/icons/newsletter-icon.svg';
 import { Link } from 'react-router-dom';
 
 const ProductFooter = ({ onOpenCookieSettings }) => {

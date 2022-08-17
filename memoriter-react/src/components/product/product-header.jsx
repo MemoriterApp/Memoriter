@@ -1,6 +1,6 @@
 import '../../styles/product/product-header.css';
 import memoriterLogo from '../../images/memoriter-logo.svg';
-import languageIcon from '../../images/language-icon.svg';
+import languageIcon from '../../images/icons/language-icon.svg';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 

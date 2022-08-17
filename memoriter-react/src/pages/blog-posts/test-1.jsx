@@ -1,4 +1,4 @@
-import Test1MainImage from '../../images/blog-images/test-1/test-1-main.jpeg';
+import Test1MainImage from '../../images/blog/test-1/test-1-main.jpeg';
 
 const Test1 = () => {
 
