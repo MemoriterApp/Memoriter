@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const Redirect = () => {
     const navigate = useNavigate();
 
-    useEffect(() => {
+    useEffect(() => { //if no user is signed in and this page loads, you are redirected to the signup page
         navigate('/signin');
     });
 

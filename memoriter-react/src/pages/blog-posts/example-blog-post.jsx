@@ -9,6 +9,8 @@ import CookieBanner from '../../components/cookie-banner/cookie-banner';
 import CookieSettings from '../../components/cookie-banner/cookie-settings';
 import Backdrop from '../../components/backdrop';
 import WindowSizeAlert from '../../components/window-size-alert';
+import BlogPostCodeBlock from '../../components/blog/blog-post-code-block';
+import BlogPostInlineCode from '../../components/blog/blog-post-inline-code';
 import { useState } from 'react';
 
 const ExampleBlogPost = () => {
@@ -54,7 +56,7 @@ const ExampleBlogPost = () => {
     const date = 'August 17th, 2022'; //date of publication (syntax: August 17th, 2022)
     const author = 'Simon Hubert'; //your name
     const topic = 'Miscellaneous'; //the topic/category for the filter option (Company, Productivity, Technology or Miscellaneous)
-    const wordCount = 388 //count the words of the text (every word in the <article/> tag)
+    const wordCount = 406 //count the words of the text (every word in the <article/> tag)
 
     return (
         <>
@@ -108,14 +110,13 @@ const ExampleBlogPost = () => {
 
                     <h3>Example Code</h3>
 
-                    <div>
-                        <code>
-                            //some stuff<br/>
-                            const pi = 3.14;<br/>
-                            console.log(pi);
-                        </code>
-                    </div>
-                    <p>It also works inline: <code>return 3.14;</code></p>
+                    <BlogPostCodeBlock>{[
+                        'const pi = 3.14;',
+                        'console.log(pi);',
+                        'return(<div>Hello!</div>);'
+                    ]}</BlogPostCodeBlock>
+
+                    <p>It also works inline: <BlogPostInlineCode>{'return 3.14;'}</BlogPostInlineCode></p>
 
                 </article>
 
