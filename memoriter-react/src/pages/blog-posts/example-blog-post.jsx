@@ -54,12 +54,12 @@ const ExampleBlogPost = () => {
     //general blog post data (used for the post header)
     const title = 'Example Blog Post'; //blog title (enter your self, the rest is autocompleted by the data from the blog posts file!)
 
-    const description = blogs.find(item => item.title === title).description; //small description, same as used for the overview page
-    const date = blogs.find(item => item.title === title).date; //date of publication (syntax: August 17th, 2022)
-    const author = blogs.find(item => item.title === title).author; //the name of the author
     const topic = blogs.find(item => item.title === title).topic; //the topic/category for the filter option (Company, Productivity, Technology or Miscellaneous)
+    const date = blogs.find(item => item.title === title).date; //date of publication
+    const author = blogs.find(item => item.title === title).author; //the name of the author
+    const description = blogs.find(item => item.title === title).description; //small description, same as used for the overview page
+    const wordCount =blogs.find(item => item.title === title).wordCount; //estimated number of words
     const linkedBlogs = blogs.find(item => item.title === title).linkedBlogs; //blog posts linked at the bottom of the text
-    const wordCount = 400; //count the words of the text (every word in the <article/> tag)
 
     return (
         <>

@@ -13,7 +13,8 @@ const blogs = [ //variable for listing all blog posts
         title: 'Example Blog Post', //title of the post
         description: //small description of the content of the posts
             'This post is an example placeholder blog page. It will be replaced by the first real blog post.',
-        mainImage: <img src={exampleBlogPost} alt='example-blog-post'/>, //image which is shown with the blog page link, should be 16:9 and named after title (camelCase for file name, kebab-case for alt)
+        wordCount: 400, //count the words of the text (every word in the <article/> tag)
+            mainImage: <img src={exampleBlogPost} alt='example-blog-post'/>, //image which is shown with the blog page link, should be 16:9 and named after title (camelCase for file name, kebab-case for alt)
         link: 'example-blog-post', //url for the post (is supposed to be a syntax-corrected (kebab-case) version of the title (or a part of it))
         linkedBlogs: ['Example Blog Post'] //blog posts you want to link at the bottom of the text, write titles in an array (three posts is optimal)
     }
