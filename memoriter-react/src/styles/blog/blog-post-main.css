@@ -1,0 +1,95 @@
+/*In this stylesheet the basic layout options of all blog posts are defined.*/
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap'); /*serif font for the main text*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*sans-serif font for image captions, callouts etc.*/
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono&display=swap'); /*monospace font for code*/
+
+.blog-post-main { /*main container*/
+    display: flex; /*needed to push the footer down*/
+    flex-direction: column; /*needed to push the footer down*/
+    position: relative;
+    left: 50%;
+    top: 120px;
+    transform: translate(-50%);
+    width: calc(100% - 420px);
+    max-width: 1000px;
+    min-height: 100vh;
+    padding: 40px 60px 80px 60px;
+    margin-bottom: 320px;
+}
+
+.blog-post-main article { /*main text*/
+    position: relative;
+    left: 150px;
+    max-width: 700px;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'IBM Plex Serif';
+    line-height: 2.2rem;
+}
+
+.blog-post-main article h2 {
+    font-size: 2.2rem;
+    font-family: 'Heebo';
+    margin-top: 48px;
+}
+
+.blog-post-main article h3 {
+    font-size: 1.7rem;
+    font-family: 'Heebo';
+    margin-top: 42px;
+}
+
+.blog-post-main article a {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: underline 1px;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    transition: color 200ms;
+}
+.blog-post-main article a:hover {
+    color: rgba(200, 200, 200, 1);
+}
+
+.blog-post-main article figure {
+    margin: 60px -20px 40px -20px;
+    font-size: 1.1rem;
+    color: rgba(200, 200, 200, 1);
+    font-family: 'Inter';
+}
+.blog-post-main article figure img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.blog-post-main-callout {
+    font-family: 'Inter';
+    padding: 24px 24px 24px 72px;
+    background-color: rgba(55, 55, 55, 0.75);
+    border-radius: 10px;
+}
+.blog-post-main-callout img {
+    position: absolute;
+    left: 12px;
+    transform: translate(0, -6px);
+    height: 48px;
+    filter: invert(1); /*makes the icon white*/
+}
+
+.blog-post-main code {
+    font-size: 1.1rem;
+    font-family: 'Azeret Mono';
+    padding: 4px 4px 4px 4px;
+    background-color: rgba(55, 55, 55, 0.75);
+    border-radius: 4px;
+}
+
+.blog-post-main div code {
+    display: block;
+    font-size: 1.1rem;
+    font-family: 'Azeret Mono';
+    padding: 12px 16px 12px 16px;
+    line-height: 1.8rem;
+    background-color: rgba(55, 55, 55, 0.75);
+    border-radius: 10px;
+}

@@ -131,6 +131,10 @@
         width: calc(100% - 40px);
         gap: 40px;
     }
+
+    .blog-main {
+        margin-top: -32px;
+    }
 }
 
 @media (max-width: 960px) { /*optimizes layout for small screens*/

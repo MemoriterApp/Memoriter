@@ -141,7 +141,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
-    filter: invert(1); /*for making the icons light gray*/
+    filter: invert(1); /*for making the icons white*/
 }
 
 @media (max-width: 1160px) { /*small optimization for small screens*/

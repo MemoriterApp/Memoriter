@@ -1,0 +1,108 @@
+/*styles for the header with title, date, authoe etc. at the top of each post*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*larger font*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large font for title*/
+
+.blog-post-header-all-posts { /*a back to all posts link*/
+    position: absolute;
+    left: -105px;
+    top: 50px;
+    width: fit-content;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    text-decoration: none;
+    text-align: right;
+    padding: 4px 6px 4px 6px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    transition: background-color 200ms;
+}
+.blog-post-header-all-posts:hover { /*hover effect for back to all posts link*/
+    background-color: rgba(55, 55, 55, 0.75);
+}
+
+.blog-post-header-data { /*date of publication and topic (with link)*/
+    position: relative;
+    left: 150px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(200, 200, 200, 1);
+    font-family: 'Inter';
+}
+.blog-post-header-data-link { /*link to topic on blog page*/
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    text-decoration: none;
+    transition: color 200ms;
+}
+.blog-post-header-data-link:hover { /*hover effect for link*/
+    color: rgba(200, 200, 200, 1);
+}
+
+.blog-post-header-title { /*the blog title*/
+    position: relative;
+    left: 150px;
+    max-width: 800px;
+    font-size: 2.8rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Heebo';
+    line-height: 3.4rem;
+    margin-top: -10px;
+}
+
+.blog-post-header-author { /*mention of the author*/
+    position: relative;
+    left: 150px;
+    font-size: 1.2rem;
+    color: rgba(200, 200, 200, 1);
+    font-family: 'Inter';
+    margin-top: -24px;
+    margin-bottom: 160px;
+}
+
+.blog-post-header-reading-time { /*reading time indicator at the side*/
+    position: relative;
+    left: -165px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    line-height: 2.2rem;
+    margin-top: 100px;
+    margin-bottom: -72px;
+}
+
+.blog-post-header-share { /*share links*/
+    position: relative;
+    top: 64px;
+    left: -165px;
+    height: 90px;
+    color: rgba(200, 200, 200, 1);
+    font-family: 'Inter';
+    margin-bottom: -90px;
+}
+.blog-post-header-share-circle { /*circle around the icons*/
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    margin-top: -4px;
+    border: 2px solid rgba(255, 255, 255, 1);
+    border-radius: 50%; /*circle shape*/
+    transform: scale(0.85); /*adjusts the size more precise*/
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+.blog-post-header-share-circle:hover { /*background hover effect*/
+    background-color: rgba(55, 55, 55, 0.5);
+}
+.blog-post-header-share-icon { /*icons for the different social media platforms*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    filter: invert(1); /*for making the icons white*/
+}

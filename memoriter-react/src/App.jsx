@@ -23,7 +23,7 @@ import { Routes, Route } from 'react-router-dom';
 import { firebase } from './utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
-import Test1 from './pages/blog-posts/test-1';
+import ExampleBlogPost from './pages/blog-posts/example-blog-post';
 
 function App() {
 
@@ -82,7 +82,7 @@ function App() {
           </>)}
 
           {/*blog posts*/}
-          <Route path='/blog/test-1' element={<Test1/>}/>
+          <Route path='/blog/example-blog-post' element={<ExampleBlogPost/>}/>
 
         </Routes>
       </ScrollReset>
