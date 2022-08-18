@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom';
 
 const BlogPostHeader = ({ title, date, author, topic }) => {
 
-    const [wordCount, setWordCount] = useState(0);
+    const [wordCount, setWordCount] = useState(0); //(slightly inaccurate) number of words of the main part, used for reading time calculation
 
-    useEffect(() => {
-        setWordCount(sessionStorage.getItem('current-blog-word-count'));
+    useEffect(() => { //useefect triggers if the word count changes, needed to auto set the reading time
+        setWordCount(sessionStorage.getItem('current-blog-word-count')); //sets the word count to a value from session storage
     }, [wordCount]);
 
     return (

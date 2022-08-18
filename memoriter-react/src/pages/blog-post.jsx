@@ -52,7 +52,7 @@ const BlogPost = ({ blog }) => {
     const author = blog.author; //the name of the author
     const title = blog.title; //blog title
     const description = blog.description; //small description, same as used for the overview page
-    const content = blog.content;
+    const content = blog.content; //main content text of the post
     const linkedBlogs = blog.linkedBlogs; //blog posts linked at the bottom of the text
 
     return (
