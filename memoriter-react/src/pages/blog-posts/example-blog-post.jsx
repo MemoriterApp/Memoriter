@@ -4,6 +4,7 @@ import exampleBlogPost from '../../images/blog/example-blog-post/example-blog-po
 import Head from '../../components/head';
 import ProductHeader from '../../components/product/product-header';
 import BlogPostHeader from '../../components/blog/blog-post-header';
+import BlogPostFooter from '../../components/blog/blog-post-footer';
 import ProductFooter from '../../components/product/product-footer';
 import CookieBanner from '../../components/cookie-banner/cookie-banner';
 import CookieSettings from '../../components/cookie-banner/cookie-settings';
@@ -12,6 +13,7 @@ import WindowSizeAlert from '../../components/window-size-alert';
 import BlogPostCodeBlock from '../../components/blog/blog-post-code-block';
 import BlogPostInlineCode from '../../components/blog/blog-post-inline-code';
 import { useState } from 'react';
+import blogs from '../../utils/blog-posts';
 
 const ExampleBlogPost = () => {
 
@@ -50,13 +52,14 @@ const ExampleBlogPost = () => {
     };
 
     //general blog post data (used for the post header)
-    const title = 'Example Blog Post'; //blog title
-    const description = //small description, same as used for the overview page
-        'This post is an example placeholder blog page. It will be replaced by the first real blog post.';
-    const date = 'August 17th, 2022'; //date of publication (syntax: August 17th, 2022)
-    const author = 'Simon Hubert'; //your name
-    const topic = 'Miscellaneous'; //the topic/category for the filter option (Company, Productivity, Technology or Miscellaneous)
-    const wordCount = 406 //count the words of the text (every word in the <article/> tag)
+    const title = 'Example Blog Post'; //blog title (enter your self, the rest is autocompleted by the data from the blog posts file!)
+
+    const description = blogs.find(item => item.title === title).description; //small description, same as used for the overview page
+    const date = blogs.find(item => item.title === title).date; //date of publication (syntax: August 17th, 2022)
+    const author = blogs.find(item => item.title === title).author; //the name of the author
+    const topic = blogs.find(item => item.title === title).topic; //the topic/category for the filter option (Company, Productivity, Technology or Miscellaneous)
+    const linkedBlogs = blogs.find(item => item.title === title).linkedBlogs; //blog posts linked at the bottom of the text
+    const wordCount = 400; //count the words of the text (every word in the <article/> tag)
 
     return (
         <>
@@ -116,9 +119,12 @@ const ExampleBlogPost = () => {
                         'return(<div>Hello!</div>);'
                     ]}</BlogPostCodeBlock>
 
-                    <p>It also works inline: <BlogPostInlineCode>{'return 3.14;'}</BlogPostInlineCode></p>
+                    <div>It also works inline: <BlogPostInlineCode>{'return 3.14;'}</BlogPostInlineCode></div>
 
                 </article>
+
+                {/*footer with the read more links, share options etc.*/}
+                <BlogPostFooter title={title} linkedBlogs={linkedBlogs}/>
 
             </div>
 
