@@ -21,7 +21,7 @@ const BlogMain = ({ topic }) => {
                         <p style={{lineHeight: '1rem'}}>{blog.topic}</p>
                         <p className='blog-main-blog-date' style={{lineHeight: '1rem'}}>{blog.dateShortened}</p>
                             
-                        {blog.mainImage}
+                        {blog.image}
                             
                         <h2>{blog.title}</h2>
                         <p>{blog.description}</p>
@@ -37,7 +37,7 @@ const BlogMain = ({ topic }) => {
                         <p style={{lineHeight: '1rem'}}>{blog.topic}</p>
                         <p className='blog-main-blog-date' style={{lineHeight: '1rem'}}>{blog.dateShortened}</p>
                             
-                        {blog.mainImage}
+                        {blog.image}
                             
                         <h2>{blog.title}</h2>
                         <p>{blog.description}</p>
@@ -61,7 +61,7 @@ const BlogMain = ({ topic }) => {
                                 <p>{blog.description}</p>
                             </div>
 
-                            {blog.mainImage}
+                            {blog.image}
 
                         </div>
 

@@ -1,6 +1,7 @@
 import Product from './pages/product';
 import About from './pages/about';
 import Blog from './pages/blog';
+import BlogPost from './pages/blog-post';
 import SignIn from './pages/sign-in';
 import Releases from './pages/releases';
 import Register from './pages/register';
@@ -22,8 +23,7 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { firebase } from './utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-
-import ExampleBlogPost from './pages/blog-posts/example-blog-post';
+import blogs from './utils/blog-posts';
 
 function App() {
 
@@ -57,6 +57,11 @@ function App() {
 
           <Route path='/blog/topic/miscellaneous' element={<Blog topic='Miscellaneous'/>}/>
 
+          {/*blog posts*/}
+          {blogs.map((blog) => (
+            <Route path={`/blog/${blog.link}`} element={<BlogPost blog={blog}/>} key={blog.title}/>
+          ))}
+
           <Route path='/releases' element={<Releases/>}/>
 
           <Route path='/impressum' element={<Impressum/>}/>
@@ -80,9 +85,6 @@ function App() {
 
             <Route path='/topic' element={<Redirect/>}/>
           </>)}
-
-          {/*blog posts*/}
-          <Route path='/blog/example-blog-post' element={<ExampleBlogPost/>}/>
 
         </Routes>
       </ScrollReset>

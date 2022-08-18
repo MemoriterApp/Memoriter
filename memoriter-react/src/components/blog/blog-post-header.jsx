@@ -3,9 +3,17 @@ import twitterIcon from '../../images/icons/twitter-icon.svg';
 import facebookIcon from '../../images/icons/facebook-icon.svg';
 import whatsappIcon from '../../images/icons/whatsapp-icon.svg';
 import emailIcon from '../../images/icons/newsletter-icon.svg';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const BlogPostHeader = ({ title, date, author, topic, wordCount }) => {
+const BlogPostHeader = ({ title, date, author, topic }) => {
+
+    const [wordCount, setWordCount] = useState(0);
+
+    useEffect(() => {
+        setWordCount(sessionStorage.getItem('current-blog-word-count'));
+    }, [wordCount]);
+
     return (
         <div>
             
