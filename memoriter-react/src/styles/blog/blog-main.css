@@ -33,7 +33,7 @@
     gap: 40px;
     margin-bottom: 60px;
 }
-.blog-main-new-blog-container > * {
+.blog-main-new-blog-container > * { /*children of the container, used for equally sized items*/
     flex: 1;
 }
 .blog-main-new-blog { /*new blog post preview*/
@@ -64,7 +64,7 @@
     line-height: 1.6rem;
 }
 
-.blog-main-old-blog {
+.blog-main-old-blog { /*links to older blog posts*/
     position: relative;
     margin-bottom: 42px;
     cursor: pointer;

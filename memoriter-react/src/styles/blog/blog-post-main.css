@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap'); /*serif font for the main text*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*sans-serif font for image captions, callouts etc.*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large font for headings*/
 
 .blog-post-main { /*main container*/
     display: flex; /*needed to push the footer down*/
@@ -25,6 +26,7 @@
     color: rgba(255, 255, 255, 1);
     font-family: 'IBM Plex Serif';
     line-height: 2.2rem;
+    margin-bottom: 80px;
 }
 
 .blog-post-main article h2 {

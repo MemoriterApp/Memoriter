@@ -33,8 +33,8 @@ const BlogPostHeader = ({ title, date, author, topic }) => {
 
             {/*average reading time (*is calculated with the word count)*/}
             <p className='blog-post-header-reading-time'>
-                 {(wordCount / 200).toFixed()} {(wordCount / 200).toFixed() === '1' ? ('minute') : ('minutes')} read</p>
-            {/*200 is a low estimation for average words read per minute, .toFixed() rounds the number, the condition checks if the singular or plural of minute needs to be displayed*/}
+                 {(wordCount / 250).toFixed()} {(wordCount / 250).toFixed() === '1' ? ('minute') : ('minutes')} read</p>
+            {/*250 is an estimation for average words read per minute, .toFixed() rounds the number, the condition checks if the singular or plural of minute needs to be displayed*/}
 
             {/*share links, the links are using the title variable and the current url (window.location)*/}
             <div className='blog-post-header-share'>

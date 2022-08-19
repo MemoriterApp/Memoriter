@@ -1,2 +1,115 @@
 /*styles for the footer with the read more links, share options etc.*/
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*larger font*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large font for headings*/
+
+.blog-post-footer-share { /*share links*/
+    position: relative;
+    height: 90px;
+    color: rgba(200, 200, 200, 1);
+    font-family: 'Inter';
+}
+.blog-post-footer-share-circle { /*circle around the icons*/
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    margin-top: -4px;
+    border: 2px solid rgba(255, 255, 255, 1);
+    border-radius: 50%; /*circle shape*/
+    transform: scale(0.85); /*adjusts the size more precise*/
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+.blog-post-footer-share-circle:hover { /*background hover effect*/
+    background-color: rgba(55, 55, 55, 0.5);
+}
+.blog-post-footer-share-icon { /*icons for the different social media platforms*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    filter: invert(1); /*for making the icons white*/
+}
+
+.blog-post-footer-divider {
+    margin-top: 40px;
+    margin-bottom: 48px;
+    border-top: 1px solid rgba(55, 55, 55, 1);
+}
+
+.blog-post-footer-read-more { /*read more heading*/
+    display: inline;
+    font-size: 2.2rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Heebo';
+}
+
+.blog-post-footer-all-posts { /*a back to all posts link*/
+    display: inline;
+    position: absolute;
+    right: 60px;
+    width: fit-content;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    text-decoration: none;
+    text-align: right;
+    padding: 4px 6px 4px 6px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    transition: background-color 200ms;
+}
+.blog-post-footer-all-posts:hover { /*hover effect for back to all posts link*/
+    background-color: rgba(55, 55, 55, 0.75);
+}
+
+.blog-post-footer-linked-blog { /*links to older blog posts*/
+    display: block;
+    position: relative;
+    top: 40px;
+    text-decoration: none;
+    margin-top: 32px;
+    cursor: pointer;
+    transition: filter 200ms;
+}
+.blog-post-footer-linked-blog:hover { /*hover effect*/
+    filter: brightness(0.75);
+}
+.blog-post-footer-linked-blog-outside { /*tag and date text outside the box*/
+    transform: translate(0, 4px);
+    font-family: 'Inter';
+    color: rgba(200, 200, 200, 1);
+}
+.blog-post-footer-linked-blog-date { /*some extra layout styles for the date of publication for each blog post*/
+    margin-top: -2.1rem;
+    text-align: right;
+}
+.blog-post-footer-linked-blog-box { /*gray box with content*/
+    width: 100%;
+    background-color: rgba(55, 55, 55, 1);
+    border-radius: 6px;
+}
+.blog-post-footer-linked-blog-box h3 { /*old blog preview title*/
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    line-height: 2rem;
+    margin: 20px 16px 24px 16px;
+}
+.blog-post-footer-linked-blog-box p { /*old blog preview description*/
+    font-size: 1.1rem;
+    font-family: 'Inter';
+    color: rgba(200, 200, 200, 1);
+    line-height: 1.6rem;
+    text-align: justify;
+    margin-inline: 16px;
+}
+.blog-post-footer-linked-blog img { /*old blog preview image*/
+    display: inline-block;
+    width: 200px;
+    object-fit: cover; /*optimizes image scaling*/
+    border-radius: 6px;
+}
