@@ -5,7 +5,7 @@
 
 .blog-sidebar {
     position: sticky; /*pushes the sidebar up on scroll when the footer is reached*/
-    top: calc(50vh - 200px);
+    top: 160px;
     width: 200px;
     height: 400px;
     margin-bottom: 250px;
@@ -71,6 +71,7 @@
         top: 140px;
         width: unset;
         height: unset;
+        margin-top: -8px;
         margin-bottom: 0;
         border-right: unset;
     }
@@ -110,5 +111,12 @@
 @media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/
     .blog-sidebar {
         display: none;
+    }
+}
+
+@media (max-height: 560px) {
+    .blog-sidebar {
+        position: relative;
+        margin-top: -8px;
     }
 }

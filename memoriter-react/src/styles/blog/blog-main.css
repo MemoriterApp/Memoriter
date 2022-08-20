@@ -9,6 +9,7 @@
     left: 50%;
     transform: translate(-50%);
     width: calc(100% - 140px);
+    max-width: 2400px;
     gap: 80px;
 }
 
@@ -16,9 +17,8 @@
     display: flex; /*needed to push the footer down*/
     flex-direction: column; /*needed to push the footer down*/
     position: relative;
-    top: 150px;
+    top: 140px;
     width: 100%;
-    max-width: 2400px;
     min-height: 100vh;
     margin-bottom: 400px;
 }
@@ -130,10 +130,6 @@
     .blog-main-body {
         width: calc(100% - 40px);
         gap: 40px;
-    }
-
-    .blog-main {
-        margin-top: -32px;
     }
 }
 

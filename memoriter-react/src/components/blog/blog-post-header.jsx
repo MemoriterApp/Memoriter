@@ -20,16 +20,20 @@ const BlogPostHeader = ({ title, date, author, topic }) => {
             {/*header with date of publication and links back to the blog page, gets the data by the general blog post data variables as properties*/}
             <Link className='blog-post-header-all-posts' to='/blog'>&#129044; All posts</Link> {/*&#129044; is a unicode arrow symbol*/}
             
-            <p className='blog-post-header-data'>
-                Published on {date} in <Link
-                    className='blog-post-header-data-link' 
-                    to={`/blog/topic/${topic.replace(/([A-Z])/g, '$1').toLowerCase()}`} 
-                    //.replace(/([A-Z])/g, '$1').toLowerCase() changes the first letter of the topic from capitalized to lower case letter
-                >{topic}</Link>
-            </p>
+            <div className='blog-post-header-content'>
 
-            <h1 className='blog-post-header-title'>{title}</h1> {/*heading with blog title*/}
-            <p className='blog-post-header-author'>by {author}</p> {/*who has written the post*/}
+                <p className='blog-post-header-data'>
+                    Published on {date} in <Link
+                        className='blog-post-header-data-link'
+                        to={`/blog/topic/${topic.replace(/([A-Z])/g, '$1').toLowerCase()}`}
+                        //.replace(/([A-Z])/g, '$1').toLowerCase() changes the first letter of the topic from capitalized to lower case letter
+                    >{topic}</Link>
+                </p>
+
+                <h1 className='blog-post-header-title'>{title}</h1> {/*heading with blog title*/}
+                <p className='blog-post-header-author'>by {author}</p> {/*who has written the post*/}
+
+            </div>
 
             {/*average reading time (*is calculated with the word count)*/}
             <p className='blog-post-header-reading-time'>

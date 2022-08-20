@@ -6,8 +6,8 @@
 
 .blog-post-header-all-posts { /*a back to all posts link*/
     position: absolute;
-    left: -105px;
-    top: 50px;
+    left: 65px;
+    top: 10px;
     width: fit-content;
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
@@ -23,9 +23,14 @@
     background-color: rgba(55, 55, 55, 0.75);
 }
 
-.blog-post-header-data { /*date of publication and topic (with link)*/
+.blog-post-header-content { /*container with content*/
     position: relative;
-    left: 150px;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 48%;
+}
+
+.blog-post-header-data { /*date of publication and topic (with link)*/
     font-size: 1.1rem;
     font-weight: 500;
     color: rgba(200, 200, 200, 1);
@@ -44,8 +49,6 @@
 }
 
 .blog-post-header-title { /*the blog title*/
-    position: relative;
-    left: 150px;
     max-width: 800px;
     font-size: 2.8rem;
     color: rgba(255, 255, 255, 1);
@@ -55,8 +58,6 @@
 }
 
 .blog-post-header-author { /*mention of the author*/
-    position: relative;
-    left: 150px;
     font-size: 1.2rem;
     color: rgba(200, 200, 200, 1);
     font-family: 'Inter';
@@ -66,7 +67,7 @@
 
 .blog-post-header-reading-time { /*reading time indicator at the side*/
     position: relative;
-    left: -165px;
+    left: 65px;
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Inter';
@@ -77,8 +78,8 @@
 
 .blog-post-header-share { /*share links*/
     position: relative;
-    top: 64px;
-    left: -165px;
+    left: 65px;
+    top: 80px;
     height: 90px;
     color: rgba(200, 200, 200, 1);
     font-family: 'Inter';
@@ -105,4 +106,41 @@
     transform: translate(-50%, -50%);
     width: 60%;
     filter: invert(1); /*for making the icons white*/
+}
+
+@media (max-width: 1160px) { /*optimizes layout for smaller screens for better readability*/
+    .blog-post-header-all-posts {
+        position: relative;
+        left: calc(50% - 300px);
+        top: 0;
+    }
+    
+    .blog-post-header-content {
+        width: 600px;
+        max-width: calc(100% - 40px);
+    }
+
+    .blog-post-header-reading-time {
+        left: calc(50% - 300px);
+        margin-top: -80px;
+    }
+
+    .blog-post-header-share {
+        left: calc(50% - 300px);
+        margin-bottom: 120px;
+    }
+}
+
+@media (max-width: 656px) { /*fixes some objects moving out of the screen*/
+    .blog-post-header-all-posts {
+        left: 20px;
+    }
+
+    .blog-post-header-reading-time {
+        left: 20px;
+    }
+
+    .blog-post-header-share {
+        left: 20px;
+    }
 }
