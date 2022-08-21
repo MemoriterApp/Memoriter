@@ -77,7 +77,7 @@ const Cookies = () => {
                                 <td>accepted-cookies</td>
                                 <td>app.memoriter.de</td>
                                 <td>1 year</td>
-                                <td>Saves the options which cookie options the user has accepted</td>
+                                <td>Saves which cookie options the user has accepted</td>
                                 <td>Memoriter</td>
                             </tr>
                         </tbody>
