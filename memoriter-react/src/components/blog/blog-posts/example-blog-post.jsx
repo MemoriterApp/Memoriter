@@ -40,6 +40,11 @@ const ExampleBlogPost = () => {
             <p>
                 Suspendisse efficitur tempus mattis. Quisque sagittis, nisl semper vestibulum condimentum, felis sem facilisis ligula, a faucibus lorem libero non magna. Aliquam accumsan quam eget vestibulum cursus. Pellentesque nec lectus auctor, suscipit ligula id, posuere ex. Aenean pharetra arcu eu purus laoreet pretium eu vel magna. Mauris bibendum nunc eget lectus commodo egestas. Nunc vitae lacus ligula. Mauris mollis dapibus augue non rhoncus. Nullam sodales mauris id sapien aliquam blandit. Curabitur ut est id purus placerat dignissim non sodales dolor. Ut condimentum justo eu ipsum finibus, vitae dictum turpis ornare. Nunc eros augue, feugiat sed dui in, pellentesque faucibus nulla. Cras lobortis iaculis aliquam. Mauris vel nulla ornare metus iaculis volutpat nec id nibh.
             </p>
+
+            <blockquote>
+                Block quote stuff.
+            </blockquote>
+
             <p>
                 Donec vel tempus magna. Nulla et pellentesque odio. Etiam dictum vulputate ullamcorper. Etiam mattis rhoncus venenatis. Quisque in imperdiet ligula. Pellentesque id ligula massa. Nullam semper, metus non laoreet eleifend, quam tellus faucibus nisi, vel vestibulum odio neque sed odio. Etiam suscipit in metus at viverra. Nulla finibus porta nunc quis cursus. Praesent porttitor ut neque ut rhoncus. Aenean vel tincidunt augue, et posuere ipsum. Morbi facilisis consequat elit, id varius ipsum porta a.
             </p>
