@@ -61,6 +61,29 @@ const Cookies = () => {
 
                 <p>Work in Progress.</p>
 
+                <div className='legal-main-table-container'>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Domain</th>
+                                <th>Duration</th>
+                                <th>Description</th>
+                                <th>Provider</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>accepted-cookies</td>
+                                <td>app.memoriter.de</td>
+                                <td>1 year</td>
+                                <td>Saves the options which cookie options the user has accepted</td>
+                                <td>Memoriter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
             {/*footer*/}
