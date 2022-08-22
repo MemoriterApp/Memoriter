@@ -7,13 +7,15 @@
     display: flex; /*needed to push the footer down*/
     flex-direction: column; /*needed to push the footer down*/
     position: relative;
+    left: 50%;
     top: 120px;
+    transform: translate(-50%);
     max-width: 2400px;
     min-height: 100vh;
     margin-bottom: 320px;
 }
 
-.download-main-heading {
+.download-main-heading { /*page heading*/
     font-size: 4rem;
     font-family: 'Heebo';
     text-align: center;
@@ -21,4 +23,24 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.download-main-description { /*description text under the heading*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 800px;
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter';
+    line-height: 2.6rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 240px) { /*hides everything on too small screens*/
+    .download-main {
+        display: none;
+    }
 }

@@ -1,21 +1,43 @@
 /*styles for the mobile app section of the download page*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*sub heading font*/
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
 
-.download-mobile {
+.download-mobile { /*mobile app heading container*/
     position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 1200px;
+    margin-bottom: 20px;
 }
 
-.download-mobile-heading {
+.download-mobile-heading { /*mobile app heading*/
     font-size: 2.4rem;
     color: rgba(255, 255, 255, 1);
     font-family: 'Heebo';
     text-align: center;
+    margin-bottom: 60px;
 }
 
 .download-mobile-content { /*container with most of the content*/
     display: flex;
+    gap: 120px;
+    color: rgba(255, 255, 255, 1);
+}
+.download-mobile-content-heading { /*section heading slogan*/
+    max-width: 600px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-family: 'Rubik';
+    line-height: 2.8rem;
+}
+.download-mobile-content-text { /*section content*/
+    max-width: 600px;
+    font-size: 1.6rem;
+    font-family: 'Inter';
+    line-height: 2.6rem;
+    margin-bottom: 40px;
 }
 
 .download-mobile-phone-image { /*container for the mobile phone image*/
@@ -30,9 +52,8 @@
 }
 .download-mobile-phone-image-content { /*the software/app/content part of the image*/
     position: relative;
-    left: 50%;
+    left: 70px;
     top: 30px;
-    transform: translate(calc(-50% - 2px));
     width: 250px;
     height: 540px;
 }

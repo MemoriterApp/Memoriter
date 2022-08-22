@@ -6,11 +6,13 @@ const DownloadMain = () => {
     return (
         <div className='download-main'>
 
-            <h1 className='download-main-heading '>Download Memoriter</h1>
+            <h1 className='download-main-heading'>Download Memoriter</h1>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eligendi vero?</p>
+            <p className='download-main-description'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eligendi vero?
+            </p>
 
-            {/*<DownloadDesktop/>*/}
+            <DownloadDesktop/>
 
             <DownloadMobile/>
 

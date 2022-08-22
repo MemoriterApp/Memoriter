@@ -2,11 +2,11 @@ import '../../styles/download/download-desktop.css';
 
 const DownloadDesktop = () => {
     return (
-        <div>
+        <section className='download-desktop' >
             
-            <h2>Desktop App</h2>
+            <h2 className='download-desktop-heading'>Desktop App</h2>
 
-        </div>
+        </section>
     );
 }
 
