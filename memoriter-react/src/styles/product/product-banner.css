@@ -126,6 +126,30 @@
     }
 }
 
+@media (max-width: 420px) {
+    .product-banner {
+        min-height: 480px;
+    }
+}
+
+@media (max-width: 340px) {
+    .product-banner {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 310px) {
+    .product-banner {
+        min-height: 560px;
+    }
+}
+
+@media (max-width: 256px) {
+    .product-banner {
+        min-height: 620px;
+    }
+}
+
 @media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/
     .product-banner {
         display: none;

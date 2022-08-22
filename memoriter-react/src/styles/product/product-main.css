@@ -118,9 +118,14 @@
     }
 }
 
-@media (max-height: 420px) { /*fixes issues for screens not high enough*/
+@media (max-height: 440px) { /*fixes issues for screens not high enough*/
     .product-main {
-        margin-top: 420px;
+        margin-top: 440px;
+    }
+    @media (max-width: 340px) {
+        .product-main {
+            margin-top: 560px;
+        }
     }
 }
 
