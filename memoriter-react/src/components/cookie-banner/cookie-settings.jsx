@@ -10,7 +10,6 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
     const animationStyles = onAnimation;
 
     const [acceptedCookies, setAcceptedCookies] = useState({ //variable stored as a cookie for saving the accepted cookie types for later
-        necessary: true,
         functional: false,
         analytics: false,
         advertising: false
@@ -25,7 +24,6 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
 
     function acceptAllCookies() {
         const acceptedAllCookies = { //variable stored as a cookie for saving the accepted cookie types for later (sets value to all accepted)
-            necessary: true,
             functional: true,
             analytics: true,
             advertising: true

@@ -19,7 +19,6 @@ const CookieBanner = ({ onOpenCookieSettings }) => {
 
     function acceptCookies() { //item is set in local storage for cookie banner not showng again if accepted
         const acceptedAllCookies = { //variable stored as a cookie for saving the accepted cookie types for later
-            necessary: true,
             functional: true,
             analytics: true,
             advertising: true

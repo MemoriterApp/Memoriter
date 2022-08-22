@@ -1,11 +1,9 @@
 import '../../styles/blog/blog-main.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import blogs from '../../utils/blog-posts';
 
 const BlogMain = ({ topic }) => {
-
-    const navigate = useNavigate(); //variable for routing, alternative option for links
 
     const [loadedBlogs, setLoadedBlogs] = useState(8); //number of blog posts shown before clicking on the load more button
 
@@ -16,7 +14,7 @@ const BlogMain = ({ topic }) => {
             <div className='blog-main-new-blog-container'>
                 {blogs.filter((blog) => topic !== 'Latest' ? blog.topic === topic : blog.topic !== topic).slice(0, 2).map((blog) => (
                     //gets the first two objects from the blogs array, is filtered when a topic (e.g. 'company') is set
-                    <div className='blog-main-new-blog' key={blog.title} onClick={() => navigate(`/blog/${blog.link}`)}>
+                    <Link className='blog-main-new-blog' key={blog.title} to={`/blog/${blog.link}`}>
                             
                         <p style={{lineHeight: '1rem'}}>{blog.topic}</p>
                         <p className='blog-main-blog-date' style={{lineHeight: '1rem'}}>{blog.dateShortened}</p>
@@ -26,13 +24,13 @@ const BlogMain = ({ topic }) => {
                         <h2>{blog.title}</h2>
                         <p>{blog.description}</p>
                         
-                    </div>
+                    </Link>
                 ))}
             </div>
             <div className='blog-main-new-blog-container'>
                 {blogs.filter((blog) => topic !== 'Latest' ? blog.topic === topic : blog.topic !== topic).slice(2, 4).map((blog) => (
                     //gets the objects three to four from the blogs array, is filtered when a topic (e.g. 'company') is set
-                    <div className='blog-main-new-blog' key={blog.title} onClick={() => navigate(`/blog/${blog.link}`)}>
+                    <Link className='blog-main-new-blog' key={blog.title} to={`/blog/${blog.link}`}>
                             
                         <p style={{lineHeight: '1rem'}}>{blog.topic}</p>
                         <p className='blog-main-blog-date' style={{lineHeight: '1rem'}}>{blog.dateShortened}</p>
@@ -41,7 +39,7 @@ const BlogMain = ({ topic }) => {
                             
                         <h2>{blog.title}</h2>
                         <p>{blog.description}</p>
-                    </div>
+                    </Link>
                 ))}
             </div>
 
@@ -49,7 +47,7 @@ const BlogMain = ({ topic }) => {
             <div>
                 {blogs.filter((blog) => topic !== 'Latest' ? blog.topic === topic : blog.topic !== topic).slice(4, loadedBlogs).map((blog) => (
                     //gets more objects from the blogs array, is filtered when a topic (e.g. 'company') is set
-                    <div className='blog-main-old-blog' key={blog.title} onClick={() => navigate(`/blog/${blog.link}`)}>
+                    <Link className='blog-main-old-blog' key={blog.title} to={`/blog/${blog.link}`}>
                             
                         <p className='blog-main-old-blog-outside'>{blog.topic}</p>
                         <p className='blog-main-blog-date blog-main-old-blog-outside' style={{lineHeight: '1rem'}}>{blog.dateShortened}</p> {/*two classes*/}
@@ -65,7 +63,7 @@ const BlogMain = ({ topic }) => {
 
                         </div>
 
-                    </div>
+                    </Link>
                 ))}
             </div>
                 

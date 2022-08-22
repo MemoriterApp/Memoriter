@@ -1,0 +1,24 @@
+/*This file includes most of the styles for the main part of the download page except the parts seperated in to pc and mobile.*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
+
+.download-main { /*layout container for the content*/
+    display: flex; /*needed to push the footer down*/
+    flex-direction: column; /*needed to push the footer down*/
+    position: relative;
+    top: 120px;
+    max-width: 2400px;
+    min-height: 100vh;
+    margin-bottom: 320px;
+}
+
+.download-main-heading {
+    font-size: 4rem;
+    font-family: 'Heebo';
+    text-align: center;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

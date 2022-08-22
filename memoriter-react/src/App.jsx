@@ -2,6 +2,7 @@ import Product from './pages/product';
 import About from './pages/about';
 import Blog from './pages/blog';
 import BlogPost from './pages/blog-post';
+import Download from './pages/download';
 import SignIn from './pages/sign-in';
 import Releases from './pages/releases';
 import Register from './pages/register';
@@ -61,6 +62,8 @@ function App() {
           {blogs.map((blog) => (
             <Route path={`/blog/${blog.link}`} element={<BlogPost blog={blog}/>} key={blog.title}/>
           ))}
+
+          <Route path='/download' element={<Download/>}/>
 
           <Route path='/releases' element={<Releases/>}/>
 

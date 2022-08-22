@@ -2,11 +2,9 @@ import '../../styles/product/product-header.css';
 import memoriterLogo from '../../images/memoriter-logo.svg';
 import languageIcon from '../../images/icons/language-icon.svg';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ProductHeader = ({ currentPage }) => {
-
-    const navigate = useNavigate(); //variable for routing, alternative option for links
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the register button
     const [onHoverAlt, setOnHoverAlt] = useState('brightness(1)'); //hover effect for alternative mobile register button
@@ -40,7 +38,7 @@ const ProductHeader = ({ currentPage }) => {
         <header className='product-header'>
 
             {/*If you click the logo, you will be redirected to the product page.*/}
-            <img className='product-header-logo' src={memoriterLogo} alt='memoriter-logo' onClick={() => navigate('/product')}/>
+            <Link to='/product'><img className='product-header-logo' src={memoriterLogo} alt='memoriter-logo'/></Link>
 
             {/*button for expanding side bar for small screens*/}
             <button className='product-header-mobile-sidebar-button' onClick={toggleMobileSidebar}>

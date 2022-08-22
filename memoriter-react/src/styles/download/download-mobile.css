@@ -1,0 +1,53 @@
+/*styles for the mobile app section of the download page*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
+
+.download-mobile {
+    position: relative;
+}
+
+.download-mobile-heading {
+    font-size: 2.4rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Heebo';
+    text-align: center;
+}
+
+.download-mobile-content { /*container with most of the content*/
+    display: flex;
+}
+
+.download-mobile-phone-image { /*container for the mobile phone image*/
+    height: 600px;
+    width: 400px;
+    z-index: 0;
+}
+.download-mobile-phone-image-outside { /*the hardware part of the image*/
+    position: absolute;
+    height: 600px;
+    z-index: 1;
+}
+.download-mobile-phone-image-content { /*the software/app/content part of the image*/
+    position: relative;
+    left: 50%;
+    top: 30px;
+    transform: translate(calc(-50% - 2px));
+    width: 250px;
+    height: 540px;
+}
+
+.download-mobile-buttons { /*container for download buttons*/
+    display: flex;
+    gap: 40px;
+}
+.download-mobile-buttons > * { /*removing space around the buttons*/
+    height: 72px;
+    overflow: hidden;
+}
+.download-mobile-buttons > * > img { /*download buttons*/
+    position: relative;
+    top: -84px;
+    width: 240px;
+    cursor: pointer;
+}
