@@ -8,11 +8,9 @@ const DownloadMain = () => {
 
             <h1 className='download-main-heading'>Download Memoriter</h1>
 
-            <p className='download-main-description'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eligendi vero?
-            </p>
-
             <DownloadDesktop/>
+
+            <div className='download-main-gap'/>
 
             <DownloadMobile/>
 

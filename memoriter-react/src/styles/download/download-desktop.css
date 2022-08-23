@@ -4,8 +4,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
 
 .download-desktop { /*desktop app heading container*/
+    display: flex;
     position: relative;
-    margin-bottom: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    width: calc(100% - 160px);
+    max-width: 2400px;
+    color: rgba(255, 255, 255, 1);
+    gap: 40px;
+    margin-bottom: 80px;
 }
 
 .download-desktop-heading { /*desktop app heading*/
@@ -14,4 +21,70 @@
     font-family: 'Heebo';
     text-align: center;
     margin-bottom: 60px;
+}
+
+.download-desktop-content-text { /*section text*/
+    width: 50%;
+    font-size: 1.6rem;
+    font-family: 'Inter';
+    line-height: 2.6rem;
+    text-align: center;
+}
+
+.download-desktop-download { /*download button, needed to be split in multiple classes, this class is for the positionig of the button*/
+    position: relative;
+    margin: 20px 28px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+.download-desktop-download-icon { /*operating system icon*/
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: invert(1);
+}
+.download-desktop-download-text { /*text which is not supposed to change color*/
+    position: absolute;
+    left: 80px;
+    top: 0.6rem;
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+    white-space: nowrap;
+}
+.download-desktop-download-text-os { /*additional text formatting for the operating system*/
+    position: absolute;
+    left: 80px;
+    top: 2.6rem;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Rubik';
+}
+.download-desktop-download-background { /*the hover background was done in React because it did not work in CSS*/
+    width: 200px;
+    height: 56px;
+    padding: 8px 10px 8px 10px;
+    margin-inline: -6px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    transition: filter 200ms;
+}
+
+.download-desktop-notebook-image { /*container for the notebook image*/
+    position: relative;
+    width: 50%;
+}
+.download-desktop-notebook-image-outside { /*the hardware part of the image*/
+    position: relative;
+    width: 100%;
+}
+.download-desktop-notebook-image-content { /*the software/app/content part of the image*/
+    position: absolute;
+    left: 50%;
+    top: 5.5%;
+    transform: translate(-50%);
+    width: 78%;
+    height: 78%;
 }

@@ -5,32 +5,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
 
 .download-mobile { /*mobile app heading container*/
+    display: flex;
     position: relative;
     left: 50%;
     transform: translate(-50%);
+    color: rgba(255, 255, 255, 1);
     max-width: 1200px;
+    gap: 128px;
     margin-bottom: 20px;
 }
 
 .download-mobile-heading { /*mobile app heading*/
     font-size: 2.4rem;
-    color: rgba(255, 255, 255, 1);
     font-family: 'Heebo';
     text-align: center;
-    margin-bottom: 60px;
+    margin-top: 8px;
 }
 
-.download-mobile-content { /*container with most of the content*/
-    display: flex;
-    gap: 120px;
-    color: rgba(255, 255, 255, 1);
-}
 .download-mobile-content-heading { /*section heading slogan*/
     max-width: 600px;
     font-size: 1.8rem;
     font-weight: 400;
     font-family: 'Rubik';
     line-height: 2.8rem;
+    margin-top: 20px;
 }
 .download-mobile-content-text { /*section content*/
     max-width: 600px;
@@ -38,6 +36,12 @@
     font-family: 'Inter';
     line-height: 2.6rem;
     margin-bottom: 40px;
+}
+.download-mobile-content-text li { /*list items for the content*/
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    margin-bottom: 8px;
+    list-style-type: '\2713   '; /*changes list indicator dots to checkmarks*/
 }
 
 .download-mobile-phone-image { /*container for the mobile phone image*/
@@ -52,10 +56,10 @@
 }
 .download-mobile-phone-image-content { /*the software/app/content part of the image*/
     position: relative;
-    left: 70px;
-    top: 30px;
-    width: 250px;
-    height: 540px;
+    left: 73.5px;
+    top: 32.5px;
+    width: 247px;
+    height: 534.5px;
 }
 
 .download-mobile-buttons { /*container for download buttons*/

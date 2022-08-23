@@ -50,7 +50,7 @@
     margin: 0 0 5rem 0;
 }
 
-.product-banner-get-started { /*register button, needed to be split in multiple classes, this class is for the positionig of the button*/
+.product-banner-get-started { /*get started button, needed to be split in multiple classes, this class is for the positionig of the button*/
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);

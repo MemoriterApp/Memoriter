@@ -19,24 +19,15 @@
     font-size: 4rem;
     font-family: 'Heebo';
     text-align: center;
+    margin-bottom: 60px;
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.download-main-description { /*description text under the heading*/
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    max-width: 800px;
-    font-size: 1.6rem;
-    color: rgba(255, 255, 255, 1);
-    font-family: 'Inter';
-    line-height: 2.6rem;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 60px;
+.download-main-gap { /*gap between sections*/
+    height: 80px;
 }
 
 @media (max-width: 240px) { /*hides everything on too small screens*/
