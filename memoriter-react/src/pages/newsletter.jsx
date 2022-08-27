@@ -1,4 +1,4 @@
-import '../styles/legal.css';
+import '../styles/newsletter.css';
 import Head from '../components/head';
 import ProductHeader from '../components/product/product-header';
 import ProductFooter from '../components/product/product-footer';
@@ -7,7 +7,7 @@ import WindowSizeAlert from '../components/window-size-alert';
 import Backdrop from '../components/backdrop';
 import { useState } from 'react';
 
-const Impressum = () => {
+const Newsletter = () => {
 
     const [cookieSettings, setCookieSettings] = useState(false); //opens or closes cookie settings
 
@@ -30,6 +30,8 @@ const Impressum = () => {
         //setBackdropAnimation triggers a transition in the backdrop component creating the fade in effect, does not work without timeout
     };
 
+    const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the get started button
+
     function closeCookieSettings() { //function for closing the cookie settings
         document.body.style.overflow = 'auto'; //re-enables page scrolling
         setTimeout(() => {setCookieSettings(false);}, 800); //timeout is needed for finishing the fade effect before closing everything
@@ -45,34 +47,39 @@ const Impressum = () => {
 
     return (
         <>
-
+            
             {/*head*/}
-            <Head title='Impressum' description='Where to contact us'/>
+            <Head title='Newsletter' description='Sign Up to our Email Newsletter!'/>
 
             {/*header*/}
             <ProductHeader/>
 
-            {/*main body with text*/}
-            <div className='legal-main'>
+            <div className='newsletter-main'>
 
-                <h1>Impressum</h1>
+                <h1 className='newsletter-main-title'>Sign Up to our Email Newsletter!</h1>
 
-                <p>
-                    Memoriter is a student company at the Bertha-von-Bertha-Suttner-Gymnasium Babelsberg in Potsdam, Germany,
-                    under the supervision of JUNIOR, a project by the Institut der Deutchen Wirtschaft (IW),
-                    supported by the Bundesministerium für Wirtschaft und Klimaschutz (BMWK).
-                    Further information about the JUNIOR project can be found <a href='https://www.junior-programme.de/startseite' target='_blank' rel='noreferrer'>here</a>.
+                {/*email input field and subscribe button*/}
+                <div className='newsletter-main-subscribe'>
+                    <p className='newsletter-main-subscribe-label'>Enter your Email Adress</p>
+
+                    <input className='newsletter-main-subscribe-input' type='email' placeholder='Email Adress'/>
+
+                    {/*button for subscribing to newsletter*/}
+                    <button
+                        className='newsletter-main-subscribe-button' to='/product'
+                        onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
+                        {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css*/}
+                        <div className='newsletter-main-subscribe-button-background' style={{filter: onHover}}/>
+                        <span className='newsletter-main-subscribe-button-text'>Subscribe</span>
+                    </button>
+                </div>
+                <p className='newsletter-main-subscribe-verify'>
+                    We will send you an confirmation message to verify your email adress.
                 </p>
 
-                <h2>Contact:</h2>
-                <ul>
-                    <li>Johan Trieloff</li>
-                    <li>Kopernikusstraße 30</li>
-                    <li>14482 Potsdam, Germany</li>
-                    <li>Phone: +49 (0)221 | 4981-707</li>
-                    <li>Email: johan@trieloff.net</li>
-                </ul>
-                
+                <p className='newsletter-main-description'>
+                    Recieve new and exclusive news about the Memoriter project.
+                </p>
 
             </div>
 
@@ -87,9 +94,9 @@ const Impressum = () => {
 
             {/*alert for too small screens*/}
             <WindowSizeAlert/>
-            
+
         </>
     );
 }
 
-export default Impressum;
+export default Newsletter;

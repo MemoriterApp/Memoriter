@@ -11,6 +11,7 @@ import Terms from './pages/terms';
 import Privacy from './pages/privacy';
 import Cookies from './pages/cookies';
 import Faq from './pages/faq';
+import Newsletter from './pages/newsletter';
 import PageNotFound from './pages/page-not-found';
 
 import HomePage from './pages/home';
@@ -58,7 +59,7 @@ function App() {
 
           <Route path='/blog/topic/miscellaneous' element={<Blog topic='Miscellaneous'/>}/>
 
-          {/*blog posts*/}
+          {/*blog posts (are mapped from the blog-posts.js file array)*/}
           {blogs.map((blog) => (
             <Route path={`/blog/${blog.link}`} element={<BlogPost blog={blog}/>} key={blog.title}/>
           ))}
@@ -76,6 +77,8 @@ function App() {
           <Route path='/cookies' element={<Cookies/>}/>
 
           <Route path='faq' element={<Faq/>}/>
+
+          <Route path='newsletter' element={<Newsletter/>}/>
 
           <Route path='*' element={<PageNotFound/>}/> {/*loads page not found page for all unset routes*/}
 
