@@ -74,12 +74,18 @@ const Newsletter = () => {
                     </button>
                 </div>
                 <p className='newsletter-main-subscribe-verify'>
-                    We will send you an confirmation message to verify your email adress.
+                    We will send you a confirmation email to verify your email adress.
                 </p>
 
                 <p className='newsletter-main-description'>
                     Recieve new and exclusive news about the Memoriter project.
                 </p>
+
+                <p className='newsletter-main-unsubscribe'>
+                    You do not want to recieve our email newsletter any more?&nbsp;
+                    <span className='newsletter-main-unsubscribe-link'>Click here</span>
+                    &nbsp;to request a removal from our mailing list.
+                </p> {/*&nbsp; is a unicode character for spaces*/}
 
             </div>
 
