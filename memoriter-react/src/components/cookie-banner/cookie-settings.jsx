@@ -7,9 +7,10 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the accept all button
 
-    const animationStyles = onAnimation;
+    const animationStyles = onAnimation; //gets styles for animation from the parent component
 
     const [acceptedCookies, setAcceptedCookies] = useState({ //variable stored as a cookie for saving the accepted cookie types for later
+        necessary: true,
         functional: false,
         analytics: false,
         advertising: false

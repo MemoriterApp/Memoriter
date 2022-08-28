@@ -61,6 +61,12 @@ const RegisterMain = () => {
             case 'auth/too-many-requests': //too many sign in requests
                 displayError('Too many requests!');
                 break;
+            case 'auth/cancelled-popup-request': //third party authentication error
+                displayError('Request Cancelled!');
+                break;
+            case 'auth/popup-closed-by-user': //cancelled third party authentication cancelled by user
+                //shows no error
+                break;
             case 'auth/user-disabled': //user disabled
                 displayError('User disabled!');
                 break;

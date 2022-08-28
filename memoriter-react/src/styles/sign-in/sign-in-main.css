@@ -239,7 +239,6 @@
     top: -4.5px;
     color: rgba(255, 255, 255, 1);
     font-size: 1.3rem;
-    font-family: 'Inter';
     opacity: 0; /*hidden on default*/
 }
 .sign-in-main-checkbox-style:hover { /*hover effect for checkbox*/
