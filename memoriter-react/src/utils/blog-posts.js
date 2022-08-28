@@ -2,8 +2,8 @@
 The list is used by the blog main component.
 If a new post is created, the link must be put in here or the post will not be shown on the blog page*/
 
-import ExampleBlogPost from '../components/blog/blog-posts/example-blog-post';
-import exampleBlogPostImage from '../images/blog/example-blog-post/example-blog-post.jpeg';
+import ExampleBlogPost from '../components/website/blog/blog-posts/example-blog-post';
+import exampleBlogPostImage from '../images/website/blog/example-blog-post/example-blog-post.jpeg';
 
 const blogs = [ //variable for listing all blog posts
     {
