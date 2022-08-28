@@ -1,7 +1,5 @@
 /*some extra styles for the layout and load more button of the release notes page*/
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*button font*/
-
 .releases-main { /*layout container for the content*/
     display: flex;
     flex-direction: column;

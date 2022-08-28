@@ -1,4 +1,3 @@
-import '../../../styles/website/blog/blog-main.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import blogs from '../../../utils/blog-posts';

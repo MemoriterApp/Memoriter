@@ -1,9 +1,5 @@
 /*Styles used for the slider thing with customer stories at the bottom of the product page*/
 
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap'); /*italic serif font fot text*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*sans serif font for author*/
-@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@700&display=swap'); /*font for quotation mark*/
-
 .product-stories { /*box with everything*/
     position: relative;
     left: 50%;

@@ -1,4 +1,3 @@
-import '../../styles/sign-in/sign-in-main.css';
 import googleIcon from '../../images/icons/google-icon.svg';
 import appleIcon from '../../images/icons/apple-icon.svg';
 import facebookIcon from '../../images/icons/facebook-icon.svg';

@@ -1,9 +1,5 @@
 /*styles for the footer with the read more links, share options etc.*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*larger font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large font for headings*/
-
 .blog-post-footer { /*layout container with everything inside*/
     position: relative;
     left: 50%;

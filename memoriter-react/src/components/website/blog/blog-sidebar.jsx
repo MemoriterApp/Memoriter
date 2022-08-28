@@ -1,4 +1,3 @@
-import '../../../styles/website/blog/blog-sidebar.css';
 import { Link } from 'react-router-dom';
 
 const BlogSidebar = ({ topic }) => {

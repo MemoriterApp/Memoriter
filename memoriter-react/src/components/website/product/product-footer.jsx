@@ -1,4 +1,3 @@
-import '../../../styles/product/product-footer.css';
 import youtubeIcon from '../../../images/icons/youtube-icon.svg';
 import twitterIcon from '../../../images/icons/twitter-icon.svg';
 import instagramIcon from '../../../images/icons/instagram-icon.svg';

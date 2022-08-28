@@ -1,5 +1,3 @@
-import '../../../styles/website/about/about-main.css';
-
 const AboutMain = () => {
     return (
         <div className='about-main'>

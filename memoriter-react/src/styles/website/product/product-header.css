@@ -1,7 +1,5 @@
 /*These styles are used for the product page (formerly known as start page) header and some similar pages.*/
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*font*/
-
 .product-header { /*the header box at the top of the page*/
     position: fixed;
     left: 0;

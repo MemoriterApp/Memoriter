@@ -1,4 +1,3 @@
-import '../../styles/sign-in/sign-in-header.css';
 import memoriterLogo from '../../images/memoriter-logo.svg';
 import { useNavigate } from 'react-router-dom';
 

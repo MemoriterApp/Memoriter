@@ -1,4 +1,3 @@
-import '../../../styles/product/product-stories.css';
 import { useState } from 'react';
 
 const ProductStories = () => {

@@ -1,3 +1,5 @@
+//This component redirects you to the signup page
+
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 

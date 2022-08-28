@@ -1,9 +1,5 @@
 /*here are the styles used for the current version in the release notes, older versions are using a seperate stylesheet*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*sub heading font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*header font*/
-
 .current-release { /*main container*/
     position: relative;
     left: 50%;

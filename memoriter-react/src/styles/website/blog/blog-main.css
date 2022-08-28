@@ -1,8 +1,5 @@
 /*all styles for the blog overview page (list of all blog posts)*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*heading font*/
-
 .blog-main-body { /*an additional class which includes the main part as well as the sidebar, used for layout*/
     display: flex;
     position: relative;

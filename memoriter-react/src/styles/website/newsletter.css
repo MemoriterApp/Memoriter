@@ -1,9 +1,5 @@
 /*here are all styles for the newsletter signup page*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*sub heading font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
-
 .newsletter-main { /*main container*/
     display: flex; /*needed to push the footer down*/
     flex-direction: column; /*needed to push the footer down*/

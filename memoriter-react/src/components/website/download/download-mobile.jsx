@@ -1,4 +1,3 @@
-import '../../../styles/download/download-mobile.css';
 import phone from '../../../images/website/download/phone.png';
 import phoneContent from '../../../images/website/download/phone-content.jpeg';
 import googlePlayButton from '../../../images/website/download/google-play-button.svg';

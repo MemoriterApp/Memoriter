@@ -1,9 +1,5 @@
 /*In this stylesheet the basic layout options of all blog posts are defined.*/
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap'); /*serif font for the main text*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*sans-serif font for image captions, callouts etc.*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large font for headings*/
-
 .blog-post-main { /*main container*/
     display: flex; /*needed to push the footer down*/
     flex-direction: column; /*needed to push the footer down*/

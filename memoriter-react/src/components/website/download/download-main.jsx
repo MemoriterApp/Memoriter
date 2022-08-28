@@ -1,4 +1,3 @@
-import '../../../styles/download/download-main.css';
 import DownloadDesktop from './download-desktop';
 import DownloadMobile from './download-mobile';
 

@@ -1,9 +1,5 @@
 /*a few styles for the page not found page*/
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large font*/
-@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap'); /*question mark font*/
-
 .page-not-found { /*container with everything*/
     display: flex; /*for layout (queston mark needs to be at the side)*/
     position: absolute;

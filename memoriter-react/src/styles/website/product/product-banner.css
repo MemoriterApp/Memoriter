@@ -1,9 +1,5 @@
 /*The product banner is an area at the top with the product page with a slogan and a get started button redirecting to the register page*/
 
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap'); /*italic serif font*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*button font*/
-
-
 .product-banner { /*banner box, background and position*/
     position: absolute;
     width: 100%;

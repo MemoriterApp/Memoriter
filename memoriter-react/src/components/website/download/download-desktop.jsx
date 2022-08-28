@@ -1,4 +1,3 @@
-import '../../../styles/download/download-desktop.css';
 import windowsIcon from '../../../images/icons/windows-icon.svg';
 import appleIcon from '../../../images/icons/apple-icon.svg';
 import notebook from '../../../images/website/download/notebook.png';

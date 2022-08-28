@@ -1,11 +1,10 @@
-import '../../styles/website/blog/blog-post-main.css';
 import Head from '../../components/head';
 import ProductHeader from '../../components/website/product/product-header';
 import BlogPostHeader from '../../components/website/blog/blog-post-header';
 import BlogPostFooter from '../../components/website/blog/blog-post-footer';
 import ProductFooter from '../../components/website/product/product-footer';
-import CookieBanner from '../../components/cookie-banner/cookie-banner';
-import CookieSettings from '../../components/cookie-banner/cookie-settings';
+import CookieBanner from '../../components/website/cookie-banner/cookie-banner';
+import CookieSettings from '../../components/website/cookie-banner/cookie-settings';
 import Backdrop from '../../components/backdrop';
 import WindowSizeAlert from '../../components/window-size-alert';
 import { useState } from 'react';

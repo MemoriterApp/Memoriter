@@ -1,4 +1,3 @@
-import '../styles/faq.css';
 import { useState, useEffect, useRef } from 'react';
 
 const FaqQuestion = ({ question, onOpenQuestion }) => {

@@ -1,8 +1,5 @@
 /*the main body of the about page uses this styleshet.*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large header font*/
-
 .about-main { /*main class, used for positioning*/
     position: absolute;
     top: 100px;

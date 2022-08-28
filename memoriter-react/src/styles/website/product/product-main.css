@@ -1,8 +1,5 @@
 /*These styles define the main layout of the product (start) page*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large header font*/
-
 .product-main { /*just used for layout adjustment*/
     position: relative;
     left: 50%; /*centering the content on too large screens*/

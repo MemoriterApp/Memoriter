@@ -1,8 +1,5 @@
 /*Tese styles are used for the alert showing on too small screens*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*header font*/
-
 .window-size-alert-backdrop { /*backdrop for warning*/
     display: none;
     position: fixed;

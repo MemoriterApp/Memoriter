@@ -1,5 +1,14 @@
 /*this css file is only used for classes used very often and across multiple pages, as well as some global styles*/
 
+/*font imports*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*Inter: basic font for most text*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*Rubik: larger font for subheadings or buttons*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*Heebo: large font for page headings*/
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap'); /*Kaisai HarunoUmi: italic serif font for the product page*/
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@700&display=swap'); /*font for quotation mark at product stories*/
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap'); /*IBM Plex Serif: serif font for the blog posts*/
+@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap'); /*question mark font for the page not found page*/
+
 body {
     background-color: rgba(32, 32, 32, 1);
 }

@@ -1,9 +1,5 @@
 /*styles for the header with title, date, authoe etc. at the top of each post*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*larger font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*large font for title*/
-
 .blog-post-header-all-posts { /*a back to all posts link*/
     position: absolute;
     left: 65px;

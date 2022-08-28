@@ -1,4 +1,3 @@
-import '../../../styles/product/product-banner.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 

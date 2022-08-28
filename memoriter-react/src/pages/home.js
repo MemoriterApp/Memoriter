@@ -1,4 +1,3 @@
-
 import Logo from './Logo.png';
 import SettingsIcon from '../components/SettingsIcon';
 import FolderHome from '../components/FolderHome';

@@ -1,4 +1,3 @@
-import '../../styles/sign-in/sign-in-password-reset.css';
 import { useState } from 'react';
 import { firebase } from '../../utils/firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';

@@ -1,4 +1,3 @@
-import '../../../styles/website/blog/blog-post-footer.css';
 import twitterIcon from '../../../images/icons/twitter-icon.svg';
 import facebookIcon from '../../../images/icons/facebook-icon.svg';
 import whatsappIcon from '../../../images/icons/whatsapp-icon.svg';

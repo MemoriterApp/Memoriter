@@ -1,5 +1,3 @@
-import '../../../styles/releases/old-release.css';
-
 const ReleaseV101 = () => {
 
     return (

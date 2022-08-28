@@ -1,5 +1,3 @@
-import '../../../styles/releases/current-release.css';
-
 const CurrentRelease = () => {
 
     return (

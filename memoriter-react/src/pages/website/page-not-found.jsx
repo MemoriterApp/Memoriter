@@ -1,4 +1,3 @@
-import '../../styles/page-not-found.css';
 import memoriterLogo from '../../images/memoriter-logo.svg';
 import Head from '../../components/head';
 import WindowSizeAlert from '../../components/window-size-alert';

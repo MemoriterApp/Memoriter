@@ -1,8 +1,5 @@
 /*styles used for the menu sidebar for to filter the posts*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
-
 .blog-sidebar {
     position: sticky; /*pushes the sidebar up on scroll when the footer is reached*/
     top: 160px;

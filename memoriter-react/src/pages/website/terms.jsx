@@ -1,8 +1,7 @@
-import '../../styles/legal.css';
 import Head from '../../components/head';
 import ProductHeader from '../../components/website/product/product-header';
 import ProductFooter from '../../components/website/product/product-footer';
-import CookieSettings from '../../components/cookie-banner/cookie-settings';
+import CookieSettings from '../../components/website/cookie-banner/cookie-settings';
 import WindowSizeAlert from '../../components/window-size-alert';
 import Backdrop from '../../components/backdrop';
 import { useState } from 'react';

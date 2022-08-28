@@ -1,4 +1,3 @@
-import '../../../styles/product/product-main.css';
 import placeholderImage from '../../../images/website/product/placeholder.jpeg';
 import ScrollAnimation from 'react-animate-on-scroll';
 
