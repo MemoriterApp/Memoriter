@@ -21,8 +21,6 @@ const StudyPage = () => {
     //Flashcard Data
     const [flashcards, setFlashcards] = useState([]);
 
-    const [currentNumber, setCurrentNumber] = useState(null); //state, welche flashcard angezeigt wird
-
     //Use Effect für Notes
     useEffect(() => {
         const getFlashcards = async () => {
@@ -37,16 +35,15 @@ const StudyPage = () => {
     const [started, setStarted] = useState(false); //state to set if the session was started or not
 
     function start() {
-        setCurrentNumber(Math.floor(Math.random() * flashcards.length));
+        setFlashcards(flashcards.sort(() => Math.random() - 0.5));
     }
 
     function incorrect() { //function if an answer was defined as incorrect (reshuffles the array)
-        setCurrentNumber(Math.floor(Math.random() * flashcards.length));
+        setFlashcards(flashcards.sort(() => Math.random() - 0.5)); //TODO: fix incorrect reshuffle
     }
 
-    function correct(id) { //function if an answer was defined as correct (reshuffles the array and removes the correct flashcard)
+    function correct(id) { //function if an answer was defined as correct, removes the correctly answered card
         setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
-        setCurrentNumber(Math.floor(Math.random() * flashcards.length));
     }
 
     return (
@@ -68,6 +65,7 @@ const StudyPage = () => {
                     <Link to='/'>
                         <img className="Logo-oben" src={Logo} alt="site-logo"></img>
                     </Link>
+                    <p className='study-remaining'>Remaining: {flashcards.length}</p>
                 </header>
                 <Link to='/topic'>
                     <div className="Zurückbutton_Body" style={{ top: '90px', left: '8px', zIndex: '10' }}>
@@ -80,16 +78,12 @@ const StudyPage = () => {
                     onClick={() => {setStarted(true); start();}}
                 >Start Studying</button>}
 
-                <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
-                    {flashcards.map((flashcard) => (
-                        flashcards.indexOf(flashcard) === currentNumber ? (
-                            <FlashcardStudy key={flashcard.id} flashcard={flashcard}
-                                onIncorrect={incorrect} onCorrect={correct}/>
-                        ) : (
-                            <div key={flashcard.id} style={{display: 'none'}}/>
-                        )
+                {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
+                    {flashcards.sort(() => Math.random() - 0.5).slice(0, 1).map((flashcard) => (
+                        <FlashcardStudy key={flashcard.id} flashcard={flashcard}
+                            onIncorrect={() => incorrect()} onCorrect={() => correct(flashcard.id)}/>
                     ))}
-                </>
+                </>}
 
                 <Footer/>
             </body>
