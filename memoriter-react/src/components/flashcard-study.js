@@ -20,7 +20,7 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect }) => {
 
                 <button
                     style={{position: 'absolute', left: '80px', bottom: '50px', fontSize: '20px'}}
-                    onClick={() => {setShowAnswer(false); onIncorrect();}}
+                    onClick={() => {setShowAnswer(false); onIncorrect(flashcard);}}
                 >Incorrect</button>
 
                 <button

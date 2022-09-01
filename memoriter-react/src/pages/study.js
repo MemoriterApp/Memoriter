@@ -34,12 +34,17 @@ const StudyPage = () => {
 
     const [started, setStarted] = useState(false); //state to set if the session was started or not
 
-    function start() {
-        setFlashcards(flashcards.sort(() => Math.random() - 0.5));
+    function start() { //function for starting the session
+        setStarted(true); //shows flashcard component
+        setFlashcards(flashcards.sort(() => Math.random() - 0.5)); //shuffles the array
     }
 
-    function incorrect() { //function if an answer was defined as incorrect (reshuffles the array)
-        setFlashcards(flashcards.sort(() => Math.random() - 0.5)); //TODO: fix incorrect reshuffle
+    function incorrect(incorrectFlashcard) { //function if an answer was defined as incorrect (reshuffles the array)
+        //removes the incorrect flashcard and moves it to the end, new flashcard shows up
+        setFlashcards([...flashcards
+            .filter((flashcard) => flashcard.id !== incorrectFlashcard.id) //removes the old flashcard
+            .sort(() => Math.random() - 0.5), incorrectFlashcard]) //reshuffles the array and creates the copy
+            //the advantage of this method is the fact that a flashcard will not show the next timo if incorrect is clicked
     }
 
     function correct(id) { //function if an answer was defined as correct, removes the correctly answered card
@@ -52,7 +57,7 @@ const StudyPage = () => {
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name='keywords' content='memoriter, study, files, subjects, overview, effective, studying, school, university, flashcards'></meta>
-                <meta name='description' content='Flashacrds for Memoriter'></meta>
+                <meta name='description' content='Flashacrds for Memoriter'/>
             </head>
 
             <body>
@@ -75,13 +80,13 @@ const StudyPage = () => {
 
                 {started || <button 
                     style={{position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
-                    onClick={() => {setStarted(true); start();}}
+                    onClick={() => start()}
                 >Start Studying</button>}
 
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
-                    {flashcards.sort(() => Math.random() - 0.5).slice(0, 1).map((flashcard) => (
+                    {flashcards.slice(0, 1).map((flashcard) => (
                         <FlashcardStudy key={flashcard.id} flashcard={flashcard}
-                            onIncorrect={() => incorrect()} onCorrect={() => correct(flashcard.id)}/>
+                            onIncorrect={() => incorrect(flashcard)} onCorrect={() => correct(flashcard.id)}/>
                     ))}
                 </>}
 
