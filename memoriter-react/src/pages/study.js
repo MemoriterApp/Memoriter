@@ -1,13 +1,15 @@
 import Logo from './Logo.png';
 import Footer from '../components/Footer';
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, query, where } from 'firebase/firestore/lite';
 import FlashcardStudy from '../components/flashcard-study';
 const { db } = firebase;
 
 const StudyPage = () => {
+
+    const navigate = useNavigate();
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
@@ -29,10 +31,12 @@ const StudyPage = () => {
         };
 
         getFlashcards();
-        localStorage.setItem('lastPage', "/study");
+        localStorage.setItem('lastPage', '/study');
     }, []);
 
     const [started, setStarted] = useState(false); //state to set if the session was started or not
+    
+    const [finished, setFinished] = useState(false); //state to set if the session is completed (all cards learned)
 
     function start() { //function for starting the session
         setStarted(true); //shows flashcard component
@@ -48,7 +52,20 @@ const StudyPage = () => {
     }
 
     function correct(id) { //function if an answer was defined as correct, removes the correctly answered card
-        setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
+        if (flashcards.length === 1) { //determines if the endscreen for laerned all cards is shown or not if a flashcard is marked as correct
+            setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
+            setFinished(true); //shows endscreen
+        } else {
+            setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
+        }
+    }
+
+    async function startAgain() {
+        setFinished(false);
+        const allFlashcards = await getDocs(flashcardsCollectionRef)
+        setFlashcards(
+            allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+            .sort(() => Math.random() - 0.5))
     }
 
     return (
@@ -89,6 +106,18 @@ const StudyPage = () => {
                             onIncorrect={() => incorrect(flashcard)} onCorrect={() => correct(flashcard.id)}/>
                     ))}
                 </>}
+
+                {finished && <div>
+                    <button 
+                        style={{position: 'absolute', left: '50%', top: '45%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
+                        onClick={() => startAgain()}
+                    >Study Again</button>
+
+                    <button 
+                        style={{position: 'absolute', left: '50%', top: '55%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
+                        onClick={() => navigate('/topic')}
+                    >Return to Overview</button>
+                </div>}
 
                 <Footer/>
             </body>
