@@ -35,8 +35,11 @@ const StudyPage = () => {
     }, []);
 
     const [started, setStarted] = useState(false); //state to set if the session was started or not
-    
     const [finished, setFinished] = useState(false); //state to set if the session is completed (all cards learned)
+
+    //for ensdscreen stats
+    const [studiedFlashcards, setStudiedFlashcards] = useState(0); //number of correctly answered flashcards
+    const [incorrectFlashcards, setIncorrectFlashcards] = useState(0); //number of incorrectly answered flashcards
 
     function start() { //function for starting the session
         setStarted(true); //shows flashcard component
@@ -49,14 +52,17 @@ const StudyPage = () => {
             .filter((flashcard) => flashcard.id !== incorrectFlashcard.id) //removes the old flashcard
             .sort(() => Math.random() - 0.5), incorrectFlashcard]) //reshuffles the array and creates the copy
             //the advantage of this method is the fact that a flashcard will not show the next timo if incorrect is clicked
+        setIncorrectFlashcards(incorrectFlashcards + 1);
     }
 
     function correct(id) { //function if an answer was defined as correct, removes the correctly answered card
         if (flashcards.length === 1) { //determines if the endscreen for laerned all cards is shown or not if a flashcard is marked as correct
             setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
+            setStudiedFlashcards(studiedFlashcards + 1);
             setFinished(true); //shows endscreen
         } else {
             setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
+            setStudiedFlashcards(studiedFlashcards + 1);
         }
     }
 
@@ -65,7 +71,9 @@ const StudyPage = () => {
         const allFlashcards = await getDocs(flashcardsCollectionRef)
         setFlashcards(
             allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-            .sort(() => Math.random() - 0.5))
+            .sort(() => Math.random() - 0.5));
+        setStudiedFlashcards(0);
+        setIncorrectFlashcards(0);
     }
 
     return (
@@ -80,9 +88,9 @@ const StudyPage = () => {
             <body>
                 <header className='Page_Header'>
                     {syncedFolderTitle !== '' ? (
-                        <h1 className="page_title" >{syncedFolderTitle}</h1>
+                        <h1 className="page_title">{syncedFolderTitle}</h1>
                     ) : (
-                        <h1 className="page_title" >New Folder</h1>
+                        <h1 className="page_title">New Folder</h1>
                     )}
                     <Link to='/'>
                         <img className="Logo-oben" src={Logo} alt="site-logo"></img>
@@ -108,13 +116,23 @@ const StudyPage = () => {
                 </>}
 
                 {finished && <div>
+                    <p style={{position: 'absolute', left: '50%', top: '30%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}>
+                        Studied Flashcards: {studiedFlashcards}
+                    </p>
+                    <p style={{position: 'absolute', left: '50%', top: '35%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}>
+                        Repetitions: {studiedFlashcards + incorrectFlashcards}
+                    </p>
+                    <p style={{position: 'absolute', left: '50%', top: '40%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}>
+                        Incorrect: {incorrectFlashcards}
+                    </p>
+
                     <button 
-                        style={{position: 'absolute', left: '50%', top: '45%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
+                        style={{position: 'absolute', left: '50%', top: '55%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
                         onClick={() => startAgain()}
                     >Study Again</button>
 
                     <button 
-                        style={{position: 'absolute', left: '50%', top: '55%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
+                        style={{position: 'absolute', left: '50%', top: '62.5%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
                         onClick={() => navigate('/topic')}
                     >Return to Overview</button>
                 </div>}
