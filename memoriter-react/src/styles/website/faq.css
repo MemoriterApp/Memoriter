@@ -27,7 +27,7 @@
 .faq-main-sub-heading { /*sub headings dividing the page in different sections*/
     font-size: 2rem;
     font-weight: 500;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Rubik';
     margin-top: 160px;
     margin-bottom: -80px;
@@ -54,7 +54,7 @@
 .faq-question-question { /*question title*/
     font-size: 1.4rem;
     font-weight: 500;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Inter';
     line-height: 2rem;
     margin: -22px 56px 32px 16px;
@@ -62,7 +62,7 @@
 .faq-question-answer { /*answer test*/
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Inter';
     line-height: 1.8rem;
     text-align: justify;

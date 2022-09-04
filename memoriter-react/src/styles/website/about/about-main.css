@@ -17,7 +17,7 @@
 
 .about-main-text { /*text font styling*/
     font-size: 1.4rem;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Inter';
     line-height: 2rem;
 }

@@ -5,15 +5,15 @@
     margin-top: auto;
     left: 0;
     width: 100%;
-    background-color: rgba(18, 18, 18, 1);
+    background-color: var(--color-background-dark);
 }
 
 .product-footer-top-transition-shape-left { /*trapezoid shape at the top left*/
     position: absolute;
     left: 0;
     top: -50px;
-	border-right: 50px solid rgba(0, 0, 0, 0);
-    border-bottom: 50px solid rgba(18, 18, 18, 1);
+	border-right: 50px solid var(--color-transparent);
+    border-bottom: 50px solid var(--color-background-dark);
 	height: 0;
 	width: 30vw;
 }
@@ -21,8 +21,8 @@
     position: absolute;
     right: 0;
     top: -50px;
-	border-left: 50px solid rgba(0, 0, 0, 0);
-    border-bottom: 50px solid rgba(18, 18, 18, 1);
+	border-left: 50px solid var(--color-transparent);
+    border-bottom: 50px solid var(--color-background-dark);
 	height: 0;
 	width: 30vw;
 }
@@ -37,11 +37,11 @@
 }
 
 .product-footer-header { /*column header*/
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--font);
-    font-family: 'Rubik';
+    color: var(--color-font);
+    font-family: var(--font-highlight);
     text-decoration: none;
     background-clip: text;
     -webkit-background-clip: text;
@@ -52,8 +52,8 @@
     display: block;
     width: fit-content;
     font-size: 1.1rem;
-    color: var(--font);
-    font-family: 'Inter';
+    color: var(--color-font);
+    font-family: var(--font-default);
     text-decoration: none;
     line-height: 1.5;
     white-space: nowrap;
@@ -62,7 +62,7 @@
 }
 .product-footer-link:hover { /*hover effect*/
     transform: translate(4px);
-    color: rgba(200, 200, 200, 1);
+    color: var(--color-font-gray);
 }
 
 .product-footer-bottom-box { /*dark box at the bottom*/
@@ -71,7 +71,7 @@
     bottom: 0;
     width: 100%;
     height: 80px;
-    background-color: rgba(10, 10, 10, 1);
+    background-color: var(--color-background-dark-plus);
 }
 
 .product-footer-bottom-box-copyright { /*copyright text*/
@@ -79,8 +79,8 @@
     left: 30px;
     top: 20px;
     font-size: 0.8rem;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
     white-space: nowrap;
 }
 
@@ -89,13 +89,13 @@
     right: 180px;
     top: 20px;
     font-size: 0.8rem;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
     transition: color 200ms;
     cursor: pointer;
 }
 .product-footer-bottom-box-language:hover { /*hover effect for text*/
-    color: var(--font);
+    color: var(--color-font);
 }
 
 .product-footer-bottom-box-visual-mode {
@@ -103,13 +103,13 @@
     right: 30px;
     top: 20px;
     font-size: 0.8rem;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
     transition: color 200ms;
     cursor: pointer;
 }
 .product-footer-bottom-box-visual-mode:hover { /*hover effect for text*/
-    color: var(--font);
+    color: var(--color-font);
 }
 
 .product-footer-bottom-box-social-media-box { /*positioning for the social media icons*/
@@ -124,13 +124,13 @@
     position: absolute;
     width: 36px;
     height: 36px;
-    border: 2px solid var(--font);
+    border: 2px solid var(--color-font);
     border-radius: 50%; /*circle shape*/
     cursor: pointer;
     transition: background-color 200ms;
 }
 .product-footer-bottom-box-social-media-circle:hover { /*background hover effect*/
-    background-color: rgba(55, 55, 55, 0.5);
+    background-color: var(--color-hover-light);
 }
 .product-footer-bottom-box-social-media-icon { /*icons for the different social media platforms*/
     position: absolute;
@@ -138,7 +138,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
-    filter: invert(1); /*for making the icons white*/
+    filter: var(--svg-invert-dark); /*for making the icons white*/
 }
 
 @media (max-width: 1160px) { /*small optimization for small screens*/

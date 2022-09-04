@@ -12,7 +12,7 @@
     max-width: calc(100% - 40px);
     height: 700px;
     max-height: calc(100% - 40px);
-    background-color: var(--background);
+    background-color: var(--color-background);
     border-radius: 12px;
     transition: transform 400ms, opacity 400ms; /*fade in/out animation transition*/
     z-index: 4;
@@ -92,7 +92,7 @@
 }
 
 .cookie-settings-description { /*main description for the banner*/
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Inter';
     line-height: 1.5rem;
     text-align: justify;
@@ -109,7 +109,7 @@
 
 .cookie-settings-label { /*label for toggle switches*/
     font-size: 1.2rem;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Rubik';
     margin-right: 50px;
     margin-bottom: 0;
@@ -117,7 +117,7 @@
 .cookie-settings-label-description { /*label description texts*/
     width: 100%;
     font-size: 0.95rem;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Inter';
     line-height: 1.2rem;
     text-align: justify;
@@ -162,7 +162,7 @@
     right: 0;
     bottom: 0;
     border-radius: 30px;
-    background-color: var(--background);
+    background-color: var(--color-background);
     transition: background-color 400ms;
     cursor: pointer;
 }
@@ -206,7 +206,7 @@
     transition: color 200ms;
 }
 .cookie-settings-link:hover { /*link hover effect*/
-    color: var(--font);
+    color: var(--color-font);
 }
 
 .cookie-settings-buttons { /*positioning for save/accept buttons*/

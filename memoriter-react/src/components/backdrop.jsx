@@ -5,7 +5,7 @@ function Backdrop({ onFade, onClick }) {
     const backdropStyles = { //css for backdrop
         position: 'fixed',
         zIndex: '3',
-        backgroundColor: 'var(--backdrop)',
+        backgroundColor: 'var(--color-backdrop)',
         width: '100%',
         height: '100%',
         top: '0',

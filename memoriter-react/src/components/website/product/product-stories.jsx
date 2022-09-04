@@ -23,14 +23,14 @@ const ProductStories = () => {
     const [number, setNumber] = useState(Math.floor(Math.random() * stories.length)); //number of the currently shown story (position in the array), is random on page render
 
     const [textAreaAnimation, setTextAreaAnimation] = useState('1'); //value used for the animation on next or previous story
-    const [dotAnimation, setDotAnimation] = useState('rgba(37.5, 177.5, 147.5, 1)');
+    const [dotAnimation, setDotAnimation] = useState('var(--color-highlight-gradient-green)');
 
     function previousStory() { //function for switching to previous story
         setTextAreaAnimation('0'); //fade out effect
         setTimeout(() => {setTextAreaAnimation('1')}, 400); //fade in effect
 
-        setDotAnimation('rgba(55, 55, 55, 1)'); //dot fade out
-        setTimeout(() => {setDotAnimation('rgba(37.5, 177.5, 147.5, 1)')}, 400); //dot fade in
+        setDotAnimation('var(--color-hover)'); //dot fade out
+        setTimeout(() => {setDotAnimation('var(--color-highlight-gradient-green)')}, 400); //dot fade in
         
         setTimeout(() => { //timeout needed for correctly executed animation
             if (number === 0) { //if the first story is shown it switches to the last one
@@ -45,8 +45,8 @@ const ProductStories = () => {
         setTextAreaAnimation('0'); //fade out effect
         setTimeout(() => {setTextAreaAnimation('1');}, 400); //fade in effect
 
-        setDotAnimation('rgba(55, 55, 55, 1)'); //dot fade out
-        setTimeout(() => {setDotAnimation('rgba(37.5, 177.5, 147.5, 1)')}, 400); //dot fade in
+        setDotAnimation('var(--color-hover)'); //dot fade out
+        setTimeout(() => {setDotAnimation('var(--color-highlight-gradient-green)')}, 400); //dot fade in
         
         setTimeout(() => { //timeout needed for correctly executed animation
             if (number === stories.length - 1) { //if the first story is shown it switches to the last one
@@ -61,8 +61,8 @@ const ProductStories = () => {
         setTextAreaAnimation('0'); //fade out effect
         setTimeout(() => {setTextAreaAnimation('1');}, 400); //fade in effect
 
-        setDotAnimation('rgba(55, 55, 55, 1)'); //dot fade out
-        setTimeout(() => {setDotAnimation('rgba(37.5, 177.5, 147.5, 1)')}, 400); //dot fade in
+        setDotAnimation('var(--color-hover)'); //dot fade out
+        setTimeout(() => {setDotAnimation('var(--color-highlight-gradient-green)')}, 400); //dot fade in
         
         setTimeout(() => {setNumber(story.number)}, 400); //timeout needed for correctly executed animation
     };
@@ -92,6 +92,6 @@ const ProductStories = () => {
             </div>
         </div>
     );
-}
+};
 
 export default ProductStories;

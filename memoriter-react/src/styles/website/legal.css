@@ -24,7 +24,7 @@
 .legal-main h2 { /*all html sub headings (<h2/>) of legal-main*/
     font-size: 1.6rem;
     font-weight: 500;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Rubik';
     margin-top: 60px;
     margin-bottom: 12px;
@@ -32,7 +32,7 @@
 .legal-main p { /*all html text paragraps (<p/>) of legal-main*/
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Inter';
     line-height: 1.8rem;
     text-align: justify;
@@ -41,14 +41,14 @@
 .legal-main ul { /*all html unordered lists (<ul/>) of legal-main*/
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Inter';
     line-height: 1.8rem;
     text-align: justify;
     margin-bottom: 0;
 }
 .legal-main a { /*all html links (<a/>) of legal-main*/
-    color: var(--font);
+    color: var(--color-font);
     transition: color 200ms;
 }
 .legal-main a:hover{ /*hover effect for all html links (<a/>) of legal-main*/
@@ -61,7 +61,7 @@
 .legal-main-table-container table { /*all html tables (<table/>) of legal-main-table-container*/
     min-width: 100%;
     font-size: 1.1rem;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Inter';
     line-height: 1.6rem;
     text-align: left;

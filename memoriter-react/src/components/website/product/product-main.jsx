@@ -80,6 +80,6 @@ const ProductMain = () => {
 
         </div>
     );
-}
+};
 
 export default ProductMain;

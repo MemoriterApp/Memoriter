@@ -6,15 +6,15 @@
     top: 0;
     width: 100%;
     height: 62px;
-    background-color: var(--background);
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+    background-color: var(--color-background);
+    box-shadow: 0 5px 5px var(--color-shadow);
     transition: bottom 200ms;
     z-index: 1;
 }
 
 .product-header-text-gradient { /*for the text gradient of link texts*/
     font-weight: 600;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -26,6 +26,7 @@
     top: calc(50% - 1px);
     transform: translate(0, -50%);
     height: 35px;
+    filter: var(--svg-invert-light);
     cursor: pointer;
 }
 
@@ -46,8 +47,8 @@
     display: inline;
     position: relative;
     font-size: 1.2rem;
-    color: var(--font);
-    font-family: 'Rubik';
+    color: var(--color-font);
+    font-family: var(--font-highlight);
     text-decoration: none;
     margin-right: 30px;
     padding: 4px 6px 4px 6px;
@@ -56,7 +57,7 @@
     transition: background-color 200ms;
 }
 .product-header-quicklink:hover { /*for the fading background box on hover*/
-    background-color: rgba(55, 55, 55, 0.75);
+    background-color: var(--color-hover);
 }
 
 .product-header-language-button { /*button to change language*/
@@ -68,12 +69,12 @@
     height: 30px;
     border: none;
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
     cursor: pointer;
     transition: background-color 200ms;
 }
 .product-header-language-button:hover { /*visible border on hover*/
-    background-color: rgba(55, 55, 55, 0.75);
+    background-color: var(--color-hover);
 }
 .product-header-language-icon { /*change language mode symbol*/
     position: absolute;
@@ -82,7 +83,7 @@
     transform: translate(-50%, -50%);
     width: 85%;
     height: 85%;
-    filter: invert(0.78431372549019607843137254901961); /*for the correct icon color*/
+    filter: var(--svg-invert-gray); /*for the correct icon color*/
 }
 
 .product-header-visual-mode-button { /*button to swich between light and dark mode*/
@@ -94,12 +95,12 @@
     height: 30px;
     border: none;
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
     cursor: pointer;
     transition: background-color 200ms;
 }
 .product-header-visual-mode-button:hover { /*visible border on hover*/
-    background-color: rgba(55, 55, 55, 0.75);
+    background-color: var(--color-hover);
 }
 .product-header-visual-mode-icon { /*light and dark mode symbol*/
     position: absolute;
@@ -108,9 +109,9 @@
     transform: translate(-50%, -50%);
     width: 50%;
     height: 50%;
-    border: 3px solid rgba(200, 200, 200, 1);
+    border: 3px solid var(--color-font-gray);
     border-radius: 50%; /*creates the circle shape*/
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 55%, rgba(200, 200, 200, 1) 45%); /*half intransparent circle*/
+    background: linear-gradient(90deg, var(--color-transparent) 55%, var(--color-font-gray) 45%); /*half intransparent circle*/
 }
 
 .product-header-sign-in { /*Sign in button*/
@@ -119,8 +120,8 @@
     top: calc(50% - 1px);
     transform: translate(0, -50%);
     font-size: 1.2rem;
-    color: var(--font);
-    font-family: 'Rubik';
+    color: var(--color-font);
+    font-family: var(--font-highlight);
     text-decoration: none;
     padding: 4px 6px 4px 6px;
     border-radius: 4px;
@@ -128,7 +129,7 @@
     transition: background-color 200ms;
 }
 .product-header-sign-in:hover { /*for the fading background box on hover*/
-    background-color: rgba(55, 55, 55, 0.75);
+    background-color: var(--color-hover);
 }
 
 .product-header-register { /*register button, needed to be split in multiple classes, this class is for the positionig of the button*/
@@ -143,8 +144,8 @@
     top: 8px;
     transform: translate(-50%);
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 1);
-    font-family: 'Rubik';
+    color: var(--color-white);
+    font-family: var(--font-highlight);
     text-decoration: none;
 }
 .product-header-register-background { /*the hover background was done in React because it did not work in CSS*/
@@ -152,7 +153,7 @@
     height: 22px;
     padding: 8px 10px 8px 10px;
     border-radius: 6px;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     cursor: pointer;
     transition: filter 200ms;
 }
@@ -167,18 +168,18 @@
     height: 30px;
     border: none;
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
     cursor: pointer;
     transition: background-color 200ms;
 }
 .product-header-mobile-sidebar-button:hover { /*visible border on hover*/
-    background-color: rgba(55, 55, 55, 0.75);
+    background-color: var(--color-hover);
 }
 .product-header-mobile-sidebar-icon { /*expand sidebar for small screens symbol*/
     font-size: 1.2rem;
     font-weight: 600;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Rubik';
+    color: var(--color-font-gray);
+    font-family: var(--font-highlight);
     letter-spacing: 3px;
     text-align: center;
     transform: rotate(90deg);
@@ -197,7 +198,7 @@
     left: 0;
     bottom: 0px;
     height: 2px;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
 }
 
 @media (max-width: 1160px) { /*changes for medium screen sizes (e.g. tablets, smaller laptops etc.)*/
@@ -242,9 +243,9 @@
         width: 262px;
         max-width: 100%;
         height: calc(100vh - 60px);
-        border-top: 1px solid rgba(200, 200, 200, 1);
-        box-shadow:  0 10px 5px 5px rgba(0, 0, 0, 0.4);
-        background-color: var(--background);
+        border-top: 1px solid var(--color-font-gray);
+        box-shadow:  0 10px 5px 5px var(--color-shadow);
+        background-color: var(--color-background);
         overflow: auto;
         transition: right 600ms;
     }
@@ -264,7 +265,7 @@
         width: calc(100% - 70px);
         text-align: left;
         padding: 16px 16px 16px 16px;
-        border-bottom: 1px solid rgba(200, 200, 200, 1);
+        border-bottom: 1px solid var(--color-font-gray);
         border-radius: 0;
     }
 
@@ -300,8 +301,8 @@
         top: 50%;
         transform: translate(0, -50%);
         font-size: 1.2rem;
-        color: var(--font);
-        font-family: 'Rubik';
+        color: var(--color-font);
+        font-family: var(--font-highlight);
         text-decoration: none;
         padding: 4px 6px 4px 6px;
         border-radius: 4px;
@@ -309,7 +310,7 @@
         transition: background-color 200ms;
     }
     .product-header-sign-in-alt:hover { /*for the fading background box on hover*/
-        background-color: rgba(55, 55, 55, 0.75);
+        background-color: var(--color-hover);
     }
 
     .product-header-register-alt { /*register button staying at the top*/

@@ -1,31 +1,29 @@
-//This wrapper component is responsible for the visual mode theme (dark, light and high contrast).
+//This wrapper component is responsible for the visual mode theme (dark and light mode).
 
 import { useState, useEffect } from 'react';
 
 const VisualModeProvider = ({ children }) => {
 
-    const currentMode = localStorage.getItem('visual-mode')
+    const currentMode = localStorage.getItem('visual-mode'); //stored value (localStorage)
 
     const [visualMode, setVisualMode] = useState('dark'); //visual mode (used as html id to connect to different css ids)
     const [backgroundColor, setBackgroundColor] = useState(''); //body background color
 
     useEffect(() => { //dynamically changes the page background color and visual mode based on localStorage
-        if (visualMode === 'light') {
-            setBackgroundColor('#f0f0f0');
-        } else if (visualMode === 'high-contrast') {
-            setBackgroundColor('#080808');
+        if (currentMode) { //checks if a value is stored in localStorage to change the visual mode
+            setVisualMode(currentMode);
+        };
+        
+        if (visualMode === 'light') { //checks which mode is active to adjust page background
+            setBackgroundColor('#e4e4e4');
         } else {
             setBackgroundColor('#202020');
         };
+    }, [currentMode, visualMode]);
 
-        if (currentMode) {
-            setVisualMode(currentMode);
-        };
-    }, [visualMode, currentMode]);
+    document.body.style.backgroundColor = backgroundColor; //page background color, cannot be accessed otherwise
 
-    document.body.style.backgroundColor = backgroundColor; //page background color
-
-    return (<div id={visualMode}>{children}</div>);
+    return (<div id={visualMode}>{children}</div>); //children refers to the content inside the wrapper (all pages)
 };
 
 export default VisualModeProvider;

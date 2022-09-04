@@ -93,6 +93,6 @@ const ProductFooter = ({ onOpenCookieSettings }) => {
 
         </footer>
     );
-}
+};
 
 export default ProductFooter;

@@ -23,11 +23,11 @@
     max-height: 90vh;
     text-align: center;
     font-size: 1.1rem;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Inter';
     padding: 12px 12px 12px 12px;
     border-radius: 12px;
-    background-color: var(--background);
+    background-color: var(--color-background);
 }
 
 .window-size-alert-header { /*container header*/

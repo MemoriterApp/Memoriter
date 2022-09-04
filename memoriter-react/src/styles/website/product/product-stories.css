@@ -18,7 +18,7 @@
     width: calc(100% - 150px);
     height: calc(100% - 40px);
     border-radius: 10px;
-    background-color: rgba(55, 55, 55, 1);
+    background-color: var(--color-hover);
 }
 .product-stories-textarea::after { /*quotation mark at the upper left corner*/
     content: '"'; /*the quotation mark symbol*/
@@ -26,24 +26,24 @@
     left: -27px;
     top: -18px;
     font-size: 12rem;
-    font-family: 'BIZ UDPGothic';
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    font-family: var(--font-large-quotation);
+    background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .product-stories-textarea-quote {
-    color: var(--font);
+    color: var(--color-font);
     font-style: italic;
     font-size: 1.4rem;
-    font-family: 'Kaisei HarunoUmi';
+    font-family: var(--font-serif);
     text-align: justify;
     margin: 60px 60px -40px 60px;
 }
 .product-stories-textarea-author {
-    color: var(--font);
+    color: var(--color-font);
     font-size: 1.4rem;
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     margin: 60px 60px -40px 60px;
 }
 
@@ -54,8 +54,8 @@
     transform: translate(0, -50%);
     width: 36px;
     height: 64px;
-    background-color: rgba(0, 0, 0, 0);
-    border-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
+    border-color: var(--color-transparent);
     cursor: pointer;
     transition: transform 400ms, filter 400ms;
 }
@@ -67,7 +67,7 @@
     width: 15px;
     height: 30px;
     transform: skew(-30deg); /*creates a parallelogram shape*/
-    background-color: rgba(200, 200, 200, 1);
+    background-color: var(--color-font-gray);
 }
 .product-stories-arrow-left::after { /*lower half of the arrow*/
     content: '';
@@ -77,7 +77,7 @@
     width: 15px;
     height: 30px;
     transform: skew(30deg); /*creates a parallelogram shape*/
-    background-color: rgba(200, 200, 200, 1);
+    background-color: var(--color-font-gray);
 }
 .product-stories-arrow-left:hover { /*hover effect*/
     transform: translate(-8px, -50%);
@@ -91,8 +91,8 @@
     transform: translate(0, -50%);
     width: 36px;
     height: 64px;
-    background-color: rgba(0, 0, 0, 0);
-    border-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
+    border-color: var(--color-transparent);
     cursor: pointer;
     transition: transform 400ms, filter 400ms;
 }
@@ -104,7 +104,7 @@
     width: 15px;
     height: 30px;
     transform: skew(30deg); /*creates a parallelogram shape*/
-    background-color: rgba(200, 200, 200, 1);
+    background-color: var(--color-font-gray);
 }
 .product-stories-arrow-right::after { /*lower half of the arrow*/
     content: '';
@@ -114,7 +114,7 @@
     width: 15px;
     height: 30px;
     transform: skew(-30deg); /*creates a parallelogram shape*/
-    background-color: rgba(200, 200, 200, 1);
+    background-color: var(--color-font-gray);
 }
 .product-stories-arrow-right:hover { /*hover effect*/
     transform: translate(8px, -50%);
@@ -134,7 +134,7 @@
     width: 12px;
     height: 12px;
     border-radius: 50%; /*circle shape*/
-    background-color: rgba(55, 55, 55, 1);
+    background-color: var(--color-hover);
     cursor: pointer;
     transition: 400ms;
 }

@@ -61,6 +61,6 @@ const ProductBanner = () => {
 
         </div>
     );
-}
+};
 
 export default ProductBanner;

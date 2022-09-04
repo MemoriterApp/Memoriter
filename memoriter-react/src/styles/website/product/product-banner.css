@@ -7,7 +7,7 @@
     min-height: 420px; /*fixes issues for screens not high enough*/
     left: 0;
     top: 62px;
-    background: linear-gradient(rgba(36, 36, 36, 1), rgba(54, 54, 60, 1));
+    background: var(--color-banner-gradient);
     overflow: hidden;
 }
 
@@ -16,16 +16,16 @@
     top: 0;
     width: 0;
     height: 0;
-    border-left: 50vh solid rgba(0, 0, 0, 0);
-    border-top: 50vh solid rgba(54, 54, 60, 0.5);
+    border-left: 50vh solid var(--color-transparent);
+    border-top: 50vh solid var(--color-banner-triangle-light);
 }
 .product-banner-background-triangle-bottom { /*background triangle at the lower left corner*/
     position: absolute;
     bottom: 0;
     width: 0;
     height: 0;
-    border-right: 50vh solid rgba(0, 0, 0, 0);
-    border-bottom: 50vh solid rgba(36, 36, 36, 0.5);
+    border-right: 50vh solid var(--color-transparent);
+    border-bottom: 50vh solid var(--color-banner-triangle-dark);
 }
 
 .product-banner-content { /*positioning for the text and button*/
@@ -36,12 +36,12 @@
 }
 
 .product-banner-text { /*text for slogan*/
-    color: var(--font);
+    color: var(--color-font);
     width: 80vw;
     max-width: 800px;
     font-style: italic;
     font-size: 3rem;
-    font-family: 'Kaisei HarunoUmi';
+    font-family: var(--font-serif);
     text-align: center;
     margin: 0 0 5rem 0;
 }
@@ -58,7 +58,7 @@
     transform: translate(-50%);
     font-size: 1.8rem;
     color: rgba(255, 255, 255, 1);
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     text-decoration: none;
     white-space: nowrap;
 }
@@ -67,7 +67,7 @@
     height: 60px;
     padding: 8px 10px 8px 10px;
     border-radius: 10px;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     cursor: pointer;
     transition: filter 200ms;
 }
@@ -78,14 +78,14 @@
     bottom: 0;
     width: 100%;
     height: 40px;
-    background-color: var(--background);
+    background-color: var(--color-background);
 }
 .product-banner-bottom-transition-shape-left { /*trapezoid shape at the left*/
     position: absolute;
     left: 0;
     bottom: 40px;
-	border-right: 50px solid rgba(0, 0, 0, 0);
-    border-bottom: 50px solid var(--background);
+	border-right: 50px solid var(--color-transparent);
+    border-bottom: 50px solid var(--color-background);
 	height: 0;
 	width: 30vw;
 }
@@ -93,8 +93,8 @@
     position: absolute;
     right: 0;
     bottom: 40px;
-	border-left: 50px solid rgba(0, 0, 0, 0);
-    border-bottom: 50px solid var(--background);
+	border-left: 50px solid var(--color-transparent);
+    border-bottom: 50px solid var(--color-background);
 	height: 0;
 	width: 30vw;
 }

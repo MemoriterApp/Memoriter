@@ -9,7 +9,7 @@
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    color: var(--font);
+    color: var(--color-font);
     max-width: 1200px;
     gap: 128px;
     margin-bottom: 20px;

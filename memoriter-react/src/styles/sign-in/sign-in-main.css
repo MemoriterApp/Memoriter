@@ -17,7 +17,7 @@
 }
 
 .sign-in-main-header { /*large heading*/
-    color: var(--font);
+    color: var(--color-font);
     font-size: 3rem;
     font-family: 'Heebo';
     text-align: center;
@@ -29,7 +29,7 @@
     left: 50%;
     transform: translate(-50%);
     width: calc(100% - 120px);
-    color: var(--font);
+    color: var(--color-white);
     font-family: 'Inter';
     padding: 24px 12px 0 12px;
     padding: 12px 8px 12px 16px;
@@ -54,7 +54,7 @@
     left: 50%;
     transform: translate(-50%);
     width: calc(100% - 120px);
-    color: var(--font);
+    color: var(--color-white);
     font-family: 'Inter';
     padding: 24px 12px 0 12px;
     padding: 12px 8px 12px 16px;
@@ -177,14 +177,14 @@
     transform: translate(-50%);
     width: calc(100% - 120px);
     height: 42px;
-    color: var(--font);
+    color: var(--color-font);
     font-size: 1.2rem;
     font-family: 'Inter';
     padding: 0 12px 0 12px;
     margin-bottom: 24px;
     border: 1px solid rgba(100, 100, 100, 1);
     border-radius: 6px;
-    background-color: var(--background);
+    background-color: var(--color-background);
     outline: none;
 }
 
@@ -212,7 +212,7 @@
     transition: color 200ms;
 }
 .sign-in-main-forgot-password:hover { /*hover effect*/
-    color: var(--font);
+    color: var(--color-font);
 }
 
 .sign-in-main-checkbox { /*checkbox position*/
@@ -227,7 +227,7 @@
     height: 20px;
     border: 1.5px solid rgba(100, 100, 100, 1);
     border-radius: 4px;
-    background-color: var(--background);
+    background-color: var(--color-background);
     margin-bottom: 30px;
     cursor: pointer;
     transition: background-color 200ms;
@@ -237,7 +237,7 @@
     position: relative;
     left: 2.5px;
     top: -4.5px;
-    color: var(--font);
+    color: var(--color-font);
     font-size: 1.3rem;
     opacity: 0; /*hidden on default*/
 }
@@ -260,7 +260,7 @@
     text-align: center;
 }
 .sign-in-main-text-link { /*changed color for links*/
-    color: var(--font);
+    color: var(--color-font);
 }
 
 .sign-in-main-link { /*standalone links (other color)*/
@@ -274,7 +274,7 @@
     transition: color 200ms;
 }
 .sign-in-main-link:hover { /*hover effect*/
-    color: var(--font);
+    color: var(--color-font);
 }
 
 .sign-in-main-button { /*sign in/register button*/

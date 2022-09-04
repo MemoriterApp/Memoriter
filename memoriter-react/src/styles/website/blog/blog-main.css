@@ -52,7 +52,7 @@
     font-size: 2rem;
     font-weight: 500;
     font-family: 'Rubik';
-    color: var(--font);
+    color: var(--color-font);
     transition: color 200ms;
 }
 .blog-main-new-blog p { /*new blog preview description*/
@@ -85,7 +85,7 @@
 .blog-main-old-blog-box h2 { /*old blog preview title*/
     font-size: 1.8rem;
     font-weight: 500;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Inter';
     line-height: 2rem;
     margin-inline: 16px;
@@ -111,7 +111,7 @@
     transform: translate(-50%);
     width: 164px;
     font-size: 1.6rem;
-    color: var(--font);
+    color: var(--color-font);
     font-family: 'Rubik';
     padding: 8px 6px 8px 6px;
     margin-top: 40px;

@@ -4,29 +4,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*Inter: basic font for most text*/
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*Rubik: larger font for subheadings or buttons*/
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*Heebo: large font for page headings*/
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap'); /*Kaisai HarunoUmi: italic serif font for the product page*/
-@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@700&display=swap'); /*font for quotation mark at product stories*/
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap'); /*Kaisei HarunoUmi: italic serif font for the product page*/
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@700&display=swap'); /*BIZ UDPGothic: font for quotation mark at product stories*/
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap'); /*IBM Plex Serif: serif font for the blog posts*/
-@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap'); /*question mark font for the page not found page*/
+@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap'); /*Quantico: question mark font for the page not found page*/
 
-:root { /*global fixed colors*/
-    --backdrop: #000000bf;
+:root { /*global fixed colors and fonts*/
+    /*colors*/
+    --color-highlight-gradient: linear-gradient(45deg, #23aaaa, #28b97d);
+    --color-highlight-gradient-blue: #23aaaa;
+    --color-highlight-gradient-green: #26b294;
+    --color-backdrop: #000000bf;
+    --color-shadow: #00000066;
+    --color-white: #ffffff;
+    --color-transparent: #00000000;
+    /*font families*/
+    --font-default: 'Inter';
+    --font-highlight: 'Rubik';
+    --font-heading: 'Heebo';
+    --font-serif: 'Kaisei HarunoUmi';
+    --font-large-quotation: 'BIZ UDPGothic';
+    --font-blog: 'IBM Plex Serif';
+    --font-large-question: 'Quantico';
 }
 
 /*global color variables for different visual modes (can be used with the var() expression)*/
 #dark { /*dark mode (default)*/
-    --font: #FFFFFF;
-    --background: #202020;
+    --color-font: #ffffff;
+    --color-font-gray: #c8c8c8;
+    --color-background: #202020;
+    --color-hover: #373737bf;
+    --color-hover-light: #37373780;
+    --color-background-dark: #121212;
+    --color-background-dark-plus: #0a0a0a;
+    --color-banner-gradient: linear-gradient(#242424, #36363c);
+    --color-banner-triangle-light: #36363c80;
+    --color-banner-triangle-dark: #24242480;
+    /*values for correcting svg colors*/
+    --svg-invert-light: invert(0);
+    --svg-invert-dark: invert(1);
+    --svg-invert-gray: invert(0.78431372549019607843137254901961);
 }
 
 #light { /*light mode*/
-    --font: #000000;
-    --background: #f0f0f0;
-}
-
-#high-contrast { /*high contrast mode*/
-    --font: #FFFFFF;
-    --background: #080808;
+    --color-font: #000000;
+    --color-font-gray: rgb(55, 55, 55);
+    --color-background: #e4e4e4;
+    --color-hover: #b5b5b5bf;
+    --color-hover-light: #a0a0a0bf;
+    --color-background-dark: #cbcbcb;
+    --color-background-dark-plus: #bbbbbb;
+    --color-banner-gradient: linear-gradient(#c0c0c0, #c8c8f0);
+    --color-banner-triangle-light: #c8c8f080;
+    --color-banner-triangle-dark: #c0c0c080;
+    /*values for correcting svg colors*/
+    --svg-invert-light: invert(1);
+    --svg-invert-dark: invert(0);
+    --svg-invert-gray: invert(0.21568627450980392156862745098039);
 }
 
 /* Custom Scrollbar */

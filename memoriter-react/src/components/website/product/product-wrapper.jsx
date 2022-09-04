@@ -76,6 +76,6 @@ const ProductWrapper = ({ children, title, description, currentPage }) => {
             
         </>
     );
-}
+};
 
 export default ProductWrapper;

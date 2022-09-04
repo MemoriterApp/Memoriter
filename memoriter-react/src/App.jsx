@@ -41,7 +41,7 @@ function App() {
   return (
     <AuthProvider> {/*AuthProvider fixes an issue where wrong pages are displayed for a short amound of time on page load*/}
       <ScrollReset> {/*ScrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/} 
-        <VisualModeProvider> {/*VisualModeProvider is responsible for the light, dark and high contrast theme*/}
+        <VisualModeProvider> {/*VisualModeProvider is responsible for the dark and light theme*/}
           <Routes>
 
             <Route path='/signin' element={<SignIn/>}/>
