@@ -2,7 +2,7 @@
 When no user is signed in, the sign in only pages display before checking if a user is signed in for the redirect to occurr.
 This component adds an extra condition (loading) wich prevents the page rendering during unclear user status.*/
 
-import React, { useContext, useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, useContext, createContext } from 'react';
 import { firebase } from '../../utils/firebase';
 
 const AuthContext = createContext(); //necessary to work

@@ -9,9 +9,17 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap'); /*IBM Plex Serif: serif font for the blog posts*/
 @import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap'); /*question mark font for the page not found page*/
 
-body { /*global color variables (can be used with the var() expression)*/
+/*global color variables for different visual modes (can be used with the var() expression)*/
+#dark { /*dark mode (default)*/
     --background: #202020;
-    background-color: var(--background); /*background for all pages*/
+}
+
+#light { /*light mode*/
+    --background: #f0f0f0;
+}
+
+#high-contrast { /*high contrast mode*/
+    --background: #080808;
 }
 
 /* Custom Scrollbar */

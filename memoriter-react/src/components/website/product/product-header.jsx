@@ -33,6 +33,10 @@ const ProductHeader = ({ currentPage }) => {
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
+    function changeVisualMode() {
+        localStorage.setItem('visual-mode', 'light');
+    };
+
     return (
         <header className='product-header'>
 
@@ -64,7 +68,7 @@ const ProductHeader = ({ currentPage }) => {
                 {/*the if else conditions changes the color of the links depending on the current open page*/}
 
                 {/*light and dark mode button*/}
-                <button className='product-header-visual-mode-button'>
+                <button className='product-header-visual-mode-button' onClick={changeVisualMode}>
                     <div className='product-header-visual-mode-icon'/>
                 </button>
 
