@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 
 const ScrollReset = ({ children }) => {
+    
     const location = useLocation(); //does not work without this
 
     useEffect(() => {

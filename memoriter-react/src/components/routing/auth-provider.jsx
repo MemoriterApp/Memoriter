@@ -12,6 +12,7 @@ export function useAuth() { //creates part of the component
 }
 
 export function AuthProvider({ children }) {
+    
     const [user, setUser] = useState(); //checks if user is signed in
     const [loading, setLoading] = useState(true); //when loading is true the wrong page cannot display
 

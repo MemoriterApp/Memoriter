@@ -4,9 +4,7 @@ const Head = ({ title, description }) => {
     return (
         <Helmet> {/*The helmet tag is like a head tag for meta data, the normal head tag does not work in React.*/}
             <title>Memoriter | {title}</title> {/*title changes with currently open page*/}
-            {/*all the basic meta data:*/}
-            <meta charset='UTF-8'/>
-            <meta name='viewport' content='width=device-width, initial-scale=1'/>
+            {/*all the basic dynamic meta data:*/}
             <meta name='keywords' content='memoriter, learning, notes, school'/>
             <meta name='description' content={description}/>
         </Helmet>
