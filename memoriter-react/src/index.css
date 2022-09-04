@@ -9,12 +9,9 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap'); /*IBM Plex Serif: serif font for the blog posts*/
 @import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap'); /*question mark font for the page not found page*/
 
-:root { /*global color variables (can be used with the var() expression)*/
+body { /*global color variables (can be used with the var() expression)*/
     --background: #202020;
-}
-
-body { /*background for all pages*/
-    background-color: var(--background);
+    background-color: var(--background); /*background for all pages*/
 }
 
 /* Custom Scrollbar */
