@@ -10,14 +10,14 @@
     transform: translate(-50%);
     width: calc(100% - 160px);
     max-width: 2400px;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     gap: 40px;
     margin-bottom: 80px;
 }
 
 .download-desktop-heading { /*desktop app heading*/
     font-size: 2.4rem;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Heebo';
     text-align: center;
     margin-bottom: 60px;

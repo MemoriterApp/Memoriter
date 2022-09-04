@@ -19,7 +19,7 @@
     width: 36px;
     height: 36px;
     margin-top: -4px;
-    border: 2px solid rgba(255, 255, 255, 1);
+    border: 2px solid var(--font);
     border-radius: 50%; /*circle shape*/
     transform: scale(0.85); /*adjusts the size more precise*/
     cursor: pointer;
@@ -46,7 +46,7 @@
 .blog-post-footer-read-more { /*read more heading*/
     display: inline;
     font-size: 2.2rem;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Heebo';
 }
 
@@ -56,7 +56,7 @@
     right: 0;
     width: fit-content;
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Rubik';
     text-decoration: none;
     text-align: right;
@@ -99,7 +99,7 @@
 .blog-post-footer-linked-blog-box h3 { /*old blog preview title*/
     font-size: 1.8rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Inter';
     line-height: 2rem;
     margin: 20px 16px 24px 16px;

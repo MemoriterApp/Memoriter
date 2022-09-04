@@ -9,16 +9,23 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap'); /*IBM Plex Serif: serif font for the blog posts*/
 @import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap'); /*question mark font for the page not found page*/
 
+:root { /*global fixed colors*/
+    --backdrop: #000000bf;
+}
+
 /*global color variables for different visual modes (can be used with the var() expression)*/
 #dark { /*dark mode (default)*/
+    --font: #FFFFFF;
     --background: #202020;
 }
 
 #light { /*light mode*/
+    --font: #000000;
     --background: #f0f0f0;
 }
 
 #high-contrast { /*high contrast mode*/
+    --font: #FFFFFF;
     --background: #080808;
 }
 
@@ -59,7 +66,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 36px;
-    color: rgba(255,255,255,1);
+    color: white;
     max-width: 40%;
     max-height: 75px;
     -webkit-line-clamp: 2;
@@ -639,7 +646,7 @@
     content: "";
     background: linear-gradient(to top,
     #353535 5px,
-    rgba(255,255,255,0) 25%
+    rgba(0,0,0,0) 25%
     );
     pointer-events: none;
 }

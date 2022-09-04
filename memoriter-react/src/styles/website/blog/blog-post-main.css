@@ -20,7 +20,7 @@
     transform: translate(-50%);
     max-width: 48%;
     font-size: 1.3rem;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'IBM Plex Serif';
     line-height: 2.2rem;
     margin-bottom: 80px;
@@ -39,7 +39,7 @@
 }
 
 .blog-post-main article a { /*links to third party websites*/
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     text-decoration: underline 1px;
     text-underline-offset: 2px;
     cursor: pointer;
@@ -63,7 +63,7 @@
 .blog-post-main article blockquote { /*blockquotes with line at the left*/
     padding-left: 24px;
     margin: 40px 0 40px 0;
-    border-left: 4px solid rgba(255, 255, 255, 1);
+    border-left: 4px solid var(--font);
 }
 
 .blog-post-main-callout { /*small important highlighted texts*/

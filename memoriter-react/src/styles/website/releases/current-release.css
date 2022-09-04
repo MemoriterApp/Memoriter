@@ -21,7 +21,7 @@
 .current-release h2 { /*all html sub headings (<h2/>) of current-release*/
     font-size: 2rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Rubik';
     margin-top: 20px;
     margin-bottom: 32px;
@@ -29,7 +29,7 @@
 .current-release h3 { /*all html sub headings (<h2/>) of current-release*/
     font-size: 1.4rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Rubik';
     margin-top: 40px;
     margin-bottom: 12px;
@@ -37,7 +37,7 @@
 .current-release p { /*all html text paragraps (<p/>) of current-release*/
     font-size: 1.1rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Inter';
     line-height: 1.8rem;
     text-align: justify;
@@ -46,7 +46,7 @@
 .current-release ul { /*all html unordered lists (<ul/>) of current-release*/
     font-size: 1.1rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Inter';
     line-height: 1.8rem;
     text-align: justify;

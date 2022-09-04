@@ -40,7 +40,7 @@
     background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
     font-size: 1.2rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Rubik';
     text-decoration: none;
     background-clip: text;
@@ -52,7 +52,7 @@
     display: block;
     width: fit-content;
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Inter';
     text-decoration: none;
     line-height: 1.5;
@@ -95,7 +95,7 @@
     cursor: pointer;
 }
 .product-footer-bottom-box-language:hover { /*hover effect for text*/
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
 }
 
 .product-footer-bottom-box-visual-mode {
@@ -109,7 +109,7 @@
     cursor: pointer;
 }
 .product-footer-bottom-box-visual-mode:hover { /*hover effect for text*/
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
 }
 
 .product-footer-bottom-box-social-media-box { /*positioning for the social media icons*/
@@ -124,7 +124,7 @@
     position: absolute;
     width: 36px;
     height: 36px;
-    border: 2px solid rgba(255, 255, 255, 1);
+    border: 2px solid var(--font);
     border-radius: 50%; /*circle shape*/
     cursor: pointer;
     transition: background-color 200ms;

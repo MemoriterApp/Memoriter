@@ -38,7 +38,7 @@
 
 .newsletter-main-subscribe-label {
     font-size: 1.6rem;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Inter';
     margin: 0 0 10px 0;
 }
@@ -47,13 +47,13 @@
     position: relative;
     width: calc(100% - 180px);
     height: 42px;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-size: 1.2rem;
     font-family: 'Inter';
     padding: 0 12px 0 12px;
     border: 1px solid rgba(100, 100, 100, 1);
     border-radius: 6px;
-    background-color: rgba(32, 32, 32, 1);
+    background-color: var(--background);
     outline: none;
 
 }
@@ -73,7 +73,7 @@
     position: absolute;
     top: 0.6rem;
     transform: translate(-50%);
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-size: 1.4rem;
     font-family: 'Rubik';
     white-space: nowrap;
@@ -96,7 +96,7 @@
     z-index: 2;
 }
 .newsletter-main-checkbox-label-link { /*changed color for links*/
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
 }
 
 .newsletter-main-checkbox { /*checkbox position*/
@@ -112,7 +112,7 @@
     height: 20px;
     border: 1.5px solid rgba(100, 100, 100, 1);
     border-radius: 4px;
-    background-color: rgba(32, 32, 32, 1);
+    background-color: var(--background);
     margin-bottom: 30px;
     cursor: pointer;
     transition: background-color 200ms;
@@ -122,7 +122,7 @@
     position: relative;
     left: 2.5px;
     top: -4.5px;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-size: 1.3rem;
     font-family: 'Inter';
     opacity: 0; /*hidden on default*/
@@ -152,7 +152,7 @@
     left: 50%;
     transform: translate(-50%);
     max-width: 720px;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-size: 2rem;
     font-family: 'Rubik';
     line-height: 3rem;
@@ -168,7 +168,7 @@
     text-align: center;
 }
 .newsletter-main-unsubscribe-link {
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     text-decoration: underline;
     cursor: pointer;
 }

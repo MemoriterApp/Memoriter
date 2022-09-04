@@ -27,7 +27,7 @@
     top: 110px;
     font-size: 1.1rem;
     font-family: 'Inter';
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     line-height: 1.4rem;
     margin-right: 20px;
 }
@@ -54,7 +54,7 @@
 .blog-sidebar-topics-link { /*styles for the react router links of the list*/
     font-size: 1.2rem;
     font-family: 'Inter';
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     text-decoration: none;
     transition: color 200ms;
 }

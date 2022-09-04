@@ -35,7 +35,7 @@
     transform: translate(-50%);
     width: 200px;
     font-size: 1.4rem;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Inter';
     line-height: 2rem;
     text-align: center;
@@ -70,7 +70,7 @@
 
 .product-main-text { /*text font styling*/
     font-size: 1.4rem;
-    color: rgba(255, 255, 255, 1);
+    color: var(--font);
     font-family: 'Inter';
     line-height: 2rem;
 }
