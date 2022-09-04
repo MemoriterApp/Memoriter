@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Backdropfs() {
+function Backdropfs(props) {
     return (
-        <div className='Backdropfs'>
+        <div className='Backdropfs' onClick={props.onClick}>
         </div>
     );
 }
