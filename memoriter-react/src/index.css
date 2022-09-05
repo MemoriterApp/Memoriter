@@ -19,6 +19,8 @@
     --color-shadow: #00000066;
     --color-white: #ffffff;
     --color-black: #000000;
+    --color-red-light: #ff2828;
+    --color-green-light: #14b414;
     --color-transparent: #00000000;
     /*values for correcting svg colors*/
     --svg-invert-white: invert(1);
@@ -45,9 +47,7 @@
     --color-container-button: #505050;
     --color-background-dark: #121212;
     --color-background-dark-plus: #0a0a0a;
-    --color-red-light: #ff2828;
     --color-red-dark: #5a2828;
-    --color-green-light: #14b414;
     --color-green-dark: #144b14;
     --color-banner-gradient: linear-gradient(#242424, #36363c);
     --color-banner-triangle-light: #36363c80;
@@ -70,9 +70,7 @@
     --color-container-button: #929292;
     --color-background-dark: #cbcbcb;
     --color-background-dark-plus: #bbbbbb;
-    --color-red-light: #ff2828;
     --color-red-dark: #802828;
-    --color-green-light: #14b414;
     --color-green-dark: #146814;
     --color-banner-gradient: linear-gradient(#bababa, #8f8f96);
     --color-banner-triangle-light: #8f8f9680;
