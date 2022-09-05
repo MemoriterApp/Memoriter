@@ -82,7 +82,7 @@ const StudyPage = () => {
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name='keywords' content='memoriter, study, files, subjects, overview, effective, studying, school, university, flashcards'></meta>
-                <meta name='description' content='Flashacrds for Memoriter'/>
+                <meta name='description' content='Flashcards for Memoriter'/>
             </head>
 
             <body>
