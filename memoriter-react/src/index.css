@@ -22,6 +22,12 @@
     --color-red-light: #ff2828;
     --color-green-light: #14b414;
     --color-transparent: #00000000;
+    --color-google-hover: #dddddd;
+    --color-apple-hover: rgba(24 ,24 ,24 , 1);
+    --color-facebook: #4267b2;
+    --color-facebook-hover: #3c5f9b;
+    --color-github: #6e5494;
+    --color-github-hover: #645087;
     /*values for correcting svg colors*/
     --svg-invert-white: invert(1);
     /*font families*/
@@ -49,6 +55,8 @@
     --color-background-dark-plus: #0a0a0a;
     --color-red-dark: #5a2828;
     --color-green-dark: #144b14;
+    --color-cookies: #3c3c3c99;
+    --color-cookies-hover: #464646bf;
     --color-banner-gradient: linear-gradient(#242424, #36363c);
     --color-banner-triangle-light: #36363c80;
     --color-banner-triangle-dark: #24242480;
@@ -72,6 +80,8 @@
     --color-background-dark-plus: #bbbbbb;
     --color-red-dark: #802828;
     --color-green-dark: #146814;
+    --color-cookies: #1c1c1c99;
+    --color-cookies-hover: #505050bf;
     --color-banner-gradient: linear-gradient(#bababa, #8f8f96);
     --color-banner-triangle-light: #8f8f9680;
     --color-banner-triangle-dark: #bababa80;
@@ -118,7 +128,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 36px;
-    color: white;
+    color: var(--color-font);
     max-width: 40%;
     max-height: 75px;
     -webkit-line-clamp: 2;
@@ -145,7 +155,7 @@
     top: 45px;
     width: calc(100% - 10px);
     height: 0px;
-    border-top: 5px solid rgba(58,109,112,1);
+    border-top: 5px solid #3a6d70;
 }
 .Logo-oben {
     width: 134.4px;
@@ -171,7 +181,7 @@
     left: 50%;
     transform: translate(-50%);
     text-align: center;
-    color: #FFFF;
+    color: #ffffff;
     top: -10px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
@@ -206,7 +216,7 @@
     left: 0%;
     padding: 15px 15px;
     background-color: #353535;
-    border: 5px solid cadetblue;
+    border: 5px solid #5f9ea0;
     border-radius: 3px;
     cursor: pointer;
 }
@@ -239,7 +249,7 @@
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
-    color: #bbb;
+    color: #bbbbbb;
     font-size: 24px;
     padding: 11.5px;
 }
@@ -248,7 +258,7 @@
 .dot {
     height: 6px;
     width: 6px;
-    background-color: #bbb;
+    background-color: #bbbbbb;
     border-radius: 3px;
     display: inline-block;
     position: relative;
@@ -260,7 +270,7 @@
 .big-dot {
     height: 8px;
     width: 8px;
-    background-color: #bbb;
+    background-color: #bbbbbb;
     border-radius: 4px;
     display: inline-block;
     position: relative;
@@ -281,7 +291,7 @@
     cursor: pointer;
 }
 .Folder_Pos_Arrow_Up {
-    border: solid #bbb;
+    border: solid #bbbbbb;
     border-width: 0 3.5px 3.5px 0;
     padding: 4.5px;
     position: absolute;
@@ -300,7 +310,7 @@
     cursor: pointer;
 }
 .Folder_Pos_Arrow_Down {
-    border: solid #bbb;
+    border: solid #bbbbbb;
     border-width: 0 3.5px 3.5px 0;
     padding: 4.5px;
     position: absolute;
@@ -323,7 +333,7 @@
     position: absolute;
     top: 0%;
     width: 100%;
-    border-top: 5px solid rgba(112,112,112,1);
+    border-top: 5px solid #707070;
 }
 .Button_New_Folder {
     position: absolute;
@@ -332,7 +342,7 @@
     padding: 15px 15px;
     background-color: #353535;
     cursor: pointer;
-    border: 5px solid cadetblue;
+    border: 5px solid #5f9ea0;
     border-radius: 3px;
 }
 .New_Folder_Text {
@@ -356,14 +366,14 @@
     top: 42.5%;
     left: 10.5%;
     width: 80%;
-    border-top: 5px solid rgba(112,112,112,1);
+    border-top: 5px solid #707070;
 }
 .New_Folder_Plus_v {
     position: absolute;
     top: 10.5%;
     left: 42.5%;
     height: 80%;
-    border-left: 5px solid rgba(112,112,112,1);
+    border-left: 5px solid #707070;
 }
 
 /* Feld für das Erstellen von Ordnern */
@@ -373,7 +383,7 @@
     background-color: #353535;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: #ffffff;
     width: 550px;
     height: 225px;
     position: fixed;
@@ -393,9 +403,9 @@
     font-size: 20px;
 }
 .Add_Folder_Form_Input {
-    border: 5px solid rgba(58,109,112,1);
+    border: 5px solid #3a6d70;
     width: 80%;
-    color: white;
+    color: #ffffff;
     background-color: #353535;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -404,9 +414,9 @@
     border-radius: 3px;
 }
 .Add_Folder_Form_Submit {
-    border: 5px solid rgba(58,109,112,1);
+    border: 5px solid #3a6d70;
     padding: 5px;
-    color: white;
+    color: #ffffff;
     background-color: #353535;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;

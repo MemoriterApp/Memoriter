@@ -94,7 +94,7 @@
     transition: background-color 200ms;
 }
 .sign-in-main-google:hover {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: var(--color-google-hover);
 }
 .sign-in-main-google-icon { /*google logo*/
     position: absolute;
@@ -114,7 +114,7 @@
     transition: background-color 200ms;
 }
 .sign-in-main-apple:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-apple-hover);
 }
 .sign-in-main-apple-icon { /*apple logo*/
     position: absolute;
@@ -130,12 +130,12 @@
     height: 100%;
     border: none;
     border-radius: 6px;
-    background-color: rgba(66, 103, 178, 1);
+    background-color: var(--color-facebook);
     cursor: pointer;
     transition: background-color 200ms;
 }
 .sign-in-main-facebook:hover {
-    background-color: rgba(66, 103, 178, 0.75);
+    background-color: var(--color-facebook-hover);
 }
 .sign-in-main-facebook-icon { /*afacebook logo*/
     position: absolute;
@@ -151,12 +151,12 @@
     height: 100%;
     border: none;
     border-radius: 6px;
-    background-color: rgba(110, 84, 148, 1);
+    background-color: var(--color-github);
     cursor: pointer;
     transition: background-color 200ms;
 }
 .sign-in-main-github:hover {
-    background-color: rgba(110, 84, 148, 0.75);
+    background-color: var(--color-github-hover);
 }
 .sign-in-main-github-icon { /*afacebook logo*/
     position: absolute;
