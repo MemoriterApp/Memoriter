@@ -6,7 +6,7 @@ const VisualModeProvider = ({ children }) => {
 
     const currentMode = localStorage.getItem('visual-mode'); //stored value (localStorage)
 
-    const [visualMode, setVisualMode] = useState('light'); //visual mode (used as html id to connect to different css ids)
+    const [visualMode, setVisualMode] = useState('dark'); //visual mode (used as html id to connect to different css ids)
     const [backgroundColor, setBackgroundColor] = useState(''); //body background color
 
     useEffect(() => { //dynamically changes the page background color and visual mode based on localStorage

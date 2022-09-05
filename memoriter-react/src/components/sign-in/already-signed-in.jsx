@@ -30,7 +30,7 @@ const AlreadySignedIn = ({ title }) => {
             </p>
 
             {/*sign out button*/}
-            <button className='sign-in-main-button' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}} onClick={signOutFunction}
+            <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}} onClick={signOutFunction}
                 onMouseEnter={() => setOnHoverSignOut('brightness(0.82)')} onMouseLeave={() => setOnHoverSignOut('brightness(1)')}>
                 {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
                 <div className='sign-in-main-button-background-gray' 
@@ -39,7 +39,7 @@ const AlreadySignedIn = ({ title }) => {
             </button>
 
             {/*return to product page button*/}
-            <button className='sign-in-main-button' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}} onClick={() => navigate('/product')}
+            <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}} onClick={() => navigate('/product')}
                 onMouseEnter={() => setOnHoverReturn('brightness(0.82)')} onMouseLeave={() => setOnHoverReturn('brightness(1)')}>
                 {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
                 <div className='sign-in-main-button-background-gray' 
@@ -48,7 +48,7 @@ const AlreadySignedIn = ({ title }) => {
             </button>
 
             {/*continue to app button*/}
-            <button className='sign-in-main-button' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}} onClick={() => navigate('/')}
+            <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}} onClick={() => navigate('/')}
                 onMouseEnter={() => setOnHoverContinue('brightness(0.75)')} onMouseLeave={() => setOnHoverContinue('brightness(1)')}>
                 {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
                 <div className='sign-in-main-button-background' 

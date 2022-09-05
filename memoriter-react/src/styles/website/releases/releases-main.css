@@ -15,16 +15,16 @@
     width: 164px;
     font-size: 1.6rem;
     color: var(--color-font);
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     padding: 8px 6px 8px 6px;
     border: none;
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
     cursor: pointer;
     transition: background-color 200ms;
 }
 .releases-main-button:hover { /*for the fading background box on hover*/
-    background-color: rgba(55, 55, 55, 0.75);
+    background-color: var(--color-hover);
 }
 
 @media (max-width: 240px) { /*hides the content on too small screens (when the warning modal is open)*/

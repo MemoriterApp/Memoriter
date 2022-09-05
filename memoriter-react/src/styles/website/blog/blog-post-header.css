@@ -7,7 +7,7 @@
     width: fit-content;
     font-size: 1.2rem;
     color: var(--color-font);
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     text-decoration: none;
     text-align: right;
     padding: 4px 6px 4px 6px;
@@ -16,7 +16,7 @@
     transition: background-color 200ms;
 }
 .blog-post-header-all-posts:hover { /*hover effect for back to all posts link*/
-    background-color: rgba(55, 55, 55, 0.75);
+    background-color: var(--color-hover);
 }
 
 .blog-post-header-content { /*container with content*/
@@ -29,34 +29,34 @@
 .blog-post-header-data { /*date of publication and topic (with link)*/
     font-size: 1.1rem;
     font-weight: 500;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
 }
 .blog-post-header-data-link { /*link to topic on blog page*/
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     text-decoration: none;
     transition: color 200ms;
 }
 .blog-post-header-data-link:hover { /*hover effect for link*/
-    color: rgba(200, 200, 200, 1);
+    color: var(--color-font-gray);
 }
 
 .blog-post-header-title { /*the blog title*/
     max-width: 800px;
     font-size: 2.8rem;
     color: var(--color-font);
-    font-family: 'Heebo';
+    font-family: var(--font-heading);
     line-height: 3.4rem;
     margin-top: -10px;
 }
 
 .blog-post-header-author { /*mention of the author*/
     font-size: 1.2rem;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
     margin-top: -24px;
     margin-bottom: 160px;
 }
@@ -66,7 +66,7 @@
     left: 65px;
     font-size: 1.2rem;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     line-height: 2.2rem;
     margin-top: 100px;
     margin-bottom: -72px;
@@ -77,8 +77,8 @@
     left: 65px;
     top: 80px;
     height: 90px;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
     margin-bottom: -90px;
 }
 .blog-post-header-share-circle { /*circle around the icons*/
@@ -93,7 +93,7 @@
     transition: background-color 200ms;
 }
 .blog-post-header-share-circle:hover { /*background hover effect*/
-    background-color: rgba(55, 55, 55, 0.5);
+    background-color: var(--color-hover-light);
 }
 .blog-post-header-share-icon { /*icons for the different social media platforms*/
     position: absolute;
@@ -101,7 +101,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
-    filter: invert(1); /*for making the icons white*/
+    filter: var(--svg-invert-dark); /*for making the icons white*/
 }
 
 @media (max-width: 1160px) { /*optimizes layout for smaller screens for better readability*/

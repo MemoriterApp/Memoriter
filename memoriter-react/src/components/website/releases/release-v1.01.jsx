@@ -3,7 +3,7 @@ const ReleaseV101 = () => {
     return (
         <div className='old-release'>
 
-            <p style={{color: 'rgba(200, 200, 200, 1)', textAlign: 'left'}}>Month XXth, 2022</p> {/*release date*/}
+            <p style={{color: 'var(--color-font-gray)', textAlign: 'left'}}>Month XXth, 2022</p> {/*release date*/}
             
             {/*small introduction*/}
             <h2>Memoriter v1.01</h2>
@@ -33,7 +33,7 @@ const ReleaseV101 = () => {
                 <li>Lorem ipsum dolor sit amet.</li>
             </ul>
 
-            <p style={{fontFamily: 'Rubik', textAlign: 'left', marginBottom: '-32px'}}>
+            <p style={{fontFamily: 'var(--font-highlight)', textAlign: 'left', marginBottom: '-32px'}}>
                 <br/>
                 We hope you enjoyed this update!
                 <br/>

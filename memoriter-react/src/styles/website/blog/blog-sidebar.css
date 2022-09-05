@@ -6,17 +6,17 @@
     width: 200px;
     height: 400px;
     margin-bottom: 250px;
-    border-right: 1px solid rgba(55, 55, 55, 1);
+    border-right: 1px solid var(--color-container);
 }
 
 .blog-sidebar-header { /*the component heading/title*/
     position: relative;
     top: 10px;
     font-size: 2.8rem;
-    font-family: 'Heebo';
+    font-family: var(--font-heading);
     margin-top: -12px;
     margin-bottom: -100px;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -26,7 +26,7 @@
     position: relative;
     top: 110px;
     font-size: 1.1rem;
-    font-family: 'Inter';
+    font-family: var(--font-default);
     color: var(--color-font);
     line-height: 1.4rem;
     margin-right: 20px;
@@ -36,7 +36,7 @@
     position: relative;
     top: 120px;
     width: 80px;
-    border-top: 1px solid rgba(55, 55, 55, 1);
+    border-top: 1px solid var(--color-container);
 }
 
 .blog-sidebar-topics { /*filter links*/
@@ -53,13 +53,13 @@
 }
 .blog-sidebar-topics-link { /*styles for the react router links of the list*/
     font-size: 1.2rem;
-    font-family: 'Inter';
+    font-family: var(--font-default);
     color: var(--color-font);
     text-decoration: none;
     transition: color 200ms;
 }
 .blog-sidebar-topics-link:hover { /*link hover effect*/
-    color: rgba(200, 200, 200, 1);
+    color: var(--color-font-gray);
 }
 
 @media (max-width: 960px) { /*optimizations for smaller screens*/

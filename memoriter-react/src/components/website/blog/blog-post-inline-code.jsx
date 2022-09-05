@@ -7,7 +7,7 @@ const BlogPostInlineCode = ({ children }) => {
         display: 'inline',
         fontSize: '1.2rem',
         padding: '4px 4px 4px 4px',
-        backgroundColor: 'rgba(55, 55, 55, 0.75)',
+        backgroundColor: 'var(--color-hover)',
         borderRadius: '4px'
     };
 

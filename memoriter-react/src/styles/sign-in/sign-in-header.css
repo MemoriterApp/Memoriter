@@ -16,6 +16,7 @@
     transform: translate(0, -50%);
     height: 35px;
     cursor: pointer;
+    filter: var(--svg-invert-light);
 }
 
 @media (max-width: 1160px) { /*logo position is equal to product header logo*/

@@ -5,7 +5,7 @@ const CurrentRelease = () => {
         
             <h1>Release Notes</h1> {/*The page title is here for optimization reasons.*/}
        
-            <p style={{color: 'rgba(200, 200, 200, 1)', textAlign: 'left'}}>March 14th, 3014</p> {/*release date*/}
+            <p style={{color: 'var(--color-font-gray)', textAlign: 'left'}}>March 14th, 3014</p> {/*release date*/}
 
             {/*small introduction*/}
             <h2>Memoriter v3.14</h2>
@@ -35,7 +35,7 @@ const CurrentRelease = () => {
                 <li>Lorem ipsum dolor sit amet.</li>
             </ul>
 
-            <p style={{fontFamily: 'Rubik', textAlign: 'left', marginTop: '40px', marginBottom: '60px'}}>
+            <p style={{fontFamily: 'var(--font-highlight)', textAlign: 'left', marginTop: '40px', marginBottom: '60px'}}>
                 We hope you enjoy the new update!
                 <br/>
                 - Memoriter Development Team

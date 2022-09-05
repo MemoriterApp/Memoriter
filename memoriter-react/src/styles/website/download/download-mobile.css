@@ -1,9 +1,5 @@
 /*styles for the mobile app section of the download page*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*sub heading font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*heading font*/
-
 .download-mobile { /*mobile app heading container*/
     display: flex;
     position: relative;
@@ -17,7 +13,7 @@
 
 .download-mobile-heading { /*mobile app heading*/
     font-size: 2.4rem;
-    font-family: 'Heebo';
+    font-family: var(--font-heading);
     text-align: center;
     margin-top: 8px;
 }
@@ -26,14 +22,14 @@
     max-width: 600px;
     font-size: 1.8rem;
     font-weight: 400;
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     line-height: 2.8rem;
     margin-top: 20px;
 }
 .download-mobile-content-text { /*section content*/
     max-width: 600px;
     font-size: 1.6rem;
-    font-family: 'Inter';
+    font-family: var(--font-default);
     line-height: 2.6rem;
     margin-bottom: 40px;
 }

@@ -1,8 +1,5 @@
 /*styles used for the cookie banner settings view (when clicking the moreinformation-button)*/
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*font*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*header font*/
-
 .cookie-settings { /*settings view box*/
     position: fixed;
     left: 50%;

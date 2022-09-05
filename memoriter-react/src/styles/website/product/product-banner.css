@@ -57,7 +57,7 @@
     top: 1.4rem;
     transform: translate(-50%);
     font-size: 1.8rem;
-    color: rgba(255, 255, 255, 1);
+    color: var(--color-white);
     font-family: var(--font-highlight);
     text-decoration: none;
     white-space: nowrap;

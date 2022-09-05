@@ -9,28 +9,28 @@
     max-width: 2400px;
     padding: 40px 0 80px 0;
     margin-bottom: 120px;
-    background-color: rgba(55, 55, 55, 1);
+    background-color: var(--color-container);
     border-radius: 12px;
 }
 .old-release h2 { /*all html sub headings (<h2/>) of current-release*/
     font-size: 2rem;
     font-weight: 500;
     color: var(--color-font);
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     margin: 20px 40px 32px 40px;
 }
 .old-release h3 { /*all html sub headings (<h2/>) of current-release*/
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--color-font);
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     margin: 40px 40px 12px 40px;
 }
 .old-release p { /*all html text paragraps (<p/>) of current-release*/
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     line-height: 1.8rem;
     text-align: justify;
     margin: 20px 40px 0 40px;
@@ -39,7 +39,7 @@
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     line-height: 1.8rem;
     text-align: justify;
     margin: 20px 40px 0 40px;

@@ -21,20 +21,20 @@
     max-width: 48%;
     font-size: 1.3rem;
     color: var(--color-font);
-    font-family: 'IBM Plex Serif';
+    font-family: var(--font-blog);
     line-height: 2.2rem;
     margin-bottom: 80px;
 }
 
 .blog-post-main article h2 { /*sub all headings*/
     font-size: 2.2rem;
-    font-family: 'Heebo';
+    font-family: var(--font-heading);
     margin-top: 48px;
 }
 
 .blog-post-main article h3 { /*sub sub headings*/
     font-size: 1.7rem;
-    font-family: 'Heebo';
+    font-family: var(--font-heading);
     margin-top: 42px;
 }
 
@@ -46,14 +46,14 @@
     transition: color 200ms;
 }
 .blog-post-main article a:hover { /*link hover effect*/
-    color: rgba(200, 200, 200, 1);
+    color: var(--color-font-gray);
 }
 
 .blog-post-main article figure { /*figures with image or video and caption*/
     margin: 60px -20px 40px -20px;
     font-size: 1.1rem;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
 }
 .blog-post-main article figure img { /*image inside figure*/
     width: 100%;
@@ -67,9 +67,9 @@
 }
 
 .blog-post-main-callout { /*small important highlighted texts*/
-    font-family: 'Inter';
+    font-family: var(--font-default);
     padding: 24px 24px 24px 72px;
-    background-color: rgba(55, 55, 55, 0.75);
+    background-color: var(--color-hover);
     border-radius: 10px;
 }
 .blog-post-main-callout img { /*light bulb image at the left of a callout*/
@@ -77,7 +77,7 @@
     left: 12px;
     transform: translate(0, -6px);
     height: 48px;
-    filter: invert(1); /*makes the icon white*/
+    filter: var(--svg-invert-dark); /*makes the icon white*/
 }
 
 @media (max-width: 1160px) { /*optimizes layout for smaller screens for better readability*/
