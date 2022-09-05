@@ -31,15 +31,15 @@
     transform: translate(-50%);
     width: calc(100% - 60px);
     height: 1px;
-    background-color: rgba(55, 55, 55, 1);
+    background-color: var(--color-container);
 }
 .cookie-settings-title-text { /*heading*/
     font-size: 2rem;
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     text-align: center;
     padding-top: 20px;
     margin-top: 0;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -54,7 +54,7 @@
     height: 30px;
     border: none;
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
     cursor: pointer;
     transition: background-color 200ms;
 }
@@ -65,10 +65,10 @@
     top: 50%;
     transform: translate(-50%, -50%);
     font-size: 3rem;
-    color: rgba(200, 200, 200, 1);
+    color: var(--color-font-gray);
 }
 .cookie-settings-close:hover { /*background on hover*/
-    background-color: rgba(55, 55, 55, 0.75);
+    background-color: var(--color-hover);
 }
 
 .cookie-settings-scroll { /*area with scrollbar*/
@@ -81,19 +81,19 @@
     width: 8px;
 }
 .cookie-settings-scroll::-webkit-scrollbar-track { /*hides bar background*/
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
 }
 .cookie-settings-scroll::-webkit-scrollbar-thumb { /*custom scrollbar design*/
-    background-color: rgba(18, 18, 18, 1);
+    background-color: var(--color-background-dark);
     border-radius: 4px;
 }
 .cookie-settings-scroll::-webkit-scrollbar-thumb:hover { /*hover effect*/
-    background-color: rgba(12, 12, 12, 1);
+    background-color: var(--color-background-dark-plus);
 }
 
 .cookie-settings-description { /*main description for the banner*/
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     line-height: 1.5rem;
     text-align: justify;
     margin: 12px 30px 30px 40px;
@@ -104,13 +104,13 @@
     margin-bottom: 20px;
     padding: 8px 40px 24px 40px;
     border-radius: 6px;
-    background-color: rgba(55, 55, 55, 1);
+    background-color: var(--color-container);
 }
 
 .cookie-settings-label { /*label for toggle switches*/
     font-size: 1.2rem;
     color: var(--color-font);
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     margin-right: 50px;
     margin-bottom: 0;
 }
@@ -118,7 +118,7 @@
     width: 100%;
     font-size: 0.95rem;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     line-height: 1.2rem;
     text-align: justify;
 }
@@ -130,7 +130,7 @@
     right: 0;
     bottom: 0;
     border-radius: 30px;
-    background-color: rgba(35, 170, 170, 1);
+    background-color: var(--color-highlight-gradient-blue);
     filter: saturate(0.4);
     cursor: pointer;
 }
@@ -142,7 +142,7 @@
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background-color: rgba(55, 55, 55, 1);
+    background-color: var(--color-container);
 }
 
 .cookie-settings-switch { /*toggle switch*/
@@ -174,11 +174,11 @@
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background-color: rgba(55, 55, 55, 1);
+    background-color: var(--color-container);
     transition: transform 400ms;
 }
 .cookie-settings-switch input:checked + .cookie-settings-switch-slider { /*background color change on toggle*/
-    background-color: rgba(35, 170, 170, 1);
+    background-color: var(--color-highlight-gradient-blue);
 } 
 .cookie-settings-switch input:checked + .cookie-settings-switch-slider:before { /*knob position change on toggle*/
     transform: translateX(16px);
@@ -199,8 +199,8 @@
 .cookie-settings-link { /*link font style*/
     width: fit-content;
     font-size: 0.95rem;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
     text-decoration: none;
     cursor: pointer;
     transition: color 200ms;
@@ -221,7 +221,7 @@
     transform: translate(-50%);
     width: calc(100% - 60px);
     height: 1px;
-    background-color: rgba(55, 55, 55, 1);
+    background-color: var(--color-container);
 }
 
 .cookie-settings-save { /*save current button*/
@@ -232,14 +232,14 @@
     width: calc(50% - 80px);
     height: 30px;
     padding: 8px 10px 8px 10px;
-    background-color: rgba(55, 55, 55, 1);
+    background-color: var(--color-container);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 200ms;
 }
 .cookie-settings-save:hover { /*hover effect on button*/
-    background-color: rgba(55, 55, 55, 0.65);
+    background-color: var(--color-hover-button);
 }
 .cookie-settings-save-text { /*text which is not supposed to change color*/
     position: absolute;
@@ -247,8 +247,8 @@
     top: 10px;
     transform: translate(-50%);
     font-size: 1.4rem;
-    color: rgba(255, 255, 255, 1);
-    font-family: 'Rubik';
+    color: var(--color-white);
+    font-family: var(--font-highlight);
     text-decoration: none;
     white-space: nowrap;
 }
@@ -260,7 +260,7 @@
     transform: translate(0, -50%);
     width: calc(50% - 80px);
     padding: 0 10px 0 0;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
     border: none;
     cursor: pointer;
 }
@@ -270,8 +270,8 @@
     top: 10px;
     transform: translate(-45%);
     font-size: 1.4rem;
-    color: rgba(255, 255, 255, 1);
-    font-family: 'Rubik';
+    color: var(--color-white);
+    font-family: var(--font-highlight);
     text-decoration: none;
     white-space: nowrap;
 }
@@ -280,7 +280,7 @@
     height: 30px;
     padding: 8px 10px 8px 10px;
     border-radius: 6px;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     transition: 200ms;
 }
 

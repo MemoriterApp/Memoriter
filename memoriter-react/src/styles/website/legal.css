@@ -15,8 +15,8 @@
 }
 .legal-main h1 { /*the big page heading (<h1/>) of legal-main*/
     font-size: 2.8rem;
-    font-family: 'Heebo';
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    font-family: var(--font-heading);
+    background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -25,7 +25,7 @@
     font-size: 1.6rem;
     font-weight: 500;
     color: var(--color-font);
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     margin-top: 60px;
     margin-bottom: 12px;
 }
@@ -33,7 +33,7 @@
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     line-height: 1.8rem;
     text-align: justify;
     margin-bottom: 0;
@@ -42,7 +42,7 @@
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     line-height: 1.8rem;
     text-align: justify;
     margin-bottom: 0;
@@ -52,7 +52,7 @@
     transition: color 200ms;
 }
 .legal-main a:hover{ /*hover effect for all html links (<a/>) of legal-main*/
-    color: rgba(200, 200, 200, 1);
+    color: var(--color-font-gray);
 }
 .legal-main-table-container { /*container for tables enabling x-axis scrolling on smaller screens*/
     width: 100%;
@@ -62,7 +62,7 @@
     min-width: 100%;
     font-size: 1.1rem;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     line-height: 1.6rem;
     text-align: left;
     margin-top: 16px;
@@ -70,12 +70,12 @@
     border-collapse: collapse; /*removes double border where cells touch*/
 }
 .legal-main-table-container thead { /*all html table header rows (<thead/>) of legal-main-table-container*/
-    background-color: rgba(55, 55, 55, 0.75);
+    background-color: var(--color-hover);
 }
 .legal-main-table-container th, td { /*all html table (header) cells (<th/>, <td/>) of legal-main-table-container*/
     min-width: 100px;
     vertical-align: top;
-    border: 1px solid rgba(96, 96, 96, 1);
+    border: 1px solid var(--color-table);
     padding: 8px;
 }
 

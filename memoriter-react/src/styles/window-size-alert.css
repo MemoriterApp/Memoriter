@@ -7,7 +7,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: var(--color-backdrop);
     z-index: 3;
 }
 
@@ -24,16 +24,16 @@
     text-align: center;
     font-size: 1.1rem;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     padding: 12px 12px 12px 12px;
     border-radius: 12px;
     background-color: var(--color-background);
 }
 
 .window-size-alert-header { /*container header*/
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     font-size: 1.2rem;
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -18,9 +18,9 @@
     transform: translate(-50%);
     max-width: 800px;
     font-size: 4rem;
-    font-family: 'Heebo';
+    font-family: var(--font-heading);
     text-align: center;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -33,13 +33,13 @@
     max-width: 480px;
     padding: 20px 20px 10px 20px;
     border-radius: 10px;
-    background-color: rgba(55, 55, 55, 1);
+    background-color: var(--color-container);
 }
 
 .newsletter-main-subscribe-label {
     font-size: 1.6rem;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     margin: 0 0 10px 0;
 }
 
@@ -49,11 +49,11 @@
     height: 42px;
     color: var(--color-font);
     font-size: 1.2rem;
-    font-family: 'Inter';
+    font-family: var(--font-default);
     padding: 0 12px 0 12px;
-    border: 1px solid rgba(100, 100, 100, 1);
+    border: 1px solid var(--color-table);
     border-radius: 6px;
-    background-color: var(---color-background);
+    background-color: var(--color-background);
     outline: none;
 
 }
@@ -65,7 +65,7 @@
     height: 44px;
     text-align: center;
     padding: 0;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
     border: none;
     cursor: pointer;
 }
@@ -73,16 +73,16 @@
     position: absolute;
     top: 0.6rem;
     transform: translate(-50%);
-    color: var(--color-font);
+    color: var(--color-white);
     font-size: 1.4rem;
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     white-space: nowrap;
 }
 .newsletter-main-subscribe-button-background { /*the hover background was done in React because it did not work in CSS*/
     width: 100%;
     height: 100%;
     border-radius: 6px;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     transition: filter 200ms;
 }
 
@@ -90,8 +90,8 @@
     position: relative;
     left: 36px;
     top: 20px;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
     margin: 0 0 -21px 0;
     z-index: 2;
 }
@@ -110,7 +110,7 @@
 .newsletter-main-checkbox-style { /*actual checkbox styling*/
     width: 20px;
     height: 20px;
-    border: 1.5px solid rgba(100, 100, 100, 1);
+    border: 1.5px solid var(--color-table);
     border-radius: 4px;
     background-color: var(--color-background);
     margin-bottom: 30px;
@@ -122,17 +122,17 @@
     position: relative;
     left: 2.5px;
     top: -4.5px;
-    color: var(--color-font);
+    color: var(--color-white);
     font-size: 1.3rem;
-    font-family: 'Inter';
+    font-family: var(--font-default);
     opacity: 0; /*hidden on default*/
 }
 .newsletter-main-checkbox-style:hover { /*hover effect for checkbox*/
-    background-color: rgba(42, 42, 42, 1);
+    background-color: var(--color-hover-input);
 }
 .newsletter-main-checkbox input:checked + .newsletter-main-checkbox-style { /*background color change on toggle*/
-    border: 1.5px solid rgba(0, 0, 0, 1);
-    background-color: rgba(35, 170, 170, 1);
+    border: 1.5px solid var(--color-black);
+    background-color: var(--color-highlight-gradient-blue);
 }
 .newsletter-main-checkbox input:checked + .newsletter-main-checkbox-style::after { /*show checkmark on toggle*/
     opacity: 1;
@@ -143,8 +143,8 @@
     left: calc(50% - 260px);
     width: fit-content;
     font-size: 0.9rem;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
 }
 
 .newsletter-main-description {
@@ -154,7 +154,7 @@
     max-width: 720px;
     color: var(--color-font);
     font-size: 2rem;
-    font-family: 'Rubik';
+    font-family: var(--font-default);
     line-height: 3rem;
     text-align: center;
     margin-bottom: 60px;
@@ -163,8 +163,8 @@
 .newsletter-main-unsubscribe {
     position: relative;
     font-size: 0.9rem;
-    color: rgba(200, 200, 200, 1);
-    font-family: 'Inter';
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
     text-align: center;
 }
 .newsletter-main-unsubscribe-link {

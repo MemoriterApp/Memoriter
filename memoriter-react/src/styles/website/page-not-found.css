@@ -13,10 +13,10 @@
 
 .page-not-found-question-mark { /*large question mark at the left side*/
     font-size: 20rem;
-    font-family: 'Quantico';
+    font-family: var(--font-large-question);
     margin-left: -20px;
     margin-bottom: -80px;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -24,19 +24,20 @@
 
 .page-not-found-logo { /*memoriter logo*/
     width: 180px;
+    filter: var(--svg-invert-light);
 }
 
 .page-not-found-heading { /*page not found heading*/
     font-size: 3.2rem;
     color: var(--color-font);
-    font-family: 'Heebo';
+    font-family: var(--font-heading);
 }
 
 .page-not-found-text { /*basic (large) text*/
     margin-top: -20px;
     font-size: 1.6rem;
     color: var(--color-font);
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
 }
 
 .page-not-found-button { /*return button, needed to be split in multiple classes, this class is for the positionig of the button*/
@@ -52,14 +53,14 @@
     transform: translate(-50%);
     color: var(--color-white);
     font-size: 1.4rem;
-    font-family: 'Rubik';
+    font-family: var(--font-highlight);
     white-space: nowrap;
 }
 .page-not-found-button-background { /*the hover background was done in React because it did not work in CSS*/
     width: 100%;
     height: 100%;
     border-radius: 6px;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     transition: filter 200ms;
 }
 

@@ -120,7 +120,6 @@
     top: calc(50% - 1px);
     transform: translate(0, -50%);
     font-size: 1.2rem;
-    color: var(--color-font);
     font-family: var(--font-highlight);
     text-decoration: none;
     padding: 4px 6px 4px 6px;

@@ -7,9 +7,9 @@
 
 .about-main-header { /*header font styling*/
     font-size: 3.4rem;
-    font-family: 'Heebo';
+    font-family: var(--font-heading);
     line-height: 4rem;
-    background: linear-gradient(45deg, rgba(35, 170, 170, 1), rgba(40, 185, 125, 1));
+    background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -18,6 +18,6 @@
 .about-main-text { /*text font styling*/
     font-size: 1.4rem;
     color: var(--color-font);
-    font-family: 'Inter';
+    font-family: var(--font-default);
     line-height: 2rem;
 }
