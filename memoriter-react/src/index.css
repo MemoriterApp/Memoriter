@@ -1923,17 +1923,18 @@ body {
 }
 .study-flashcard-box {
     padding: 10px 20px 20px 20px;
-    color: white;
+    color: rgb(53, 53, 53);
+    background: rgb(241, 242, 247);
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
-    top: 80px;
+    top: 60px;
     left: 50%;
     transform: translateX(-50%);
-    height: calc(100vh - 190px);
-    width: calc((100vh - 200px) * 2 / 3);
-    border: 5px solid rgba(39,75,101,1);
-    border-radius: 6px;
+    height: calc(100vh - 220px);
+    width: calc((100vh - 280px) * 2 / 3);
+    border: 35px solid rgb(199, 202, 211);
+    border-radius: 12.5px;
     overflow-y: auto;
 }
 .study-remaining {
