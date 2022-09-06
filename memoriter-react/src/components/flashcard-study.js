@@ -22,11 +22,11 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onDeleteFlashcard, 
         <div>
             <div className='study-flashcard-box'>
                 <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
-                {/*<div className='study-flashcard-dots' onClick={() => setSettingsOverlay(true)}>
+                <div className='study-flashcard-dots' onClick={() => setSettingsOverlay(true)}>
                     <div className='big-dot'/>
                     <div className='big-dot'/>
                     <div className='big-dot'/>
-                </div>*/}
+                </div>
             
                 {showAnswer || <button
                     style={{position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', fontSize: '20px'}}
@@ -46,7 +46,7 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onDeleteFlashcard, 
 
             </div>
 
-            {/*{settingsOverlay && <div className='study-flashcard-settings-overlay'>
+            {settingsOverlay && <div className='study-flashcard-settings-overlay'>
                 <div className='folder-settings-sub'>
                     <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
                         {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
@@ -55,7 +55,7 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onDeleteFlashcard, 
                         onClick={deleteFlashcardReq}
                     >✕ Delete</p>
                 </div>
-            </div>}*/}
+            </div>}
             
             <div onClick={() => setSettingsOverlay(false)}>
                 {settingsOverlay && <Backdropfs/>}
