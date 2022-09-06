@@ -1,10 +1,10 @@
 import Logo from './Logo.png';
 import Footer from '../components/Footer';
+import FlashcardStudy from '../components/flashcard-study';
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { firebase } from '../utils/firebase'
-import { collection, getDocs, query, where } from 'firebase/firestore/lite';
-import FlashcardStudy from '../components/flashcard-study';
+import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
 const StudyPage = () => {
@@ -76,6 +76,54 @@ const StudyPage = () => {
         setIncorrectFlashcards(0);
     }
 
+    //Change text align
+    const changeTextAlign = async (id, textAlign) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+
+        //based on the current text align, the text align will changed to a different value
+        if (textAlign === 'left') {
+            const newAll = { textAlign: 'right', textAlignSymbol: '> >', textAlignColor: 'rgb(228, 48, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'right', textAlignSymbol: '> >', textAlignColor: 'rgb(228, 48, 48)' } : flashcard))
+        } else if (textAlign === 'right') {
+            const newAll = { textAlign: 'center', textAlignSymbol: '> <', textAlignColor: 'rgb(228, 198, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'center', textAlignSymbol: '> <', textAlignColor: 'rgb(228, 198, 48)' } : flashcard))
+        } else if (textAlign === 'center') {
+            const newAll = { textAlign: 'jusify', textAlignSymbol: '< >', textAlignColor: 'rgb(48, 158, 228)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'justify', textAlignSymbol: '< >', textAlignColor: 'rgb(48, 158, 228)' } : flashcard))
+        } else if (textAlign === 'justify') {
+            const newAll = { textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
+        } else {
+            const newAll = { textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
+        }
+    }
+
+    //Delete Flashcard
+    const deleteFlashcard = async (id, pos) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+        await deleteDoc(flashcardDoc);
+        setFlashcards((flashcards) =>
+            flashcards
+                .map((flashcard) =>
+                    flashcard.pos > pos
+                        ? (sessionStorage.setItem('newPosFlashcard' + flashcard.id, flashcard.id),
+                            { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
+                )
+                .filter((flashcard) => flashcard.id !== id)
+        )
+    }
+
     return (
         <div>
             <head>
@@ -111,7 +159,8 @@ const StudyPage = () => {
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                     {flashcards.slice(0, 1).map((flashcard) => (
                         <FlashcardStudy key={flashcard.id} flashcard={flashcard}
-                            onIncorrect={() => incorrect(flashcard)} onCorrect={() => correct(flashcard.id)}/>
+                            onIncorrect={() => incorrect(flashcard)} onCorrect={() => correct(flashcard.id)}
+                            onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign}/>
                     ))}
                 </>}
 
