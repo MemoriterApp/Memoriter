@@ -119,31 +119,29 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
 
     return (
         <div>
-            <div className='study-flashcard-box'>
-                <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
-                <div className='study-flashcard-dots' onClick={() => setSettingsOverlay(true)}>
-                    <div className='big-dot'/>
-                    <div className='big-dot'/>
-                    <div className='big-dot'/>
-                </div>
-            
-                {showAnswer || <button
-                    style={{position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', fontSize: '20px'}}
-                    onClick={() => setShowAnswer(true)}
-                >Show Answer</button>}
-                {showAnswer && <div>
-                    <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</article>
-                    <button
-                        style={{position: 'absolute', left: '80px', bottom: '50px', fontSize: '20px'}}
-                        onClick={() => {setShowAnswer(false); onIncorrect(flashcard);}}
-                    >Incorrect</button>
-                    <button
-                        style={{position: 'absolute', right: '80px', bottom: '50px', fontSize: '20px'}}
-                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id);}}
-                    >Correct</button>
-                </div>}
 
+            <div className='study-flashcard-dots' onClick={() => setSettingsOverlay(true)}>
+                    <div className='big-dot'/>
+                    <div className='big-dot'/>
+                    <div className='big-dot'/>
             </div>
+
+            <div className='study-flashcard-box' onClick={() => setShowAnswer(true)}>
+                <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
+
+                {showAnswer && <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</article>}
+            </div>
+
+            {showAnswer && <div>
+                <button
+                    style={{position: 'absolute', left: '28%', bottom: '50px', fontSize: '20px'}}
+                    onClick={() => {setShowAnswer(false); onIncorrect(flashcard);}}
+                >Incorrect</button>
+                <button
+                    style={{position: 'absolute', right: '28%', bottom: '50px', fontSize: '20px'}}
+                    onClick={() => {setShowAnswer(false); onCorrect(flashcard.id);}}
+                >Correct</button>
+            </div>}
 
             {settingsOverlay && <div className='study-flashcard-settings-overlay'>
                 <div className='folder-settings-sub'>

@@ -1902,6 +1902,8 @@ body {
 .text-editor-button-active {
     background-color: rgba(112, 112 ,112 ,1);
 }
+
+/*study page*/
 .study-now {
     position: absolute;
     top: 25%;
@@ -1936,6 +1938,7 @@ body {
     border: 35px solid rgb(199, 202, 211);
     border-radius: 12.5px;
     overflow-y: auto;
+    cursor: pointer;
 }
 .study-remaining {
     position: absolute;
@@ -1946,11 +1949,12 @@ body {
 }
 .study-flashcard-dots {
     position: absolute;
-    right: 16px;
-    top: 20px;
-    height: 12px;
-    width: 40px;
+    right: calc(50% - 170px);
+    top: 100px;
+    height: 0;
+    padding: 10px 10px 16px 10px;
     cursor: pointer;
+    z-index: 1;
 }
 .study-flashcard-settings-overlay {
     padding: 0 0 0 20px;
