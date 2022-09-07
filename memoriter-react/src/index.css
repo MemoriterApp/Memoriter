@@ -31,7 +31,7 @@ body {
     overflow: hidden;
 }
 .page_title {
-    display: -webkit-box;
+    display: block;
     position: absolute;
     bottom: 20%;
     left: 50%;
@@ -40,12 +40,14 @@ body {
     font-weight: bold;
     font-size: 36px;
     color: rgba(255,255,255,1);
-    max-width: 40%;
+    max-width: 50%;
     max-height: 75px;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
 }
 .rechteck {
     background: transparent;
@@ -1930,15 +1932,17 @@ body {
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
-    top: 60px;
+    top: 80px;
     left: 50%;
     transform: translateX(-50%);
     height: calc(100vh - 220px);
     width: calc((100vh - 280px) * 2 / 3);
-    border: 35px solid rgb(199, 202, 211);
+    border: 1vw solid rgb(199, 202, 211);
     border-radius: 12.5px;
     overflow-y: auto;
     cursor: pointer;
+    max-width: 300px;
+    max-height: 500px;
 }
 .study-remaining {
     position: absolute;
@@ -1967,4 +1971,21 @@ body {
     position: absolute;
     right: 570px;
     top: 110px;
+}
+.correct-incorrect-button {
+    border-radius: 10px;
+    text-transform: uppercase;
+    border: 0px;
+    position: relative;
+    height: 3vh;
+    width: 9vh;
+    font-size: 1.25vh;
+    font-weight: bold;
+    
+}
+.flex-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 700px;
 }

@@ -121,27 +121,31 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
         <div>
 
             <div className='study-flashcard-dots' onClick={() => setSettingsOverlay(true)}>
-                    <div className='big-dot'/>
-                    <div className='big-dot'/>
-                    <div className='big-dot'/>
+                <div className='big-dot'/>
+                <div className='big-dot'/>
+                <div className='big-dot'/>
             </div>
 
             <div className='study-flashcard-box' onClick={() => setShowAnswer(true)}>
                 <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
-
-                {showAnswer && <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</article>}
+            
+                {showAnswer && <div>
+                    <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</article>
+                </div>}
             </div>
 
-            {showAnswer && <div>
+            {showAnswer && <div className='flex-container'>
                 <button
-                    style={{position: 'absolute', left: '28%', bottom: '50px', fontSize: '20px'}}
-                    onClick={() => {setShowAnswer(false); onIncorrect(flashcard);}}
-                >Incorrect</button>
-                <button
-                    style={{position: 'absolute', right: '28%', bottom: '50px', fontSize: '20px'}}
-                    onClick={() => {setShowAnswer(false); onCorrect(flashcard.id);}}
-                >Correct</button>
-            </div>}
+                        style={{backgroundColor:'#dc4c4d', marginRight:"40px", transform: 'translateY(-40px)'}}
+                        className='correct-incorrect-button'
+                        onClick={() => {setShowAnswer(false); onIncorrect(flashcard);}}
+                    >Incorrect</button>
+                    <button
+                        style={{backgroundColor:'#5fcb76', transform: 'translateY(-40px)'}}
+                        className='correct-incorrect-button'
+                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id);}}
+                    >Correct</button>
+                </div>}
 
             {settingsOverlay && <div className='study-flashcard-settings-overlay'>
                 <div className='folder-settings-sub'>
