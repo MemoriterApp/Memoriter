@@ -27,7 +27,9 @@ const StudyPage = () => {
     useEffect(() => {
         const getFlashcards = async () => {
             const allFlashcards = await getDocs(flashcardsCollectionRef)
-            setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            setFlashcards(allFlashcards.docs
+                .sort(() => Math.random() - 0.5) //shuffles the data
+                .map((doc) => ({ ...doc.data(), id: doc.id}))) //gets the database flashcards
         };
 
         getFlashcards();
@@ -41,9 +43,8 @@ const StudyPage = () => {
     const [studiedFlashcards, setStudiedFlashcards] = useState(0); //number of correctly answered flashcards
     const [incorrectFlashcards, setIncorrectFlashcards] = useState(0); //number of incorrectly answered flashcards
 
-    function start() { //function for starting the session
+    if (!started) { //autostarts the study mode
         setStarted(true); //shows flashcard component
-        setFlashcards(flashcards.sort(() => Math.random() - 0.5)); //shuffles the array
     }
 
     function incorrect(incorrectFlashcard) { //function if an answer was defined as incorrect (reshuffles the array)
@@ -159,11 +160,6 @@ const StudyPage = () => {
                         <div className="Zurückbutton_Arrow" />
                     </div>
                 </Link>
-
-                {started || <button 
-                    style={{position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
-                    onClick={() => start()}
-                >Start Studying</button>}
 
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                     {flashcards.slice(0, 1).map((flashcard) => (
