@@ -107,7 +107,16 @@ const StudyPage = () => {
             setFlashcards(flashcards.map((flashcard) => flashcard.id === id
                 ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
         }
-    }
+    };
+
+    //Edit Flashcard
+    const editFlashcard = async (id, title, content) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+        const newAll = { title: title, content: content };
+        await updateDoc(flashcardDoc, newAll);
+        setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+            ? { ...flashcard, title: title, content: content } : flashcard))
+    };
 
     //Delete Flashcard
     const deleteFlashcard = async (id, pos) => {
@@ -122,7 +131,7 @@ const StudyPage = () => {
                 )
                 .filter((flashcard) => flashcard.id !== id)
         )
-    }
+    };
 
     return (
         <div>
@@ -160,7 +169,7 @@ const StudyPage = () => {
                     {flashcards.slice(0, 1).map((flashcard) => (
                         <FlashcardStudy key={flashcard.id} flashcard={flashcard}
                             onIncorrect={() => incorrect(flashcard)} onCorrect={() => correct(flashcard.id)}
-                            onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign}/>
+                            onEditFlashcard={editFlashcard} onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign}/>
                     ))}
                 </>}
 
