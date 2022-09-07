@@ -27,7 +27,9 @@ const StudyPage = () => {
     useEffect(() => {
         const getFlashcards = async () => {
             const allFlashcards = await getDocs(flashcardsCollectionRef)
-            setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            setFlashcards(allFlashcards.docs
+                .sort(() => Math.random() - 0.5) //shuffles the data
+                .map((doc) => ({ ...doc.data(), id: doc.id}))) //gets the database flashcards
         };
 
         getFlashcards();
@@ -41,9 +43,8 @@ const StudyPage = () => {
     const [studiedFlashcards, setStudiedFlashcards] = useState(0); //number of correctly answered flashcards
     const [incorrectFlashcards, setIncorrectFlashcards] = useState(0); //number of incorrectly answered flashcards
 
-    function start() { //function for starting the session
+    if (!started) { //autostarts the study mode
         setStarted(true); //shows flashcard component
-        setFlashcards(flashcards.sort(() => Math.random() - 0.5)); //shuffles the array
     }
 
     function incorrect(incorrectFlashcard) { //function if an answer was defined as incorrect (reshuffles the array)
@@ -107,7 +108,16 @@ const StudyPage = () => {
             setFlashcards(flashcards.map((flashcard) => flashcard.id === id
                 ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
         }
-    }
+    };
+
+    //Edit Flashcard
+    const editFlashcard = async (id, title, content) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+        const newAll = { title: title, content: content };
+        await updateDoc(flashcardDoc, newAll);
+        setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+            ? { ...flashcard, title: title, content: content } : flashcard))
+    };
 
     //Delete Flashcard
     const deleteFlashcard = async (id, pos) => {
@@ -122,7 +132,7 @@ const StudyPage = () => {
                 )
                 .filter((flashcard) => flashcard.id !== id)
         )
-    }
+    };
 
     return (
         <div>
@@ -151,16 +161,11 @@ const StudyPage = () => {
                     </div>
                 </Link>
 
-                {started || <button 
-                    style={{position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
-                    onClick={() => start()}
-                >Start Studying</button>}
-
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                     {flashcards.slice(0, 1).map((flashcard) => (
                         <FlashcardStudy key={flashcard.id} flashcard={flashcard}
                             onIncorrect={() => incorrect(flashcard)} onCorrect={() => correct(flashcard.id)}
-                            onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign}/>
+                            onEditFlashcard={editFlashcard} onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign}/>
                     ))}
                 </>}
 
