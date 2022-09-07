@@ -34,17 +34,21 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onDeleteFlashcard, 
                 >Show Answer</button>}
                 {showAnswer && <div>
                     <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</article>
-                    <button
-                        style={{position: 'absolute', left: '80px', bottom: '50px', fontSize: '20px'}}
+                </div>}
+            </div>
+
+            {showAnswer && <div className='flex-container'>
+                <button
+                        style={{backgroundColor:'#dc4c4d', marginRight:"40px"}}
+                        className='correct-incorrect-button'
                         onClick={() => {setShowAnswer(false); onIncorrect(flashcard);}}
                     >Incorrect</button>
                     <button
-                        style={{position: 'absolute', right: '80px', bottom: '50px', fontSize: '20px'}}
+                        style={{backgroundColor:'#5fcb76'}}
+                        className='correct-incorrect-button'
                         onClick={() => {setShowAnswer(false); onCorrect(flashcard.id);}}
                     >Correct</button>
                 </div>}
-
-            </div>
 
             {settingsOverlay && <div className='study-flashcard-settings-overlay'>
                 <div className='folder-settings-sub'>
