@@ -1935,7 +1935,7 @@ body {
     transform: translateX(-50%);
     height: calc(100vh - 220px);
     width: calc((100vh - 280px) * 2 / 3);
-    border: 35px solid rgb(199, 202, 211);
+    border: 1vw solid rgb(199, 202, 211);
     border-radius: 12.5px;
     overflow-y: auto;
     max-width: 300px;
