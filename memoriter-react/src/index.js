@@ -1,8 +1,8 @@
 //css file imports go all here
 import './index.css';
 
-import './styles/website/product/product-header.css';
-import './styles/website/product/product-footer.css';
+import './styles/website/wrapper/website-header.css';
+import './styles/website/wrapper/website-footer.css';
 import './styles/website/product/product-banner.css';
 import './styles/website/product/product-main.css';
 import './styles/website/product/product-stories.css';
@@ -27,8 +27,8 @@ import './styles/sign-in/sign-in-header.css';
 import './styles/sign-in/sign-in-main.css';
 import './styles/sign-in/sign-in-password-reset.css';
 
-import './styles/website/cookie-banner/cookie-banner.css';
-import './styles/website/cookie-banner/cookie-settings.css';
+import './styles/website/wrapper/cookie-banner/cookie-banner.css';
+import './styles/website/wrapper/cookie-banner/cookie-settings.css';
 import './styles/window-size-alert.css';
 
 import React from 'react';

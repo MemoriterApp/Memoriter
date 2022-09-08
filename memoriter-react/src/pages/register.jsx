@@ -1,4 +1,4 @@
-import Head from '../components/head';
+import WebsiteHead from '../components/website/wrapper/website-head';
 import SignInHeader from '../components/sign-in/sign-in-header';
 import RegisterMain from '../components/sign-in/register-main';
 import AlreadySignedIn from '../components/sign-in/already-signed-in';
@@ -28,7 +28,7 @@ const Register = () => {
         <>
             
             {/*head*/}
-            <Head title='Register' description='Create a new Memoriter account.'/>
+            <WebsiteHead title='Register' description='Create a new Memoriter account.'/>
             {/*title property is for displaying a custom page title, description is for a custom meta description*/}
 
             {/*header*/}

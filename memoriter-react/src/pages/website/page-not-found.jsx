@@ -1,5 +1,5 @@
 import memoriterLogo from '../../images/memoriter-logo.svg';
-import Head from '../../components/head';
+import WebsiteHead from '../../components/website/wrapper/website-head';
 import WindowSizeAlert from '../../components/window-size-alert';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ const PageNotFound = () => {
         <>
            
             {/*Head*/}
-            <Head title='Page Not Found' description='This URL does not match any page.'/>
+            <WebsiteHead title='Page Not Found' description='This URL does not match any page.'/>
 
             {/*container with content*/}
             <div className='page-not-found'>

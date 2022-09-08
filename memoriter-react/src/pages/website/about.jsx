@@ -1,4 +1,4 @@
-import ProductWrapper from '../../components/website/product/product-wrapper';
+import ProductWrapper from '../../components/website/wrapper/website-wrapper';
 import AboutMain from '../../components/website/about/about-main';
 
 const About = () => {

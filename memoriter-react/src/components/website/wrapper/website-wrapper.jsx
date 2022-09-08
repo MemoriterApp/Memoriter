@@ -1,15 +1,15 @@
 //This wrapper component simplifies many pages by combining all functions and components used on any of these pages
 
-import Head from '../../head';
-import ProductHeader from './product-header';
-import ProductFooter from './product-footer';
-import CookieBanner from '../cookie-banner/cookie-banner';
-import CookieSettings from '../cookie-banner/cookie-settings';
+import WebsiteHead from './website-head';
+import WebsiteHeader from './website-header';
+import WebsiteFooter from './website-footer';
+import CookieBanner from './cookie-banner/cookie-banner';
+import CookieSettings from './cookie-banner/cookie-settings';
 import WindowSizeAlert from '../../window-size-alert';
 import Backdrop from '../../backdrop';
 import { useState } from 'react';
 
-const ProductWrapper = ({ children, title, description, currentPage }) => {
+const WebsiteWrapper = ({ children, title, description, currentPage }) => {
 
     const [cookieSettings, setCookieSettings] = useState(false); //opens or closes cookie settings
 
@@ -49,18 +49,18 @@ const ProductWrapper = ({ children, title, description, currentPage }) => {
         <>
 
             {/*head*/}
-            <Head title={title} description={description}/>
+            <WebsiteHead title={title} description={description}/>
             {/*title property is for displaying a custom page title, description is for a custom meta description*/}
 
             {/*header*/}
-            <ProductHeader currentPage={currentPage}/> {/*The currentPage property defines the highlighted quicklink ath the navigation bar.*/}
+            <WebsiteHeader currentPage={currentPage}/> {/*The currentPage property defines the highlighted quicklink ath the navigation bar.*/}
 
             {/*main part, children refers to the content inside the wrapper (the main part content)*/}
             <main style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>{children}</main>
             {/*style is needed for aligning the items correctly*/}
 
             {/*footer*/}
-            <ProductFooter onOpenCookieSettings={openCookieSettings}/>
+            <WebsiteFooter onOpenCookieSettings={openCookieSettings}/>
 
             {/*cookie banner*/}
             <CookieBanner onOpenCookieSettings={openCookieSettings}/>
@@ -78,4 +78,4 @@ const ProductWrapper = ({ children, title, description, currentPage }) => {
     );
 };
 
-export default ProductWrapper;
+export default WebsiteWrapper;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import cookies from '../../../utils/cookies';
+import cookies from '../../../../utils/cookies';
 
 const CookieBanner = ({ onOpenCookieSettings }) => {
 

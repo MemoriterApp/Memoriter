@@ -1,4 +1,4 @@
-import Head from '../components/head';
+import WebsiteHead from '../components/website/wrapper/website-head';
 import SignInHeader from '../components/sign-in/sign-in-header';
 import SignInMain from '../components/sign-in/sign-in-main';
 import SignInPasswordReset from '../components/sign-in/sign-in-password-reset';
@@ -64,7 +64,7 @@ const SignIn = () => {
         <>
 
             {/*head*/}
-            <Head title='Sign In' description='Sign in with your Memoriter account.'/>
+            <WebsiteHead title='Sign In' description='Sign in with your Memoriter account.'/>
             {/*title property is for displaying a custom page title, description is for a custom meta description*/}
                 
             {/*header*/}

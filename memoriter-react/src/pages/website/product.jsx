@@ -1,4 +1,4 @@
-import ProductWrapper from '../../components/website/product/product-wrapper';
+import ProductWrapper from '../../components/website/wrapper/website-wrapper';
 import ProductBanner from '../../components/website/product/product-banner';
 import ProductMain from '../../components/website/product/product-main';
 import ProductStories from '../../components/website/product/product-stories';

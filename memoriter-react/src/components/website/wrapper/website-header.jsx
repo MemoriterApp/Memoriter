@@ -3,7 +3,7 @@ import languageIcon from '../../../images/icons/language-icon.svg';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductHeader = ({ currentPage }) => {
+const WebsiteHeader = ({ currentPage }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the register button
     const [onHoverAlt, setOnHoverAlt] = useState('brightness(1)'); //hover effect for alternative mobile register button
@@ -105,4 +105,4 @@ const ProductHeader = ({ currentPage }) => {
     );
 };
 
-export default ProductHeader;
+export default WebsiteHeader;

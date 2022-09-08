@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import cookies from '../../../utils/cookies';
+import cookies from '../../../../utils/cookies';
 
 const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
 
