@@ -1907,7 +1907,7 @@ body {
 
 /*study page*/
 :root {
-    --size: 0.9;
+    --size: 0.8;
   }
 .study-now {
     position: absolute;
@@ -1938,8 +1938,8 @@ body {
     top: calc(80px + 1.5vw*var(--size));
     left: 50%;
     transform: translateX(-50%);
-    height: calc(((100vh - 3vw * var(--size))  - 259px)* var(--size));
-    width: calc((24vw - 3vw * var(--size)) *var(--size));
+    height: calc((100vh - 259px)* var(--size));
+    width: calc(24vw *var(--size));
     border-radius: 8px;
     overflow-y: auto;
     cursor: pointer;
@@ -1947,16 +1947,16 @@ body {
     max-height: 670px;
     min-width: 200px;
     min-height: 300px;
-    word-break: break-all;
+    word-break:break-all;
 }
 .study-flashcard-box-border{
-    height: calc(((100vh - 3vw * var(--size))  - 262px)* var(--size));
-    width: calc((24vw - 3vw * var(--size)) *var(--size));
+    height: calc((100vh - 262px)* var(--size));
+    width: calc(24vw *var(--size));
     top: 81.5px ;
     left: 50%;
     position: absolute;
     background: rgb(199, 202, 211);
-    border:calc(1.5vw *var(--size))solid rgb(199, 202, 211);
+    border: calc( 1.5vw *var(--size)) solid rgb(199, 202, 211);
     border-radius: 8px;
     transform: translateX(-50%);
     padding: 10px 20px 20px 20px;
@@ -2003,7 +2003,7 @@ body {
     width: calc(9vh*1.5);
     font-size: calc(1.25vh*1.5);
     font-weight: bold;
-    top: 95px;
+    top: 100px;
     cursor: pointer;
     
 }
