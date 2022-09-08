@@ -119,15 +119,20 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
 
     return (
         <div>
+
             <div className='study-flashcard-dots' onClick={() => setSettingsOverlay(true)}>
                 <div className='big-dot'/>
                 <div className='big-dot'/>
                 <div className='big-dot'/>
             </div>
-
             <div className='study-flashcard-box-border' onClick={() => setShowAnswer(true)}></div>
-            
             <div className='study-flashcard-box' onClick={() => setShowAnswer(true)}>
+
+                {showAnswer && <div className='study-flashcard-dots' onClick={() => setSettingsOverlay(true)}>
+                    <div className='big-dot' />
+                    <div className='big-dot' />
+                    <div className='big-dot' />
+                </div>}
 
                 <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
             
@@ -153,16 +158,16 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
 
             {settingsOverlay && 
             <div className='overlay-container'>
-                <div className='study-flashcard-settings-overlay'>
-                    <div className='folder-settings-sub'>
-                        <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
-                            {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
-                        <p onClick={editFlashcardReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
-                        <p style={{color: 'rgb(228, 48, 48)'}}
-                            onClick={deleteFlashcardReq}
-                        >✕ Delete</p>
-                    </div>
+            <div className='study-flashcard-settings-overlay'>
+                <div className='folder-settings-sub'>
+                    <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
+                        {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
+                    <p onClick={editFlashcardReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
+                    <p style={{color: 'rgb(228, 48, 48)'}}
+                        onClick={deleteFlashcardReq}
+                    >✕ Delete</p>
                 </div>
+            </div>
             </div>}
             
             <div onClick={() => setSettingsOverlay(false)}>
