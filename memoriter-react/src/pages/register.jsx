@@ -21,7 +21,7 @@ const Register = () => {
     const [user, setUser] = useState({}); //variable for currently signed in user
 
     onAuthStateChanged(firebase.auth, (currentUser) => { //updates user variable when user changes
-    setUser(currentUser);
+        setUser(currentUser);
     });
 
     return (

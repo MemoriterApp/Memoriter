@@ -4,7 +4,7 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 
 const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
 
-    const animationStyles = onAnimation;
+    const animationStyles = onAnimation; //preset for fade in and out animation
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the create account button
 
