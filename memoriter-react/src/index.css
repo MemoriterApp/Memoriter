@@ -1906,6 +1906,9 @@ body {
 }
 
 /*study page*/
+:root {
+    --size: 0.9;
+  }
 .study-now {
     position: absolute;
     top: 25%;
@@ -1922,39 +1925,54 @@ body {
     position: absolute;
     top: -20px;
     left: 6px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: M PLUS 1;
 
 }
 .study-flashcard-box {
     padding: 10px 20px 20px 20px;
     color: rgb(53, 53, 53);
     background: rgb(241, 242, 247);
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-family: M PLUS 1;
     position: absolute;
-    top: 80px;
+    top: calc(80px + 1.5vw*var(--size));
     left: 50%;
     transform: translateX(-50%);
-    height: calc(100vh - 220px);
-    width: calc((100vh - 280px) * 2 / 3);
-    border: 1vw solid rgb(199, 202, 211);
-    border-radius: 12.5px;
+    height: calc(((100vh - 3vw * var(--size))  - 259px)* var(--size));
+    width: calc((24vw - 3vw * var(--size)) *var(--size));
+    border-radius: 8px;
     overflow-y: auto;
     cursor: pointer;
-    max-width: 300px;
-    max-height: 500px;
+    max-width: 450px;
+    max-height: 670px;
+    word-break: break-all;
 }
+.study-flashcard-box-border{
+    height: calc(((100vh - 3vw * var(--size))  - 262px)* var(--size));
+    width: calc((24vw - 3vw * var(--size)) *var(--size));
+    top: 81.5px ;
+    left: 50%;
+    position: absolute;
+    background: rgb(199, 202, 211);
+    border:calc(1.5vw *var(--size))solid rgb(199, 202, 211);
+    border-radius: 8px;
+    transform: translateX(-50%);
+    padding: 10px 20px 20px 20px;
+    max-width: 506px;
+    max-height: 727px;
+}
+
 .study-remaining {
     position: absolute;
     right: 20px;
     color: rgba(112, 112, 112, 1);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: M PLUS 1;
     font-size: 20px;
 }
 .study-flashcard-dots {
     position: absolute;
-    right: calc(50% - 170px);
-    top: 100px;
+    right: calc(50% - 180px);
+    top: 110px;
     height: 0;
     padding: 10px 10px 16px 10px;
     cursor: pointer;
@@ -1977,10 +1995,12 @@ body {
     text-transform: uppercase;
     border: 0px;
     position: relative;
-    height: 3vh;
-    width: 9vh;
-    font-size: 1.25vh;
+    height: calc(3vh*1.5);
+    width: calc(9vh*1.5);
+    font-size: calc(1.25vh*1.5);
     font-weight: bold;
+    top: 95px;
+    cursor: pointer;
     
 }
 .flex-container {

@@ -125,7 +125,7 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
                 <div className='big-dot'/>
                 <div className='big-dot'/>
             </div>
-
+            <div className='study-flashcard-box-border' onClick={() => setShowAnswer(true)}></div>
             <div className='study-flashcard-box' onClick={() => setShowAnswer(true)}>
                 <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
             
