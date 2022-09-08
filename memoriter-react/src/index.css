@@ -36,7 +36,7 @@ body {
     bottom: 20%;
     left: 50%;
     transform: translate(-50%, 50%);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: M PLUS 1, Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 36px;
     color: rgba(255,255,255,1);
@@ -51,14 +51,17 @@ body {
 }
 .rechteck {
     background: transparent;
-    border: 5px solid #274b65;
-    width: 90%;
+    border-right: 13px solid rgb(53, 72, 96);
+    border-left: 13px solid rgb(53, 72, 96);
+    border-top: 10px solid rgb(53, 72, 96);
+    border-bottom: 10px solid rgb(53, 72, 96);
+    width: 1693px;
     height: calc(100% - 200px);
     margin: auto;
     position: absolute;
     top: 80px;
     left: 4.5%;
-    border-radius: 3px;
+    border-radius: 30px;
     max-height: calc(100% - 120px);
     min-height: 168px;
 }
@@ -96,7 +99,7 @@ body {
     text-align: center;
     color: #FFFF;
     top: -10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: M PLUS 1, Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 24px;
     width: calc(100% - 70px);
@@ -661,7 +664,7 @@ body {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     background-color: #333333;
-    border: 5px solid #274b65;
+    border: 5px solid rgb(53, 72, 96);
     padding: 1rem;
     text-align: center;
     width: 3rem;
@@ -1939,20 +1942,22 @@ body {
     left: 50%;
     transform: translateX(-50%);
     height: calc((100vh - 259px)* var(--size));
-    width: calc(24vw *var(--size));
+    width: calc(24vw *var(--size) + 1px );
     border-radius: 8px;
     overflow-y: auto;
+    text-overflow: ellipsis;
     cursor: pointer;
     max-width: 450px;
     max-height: 670px;
     min-width: 200px;
     min-height: 300px;
-    word-break:break-all;
+    white-space: pre-line;
+    word-wrap: break-word;
 }
 .study-flashcard-box-border{
     height: calc((100vh - 262px)* var(--size));
     width: calc(24vw *var(--size));
-    top: 81.5px ;
+    top: 81px ;
     left: 50%;
     position: absolute;
     background: rgb(199, 202, 211);
