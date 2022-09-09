@@ -10,9 +10,9 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
 
     const [email, setEmail] = useState(''); //email input value
 
-    const [errorMessage, setErrorMessage] = useState(''); //error message if sign up fails
+    const [errorMessage, setErrorMessage] = useState(''); //error message if password reset email fails
 
-    function displayError(errorMessage) { //function for displaying the error popup when sign up fails
+    function displayError(errorMessage) { //function for displaying the error popup when password reset email fails
         setErrorMessage(errorMessage); //configures message
 
         setEmail(''); //clears email input field
@@ -41,7 +41,7 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
                         break;
                 };
             });
-    }
+    };
 
     return (
         <div className='sign-in-password-reset' style={animationStyles}>
@@ -49,7 +49,7 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
             <div className='sign-in-password-reset-close' onClick={() => onClosePasswordReset()}/>
             <p className='sign-in-password-reset-title'>Reset Password</p>
 
-            {/*popup for sign in errors*/}
+            {/*popup for password reset errors*/}
             {errorMessage && <div className='sign-in-password-reset-error'>
                 <span>{errorMessage}</span> {/*error message*/}
                 <span className='sign-in-password-reset-error-close'
@@ -62,10 +62,10 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
             <form onSubmit={passwordReset}>
 
                 {/*email input*/}
-                <p className='sign-in-password-reset-enter-email'>Please enter your email adress:</p>
+                <p className='sign-in-password-reset-enter-email'>Please enter your email address:</p>
                 <input className='sign-in-password-reset-input' type='email' placeholder='Account Email' value={email}
                     onChange={(e) => setEmail(e.target.value)}/>
-                <p className='sign-in-password-reset-text'>We will send a password reset link to the given email adress.</p>
+                <p className='sign-in-password-reset-text'>We will send a password reset link to the given email address.</p>
 
                 {/*send email button*/}
                 <label>

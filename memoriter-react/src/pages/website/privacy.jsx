@@ -35,7 +35,7 @@ const Privacy = () => {
 
                 <h2>2. What Data Is Being Collected</h2>
                 <p>
-                    The user data, such as the flashacards, folders etc. are collected inside of a databse. Furthermore you also need to provide user information like  email adress and a password for signing up and logging in,
+                    The user data, such as the flashacards, folders etc. are collected inside of a databse. Furthermore you also need to provide user information like  email address and a password for signing up and logging in,
                     but the password in securely encrypted and cannot be observed.
                 </p>
                 <p>

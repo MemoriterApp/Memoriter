@@ -56,9 +56,9 @@ const Newsletter = () => {
 
                 {/*email input field and subscribe button*/}
                 <form className='newsletter-main-subscribe' onSubmit={(e) => e.preventDefault()}>
-                    <p className='newsletter-main-subscribe-label'>Enter your Email Adress</p>
+                    <p className='newsletter-main-subscribe-label'>Enter your Email Address</p>
 
-                    <input className='newsletter-main-subscribe-input' type='email' placeholder='Email Adress'/>
+                    <input className='newsletter-main-subscribe-input' type='email' placeholder='Email Address'/>
 
                     {/*button for subscribing to newsletter*/}
                     <label>
@@ -85,7 +85,7 @@ const Newsletter = () => {
                     </div>
                 </form>
                 <p className='newsletter-main-subscribe-verify'>
-                    We will send you a confirmation email to verify your email adress.
+                    We will send you a confirmation email to verify your email address.
                 </p>
 
                 <p className='newsletter-main-description'>

@@ -188,7 +188,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
             {/*sign up with email form*/}
             <form onSubmit={defaultSignIn}>
 
-                <input className='sign-in-main-input' type='email' placeholder='Email Adress' value={email}
+                <input className='sign-in-main-input' type='email' placeholder='Email Address' value={email}
                     onChange={(e) => setEmail(e.target.value)}/>
 
                 <input className='sign-in-main-input' type='password' placeholder='Password' value={password}

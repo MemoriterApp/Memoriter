@@ -8,30 +8,52 @@ const NewsletterUnsubscribe = ({ onAnimation, onCloseUnsubscribe }) => {
 
     const [email, setEmail] = useState(''); //email input value
 
+    const [errorMessage, setErrorMessage] = useState(''); //error message if unsubscribe fails
+
+    function displayError(errorMessage) { //function for displaying the error popup when unsubscribe fails
+        setErrorMessage(errorMessage); //configures message
+
+        setEmail(''); //clears email input field
+    };
+
+    function unsubscribe(e) { //function for sending password reset email
+        e.preventDefault(); //removes the default html submit
+
+        displayError('Functionality not implemented yet!')
+    };
+
     return (
-        <div className='sign-in-password-reset' style={animationStyles}>
+        <div className='newsletter-unsubscribe' style={animationStyles}>
 
-            <div className='sign-in-password-reset-close' onClick={() => onCloseUnsubscribe()}/>
-            <p className='sign-in-password-reset-title'>Reset Password</p>
+            <div className='newsletter-unsubscribe-close' onClick={() => onCloseUnsubscribe()}/>
+            <p className='newsletter-unsubscribe-title'>Unsubscribe</p>
 
-            <p className='sign-in-password-reset-text'>If you lost or forgot your password and wish to reset it, you can use the form below.</p>
+            {/*popup for password reset errors*/}
+            {errorMessage && <div className='newsletter-unsubscribe-error'>
+                <span>{errorMessage}</span> {/*error message*/}
+                <span className='newsletter-unsubscribe-error-close'
+                    onClick={() => setErrorMessage('')}
+                >&#215;</span> {/*close popup button*/}
+            </div>}
 
-            <form>
+            <p className='newsletter-unsubscribe-text'>Do you want to unsubscribe from our email newsletter?</p>
+
+            <form onSubmit={unsubscribe}>
 
                 {/*email input*/}
-                <p className='sign-in-password-reset-enter-email'>Please enter your email adress:</p>
-                <input className='sign-in-password-reset-input' type='email' placeholder='Account Email' value={email}
+                <p className='newsletter-unsubscribe-enter-email'>Please enter your email address:</p>
+                <input className='newsletter-unsubscribe-input' type='email' placeholder='Email Address' value={email}
                     onChange={(e) => setEmail(e.target.value)}/>
-                <p className='sign-in-password-reset-text'>We will send a password reset link to the given email adress.</p>
+                <p className='newsletter-unsubscribe-text'>We will send you a confirmation email to the given email address.</p>
 
                 {/*send email button*/}
                 <label>
                     <input type='submit' style={{display: 'none'}}/> {/*style hides the default submit button*/}
-                    <div className='sign-in-password-reset-button'
+                    <div className='newsletter-unsubscribe-button'
                         onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
                         {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
-                        <div className='sign-in-password-reset-button-background' style={{filter: onHover}}/>
-                        <span className='sign-in-password-reset-button-text'>Send Password Reset Email</span>
+                        <div className='newsletter-unsubscribe-button-background' style={{filter: onHover}}/>
+                        <span className='newsletter-unsubscribe-button-text'>Send Unsubscribe Email</span>
                     </div>
                 </label>
 
