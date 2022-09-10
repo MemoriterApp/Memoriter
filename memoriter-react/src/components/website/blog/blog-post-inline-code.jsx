@@ -1,5 +1,6 @@
+import { useSelector } from 'react-redux';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { atomOneDark, atomOneLight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 const BlogPostInlineCode = ({ children }) => {
 
@@ -11,10 +12,17 @@ const BlogPostInlineCode = ({ children }) => {
         borderRadius: '4px'
     };
 
+    const theme = useSelector((state) => state.theme.value); //current theme (dark or light mode)
+
     return ( //a library for syntax highlighting is used, children refers to the content inside the wrapper
-        <SyntaxHighlighter language='jsx' style={atomOneDark} customStyle={inlineCodeStyles} wrapLongLines={true}>
-            {children}
-        </SyntaxHighlighter>
+        <> {/*the highlighting theme is dynamic (changes alongside global theme)*/}
+            {theme === 'dark' && <SyntaxHighlighter language='jsx' style={atomOneDark} customStyle={inlineCodeStyles} wrapLongLines={true}>
+                {children}
+            </SyntaxHighlighter>}
+            {theme === 'light' && <SyntaxHighlighter language='jsx' style={atomOneLight} customStyle={inlineCodeStyles} wrapLongLines={true}>
+                {children}
+            </SyntaxHighlighter>}
+        </>
     );
 }
 

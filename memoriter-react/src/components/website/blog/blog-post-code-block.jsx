@@ -1,5 +1,6 @@
+import { useSelector } from 'react-redux';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { atomOneDark, atomOneLight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 const BlogPostCodeBlock = ({ children }) => {
 
@@ -11,10 +12,17 @@ const BlogPostCodeBlock = ({ children }) => {
         borderRadius: '10px'
     };
 
+    const theme = useSelector((state) => state.theme.value); //current theme (dark or light mode)
+
     return ( //a library for syntax highlighting is used
-        <SyntaxHighlighter language={'jsx'} children={children} style={atomOneDark} customStyle={codeBlockStyles} wrapLongLines={true}>
-            {children.join('\n')} {/*children refers to the content inside the wrapper, .join('\n) creates line breaks, the content needs to be an array*/}
-        </SyntaxHighlighter>
+        <>
+            {theme === 'dark' && <SyntaxHighlighter language={'jsx'} style={atomOneDark} customStyle={codeBlockStyles} wrapLongLines={true}>
+                {children.join('\n')} {/*children refers to the content inside the wrapper, .join('\n) creates line breaks, the content needs to be an array*/}
+            </SyntaxHighlighter>}
+            {theme === 'light' && <SyntaxHighlighter language={'jsx'} style={atomOneLight} customStyle={codeBlockStyles} wrapLongLines={true}>
+                {children.join('\n')} {/*children refers to the content inside the wrapper, .join('\n) creates line breaks, the content needs to be an array*/}
+            </SyntaxHighlighter>}
+        </>
     );
 }
 

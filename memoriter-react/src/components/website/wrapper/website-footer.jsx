@@ -10,7 +10,7 @@ const WebsiteFooter = ({ onOpenLanguageSelect, onOpenCookieSettings }) => {
 
     const dispatch = useDispatch(); //used to manipulate global state (react redux)
 
-    const themeText = useSelector((state) => state.theme.value); //current light or dark mode icon based on theme
+    const themeText = useSelector((state) => state.theme.value); //current light or dark mode text based on theme
 
     function onChangeTheme(theme) {
         dispatch(changeTheme(theme));
