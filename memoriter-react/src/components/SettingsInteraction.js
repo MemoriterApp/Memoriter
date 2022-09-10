@@ -4,8 +4,12 @@ import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { displaySuccessMessage } from '../features/authentication-success-slice';
 
 function SettingsClick() {
+
+    const dispatch = useDispatch(); //used to manipulate global sate (react redux)
 
     const [profile, openProfile] = useState(false);
 
@@ -21,6 +25,7 @@ function SettingsClick() {
         localStorage.removeItem('syncedFolderTitle');
 
         sessionStorage.setItem('authentication-success', 'Successfully signed out!'); //sets sessionStorage item for the sign-in-main component to read
+        dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
         navigate('/signin');
     }
 

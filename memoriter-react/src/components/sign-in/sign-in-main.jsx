@@ -4,12 +4,16 @@ import facebookIcon from '../../images/icons/facebook-icon.svg';
 import githubIcon from '../../images/icons/github-icon.svg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { displaySuccessMessage } from '../../features/authentication-success-slice';
 import { firebase } from '../../utils/firebase';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, OAuthProvider, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
 const SignInMain = ({ onOpenPasswordReset }) => {
 
     const navigate = useNavigate(); //variable for routing, alternative option for links
+
+    const dispatch = useDispatch(); //used to manipulate global sate (react redux)
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the sign in button
 
@@ -43,7 +47,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     function displaySuccess(successMessage) { //function for displaying the success popup when sign in fails
         setSuccessMessage(successMessage); //configures message
 
-        sessionStorage.removeItem('authentication-success'); //removes unnecessary sessionStorage item
+        dispatch(displaySuccessMessage('')); //removes unnecessary state (would trigger infinite loop)
 
         //style changes for container (needs to be bigger so that the error popup can fit in)
         if (window.innerHeight <= 721) { //optimization for smaller screens (no conflict with css media query)
@@ -58,8 +62,8 @@ const SignInMain = ({ onOpenPasswordReset }) => {
             });
         };
     };
-    const authenticationSuccess = sessionStorage.getItem('authentication-success'); //detects if the user signed out or deletet their account
-    if (authenticationSuccess) { //if the sessionStorage item exists the function for displaying the popup is called
+    const authenticationSuccess = useSelector((state) => state.authenticationSuccess.value); //detects if the user signed out or deletet their account
+    if (authenticationSuccess) { //if state exists the function for displaying the popup is called
         displaySuccess(authenticationSuccess);
     };
 
@@ -106,7 +110,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     };
 
     async function signInWithGoogle() { //google sign in function
-        setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
+        //setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new GoogleAuthProvider(); //connection to google sign in
 
@@ -116,7 +120,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     };
 
     async function signInWithApple() { //google sign in function
-        setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
+        //setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new OAuthProvider('apple.com'); //connection to apple sign in
 
@@ -126,7 +130,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     };
 
     async function signInWithFacebook() { //google sign in function
-        setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
+        //setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new FacebookAuthProvider(); //connection to facebook sign in
 
@@ -136,7 +140,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     };
 
     async function signInWithGithub() { //google sign in function
-        setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
+        //setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new GithubAuthProvider(); //connection to github sign in
 
