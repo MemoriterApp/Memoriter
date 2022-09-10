@@ -257,6 +257,10 @@
 }
 .sign-in-main-text-link { /*changed color for links*/
     color: var(--color-font);
+    transition: color 200ms;
+}
+.sign-in-main-text-link:hover { /*link hover effect*/
+    color: var(--color-font-gray);
 }
 
 .sign-in-main-link { /*standalone links (other color)*/

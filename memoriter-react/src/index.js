@@ -21,6 +21,7 @@ import './styles/website/releases/old-release.css';
 import './styles/website/legal.css';
 import './styles/website/faq.css';
 import './styles/website/newsletter/newsletter.css';
+import './styles/website/newsletter/newsletter-subscribe.css';
 import './styles/website/newsletter/newsletter-unsubscribe.css';
 import './styles/website/page-not-found.css';
 

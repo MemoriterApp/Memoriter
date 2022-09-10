@@ -1,6 +1,6 @@
-/*the styles for the password reset modal are set up here*/
+/*the styles for the unsubscribe modal for the newsletter page are set up here*/
 
-.newsletter-unsubscribe { /*password reset modal/box*/
+.newsletter-unsubscribe { /*unsubscribe modal/box*/
     position: fixed;
     left: 50%;
     top: 50%;

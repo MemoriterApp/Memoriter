@@ -1,7 +1,7 @@
 import twitterIcon from '../../../images/icons/twitter-icon.svg';
 import facebookIcon from '../../../images/icons/facebook-icon.svg';
 import whatsappIcon from '../../../images/icons/whatsapp-icon.svg';
-import emailIcon from '../../../images/icons/newsletter-icon.svg';
+import emailIcon from '../../../images/icons/email-icon.svg';
 import { Link } from 'react-router-dom';
 import blogs from '../../../utils/blog-posts';
 

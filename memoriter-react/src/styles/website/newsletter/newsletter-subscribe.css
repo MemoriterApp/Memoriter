@@ -1,0 +1,126 @@
+/*styles for the subscribe box on the neswsletter page*/
+
+.newsletter-subscribe { /*box with the email input and subscribe button*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 480px;
+    padding: 20px 20px 10px 20px;
+    border-radius: 10px;
+    background-color: var(--color-container);
+}
+
+.newsletter-subscribe-label { /*input label above the field*/
+    font-size: 1.6rem;
+    color: var(--color-font);
+    font-family: var(--font-default);
+    margin: 0 0 10px 0;
+}
+
+.newsletter-subscribe-input { /*email input field*/
+    position: relative;
+    width: calc(100% - 180px);
+    height: 42px;
+    color: var(--color-font);
+    font-size: 1.2rem;
+    font-family: var(--font-default);
+    padding: 0 12px 0 12px;
+    border: 1px solid var(--color-table);
+    border-radius: 6px;
+    background-color: var(--color-background);
+    outline: none;
+
+}
+.newsletter-subscribe-button { /*subscribe button, needed to be split in multiple classes, this class is for the positionig of the button*/
+    position: absolute;
+    right: 20px;
+    top: calc(2.6rem + 20px);
+    width: 140px;
+    height: 44px;
+    text-align: center;
+    padding: 0;
+    background-color: var(--color-transparent);
+    border: none;
+    cursor: pointer;
+}
+.newsletter-subscribe-button-text { /*text which is not supposed to change color*/
+    position: absolute;
+    top: 0.6rem;
+    transform: translate(-50%);
+    color: var(--color-white);
+    font-size: 1.4rem;
+    font-family: var(--font-highlight);
+    white-space: nowrap;
+}
+.newsletter-subscribe-button-background { /*the hover background was done in React because it did not work in CSS*/
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    background: var(--color-highlight-gradient);
+    transition: filter 200ms;
+}
+
+.newsletter-subscribe-checkbox-label { /*checkbox label text*/
+    position: relative;
+    left: 36px;
+    top: 20px;
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
+    margin: 0 0 -21px 0;
+    z-index: 2;
+}
+.newsletter-subscribe-checkbox-label-link { /*changed color for privacy link*/
+    color: var(--color-font);
+    transition: color 200ms;
+}
+.newsletter-subscribe-checkbox-label-link:hover { /*link hover effect*/
+    color: var(--color-font-gray);
+}
+
+.newsletter-subscribe-checkbox { /*checkbox position*/
+    position: relative;
+    left: 0;
+    top: 20px;
+}
+.newsletter-subscribe-checkbox input { /*hides default checkbox*/
+    display: none;
+}
+.newsletter-subscribe-checkbox-style { /*actual checkbox styling*/
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--color-table);
+    border-radius: 4px;
+    background-color: var(--color-background);
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+.newsletter-subscribe-checkbox-style::after { /*check mark*/
+    content: '\2713'; /*check mark symbol*/
+    position: relative;
+    left: 2.5px;
+    top: -4.5px;
+    color: var(--color-white);
+    font-size: 1.3rem;
+    font-family: var(--font-default);
+    opacity: 0; /*hidden on default*/
+}
+.newsletter-subscribe-checkbox-style:hover { /*hover effect for checkbox*/
+    background-color: var(--color-hover-input);
+}
+.newsletter-subscribe-checkbox input:checked + .newsletter-main-checkbox-style { /*background color change on toggle*/
+    border: 1.5px solid var(--color-black);
+    background-color: var(--color-highlight-gradient-blue);
+}
+.newsletter-subscribe-checkbox input:checked + .newsletter-main-checkbox-style::after { /*show checkmark on toggle*/
+    opacity: 1;
+}
+
+.newsletter-subscribe-verify { /*text explaining the email verification process*/
+    position: relative;
+    left: calc(50% - 260px);
+    width: fit-content;
+    font-size: 0.9rem;
+    color: var(--color-font-gray);
+    font-family: var(--font-default);
+}
