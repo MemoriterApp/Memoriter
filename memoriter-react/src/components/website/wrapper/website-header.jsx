@@ -4,8 +4,12 @@ import lightModeIcon from '../../../images/icons/light-mode-icon.svg';
 import darkModeIcon from '../../../images/icons/dark-mode-icon.svg';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeTheme } from '../../../features/theme-slice';
 
 const WebsiteHeader = ({ currentPage, onOpenLanguageSelect }) => {
+
+    const dispatch = useDispatch(); //used to manipulate global state (react redux)
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the register button
     const [onHoverAlt, setOnHoverAlt] = useState('brightness(1)'); //hover effect for alternative mobile register button
@@ -16,7 +20,7 @@ const WebsiteHeader = ({ currentPage, onOpenLanguageSelect }) => {
             setMobileSidebar('0');
         } else {
             setMobileSidebar('-280px');
-        }
+        };
     };
 
     const [scrollProgress, setScrollProgress] = useState(0); //value for the scroll progress
@@ -34,6 +38,12 @@ const WebsiteHeader = ({ currentPage, onOpenLanguageSelect }) => {
 
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
+
+    const themeIcon = useSelector((state) => state.theme.value); //current light or dark mode icon based on theme
+
+    function onChangeTheme(theme) {
+        dispatch(changeTheme(theme));
+    };
 
     return (
         <header className='product-header'>
@@ -65,10 +75,13 @@ const WebsiteHeader = ({ currentPage, onOpenLanguageSelect }) => {
                 </Link>
                 {/*the if else conditions changes the color of the links depending on the current open page*/}
 
-                {/*light and dark mode button*/}
-                <button className='product-header-visual-mode-button'>
+                {/*light and dark mode buttons, icon depends on the current mode*/}
+                {themeIcon === 'dark' && <button className='product-header-visual-mode-button' onClick={() => onChangeTheme('light')}>
                     <img className='product-header-icon' src={lightModeIcon} alt='light-mode-icon'/>
-                </button>
+                </button>}
+                {themeIcon === 'light' && <button className='product-header-visual-mode-button' onClick={() => onChangeTheme('dark')}>
+                    <img className='product-header-icon' src={darkModeIcon} alt='dark-mode-icon'/>
+                </button>}
 
                 {/*change language button*/}
                 <button className='product-header-language-button'>

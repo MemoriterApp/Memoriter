@@ -13,7 +13,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
 
     const navigate = useNavigate(); //variable for routing, alternative option for links
 
-    const dispatch = useDispatch(); //used to manipulate global sate (react redux)
+    const dispatch = useDispatch(); //used to manipulate global state (react redux)
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the sign in button
 

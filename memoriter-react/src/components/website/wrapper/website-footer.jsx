@@ -3,8 +3,19 @@ import twitterIcon from '../../../images/icons/twitter-icon.svg';
 import instagramIcon from '../../../images/icons/instagram-icon.svg';
 import newsletterIcon from '../../../images/icons/email-icon.svg';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeTheme } from '../../../features/theme-slice';
 
 const WebsiteFooter = ({ onOpenLanguageSelect, onOpenCookieSettings }) => {
+
+    const dispatch = useDispatch(); //used to manipulate global state (react redux)
+
+    const themeText = useSelector((state) => state.theme.value); //current light or dark mode icon based on theme
+
+    function onChangeTheme(theme) {
+        dispatch(changeTheme(theme));
+    };
+
     return (
         <footer className='product-footer'>
 
@@ -62,13 +73,17 @@ const WebsiteFooter = ({ onOpenLanguageSelect, onOpenCookieSettings }) => {
             <div className='product-footer-bottom-box'>
                 <p className='product-footer-bottom-box-copyright'>©Copyright 2022 Memoriter</p>
 
-                {/*right text uses two classes, one for the hover effect*/}
+                {/*right text uses two classes, one for the hover effect, the theme text depends on the current theme*/}
                 <p
-                    className='product-footer-bottom-box-text product-footer-bottom-box-language' //two classes
+                    className='product-footer-bottom-box-text product-footer-bottom-box-language'
                     onClick={onOpenLanguageSelect}
                 >Language: English</p>
-                <p className='product-footer-bottom-box-text product-footer-bottom-box-visual-mode' //two classes
-                >Visual Mode: Dark</p>
+                {themeText === 'dark' && <p className='product-footer-bottom-box-text product-footer-bottom-box-visual-mode'
+                    onClick={() => onChangeTheme('light')}
+                >Theme: Dark</p>}
+                {themeText === 'light' && <p className='product-footer-bottom-box-text product-footer-bottom-box-visual-mode'
+                    onClick={() => onChangeTheme('dark')}
+                >Theme: Light</p>}
 
                 {/*social media icons*/}
                 <div className='product-footer-bottom-box-social-media-box'>
