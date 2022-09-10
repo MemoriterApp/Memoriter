@@ -26,7 +26,7 @@
     top: calc(50% - 1px);
     transform: translate(0, -50%);
     height: 35px;
-    filter: var(--svg-invert-light);
+    filter: var(--svg-invert);
     cursor: pointer;
 }
 
@@ -76,13 +76,13 @@
 .product-header-language-button:hover { /*visible border on hover*/
     background-color: var(--color-hover);
 }
-.product-header-language-icon { /*change language mode symbol*/
+.product-header-icon { /*change language and visual mode symbol*/
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 85%;
-    height: 85%;
+    width: 90%;
+    height: 90%;
     filter: var(--svg-invert-gray); /*for the correct icon color*/
 }
 
@@ -101,17 +101,6 @@
 }
 .product-header-visual-mode-button:hover { /*visible border on hover*/
     background-color: var(--color-hover);
-}
-.product-header-visual-mode-icon { /*light and dark mode symbol*/
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
-    border: 3px solid var(--color-font-gray);
-    border-radius: 50%; /*creates the circle shape*/
-    background: linear-gradient(90deg, var(--color-transparent) 55%, var(--color-font-gray) 45%); /*half intransparent circle*/
 }
 
 .product-header-sign-in { /*Sign in button*/

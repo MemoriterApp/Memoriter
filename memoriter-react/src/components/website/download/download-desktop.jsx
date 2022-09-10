@@ -34,7 +34,7 @@ const DownloadDesktop = () => {
                     onMouseEnter={() => setOnHoverMac('brightness(0.75)')} onMouseLeave={() => setOnHoverMac('brightness(1)')}>
                 {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation*/}
                     <div className='download-desktop-download-background' style={{filter: onHoverMac}}/>
-                    <img className='download-desktop-download-icon' src={appleIcon} alt='mac-icon' style={{height: '48px'}}/>
+                    <img className='download-desktop-download-icon' src={appleIcon} alt='mac-icon' style={{height: '42px'}}/>
                     <span className='download-desktop-download-text'>Download</span>
                     <span className='download-desktop-download-text-os'>for Mac</span>
                 </button>

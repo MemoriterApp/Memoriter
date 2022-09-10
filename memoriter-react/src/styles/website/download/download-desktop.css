@@ -40,7 +40,7 @@
     left: 40px;
     top: 50%;
     transform: translate(-50%, -50%);
-    filter: var(--svg-invert-white); /*makes the icon white*/
+    filter: var(--svg-invert); /*makes the icon white*/
 }
 .download-desktop-download-text { /*text which is not supposed to change color*/
     position: absolute;

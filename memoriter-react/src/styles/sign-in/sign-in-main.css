@@ -121,7 +121,7 @@
     left: calc(50% - 40px);
     top: 50%;
     transform: translate(-50%, -50%);
-    height: calc(100% - 8px);
+    height: calc(100% - 12px);
     filter: invert(1);
 }
 

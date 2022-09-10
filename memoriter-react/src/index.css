@@ -28,8 +28,6 @@
     --color-facebook-hover: #3c5f9b;
     --color-github: #6e5494;
     --color-github-hover: #645087;
-    /*values for correcting svg colors*/
-    --svg-invert-white: invert(1);
     /*font families*/
     --font-default: 'Inter';
     --font-highlight: 'Rubik';
@@ -61,8 +59,7 @@
     --color-banner-triangle-light: #36363c80;
     --color-banner-triangle-dark: #24242480;
     /*values for correcting svg colors*/
-    --svg-invert-light: invert(0);
-    --svg-invert-dark: invert(1);
+    --svg-invert: invert(1);
     --svg-invert-gray: invert(0.78431372549019607843137254901961);
 }
 
@@ -86,8 +83,7 @@
     --color-banner-triangle-light: #8f8f9680;
     --color-banner-triangle-dark: #bababa80;
     /*values for correcting svg colors*/
-    --svg-invert-light: invert(1);
-    --svg-invert-dark: invert(0);
+    --svg-invert: invert(0);
     --svg-invert-gray: invert(0.21568627450980392156862745098039);
 }
 

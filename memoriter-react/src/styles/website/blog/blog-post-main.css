@@ -77,7 +77,7 @@
     left: 12px;
     transform: translate(0, -6px);
     height: 48px;
-    filter: var(--svg-invert-dark); /*makes the icon white*/
+    filter: var(--svg-invert); /*makes the icon white*/
 }
 
 @media (max-width: 1160px) { /*optimizes layout for smaller screens for better readability*/

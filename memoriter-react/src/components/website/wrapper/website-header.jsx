@@ -1,5 +1,7 @@
 import memoriterLogo from '../../../images/memoriter-logo.svg';
 import languageIcon from '../../../images/icons/language-icon.svg';
+import lightModeIcon from '../../../images/icons/light-mode-icon.svg';
+import darkModeIcon from '../../../images/icons/dark-mode-icon.svg';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -65,12 +67,12 @@ const WebsiteHeader = ({ currentPage }) => {
 
                 {/*light and dark mode button*/}
                 <button className='product-header-visual-mode-button'>
-                    <div className='product-header-visual-mode-icon'/>
+                    <img src={lightModeIcon} alt='light-mode-icon' className='product-header-icon'/>
                 </button>
 
                 {/*change language button*/}
                 <button className='product-header-language-button'>
-                    <img src={languageIcon} alt='language-icon' className='product-header-language-icon'/>
+                    <img src={languageIcon} alt='language-icon' className='product-header-icon'/>
                 </button>
             
                 {/*sign in and register buttons*/}

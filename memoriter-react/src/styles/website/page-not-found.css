@@ -24,7 +24,7 @@
 
 .page-not-found-logo { /*memoriter logo*/
     width: 180px;
-    filter: var(--svg-invert-light);
+    filter: var(--svg-invert);
 }
 
 .page-not-found-heading { /*page not found heading*/

@@ -138,7 +138,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
-    filter: var(--svg-invert-dark); /*for making the icons white*/
+    filter: var(--svg-invert); /*for making the icons white*/
 }
 
 @media (max-width: 1160px) { /*small optimization for small screens*/
