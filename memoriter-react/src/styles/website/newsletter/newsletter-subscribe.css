@@ -124,3 +124,9 @@
     color: var(--color-font-gray);
     font-family: var(--font-default);
 }
+
+@media (max-width: 536px) { /*fixes the veryfy text moving out of screen*/
+    .newsletter-subscribe-verify { /*text explaining the email verification process*/
+        left: 0;
+    }
+}
