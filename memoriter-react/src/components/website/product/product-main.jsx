@@ -4,7 +4,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 const ProductMain = () => {
     return (
-        <div className='product-main'>
+        <section className='product-main'>
 
             {/*three small overview items*/}
             <div className='product-main-overview'>
@@ -79,7 +79,7 @@ const ProductMain = () => {
                 </div>
             </div>
 
-        </div>
+        </section>
     );
 };
 

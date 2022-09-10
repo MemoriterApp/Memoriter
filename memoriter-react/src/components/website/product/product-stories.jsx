@@ -68,7 +68,7 @@ const ProductStories = () => {
     };
 
     return (
-        <div className='product-stories'>
+        <section className='product-stories'>
             <div className='product-stories-textarea'> {/*the values from the array are used here*/}
                 <article style={{opacity: textAreaAnimation, transition: 'opacity 400ms'}}> {/*style used for animation*/}
                     <p className='product-stories-textarea-quote'>{stories[number].quote}</p>
@@ -90,7 +90,7 @@ const ProductStories = () => {
                     )
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 

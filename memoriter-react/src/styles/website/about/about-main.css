@@ -1,8 +1,13 @@
 /*the main body of the about page uses this styleshet.*/
 
 .about-main { /*main class, used for positioning*/
-    position: absolute;
-    top: 100px;
+    position: relative;
+    left: 50%; /*centering the content on too large screens*/
+    transform: translate(-50%);
+    max-width: 2400px; /*looks better on large screens*/
+    margin-top: 100vh;
+    margin-bottom: 240px;
+    overflow-x: hidden;
 }
 
 .about-main-header { /*header font styling*/

@@ -7,6 +7,7 @@ import './styles/website/wrapper/website-language-select.css';
 import './styles/website/product/product-banner.css';
 import './styles/website/product/product-main.css';
 import './styles/website/product/product-stories.css';
+import './styles/website/about/about-banner.css';
 import './styles/website/about/about-main.css';
 import './styles/website/blog/blog-main.css';
 import './styles/website/blog/blog-sidebar.css';

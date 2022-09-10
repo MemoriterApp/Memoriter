@@ -1,7 +1,7 @@
 const CurrentRelease = () => {
 
     return (
-        <div className='current-release'>
+        <section className='current-release'>
         
             <h1>Release Notes</h1> {/*The page title is here for optimization reasons.*/}
        
@@ -43,7 +43,7 @@ const CurrentRelease = () => {
 
             <h2 style={{marginBottom: '-20px'}}>Older Releases:</h2>
 
-        </div>
+        </section>
     );
 }
 

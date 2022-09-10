@@ -24,7 +24,7 @@ const ProductBanner = () => {
     }, []);
 
     return (
-        <div className='product-banner'>
+        <section className='product-banner'>
 
             {/*background triangles*/}
             <div
@@ -59,7 +59,7 @@ const ProductBanner = () => {
             <div className='product-banner-bottom-transition-shape-left'/>
             <div className='product-banner-bottom-transition-shape-right'/>
 
-        </div>
+        </section>
     );
 };
 
