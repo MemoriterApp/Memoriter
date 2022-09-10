@@ -108,11 +108,11 @@
 .newsletter-subscribe-checkbox-style:hover { /*hover effect for checkbox*/
     background-color: var(--color-hover-input);
 }
-.newsletter-subscribe-checkbox input:checked + .newsletter-main-checkbox-style { /*background color change on toggle*/
+.newsletter-subscribe-checkbox input:checked + .newsletter-subscribe-checkbox-style { /*background color change on toggle*/
     border: 1.5px solid var(--color-black);
     background-color: var(--color-highlight-gradient-blue);
 }
-.newsletter-subscribe-checkbox input:checked + .newsletter-main-checkbox-style::after { /*show checkmark on toggle*/
+.newsletter-subscribe-checkbox input:checked + .newsletter-subscribe-checkbox-style::after { /*show checkmark on toggle*/
     opacity: 1;
 }
 

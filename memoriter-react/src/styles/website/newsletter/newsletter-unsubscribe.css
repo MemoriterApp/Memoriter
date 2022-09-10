@@ -180,9 +180,3 @@
         height: 94px;
     }
 }
-
-@media (max-width: 240px) { /*hides modal on too small screens*/
-    .newsletter-unsubscribe {
-        display: none;
-    }
-}

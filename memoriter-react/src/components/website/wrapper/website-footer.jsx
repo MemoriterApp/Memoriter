@@ -4,7 +4,7 @@ import instagramIcon from '../../../images/icons/instagram-icon.svg';
 import newsletterIcon from '../../../images/icons/email-icon.svg';
 import { Link } from 'react-router-dom';
 
-const WebsiteFooter = ({ onOpenCookieSettings }) => {
+const WebsiteFooter = ({ onOpenLanguageSelect, onOpenCookieSettings }) => {
     return (
         <footer className='product-footer'>
 
@@ -63,8 +63,12 @@ const WebsiteFooter = ({ onOpenCookieSettings }) => {
                 <p className='product-footer-bottom-box-copyright'>©Copyright 2022 Memoriter</p>
 
                 {/*right text uses two classes, one for the hover effect*/}
-                <p className='product-footer-bottom-box-text product-footer-bottom-box-language'>Language: English</p>
-                <p className='product-footer-bottom-box-text product-footer-bottom-box-visual-mode'>Visual Mode: Dark</p>
+                <p
+                    className='product-footer-bottom-box-text product-footer-bottom-box-language' //two classes
+                    onClick={onOpenLanguageSelect}
+                >Language: English</p>
+                <p className='product-footer-bottom-box-text product-footer-bottom-box-visual-mode' //two classes
+                >Visual Mode: Dark</p>
 
                 {/*social media icons*/}
                 <div className='product-footer-bottom-box-social-media-box'>

@@ -3,6 +3,7 @@ import './index.css';
 
 import './styles/website/wrapper/website-header.css';
 import './styles/website/wrapper/website-footer.css';
+import './styles/website/wrapper/website-language-select.css';
 import './styles/website/product/product-banner.css';
 import './styles/website/product/product-main.css';
 import './styles/website/product/product-stories.css';

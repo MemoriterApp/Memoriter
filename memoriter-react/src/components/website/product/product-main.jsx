@@ -1,3 +1,4 @@
+import lightBulbIconGradient from '../../../images/icons/light-bulb-icon-gradient.svg';
 import placeholderImage from '../../../images/website/product/placeholder.jpeg';
 import ScrollAnimation from 'react-animate-on-scroll';
 
@@ -9,7 +10,7 @@ const ProductMain = () => {
             <div className='product-main-overview'>
 
                 <div>
-                    <img className='product-main-overview-image' src={placeholderImage} alt='placeholder'/>
+                    <img className='product-main-overview-image' src={lightBulbIconGradient} alt='light-bulb'/>
                     <p className='product-main-overview-text'>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
                     </p>

@@ -5,7 +5,7 @@ import darkModeIcon from '../../../images/icons/dark-mode-icon.svg';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const WebsiteHeader = ({ currentPage }) => {
+const WebsiteHeader = ({ currentPage, onOpenLanguageSelect }) => {
 
     const [onHover, setOnHover] = useState('brightness(1)'); //variable for the hover effect for the register button
     const [onHoverAlt, setOnHoverAlt] = useState('brightness(1)'); //hover effect for alternative mobile register button
@@ -67,12 +67,12 @@ const WebsiteHeader = ({ currentPage }) => {
 
                 {/*light and dark mode button*/}
                 <button className='product-header-visual-mode-button'>
-                    <img src={lightModeIcon} alt='light-mode-icon' className='product-header-icon'/>
+                    <img className='product-header-icon' src={lightModeIcon} alt='light-mode-icon'/>
                 </button>
 
                 {/*change language button*/}
                 <button className='product-header-language-button'>
-                    <img src={languageIcon} alt='language-icon' className='product-header-icon'/>
+                    <img className='product-header-icon' src={languageIcon} alt='language-icon' onClick={onOpenLanguageSelect}/>
                 </button>
             
                 {/*sign in and register buttons*/}
