@@ -1,6 +1,6 @@
 /*These styles are used for the product page (formerly known as start page) header and some similar pages.*/
 
-.product-header { /*the header box at the top of the page*/
+.website-header { /*the header box at the top of the page*/
     position: fixed;
     left: 0;
     top: 0;
@@ -12,7 +12,7 @@
     z-index: 1;
 }
 
-.product-header-text-gradient { /*for the text gradient of link texts*/
+.website-header-text-gradient { /*for the text gradient of link texts*/
     font-weight: 600;
     background: var(--color-highlight-gradient);
     background-clip: text;
@@ -20,7 +20,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-.product-header-logo { /*logo formatting used for the header*/
+.website-header-logo { /*logo formatting used for the header*/
     position: absolute;
     left: 80px;
     top: calc(50% - 1px);
@@ -30,7 +30,7 @@
     cursor: pointer;
 }
 
-.product-header-quicklink-box { /*used for the header links like product, about, downloads etc.*/
+.website-header-quicklink-box { /*used for the header links like product, about, downloads etc.*/
     position: absolute;
     left: 240px;
     top: calc(50% - 1px);
@@ -39,11 +39,11 @@
     height: 40%;
 }
 
-.product-header-quicklink-box-space { /*only for small screens*/
+.website-header-quicklink-box-space { /*only for small screens*/
     display: none;
 }
 
-.product-header-quicklink { /*link texts*/
+.website-header-quicklink { /*link texts*/
     display: inline;
     position: relative;
     font-size: 1.2rem;
@@ -56,11 +56,11 @@
     cursor: pointer;
     transition: background-color 200ms;
 }
-.product-header-quicklink:hover { /*for the fading background box on hover*/
+.website-header-quicklink:hover { /*for the fading background box on hover*/
     background-color: var(--color-hover);
 }
 
-.product-header-language-button { /*button to change language*/
+.website-header-language-button { /*button to change language*/
     position: absolute;
     right: 385px;
     top: calc(50% - 1px);
@@ -73,10 +73,10 @@
     cursor: pointer;
     transition: background-color 200ms;
 }
-.product-header-language-button:hover { /*visible border on hover*/
+.website-header-language-button:hover { /*visible border on hover*/
     background-color: var(--color-hover);
 }
-.product-header-icon { /*change language and visual mode symbol*/
+.website-header-icon { /*change language and visual mode symbol*/
     position: absolute;
     left: 50%;
     top: 50%;
@@ -86,7 +86,7 @@
     filter: var(--svg-invert-gray); /*for the correct icon color*/
 }
 
-.product-header-theme-button { /*button to swich between light and dark mode*/
+.website-header-theme-button { /*button to swich between light and dark mode*/
     position: absolute;
     right: 335px;
     top: calc(50% - 1px);
@@ -99,11 +99,11 @@
     cursor: pointer;
     transition: background-color 200ms;
 }
-.product-header-theme-button:hover { /*visible border on hover*/
+.website-header-theme-button:hover { /*visible border on hover*/
     background-color: var(--color-hover);
 }
 
-.product-header-sign-in { /*Sign in button*/
+.website-header-sign-in { /*Sign in button*/
     position: absolute;
     right: 200px;
     top: calc(50% - 1px);
@@ -116,17 +116,17 @@
     cursor: pointer;
     transition: background-color 200ms;
 }
-.product-header-sign-in:hover { /*for the fading background box on hover*/
+.website-header-sign-in:hover { /*for the fading background box on hover*/
     background-color: var(--color-hover);
 }
 
-.product-header-register { /*register button, needed to be split in multiple classes, this class is for the positionig of the button*/
+.website-header-register { /*register button, needed to be split in multiple classes, this class is for the positionig of the button*/
     position: absolute;
     right: 80px;
     top: calc(50% - 1px);
     transform: translate(0, -50%);
 }
-.product-header-register-text { /*text which is not supposed to change color*/
+.website-header-register-text { /*text which is not supposed to change color*/
     position: absolute;
     left: 50%;
     top: 8px;
@@ -136,7 +136,7 @@
     font-family: var(--font-highlight);
     text-decoration: none;
 }
-.product-header-register-background { /*the hover background was done in React because it did not work in CSS*/
+.website-header-register-background { /*the hover background was done in React because it did not work in CSS*/
     width: 74px;
     height: 22px;
     padding: 8px 10px 8px 10px;
@@ -146,7 +146,7 @@
     transition: filter 200ms;
 }
 
-.product-header-mobile-sidebar-button { /*toggle button for small screen expandable side bar*/
+.website-header-mobile-sidebar-button { /*toggle button for small screen expandable side bar*/
     display: none; /*the button is hidden by default*/
     position: absolute;
     right: 15px;
@@ -160,10 +160,10 @@
     cursor: pointer;
     transition: background-color 200ms;
 }
-.product-header-mobile-sidebar-button:hover { /*visible border on hover*/
+.website-header-mobile-sidebar-button:hover { /*visible border on hover*/
     background-color: var(--color-hover);
 }
-.product-header-mobile-sidebar-icon { /*expand sidebar for small screens symbol*/
+.website-header-mobile-sidebar-icon { /*expand sidebar for small screens symbol*/
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--color-font-gray);
@@ -173,15 +173,15 @@
     transform: rotate(90deg);
 }
 
-.product-header-sign-in-alt { /*alternative button for mobile screens*/
+.website-header-sign-in-alt { /*alternative button for mobile screens*/
     display: none;
 }
 
-.product-header-register-alt { /*alternative button for mobile screens*/
+.website-header-register-alt { /*alternative button for mobile screens*/
     display: none;
 }
 
-.product-header-scroll-indicator { /*scroll indicator bar at the bottom*/
+.website-header-scroll-indicator { /*scroll indicator bar at the bottom*/
     position: absolute;
     left: 0;
     bottom: 0px;
@@ -192,31 +192,31 @@
 @media (max-width: 1160px) { /*changes for medium screen sizes (e.g. tablets, smaller laptops etc.)*/
     /*many objects are rendered closer to the edge and closer together to fit on a smaller width*/
     
-    .product-header-logo {
+    .website-header-logo {
         left: 10px;
     }
 
-    .product-header-quicklink-box {
+    .website-header-quicklink-box {
         left: 150px;
         width: calc(100% - 150px);
     }
-    .product-header-quicklink {
+    .website-header-quicklink {
         margin-right: 20px;
     }
 
-    .product-header-language-button {
+    .website-header-language-button {
         right: 325px;
     }
 
-    .product-header-theme-button {
+    .website-header-theme-button {
         right: 265px;
     }
 
-    .product-header-sign-in {
+    .website-header-sign-in {
         right: 120px;
     }
 
-    .product-header-register {
+    .website-header-register {
         right: 10px;
     }
 }
@@ -224,7 +224,7 @@
 @media (max-width: 960px) { /*changes for small screen sizes (e.g. mobile devices)*/
     /*many links are now hidden and can be shown in a seperate expandable window*/
 
-    .product-header-quicklink-box { /*changes to mobile sidebar*/
+    .website-header-quicklink-box { /*changes to mobile sidebar*/
         left: unset;
         top: 62px;
         transform: translate(0, 0);
@@ -238,7 +238,7 @@
         transition: right 600ms;
     }
 
-    .product-header-quicklink-box-space {
+    .website-header-quicklink-box-space {
         display: block;
         position: absolute;
         top: 390px;
@@ -246,7 +246,7 @@
         height: 10px;
     }
     
-    .product-header-quicklink { /*rearranging links and changing design*/
+    .website-header-quicklink { /*rearranging links and changing design*/
         display: block;
         left: 50%;
         transform: translate(-50%);
@@ -257,32 +257,32 @@
         border-radius: 0;
     }
 
-    .product-header-theme-button {
+    .website-header-theme-button {
         right: 3px;
         top: 375px;
         transform: translate(-50%, -50%);
     }
 
-    .product-header-language-button {
+    .website-header-language-button {
         right: 50px;
         top: 375px;
         transform: translate(-50%, -50%);
     }
 
-    .product-header-sign-in {
+    .website-header-sign-in {
         top: 320px;
         left: 35px;
         transform: translate(0, -50%);
         width: 62px;
     }
 
-    .product-header-register {
+    .website-header-register {
         top: 320px;
         right: 35px;
         transform: translate(0, -50%);
     }
 
-    .product-header-sign-in-alt { /*sign in button staying at the top*/
+    .website-header-sign-in-alt { /*sign in button staying at the top*/
         display: block;
         position: absolute;
         right: 160px;
@@ -297,11 +297,11 @@
         cursor: pointer;
         transition: background-color 200ms;
     }
-    .product-header-sign-in-alt:hover { /*for the fading background box on hover*/
+    .website-header-sign-in-alt:hover { /*for the fading background box on hover*/
         background-color: var(--color-hover);
     }
 
-    .product-header-register-alt { /*register button staying at the top*/
+    .website-header-register-alt { /*register button staying at the top*/
         display: block;
         position: absolute;
         right: 60px;
@@ -309,23 +309,23 @@
         transform: translate(0, -50%);
     }
 
-    .product-header-mobile-sidebar-button {
+    .website-header-mobile-sidebar-button {
         display: block;
     }
 }
 
 @media (max-width: 360px) { /*hiding overlapping items on very small screen sizes*/
-    .product-header-sign-in-alt {
+    .website-header-sign-in-alt {
         display: none;
     }
 
-    .product-header-register-alt {
+    .website-header-register-alt {
         display: none;
     }
 }
 
 @media (max-width: 180px) { /*visual fix for too small screens*/
-    .product-header-mobile-sidebar-button {
+    .website-header-mobile-sidebar-button {
         display: none;
     }
 }

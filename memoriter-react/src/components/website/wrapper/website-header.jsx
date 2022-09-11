@@ -51,74 +51,74 @@ const WebsiteHeader = ({ currentPage, onOpenLanguageSelect }) => {
     };
 
     return (
-        <header className='product-header'>
+        <header className='website-header'>
 
             {/*If you click the logo, you will be redirected to the product page.*/}
-            <Link to='/product'><img className='product-header-logo' src={memoriterLogo} alt='memoriter-logo'/></Link>
+            <Link to='/product'><img className='website-header-logo' src={memoriterLogo} alt='memoriter-logo'/></Link>
 
             {/*button for expanding side bar for small screens*/}
-            <button className='product-header-mobile-sidebar-button' onClick={toggleMobileSidebar}>
-                <div className='product-header-mobile-sidebar-icon'>|||</div>
+            <button className='website-header-mobile-sidebar-button' onClick={toggleMobileSidebar}>
+                <div className='website-header-mobile-sidebar-icon'>|||</div>
             </button>
 
             {/*quicklinks (navigation bar)*/}
-            <nav className='product-header-quicklink-box' style={{right: mobileSidebar}}> {/*expandable mobile nav sidebar, displays when button is clicked (changes className)*/}
-                <Link className='product-header-quicklink' to='/product'>
-                    {currentPage === 'product' ? <span className='product-header-text-gradient'>Product</span> : <span>Product</span>}
+            <nav className='website-header-quicklink-box' style={{right: mobileSidebar}}> {/*expandable mobile nav sidebar, displays when button is clicked (changes className)*/}
+                <Link className='website-header-quicklink' to='/product'>
+                    {currentPage === 'product' ? <span className='website-header-text-gradient'>Product</span> : <span>Product</span>}
                 </Link>
-                <Link className='product-header-quicklink' to='/about'>
-                    {currentPage === 'about' ? <span className='product-header-text-gradient'>About</span> : <span>About</span>}
+                <Link className='website-header-quicklink' to='/about'>
+                    {currentPage === 'about' ? <span className='website-header-text-gradient'>About</span> : <span>About</span>}
                 </Link>
-                <Link className='product-header-quicklink' to='/blog'>
-                    {currentPage === 'blog' ? <span className='product-header-text-gradient'>Blog</span> : <span>Blog</span>}
+                <Link className='website-header-quicklink' to='/blog'>
+                    {currentPage === 'blog' ? <span className='website-header-text-gradient'>Blog</span> : <span>Blog</span>}
                 </Link>
-                <Link className='product-header-quicklink' to='/download'>
-                    {currentPage === 'download' ? <span className='product-header-text-gradient'>Download</span> : <span>Download</span>}
+                <Link className='website-header-quicklink' to='/download'>
+                    {currentPage === 'download' ? <span className='website-header-text-gradient'>Download</span> : <span>Download</span>}
                 </Link>
-                <Link className='product-header-quicklink' to='/donate'>
-                    {currentPage === 'donate' ? <span className='product-header-text-gradient'>Donate</span> : <span>Donate</span>}
+                <Link className='website-header-quicklink' to='/donate'>
+                    {currentPage === 'donate' ? <span className='website-header-text-gradient'>Donate</span> : <span>Donate</span>}
                 </Link>
                 {/*the if else conditions changes the color of the links depending on the current open page*/}
 
                 {/*light and dark mode buttons, icon depends on the current mode*/}
-                {(themeIcon === 'dark' || !themeIcon) && <button className='product-header-theme-button' onClick={() => onChangeTheme('light')}>
-                    <img className='product-header-icon' src={lightModeIcon} alt='light-mode-icon'/>
+                {(themeIcon === 'dark' || !themeIcon) && <button className='website-header-theme-button' onClick={() => onChangeTheme('light')}>
+                    <img className='website-header-icon' src={lightModeIcon} alt='light-mode-icon'/>
                 </button>}
-                {themeIcon === 'light' && <button className='product-header-theme-button' onClick={() => onChangeTheme('dark')}>
-                    <img className='product-header-icon' src={darkModeIcon} alt='dark-mode-icon'/>
+                {themeIcon === 'light' && <button className='website-header-theme-button' onClick={() => onChangeTheme('dark')}>
+                    <img className='website-header-icon' src={darkModeIcon} alt='dark-mode-icon'/>
                 </button>}
 
                 {/*change language button*/}
-                <button className='product-header-language-button'>
-                    <img className='product-header-icon' src={languageIcon} alt='language-icon' onClick={onOpenLanguageSelect}/>
+                <button className='website-header-language-button'>
+                    <img className='website-header-icon' src={languageIcon} alt='language-icon' onClick={onOpenLanguageSelect}/>
                 </button>
             
                 {/*sign in and register buttons*/}
-                <Link className='product-header-sign-in' to='/signin'>
-                    <span className='product-header-text-gradient'>Sign in</span>
+                <Link className='website-header-sign-in' to='/signin'>
+                    <span className='website-header-text-gradient'>Sign in</span>
                 </Link>
-                <Link className='product-header-register' to='/register'
+                <Link className='website-header-register' to='/register'
                     onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
                     {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css*/}
-                    <div className='product-header-register-background' style={{filter: onHover}}/>
-                    <span className='product-header-register-text'>Register</span>
+                    <div className='website-header-register-background' style={{filter: onHover}}/>
+                    <span className='website-header-register-text'>Register</span>
                 </Link>
                 
-                <div className='product-header-quicklink-box-space'/> {/*space at the end for scrolling at the nav sidebar*/}
+                <div className='website-header-quicklink-box-space'/> {/*space at the end for scrolling at the nav sidebar*/}
             </nav>
 
             {/*alternative sign in and register button for mobile nav sidebar, staying at the default position*/}
-            <Link className='product-header-sign-in-alt' to='/login'>
-                <span className='product-header-text-gradient'>Sign in</span>
+            <Link className='website-header-sign-in-alt' to='/login'>
+                <span className='website-header-text-gradient'>Sign in</span>
             </Link>
-            <Link className='product-header-register-alt' to='/register'
+            <Link className='website-header-register-alt' to='/register'
                 onMouseEnter={() => setOnHoverAlt('brightness(0.75)')} onMouseLeave={() => setOnHoverAlt('brightness(1)')}>
-                <div className='product-header-register-background' style={{filter: onHoverAlt}}/>
-                <span className='product-header-register-text'>Register</span>
+                <div className='website-header-register-background' style={{filter: onHoverAlt}}/>
+                <span className='website-header-register-text'>Register</span>
             </Link>
 
             {/*scroll indicator*/}
-            <div className='product-header-scroll-indicator' style={{width: `${scrollProgress}%`}}/>
+            <div className='website-header-scroll-indicator' style={{width: `${scrollProgress}%`}}/>
             {/*the width is calculated by the scrollProgress variable and defines the width of the bar*/}
 
         </header>

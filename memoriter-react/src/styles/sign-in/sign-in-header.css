@@ -19,7 +19,7 @@
     filter: var(--svg-invert);
 }
 
-@media (max-width: 1160px) { /*logo position is equal to product header logo*/
+@media (max-width: 1160px) { /*logo position is equal to website header logo*/
     .sign-in-header-logo {
         left: 10px;
     }
