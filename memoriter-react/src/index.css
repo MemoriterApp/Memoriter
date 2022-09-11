@@ -33,12 +33,12 @@ body {
 .page_title {
     display: block;
     position: absolute;
-    bottom: 20%;
+    bottom: 0%;
     left: 50%;
     transform: translate(-50%, 50%);
     font-family: 'M PLUS 1', sans-serif;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 42px;
     color: rgba(255,255,255,1);
     max-width: 50%;
     max-height: 75px;
@@ -55,12 +55,13 @@ body {
     border-left: 13px solid rgb(53, 72, 96);
     border-top: 10px solid rgb(53, 72, 96);
     border-bottom: 10px solid rgb(53, 72, 96);
-    width: 1713px;
+    width: 91vw;
     height: calc(100% - 200px);
     margin: auto;
     position: absolute;
-    top: 80px;
-    left: 4.5%;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 30px;
     max-height: calc(100% - 120px);
     min-height: 168px;
@@ -70,7 +71,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     top: 48px;
-    width: calc(100% - 20px);
+    width: calc(100% - 30px);
     height: 0px;
     border-top: 8px solid rgb(79, 109, 115);
     border-radius: 15px;
@@ -614,9 +615,10 @@ body {
     top: 30px;
     height: calc(100% - 70px);
     width: calc(100% - 60px);
-    border-bottom: 5px solid rgba(58,109,112,1);
-    border-left: 5px solid rgba(58,109,112,1);
-    border-right: 5px solid rgba(58,109,112,1);
+    background-color: rgb(241, 242, 247);
+    border-bottom: 5px solid rgb(199, 202, 211);
+    border-left: 5px solid rgb(199, 202, 211);
+    border-right: 5px solid rgb(199, 202, 211);
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
@@ -628,7 +630,7 @@ body {
     width: 100%;
     content: "";
     background: linear-gradient(to top,
-    #353535 5px,
+    #ffffff 5px,
     rgba(255,255,255,0) 25%
     );
     pointer-events: none;
@@ -646,6 +648,7 @@ body {
     white-space: pre-line;
     word-wrap: break-word;
     hyphens: auto;
+    color: rgb(53, 53, 53);
 }
 .Flashcard_Content {
     position: relative;
@@ -661,6 +664,7 @@ body {
     word-wrap: break-word;
     hyphens: auto;
     line-height: 120%;
+    color: rgb(53, 53, 53);
 }
 
 /* Flashcard Settings */
@@ -683,10 +687,10 @@ body {
     width: calc(100% - 60px);
     left: 25px;
     height: 30px;
-    background-color: transparent;
-    border-top: 5px solid rgba(58,109,112,1);
-    border-left: 5px solid rgba(58,109,112,1);
-    border-right: 5px solid rgba(58,109,112,1);
+    background-color: rgb(241, 242, 247);
+    border-top: 5px solid rgb(199, 202, 211);
+    border-left: 5px solid rgb(199, 202, 211);
+    border-right: 5px solid rgb(199, 202, 211);
     border-radius: 3px;
     cursor: pointer;
 }
@@ -891,29 +895,58 @@ body {
 }
 
 /* New Flashcard Button*/
+.New_Flashcard_Settings_Bar{
+    position: absolute;
+    width: calc(100% - 60px);
+    left: 25px;
+    height: 30px;
+    background-color: transparent;
+    border-top: 5px dotted rgb(199, 202, 211);
+    border-left: 5px dotted rgb(199, 202, 211);
+    border-right: 5px dotted rgb(199, 202, 211);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.New_Flashcard_Rechteck{
+    position: absolute;
+    left: 25px;
+    top: 30px;
+    height: calc(100% - 70px);
+    width: calc(100% - 60px);
+    background-color: transparent;
+    border-bottom: 5px dotted rgb(199, 202, 211);
+    border-left: 5px dotted rgb(199, 202, 211);
+    border-right: 5px dotted rgb(199, 202, 211);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
 .New_Flashcard_Circle {
     position: absolute;
     top: calc(50% - 25% / 3 * 2 - 15px);
-    left: calc(25% - 5px);
-    width: 50%;
-    height: calc(50% / 3 * 2);
-    border: 5px solid rgba(58,109,112,1);
+    left: 50%;
+    transform: translate(-50%);
+    width: 45%;
+    height: calc(45% / 3 * 2);
+    border: 10px solid rgb(199, 202, 211);
     border-radius: 50%;
-    background-color: #274b65;
+    background-color: rgb(241, 242, 247);
 }
 .New_Flashcard_Plus_h {
     position: absolute;
     top: calc(50% - 2.5px);
     left: 15%;
     width: 70%;
-    border-top: 5px solid rgba(112,112,112,1);
+    border-top: 5px solid rgb(0, 1, 0);
+    border-radius: 15px;
 }
 .New_Flashcard_Plus_v {
     position: absolute;
     top: 15%;
     left: calc(50% - 2.5px);
     height: 70%;
-    border-left: 5px solid rgba(112,112,112,1);
+    border-left: 5px solid rgb(0, 1, 0);
+    border-radius: 15px;
 }
 
 /* New Flashcard Form */
