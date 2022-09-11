@@ -89,13 +89,14 @@ body {
 }
 .gear {
     position: absolute;
-    top: 3.75px;
-    right: 3.75px;
-    width: 30px;
-    height: 30px;
-    background-image: url(components/zahnrad.png);
-    border: 1px #353535;
+    top: 3px;
+    right: 3px;
+    width: 35px;
+    height: 35px;
+    border: 1px transparent;
+    background-color: transparent;
     cursor: pointer;
+    filter: invert(0.75);
 }
 .File-Overview {
     position: absolute;
