@@ -39,7 +39,7 @@
     background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--color-transparent);
 }
 
 .cookie-settings-close { /*x-button for closing settings*/
@@ -51,7 +51,7 @@
     height: 30px;
     border: none;
     border-radius: 4px;
-    background-color: var(--color-transparent);
+    background-color: var(--color-transparent);;
     cursor: pointer;
     transition: background-color 200ms;
 }
@@ -257,7 +257,7 @@
     transform: translate(0, -50%);
     width: calc(50% - 80px);
     padding: 0 10px 0 0;
-    background-color: var(--color-transparent);
+    background-color: var(--color-transparent);;
     border: none;
     cursor: pointer;
 }

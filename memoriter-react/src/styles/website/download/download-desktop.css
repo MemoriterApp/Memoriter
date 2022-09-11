@@ -31,7 +31,7 @@
 .download-desktop-download { /*download button, needed to be split in multiple classes, this class is for the positionig of the button*/
     position: relative;
     margin: 20px 28px;
-    background-color: var(--color-transparent);
+    background-color: var(--color-transparent);;
     border: none;
     cursor: pointer;
 }

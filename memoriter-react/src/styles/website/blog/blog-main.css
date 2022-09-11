@@ -117,7 +117,7 @@
     margin-top: 40px;
     border: none;
     border-radius: 4px;
-    background-color: var(--color-transparent);
+    background-color: var(--color-transparent);;
     cursor: pointer;
     transition: background-color 200ms;
 }

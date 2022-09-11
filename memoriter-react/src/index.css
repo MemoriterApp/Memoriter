@@ -95,17 +95,24 @@
     height: 10px;
 }
 ::-webkit-scrollbar-track {
-    background-color: #292929;
+    background-color: var(--color-transparent);
 }
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(112, 112, 112, 1);
+    background-color: var(--color-background-dark);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #bbb;
+    background-color: var(--color-background-dark-plus);
 }
 ::-webkit-scrollbar-corner {
-    background-color: transparent;
+    background-color: var(--color-transparent);
 }*/
+
+:root { /*legacy colors (all old colors from the app which cannot be replaced)*/
+    --legacy-gray: #707070;
+    --legacy-blue-dark: #274b65;
+    --legacy-blue-light: #3a6d70;
+    --legacy-green: #2d772d;
+}
 
 /* Home */
 .Page_Header {
@@ -114,7 +121,6 @@
     position: absolute;
     top: 0%;
     left: 0%;
-    background-color: transparent;
     overflow: hidden;
 }
 .page_title {
@@ -135,8 +141,7 @@
     text-overflow: ellipsis;
 }
 .rechteck {
-    background: transparent;
-    border: 5px solid #274b65;
+    border: 5px solid var(--legacy-blue-dark);
     width: 90%;
     height: calc(100% - 200px);
     margin: auto;
@@ -153,7 +158,7 @@
     top: 45px;
     width: calc(100% - 10px);
     height: 0px;
-    border-top: 5px solid #3a6d70;
+    border-top: 5px solid var(--legacy-blue-light);
 }
 .Logo-oben {
     width: 134.4px;
@@ -163,23 +168,25 @@
     bottom: 50%;
     left: 10px;
     transform: translate(0%, 50%);
+    filter: var(--svg-invert);
 }
 .gear {
     position: absolute;
-    top: 3.75px;
-    right: 3.75px;
-    width: 30px;
-    height: 30px;
-    background-image: url(components/zahnrad.png);
-    border: 1px #353535;
+    top: 2.5px;
+    right: 2.5px;
+    width: 35px;
+    height: 35px;
+    border: none;
     cursor: pointer;
+    background-color: var(--color-transparent);
+    filter: var(--svg-invert-gray);
 }
 .File-Overview {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
     text-align: center;
-    color: #ffffff;
+    color: var(--color-font);
     top: -10px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
@@ -198,22 +205,19 @@
     position: absolute;
     bottom: 5px;
     left: 5px;
-    background-color: transparent;
     overflow: auto;
 }
 .Folder_Body {
     position: relative;
     width: 100%;
     height: 50px;
-    background-color: transparent;
-    border: transparent;
 }
 .Button_Homepage {
     position: absolute;
     top: 0%;
     left: 0%;
     padding: 15px 15px;
-    background-color: #353535;
+    background-color: var(--color-background);
     border: 5px solid #5f9ea0;
     border-radius: 3px;
     cursor: pointer;
@@ -223,11 +227,11 @@
     bottom: 32%;
     left: 40px;
     max-width: calc(100% - 120px);
-    color: white;
+    color: var(--color-font);
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: transparent;
-    border: 1px transparent;
+    background-color: var(--color-transparent);
+    border: 1px var(--color-transparent);
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
@@ -239,15 +243,14 @@
     top: 20%;
     height: 10px;
     width: 25px;
-    background-color: transparent;
-    border: 5px solid transparent;
+    border: 5px solid var(--color-transparent);
     cursor: pointer;
 }
 .No_Folder_Text {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
-    color: #bbbbbb;
+    color: var(--color-font-gray);
     font-size: 24px;
     padding: 11.5px;
 }
@@ -256,7 +259,7 @@
 .dot {
     height: 6px;
     width: 6px;
-    background-color: #bbbbbb;
+    background-color: var(--color-font-gray);
     border-radius: 3px;
     display: inline-block;
     position: relative;
@@ -268,7 +271,7 @@
 .big-dot {
     height: 8px;
     width: 8px;
-    background-color: #bbbbbb;
+    background-color: var(--color-font-gray);
     border-radius: 4px;
     display: inline-block;
     position: relative;
@@ -280,8 +283,7 @@
 
 /* ordner positionieren */
 .Folder_Pos_Body_Up {
-    background-color: transparent;
-    border: 2.5px solid transparent;
+    border: 2.5px solid var(--color-transparent);
     position: absolute;
     top: 3px;
     right: 40px;
@@ -289,7 +291,7 @@
     cursor: pointer;
 }
 .Folder_Pos_Arrow_Up {
-    border: solid #bbbbbb;
+    border: solid var(--color-font-gray);
     border-width: 0 3.5px 3.5px 0;
     padding: 4.5px;
     position: absolute;
@@ -299,8 +301,7 @@
     transform: rotate(-135deg);
 }
 .Folder_Pos_Body_Down {
-    background-color: transparent;
-    border: 2.5px solid transparent;
+    border: 2.5px solid var(--color-transparent);
     position: absolute;
     right: 40px;
     bottom: 13px;
@@ -308,7 +309,7 @@
     cursor: pointer;
 }
 .Folder_Pos_Arrow_Down {
-    border: solid #bbbbbb;
+    border: solid var(--color-font-gray);
     border-width: 0 3.5px 3.5px 0;
     padding: 4.5px;
     position: absolute;
@@ -324,21 +325,19 @@
     top: 11.5%;
     width: 100%;
     height: 55px;
-    background-color: transparent;
-    border: transparent;
 }
 .New_Folder_Line {
     position: absolute;
     top: 0%;
     width: 100%;
-    border-top: 5px solid #707070;
+    border-top: 5px solid var(--legacy-gray);
 }
 .Button_New_Folder {
     position: absolute;
     bottom: 0px;
     left: 0%;
     padding: 15px 15px;
-    background-color: #353535;
+    background-color: var(--color-background);
     cursor: pointer;
     border: 5px solid #5f9ea0;
     border-radius: 3px;
@@ -348,11 +347,11 @@
     bottom: 11.625%;
     left: 40px;
     max-width: calc(100% - 40px);
-    color: white;
+    color: var(--color-font);
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: transparent;
-    border: 1px transparent;
+    background-color: var(--color-transparent);
+    border: 1px var(--color-transparent);
     cursor: pointer;
     outline: none;
     white-space: nowrap;
@@ -364,24 +363,24 @@
     top: 42.5%;
     left: 10.5%;
     width: 80%;
-    border-top: 5px solid #707070;
+    border-top: 5px solid var(--legacy-gray);
 }
 .New_Folder_Plus_v {
     position: absolute;
     top: 10.5%;
     left: 42.5%;
     height: 80%;
-    border-left: 5px solid #707070;
+    border-left: 5px solid var(--legacy-gray);
 }
 
 /* Feld für das Erstellen von Ordnern */
 .Add_Folder_Form_Body {
-    border: 5px solid #274b65;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    background-color: #353535;
+    border: 5px solid var(--legacy-blue-dark);
+    box-shadow: 0 1px 4px var(--color-shadow);
+    background-color: var(--color-background);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff;
+    color: var(--color-font);
     width: 550px;
     height: 225px;
     position: fixed;
@@ -401,10 +400,10 @@
     font-size: 20px;
 }
 .Add_Folder_Form_Input {
-    border: 5px solid #3a6d70;
+    border: 5px solid var(--legacy-blue-light);
     width: 80%;
-    color: #ffffff;
-    background-color: #353535;
+    color: var(--color-font);
+    background-color: var(--color-background);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     padding: 5px 5px;
@@ -412,10 +411,10 @@
     border-radius: 3px;
 }
 .Add_Folder_Form_Submit {
-    border: 5px solid #3a6d70;
+    border: 5px solid var(--legacy-blue-light);
     padding: 5px;
-    color: #ffffff;
-    background-color: #353535;
+    color: var(--color-font);
+    background-color: var(--color-background);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     cursor: pointer;
@@ -424,12 +423,12 @@
 
 /* Delete Folder Bestätigung */
 .Delete_Folder_Confirm {
-    border: 5px solid #274b65;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    background-color: #353535;
+    border: 5px solid var(--legacy-blue-dark);
+    box-shadow: 0 1px 4px var(--color-shadow);
+    background-color: var(--color-background);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: var(--color-font);
     width: 300px;
     height: 160px;
     position: fixed;
@@ -443,12 +442,12 @@
     overflow-y: auto;
 }
 .Delete_Folder_Confirm_Yes {
-    border: 5px solid rgb(45, 119, 45);
+    border: 5px solid var(--legacy-green);
     border-radius: 3px;
     padding: 5px;
     width: 60px;
-    color: white;
-    background-color: rgb(45, 119, 45);
+    color: var(--color-white);
+    background-color: var(--legacy-green);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     cursor: pointer;
@@ -456,12 +455,12 @@
     left: 25%;
 }
 .Delete_Folder_Confirm_No {
-    border: 5px solid rgb(228, 48, 48);
+    border: 5px solid var(--color-red-light);
     border-radius: 3px;
     padding: 5px;
     width: 60px;
-    color: white;
-    background-color: rgb(228, 48, 48);
+    color: var(--color-white);
+    background-color: var(--color-red-light);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     cursor: pointer;
@@ -472,13 +471,13 @@
 /* Nachfolgendes ist alles für den Footer */
 .Footer_Body {
     position: fixed;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border-top: 2px solid rgba(112,112,112,1);
+    box-shadow: 0 1px 4px var(--color-shadow);
+    border-top: 2px solid var(--legacy-gray);
     left: 0%;
     bottom: 0%;
     width: 100%;
     height: 38px;
-    background-color: #353535;
+    background-color: var(--color-background);
     text-align: center;
     overflow: auto;
 }
@@ -494,6 +493,7 @@
     overflow: visible;
     width: 92px;
     cursor: pointer;
+    filter: var(--svg-invert);
 }
 .followUs {
     position: absolute;
@@ -503,7 +503,7 @@
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    color: white;
+    color: var(--color-font);
 }
 .rechteckLogo {
     position: absolute;
@@ -514,7 +514,7 @@
     border-radius: 5px;
     width: 10px;
     height: 10px;
-    background-color: rgba(112,112,112,1);
+    background-color: var(--legacy-gray);
     cursor: pointer;
 }
 .instaIcon {
@@ -524,9 +524,10 @@
     width: 70%;
     height: 70%;
     cursor: pointer;
+    filter: var(--svg-invert);
 }
 .footerLinks {
-    background-color: transparent;
+    background-color: var(--color-transparent);
     width: calc(100% - 220px);
     max-height: 36px;
     position: absolute;
@@ -536,21 +537,21 @@
     line-height: 18px;
 }
 .termsOfUse {
-    color: rgba(39,75,101,1);
+    color: var(--legacy-blue-dark);
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: underline;
     cursor: pointer;
     display: inline;
 }
 .privacyPolicy {
-    color: rgba(39,75,101,1);
+    color: var(--legacy-blue-dark);
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: underline;
     cursor: pointer;
     display: inline;
 }
 .impressum {
-    color: rgba(39,75,101,1);
+    color: var(--legacy-blue-dark);
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: underline;
     cursor: pointer;
@@ -559,10 +560,10 @@
 
 /* Nachfolgender Code bezieht sich auf das Settingsoverlay */
 .settings-overlay {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
-    background-color: #343434;
-    border: 5px solid #274b65;
+    background-color: var(--color-background);
+    border: 5px solid var(--legacy-blue-dark);
     text-align: center;
     width: 210px;
     height: 155px;
@@ -575,24 +576,15 @@
     overflow-x: hidden;
     overflow-y: auto;
 }
-.backdrop {
-    position: fixed;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
 .settings-title {
-    color: white;
+    color: var(--color-font);
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     word-wrap: break-word;
     hyphens: manual;
 }
 .settings-sub {
-    color: rgba(58,109,112,1);
+    color: var(--legacy-blue-light);
     width: fit-content;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
@@ -608,10 +600,10 @@
 
 /* Nachfolgender Code bezieht sich auf das Settingsoverlay der Folder */
 .folder-settings-overlay {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
-    background-color: #333333;
-    border: 5px solid #274b65;
+    background-color: var(--color-background);
+    border: 5px solid var(--legacy-blue-dark);
     padding: 1rem;
     text-align: center;
     width: 3rem;
@@ -622,7 +614,7 @@
     top: 20px;
 }
 .folder-settings-sub {
-    color: rgba(58,109,112,1);
+    color: var(--legacy-blue-light);
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     cursor: pointer;
@@ -636,7 +628,7 @@
 .Backdropfs {
     position: fixed;
     z-index: 1;
-    background-color: transparent;
+    background-color: var(--color-transparent);
     width: 100%;
     height: 100%;
     top: 0;
@@ -654,12 +646,12 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
-    background-color: transparent;
+    background-color: var(--color-transparent);
     overflow: auto;
 }
 .Zurückbutton_Body {
-    background-color: transparent;
-    border: 2.5px solid transparent;
+    background-color: var(--color-transparent);
+    border: 2.5px solid var(--color-transparent);
     position: absolute;
     left: -1px;
     top: 9px;
@@ -668,7 +660,7 @@
     transform: rotate(270deg);
 }
 .Zurückbutton_Arrow {
-    border: solid rgba(112, 112, 112, 1);
+    border: solid var(--legacy-gray);
     border-width:6px 6px 0px 0px;
     padding: 8px;
     position: absolute;
@@ -683,7 +675,7 @@
     top: 20px;
     height: calc(240px * 1.5 - 20px);
     display: inline-block;
-    background-color: transparent;
+    background-color: var(--color-transparent);
 }
 .Flashcard_Rechteck {
     position: absolute;
@@ -691,9 +683,9 @@
     top: 30px;
     height: calc(100% - 70px);
     width: calc(100% - 60px);
-    border-bottom: 5px solid rgba(58,109,112,1);
-    border-left: 5px solid rgba(58,109,112,1);
-    border-right: 5px solid rgba(58,109,112,1);
+    border-bottom: 5px solid var(--legacy-blue-light);
+    border-left: 5px solid var(--legacy-blue-light);
+    border-right: 5px solid var(--legacy-blue-light);
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
@@ -704,15 +696,12 @@
     height: 100%;
     width: 100%;
     content: "";
-    background: linear-gradient(to top,
-    #353535 5px,
-    rgba(0,0,0,0) 25%
-    );
+    background: linear-gradient(to top, var(--color-background) 5px, var(--color-transparent) 25%);
     pointer-events: none;
 }
 .Flashcard_Title {
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: var(--color-font);
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -727,7 +716,7 @@
 .Flashcard_Content {
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: var(--color-font);
     font-size: 16px;
     text-align: justify;
     width: 90%;
@@ -742,10 +731,10 @@
 
 /* Flashcard Settings */
 .flashcard-settings-overlay {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
-    background-color: #333333;
-    border: 5px solid #274b65;
+    background-color: var(--color-background);
+    border: 5px solid var(--legacy-blue-dark);
     padding: 1rem;
     text-align: center;
     width: 3rem;
@@ -760,10 +749,10 @@
     width: calc(100% - 60px);
     left: 25px;
     height: 30px;
-    background-color: transparent;
-    border-top: 5px solid rgba(58,109,112,1);
-    border-left: 5px solid rgba(58,109,112,1);
-    border-right: 5px solid rgba(58,109,112,1);
+    background-color: var(--color-transparent);
+    border-top: 5px solid var(--legacy-blue-light);
+    border-left: 5px solid var(--legacy-blue-light);
+    border-right: 5px solid var(--legacy-blue-light);
     border-radius: 3px;
     cursor: pointer;
 }
@@ -773,15 +762,15 @@
     top: 20%;
     height: 10px;
     width: 25px;
-    background-color: transparent;
-    border: 5px solid transparent;
+    background-color: var(--color-transparent);
+    border: 5px solid var(--color-transparent);
     cursor: pointer;
 }
 
 /* Flashcard Position */
 .Flashcard_Pos_Body_Left {
-    background-color: transparent;
-    border: 2.5px solid transparent;
+    background-color: var(--color-transparent);
+    border: 2.5px solid var(--color-transparent);
     position: absolute;
     left: -2px;
     top: 20%;
@@ -790,7 +779,7 @@
     transform: rotate(-90deg);
 }
 .Flashcard_Pos_Arrow_Left {
-    border: solid #bbb;
+    border: solid var(--color-font-gray);
     border-width: 0 3.5px 3.5px 0;
     padding: 4.5px;
     position: absolute;
@@ -800,8 +789,8 @@
     transform: rotate(-135deg);
 }
 .Flashcard_Pos_Body_Right {
-    background-color: transparent;
-    border: 2.5px solid transparent;
+    background-color: var(--color-transparent);
+    border: 2.5px solid var(--color-transparent);
     position: absolute;
     left: 18px;
     top: 20%;
@@ -810,7 +799,7 @@
     transform: rotate(270deg);
 }
 .Flashcard_Pos_Arrow_Right {
-    border: solid #bbb;
+    border: solid var(--color-font-gray);
     border-width: 0 3.5px 3.5px 0;
     padding: 4.5px;
     position: absolute;
@@ -831,9 +820,9 @@
     min-height: 160px;
     min-width: 120px;
     max-width: calc(100% - 160px);
-    background-color: #353535;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border: 5px solid rgba(39,75,101,1);
+    background-color: var(--color-background);
+    box-shadow: 0 1px 4px var(--color-shadow);
+    border: 5px solid var(--legacy-blue-dark);
     border-radius: 3px;
     z-index: 10;
     overflow-x: hidden;
@@ -841,7 +830,7 @@
 }
 .Flashcard_Open_Title {
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: var(--color-font);
     text-align: center;
     font-weight: bold;
     font-size: 28px;
@@ -854,7 +843,7 @@
 .Flashcard_Open_Content {
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: var(--color-font);
     font-size: 20px;
     text-align: justify;
     width: 90%;
@@ -871,15 +860,15 @@
     top: 15px;
     height: 10px;
     width: 36px;
-    background-color: transparent;
-    border: 5px solid transparent;
+    background-color: var(--color-transparent);
+    border: 5px solid var(--color-transparent);
     cursor: pointer;
 }
 .flashcard-open-settings-overlay {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
-    background-color: #333333;
-    border: 5px solid #274b65;
+    background-color: var(--color-background);
+    border: 5px solid var(--legacy-blue-dark);
     padding: 1rem;
     text-align: center;
     width: 3rem;
@@ -900,7 +889,7 @@
     min-width: 120px;
     max-width: calc(100% - 160px);
     z-index: 10;
-    background-color: transparent;
+    background-color: var(--color-transparent);
 }
 .flashcard-open-settings-overlay-position-field-click {
     position: fixed;
@@ -910,11 +899,11 @@
     height: 100%;
     width: 100%;
     z-index: 10;
-    background-color: transparent;
+    background-color: var(--color-transparent);
 }
 .Close_Flashcard_Button {
-    background-color: transparent;
-    border: 2.5px solid transparent;
+    background-color: var(--color-transparent);
+    border: 2.5px solid var(--color-transparent);
     position: absolute;
     left: -1px;
     top: 9px;
@@ -923,7 +912,7 @@
     transform: rotate(270deg);
 }
 .Close_Flashcard_Arrow {
-    border: solid #bbb;
+    border: solid var(--color-font-gray);
     border-width: 6px 6px 0px 0px;
     padding: 8px;
     position: absolute;
@@ -933,7 +922,7 @@
     transform: rotate(-45deg);
 }
 .Flashcard_Switch_Arrows {
-    background-color: transparent;
+    background-color: var(--color-transparent);
     position: fixed;
     left: 50%;
     bottom: 4vh;
@@ -949,9 +938,9 @@
     right: 0%;
     width: 0;
 	height: 0;
-	border-top: 40px solid transparent;
-	border-left: 60px solid rgba(112, 112, 112, 1);
-	border-bottom: 40px solid transparent;
+	border-top: 40px solid var(--color-transparent);
+	border-left: 60px solid var(--legacy-gray);
+	border-bottom: 40px solid var(--color-transparent);
     z-index: 10;
     cursor: pointer;
 }
@@ -960,9 +949,9 @@
     left: 0%;
     width: 0;
 	height: 0;
-	border-top: 40px solid transparent;
-	border-right: 60px solid rgba(112, 112, 112, 1);
-	border-bottom: 40px solid transparent;
+	border-top: 40px solid var(--color-transparent);
+	border-right: 60px solid var(--legacy-gray);
+	border-bottom: 40px solid var(--color-transparent);
     z-index: 10;
     cursor: pointer;
 }
@@ -974,23 +963,23 @@
     left: calc(25% - 5px);
     width: 50%;
     height: calc(50% / 3 * 2);
-    border: 5px solid rgba(58,109,112,1);
+    border: 5px solid var(--legacy-blue-light);
     border-radius: 50%;
-    background-color: #274b65;
+    background-color: var(--legacy-blue-dark);
 }
 .New_Flashcard_Plus_h {
     position: absolute;
     top: calc(50% - 2.5px);
     left: 15%;
     width: 70%;
-    border-top: 5px solid rgba(112,112,112,1);
+    border-top: 5px solid var(--legacy-gray);
 }
 .New_Flashcard_Plus_v {
     position: absolute;
     top: 15%;
     left: calc(50% - 2.5px);
     height: 70%;
-    border-left: 5px solid rgba(112,112,112,1);
+    border-left: 5px solid var(--legacy-gray);
 }
 
 /* New Flashcard Form */
@@ -998,13 +987,13 @@
     position: relative;
     top: calc(100% - 253px);
     left: 10px;
-    border: 5px solid rgba(58,109,112,1);
+    border: 5px solid var(--legacy-blue-light);
     padding: 5px;
     margin-top: 15px;
     margin-bottom: 0px;
     width: calc(100% - 20px);
-    color: white;
-    background-color: #353535;
+    color: var(--color-font);
+    background-color: var(--color-background);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     cursor: pointer;
@@ -1014,22 +1003,22 @@
     font-size: 24px;
     font-family: Arial,  Helvetica, sans-serif;
     text-align: center;
-    color: white;
+    color: var(--color-font);
 }
 .Add_Flashcard_Form_Title {
     position: relative;
     left: 10px;
     width: calc(100% - 34px);
-    color: white;
+    color: var(--color-font);
     text-align: center;
-    background-color: #353535;
+    background-color: var(--color-background);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: bold;
     padding: 10px 5px;
     outline: none;
     resize: none;
-    border: 2px solid rgba(112, 112 ,112 ,1);
+    border: 2px solid var(--legacy-gray);
     border-radius: 3px;
 }
 .Add_Flashcard_Form_Content {
@@ -1037,15 +1026,15 @@
     left: 10px;
     width: calc(100% - 34px);
     height: calc(100% - 270px);
-    color: white;
+    color: var(--color-font);
     text-align: justify;
-    background-color: #353535;
+    background-color: var(--color-background);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
     resize: none;
-    border: 2px solid rgba(112, 112 ,112 ,1);
+    border: 2px solid var(--legacy-gray);
     border-radius: 3px;
 }
 .Edit_Flashcard_Open_Body {
@@ -1058,9 +1047,9 @@
     min-height: 160px;
     min-width: 120px;
     max-width: calc(100% - 160px);
-    background-color: #353535;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border: 5px solid rgba(39,75,101,1);
+    background-color: var(--color-background);
+    box-shadow: 0 1px 4px var(--color-shadow);
+    border: 5px solid var(--legacy-blue-dark);
     border-radius: 3px;
     z-index: 12;
     overflow-x: hidden;
@@ -1069,7 +1058,7 @@
 .backdrop-open-flashcard {
     position: fixed;
     z-index: 11;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-backdrop);
     width: 100%;
     height: 100%;
     top: 0;
@@ -1078,7 +1067,7 @@
 .backdropfs-open-flashcard {
     position: fixed;
     z-index: 10;
-    background-color: transparent;
+    background-color: var(--color-transparent);
     width: 100%;
     height: 100%;
     top: 0;

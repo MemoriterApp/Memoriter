@@ -65,7 +65,7 @@
     background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--color-transparent);
 }
 
 .product-main-text { /*text font styling*/

@@ -51,7 +51,7 @@
     background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--color-transparent);
 }
 
 .about-banner-bottom-transition { /*the shape at the bottom is an overlay in the same color as se next section*/
@@ -66,7 +66,7 @@
     position: absolute;
     left: 0;
     bottom: 40px;
-	border-right: 50px solid var(--color-transparent);
+	border-right: 50px solid var(--color-transparent);;
     border-bottom: 50px solid var(--color-background);
 	height: 0;
 	width: 30vw;
@@ -75,7 +75,7 @@
     position: absolute;
     right: 0;
     bottom: 40px;
-	border-left: 50px solid var(--color-transparent);
+	border-left: 50px solid var(--color-transparent);;
     border-bottom: 50px solid var(--color-background);
 	height: 0;
 	width: 30vw;

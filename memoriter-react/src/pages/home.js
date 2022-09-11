@@ -1,4 +1,4 @@
-import Logo from './Logo.png';
+import memoriterLogo from '../images/memoriter-logo.svg';
 import SettingsIcon from '../components/SettingsIcon';
 import FolderHome from '../components/FolderHome';
 import AddFolderForm from '../components/AddFolderForm';
@@ -137,7 +137,7 @@ function HomePage() {
       </head>
       <header className='Page_Header'>
         <h1 className="page_title">Home</h1>
-        <img className="Logo-oben" src={Logo} alt="site-logo" />
+        <img className="Logo-oben" src={memoriterLogo} alt="site-logo" />
       </header>
       <body>
         <div className="rechteck">

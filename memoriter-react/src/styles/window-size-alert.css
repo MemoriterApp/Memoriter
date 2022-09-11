@@ -36,7 +36,7 @@
     font-family: var(--font-highlight);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--color-transparent);
 }
 
 @media (max-width: 240px) { /*defining screen width for showing the warning*/

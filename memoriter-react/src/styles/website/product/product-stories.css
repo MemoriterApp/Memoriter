@@ -30,7 +30,7 @@
     background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--color-transparent);
 }
 .product-stories-textarea-quote {
     color: var(--color-font);
@@ -54,8 +54,8 @@
     transform: translate(0, -50%);
     width: 36px;
     height: 64px;
-    background-color: var(--color-transparent);
-    border-color: var(--color-transparent);
+    background-color: var(--color-transparent);;
+    border-color: var(--color-transparent);;
     cursor: pointer;
     transition: transform 400ms, filter 400ms;
 }
@@ -91,8 +91,8 @@
     transform: translate(0, -50%);
     width: 36px;
     height: 64px;
-    background-color: var(--color-transparent);
-    border-color: var(--color-transparent);
+    background-color: var(--color-transparent);;
+    border-color: var(--color-transparent);;
     cursor: pointer;
     transition: transform 400ms, filter 400ms;
 }

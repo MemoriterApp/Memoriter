@@ -12,7 +12,7 @@
     position: absolute;
     left: 0;
     top: -50px;
-	border-right: 50px solid var(--color-transparent);
+	border-right: 50px solid var(--color-transparent);;
     border-bottom: 50px solid var(--color-background-dark);
 	height: 0;
 	width: 30vw;
@@ -21,7 +21,7 @@
     position: absolute;
     right: 0;
     top: -50px;
-	border-left: 50px solid var(--color-transparent);
+	border-left: 50px solid var(--color-transparent);;
     border-bottom: 50px solid var(--color-background-dark);
 	height: 0;
 	width: 30vw;
@@ -45,7 +45,7 @@
     text-decoration: none;
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--color-transparent);
 }
 
 .website-footer-link { /*column list items*/

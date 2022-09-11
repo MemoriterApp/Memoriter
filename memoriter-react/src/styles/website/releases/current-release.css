@@ -16,7 +16,7 @@
     background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--color-transparent);
 }
 .current-release h2 { /*all html sub headings (<h2/>) of current-release*/
     font-size: 2rem;

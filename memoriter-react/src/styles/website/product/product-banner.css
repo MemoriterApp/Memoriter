@@ -16,7 +16,7 @@
     top: 0;
     width: 0;
     height: 0;
-    border-left: 50vh solid var(--color-transparent);
+    border-left: 50vh solid var(--color-transparent);;
     border-top: 50vh solid var(--color-banner-triangle-light);
 }
 .product-banner-background-triangle-bottom { /*background triangle at the lower left corner*/
@@ -24,7 +24,7 @@
     bottom: 0;
     width: 0;
     height: 0;
-    border-right: 50vh solid var(--color-transparent);
+    border-right: 50vh solid var(--color-transparent);;
     border-bottom: 50vh solid var(--color-banner-triangle-dark);
 }
 
@@ -84,7 +84,7 @@
     position: absolute;
     left: 0;
     bottom: 40px;
-	border-right: 50px solid var(--color-transparent);
+	border-right: 50px solid var(--color-transparent);;
     border-bottom: 50px solid var(--color-background);
 	height: 0;
 	width: 30vw;
@@ -93,7 +93,7 @@
     position: absolute;
     right: 0;
     bottom: 40px;
-	border-left: 50px solid var(--color-transparent);
+	border-left: 50px solid var(--color-transparent);;
     border-bottom: 50px solid var(--color-background);
 	height: 0;
 	width: 30vw;

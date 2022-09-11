@@ -23,7 +23,7 @@
     height: 30px;
     border: none;
     border-radius: 4px;
-    background-color: var(--color-transparent);
+    background-color: var(--color-transparent);;
     cursor: pointer;
     transition: background-color 200ms;
 }
@@ -49,7 +49,7 @@
     background: var(--color-highlight-gradient);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--color-transparent);
 }
 
 .website-language-select-languages { /*language list*/

@@ -2,10 +2,14 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../utils/firebase';
 import { signOut } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { displaySuccessMessage } from '../../features/authentication-success-slice';
 
 const AlreadySignedIn = ({ title }) => {
 
     const navigate = useNavigate(); //variable for navigation between pages, alternative to link
+
+    const dispatch = useDispatch(); //used to manipulate global sate (react redux)
 
     const [onHoverSignOut, setOnHoverSignOut] = useState('brightness(1)'); //variable for the hover effect for the sign out button
     const [onHoverReturn, setOnHoverReturn] = useState('brightness(1)'); //variable for the hover effect for the return to website button
@@ -13,7 +17,8 @@ const AlreadySignedIn = ({ title }) => {
 
     function signOutFunction() { //function for sign out
         signOut(firebase.auth); //pre-built sign out firebase function
-        sessionStorage.setItem('authentication-success', 'Successfully signed out!'); //sets sessionStorage item for the sign-in-main component to read
+        dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
+        navigate('/signin');
     };
 
     return(
@@ -39,21 +44,25 @@ const AlreadySignedIn = ({ title }) => {
             </button>
 
             {/*return to product page button*/}
-            <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}} onClick={() => navigate('/product')}
+            <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}}
                 onMouseEnter={() => setOnHoverReturn('brightness(0.82)')} onMouseLeave={() => setOnHoverReturn('brightness(1)')}>
                 {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
-                <div className='sign-in-main-button-background-gray' 
-                    style={{transform: 'translate(-8px)', width: 'calc(100% + 16px)', filter: onHoverReturn}}/>
-                <span className='sign-in-main-button-text'>Return to Website</span>
+                <Link to='/product'>
+                    <div className='sign-in-main-button-background-gray' 
+                        style={{transform: 'translate(-8px)', width: 'calc(100% + 16px)', filter: onHoverReturn}}/>
+                    <span className='sign-in-main-button-text'>Return to Website</span>
+                </Link>
             </button>
 
             {/*continue to app button*/}
             <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}} onClick={() => navigate('/')}
                 onMouseEnter={() => setOnHoverContinue('brightness(0.75)')} onMouseLeave={() => setOnHoverContinue('brightness(1)')}>
                 {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
-                <div className='sign-in-main-button-background' 
-                    style={{transform: 'translate(-8px)', width: 'calc(100% + 16px)', filter: onHoverContinue}}/>
-                <span className='sign-in-main-button-text'>Continue to App</span>
+                <Link to='/'>  
+                    <div className='sign-in-main-button-background' 
+                        style={{transform: 'translate(-8px)', width: 'calc(100% + 16px)', filter: onHoverContinue}}/>
+                    <span className='sign-in-main-button-text'>Continue to App</span>
+                </Link> 
             </button>
 
             {/*link to privacy policiy and terms of use page*/}

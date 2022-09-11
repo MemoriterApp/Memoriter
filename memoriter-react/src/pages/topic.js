@@ -1,5 +1,5 @@
 import { useState, useEffect, } from 'react';
-import Logo from './Logo.png';
+import memoriterLogo from '../images/memoriter-logo.svg';
 import BackButton from '../components/BackButton';
 import SettingsIcon from '../components/SettingsIcon';
 import Footer from '../components/Footer';
@@ -163,7 +163,7 @@ function TopicPage() {
                     <h1 className="page_title" >New Folder</h1>
                 )}
                 <Link to='/'>
-                    <img className="Logo-oben" src={Logo} alt="site-logo"></img>
+                    <img className="Logo-oben" src={memoriterLogo} alt="site-logo"></img>
                 </Link>
             </header>
             <body>

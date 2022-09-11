@@ -24,7 +24,6 @@ function SettingsClick() {
         localStorage.removeItem('syncedFolderID');
         localStorage.removeItem('syncedFolderTitle');
 
-        sessionStorage.setItem('authentication-success', 'Successfully signed out!'); //sets sessionStorage item for the sign-in-main component to read
         dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
         navigate('/signin');
     }
@@ -51,10 +50,10 @@ function SettingsClick() {
                 <div className='Add_Folder_Form_Body'>
                     <h2 className='Add_Folder_Form_Header'>Profile</h2>
                     <div className='Add_Folder_Form_Text'>User ID:</div>
-                    <div className='Add_Folder_Form_Text' style={{color: '#bbb'}}>{user.uid}</div>
+                    <div className='Add_Folder_Form_Text' style={{color: 'var(--color-font-gray)'}}>{user.uid}</div>
                     <p style={{fontSize: '15px'}} />
                     <div className='Add_Folder_Form_Text'>User Email:</div>
-                    <div className='Add_Folder_Form_Text'style={{color: '#bbb'}}>{user.email}</div>
+                    <div className='Add_Folder_Form_Text'style={{color: 'var(--color-font-gray)'}}>{user.email}</div>
                     <p style={{fontSize: '25px'}} />
                 </div>
                 <Backdrop onClick={() => openProfile(false)} />
