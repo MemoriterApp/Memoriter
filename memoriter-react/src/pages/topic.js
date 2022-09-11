@@ -202,7 +202,7 @@ function TopicPage() {
                     <img className="Logo-oben" src={Logo} alt="site-logo"></img>
                 </Link>
                 <div className='study-now' onClick={() => navigate('/study')}>
-                    <p className='study-now-text'>study now!</p>
+                    <p className='study-now-text'>study now</p>
                 </div>
             </header>
             <body>
