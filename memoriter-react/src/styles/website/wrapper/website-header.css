@@ -86,7 +86,7 @@
     filter: var(--svg-invert-gray); /*for the correct icon color*/
 }
 
-.product-header-visual-mode-button { /*button to swich between light and dark mode*/
+.product-header-theme-button { /*button to swich between light and dark mode*/
     position: absolute;
     right: 335px;
     top: calc(50% - 1px);
@@ -99,7 +99,7 @@
     cursor: pointer;
     transition: background-color 200ms;
 }
-.product-header-visual-mode-button:hover { /*visible border on hover*/
+.product-header-theme-button:hover { /*visible border on hover*/
     background-color: var(--color-hover);
 }
 
@@ -208,7 +208,7 @@
         right: 325px;
     }
 
-    .product-header-visual-mode-button {
+    .product-header-theme-button {
         right: 265px;
     }
 
@@ -257,7 +257,7 @@
         border-radius: 0;
     }
 
-    .product-header-visual-mode-button {
+    .product-header-theme-button {
         right: 3px;
         top: 375px;
         transform: translate(-50%, -50%);

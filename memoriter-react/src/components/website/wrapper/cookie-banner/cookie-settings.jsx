@@ -112,7 +112,7 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
                             </label>
                          </div>
                         <p className='cookie-settings-label-description'>
-                            These cookies are used for marketing services (for instance they are used for targeted advertising).
+                            These cookies are used for marketing services (for instance targeted advertising).
                         </p>
                     </div>
 

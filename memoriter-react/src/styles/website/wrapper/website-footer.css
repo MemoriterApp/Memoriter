@@ -98,7 +98,7 @@
     color: var(--color-font);
 }
 
-.product-footer-bottom-box-visual-mode {
+.product-footer-bottom-box-theme {
     position: absolute;
     right: 30px;
     top: 20px;
@@ -108,7 +108,7 @@
     transition: color 200ms;
     cursor: pointer;
 }
-.product-footer-bottom-box-visual-mode:hover { /*hover effect for text*/
+.product-footer-bottom-box-theme:hover { /*hover effect for text*/
     color: var(--color-font);
 }
 
@@ -174,7 +174,7 @@
         top: 4px;
     }
 
-    .product-footer-bottom-box-visual-mode {
+    .product-footer-bottom-box-theme {
         top: unset;
         bottom: 4px;
     }
@@ -198,7 +198,7 @@
         bottom: 24px;
     }
 
-    .product-footer-bottom-box-visual-mode {
+    .product-footer-bottom-box-theme {
         top: unset;
         bottom: 24px;
     }
@@ -213,7 +213,7 @@
         left: 8px;
     }
 
-    .product-footer-bottom-box-visual-mode {
+    .product-footer-bottom-box-theme {
         right: 8px;
     }
 }

@@ -32,7 +32,14 @@ const Cookies = () => {
                                 <td>accepted-cookies</td>
                                 <td>app.memoriter.de</td>
                                 <td>1 year</td>
-                                <td>Saves which cookie options the user has accepted</td>
+                                <td>Saves which cookie options the user has accepted.</td>
+                                <td>Memoriter</td>
+                            </tr>
+                            <tr>
+                                <td>theme</td>
+                                <td>localStorage</td>
+                                <td>Until deletion</td>
+                                <td>Saves the current theme (dark or light mode), otherwise it would change back when realoading the page.</td>
                                 <td>Memoriter</td>
                             </tr>
                         </tbody>

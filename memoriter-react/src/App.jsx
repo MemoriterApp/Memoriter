@@ -18,7 +18,7 @@ import Register from './pages/register';
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
 
-import VisualModeProvider from './components/visual-mode-provider';
+import ThemeProvider from './components/theme-provider';
 import { AuthProvider } from './components/routing/auth-provider';
 import ScrollReset from './components/routing/scroll-reset';
 import Redirect from './components/routing/redirect';
@@ -41,7 +41,7 @@ function App() {
   return (
     <AuthProvider> {/*AuthProvider fixes an issue where wrong pages are displayed for a short amound of time on page load*/}
       <ScrollReset> {/*ScrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/} 
-        <VisualModeProvider> {/*VisualModeProvider is responsible for the dark and light theme*/}
+        <ThemeProvider> {/*ThemeProvider is responsible for the dark and light theme*/}
           <Routes>
 
             <Route path='/signin' element={<SignIn/>}/>
@@ -96,7 +96,7 @@ function App() {
             </>)}
 
           </Routes>
-        </VisualModeProvider>
+        </ThemeProvider>
       </ScrollReset>
     </AuthProvider>
   );

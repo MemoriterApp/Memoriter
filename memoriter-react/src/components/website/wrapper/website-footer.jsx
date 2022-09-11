@@ -5,6 +5,7 @@ import newsletterIcon from '../../../images/icons/email-icon.svg';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTheme } from '../../../features/theme-slice';
+import cookies from '../../../utils/cookies';
 
 const WebsiteFooter = ({ onOpenLanguageSelect, onOpenCookieSettings }) => {
 
@@ -12,8 +13,12 @@ const WebsiteFooter = ({ onOpenLanguageSelect, onOpenCookieSettings }) => {
 
     const themeText = useSelector((state) => state.theme.value); //current light or dark mode text based on theme
 
-    function onChangeTheme(theme) {
-        dispatch(changeTheme(theme));
+    function onChangeTheme(theme) { //function to swap the current theme
+        dispatch(changeTheme(theme)); //changes the theme
+
+        if (JSON.parse(cookies.getCookie('accepted-cookies')).functional) { //checks if functional cookies are accepted
+            localStorage.setItem('theme', theme); //if functional cookies are accepted, then the theme can be saved to localStorage
+        };
     };
 
     return (
@@ -78,10 +83,10 @@ const WebsiteFooter = ({ onOpenLanguageSelect, onOpenCookieSettings }) => {
                     className='product-footer-bottom-box-text product-footer-bottom-box-language'
                     onClick={onOpenLanguageSelect}
                 >Language: English</p>
-                {themeText === 'dark' && <p className='product-footer-bottom-box-text product-footer-bottom-box-visual-mode'
+                {(themeText === 'dark' || !themeText) && <p className='product-footer-bottom-box-text product-footer-bottom-box-theme'
                     onClick={() => onChangeTheme('light')}
                 >Theme: Dark</p>}
-                {themeText === 'light' && <p className='product-footer-bottom-box-text product-footer-bottom-box-visual-mode'
+                {themeText === 'light' && <p className='product-footer-bottom-box-text product-footer-bottom-box-theme'
                     onClick={() => onChangeTheme('dark')}
                 >Theme: Light</p>}
 

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTheme } from '../../../features/theme-slice';
+import cookies from '../../../utils/cookies';
 
 const WebsiteHeader = ({ currentPage, onOpenLanguageSelect }) => {
 
@@ -41,8 +42,12 @@ const WebsiteHeader = ({ currentPage, onOpenLanguageSelect }) => {
 
     const themeIcon = useSelector((state) => state.theme.value); //current light or dark mode icon based on theme
 
-    function onChangeTheme(theme) {
-        dispatch(changeTheme(theme));
+    function onChangeTheme(theme) { //function to swap the current theme
+        dispatch(changeTheme(theme)); //changes the theme
+
+        if (JSON.parse(cookies.getCookie('accepted-cookies')).functional) { //checks if functional cookies are accepted
+            localStorage.setItem('theme', theme); //if functional cookies are accepted, then the theme can be saved to localStorage
+        };
     };
 
     return (
@@ -76,10 +81,10 @@ const WebsiteHeader = ({ currentPage, onOpenLanguageSelect }) => {
                 {/*the if else conditions changes the color of the links depending on the current open page*/}
 
                 {/*light and dark mode buttons, icon depends on the current mode*/}
-                {themeIcon === 'dark' && <button className='product-header-visual-mode-button' onClick={() => onChangeTheme('light')}>
+                {(themeIcon === 'dark' || !themeIcon) && <button className='product-header-theme-button' onClick={() => onChangeTheme('light')}>
                     <img className='product-header-icon' src={lightModeIcon} alt='light-mode-icon'/>
                 </button>}
-                {themeIcon === 'light' && <button className='product-header-visual-mode-button' onClick={() => onChangeTheme('dark')}>
+                {themeIcon === 'light' && <button className='product-header-theme-button' onClick={() => onChangeTheme('dark')}>
                     <img className='product-header-icon' src={darkModeIcon} alt='dark-mode-icon'/>
                 </button>}
 
