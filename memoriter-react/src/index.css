@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@600&display=swap'); /*font import*/
+
 body {
     background-color:#353535;
 }
@@ -1967,7 +1969,7 @@ body {
 .study-now-text {
     position: relative;
     font-size: 20px;
-    top: -5px;
+    top: -10px;
     font-family: 'M PLUS 1', sans-serif;
     font-weight: bold;
 
