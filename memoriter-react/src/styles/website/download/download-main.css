@@ -5,7 +5,7 @@
     flex-direction: column; /*needed to push the footer down*/
     position: relative;
     left: 50%;
-    top: 120px;
+    margin-top: calc(100vh + 100px);
     transform: translate(-50%);
     max-width: 2400px;
     min-height: 100vh;

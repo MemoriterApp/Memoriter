@@ -28,47 +28,6 @@
     text-align: center;
 }
 
-.download-desktop-download { /*download button, needed to be split in multiple classes, this class is for the positionig of the button*/
-    position: relative;
-    margin: 20px 28px;
-    background-color: var(--color-transparent);;
-    border: none;
-    cursor: pointer;
-}
-.download-desktop-download-icon { /*operating system icon*/
-    position: absolute;
-    left: 40px;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    filter: var(--svg-invert-white); /*makes the icon white*/
-}
-.download-desktop-download-text { /*text which is not supposed to change color*/
-    position: absolute;
-    left: 80px;
-    top: 0.6rem;
-    font-size: 1.6rem;
-    color: var(--color-white);
-    font-family: var(--font-highlight);
-    white-space: nowrap;
-}
-.download-desktop-download-text-os { /*additional text formatting for the operating system*/
-    position: absolute;
-    left: 80px;
-    top: 2.6rem;
-    font-size: 1.2rem;
-    color: var(--color-white);
-    font-family: var(--font-highlight);
-}
-.download-desktop-download-background { /*the hover background was done in React because it did not work in CSS*/
-    width: 200px;
-    height: 56px;
-    padding: 8px 10px 8px 10px;
-    margin-inline: -6px;
-    border-radius: 10px;
-    background: var(--color-highlight-gradient);
-    transition: filter 200ms;
-}
-
 .download-desktop-notebook-image { /*container for the notebook image*/
     position: relative;
     width: 50%;

@@ -14,6 +14,7 @@ import './styles/website/blog/blog-sidebar.css';
 import './styles/website/blog/blog-post-header.css';
 import './styles/website/blog/blog-post-main.css';
 import './styles/website/blog/blog-post-footer.css';
+import './styles/website/download/download-banner.css';
 import './styles/website/download/download-main.css';
 import './styles/website/download/download-desktop.css';
 import './styles/website/download/download-mobile.css';

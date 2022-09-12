@@ -1,0 +1,113 @@
+/*The download banner is an area at the top with the download page with the desktop download buttons.*/
+
+.download-banner { /*banner box, background and position*/
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 60px);
+    min-height: 420px; /*fixes issues for screens not high enough*/
+    left: 0;
+    top: 62px;
+    background: var(--color-banner-gradient);
+    overflow: hidden;
+}
+
+.download-banner-background-square-top { /*background triangle at the upper right corner*/
+    position: absolute;
+    width: 40vh;
+    height: 40vh;
+    background-color: var(--color-banner-triangle-light);
+}
+.download-banner-background-square-bottom { /*background triangle at the lower left corner*/
+    position: absolute;
+    bottom: 0;
+    width: 40vh;
+    height: 40vh;
+    background-color: var(--color-banner-triangle-dark);
+}
+
+.download-banner-bottom-transition { /*the shape at the bottom is an overlay in the same color as se next section*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: var(--color-background);
+}
+.download-banner-bottom-transition-shape-left { /*trapezoid shape at the left*/
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+	border-right: 50px solid var(--color-transparent);;
+    border-bottom: 50px solid var(--color-background);
+	height: 0;
+	width: 30vw;
+}
+.download-banner-bottom-transition-shape-right { /*trapezoid shape at the left*/
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+	border-left: 50px solid var(--color-transparent);;
+    border-bottom: 50px solid var(--color-background);
+	height: 0;
+	width: 30vw;
+}
+
+.download-banner-download { /*download button, needed to be split in multiple classes, this class is for the positionig of the button*/
+    position: relative;
+    margin: 20px 28px;
+    background-color: var(--color-transparent);;
+    border: none;
+    cursor: pointer;
+}
+.download-banner-download-icon { /*operating system icon*/
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: var(--svg-invert-white); /*makes the icon white*/
+}
+.download-banner-download-text { /*text which is not supposed to change color*/
+    position: absolute;
+    left: 80px;
+    top: 0.6rem;
+    font-size: 1.6rem;
+    color: var(--color-white);
+    font-family: var(--font-highlight);
+    white-space: nowrap;
+}
+.download-banner-download-text-os { /*additional text formatting for the operating system*/
+    position: absolute;
+    left: 80px;
+    top: 2.6rem;
+    font-size: 1.2rem;
+    color: var(--color-white);
+    font-family: var(--font-highlight);
+}
+.download-banner-download-background { /*the hover background was done in React because it did not work in CSS*/
+    width: 200px;
+    height: 56px;
+    padding: 8px 10px 8px 10px;
+    margin-inline: -6px;
+    border-radius: 10px;
+    background: var(--color-highlight-gradient);
+    transition: filter 200ms;
+}
+.download-banner-download-windows { /*position for the download for windows button*/
+    position: absolute;
+    left: 15%;
+    top: 25%;
+}
+.download-banner-download-mac { /*position for the download for mac button*/
+    position: absolute;
+    left: 15%;
+    top: 45%;
+}
+
+.download-banner-icon { /*symbol next to the download buttons*/
+    position: absolute;
+    right: 10%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+}
