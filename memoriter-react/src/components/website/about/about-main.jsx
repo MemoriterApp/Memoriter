@@ -61,7 +61,7 @@ const AboutMain = () => {
                 </div>
             </div>
 
-            <ScrollAnimation animateIn='about-main-animation-fade-in-down' animateOut='about-main-animation-fade-out-up'>
+            <ScrollAnimation animateIn='about-main-animation-fade-in-down' animateOut='about-main-animation-fade-out-down'>
                 <p className='about-main-bottom'>
                     Lorem <span>ipsum</span> dolor sit amet, consetetur <span>sadipscing</span> elitr.
                 </p>

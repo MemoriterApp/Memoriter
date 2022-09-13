@@ -98,6 +98,17 @@
     }
 }
 
+@media (max-width: 720px) { /*adjusting too big text*/
+    .about-main-bottom {
+        font-size: 2.2rem;
+        margin-top: 160px;
+        margin-bottom: 40px;
+    }
+    .about-main-bottom span {
+        font-size: 2.4rem;
+    }
+}
+
 @media (max-width: 660px) { /*pushes the footer down when the customer stories disappear*/
     .about-main {
         margin-bottom: 240px;
@@ -110,7 +121,7 @@
     }
 }
 
-@media (max-height: 440px) { /*fixes issues for screens not high enough*/
+@media (max-height: 560px) { /*fixes issues for screens not high enough*/
     .about-main {
         margin-top: 440px;
     }
@@ -192,10 +203,10 @@
     }
 }
 
-.about-main-animation-fade-out-up { /*class for triggering the fade out up animation*/
-    animation: fade-out-up 400ms;
+.about-main-animation-fade-out-down { /*class for triggering the fade out down animation*/
+    animation: fade-out-down 400ms;
 }
-@keyframes fade-out-up { /*the items move a bit up and get invisible*/
+@keyframes fade-out-down { /*the items move a bit down and get invisible*/
     from {
         transform: translateY(0);
         opacity: 1;

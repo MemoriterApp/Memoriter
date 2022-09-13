@@ -80,3 +80,51 @@
 	height: 0;
 	width: 30vw;
 }
+
+@media (max-width: 960px) { /*the bottom transition shapes are smaller on mobile devices to look better*/
+    .about-banner-bottom-transition-shape-left {
+        width: 20vw;
+    }
+    .about-banner-bottom-transition-shape-right {
+        width: 20vw;
+    }
+}
+
+@media (max-width: 720px) { /*adjusting too big text*/
+    .about-banner-content {
+        font-size: 2.2rem;
+    }
+    .about-banner-content span {
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .about-banner {
+        min-height: 480px;
+    }
+}
+
+@media (max-width: 340px) {
+    .about-banner {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 310px) {
+    .about-banner {
+        min-height: 560px;
+    }
+}
+
+@media (max-width: 256px) {
+    .about-banner {
+        min-height: 620px;
+    }
+}
+
+@media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/
+    .about-banner {
+        display: none;
+    }
+}
