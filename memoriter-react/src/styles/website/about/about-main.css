@@ -26,7 +26,7 @@
     align-self: center;
 }
 
-.about-main-header { /*header font styling*/
+.about-main-heading { /*heading font styling*/
     font-size: 3.4rem;
     font-family: var(--font-heading);
     line-height: 4rem;
@@ -80,7 +80,7 @@
         flex-direction: column; /*renders items above each other instead of next to each other*/
     }
     
-    .about-main-header {
+    .about-main-heading {
         font-size: 3rem;
         hyphens: auto; /*allows linebreaks within words*/
     }

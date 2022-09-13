@@ -9,7 +9,7 @@ const AboutMain = () => {
                 <div className='about-main-container-sub'>
                     <ScrollAnimation animateIn='about-main-animation-fade-in-right' animateOut='about-main-animation-fade-out-right'>
                     {/*ScrollAnimation starts an animation when it enters the viewport*/}
-                        <h1 className='about-main-header'>Who we are.</h1>
+                        <h1 className='about-main-heading'>Who we are.</h1>
                         <p className='about-main-text'>
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                         </p>
@@ -40,7 +40,7 @@ const AboutMain = () => {
                 <div className='about-main-container-sub'>
                     <ScrollAnimation animateIn='about-main-animation-fade-in-left' animateOut='about-main-animation-fade-out-left'>
                     {/*ScrollAnimation starts an animation when it enters the viewport*/}
-                        <h1 className='about-main-header'>Placeholder Heading</h1>
+                        <h1 className='about-main-heading'>Placeholder Heading</h1>
                         <p className='about-main-text'>
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                         </p>
