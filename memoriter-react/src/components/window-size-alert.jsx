@@ -6,7 +6,7 @@ const WindowSizeAlert = () => {
     return (
         <div className='window-size-alert-backdrop'> {/*When the window or display size is to small, a warning will be shown*/}
             <div className='window-size-alert'> {/*window not wide enough*/}
-                <p className='window-size-alert-header'>Issue with device:</p>
+                <p className='window-size-alert-heading'>Issue with device:</p>
                 <p>Your screen or window is not wide enough to display the page correctly.</p>
                 <p>Please rotate your device or resize your window to continue!</p>
             </div>

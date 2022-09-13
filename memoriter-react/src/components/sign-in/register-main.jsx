@@ -127,7 +127,7 @@ const RegisterMain = () => {
     return (
         <div className='sign-in-main' style={errorStyleChanges}>
             
-            <h1 className='sign-in-main-header'>Register</h1>
+            <h1 className='sign-in-main-heading'>Register</h1>
 
             {/*popup for register errors*/}
             {errorMessage && <div className='sign-in-main-error'>

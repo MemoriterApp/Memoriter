@@ -12,7 +12,7 @@
     overflow: hidden;
 }
 
-.sign-in-main-header { /*large heading*/
+.sign-in-main-heading { /*large heading*/
     color: var(--color-font);
     font-size: 3rem;
     font-family: var(--font-heading);

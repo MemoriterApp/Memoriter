@@ -24,7 +24,7 @@ const AlreadySignedIn = ({ title }) => {
     return(
         <div className='sign-in-main'>
 
-            <h1 className='sign-in-main-header'>{title}</h1> {/*heading/title is either sign in or register*/}
+            <h1 className='sign-in-main-heading'>{title}</h1> {/*heading/title is either sign in or register*/}
 
             <p className='sign-in-main-error'>You are already signed in!</p> {/*red error box*/}
 

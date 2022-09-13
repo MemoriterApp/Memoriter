@@ -30,7 +30,7 @@
     background-color: var(--color-background);
 }
 
-.window-size-alert-header { /*container header*/
+.window-size-alert-heading { /*container header*/
     background: var(--color-highlight-gradient);
     font-size: 1.2rem;
     font-family: var(--font-highlight);
