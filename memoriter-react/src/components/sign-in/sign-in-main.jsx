@@ -152,7 +152,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     return (
         <div className='sign-in-main' style={errorStyleChanges}>
             
-            <h1 className='sign-in-main-header'>Sign In</h1>
+            <h1 className='sign-in-main-heading'>Sign In</h1>
 
             {/*popup for sign in errors*/}
             {errorMessage && <div className='sign-in-main-error'>
