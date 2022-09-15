@@ -599,8 +599,7 @@ body {
     border-radius:6px 0;
     padding: 8px;
     position: absolute;
-    left: 12.5%;
-    bottom: -30%;
+    left:1%;
     cursor: pointer;
     transform: rotate(-45deg);
 }
@@ -2047,14 +2046,18 @@ body {
     border-radius: 10px;
     text-transform: uppercase;
     border: 0px;
-    position: relative;
+    position: absolute;
+    bottom:-80px;
     height: calc(3vh*1.5);
     width: calc(9vh*1.5);
     font-size: calc(1.25vh*1.5);
+    text-shadow: 0 0.04em 0.04em rgba(126, 126, 126, 0.35);
     font-weight: bold;
-    top: 100px;
     cursor: pointer;
-    
+    margin:6em 25em 0em 13em;
+}
+.correct-incorrect-button:hover{
+    filter: brightness(120%);
 }
 .flex-container {
     position: relative;
