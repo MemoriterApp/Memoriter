@@ -9,6 +9,7 @@ import Backdrop from '../components/backdrop';
 import { Link, useNavigate, } from 'react-router-dom';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+import OnlyQuestion from '../components/Flashcards/OnlyQuestion';
 const { db } = firebase;
 
 function TopicPage() {
@@ -210,7 +211,7 @@ function TopicPage() {
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
                         <>
-                            {flashcards
+                            {flashcards //add an if statement to check what kind of flashcard should be displayed
                                 .map((flashcard) => (
                                     <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                                         onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
@@ -221,6 +222,15 @@ function TopicPage() {
                                     />)
                                 )}
                         </>
+                         <>
+                          {flashcards
+                            .map((flashcard) => (
+                                <OnlyQuestion
+                                key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length}/>
+                            )
+                            )}
+                         </>           
+            
 
                         <div className='Flashcard_Body'>
                             <div className='New_Flashcard_Settings_Bar' onClick={NewFlashcardClick} />
