@@ -625,19 +625,6 @@
     left: -12%;
 }
 
-.Backdropfs {
-    position: fixed;
-    z-index: 1;
-    background-color: var(--color-transparent);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-
-
-
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
 .Flashcard_Base {
     height: calc(100% - 62px);

@@ -17,6 +17,6 @@ function Backdrop({ onFade, onClick }) {
     return (
         <div style={backdropStyles} onClick={() => onClick()}/>
     );
-}
+};
 
 export default Backdrop;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Backdrop from './backdrop';
-import Backdropfs from './backdropfs';
+import Backdropfs from './backdrop-transparent';
 import BackdropOpenFlashcard from './backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
 
