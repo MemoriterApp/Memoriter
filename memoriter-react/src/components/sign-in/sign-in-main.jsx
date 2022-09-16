@@ -110,7 +110,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     };
 
     async function signInWithGoogle() { //google sign in function
-        //setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
+        setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new GoogleAuthProvider(); //connection to google sign in
 
@@ -120,7 +120,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     };
 
     async function signInWithApple() { //google sign in function
-        //setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
+        setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new OAuthProvider('apple.com'); //connection to apple sign in
 
@@ -130,7 +130,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     };
 
     async function signInWithFacebook() { //google sign in function
-        //setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
+        setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new FacebookAuthProvider(); //connection to facebook sign in
 
@@ -140,7 +140,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     };
 
     async function signInWithGithub() { //google sign in function
-        //setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
+        setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
 
         const provider = new GithubAuthProvider(); //connection to github sign in
 
