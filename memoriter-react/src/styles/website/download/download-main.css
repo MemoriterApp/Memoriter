@@ -1,14 +1,11 @@
 /*This file includes most of the styles for the main part of the download page except the parts seperated in to pc and mobile.*/
 
 .download-main { /*layout container for the content*/
-    display: flex; /*needed to push the footer down*/
-    flex-direction: column; /*needed to push the footer down*/
     position: relative;
     left: 50%;
     margin-top: calc(100vh + 100px);
     transform: translate(-50%);
     max-width: 2400px;
-    min-height: 100vh;
     margin-bottom: 320px;
 }
 

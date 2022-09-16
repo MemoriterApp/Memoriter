@@ -1,9 +1,6 @@
 /*some extra styles for the layout and load more button of the release notes page*/
 
 .releases-main { /*layout container for the content*/
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     margin-bottom: 250px;
 }
 

@@ -8,7 +8,7 @@ import blogs from '../../../utils/blog-posts';
 const BlogPostFooter = ({ title, linkedBlogs }) => {
 
     return (
-        <div className='blog-post-footer'>
+        <section className='blog-post-footer'>
             
             {/*share links, the links are using the title variable and the current url (window.location)*/}
             <div className='blog-post-footer-share'>
@@ -64,7 +64,7 @@ const BlogPostFooter = ({ title, linkedBlogs }) => {
                 ))}
             </div>
 
-        </div>
+        </section>
     );
 }
 

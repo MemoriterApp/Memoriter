@@ -1,15 +1,12 @@
 /*In this stylesheet the basic layout options of all blog posts are defined.*/
 
 .blog-post-main { /*main container*/
-    display: flex; /*needed to push the footer down*/
-    flex-direction: column; /*needed to push the footer down*/
     position: relative;
     left: 50%;
     top: 180px;
     transform: translate(-50%);
     width: 100%;
     max-width: 2400px;
-    min-height: 100vh;
     margin-bottom: 240px;
     overflow: hidden;
 }

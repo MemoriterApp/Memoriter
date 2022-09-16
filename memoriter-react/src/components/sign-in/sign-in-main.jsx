@@ -150,7 +150,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     };
 
     return (
-        <div className='sign-in-main' style={errorStyleChanges}>
+        <main className='sign-in-main' style={errorStyleChanges}>
             
             <h1 className='sign-in-main-heading'>Sign In</h1>
 
@@ -225,7 +225,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
                 >Register here</Link>.
             </p>
 
-        </div>
+        </main>
     );
 }
 

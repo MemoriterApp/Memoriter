@@ -1,14 +1,11 @@
 /*here are all styles for the newsletter signup page*/
 
 .newsletter-main { /*main container*/
-    display: flex; /*needed to push the footer down*/
-    flex-direction: column; /*needed to push the footer down*/
     position: relative;
     left: 50%;
     top: 100px;
     transform: translate(-50%);
     max-width: 2400px;
-    min-height: 100vh;
     margin-bottom: 320px;
 }
 

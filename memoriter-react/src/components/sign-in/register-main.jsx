@@ -125,7 +125,7 @@ const RegisterMain = () => {
     };
 
     return (
-        <div className='sign-in-main' style={errorStyleChanges}>
+        <main className='sign-in-main' style={errorStyleChanges}>
             
             <h1 className='sign-in-main-heading'>Register</h1>
 
@@ -204,7 +204,7 @@ const RegisterMain = () => {
                 >Sign in here</Link>.
             </p>
 
-        </div>
+        </main>
     );
 }
 

@@ -7,7 +7,7 @@ const BlogMain = ({ topic }) => {
     const [loadedBlogs, setLoadedBlogs] = useState(8); //number of blog posts shown before clicking on the load more button
 
     return (
-        <div className='blog-main'>
+        <section className='blog-main'>
 
             {/*four newest blog posts, divided in to two parts for the layout*/}
             <div className='blog-main-new-blog-container'>
@@ -71,7 +71,7 @@ const BlogMain = ({ topic }) => {
                 <button className='blog-main-button' onClick={() => setLoadedBlogs(loadedBlogs + 8)}>Load More...</button>) : (<div/>)
             }
 
-        </div>
+        </section>
     );
 }
 

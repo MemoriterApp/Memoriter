@@ -1,15 +1,12 @@
 /*all styles for the faq page and its components*/
 
 .faq-main { /*main container*/
-    display: flex; /*needed to push the footer down*/
-    flex-direction: column; /*needed to push the footer down*/
     position: relative;
     left: 50%;
     top: 120px;
     transform: translate(-50%);
     width: calc(100% - 320px);
     max-width: 2400px;
-    min-height: 100vh;
     padding: 40px 60px 80px 60px;
     margin-bottom: 360px;
 }

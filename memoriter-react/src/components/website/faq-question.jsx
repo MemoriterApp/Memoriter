@@ -49,14 +49,14 @@ const FaqQuestion = ({ question, onOpenQuestion }) => {
     };
 
     return (
-        <div className='faq-question' style={{height: open, transition: openAnimation}} onClick={() => onOpenQuestion(question.question)}>
+        <article className='faq-question' style={{height: open, transition: openAnimation}} onClick={() => onOpenQuestion(question.question)}>
 
             <h3 className='faq-question-question' ref={questionText}>{question.question}</h3>
             <p className='faq-question-answer' ref={answerText} style={{opacity: answerOpen}}>{question.answer}</p>
 
             <div className='faq-question-open' style={{transform: arrowRotation, opacity: arrowOpacity}}/> {/*arrow at the top right*/}
 
-        </div>
+        </article>
     );
 }
 

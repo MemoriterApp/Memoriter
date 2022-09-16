@@ -7,7 +7,7 @@ const ProductMain = () => {
         <section className='product-main'>
 
             {/*three small overview items*/}
-            <div className='product-main-overview'>
+            <article className='product-main-overview'>
 
                 <div>
                     <img className='product-main-overview-image' src={lightBulbIconGradient} alt='light-bulb'/>
@@ -30,10 +30,10 @@ const ProductMain = () => {
                     </p>
                 </div>
                 
-            </div>
+            </article>
 
             {/*main parts with texts and images*/}
-            <div className='product-main-container'>
+            <article className='product-main-container'>
                 <div className='product-main-container-sub'>
                     <ScrollAnimation animateIn='product-main-animation-fade-in-right' animateOut='product-main-animation-fade-out-right'>
                     {/*ScrollAnimation starts an animation when it enters the viewport*/}
@@ -47,9 +47,9 @@ const ProductMain = () => {
                 <div className='product-main-container-sub-image'>
                     <img className='product-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
-            </div>
+            </article>
             
-            <div className='product-main-container'>
+            <article className='product-main-container'>
                 <div className='product-main-container-sub-image'>
                     <img className='product-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
@@ -62,9 +62,9 @@ const ProductMain = () => {
                         </p>
                     </ScrollAnimation>
                 </div>
-            </div>
+            </article>
 
-            <div className='product-main-container'>
+            <article className='product-main-container'>
                 <div className='product-main-container-sub'>
                     <ScrollAnimation animateIn='product-main-animation-fade-in-right' animateOut='product-main-animation-fade-out-right'>
                     {/*ScrollAnimation starts an animation when it enters the viewport*/}
@@ -77,7 +77,7 @@ const ProductMain = () => {
                 <div className='product-main-container-sub-image'>
                     <img className='product-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
-            </div>
+            </article>
 
         </section>
     );

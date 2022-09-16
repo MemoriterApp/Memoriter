@@ -22,7 +22,7 @@ const AlreadySignedIn = ({ title }) => {
     };
 
     return(
-        <div className='sign-in-main'>
+        <main className='sign-in-main'>
 
             <h1 className='sign-in-main-heading'>{title}</h1> {/*heading/title is either sign in or register*/}
 
@@ -69,7 +69,7 @@ const AlreadySignedIn = ({ title }) => {
             <p className='sign-in-main-text'><Link className='sign-in-main-link' to='/privacy' target='_blank'>Privacy Policy</Link></p>
             <p className='sign-in-main-text'><Link className='sign-in-main-link' to='/terms' target='_blank'>Terms of Use</Link></p>
 
-        </div>
+        </main>
     );
 }
 

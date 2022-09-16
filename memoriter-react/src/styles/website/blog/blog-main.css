@@ -11,12 +11,9 @@
 }
 
 .blog-main { /*layout container for the content*/
-    display: flex; /*needed to push the footer down*/
-    flex-direction: column; /*needed to push the footer down*/
     position: relative;
     top: 140px;
     width: 100%;
-    min-height: 100vh;
     margin-bottom: 400px;
 }
 

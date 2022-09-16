@@ -14,7 +14,7 @@ const BlogPostHeader = ({ title, date, author, topic }) => {
     }, [wordCount]);
 
     return (
-        <div>
+        <section>
             
             {/*header with date of publication and links back to the blog page, gets the data by the general blog post data variables as properties*/}
             <Link className='blog-post-header-all-posts' to='/blog'>&#129044; All posts</Link> {/*&#129044; is a unicode arrow symbol*/}
@@ -64,7 +64,7 @@ const BlogPostHeader = ({ title, date, author, topic }) => {
                 </a>
             </div>
 
-        </div>
+        </section>
     );
 }
 
