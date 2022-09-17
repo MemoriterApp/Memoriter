@@ -25,36 +25,27 @@
     background-color: var(--color-banner-triangle-dark);
 }
 
-.download-banner-bottom-transition { /*the shape at the bottom is an overlay in the same color as se next section*/
+.download-banner-content { /*positioning and layout container*/
+    display: flex;
     position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    background-color: var(--color-background);
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    gap: 100px;
 }
-.download-banner-bottom-transition-shape-left { /*trapezoid shape at the left*/
-    position: absolute;
-    left: 0;
-    bottom: 40px;
-	border-right: 50px solid var(--color-transparent);;
-    border-bottom: 50px solid var(--color-background);
-	height: 0;
-	width: 30vw;
-}
-.download-banner-bottom-transition-shape-right { /*trapezoid shape at the left*/
-    position: absolute;
-    right: 0;
-    bottom: 40px;
-	border-left: 50px solid var(--color-transparent);;
-    border-bottom: 50px solid var(--color-background);
-	height: 0;
-	width: 30vw;
+
+.download-banner-text { /*text for slogan*/
+    color: var(--color-font);
+    width: 80vw;
+    max-width: 600px;
+    font-style: italic;
+    font-size: 2.6rem;
+    font-family: var(--font-serif);
+    text-align: center;
+    margin: 5rem 0 5rem 0;
 }
 
 .download-banner-download { /*download button, needed to be split in multiple classes, this class is for the positionig of the button*/
-    position: relative;
-    margin: 20px 28px;
     background-color: var(--color-transparent);;
     border: none;
     cursor: pointer;
@@ -93,21 +84,49 @@
     transition: filter 200ms;
 }
 .download-banner-download-windows { /*position for the download for windows button*/
-    position: absolute;
-    left: 15%;
-    top: 25%;
+    position: relative;
+    margin-left: 60px;
 }
 .download-banner-download-mac { /*position for the download for mac button*/
-    position: absolute;
-    left: 15%;
-    top: 45%;
+    position: relative;
+    margin-left: 40px;
 }
 
 .download-banner-icon { /*symbol next to the download buttons*/
-    position: absolute;
-    right: 10%;
-    top: 40%;
-    transform: translate(-50%, -50%);
+    position: relative;
     width: 400px;
     height: 400px;
+}
+
+.download-banner-bottom-transition { /*the shape at the bottom is an overlay in the same color as se next section*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: var(--color-background);
+}
+.download-banner-bottom-transition-shape-left { /*trapezoid shape at the left*/
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+	border-right: 50px solid var(--color-transparent);;
+    border-bottom: 50px solid var(--color-background);
+	height: 0;
+	width: 30vw;
+}
+.download-banner-bottom-transition-shape-right { /*trapezoid shape at the left*/
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+	border-left: 50px solid var(--color-transparent);;
+    border-bottom: 50px solid var(--color-background);
+	height: 0;
+	width: 30vw;
+}
+
+@media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/
+    .download-banner {
+        display: none;
+    }
 }

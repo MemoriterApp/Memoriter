@@ -8,7 +8,7 @@
     color: var(--color-font);
     max-width: 1200px;
     gap: 128px;
-    margin-bottom: 20px;
+    margin-bottom: 240px;
 }
 
 .download-mobile-heading { /*mobile app heading*/
@@ -71,4 +71,10 @@
     top: -84px;
     width: 240px;
     cursor: pointer;
+}
+
+@media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/
+    .product-banner {
+        display: none;
+    }
 }

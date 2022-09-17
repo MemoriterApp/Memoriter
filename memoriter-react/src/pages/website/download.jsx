@@ -1,6 +1,7 @@
 import WebsiteWrapper from '../../components/website/wrapper/website-wrapper';
 import DownloadBanner from '../../components/website/download/download-banner';
 import DownloadMain from '../../components/website/download/download-main';
+import DownloadMobile from '../../components/website/download/download-mobile';
 
 const Download = () => {
     return (
@@ -14,6 +15,9 @@ const Download = () => {
 
             {/*main part*/}
             <DownloadMain/>
+
+            {/*mobile app download*/}
+            <DownloadMobile/>
 
         </WebsiteWrapper>
     );

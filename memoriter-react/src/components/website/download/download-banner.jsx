@@ -41,32 +41,41 @@ const DownloadBanner = () => {
             />
             {/*the size of the circles changes a bit when you scroll down*/}
 
-            {/*download button for windows*/}
-            <button className='download-banner-download download-banner-download-windows' //two classes
-                onMouseEnter={() => {setOnHoverWindows('brightness(0.75)'); setSquareEffect('10'); setSquareTransition('400ms');}}
-                onMouseLeave={() => {setOnHoverWindows('brightness(1)'); setSquareEffect('0'); setTimeout(() => {setSquareTransition('none')}, 400);}}
-            >
-                {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation*/}
-                <div className='download-banner-download-background' style={{filter: onHoverWindows}}/>
-                <img className='download-banner-download-icon' src={windowsIcon} alt='windows-icon' style={{height: '36px'}}/>
-                <span className='download-banner-download-text'>Download</span>
-                <span className='download-banner-download-text-os'>for Windows</span>
-            </button>
+            <div className='download-banner-content'>
 
-            {/*download button for mac*/}
-            <button className='download-banner-download download-banner-download-mac' //two classes
-                onMouseEnter={() => {setOnHoverMac('brightness(0.75)'); setSquareEffect('10'); setSquareTransition('400ms');}}
-                onMouseLeave={() => {setOnHoverMac('brightness(1)'); setSquareEffect('0'); setTimeout(() => {setSquareTransition('none')}, 400);}}
-            >
-                {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation*/}
-                <div className='download-banner-download-background' style={{filter: onHoverMac}}/>
-                <img className='download-banner-download-icon' src={appleIcon} alt='mac-icon' style={{height: '42px'}}/>
-                <span className='download-banner-download-text'>Download</span>
-                <span className='download-banner-download-text-os'>for Mac</span>
-            </button>
+                <div>
+                    <p className='download-banner-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
 
-            {/*download icon*/}
-            <img className='download-banner-icon' src={downloadIcon} alt='download-icon'/>
+                    {/*download button for windows*/}
+                    <button className='download-banner-download download-banner-download-windows' //two classes
+                        onMouseEnter={() => {setOnHoverWindows('brightness(0.75)'); setSquareEffect('10'); setSquareTransition('400ms');}}
+                        onMouseLeave={() => {setOnHoverWindows('brightness(1)'); setSquareEffect('0'); setTimeout(() => {setSquareTransition('none')}, 400);}}
+                    >
+                        {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation*/}
+                        <div className='download-banner-download-background' style={{filter: onHoverWindows}}/>
+                        <img className='download-banner-download-icon' src={windowsIcon} alt='windows-icon' style={{height: '36px'}}/>
+                        <span className='download-banner-download-text'>Download</span>
+                        <span className='download-banner-download-text-os'>for Windows</span>
+                    </button>
+
+                    {/*download button for mac*/}
+                    <button className='download-banner-download download-banner-download-mac' //two classes
+                        onMouseEnter={() => {setOnHoverMac('brightness(0.75)'); setSquareEffect('10'); setSquareTransition('400ms');}}
+                        onMouseLeave={() => {setOnHoverMac('brightness(1)'); setSquareEffect('0'); setTimeout(() => {setSquareTransition('none')}, 400);}}
+                    >
+                        {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation*/}
+                        <div className='download-banner-download-background' style={{filter: onHoverMac}}/>
+                        <img className='download-banner-download-icon' src={appleIcon} alt='mac-icon' style={{height: '42px'}}/>
+                        <span className='download-banner-download-text'>Download</span>
+                        <span className='download-banner-download-text-os'>for Mac</span>
+                    </button>
+                </div>
+
+                {/*download icon*/}
+                <img className='download-banner-icon' src={downloadIcon} alt='download-icon'/>
+
+            </div>
+
 
             {/*transition shape at the bottom*/}
             <div className='download-banner-bottom-transition'/>

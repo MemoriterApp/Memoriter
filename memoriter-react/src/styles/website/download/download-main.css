@@ -20,10 +20,6 @@
     -webkit-text-fill-color: var(--color-transparent);
 }
 
-.download-main-gap { /*gap between sections*/
-    height: 80px;
-}
-
 @media (max-width: 240px) { /*hides everything on too small screens*/
     .download-main {
         display: none;
