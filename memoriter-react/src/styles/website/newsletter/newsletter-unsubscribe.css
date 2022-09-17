@@ -73,6 +73,7 @@
 }
 
 .newsletter-unsubscribe-text { /*normal texts*/
+    max-width: fit-content;
     font-size: 1.1rem;
     color: var(--color-font);
     font-family: var(--font-default);
@@ -169,14 +170,20 @@
     .newsletter-unsubscribe-button {
         height: 68px;
     }
-    .newsletter-unsubscribe-text {
+    .newsletter-unsubscribe-button-text {
         width: calc(100% - 16px);
         white-space: unset;
     }
 }
 
-@media (max-width: 248px) { /*fixes button text overflow for very small screens*/
+@media (max-width: 278px) { /*fixes button text overflow for very small screens*/
     .newsletter-unsubscribe-button {
         height: 94px;
+    }
+}
+
+@media (max-width: 240px) { /*hiding content for too small screens (where the warning displays)*/
+    .newsletter-unsubscribe {
+        display: none;
     }
 }

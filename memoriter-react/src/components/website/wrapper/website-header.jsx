@@ -108,7 +108,7 @@ const WebsiteHeader = ({ currentPage, onOpenLanguageSelect }) => {
             </nav>
 
             {/*alternative sign in and register button for mobile nav sidebar, staying at the default position*/}
-            <Link className='website-header-sign-in-alt' to='/login'>
+            <Link className='website-header-sign-in-alt' to='/signin'>
                 <span className='website-header-text-gradient'>Sign in</span>
             </Link>
             <Link className='website-header-register-alt' to='/register'

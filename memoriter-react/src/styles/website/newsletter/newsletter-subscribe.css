@@ -123,10 +123,48 @@
     font-size: 0.9rem;
     color: var(--color-font-gray);
     font-family: var(--font-default);
+    margin-bottom: 60px;
 }
 
-@media (max-width: 536px) { /*fixes the veryfy text moving out of screen*/
+@media (max-width: 560px) { /*mobile optimization*/
+    .newsletter-subscribe {
+        width: calc(100% - 56px);
+        max-width: unset;
+    }
+
+    .newsletter-subscribe-input {
+        width: calc(100% - 25px);
+    }
+
+    .newsletter-subscribe-button {
+        position: relative;
+        top: 20px;
+        left: 50%;
+        transform: translate(-50%);
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .newsletter-subscribe-checkbox-label {
+        max-width: calc(100% - 38px);
+    }
+
     .newsletter-subscribe-verify { /*text explaining the email verification process*/
-        left: 0;
+        left: 10px;
+        width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 455px) { /*fixes checkbox on small screens*/
+    .newsletter-subscribe-checkbox-style {
+        position: relative;
+        top: -10px;
+    }
+}
+
+@media (max-width: 315px) { /*fixes checkbox on very small screens*/
+    .newsletter-subscribe-checkbox-style {
+        position: relative;
+        top: -20px;
     }
 }

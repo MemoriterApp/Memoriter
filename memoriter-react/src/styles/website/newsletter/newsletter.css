@@ -21,6 +21,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--color-transparent);
+    hyphens: auto;
 }
 
 .newsletter-main-description { /*page content*/
@@ -51,4 +52,23 @@
 }
 .newsletter-main-unsubscribe-link:hover { /*link hover effect*/
     color: var(--color-font-gray);
+}
+
+@media (max-width: 960px) { /*mobile optimization*/
+    .newsletter-main-title {
+        font-size: 3.2rem;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 300px) { /*fixes issues with too large heading*/
+    .newsletter-main-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 240px) { /*hiding content for too small screens (where the warning displays)*/
+    .newsletter-main {
+        display: none;
+    }
 }
