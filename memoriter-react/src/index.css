@@ -573,6 +573,8 @@ body {
 
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
 .Flashcard_Base {
+    display: grid;
+    grid-template-columns: repeat(5, 0fr);
     height: calc(100% - 62px);
     width: 94%;
     margin: auto;
@@ -885,8 +887,8 @@ body {
 /* New Flashcard Button*/
 .New_Flashcard_Settings_Bar{
     position: absolute;
-    width: calc(100% - 60px);
-    left: 25px;
+    width: calc(100% - 40px);
+    left: 15px;
     height: 30px;
     background-color: transparent;
     border-top: 5px dotted rgb(199, 202, 211);
@@ -897,10 +899,10 @@ body {
 }
 .New_Flashcard_Rechteck{
     position: absolute;
-    left: 25px;
+    left: 15px;
     top: 30px;
     height: calc(100% - 70px);
-    width: calc(100% - 60px);
+    width: calc(100% - 40px);
     background-color: transparent;
     border-bottom: 5px dotted rgb(199, 202, 211);
     border-left: 5px dotted rgb(199, 202, 211);
@@ -914,7 +916,7 @@ body {
     top: calc(50% - 25% / 3 * 2 - 15px);
     left: 50%;
     transform: translate(-50%);
-    width: 45%;
+    width: 42%;
     height: calc(45% / 3 * 2);
     border: 10px solid rgb(199, 202, 211);
     border-radius: 50%;

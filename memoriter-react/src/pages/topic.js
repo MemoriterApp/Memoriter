@@ -210,16 +210,14 @@ function TopicPage() {
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
                         <>
-                            {flashcards
-                                .map((flashcard) => (
-                                    <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
-                                        onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
-                                        onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
-                                        onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
-                                        onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
-                                        onChangeTextAlign={changeTextAlign}
-                                    />)
-                                )}
+                            {flashcards.map((flashcard) => (
+                                <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                    onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
+                                    onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                    onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                    onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                    onChangeTextAlign={changeTextAlign}
+                                />))}
                         </>
 
                         <div className='Flashcard_Body'>
