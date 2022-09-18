@@ -573,10 +573,8 @@ body {
 
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
 .Flashcard_Base {
-    display: grid;
-    grid-template-columns: repeat(5, 0fr);
     height: calc(100% - 62px);
-    width: 94%;
+    width: calc(100% - 10px);
     margin: auto;
     position: absolute;
     bottom: 5px;
@@ -584,6 +582,14 @@ body {
     background-color: transparent;
     overflow: auto;
 }
+.flashcard-base-grid {
+    display: flex;
+    width: auto;
+}
+.flashcard-base-grid-column {
+    background-clip: padding-box;
+}
+  
 .Zurückbutton_Body {
     background-color: transparent;
     border: 2.5px solid transparent;
@@ -885,7 +891,7 @@ body {
 }
 
 /* New Flashcard Button*/
-.New_Flashcard_Settings_Bar{
+.New_Flashcard_Settings_Bar {
     position: absolute;
     width: calc(100% - 40px);
     left: 15px;

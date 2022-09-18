@@ -7,6 +7,7 @@ import Flashcard from '../components/Flashcard';
 import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
 import { Link, useNavigate, } from 'react-router-dom';
+import Masonry from 'react-masonry-css';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
@@ -209,7 +210,11 @@ function TopicPage() {
                 <div className="rechteck">
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
-                        <>
+                        <Masonry
+                            breakpointCols={5}
+                            className='flashcard-base-grid'
+                            columnClassName='flashcard-base-grid-column'
+                        >
                             {flashcards.map((flashcard) => (
                                 <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                                     onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
@@ -218,17 +223,18 @@ function TopicPage() {
                                     onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
                                     onChangeTextAlign={changeTextAlign}
                                 />))}
-                        </>
 
-                        <div className='Flashcard_Body'>
-                            <div className='New_Flashcard_Settings_Bar' onClick={NewFlashcardClick} />
-                            <div className='New_Flashcard_Rechteck' onClick={NewFlashcardClick}>
-                                <div className='New_Flashcard_Circle'>
-                                    <div className='New_Flashcard_Plus_h' />
-                                    <div className='New_Flashcard_Plus_v' />
+                                {/*create new flashcard button*/}
+                                <div className='Flashcard_Body'>
+                                    <div className='New_Flashcard_Settings_Bar' onClick={NewFlashcardClick} />
+                                    <div className='New_Flashcard_Rechteck' onClick={NewFlashcardClick}>
+                                        <div className='New_Flashcard_Circle'>
+                                            <div className='New_Flashcard_Plus_h' />
+                                            <div className='New_Flashcard_Plus_v' />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                        </Masonry>
 
                         <div>
                             {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} syncedFolderID={syncedFolderID} />}
