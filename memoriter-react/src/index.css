@@ -1950,6 +1950,7 @@ body {
 /*study page*/
 :root {
     --size: 0.8;
+    --button: 1.7;
   }
 .study-now {
     position: absolute;
@@ -1990,10 +1991,6 @@ body {
     overflow-y: auto;
     text-overflow: ellipsis;
     cursor: pointer;
-    max-width: 450px;
-    max-height: 670px;
-    min-width: 200px;
-    min-height: 300px;
     white-space: pre-line;
     word-wrap: break-word;
 }
@@ -2008,10 +2005,6 @@ body {
     border-radius: 8px;
     transform: translateX(-50%);
     padding: 10px 20px 20px 20px;
-    max-width: 506px;
-    max-height: 727px;
-    min-width: 200px;
-    min-height: 300px;
 }
 
 .study-remaining {
@@ -2023,7 +2016,7 @@ body {
 }
 .study-flashcard-dots {
     position: absolute;
-    right: calc(50% - 180px);
+    right: calc(50% - 9.6vw);
     top: 110px;
     height: 0;
     padding: 10px 10px 16px 10px;
@@ -2043,18 +2036,17 @@ body {
     top: 110px;
 }
 .correct-incorrect-button {
-    border-radius: 10px;
+    border-radius: 0.75vw;
     text-transform: uppercase;
     border: 0px;
-    position: absolute;
-    bottom:-80px;
-    height: calc(3vh*1.5);
-    width: calc(9vh*1.5);
-    font-size: calc(1.25vh*1.5);
+    position: relative;
+    height: calc(3vh*var(--button));
+    width: calc(9vh*var(--button));
+    font-size: calc(1.25vh*var(--button));
     text-shadow: 0 0.04em 0.04em rgba(126, 126, 126, 0.35);
     font-weight: bold;
     cursor: pointer;
-    margin:6em 25em 0em 13em;
+    margin:0vw 3vw 0vw 3vw;
 }
 .correct-incorrect-button:hover{
     filter: brightness(120%);
@@ -2063,5 +2055,26 @@ body {
     position: relative;
     display: flex;
     justify-content: center;
-    top: 700px;
+    top: 78vh;
+}
+@media(max-width: 500px) {
+    .correct-incorrect-button {
+    }
+    .flex-container {
+        top: 60vh;
+    }
+    .study-flashcard-dots {
+        top:80px;
+        right: calc(50% - 13vw);
+    }
+}
+@media(min-height: 1300px) {
+    .correct-incorrect-button {
+    }
+    .flex-container {
+        top: 85vh;
+    }
+    .study-flashcard-dots {
+        top:150px;
+    }
 }
