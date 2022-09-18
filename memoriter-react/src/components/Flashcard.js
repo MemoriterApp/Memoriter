@@ -214,7 +214,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                 </div>
             </div>
             <div className='Flashcard_Rechteck' onClick={openFlashcard} ref={refHeight}>
-                <h3 className='Flashcard_Title'>{flashcard.title + ' ' + flashcardHeight}</h3>
+                <h3 className='Flashcard_Title'>{flashcard.title}</h3>
                 <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}
                     dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}
             </div>

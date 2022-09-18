@@ -609,7 +609,6 @@ body {
     top: 20px;
     height: calc(240px * 1.5 - 20px);
     display: inline-block;
-    background-color: red;
 }
 .Flashcard_Rechteck {
     position: absolute;
