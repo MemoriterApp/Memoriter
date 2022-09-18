@@ -1,0 +1,23 @@
+/*the main body of the about page uses this styleshet.*/
+
+.about-main { /*main class, used for positioning*/
+    position: absolute;
+    top: 100px;
+}
+
+.about-main-header { /*header font styling*/
+    font-size: 3.4rem;
+    font-family: var(--font-heading);
+    line-height: 4rem;
+    background: var(--color-highlight-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-main-text { /*text font styling*/
+    font-size: 1.4rem;
+    color: var(--color-font);
+    font-family: var(--font-default);
+    line-height: 2rem;
+}

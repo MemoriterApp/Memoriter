@@ -1,0 +1,137 @@
+/*This file contains the styles for the cookie banner*/
+
+.cookie-banner { /*basic cookie banner*/
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 0 5px 5px var(--color-shadow);
+    background-color: var(--color-cookies);
+    backdrop-filter: blur(10px);
+    transition: bottom 1600ms;
+    z-index: 2;
+}
+
+.cookie-banner-text { /*text for this-website-uses-cookies-sentence*/
+    position: absolute;
+    top: 0.2rem;
+    left: 80px;
+    font-size: 1.1rem;
+    font-family: var(--font-default);
+    color: rgba(255, 255, 255, 1);
+}
+
+.cookie-banner-more-information {
+    position: absolute;
+    right: 200px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: var(--font-highlight);
+    text-decoration: none;
+    padding: 4px 6px 4px 6px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-transparent);
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+.cookie-banner-more-information:hover {
+    background-color: var(--color-cookies-hover);
+}
+
+.cookie-banner-accept { /*accept button, needed to be split in multiple classes, this class is for the positionig of the button*/
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: var(--color-transparent);
+    border: none;
+    cursor: pointer;
+}
+.cookie-banner-accept-text { /*text which is not supposed to change color*/
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    transform: translate(-50%);
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: var(--font-highlight);
+    text-decoration: none;
+}
+.cookie-banner-accept-background { /*the hover background was done in React because it did not work in CSS*/
+    width: 74px;
+    height: 22px;
+    padding: 8px 10px 8px 10px;
+    border-radius: 6px;
+    background: var(--color-highlight-gradient);
+    transition: 200ms;
+}
+
+@media (max-width: 1160px) { /*making the banner responsive for medium-size screens*/
+    /*some elements are moved closer to the side th free up space in the center*/
+
+    .cookie-banner-text {
+        left: 10px;
+    }
+
+    .cookie-banner-more-information {
+        right: 120px;
+        width: 106px;
+        text-align: center;
+        padding: 1px 6px 1px 6px;
+    }
+
+    .cookie-banner-accept {
+        right: 10px;
+    }
+}
+
+@media (max-width: 960px) { /*making the banner responsive for small screens*/
+    /*some elements are rearranged to make the banner less wide*/
+    
+    .cookie-banner {
+        height: 120px;
+    }
+
+    .cookie-banner-text {
+        left: 50%;
+        top: 0;
+        width: calc(100% - 10px);
+        transform: translate(-50%);
+        text-align: center;
+    }
+
+    .cookie-banner-more-information {
+        left: calc(50% - 116px);
+        top: 90px;
+        transform: translate(0, -50%);
+    }
+
+    .cookie-banner-accept {
+        right: calc(50% - 116px);
+        top: 90px;
+        transform: translate(0, -50%);
+    }
+}
+
+@media (max-width: 360px) { /*optimization for very small screens*/
+    .cookie-banner {
+        height: 160px;
+    }
+
+    .cookie-banner-more-information {
+        top: 130px;
+    }
+
+    .cookie-banner-accept {
+        top: 130px;
+    }
+}
+
+@media (max-width: 240px) { /*hidden on to small */
+    .cookie-banner {
+        display: none;
+    }
+}

@@ -1,0 +1,184 @@
+/*These styles define the main layout of the product (start) page*/
+
+.product-main { /*just used for layout adjustment*/
+    position: relative;
+    left: 50%; /*centering the content on too large screens*/
+    transform: translate(-50%);
+    max-width: 2400px; /*looks better on large screens*/
+    margin-top: 100vh;
+    margin-bottom: 20px;
+    overflow-x: hidden;
+}
+
+.product-main-overview { /*basic layout of three columns for overview texts at the top*/
+    display: flex; /*creates the clumn layout*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: calc(100% - 80px);
+    max-width: 1200px;
+    gap: 80px; /*gaps between child items*/
+    margin: 140px 0 200px 0;
+}
+.product-main-overview > * { /*children of overview*/
+    flex: 1; /*used for equal columns*/
+}
+.product-main-overview-image { /*images above the small texts*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    height: 92px;
+}
+.product-main-overview-text { /*small overview texts*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 200px;
+    font-size: 1.4rem;
+    color: var(--color-font);
+    font-family: var(--font-default);
+    line-height: 2rem;
+    text-align: center;
+    margin-top: 32px;
+}
+
+.product-main-container { /*contains all of the main sections, is used for positioning*/
+    display: flex;
+    margin: 160px 70px 200px 70px;
+}
+.product-main-container > * + * { /*children of container*/
+    margin-left: 60px;
+}
+.product-main-container-sub { /*sub containers with the text inside*/
+    flex-basis: 45%;
+    align-self: center;
+}
+.product-main-container-sub-image { /*sub containers with the image inside*/
+    flex-basis: 55%;
+    align-self: center;
+}
+
+.product-main-header { /*header font styling*/
+    font-size: 3.4rem;
+    font-family: var(--font-heading);
+    line-height: 4rem;
+    background: var(--color-highlight-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.product-main-text { /*text font styling*/
+    font-size: 1.4rem;
+    color: var(--color-font);
+    font-family: var(--font-default);
+    line-height: 2rem;
+}
+
+.product-main-image { /*image optimization*/
+    width: 100%;
+    border-radius: 10px;
+}
+
+@media (max-width: 960px) { /*simplyfied layout for smaller screens*/
+    .product-main-overview {
+        flex-direction: column; /*renders items above each other instead of next to each other*/
+    }
+    
+    .product-main-header {
+        font-size: 3rem;
+        hyphens: auto; /*allows linebreaks within words*/
+    }
+
+    .product-main-text {
+        font-size: 1.2rem;
+    }
+
+    .product-main-container {
+        display: block;
+        margin: 120px 20px 20px 20px;
+    }
+    .product-main-container > * + * { /*children of container*/
+        margin-left: unset;
+    }
+}
+
+@media (max-width: 660px) { /*pushes the footer down when the customer stories disappear*/
+    .product-main {
+        margin-bottom: 240px;
+    }
+}
+
+@media (max-width: 240px) { /*hiding content for too small screens (where the warning displays)*/
+    .product-main {
+        display: none;
+    }
+}
+
+@media (max-height: 440px) { /*fixes issues for screens not high enough*/
+    .product-main {
+        margin-top: 440px;
+    }
+    @media (max-width: 340px) {
+        .product-main {
+            margin-top: 560px;
+        }
+    }
+}
+
+/*animation classes*/
+.product-main-animation-fade-in-right { /*class for triggering the fade in right animation*/
+    animation: fade-in-right 200ms;
+}
+@keyframes fade-in-right { /*the items move a bit to the left and get visible*/
+    from {
+        transform: translateX(8%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.product-main-animation-fade-out-right { /*class for triggering the fade out right animation*/
+    animation: fade-out-right 400ms;
+}
+@keyframes fade-out-right { /*the items move a bit to the right and get invisible*/
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(8%);
+        opacity: 0;
+    }
+}
+
+.product-main-animation-fade-in-left { /*class for triggering the fade in left animation*/
+    animation: fade-in-left 200ms;
+}
+@keyframes fade-in-left { /*the items move a bit to the right and get visible*/
+    from {
+        transform: translateX(-8%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.product-main-animation-fade-out-left { /*class for triggering the fade out left animation*/
+    animation: fade-out-left 400ms;
+}
+@keyframes fade-out-left { /*the items move a bit to the right and get invisible*/
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-8%);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,61 @@
+/*here are the styles used for the current version in the release notes, older versions are using a seperate stylesheet*/
+
+.current-release { /*main container*/
+    position: relative;
+    left: 50%;
+    top: 120px;
+    transform: translate(-50%);
+    width: calc(100% - 320px);
+    max-width: 2400px;
+    padding: 40px 60px 80px 60px;
+}
+.current-release h1 { /*the big page heading (<h1/>) of current-release*/
+    font-size: 2.8rem;
+    font-family: var(--font-heading);
+    margin-bottom: 40px;
+    background: var(--color-highlight-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.current-release h2 { /*all html sub headings (<h2/>) of current-release*/
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-font);
+    font-family: var(--font-highlight);
+    margin-top: 20px;
+    margin-bottom: 32px;
+}
+.current-release h3 { /*all html sub headings (<h2/>) of current-release*/
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--color-font);
+    font-family:  var(--font-highlight);
+    margin-top: 40px;
+    margin-bottom: 12px;
+}
+.current-release p { /*all html text paragraps (<p/>) of current-release*/
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-font);
+    font-family:  var(--font-default);
+    line-height: 1.8rem;
+    text-align: justify;
+    margin-bottom: 0;
+}
+.current-release ul { /*all html unordered lists (<ul/>) of current-release*/
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-font);
+    font-family: var(--font-default);
+    line-height: 1.8rem;
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+@media (max-width: 960px) { /*removes space at the sides on small screens*/
+    .current-release {
+        width: calc(100% - 40px);
+        padding: 40px 0 80px 0;
+    }
+}

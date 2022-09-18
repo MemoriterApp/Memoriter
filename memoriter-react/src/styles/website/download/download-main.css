@@ -1,0 +1,34 @@
+/*This file includes most of the styles for the main part of the download page except the parts seperated in to pc and mobile.*/
+
+.download-main { /*layout container for the content*/
+    display: flex; /*needed to push the footer down*/
+    flex-direction: column; /*needed to push the footer down*/
+    position: relative;
+    left: 50%;
+    top: 120px;
+    transform: translate(-50%);
+    max-width: 2400px;
+    min-height: 100vh;
+    margin-bottom: 320px;
+}
+
+.download-main-heading { /*page heading*/
+    font-size: 4rem;
+    font-family: var(--font-heading);
+    text-align: center;
+    margin-bottom: 60px;
+    background: var(--color-highlight-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.download-main-gap { /*gap between sections*/
+    height: 80px;
+}
+
+@media (max-width: 240px) { /*hides everything on too small screens*/
+    .download-main {
+        display: none;
+    }
+}
