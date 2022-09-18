@@ -9,6 +9,7 @@
     max-width: 1200px;
     gap: 128px;
     margin-bottom: 240px;
+    display: none;
 }
 
 .download-mobile-heading { /*mobile app heading*/

@@ -4,7 +4,7 @@
     position: absolute;
     width: 100%;
     height: calc(100vh - 60px);
-    min-height: 420px; /*fixes issues for screens not high enough*/
+    min-height: 540px; /*fixes issues for screens not high enough*/
     left: 0;
     top: 62px;
     background: var(--color-banner-gradient);
@@ -29,7 +29,7 @@
     display: flex;
     position: absolute;
     left: 50%;
-    top: 40%;
+    top: 38%;
     transform: translate(-50%, -50%);
     gap: 100px;
 }
@@ -123,6 +123,68 @@
     border-bottom: 50px solid var(--color-background);
 	height: 0;
 	width: 30vw;
+}
+
+@media (max-width: 1160px) { /*optimization for tablets and smaller laptops*/
+    .download-banner-content {
+        left: calc(50% + 12px);
+        gap: 0px;
+    }
+
+    .download-banner-icon {
+        transform: translate(0, 40px);
+        width: 360px;
+        height: 360px;
+    }
+}
+
+@media (max-width: 960px) { /*mobile optimization*/
+    .download-banner-content {
+        left: 50%;
+        top: 30%;
+    }
+    
+    .download-banner-download-windows {
+        position: absolute;
+        left: calc(50% - 240px);
+        margin: 0;
+    }
+    .download-banner-download-mac {
+        position: absolute;
+        right: calc(50% - 240px);
+        margin: 0;
+    }
+    
+    .download-banner-icon {
+        display: none;
+    }
+    
+    .download-banner-bottom-transition-shape-left {
+        width: 20vw;
+    }
+    .download-banner-bottom-transition-shape-right {
+        width: 20vw;
+    }
+}
+
+@media (max-width: 560px) { /*hides all at too small screens in order to show no responsive bugs*/ 
+    .download-banner {
+        min-height: 710px;
+    }
+    
+    .download-banner-text {
+        font-size: 2.2rem;
+    }
+    
+    .download-banner-download-windows {
+        left: 50%;
+        transform: translate(-50%, -40px) scale(0.9);
+    }
+    .download-banner-download-mac {
+        left: 50%;
+        right: unset;
+        transform: translate(-50%, 60px) scale(0.9);
+    }
 }
 
 @media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/
