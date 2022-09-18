@@ -609,14 +609,13 @@ body {
     top: 20px;
     height: calc(240px * 1.5 - 20px);
     display: inline-block;
-    background-color: transparent;
+    background-color: red;
 }
 .Flashcard_Rechteck {
     position: absolute;
-    left: 25px;
+    left: 15px;
     top: 30px;
-    height: calc(100% - 70px);
-    width: calc(100% - 60px);
+    width: calc(100% - 40px);
     background-color: rgb(241, 242, 247);
     border-bottom: 5px solid rgb(199, 202, 211);
     border-left: 5px solid rgb(199, 202, 211);
@@ -624,18 +623,6 @@ body {
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
-}
-.Flashcard_Rechteck::after {
-    position: absolute;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    content: "";
-    background: linear-gradient(to top,
-    #ffffff 5px,
-    rgba(255,255,255,0) 25%
-    );
-    pointer-events: none;
 }
 .Flashcard_Title {
     font-family: 'M PLUS 1', sans-serif;
@@ -686,8 +673,8 @@ body {
 }
 .Flashcard_Settings_Bar {
     position: absolute;
-    width: calc(100% - 60px);
-    left: 25px;
+    width: calc(100% - 40px);
+    left: 15px;
     height: 30px;
     background-color: rgb(241, 242, 247);
     border-top: 5px solid rgb(199, 202, 211);
