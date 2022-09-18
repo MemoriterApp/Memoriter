@@ -2058,8 +2058,6 @@ body {
     top: 78vh;
 }
 @media(max-width: 500px) {
-    .correct-incorrect-button {
-    }
     .flex-container {
         top: 60vh;
     }
@@ -2069,8 +2067,6 @@ body {
     }
 }
 @media(min-height: 1300px) {
-    .correct-incorrect-button {
-    }
     .flex-container {
         top: 85vh;
     }
