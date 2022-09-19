@@ -1,4 +1,4 @@
-import { useState, useEffect, } from 'react';
+import { useState, useEffect } from 'react';
 import Logo from './Logo.png';
 import BackButton from '../components/BackButton';
 import SettingsIcon from '../components/SettingsIcon';
@@ -15,6 +15,21 @@ const { db } = firebase;
 function TopicPage() {
 
     const navigate = useNavigate();
+
+    const width = window.innerWidth; //get the width of the current browser window
+    const [columns, setColumns] = useState(0); //column count of the masonry layout
+
+    if (width <= 495 && columns !== 1) {
+        setColumns(1);
+    } else if (width > 495 && width <= 850 && columns !== 2) {
+        setColumns(2);
+    } else if (width > 850 && width <= 1150 && columns !== 3) {
+        setColumns(3);
+    } else if (width > 1150 && width <= 1400 && columns !== 4) {
+        setColumns(4);
+    } else if (width > 1400 && columns !== 5) {
+        setColumns(5);
+    };
 
     //firebase stuff
     //link zur db
@@ -210,7 +225,7 @@ function TopicPage() {
                 <div className="rechteck">
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
-                        <Masonry breakpointCols={5} className='flashcard-base-grid'>
+                        <Masonry breakpointCols={columns} className='flashcard-base-grid'>
                             {flashcards.map((flashcard) => (
                                 <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                                     onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
