@@ -574,7 +574,7 @@ body {
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
 .Flashcard_Base {
     height: calc(100% - 62px);
-    width: calc(100% - 10px);
+    width: calc(100% - 80px);
     margin: auto;
     position: absolute;
     bottom: 5px;
@@ -613,16 +613,17 @@ body {
 }
 .Flashcard_Body {
     position: relative;
-    width: 240px;
+    width: 200px;
     top: 20px;
-    height: calc(240px * 1.5 - 20px);
+    height: 300px;
     display: inline-block;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .Flashcard_Rechteck {
     position: absolute;
-    left: 15px;
     top: 30px;
-    width: calc(100% - 40px);
+    width: calc(100% - 10px);
     background-color: rgb(241, 242, 247);
     border-bottom: 5px solid rgb(199, 202, 211);
     border-left: 5px solid rgb(199, 202, 211);
@@ -680,8 +681,7 @@ body {
 }
 .Flashcard_Settings_Bar {
     position: absolute;
-    width: calc(100% - 40px);
-    left: 15px;
+    width: calc(100% - 10px);
     height: 30px;
     background-color: rgb(241, 242, 247);
     border-top: 5px solid rgb(199, 202, 211);
@@ -891,39 +891,23 @@ body {
 }
 
 /* New Flashcard Button*/
-.New_Flashcard_Settings_Bar {
+.New_Flashcard_Rechteck {
     position: absolute;
-    width: calc(100% - 40px);
-    left: 15px;
-    height: 30px;
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
     background-color: transparent;
-    border-top: 5px dotted rgb(199, 202, 211);
-    border-left: 5px dotted rgb(199, 202, 211);
-    border-right: 5px dotted rgb(199, 202, 211);
-    border-radius: 3px;
-    cursor: pointer;
-}
-.New_Flashcard_Rechteck{
-    position: absolute;
-    left: 15px;
-    top: 30px;
-    height: calc(100% - 70px);
-    width: calc(100% - 40px);
-    background-color: transparent;
-    border-bottom: 5px dotted rgb(199, 202, 211);
-    border-left: 5px dotted rgb(199, 202, 211);
-    border-right: 5px dotted rgb(199, 202, 211);
+    border: 5px dotted rgb(199, 202, 211);
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
 }
 .New_Flashcard_Circle {
     position: absolute;
-    top: calc(50% - 25% / 3 * 2 - 15px);
+    top: 50%;
     left: 50%;
-    transform: translate(-50%);
-    width: 42%;
-    height: calc(45% / 3 * 2);
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
     border: 10px solid rgb(199, 202, 211);
     border-radius: 50%;
     background-color: rgb(241, 242, 247);
