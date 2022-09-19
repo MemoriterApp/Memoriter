@@ -587,7 +587,7 @@ body {
     position: absolute;
     left: calc(50% + 20px);
     transform: translate(-50%);
-    width: 1200px;
+    width: 1680px;
 }
   
 .Zurückbutton_Body {
@@ -1023,6 +1023,16 @@ body {
     left: 0;
 }
 
+@media (max-width: 1900px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 1400px
+    }
+}
+@media (max-width: 1600px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 1200px
+    }
+}
 @media (max-width: 1400px) { /*responsiveness for flashcard layout*/
     .flashcard-base-grid {
         width: 950px;

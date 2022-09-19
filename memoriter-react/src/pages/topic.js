@@ -16,24 +16,29 @@ function TopicPage() {
 
     const navigate = useNavigate();
 
-    const width = window.innerWidth; //get the width of the current browser window
-    const [columns, setColumns] = useState(0); //column count of the masonry layout
+    const [columns, setColumns] = useState(6); //column count of the masonry layout
+    const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
+    
+    useEffect(() => { //detect window resize
+        window.addEventListener('resize', () => setWidth(window.innerWidth));
+        return () => window.removeEventListener('resize', () => setWidth(window.innerWidth));
+    }, []);
 
-    function onResize() {
-        if (width <= 495 && columns !== 1) {
-            setColumns(1);
-        } else if (width > 495 && width <= 850 && columns !== 2) {
-            setColumns(2);
-        } else if (width > 850 && width <= 1150 && columns !== 3) {
-            setColumns(3);
-        } else if (width > 1150 && width <= 1400 && columns !== 4) {
-            setColumns(4);
-        } else if (width > 1400 && columns !== 5) {
-            setColumns(5);
-        };
+    if (width <= 495 && columns !== 1) { //sets the layout column count
+        setColumns(1);
+    } else if (width > 495 && width <= 850 && columns !== 2) {
+        setColumns(2);
+    } else if (width > 850 && width <= 1150 && columns !== 3) {
+        setColumns(3);
+    } else if (width > 1150 && width <= 1400 && columns !== 4) {
+        setColumns(4);
+    } else if (width > 1400 && width <= 1600 && columns !== 5) {
+        setColumns(5);
+    } else if (width > 1600 && width <= 1900 && columns !== 6) {
+        setColumns(6);
+    } else if (width > 1900 && columns !== 7) {
+        setColumns(7);
     };
-
-    onResize();
 
     //firebase stuff
     //link zur db
