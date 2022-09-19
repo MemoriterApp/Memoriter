@@ -573,8 +573,8 @@ body {
 
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
 .Flashcard_Base {
-    height: calc(100% - 62px);
-    width: calc(100% - 80px);
+    height: calc(100% - 67px);
+    width: calc(100% - 10px);
     margin: auto;
     position: absolute;
     bottom: 5px;
@@ -584,10 +584,10 @@ body {
 }
 .flashcard-base-grid {
     display: flex;
-    width: auto;
-}
-.flashcard-base-grid-column {
-    background-clip: padding-box;
+    position: absolute;
+    left: calc(50% + 20px);
+    transform: translate(-50%);
+    width: 1200px;
 }
   
 .Zurückbutton_Body {
@@ -1021,6 +1021,41 @@ body {
     height: 100%;
     top: 0;
     left: 0;
+}
+
+@media (max-width: 1400px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 950px;
+    }
+}
+@media (max-width: 1150px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 700px;
+    }
+}
+@media (max-width: 850px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 500px;
+    }
+}
+@media (max-width: 620px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        left: calc(50% + 5px);
+        width: 420px;
+    }
+    .Flashcard_Body {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+@media (max-width: 495px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 200px;
+    }
+    .Flashcard_Body {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 /* CSS für AGB, Impressum und Datenschutz */

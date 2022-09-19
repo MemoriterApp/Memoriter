@@ -210,11 +210,7 @@ function TopicPage() {
                 <div className="rechteck">
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
-                        <Masonry
-                            breakpointCols={5}
-                            className='flashcard-base-grid'
-                            columnClassName='flashcard-base-grid-column'
-                        >
+                        <Masonry breakpointCols={5} className='flashcard-base-grid'>
                             {flashcards.map((flashcard) => (
                                 <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                                     onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
