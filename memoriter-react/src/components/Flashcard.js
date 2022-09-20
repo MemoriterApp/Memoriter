@@ -12,9 +12,15 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     const refHeight = useRef(null); //reference to html id to get the height of the inner flashcard rectangle
     const [flashcardHeight, setFlashcardHeight] = useState(0); //height of the inner flashcard rectangle
-
+    const [maxHeightGradient, setMaxHeightGradient] = useState('');
+  
     useEffect(() => { //sets the height of the flashcard on component render
         setFlashcardHeight(refHeight.current.clientHeight);
+        if (refHeight.current.clientHeight >= 340) { //checks if the flashcard has its max height and applies bottom text fade out gradient
+            setMaxHeightGradient('flashcard-rechteck-gradient');
+        } else {
+            setMaxHeightGradient('');
+        };
       }, []);
 
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
@@ -213,7 +219,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                     <div className='Flashcard_Pos_Arrow_Right' />
                 </div>
             </div>
-            <div className='Flashcard_Rechteck' onClick={openFlashcard} ref={refHeight}>
+            <div className={`Flashcard_Rechteck ${maxHeightGradient}`} onClick={openFlashcard} ref={refHeight}>
                 <h3 className='Flashcard_Title'>{flashcard.title}</h3>
                 <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}
                     dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}

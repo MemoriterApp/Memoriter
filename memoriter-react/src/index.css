@@ -619,6 +619,8 @@ body {
     display: inline-block;
     margin-bottom: 20px;
     margin-top: 20px;
+    min-height: 160px;
+    max-height: 370px;
 }
 .Flashcard_Rechteck {
     position: absolute;
@@ -631,10 +633,20 @@ body {
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
+    min-height: 130px;
+    max-height: 340px;
+}
+.flashcard-rechteck-gradient::after { /*gradient to fade out text on max height*/
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, rgb(241, 242, 247) 5px, rgba(255,255,255,0) 15%);
+    pointer-events: none;
 }
 .Flashcard_Title {
     font-family: 'M PLUS 1', sans-serif;
-    color: white;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -646,13 +658,13 @@ body {
     word-wrap: break-word;
     hyphens: auto;
     color: rgb(53, 53, 53);
+    margin-bottom: 16px;
 }
 .Flashcard_Content {
     position: relative;
     font-family: 'M PLUS 1', sans-serif;
-    color: white;
     font-size: 16px;
-    text-align: justify;
+    text-align: left;
     width: 90%;
     left: 5%;
     top: -10px;
@@ -660,8 +672,12 @@ body {
     white-space: pre-line;
     word-wrap: break-word;
     hyphens: auto;
-    line-height: 120%;
+    line-height: 140%;
     color: rgb(53, 53, 53);
+}
+.Flashcard_Content p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* Flashcard Settings */
