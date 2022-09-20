@@ -198,9 +198,7 @@ const OnlyQuestion = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDele
     const [isMouseInside, setIsMouseInside] = useState(); //state to check if mouse hover over flashcard
 
     return (
-        <div className='Flashcard_Body' 
-        onMouseEnter={() => setIsMouseInside(true)}
-        onMouseLeave={() => setIsMouseInside(false)}>
+        <div className='Flashcard_Body'>
             <div className='Flashcard_Settings_Bar'>
                 <div className='Flashcard_Settings' onClick={settingsHandler}>
                     <span className='dot'/>
@@ -220,7 +218,7 @@ const OnlyQuestion = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDele
             </div>
 
 
-            <div className='Flashcard_Rechteck' onClick={openFlashcard} onMouseEnter={swapFlashcard}>
+            <div className='Flashcard_Rechteck' onClick={openFlashcard} onMouseEnter={() => setIsMouseInside(true)} onMouseLeave={() => setIsMouseInside(false)}>
                 <h2 className='Flashcard_Title'>{flashcard.title}</h2>
                 {isMouseInside ? <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</div> : null}
             </div>
