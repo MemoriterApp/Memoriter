@@ -231,15 +231,7 @@ function TopicPage() {
                             )
                             )}
                          </>
-
-                         <>
-                         {flashcards
-                            .map((flashcard) => (
-                                <OnlyContent
-                                key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length}
-                                />
-                            ))}
-                         </>           
+         
             
 
                         <div className='Flashcard_Body'>
