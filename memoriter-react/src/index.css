@@ -1951,7 +1951,9 @@ body {
 :root {
     --size: 0.8;
     --button: 1.7;
+    --testing:1.7;
   }
+  /* Variables used for testing different sizes with constant aspect ratios */
 .study-now {
     position: absolute;
     font-family:monospace;
@@ -2057,12 +2059,24 @@ body {
     justify-content: center;
     top: 78vh;
 }
-.finish-button{
+.finished_statistics{
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 24px;
-    border-radius: 0.75vw;
+    font-family: 'M PLUS 1', sans-serif;
+}
+.finished-button{
+    position: absolute;
+    left: 50%;
+    font-family: 'M PLUS 1', sans-serif;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5vw;
+    height: calc(3vh*var(--testing));
+    width: calc(7vw*var(--testing));
+    font-size: calc(1.4vh*var(--testing));
+    background-color: rgb(205, 208, 218);
+    border:0;
 }
 @media(max-width: 500px) {
     .flex-container {

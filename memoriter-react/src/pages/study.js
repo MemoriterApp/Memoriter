@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+import { PieChart } from 'react-minimal-pie-chart';
 const { db } = firebase;
 
 const StudyPage = () => {
@@ -170,23 +171,35 @@ const StudyPage = () => {
                 </>}
 
                 {finished && <div>
-                    <p style={{position: 'absolute', left: '50%', top: '30%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}>
+                    <p className='finished_statistics' style={{ top: '20%', fontSize:'50px'}}>
+                        Results
+                    </p>
+                    <p className='finished_statistics' style={{ top: '30%'}}>
                         Studied Flashcards: {studiedFlashcards}
                     </p>
-                    <p style={{position: 'absolute', left: '50%', top: '35%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}>
+                    <p className='finished_statistics' style={{ top: '35%'}}>
                         Repetitions: {studiedFlashcards + incorrectFlashcards}
                     </p>
-                    <p style={{position: 'absolute', left: '50%', top: '40%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}>
+                    <p className='finished_statistics' style={{ top: '40%', color:'#dc4c4d'}}>
                         Incorrect: {incorrectFlashcards}
                     </p>
 
-                    <button className='finish-button'
-                        style={{ top: '55%'}}
+                    {/* tried to get a pie chart to work
+                    <PieChart
+                        data={[
+                            { title: 'One', value: '90%', color: '#E38627' },
+                            { title: 'Two', value: '90%', color: '#C13C37' },
+                            { title: 'Three', value: '180%', color: '#6A2135' },
+                        ]}
+                    />;*/}
+
+                    <button className='finished-button'
+                        style={{ top: '70%'}}
                         onClick={() => startAgain()}
                     >Study Again</button>
 
-                    <button className='finish-button'
-                        style={{top: '62.5%'}}
+                    <button className='finished-button'
+                        style={{top: '77.5%', width: '14vw', backgroundColor:'rgb(126, 128, 134)'}}
                         onClick={() => navigate('/topic')}
                     >Return to Overview</button>
                 </div>}
