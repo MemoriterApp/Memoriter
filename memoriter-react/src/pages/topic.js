@@ -246,11 +246,10 @@ function TopicPage() {
 
                                 {/*create new flashcard button*/}
                                 <div className='Flashcard_Body'>
-                                    <div className='New_Flashcard_Settings_Bar' onClick={NewFlashcardClick} />
                                     <div className='New_Flashcard_Rechteck' onClick={NewFlashcardClick}>
                                         <div className='New_Flashcard_Circle'>
-                                            <div className='New_Flashcard_Plus_h' />
-                                            <div className='New_Flashcard_Plus_v' />
+                                            <div className='New_Flashcard_Plus_h'/>
+                                            <div className='New_Flashcard_Plus_v'/>
                                         </div>
                                     </div>
                                 </div>
