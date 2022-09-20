@@ -10,6 +10,7 @@ import { Link, useNavigate, } from 'react-router-dom';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 import OnlyQuestion from '../components/Flashcards/OnlyQuestion';
+import OnlyContent from '../components/Flashcards/OnlyContent';
 const { db } = firebase;
 
 function TopicPage() {
@@ -229,6 +230,15 @@ function TopicPage() {
                                 key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length}/>
                             )
                             )}
+                         </>
+
+                         <>
+                         {flashcards
+                            .map((flashcard) => (
+                                <OnlyContent
+                                key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length}
+                                />
+                            ))}
                          </>           
             
 
