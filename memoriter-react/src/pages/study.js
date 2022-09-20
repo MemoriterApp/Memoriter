@@ -180,13 +180,13 @@ const StudyPage = () => {
                         Incorrect: {incorrectFlashcards}
                     </p>
 
-                    <button 
-                        style={{position: 'absolute', left: '50%', top: '55%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
+                    <button className='finish-button'
+                        style={{ top: '55%'}}
                         onClick={() => startAgain()}
                     >Study Again</button>
 
-                    <button 
-                        style={{position: 'absolute', left: '50%', top: '62.5%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
+                    <button className='finish-button'
+                        style={{top: '62.5%'}}
                         onClick={() => navigate('/topic')}
                     >Return to Overview</button>
                 </div>}

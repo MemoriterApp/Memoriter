@@ -2057,6 +2057,13 @@ body {
     justify-content: center;
     top: 78vh;
 }
+.finish-button{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    border-radius: 0.75vw;
+}
 @media(max-width: 500px) {
     .flex-container {
         top: 60vh;
