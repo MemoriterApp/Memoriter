@@ -16,7 +16,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
   
     useEffect(() => { //sets the height of the flashcard on component render
         setFlashcardHeight(refHeight.current.clientHeight);
-        if (refHeight.current.clientHeight >= 340) { //checks if the flashcard has its max height and applies bottom text fade out gradient
+        if (refHeight.current.clientHeight >= 290) { //checks if the flashcard has its max height and applies bottom text fade out gradient
             setMaxHeightGradient('flashcard-rechteck-gradient');
         } else {
             setMaxHeightGradient('');
