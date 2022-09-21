@@ -617,8 +617,7 @@ body {
     top: 20px;
     height: 280px; /*only for the add flashcard button*/
     display: inline-block;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 40px;
     min-height: 160px;
     max-height: 320px;
 }
