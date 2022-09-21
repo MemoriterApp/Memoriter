@@ -3,7 +3,6 @@ import Backdropfs from './backdropfs';
 import { useState } from 'react';
 import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 import { convertFromHTML, convertToHTML } from 'draft-convert';
-import parse from 'html-react-parser';
 
 const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, onDeleteFlashcard, onChangeTextAlign }) => {
 
@@ -132,7 +131,8 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
                 <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
             
                 {showAnswer && <div>
-                    <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</article>
+                    <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}
+                        dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}
                 </div>}
             </div>
 

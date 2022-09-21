@@ -1,15 +1,31 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Backdrop from './backdrop';
 import Backdropfs from './backdropfs';
 import BackdropOpenFlashcard from './backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
-import parse from 'html-react-parser';
 import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 import { convertFromHTML, convertToHTML } from 'draft-convert';
 
 const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
     onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView, onPosAdjust, onChangeTextAlign }) => {
+
+    const refHeight = useRef(null); //reference to html id to get the height of the inner flashcard rectangle
+    const [flashcardHeight, setFlashcardHeight] = useState(0); //height of the inner flashcard rectangle
+    const [maxHeightGradient, setMaxHeightGradient] = useState('');
+
+    const refContentHeight = useRef(null);
+    const refTitleHeight = useRef(null);
+  
+    useEffect(() => { //sets the height of the flashcard on component render
+        setFlashcardHeight(refHeight.current.clientHeight);
+        if (refHeight.current.clientHeight >= 290
+            && (refTitleHeight.current.clientHeight + refContentHeight.current.clientHeight) > 260) { //checks if the flashcard has its max height and applies bottom text fade out gradient
+            setMaxHeightGradient('flashcard-rechteck-gradient');
+        } else {
+            setMaxHeightGradient('');
+        };
+      }, []);
 
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
@@ -72,10 +88,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
       setModalIsOpenS(false);
       setModalIsOpenSO(false);
     }
-    function editOpenFlashcardReq() {
-        setModalIsOpenE(true);
-        setModalIsOpenEbackdropfs(true);
-    }
+
     function backdropClickE() {
         setTitle(flashcard.title);
         //setContent(flashcard.content);
@@ -192,7 +205,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
     };
 
     return (
-        <div className='Flashcard_Body'>
+        <div className='Flashcard_Body' style={{height: `calc(${flashcardHeight}px + 35px)`}}> {/*height is set by the useEffect based on the inner rectangle height*/}
             <div className='Flashcard_Settings_Bar'>
                 <div className='Flashcard_Settings' onClick={settingsHandler}>
                     <span className='dot'/>
@@ -210,9 +223,10 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                     <div className='Flashcard_Pos_Arrow_Right' />
                 </div>
             </div>
-            <div className='Flashcard_Rechteck' onClick={openFlashcard}>
-                <h3 className='Flashcard_Title'>{flashcard.title}</h3>
-                <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</div>
+            <div className={`Flashcard_Rechteck ${maxHeightGradient}`} onClick={openFlashcard} ref={refHeight}>
+                <h3 className='Flashcard_Title' ref={refTitleHeight}>{flashcard.title}</h3>
+                <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}} ref={refContentHeight}
+                    dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}
             </div>
 
             <div>
@@ -233,7 +247,8 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                         <p style={{fontSize: '40px'}} />
                         <h2 className='Flashcard_Open_Title'>{flashcard.title}</h2>
                         <p style={{fontSize: '40px'}} />
-                        <div className='Flashcard_Open_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</div>
+                        <div className='Flashcard_Open_Content' style={{textAlign: flashcard.textAlign}}
+                            dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}
                         <div>
 
                         </div>

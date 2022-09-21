@@ -573,8 +573,8 @@ body {
 
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
 .Flashcard_Base {
-    height: calc(100% - 62px);
-    width: 94%;
+    height: calc(100% - 67px);
+    width: calc(100% - 10px);
     margin: auto;
     position: absolute;
     bottom: 5px;
@@ -582,6 +582,14 @@ body {
     background-color: transparent;
     overflow: auto;
 }
+.flashcard-base-grid {
+    display: flex;
+    position: absolute;
+    left: calc(50% + 20px);
+    transform: translate(-50%);
+    width: 1680px;
+}
+  
 .Zurückbutton_Body {
     background-color: transparent;
     border: 2.5px solid transparent;
@@ -605,18 +613,18 @@ body {
 }
 .Flashcard_Body {
     position: relative;
-    width: 240px;
+    width: 200px;
     top: 20px;
-    height: calc(240px * 1.5 - 20px);
+    height: 280px; /*only for the add flashcard button*/
     display: inline-block;
-    background-color: transparent;
+    margin-bottom: 40px;
+    min-height: 160px;
+    max-height: 320px;
 }
 .Flashcard_Rechteck {
     position: absolute;
-    left: 25px;
     top: 30px;
-    height: calc(100% - 70px);
-    width: calc(100% - 60px);
+    width: calc(100% - 10px);
     background-color: rgb(241, 242, 247);
     border-bottom: 5px solid rgb(199, 202, 211);
     border-left: 5px solid rgb(199, 202, 211);
@@ -624,49 +632,52 @@ body {
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
+    min-height: 130px;
+    max-height: 290px;
 }
-.Flashcard_Rechteck::after {
+.flashcard-rechteck-gradient::after { /*gradient to fade out text on max height*/
+    content: '';
     position: absolute;
     bottom: 0;
     height: 100%;
     width: 100%;
-    content: "";
-    background: linear-gradient(to top,
-    #ffffff 5px,
-    rgba(255,255,255,0) 25%
-    );
+    background: linear-gradient(to top, rgb(241, 242, 247) 5px, rgba(255,255,255,0) 15%);
     pointer-events: none;
 }
 .Flashcard_Title {
     font-family: 'M PLUS 1', sans-serif;
-    color: white;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     width: 90%;
     padding-left: 5%;
     position: relative;
-    top: -10px;
+    top: -15px;
     white-space: pre-line;
     word-wrap: break-word;
     hyphens: auto;
     color: rgb(53, 53, 53);
+    margin-bottom: 16px;
 }
 .Flashcard_Content {
     position: relative;
     font-family: 'M PLUS 1', sans-serif;
-    color: white;
     font-size: 16px;
-    text-align: justify;
+    text-align: left;
     width: 90%;
     left: 5%;
-    top: -10px;
+    top: -15px;
     overflow: hidden;
     white-space: pre-line;
     word-wrap: break-word;
     hyphens: auto;
-    line-height: 120%;
+    line-height: 140%;
     color: rgb(53, 53, 53);
+    margin-bottom: -5px;
+}
+.Flashcard_Content p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* Flashcard Settings */
@@ -686,8 +697,7 @@ body {
 }
 .Flashcard_Settings_Bar {
     position: absolute;
-    width: calc(100% - 60px);
-    left: 25px;
+    width: calc(100% - 10px);
     height: 30px;
     background-color: rgb(241, 242, 247);
     border-top: 5px solid rgb(199, 202, 211);
@@ -897,39 +907,23 @@ body {
 }
 
 /* New Flashcard Button*/
-.New_Flashcard_Settings_Bar{
+.New_Flashcard_Rechteck {
     position: absolute;
-    width: calc(100% - 60px);
-    left: 25px;
-    height: 30px;
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
     background-color: transparent;
-    border-top: 5px dotted rgb(199, 202, 211);
-    border-left: 5px dotted rgb(199, 202, 211);
-    border-right: 5px dotted rgb(199, 202, 211);
-    border-radius: 3px;
-    cursor: pointer;
-}
-.New_Flashcard_Rechteck{
-    position: absolute;
-    left: 25px;
-    top: 30px;
-    height: calc(100% - 70px);
-    width: calc(100% - 60px);
-    background-color: transparent;
-    border-bottom: 5px dotted rgb(199, 202, 211);
-    border-left: 5px dotted rgb(199, 202, 211);
-    border-right: 5px dotted rgb(199, 202, 211);
+    border: 5px dotted rgb(199, 202, 211);
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
 }
 .New_Flashcard_Circle {
     position: absolute;
-    top: calc(50% - 25% / 3 * 2 - 15px);
+    top: 50%;
     left: 50%;
-    transform: translate(-50%);
-    width: 45%;
-    height: calc(45% / 3 * 2);
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
     border: 10px solid rgb(199, 202, 211);
     border-radius: 50%;
     background-color: rgb(241, 242, 247);
@@ -1043,6 +1037,51 @@ body {
     height: 100%;
     top: 0;
     left: 0;
+}
+
+@media (max-width: 1900px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 1400px
+    }
+}
+@media (max-width: 1600px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 1200px
+    }
+}
+@media (max-width: 1400px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 950px;
+    }
+}
+@media (max-width: 1150px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 700px;
+    }
+}
+@media (max-width: 850px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 500px;
+    }
+}
+@media (max-width: 620px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        left: calc(50% + 5px);
+        width: 420px;
+    }
+    .Flashcard_Body {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+@media (max-width: 495px) { /*responsiveness for flashcard layout*/
+    .flashcard-base-grid {
+        width: 200px;
+    }
+    .Flashcard_Body {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 /* CSS für AGB, Impressum und Datenschutz */
