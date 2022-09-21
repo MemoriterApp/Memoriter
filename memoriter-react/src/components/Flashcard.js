@@ -13,10 +13,14 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
     const refHeight = useRef(null); //reference to html id to get the height of the inner flashcard rectangle
     const [flashcardHeight, setFlashcardHeight] = useState(0); //height of the inner flashcard rectangle
     const [maxHeightGradient, setMaxHeightGradient] = useState('');
+
+    const refContentHeight = useRef(null);
+    const refTitleHeight = useRef(null);
   
     useEffect(() => { //sets the height of the flashcard on component render
         setFlashcardHeight(refHeight.current.clientHeight);
-        if (refHeight.current.clientHeight >= 290) { //checks if the flashcard has its max height and applies bottom text fade out gradient
+        if (refHeight.current.clientHeight >= 290
+            && (refTitleHeight.current.clientHeight + refContentHeight.current.clientHeight) > 260) { //checks if the flashcard has its max height and applies bottom text fade out gradient
             setMaxHeightGradient('flashcard-rechteck-gradient');
         } else {
             setMaxHeightGradient('');
@@ -220,8 +224,8 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                 </div>
             </div>
             <div className={`Flashcard_Rechteck ${maxHeightGradient}`} onClick={openFlashcard} ref={refHeight}>
-                <h3 className='Flashcard_Title'>{flashcard.title}</h3>
-                <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}
+                <h3 className='Flashcard_Title' ref={refTitleHeight}>{flashcard.title}</h3>
+                <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}} ref={refContentHeight}
                     dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}
             </div>
 
