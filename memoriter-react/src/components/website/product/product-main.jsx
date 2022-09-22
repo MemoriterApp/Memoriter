@@ -1,4 +1,4 @@
-import lightBulbIconGradient from '../../../images/icons/light-bulb-icon-gradient.svg';
+import lightBulbIconGradient from '../../../images/website/product/light-bulb.svg';
 import placeholderImage from '../../../images/website/product/placeholder.jpeg';
 import ScrollAnimation from 'react-animate-on-scroll';
 

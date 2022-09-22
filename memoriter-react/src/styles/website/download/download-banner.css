@@ -92,10 +92,27 @@
     margin-left: 40px;
 }
 
-.download-banner-icon { /*symbol next to the download buttons*/
+.download-banner-icon { /*image container next to the download buttons*/
     position: relative;
     width: 400px;
     height: 400px;
+}
+.download-banner-icon-background { /*background shape behind the icon*/
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 135%;
+    height: 135%;
+}
+.download-banner-icon-symbol { /*download icon shape*/
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    height: 65%;
+    filter: var(--svg-invert);
 }
 
 .download-banner-bottom-transition { /*the shape at the bottom is an overlay in the same color as se next section*/
@@ -135,6 +152,10 @@
         transform: translate(0, 40px);
         width: 360px;
         height: 360px;
+    }
+    .download-banner-icon-background {
+        width: 100%;
+        height: 100%;
     }
 }
 

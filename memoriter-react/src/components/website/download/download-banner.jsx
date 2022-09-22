@@ -1,6 +1,7 @@
 import windowsIcon from '../../../images/icons/windows-icon.svg';
 import appleIcon from '../../../images/icons/apple-icon.svg';
-import downloadIcon from '../../../images/icons/download-icon.svg';
+import downloadIcon from '../../../images/website/download/download.svg';
+import downloadIconBackground from '../../../images/website/download/download-background.svg';
 import { useEffect, useState } from 'react';
 
 const DownloadBanner = () => {
@@ -72,7 +73,10 @@ const DownloadBanner = () => {
                 </div>
 
                 {/*download icon*/}
-                <img className='download-banner-icon' src={downloadIcon} alt='download-icon'/>
+                <div className='download-banner-icon'>
+                    <img className='download-banner-icon-background' src={downloadIconBackground} alt='download-icon-background'/>
+                    <img className='download-banner-icon-symbol' src={downloadIcon} alt='download-icon'/>
+                </div>
 
             </div>
 

@@ -27,7 +27,7 @@
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    height: 92px;
+    height: 100px;
 }
 .product-main-overview-text { /*small overview texts*/
     position: relative;
