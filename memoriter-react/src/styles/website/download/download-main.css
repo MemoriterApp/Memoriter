@@ -14,6 +14,7 @@
     font-size: 4rem;
     font-family: var(--font-heading);
     text-align: center;
+    margin-top: 80px;
     margin-bottom: 60px;
     background: var(--color-highlight-gradient);
     background-clip: text;
