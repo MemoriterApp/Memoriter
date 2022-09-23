@@ -2099,11 +2099,22 @@ body {
     top: 78vh;
 }
 .finished_statistics{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    text-align: center;
     font-size: 24px;
     font-family: 'M PLUS 1', sans-serif;
+    margin:10px;
+}
+.finished-box{
+    top:20%;
+    height: 30vh;
+    width: 25vw;
+    left: 50%;
+    position: absolute;
+    background: rgb(205, 208, 218);
+    border: 1vw solid rgb(126, 128, 134);
+    border-radius: 5px;
+    transform: translateX(-50%);
 }
 .finished-button{
     position: absolute;
@@ -2116,6 +2127,7 @@ body {
     font-size: calc(1.4vh*var(--testing));
     background-color: rgb(205, 208, 218);
     border:0;
+    cursor: pointer;
 }
 @media(max-width: 500px) {
     .flex-container {

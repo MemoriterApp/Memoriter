@@ -171,27 +171,31 @@ const StudyPage = () => {
                 </>}
 
                 {finished && <div>
-                    <p className='finished_statistics' style={{ top: '20%', fontSize:'50px'}}>
-                        Results
-                    </p>
-                    <p className='finished_statistics' style={{ top: '30%'}}>
-                        Studied Flashcards: {studiedFlashcards}
-                    </p>
-                    <p className='finished_statistics' style={{ top: '35%'}}>
-                        Repetitions: {studiedFlashcards + incorrectFlashcards}
-                    </p>
-                    <p className='finished_statistics' style={{ top: '40%', color:'#dc4c4d'}}>
-                        Incorrect: {incorrectFlashcards}
-                    </p>
-
-                    {/* tried to get a pie chart to work
-                    <PieChart
-                        data={[
-                            { title: 'One', value: '90%', color: '#E38627' },
-                            { title: 'Two', value: '90%', color: '#C13C37' },
-                            { title: 'Three', value: '180%', color: '#6A2135' },
-                        ]}
-                    />;*/}
+                    <div className='finished-box'>
+                        <p className='finished_statistics' style={{fontSize:'50px'}}>
+                            Results
+                        </p>
+                        <p className='finished_statistics'>
+                            Studied Flashcards: {studiedFlashcards}
+                        </p>
+                        <p className='finished_statistics'>
+                            Repetitions: {studiedFlashcards + incorrectFlashcards}
+                        </p>
+                        <p className='finished_statistics'>
+                            Average Correctness: fomrula
+                        </p>
+                        <p className='finished_statistics' style={{ color:'#dc4c4d'}}>
+                            Incorrect: {incorrectFlashcards}
+                        </p>
+                        {/* tried to get a pie chart to work
+                        <PieChart
+                            data={[
+                                { title: 'One', value: '90%', color: '#E38627' },
+                                { title: 'Two', value: '90%', color: '#C13C37' },
+                                { title: 'Three', value: '180%', color: '#6A2135' },
+                            ]}
+                        />;*/}
+                    </div>
 
                     <button className='finished-button'
                         style={{ top: '70%'}}
