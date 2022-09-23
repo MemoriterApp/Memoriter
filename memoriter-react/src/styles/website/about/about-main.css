@@ -109,7 +109,7 @@
     }
 }
 
-@media (max-width: 660px) { /*pushes the footer down when the customer stories disappear*/
+@media (max-width: 660px) { /*pushes the footer down on certain width*/
     .about-main {
         margin-bottom: 240px;
     }

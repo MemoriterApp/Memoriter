@@ -2,14 +2,15 @@
 
 .download-main { /*layout container for the content*/
     position: relative;
-    left: 50%;
-    margin-top: calc(100vh + 100px);
+    left: 50%; /*centering the content on too large screens*/
     transform: translate(-50%);
-    max-width: 2400px;
-    margin-bottom: 320px;
+    max-width: 2400px; /*looks better on large screens*/
+    margin-top: 100vh;
+    margin-bottom: 20px;
+    overflow-x: hidden;
 }
 
-.download-main-heading { /*page heading*/
+.download-main-title { /*page heading*/
     font-size: 4rem;
     font-family: var(--font-heading);
     text-align: center;
@@ -20,8 +21,174 @@
     -webkit-text-fill-color: var(--color-transparent);
 }
 
-@media (max-width: 240px) { /*hides everything on too small screens*/
+.download-main-top-text { /*slogan at the top*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 840px;
+    max-width: calc(100% - 40px);
+    font-size: 1.8rem;
+    color: var(--color-font);
+    font-family: var(--font-default);
+    line-height: 2.8rem;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.download-main-top-image { /*large image at the top*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 1000px;
+    max-width: calc(100% - 40px);
+    margin-bottom: 120px;
+    border-radius: 10px;
+}
+
+.download-main-container { /*contains all of the main sections, is used for positioning*/
+    display: flex;
+    margin: 160px 70px 200px 70px;
+}
+.download-main-container > * + * { /*children of container*/
+    margin-left: 60px;
+}
+.download-main-container-sub { /*sub containers with the text inside*/
+    flex-basis: 45%;
+    align-self: center;
+}
+.download-main-container-sub-image { /*sub containers with the image inside*/
+    flex-basis: 55%;
+    align-self: center;
+}
+
+.download-main-heading { /*heading font styling*/
+    font-size: 3.4rem;
+    font-family: var(--font-heading);
+    line-height: 4rem;
+    background: var(--color-highlight-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--color-transparent);
+}
+
+.download-main-text { /*text font styling*/
+    font-size: 1.4rem;
+    color: var(--color-font);
+    font-family: var(--font-default);
+    line-height: 2rem;
+}
+
+.download-main-image { /*image optimization*/
+    width: 100%;
+    border-radius: 10px;
+}
+
+@media (max-width: 960px) { /*simplyfied layout for smaller screens*/  
+    .download-main-heading {
+        font-size: 3rem;
+        hyphens: auto; /*allows linebreaks within words*/
+    }
+
+    .download-main-text {
+        font-size: 1.2rem;
+    }
+
+    .download-main-container {
+        display: block;
+        margin: 120px 20px 20px 20px;
+    }
+    .download-main-container > * + * { /*children of container*/
+        margin-left: unset;
+    }
+}
+
+@media (max-width: 660px) { /*makes some text font size samller for better readability on small screens*/
+    .download-main-title {
+        font-size: 3.2rem;
+    }
+    .download-main-top-text {
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+    }
+}
+
+@media (max-width: 240px) { /*hiding content for too small screens (where the warning displays)*/
     .download-main {
         display: none;
+    }
+}
+
+@media (max-height: 720px) { /*fixes issues for screens not high enough on small widths*/
+    @media (max-width: 560px) {
+        .download-main {
+            margin-top: 720px;
+        }
+    }
+}
+
+@media (max-height: 600px) { /*fixes issues for screens not high enough*/
+    .download-main {
+        margin-top: 600px;
+    }
+    @media (max-width: 560px) {
+        .download-main {
+            margin-top: 720px;
+        }
+    }
+}
+
+/*animation classes*/
+.download-main-animation-fade-in-right { /*class for triggering the fade in right animation*/
+    animation: fade-in-right 200ms;
+}
+@keyframes fade-in-right { /*the items move a bit to the left and get visible*/
+    from {
+        transform: translateX(8%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.download-main-animation-fade-out-right { /*class for triggering the fade out right animation*/
+    animation: fade-out-right 400ms;
+}
+@keyframes fade-out-right { /*the items move a bit to the right and get invisible*/
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(8%);
+        opacity: 0;
+    }
+}
+
+.download-main-animation-fade-in-left { /*class for triggering the fade in left animation*/
+    animation: fade-in-left 200ms;
+}
+@keyframes fade-in-left { /*the items move a bit to the right and get visible*/
+    from {
+        transform: translateX(-8%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.download-main-animation-fade-out-left { /*class for triggering the fade out left animation*/
+    animation: fade-out-left 400ms;
+}
+@keyframes fade-out-left { /*the items move a bit to the right and get invisible*/
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-8%);
+        opacity: 0;
     }
 }
