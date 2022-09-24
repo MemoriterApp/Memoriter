@@ -41,7 +41,6 @@
     transform: translate(-50%);
     width: 1000px;
     max-width: calc(100% - 40px);
-    margin-bottom: 120px;
     border-radius: 10px;
 }
 
@@ -83,6 +82,73 @@
     border-radius: 10px;
 }
 
+.download-main-footer { /*container with download buttons at the bottom*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 800px;
+    max-width: calc(100% - 40px);
+    margin-top: 200px;
+    margin-bottom: 400px;
+}
+.download-main-footer-text { /*text above thw download buttons*/
+    font-size: 1.8rem;
+    color: var(--color-font);
+    font-family: var(--font-default);
+    line-height: 2.8rem;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.download-main-download { /*download button, needed to be split in multiple classes, this class is for the positionig of the button*/
+    background-color: var(--color-transparent);;
+    border: none;
+    cursor: pointer;
+}
+.download-main-download-icon { /*operating system icon*/
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: var(--svg-invert-white); /*makes the icon white*/
+}
+.download-main-download-text { /*text which is not supposed to change color*/
+    position: absolute;
+    left: 80px;
+    top: 0.6rem;
+    font-size: 1.6rem;
+    color: var(--color-white);
+    font-family: var(--font-highlight);
+    white-space: nowrap;
+}
+.download-main-download-text-os { /*additional text formatting for the operating system*/
+    position: absolute;
+    left: 80px;
+    top: 2.6rem;
+    font-size: 1.2rem;
+    color: var(--color-white);
+    font-family: var(--font-highlight);
+}
+.download-main-download-background { /*the hover background was done in React because it did not work in CSS*/
+    width: 200px;
+    height: 56px;
+    padding: 8px 10px 8px 10px;
+    margin-inline: -6px;
+    border-radius: 10px;
+    background: var(--color-highlight-gradient);
+    transition: filter 200ms;
+}
+.download-main-download-windows { /*position for the download for windows button*/
+    position: absolute;
+    left: calc(50% - 130px);
+    transform: translate(-50%);
+}
+.download-main-download-mac { /*position for the download for mac button*/
+    position: absolute;
+    left: calc(50% + 130px);
+    transform: translate(-50%);
+}
+
 @media (max-width: 960px) { /*simplyfied layout for smaller screens*/  
     .download-main-heading {
         font-size: 3rem;
@@ -102,13 +168,27 @@
     }
 }
 
-@media (max-width: 660px) { /*makes some text font size samller for better readability on small screens*/
+@media (max-width: 560px) { /*makes some text font size samller for better readability on small screens*/
     .download-main-title {
         font-size: 3.2rem;
     }
     .download-main-top-text {
         font-size: 1.4rem;
         line-height: 2.4rem;
+    }
+
+    .download-main-footer-text {
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+    }
+
+    .download-main-download-windows {
+        left: 50%;
+        transform: translate(-50%, -24px) scale(0.9);
+    }
+    .download-main-download-mac {
+        left: 50%;
+        transform: translate(-50%, 80px) scale(0.9);
     }
 }
 
