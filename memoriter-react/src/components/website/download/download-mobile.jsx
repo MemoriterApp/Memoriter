@@ -8,6 +8,8 @@ const DownloadMobile = () => {
     return (
         <section className='download-mobile'>
 
+            <h1 className='download-mobile-heading-alt'>Mobile App</h1> {/*alternative section heading for small screens*/}
+
             {/*mobile phone image with content*/}
             <div className='download-mobile-phone-image'>
                 <img className='download-mobile-phone-image-outside' src={phone} alt='mobile-phone'/>

@@ -22,6 +22,16 @@
     text-align: center;
     margin-top: 8px;
 }
+.download-mobile-heading-alt { /*alternative heading on small screens*/
+    display: none;
+    font-size: 4rem;
+    font-family: var(--font-heading);
+    text-align: center;
+    background: var(--color-highlight-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--color-transparent);
+}
 
 .download-mobile-content-heading { /*section heading slogan*/
     font-size: 1.8rem;
@@ -103,15 +113,14 @@
 
     .download-mobile-content {
         margin-right: 0;
+        margin-top: 160px;
     }
 
     .download-mobile-heading {
-        transform: translate(0, -720px);
-        font-size: 4rem;
-        background: var(--color-highlight-gradient);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: var(--color-transparent);
+        display: none;
+    }
+    .download-mobile-heading-alt {
+        display: block;
     }
 
     .download-mobile-phone-image {
@@ -131,12 +140,16 @@
         margin-top: 120px;
     }
     
-    .download-mobile-heading {
-        transform: translate(0, -700px);
+    .download-mobile-heading-alt {
         font-size: 3.2rem;
+        margin-top: -40px;
     }
 
-    .download-mobile-content-heading {
+    .download-mobile-content {
+        margin-top: 60px;
+    }
+
+    .download-mobile-content-heading-alt {
         font-size: 1.4rem;
         line-height: 2.4rem;
     }
@@ -167,13 +180,13 @@
     .download-mobile {
         margin-top: 40px;
     }
-    
-    .download-mobile-heading {
-        transform: translate(0, -550px);
+
+    .download-mobile-heading-alt {
+        margin-top: 48px;
     }
     
     .download-mobile-phone-image {
-        transform: translate(-50%) scale(0.7);
+        transform: translate(-50%, -60px) scale(0.7);
         margin-bottom: -120px;
     }
 }
