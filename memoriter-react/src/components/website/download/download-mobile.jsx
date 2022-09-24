@@ -6,7 +6,7 @@ import appStoreButton from '../../../images/website/download/app-store-button.sv
 const DownloadMobile = () => {
     return (
         <section className='download-mobile'>
-        
+
             {/*mobile phone image with content*/}
             <div className='download-mobile-phone-image'>
                 <img className='download-mobile-phone-image-outside' src={phone} alt='mobile-phone'/>
@@ -14,7 +14,7 @@ const DownloadMobile = () => {
             </div>
 
             {/*content text*/}
-            <div>
+            <article className='download-mobile-content'>
 
                 <h2 className='download-mobile-heading'>Mobile App</h2>
 
@@ -41,7 +41,7 @@ const DownloadMobile = () => {
                     </a>
                 </div>
 
-            </div>
+            </article>
 
         </section>
     );

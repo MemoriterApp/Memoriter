@@ -89,7 +89,7 @@
     width: 800px;
     max-width: calc(100% - 40px);
     margin-top: 200px;
-    margin-bottom: 400px;
+    margin-bottom: 320px;
 }
 .download-main-footer-text { /*text above thw download buttons*/
     font-size: 1.8rem;
@@ -149,7 +149,19 @@
     transform: translate(-50%);
 }
 
+.download-main-divider { /*divider between mainand mobile section*/
+    width: calc(100% - 120px);
+    margin-bottom: 180px;
+    background-color: var(--color-container);
+    border: none;
+    border-top: 2px solid var(--color-container);
+}
+
 @media (max-width: 960px) { /*simplyfied layout for smaller screens*/  
+    .download-main-top-image {
+        margin-bottom: -120px;
+    }
+    
     .download-main-heading {
         font-size: 3rem;
         hyphens: auto; /*allows linebreaks within words*/
@@ -165,6 +177,11 @@
     }
     .download-main-container > * + * { /*children of container*/
         margin-left: unset;
+    }
+
+    .download-main-divider {
+        width: calc(100% - 40px);
+        margin-bottom: 200px;
     }
 }
 
@@ -189,6 +206,10 @@
     .download-main-download-mac {
         left: 50%;
         transform: translate(-50%, 80px) scale(0.9);
+    }
+
+    .download-main-divider {
+        margin-bottom: 100px;
     }
 }
 

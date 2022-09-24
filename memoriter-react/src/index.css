@@ -31,13 +31,13 @@
     /*values for correcting svg colors*/
     --svg-invert-white: invert(1);
     /*font families*/
-    --font-default: 'Inter';
-    --font-highlight: 'Rubik';
-    --font-heading: 'Heebo';
-    --font-serif: 'Kaisei HarunoUmi';
-    --font-large-quotation: 'BIZ UDPGothic';
-    --font-blog: 'IBM Plex Serif';
-    --font-large-question: 'Quantico';
+    --font-default: 'Inter', sans-serif;
+    --font-highlight: 'Rubik', sans-serif;
+    --font-heading: 'Heebo', sans-serif;
+    --font-serif: 'Kaisei HarunoUmi', serif;
+    --font-large-quotation: 'BIZ UDPGothic', serif;
+    --font-blog: 'IBM Plex Serif', serif;
+    --font-large-question: 'Quantico', sans-serif;
 }
 
 /*global color variables for different visual modes (can be used with the var() expression)*/

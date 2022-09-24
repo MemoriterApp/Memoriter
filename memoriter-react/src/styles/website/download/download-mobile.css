@@ -9,7 +9,11 @@
     max-width: 1200px;
     gap: 128px;
     margin-bottom: 240px;
-    display: none;
+}
+
+.download-mobile-content { /*headings and texts describing the mobile app*/
+    max-width: 600px;
+    margin-right: 48px;
 }
 
 .download-mobile-heading { /*mobile app heading*/
@@ -20,7 +24,6 @@
 }
 
 .download-mobile-content-heading { /*section heading slogan*/
-    max-width: 600px;
     font-size: 1.8rem;
     font-weight: 400;
     font-family: var(--font-highlight);
@@ -28,7 +31,6 @@
     margin-top: 20px;
 }
 .download-mobile-content-text { /*section content*/
-    max-width: 600px;
     font-size: 1.6rem;
     font-family: var(--font-default);
     line-height: 2.6rem;
@@ -61,21 +63,129 @@
 
 .download-mobile-buttons { /*container for download buttons*/
     display: flex;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: fit-content;
     gap: 40px;
+    margin-top: 40px;
 }
 .download-mobile-buttons > * { /*removing space around the buttons*/
-    height: 72px;
     overflow: hidden;
 }
 .download-mobile-buttons > * > img { /*download buttons*/
     position: relative;
-    top: -84px;
     width: 240px;
     cursor: pointer;
 }
 
+@media (max-width: 1160px) { /*optimization for tablets and small laptops*/
+    .download-mobile {
+        gap: 10%;
+    }
+    
+    .download-mobile-content {
+        max-width: 500px;
+    }
+    
+    .download-mobile-buttons {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 960px) { /*optimization for phones and tablets*/
+    .download-mobile {
+        flex-direction: column;
+        width: fit-content;
+        max-width: calc(100% - 40px);
+        margin-top: 80px;
+    }
+
+    .download-mobile-content {
+        margin-right: 0;
+    }
+
+    .download-mobile-heading {
+        transform: translate(0, -720px);
+        font-size: 4rem;
+        background: var(--color-highlight-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: var(--color-transparent);
+    }
+
+    .download-mobile-phone-image {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        margin-bottom: -40px;
+    }
+
+    .download-mobile-buttons {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 560px) { /*optimization for phones*/
+    .download-mobile {
+        margin-top: 120px;
+    }
+    
+    .download-mobile-heading {
+        transform: translate(0, -700px);
+        font-size: 3.2rem;
+    }
+
+    .download-mobile-content-heading {
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+    }
+
+    .download-mobile-content-text {
+        font-size: 1.2rem;
+        line-height: 2.2rem;
+    }
+    .download-mobile-content-text li {
+        font-size: 1.2rem;
+        line-height: 2.2rem;
+    }
+
+    .download-mobile-phone-image {
+        transform: translate(-50%) scale(0.9);
+    }
+    
+    .download-mobile-buttons {
+        flex-direction: column;
+        margin-top: 60px;
+    }
+    .download-mobile-buttons img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 360px) { /*makes phone image smaller to fit on smaller screens*/
+    .download-mobile {
+        margin-top: 40px;
+    }
+    
+    .download-mobile-heading {
+        transform: translate(0, -550px);
+    }
+    
+    .download-mobile-phone-image {
+        transform: translate(-50%) scale(0.7);
+        margin-bottom: -120px;
+    }
+}
+
+@media (max-width: 280px) { /*makes phone image smaller to fit on smaller screens*/
+    .download-mobile-phone-image {
+        transform: translate(-50%) scale(0.6);
+    }
+}
+
 @media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/
-    .product-banner {
+    .download-mobile {
         display: none;
     }
 }

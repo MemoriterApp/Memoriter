@@ -73,6 +73,8 @@ const DownloadMain = () => {
                 </button>
             </article>
 
+            <hr className='download-main-divider'/>
+
         </section>
     );
 }
