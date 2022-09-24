@@ -2,7 +2,7 @@ import windowsIcon from '../../../images/icons/windows-icon.svg';
 import appleIcon from '../../../images/icons/apple-icon.svg';
 import placeholderImage from '../../../images/website/download/placeholder.jpeg';
 import { useState } from 'react';
-import ScrollAnimation from 'react-animate-on-scroll';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 const DownloadMain = () => {
     
@@ -23,25 +23,25 @@ const DownloadMain = () => {
                     <img className='download-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
                 <div className='download-main-container-sub'>
-                    <ScrollAnimation animateIn='download-main-animation-fade-in-left' animateOut='download-main-animation-fade-out-left'>
-                    {/*ScrollAnimation starts an animation when it enters the viewport*/}
+                    <AnimationOnScroll animateIn='download-main-animation-fade-in-left' animateOut='download-main-animation-fade-out-left'>
+                    {/*AnimationOnScroll starts an animation when it enters the viewport*/}
                         <h1 className='download-main-heading'>Placeholder Heading</h1>
                         <p className='download-main-text'>
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                         </p>
-                    </ScrollAnimation>
+                    </AnimationOnScroll>
                 </div>
             </article>
 
             <article className='download-main-container'>
                 <div className='download-main-container-sub'>
-                    <ScrollAnimation animateIn='download-main-animation-fade-in-right' animateOut='download-main-animation-fade-out-right'>
-                    {/*ScrollAnimation starts an animation when it enters the viewport*/}
+                    <AnimationOnScroll animateIn='download-main-animation-fade-in-right' animateOut='download-main-animation-fade-out-right'>
+                    {/*AnimationOnScroll starts an animation when it enters the viewport*/}
                         <h1 className='download-main-heading'>Placeholder Heading</h1>
                         <p className='download-main-text'>
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                         </p>
-                    </ScrollAnimation>
+                    </AnimationOnScroll>
                 </div>
                 <div className='download-main-container-sub-image'>
                     <img className='download-main-image' src={placeholderImage} alt='placeholder'/>

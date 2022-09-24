@@ -2,7 +2,7 @@ import phone from '../../../images/website/download/phone.png';
 import phoneContent from '../../../images/website/download/phone-content.jpeg';
 import googlePlayButton from '../../../images/website/download/google-play-button.svg';
 import appStoreButton from '../../../images/website/download/app-store-button.svg';
-import ScrollAnimation from 'react-animate-on-scroll';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 const DownloadMobile = () => {
     return (
@@ -17,7 +17,7 @@ const DownloadMobile = () => {
             </div>
 
             {/*content text*/}
-            <ScrollAnimation animateIn='download-mobile-animation-fade-in-down' animateOut='download-mobile-animation-fade-out-down'>
+            <AnimationOnScroll animateIn='download-mobile-animation-fade-in-down' animateOut='download-mobile-animation-fade-out-down'>
                 <article className='download-mobile-content'>
 
                     <h2 className='download-mobile-heading'>Mobile App</h2>
@@ -45,7 +45,7 @@ const DownloadMobile = () => {
                     </div>
 
                 </article>
-            </ScrollAnimation>
+            </AnimationOnScroll>
 
         </section>
     );
