@@ -4,7 +4,6 @@ import DownloadMain from '../../components/website/download/download-main';
 import DownloadMobile from '../../components/website/download/download-mobile';
 
 const Download = () => {
-    
     return (
         <WebsiteWrapper
             title='Download'
