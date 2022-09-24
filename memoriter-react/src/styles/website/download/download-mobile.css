@@ -8,7 +8,7 @@
     color: var(--color-font);
     max-width: 1200px;
     gap: 128px;
-    margin-bottom: 240px;
+    margin-bottom: 220px;
 }
 
 .download-mobile-content { /*headings and texts describing the mobile app*/
@@ -187,5 +187,35 @@
 @media (max-width: 240px) { /*hides all at too small screens in order to show no responsive bugs*/
     .download-mobile {
         display: none;
+    }
+}
+
+
+/*animation classes*/
+.download-mobile-animation-fade-in-down { /*class for triggering the fade in down animation*/
+    animation: fade-in-down 200ms;
+}
+@keyframes fade-in-down { /*the items move a bit down and get visible*/
+    from {
+        transform: translateY(6%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.download-mobile-animation-fade-out-down { /*class for triggering the fade out down animation*/
+    animation: fade-out-down 400ms;
+}
+@keyframes fade-out-down { /*the items move a bit down and get invisible*/
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-6%);
+        opacity: 0;
     }
 }
