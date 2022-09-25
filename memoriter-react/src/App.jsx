@@ -3,12 +3,15 @@ import About from './pages/website/about';
 import Blog from './pages/website/blog';
 import BlogPost from './pages/website/blog-post';
 import Download from './pages/website/download';
+import Donate from './pages/website/donate';
 import Releases from './pages/website/releases';
 import Impressum from './pages/website/impressum';
 import Terms from './pages/website/terms';
 import Privacy from './pages/website/privacy';
 import Cookies from './pages/website/cookies';
+import Support from './pages/website/support';
 import Faq from './pages/website/faq';
+import Bugs from './pages/website/bugs';
 import Newsletter from './pages/website/newsletter';
 import PageNotFound from './pages/website/page-not-found';
 
@@ -69,6 +72,8 @@ function App() {
 
             <Route path='/download' element={<Download/>}/>
 
+            <Route path='/donate' element={<Donate/>}/>
+
             <Route path='/releases' element={<Releases/>}/>
 
             <Route path='/impressum' element={<Impressum/>}/>
@@ -79,9 +84,13 @@ function App() {
 
             <Route path='/cookies' element={<Cookies/>}/>
 
-            <Route path='faq' element={<Faq/>}/>
+            <Route path='/support' element={<Support/>}/>
 
-            <Route path='newsletter' element={<Newsletter/>}/>
+            <Route path='/faq' element={<Faq/>}/>
+
+            <Route path='/bugs' element={<Bugs/>}/>
+
+            <Route path='/newsletter' element={<Newsletter/>}/>
 
             <Route path='*' element={<PageNotFound/>}/> {/*loads page not found page for all unset routes*/}
 
