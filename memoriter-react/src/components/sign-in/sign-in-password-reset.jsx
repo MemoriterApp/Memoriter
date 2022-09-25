@@ -44,7 +44,7 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
     };
 
     return (
-        <div className='sign-in-password-reset' style={animationStyles}>
+        <section className='sign-in-password-reset' style={animationStyles}>
 
             <div className='sign-in-password-reset-close' onClick={() => onClosePasswordReset()}/>
             <p className='sign-in-password-reset-title'>Reset Password</p>
@@ -80,7 +80,7 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
 
             </form>
             
-        </div>
+        </section>
     );
 }
 

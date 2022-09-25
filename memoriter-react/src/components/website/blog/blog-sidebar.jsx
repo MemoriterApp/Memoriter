@@ -6,10 +6,8 @@ const BlogSidebar = ({ topic }) => {
         <aside className='blog-sidebar'>
 
             <h1 className='blog-sidebar-header'>Blog</h1>
-
             <p className='blog-sidebar-description'>Thoughts, inspirations and stories by the people creating Memoriter.</p>
-
-            <div className='blog-sidebar-divider'/>
+            <hr className='blog-sidebar-divider'/>
 
             {/*links to different sub topics*/}
             <ul className='blog-sidebar-topics'>

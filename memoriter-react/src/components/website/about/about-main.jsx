@@ -5,7 +5,7 @@ const AboutMain = () => {
     return (
         <section className='about-main'> {/*main parts with texts and images*/}
 
-            <div className='about-main-container' style={{marginTop: '160px'}}>
+            <article className='about-main-container' style={{marginTop: '160px'}}>
                 <div className='about-main-container-sub'>
                     <AnimationOnScroll animateIn='about-main-animation-fade-in-right' animateOut='about-main-animation-fade-out-right'>
                     {/*AnimationOnScroll starts an animation when it enters the viewport*/}
@@ -18,8 +18,8 @@ const AboutMain = () => {
                 <div className='about-main-container-sub-image'>
                     <img className='about-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
-            </div>
-            <div className='about-main-container'>
+            </article>
+            <article className='about-main-container'>
                 <div className='about-main-container-sub'>
                     <AnimationOnScroll animateIn='about-main-animation-fade-in-right' animateOut='about-main-animation-fade-out-right'>
                     {/*AnimationOnScroll starts an animation when it enters the viewport*/}
@@ -31,9 +31,9 @@ const AboutMain = () => {
                 <div className='about-main-container-sub-image'>
                     <img className='about-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
-            </div>
+            </article>
 
-            <div className='about-main-container' style={{marginTop: '240px'}}>
+            <article className='about-main-container' style={{marginTop: '240px'}}>
                 <div className='about-main-container-sub-image'>
                     <img className='about-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
@@ -46,8 +46,8 @@ const AboutMain = () => {
                         </p>
                     </AnimationOnScroll>
                 </div>
-            </div>
-            <div className='about-main-container'>
+            </article>
+            <article className='about-main-container'>
                 <div className='about-main-container-sub-image'>
                     <img className='about-main-image' src={placeholderImage} alt='placeholder'/>
                 </div>
@@ -59,7 +59,7 @@ const AboutMain = () => {
                         </p>
                     </AnimationOnScroll>
                 </div>
-            </div>
+            </article>
 
             <AnimationOnScroll animateIn='about-main-animation-fade-in-down' animateOut='about-main-animation-fade-out-down'>
                 <p className='about-main-bottom'>

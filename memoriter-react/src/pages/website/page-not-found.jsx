@@ -23,11 +23,11 @@ const PageNotFound = () => {
             <WebsiteHead title='Page Not Found' description='This URL does not match any page.'/>
 
             {/*container with content*/}
-            <div className='page-not-found'>
+            <main className='page-not-found'>
 
-                <div className='page-not-found-question-mark'>?</div> {/*large question mark next to the text*/}
+                <section className='page-not-found-question-mark'>?</section> {/*large question mark next to the text*/}
 
-                <div> {/*extra div is important for layout*/}
+                <section> {/*extra div is important for layout*/}
 
                     {/*logo above the content*/}
                     <img className='page-not-found-logo' src={memoriterLogo} alt='memoriter-logo'/>
@@ -46,9 +46,9 @@ const PageNotFound = () => {
                         <div style={PageNotFoundBottomSpace}/> {/*space at the bottom on page scroll*/}
                     </Link>
 
-                </div>
+                </section>
 
-           </div>
+           </main>
 
            {/*alert for too small screens*/}
            <WindowSizeAlert/>

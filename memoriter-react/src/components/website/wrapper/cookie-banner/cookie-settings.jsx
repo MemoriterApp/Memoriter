@@ -36,14 +36,14 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
     };
 
     return (
-        <div className='cookie-settings' style={animationStyles}>
+        <section className='cookie-settings' style={animationStyles}>
 
-            <div className='cookie-settings-title'>
+            <section className='cookie-settings-title'>
                 <p className='cookie-settings-title-text'>Cookie Settings</p>
                 <div className='cookie-settings-close' onClick={() => onCloseCookieSettings()}/>
-            </div>
+            </section>
 
-            <div className='cookie-settings-scroll'>
+            <section className='cookie-settings-scroll'>
 
                 <p className='cookie-settings-description'>
                     We use cookies and similar technologies on our website to process personal data.
@@ -131,9 +131,9 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
                     </nav>
                 </div>
 
-            </div>
+            </section>
 
-            <div className='cookie-settings-buttons'>
+            <section className='cookie-settings-buttons'>
                 {/*button for saving changes*/}
                 <div className='cookie-settings-save' onClick={saveCurrentCookies}>
                     <span className='cookie-settings-save-text'>Save Current</span>
@@ -146,9 +146,9 @@ const CookieSettings = ({ onAnimation, onCloseCookieSettings }) => {
                     <span className='cookie-settings-accept-text'>Accept All</span>
                 </div>
                 
-            </div>
+            </section>
 
-        </div>
+        </section>
     );
 }
 

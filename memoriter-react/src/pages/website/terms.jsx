@@ -8,15 +8,17 @@ const Terms = () => {
         >
 
             {/*main body with text*/}
-            <div className='legal-main'>
+            <article className='legal-main'>
 
                 <h1>Memoriter Terms of Use</h1>
 
                 <p><strong>Last Updated: July 25th, 2022</strong></p>
 
-                <p>Work in Progress.</p>
+                <p>
+                    Work in Progress.
+                </p>
 
-            </div>
+            </article>
             
         </WebsiteWrapper>
     );

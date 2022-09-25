@@ -23,7 +23,7 @@ const NewsletterUnsubscribe = ({ onAnimation, onCloseUnsubscribe }) => {
     };
 
     return (
-        <div className='newsletter-unsubscribe' style={animationStyles}>
+        <section className='newsletter-unsubscribe' style={animationStyles}>
 
             <div className='newsletter-unsubscribe-close' onClick={() => onCloseUnsubscribe()}/>
             <p className='newsletter-unsubscribe-title'>Unsubscribe</p>
@@ -59,7 +59,7 @@ const NewsletterUnsubscribe = ({ onAnimation, onCloseUnsubscribe }) => {
 
             </form>
             
-        </div>
+        </section>
     );
 }
 

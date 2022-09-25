@@ -1,6 +1,6 @@
-import lightBulbIcon from '../../../../images/icons/light-bulb-icon.svg';
 import exampleBlogPost from '../../../../images/website/blog/example-blog-post/example-blog-post.jpeg';
 import BlogPostEmbeddedVideo from '../blog-post-embedded-video';
+import BlogPostCallout from '../blog-post-callout';
 import BlogPostCodeBlock from '../blog-post-code-block';
 import BlogPostInlineCode from '../blog-post-inline-code';
 import { useState, useEffect, useRef } from 'react';
@@ -59,14 +59,11 @@ const ExampleBlogPost = () => {
             </p>
             
             <h3>Example Callout</h3>
-
-            <p className='blog-post-main-callout'>
-                <img src={lightBulbIcon} alt='light-bulb-icon'/>
-                <span>Phasellus volutpat non dolor at ullamcorper.</span>
-            </p>
+            <BlogPostCallout>
+                Phasellus volutpat non dolor at ullamcorper.
+            </BlogPostCallout>
 
             <h3>Example Code</h3>
-
             <BlogPostCodeBlock>{[
                 'const pi = 3.14;',
                 'console.log(pi);',

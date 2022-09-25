@@ -38,7 +38,7 @@ const ProductBanner = () => {
             {/*the size of the triangles changes a bit when you scroll down and when hovering over the get started button*/}
 
             {/*content*/}
-            <div className='product-banner-content'>
+            <article className='product-banner-content'>
                 {/*slogan*/}
                 <p className='product-banner-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
 
@@ -52,7 +52,7 @@ const ProductBanner = () => {
                     <div className='product-banner-get-started-background' style={{filter: onHover}}/>
                     <span className='product-banner-get-started-text'>Get Started!</span>
                 </Link>
-            </div>
+            </article>
 
             {/*transition shape at the bottom*/}
             <div className='product-banner-bottom-transition'/>

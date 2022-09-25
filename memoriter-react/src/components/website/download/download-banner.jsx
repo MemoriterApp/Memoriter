@@ -42,9 +42,9 @@ const DownloadBanner = () => {
             />
             {/*the size of the circles changes a bit when you scroll down*/}
 
-            <div className='download-banner-content'>
+            <section className='download-banner-content'>
 
-                <div>
+                <article>
                     <p className='download-banner-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
 
                     {/*download button for windows*/}
@@ -70,7 +70,7 @@ const DownloadBanner = () => {
                         <span className='download-banner-download-text'>Download</span>
                         <span className='download-banner-download-text-os'>for Mac</span>
                     </button>
-                </div>
+                </article>
 
                 {/*download icon*/}
                 <div className='download-banner-icon'>
@@ -78,8 +78,7 @@ const DownloadBanner = () => {
                     <img className='download-banner-icon-symbol' src={downloadIcon} alt='download-icon'/>
                 </div>
 
-            </div>
-
+            </section>
 
             {/*transition shape at the bottom*/}
             <div className='download-banner-bottom-transition'/>

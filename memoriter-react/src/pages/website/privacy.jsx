@@ -8,7 +8,7 @@ const Privacy = () => {
         >
 
             {/*main body with text*/}
-            <div className='legal-main'>
+            <article className='legal-main'>
 
                 <h1>Memoriter Privacy Policy</h1>
 
@@ -68,7 +68,7 @@ const Privacy = () => {
                     The data can be deleted by the user either manually in the developer tools (for experienced users) or by deleting all website data and settings in the browser history.
                 </p>
 
-            </div>
+            </article>
             
         </WebsiteWrapper>
     );

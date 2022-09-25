@@ -30,8 +30,7 @@ const CookieBanner = ({ onOpenCookieSettings }) => {
     };
 
     return (
-        <div
-            className='cookie-banner' style={{bottom: display}}>
+        <section className='cookie-banner' style={{bottom: display}}>
             {/*style is for if the banner is shown or not*/}
 
             {/*cookie banner text*/}
@@ -48,7 +47,7 @@ const CookieBanner = ({ onOpenCookieSettings }) => {
                 <span className='cookie-banner-accept-text'>Accept</span>
             </div>
 
-        </div>
+        </section>
     );
 }
 

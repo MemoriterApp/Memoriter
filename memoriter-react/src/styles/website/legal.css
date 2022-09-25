@@ -53,6 +53,7 @@
 }
 .legal-main-table-container { /*container for tables enabling x-axis scrolling on smaller screens*/
     width: 100%;
+    margin-bottom: 80px;
     overflow-x: auto;
 }
 .legal-main-table-container table { /*all html tables (<table/>) of legal-main-table-container*/

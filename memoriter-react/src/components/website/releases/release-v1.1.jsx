@@ -1,7 +1,7 @@
-const ReleaseV101 = () => {
+const ReleaseV11 = () => {
 
     return (
-        <section className='old-release'>
+        <article className='old-release'>
 
             <p style={{color: 'var(--color-font-gray)', textAlign: 'left'}}>Month XXth, 2022</p> {/*release date*/}
             
@@ -40,8 +40,8 @@ const ReleaseV101 = () => {
                 - Memoriter Development Team
             </p>
 
-        </section>
+        </article>
     );
 }
 
-export default ReleaseV101;
+export default ReleaseV11;

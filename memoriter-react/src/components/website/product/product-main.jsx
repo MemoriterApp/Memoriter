@@ -7,30 +7,30 @@ const ProductMain = () => {
         <section className='product-main'>
 
             {/*three small overview items*/}
-            <article className='product-main-overview'>
+            <section className='product-main-overview'>
 
-                <div>
+                <article>
                     <img className='product-main-overview-image' src={lightBulbIconGradient} alt='light-bulb'/>
                     <p className='product-main-overview-text'>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
                     </p>
-                </div>
+                </article>
 
-                <div>
+                <article>
                     <img className='product-main-overview-image' src={placeholderImage} alt='placeholder'/>
                     <p className='product-main-overview-text'>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
                     </p>
-                </div>
+                </article>
 
-                <div>
+                <article>
                     <img className='product-main-overview-image' src={placeholderImage} alt='placeholder'/>
                     <p className='product-main-overview-text'>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
                     </p>
-                </div>
+                </article>
                 
-            </article>
+            </section>
 
             {/*main parts with texts and images*/}
             <article className='product-main-container'>

@@ -1,7 +1,7 @@
 const ReleaseV10 = () => {
 
     return (
-        <section className='old-release'>
+        <article className='old-release'>
 
             <p style={{color: 'var(--color-font-gray)', textAlign: 'left'}}>June 12th, 2022</p> {/*release date*/}
             
@@ -32,7 +32,7 @@ const ReleaseV10 = () => {
                 - Memoriter Development Team
             </p>
 
-        </section>
+        </article>
     );
 }
 

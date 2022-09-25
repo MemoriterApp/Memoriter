@@ -28,46 +28,50 @@ const AlreadySignedIn = ({ title }) => {
 
             <p className='sign-in-main-error'>You are already signed in!</p> {/*red error box*/}
 
-            {/*style is for better text formatting*/}
-            <p className='sign-in-main-text' style={{textAlign: 'justify', margin: '20px 48px 24px 48px'}}>
-                An account is already signed in in this browser.
-                Please choose on of the following options to proceed:
-            </p>
+            <section>
+                {/*style is for better text formatting*/}
+                <p className='sign-in-main-text' style={{textAlign: 'justify', margin: '20px 48px 24px 48px'}}>
+                    An account is already signed in in this browser.
+                    Please choose on of the following options to proceed:
+                </p>
 
-            {/*sign out button*/}
-            <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}} onClick={signOutFunction}
-                onMouseEnter={() => setOnHoverSignOut('brightness(0.82)')} onMouseLeave={() => setOnHoverSignOut('brightness(1)')}>
-                {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
-                <div className='sign-in-main-button-background-gray' 
-                    style={{transform: 'translate(-8px)', width: 'calc(100% + 16px)', filter: onHoverSignOut}}/>
-                <span className='sign-in-main-button-text'>Sign Out</span>
-            </button>
-
-            {/*return to product page button*/}
-            <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}}
-                onMouseEnter={() => setOnHoverReturn('brightness(0.82)')} onMouseLeave={() => setOnHoverReturn('brightness(1)')}>
-                {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
-                <Link to='/product'>
+                {/*sign out button*/}
+                <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}} onClick={signOutFunction}
+                    onMouseEnter={() => setOnHoverSignOut('brightness(0.82)')} onMouseLeave={() => setOnHoverSignOut('brightness(1)')}>
+                    {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
                     <div className='sign-in-main-button-background-gray' 
-                        style={{transform: 'translate(-8px)', width: 'calc(100% + 16px)', filter: onHoverReturn}}/>
-                    <span className='sign-in-main-button-text'>Return to Website</span>
-                </Link>
-            </button>
+                        style={{transform: 'translate(-8px)', width: 'calc(100% + 16px)', filter: onHoverSignOut}}/>
+                    <span className='sign-in-main-button-text'>Sign Out</span>
+                </button>
 
-            {/*continue to app button*/}
-            <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}} onClick={() => navigate('/')}
-                onMouseEnter={() => setOnHoverContinue('brightness(0.75)')} onMouseLeave={() => setOnHoverContinue('brightness(1)')}>
-                {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
-                <Link to='/'>  
-                    <div className='sign-in-main-button-background' 
-                        style={{transform: 'translate(-8px)', width: 'calc(100% + 16px)', filter: onHoverContinue}}/>
-                    <span className='sign-in-main-button-text'>Continue to App</span>
-                </Link> 
-            </button>
+                {/*return to product page button*/}
+                <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}}
+                    onMouseEnter={() => setOnHoverReturn('brightness(0.82)')} onMouseLeave={() => setOnHoverReturn('brightness(1)')}>
+                    {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
+                    <Link to='/product'>
+                        <div className='sign-in-main-button-background-gray' 
+                            style={{transform: 'translate(-8px)', width: 'calc(100% + 16px)', filter: onHoverReturn}}/>
+                        <span className='sign-in-main-button-text'>Return to Website</span>
+                    </Link>
+                </button>
+
+                {/*continue to app button*/}
+                <button className='sign-in-main-button' style={{backgroundColor: 'var(--color-transparent)'}} onClick={() => navigate('/')}
+                    onMouseEnter={() => setOnHoverContinue('brightness(0.75)')} onMouseLeave={() => setOnHoverContinue('brightness(1)')}>
+                    {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
+                    <Link to='/'>  
+                        <div className='sign-in-main-button-background' 
+                            style={{transform: 'translate(-8px)', width: 'calc(100% + 16px)', filter: onHoverContinue}}/>
+                        <span className='sign-in-main-button-text'>Continue to App</span>
+                    </Link> 
+                </button>
+            </section>
 
             {/*link to privacy policiy and terms of use page*/}
-            <p className='sign-in-main-text'><Link className='sign-in-main-link' to='/privacy' target='_blank'>Privacy Policy</Link></p>
-            <p className='sign-in-main-text'><Link className='sign-in-main-link' to='/terms' target='_blank'>Terms of Use</Link></p>
+            <section>
+                <p className='sign-in-main-text'><Link className='sign-in-main-link' to='/privacy' target='_blank'>Privacy Policy</Link></p>
+                <p className='sign-in-main-text'><Link className='sign-in-main-link' to='/terms' target='_blank'>Terms of Use</Link></p>
+            </section>
 
         </main>
     );

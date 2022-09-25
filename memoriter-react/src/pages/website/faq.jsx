@@ -58,7 +58,7 @@ const Faq = () => {
         >
 
             {/*main body*/}
-            <div className='faq-main'>
+            <section className='faq-main'>
 
                 <h1 className='faq-main-header'>Frequently Asked Questions</h1>
 
@@ -74,7 +74,7 @@ const Faq = () => {
                     <FaqQuestion key={question.question} question={question} onOpenQuestion={openQuestion}/>
                 ))}
 
-            </div>
+            </section>
             
         </WebsiteWrapper>
     );

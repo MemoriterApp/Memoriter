@@ -34,8 +34,10 @@
 
 .blog-sidebar-divider { /*line between description and links*/
     position: relative;
-    top: 120px;
+    left: -42px;
+    top: 118px;
     width: 80px;
+    border: none;
     border-top: 1px solid var(--color-container);
 }
 
@@ -79,6 +81,7 @@
     }
 
     .blog-sidebar-divider {
+        left: unset;
         width: 100%;
     }
 

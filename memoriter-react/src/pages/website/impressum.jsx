@@ -8,7 +8,7 @@ const Impressum = () => {
         >
 
             {/*main body with text*/}
-            <div className='legal-main'>
+            <article className='legal-main'>
 
                 <h1>Impressum</h1>
 
@@ -28,7 +28,7 @@ const Impressum = () => {
                     <li>Email: johan@trieloff.net</li>
                 </ul>
                 
-            </div>
+            </article>
             
         </WebsiteWrapper>
     );

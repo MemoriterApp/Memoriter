@@ -20,7 +20,6 @@ const BlogPostHeader = ({ title, date, author, topic }) => {
             <Link className='blog-post-header-all-posts' to='/blog'>&#129044; All posts</Link> {/*&#129044; is a unicode arrow symbol*/}
             
             <div className='blog-post-header-content'>
-
                 <p className='blog-post-header-data'>
                     Published on {date} in <Link
                         className='blog-post-header-data-link'
@@ -31,7 +30,6 @@ const BlogPostHeader = ({ title, date, author, topic }) => {
 
                 <h1 className='blog-post-header-title'>{title}</h1> {/*heading with blog title*/}
                 <p className='blog-post-header-author'>by {author}</p> {/*who has written the post*/}
-
             </div>
 
             {/*average reading time (*is calculated with the word count)*/}

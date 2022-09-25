@@ -46,7 +46,7 @@ const Newsletter = () => {
             description='Sign Up to our Email Newsletter!'
         >
 
-            <div className='newsletter-main'>
+            <section className='newsletter-main'>
 
                 <h1 className='newsletter-main-title'>Sign Up to our Email Newsletter!</h1>
 
@@ -64,13 +64,12 @@ const Newsletter = () => {
                     >Click here</span> to request a removal from our mailing list.
                 </p> {/*&nbsp; is a unicode character for spaces*/}
 
-            </div>
+            </section>
 
             {unsubscribe && <>
                 <NewsletterUnsubscribe onAnimation={unsubscribeAnimation} onCloseUnsubscribe={closeUnsubscribe}/>
                 <Backdrop onFade={backdropAnimation} onClick={closeUnsubscribe}/>
             </>}
-
 
         </WebsiteWrapper>
     );

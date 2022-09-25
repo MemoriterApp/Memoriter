@@ -9,6 +9,7 @@ const About = () => {
             description='Find out who we are and about our vision.'
             currentPage='about'
         >
+            
             {/*banner with introduction*/}
             <AboutBanner/>
 

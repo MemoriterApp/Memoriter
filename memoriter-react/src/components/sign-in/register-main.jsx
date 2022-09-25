@@ -130,15 +130,15 @@ const RegisterMain = () => {
             <h1 className='sign-in-main-heading'>Register</h1>
 
             {/*popup for register errors*/}
-            {errorMessage && <div className='sign-in-main-error'>
+            {errorMessage && <p className='sign-in-main-error'>
                 <span>{errorMessage}</span> {/*error message*/}
                 <span className='sign-in-main-error-close'
                     onClick={() => {setErrorMessage(''); setErrorStyleChanges({});}}
                 >&#215;</span> {/*close popup button*/}
-            </div>}
+            </p>}
 
             {/*buttons for third party authenticationmethods*/}
-            <div className='sign-in-main-third-party'>
+            <section className='sign-in-main-third-party'>
                 <button className='sign-in-main-google' onClick={signInWithGoogle /*imported function*/}>
                     <img src={googleIcon} alt='google-icon' className='sign-in-main-google-icon'/>
                 </button>
@@ -154,55 +154,57 @@ const RegisterMain = () => {
                 <button className='sign-in-main-github' onClick={signInWithGithub /*imported function*/}>
                     <img src={githubIcon} alt='github-icon' className='sign-in-main-github-icon'/>
                 </button>
-            </div>
+            </section>
 
-            {/*sign up with email form*/}
-            <form onSubmit={defaultRegister}>
+            <section>
+                {/*sign up with email form*/}
+                <form onSubmit={defaultRegister}>
+                    
+                    <input className='sign-in-main-input' type='email' placeholder='Email Address' value={email}
+                        onChange={(e) => setEmail(e.target.value)}/>
 
-                <input className='sign-in-main-input' type='email' placeholder='Email Address' value={email}
-                    onChange={(e) => setEmail(e.target.value)}/>
+                    <input className='sign-in-main-input' type='password' placeholder='Password' value={password}
+                        onChange={(e) => setPassword(e.target.value)}/>
 
-                <input className='sign-in-main-input' type='password' placeholder='Password' value={password}
-                    onChange={(e) => setPassword(e.target.value)}/>
-
-                <input className='sign-in-main-input' type='password' placeholder='Confirm Password' value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}/>
-                
-                {/*agree to terms and policies checkbox*/}
-                <div>
-                    <p className='sign-in-main-checkbox-label'>
-                        I have read and understood the <Link
-                            className='sign-in-main-text-link' to='/terms' target='_blank'
-                        >terms of use</Link> and <Link
-                            className='sign-in-main-text-link' to='/privacy' target='_blank'
-                        >privacy policy</Link>.
-                    </p>
-                    <label className='sign-in-main-checkbox'>
-                        <input type='checkbox' onChange={() => setAcceptedTerms(!acceptedTerms)}/>
-                        <div className='sign-in-main-checkbox-style'/>
-                    </label>
-                </div>
-                
-                {/*create account button*/}
-                <label>
-                    <input type='submit' style={{display: 'none'}}/> {/*style hides the default submit button*/}
-                    <div className='sign-in-main-button'
-                        onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
-                        {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
-                        <div className='sign-in-main-button-background' style={{filter: onHover}}/>
-                        <span className='sign-in-main-button-text'>Create Account</span>
+                    <input className='sign-in-main-input' type='password' placeholder='Confirm Password' value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}/>
+                    
+                    {/*agree to terms and policies checkbox*/}
+                    <div>
+                        <p className='sign-in-main-checkbox-label'>
+                            I have read and understood the <Link
+                                className='sign-in-main-text-link' to='/terms' target='_blank'
+                            >terms of use</Link> and <Link
+                                className='sign-in-main-text-link' to='/privacy' target='_blank'
+                            >privacy policy</Link>.
+                        </p>
+                        <label className='sign-in-main-checkbox'>
+                            <input type='checkbox' onChange={() => setAcceptedTerms(!acceptedTerms)}/>
+                            <div className='sign-in-main-checkbox-style'/>
+                        </label>
                     </div>
-                </label>
+                    
+                    {/*create account button*/}
+                    <label>
+                        <input type='submit' style={{display: 'none'}}/> {/*style hides the default submit button*/}
+                        <div className='sign-in-main-button'
+                            onMouseEnter={() => setOnHover('brightness(0.75)')} onMouseLeave={() => setOnHover('brightness(1)')}>
+                            {/*the onMouseEnter and -Leave is for the fade effect on hover which was not possible in css and the background animation.*/}
+                            <div className='sign-in-main-button-background' style={{filter: onHover}}/>
+                            <span className='sign-in-main-button-text'>Create Account</span>
+                        </div>
+                    </label>
 
-            </form>
+                </form>
 
-            {/*link to sign in page*/}
-            <p className='sign-in-main-text'>
-                Already have an account? <Link
-                    className='sign-in-main-text-link'
-                    to='/signin'
-                >Sign in here</Link>.
-            </p>
+                {/*link to sign in page*/}
+                <p className='sign-in-main-text'>
+                    Already have an account? <Link
+                        className='sign-in-main-text-link'
+                        to='/signin'
+                    >Sign in here</Link>.
+                </p>
+            </section>
 
         </main>
     );

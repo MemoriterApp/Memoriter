@@ -29,7 +29,7 @@ const WebsiteFooter = ({ onOpenLanguageSelect, onOpenCookieSettings }) => {
             <div className='website-footer-top-transition-shape-right'/>
 
             {/*columns of content*/}
-            <div className='website-footer-content'>
+            <section className='website-footer-content'>
 
                 {/*lists of footer links*/}
                 <nav>
@@ -72,10 +72,10 @@ const WebsiteFooter = ({ onOpenLanguageSelect, onOpenCookieSettings }) => {
                     <Link className='website-footer-link' to='/newsletter'>Newsletter</Link>
                 </nav>
 
-            </div>
+            </section>
 
             {/*box at the bottom with social media links and other buttons*/}
-            <div className='website-footer-bottom-box'>
+            <section className='website-footer-bottom-box'>
                 <p className='website-footer-bottom-box-copyright'>©Copyright 2022 Memoriter</p>
 
                 {/*right text uses two classes, one for the hover effect, the theme text depends on the current theme*/}
@@ -113,7 +113,7 @@ const WebsiteFooter = ({ onOpenLanguageSelect, onOpenCookieSettings }) => {
                             src={newsletterIcon} alt='newsletter-icon'/>
                     </Link>
                 </div>
-            </div>
+            </section>
 
         </footer>
     );

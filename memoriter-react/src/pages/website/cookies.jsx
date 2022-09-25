@@ -8,15 +8,17 @@ const Cookies = () => {
         >
 
             {/*main body with text*/}
-            <div className='legal-main'>
+            <section className='legal-main'>
 
                 <h1>Memoriter Cookie Policy</h1>
 
                 <p><strong>Last Updated: July 26th, 2022</strong></p>
+                <p>
+                    Work in Progress.
+                </p>
 
-                <p>Work in Progress.</p>
-
-                <div className='legal-main-table-container'>
+                <h2>Strictly Necessary Cookies</h2>
+                <article className='legal-main-table-container'>
                     <table>
                         <thead>
                             <tr>
@@ -35,6 +37,23 @@ const Cookies = () => {
                                 <td>Saves which cookie options the user has accepted.</td>
                                 <td>Memoriter</td>
                             </tr>
+                        </tbody>
+                    </table>
+                </article>
+
+                <h2>Functional Cookies</h2>
+                <article className='legal-main-table-container'>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Domain</th>
+                                <th>Duration</th>
+                                <th>Description</th>
+                                <th>Provider</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td>theme</td>
                                 <td>localStorage</td>
@@ -44,9 +63,8 @@ const Cookies = () => {
                             </tr>
                         </tbody>
                     </table>
-                </div>
-
-            </div>
+                </article>
+            </section>
             
         </WebsiteWrapper>
     );
