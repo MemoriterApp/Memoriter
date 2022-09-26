@@ -2067,3 +2067,18 @@ body {
     height: 200px;
     background-color: red;
 }
+.preview-type-box {
+    background-color: #353535;
+    position: fixed;
+    height: 85vh;
+    width: 85vw;
+    z-index: 10;
+    overflow-y: auto;
+    left: 1%;
+    top: 1%;
+    border-radius: 10px;
+}
+.flex-containerN {
+    display: flex;
+    justify-content: center;
+}

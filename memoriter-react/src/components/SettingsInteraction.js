@@ -4,12 +4,15 @@ import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import ChangePreview from './Settings/changePreview';
 
 function SettingsClick() {
 
     const [profile, openProfile] = useState(false);
 
     const [signOutView, openSignOutView] = useState(false);
+
+    const [changePreview, openChangePreview] = useState(false);
 
     const [user, setUser] = useState({});
 
@@ -30,6 +33,7 @@ function SettingsClick() {
         <div className='settings-overlay'>
             <h1 className='settings-title'>Set&shy;tings</h1>
             <p className='settings-sub' onClick={() => openProfile(true)}>Pro&shy;file</p>
+            <p className='settings-sub' onClick={() => openChangePreview(true)}>Change Preview</p>
             {/*<p className='settings-sub'>Chan&shy;ge Pass&shy;word</p>*/}
             {/*<p  className='settings-sub' style={{color: 'rgb(228, 48, 48)'}}>De&shy;lete Ac&shy;count</p>*/}
             <p className='settings-sub' onClick={() => openSignOutView(true)}>Sign Out</p>
@@ -43,6 +47,8 @@ function SettingsClick() {
                 </div>
                 <Backdrop onClick={() => openSignOutView(false)} />
             </div>}
+
+            {changePreview && <ChangePreview/>}
 
             {profile && <div>
                 <div className='Add_Folder_Form_Body'>
