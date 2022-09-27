@@ -172,7 +172,7 @@ const StudyPage = () => {
 
                 {finished && <div>
                     <div className='finished-box'>
-                        <p className='finished_statistics' style={{fontSize:'50px'}}>
+                        <p className='finished_statistics' style={{fontSize:'5.3vh'}}>
                             Results
                         </p>
                         <p className='finished_statistics'>
