@@ -196,7 +196,7 @@ function TopicPage() {
             </head>
             <header className='Page_Header'>
                 {syncedFolderTitle !== '' ? (
-                    <h1 className="page_title" >{syncedFolderTitle}</h1>
+                    <h1 className='page_title' >{syncedFolderTitle}</h1>
                 ) : (
                     <h1 className="page_title" >New Folder</h1>
                 )}

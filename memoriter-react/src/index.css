@@ -2070,15 +2070,28 @@ body {
 .preview-type-box {
     background-color: #353535;
     position: fixed;
-    height: 85vh;
-    width: 85vw;
+    height: 80vh;
+    width: 80vw;
+    max-width: 1920px;
+    max-height: 1080;
     z-index: 10;
     overflow-y: auto;
-    left: 1%;
-    top: 1%;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     border-radius: 10px;
 }
-.flex-containerN {
-    display: flex;
-    justify-content: center;
+.preview-type-button {
+    height: 4vh;
+    width: 9vw;
+    background-color: #274b65;
+    border-style: none;
+    border-radius: 2.5px;
+    color: white;
+    font-family: 'M PLUS 1', sans-serif;
+    font-size: 22px;
+    position: relative;
+    top: 60vh;
+    cursor: pointer;
 }
