@@ -1170,7 +1170,7 @@ body {
     cursor: pointer;
 }
 .link-box {
-    width: 140px;
+    width: 120px;
     fill: none;
     border: 5px solid #274b65;
     border-radius: 3px;
@@ -1184,8 +1184,8 @@ body {
     font-size:25px;
     color: white;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 4px;
+    padding-bottom: 8px;
     text-decoration: none;
 }
 .mail-form1 {
@@ -1300,7 +1300,7 @@ body {
     position: absolute;
     height: 50px;
     width: 100%;
-    top: 300px;
+    top: 330px;
     left: 50%;
     transform: translate(-50%);
 }
@@ -1324,7 +1324,7 @@ body {
     float: left;
     margin-right: 5px;
     position: relative;
-    margin-top: -3px;
+    margin-top: 1px;
 }
 .accept_privacy [type="checkbox"]:checked+label::before {
     box-shadow: inset 0px 0px 0px 3px #353535;
@@ -1335,7 +1335,7 @@ body {
     position: absolute;
     height: 50px;
     width: 100%;
-    top: 300px;
+    top: 330px;
     left: 50%;
     transform: translate(-50%);
 }
@@ -1359,7 +1359,7 @@ body {
     float: left;
     margin-right: 5px;
     position: relative;
-    margin-top: -3px;
+    margin-top: 1px;
 }
 .accept_privacy_red [type="checkbox"]:checked+label::before {
     box-shadow: inset 0px 0px 0px 3px #353535;
@@ -1382,30 +1382,6 @@ body {
     right: 20%;
 }
 
-
-/* Indikatoren */
-.flashcard-pos-indicator {
-    color: red;
-    font-size: large;
-    position: absolute;
-    left: 80px;
-    top: 10px;
-}
-
-.box {
-    height: 38px;
-    width: 185px;
-    background-color: red;
-    opacity: 0.6;
-    position: absolute;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    left: 43%;
-    border-radius: 5px;
-    top: 4px;
-}
 .text {
     font-family: 'M PLUS 1', sans-serif;
     position: absolute;

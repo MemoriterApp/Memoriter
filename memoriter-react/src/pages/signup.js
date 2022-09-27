@@ -174,7 +174,7 @@ function SignUpPage(props) {
                                 </div>}
 
 
-                                <button type="submit" className="LoginButton" disabled={loading} style={{ top: "360px" }}>Sign Up</button>
+                                <button type="submit" className="LoginButton" disabled={loading} style={{ top: "385px" }}>Sign Up</button>
                             </form>
                             <p className="no-account">Already have an account? You can log in&nbsp;</p>
                             <Link to='/login' className="no-account" style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
