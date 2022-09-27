@@ -1,4 +1,5 @@
 import WebsiteWrapper from '../../components/website/wrapper/website-wrapper';
+import BugsForm from '../../components/website/bugs-form';
 import githubIcon from '../../images/icons/github-icon.svg';
 
 const Bugs = () => {
@@ -7,21 +8,11 @@ const Bugs = () => {
             title='Bug Report'
             description='If you find any technical issues, you can report them here.'
         >
-            <section>
-                <h1>Bug Report</h1>
-                <p>
-                    When reporting a problem, describe everything as precise as possible,
-                    as well as how and where the bug occurs.
-                    Please report only non device-specific, reproducible issues.
-                </p>
-                <form>
-                    <textarea/>
-                    <p>You can also attach up to three images:</p>
-                    <button>+</button>
-                    <br/>
-                    <button type='submit'>Send</button>
-                </form>
-            </section>
+
+            {/*bug report form*/}
+            <BugsForm/>
+
+            {/*links at the bottom*/}
             <section>
                 <p>
                     If you find any issues or technical problems, please report them to us.
