@@ -1,13 +1,41 @@
-/*this css file is only used for classes used very often and across multiple pages, as well as some global styles*/
+/*This css file is only used for classes used very often and across multiple pages, as well as some global styles.*/
 
 /*font imports*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); /*Inter: basic font for most text*/
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); /*Rubik: larger font for subheadings or buttons*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@850&display=swap'); /*Heebo: large font for page headings*/
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap'); /*Kaisei HarunoUmi: italic serif font for the product page*/
-@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@700&display=swap'); /*BIZ UDPGothic: font for quotation mark at product stories*/
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap'); /*IBM Plex Serif: serif font for the blog posts*/
-@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap'); /*Quantico: question mark font for the page not found page*/
+@font-face { /*Inter: basic font for most text*/
+    font-family: 'Inter';
+    font-weight: 300;
+    src: url('./fonts/inter/Inter-VariableFont_slnt\,wght.ttf');
+}
+@font-face { /*Rubik: larger font for subheadings or buttons*/
+    font-family: 'Rubik';
+    font-weight: 400;
+    src: url('./fonts/rubik/Rubik-VariableFont_wght.ttf');
+}
+@font-face { /*Heebo: large font for page headings*/
+    font-family: 'Heebo';
+    font-weight: 800;
+    src: url('./fonts/heebo/Heebo-VariableFont_wght.ttf');
+}
+@font-face { /*Kaisei HarunoUmi: italic serif font for the product page*/
+    font-family: 'Kaisei HarunoUmi';
+    font-weight: 400;
+    src: url('./fonts/kaisei-haruno-umi/KaiseiHarunoUmi-Regular.ttf');
+}
+@font-face { /*BIZ UDPGothic: font for quotation mark at product stories*/
+    font-family: 'BIZ UDPGothic';
+    font-weight: 700;
+    src: url('./fonts/biz-udp-gothic/BIZUDPGothic-Bold.ttf');
+}
+@font-face { /*IBM Plex Serif: serif font for the blog posts*/
+    font-family: 'IBM Plex Serif';
+    font-weight: 400;
+    src: url('./fonts/ibm-plex-serif/IBMPlexSerif-Regular.ttf');
+}
+@font-face { /*Quantico: question mark font for the page not found page*/
+    font-family: 'Quantico';
+    font-weight: 400;
+    src: url('./fonts/quantico/Quantico-Regular.ttf');
+}
 
 :root { /*global fixed colors and fonts*/
     /*colors*/
