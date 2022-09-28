@@ -2083,8 +2083,8 @@ body {
     border-radius: 10px;
 }
 .preview-type-button {
-    height: 4vh;
-    width: 9vw;
+    height: 65px;
+    width: 180px;
     background-color: #274b65;
     border-style: none;
     border-radius: 2.5px;
