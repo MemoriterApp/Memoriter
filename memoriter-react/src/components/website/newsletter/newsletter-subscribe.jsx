@@ -12,7 +12,7 @@ const NewsletterSubscribe = () => {
             <form className='newsletter-subscribe' onSubmit={(e) => e.preventDefault()}>
                 <p className='newsletter-subscribe-label'>Enter your Email Address</p>
 
-                <input className='newsletter-subscribe-input' type='email' placeholder='Email Address'/>
+                <input className='newsletter-subscribe-input' id='email' type='email' placeholder='Email Address'/>
 
                 {/*button for subscribing to newsletter*/}
                 <label>

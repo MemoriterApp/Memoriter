@@ -160,13 +160,13 @@ const RegisterMain = () => {
                 {/*sign up with email form*/}
                 <form onSubmit={defaultRegister}>
                     
-                    <input className='sign-in-main-input' type='email' placeholder='Email Address' value={email}
+                    <input className='sign-in-main-input' id='email' type='email' placeholder='Email Address' value={email}
                         onChange={(e) => setEmail(e.target.value)}/>
 
-                    <input className='sign-in-main-input' type='password' placeholder='Password' value={password}
+                    <input className='sign-in-main-input' id='password' type='password' placeholder='Password' value={password}
                         onChange={(e) => setPassword(e.target.value)}/>
 
-                    <input className='sign-in-main-input' type='password' placeholder='Confirm Password' value={confirmPassword}
+                    <input className='sign-in-main-input' id='password' type='password' placeholder='Confirm Password' value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}/>
                     
                     {/*agree to terms and policies checkbox*/}

@@ -63,7 +63,7 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
 
                 {/*email input*/}
                 <p className='sign-in-password-reset-enter-email'>Please enter your email address:</p>
-                <input className='sign-in-password-reset-input' type='email' placeholder='Account Email' value={email}
+                <input className='sign-in-password-reset-input' id='email' type='email' placeholder='Account Email' value={email}
                     onChange={(e) => setEmail(e.target.value)}/>
                 <p className='sign-in-password-reset-text'>We will send a password reset link to the given email address.</p>
 

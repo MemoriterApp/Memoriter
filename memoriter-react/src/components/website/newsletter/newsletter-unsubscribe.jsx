@@ -42,7 +42,7 @@ const NewsletterUnsubscribe = ({ onAnimation, onCloseUnsubscribe }) => {
 
                 {/*email input*/}
                 <p className='newsletter-unsubscribe-enter-email'>Please enter your email address:</p>
-                <input className='newsletter-unsubscribe-input' type='email' placeholder='Email Address' value={email}
+                <input className='newsletter-unsubscribe-input' id='email' type='email' placeholder='Email Address' value={email}
                     onChange={(e) => setEmail(e.target.value)}/>
                 <p className='newsletter-unsubscribe-text'>We will send you a confirmation email to the given email address.</p>
 

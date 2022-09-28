@@ -193,10 +193,10 @@ const SignInMain = ({ onOpenPasswordReset }) => {
                 {/*sign up with email form*/}
                 <form onSubmit={defaultSignIn}>
 
-                    <input className='sign-in-main-input' type='email' placeholder='Email Address' value={email}
+                    <input className='sign-in-main-input' id='email' type='email' placeholder='Email Address' value={email}
                         onChange={(e) => setEmail(e.target.value)}/>
                     
-                    <input className='sign-in-main-input' type='password' placeholder='Password' value={password}
+                    <input className='sign-in-main-input' id='password' type='password' placeholder='Password' value={password}
                         onChange={(e) => setPassword(e.target.value)}/>
 
                     <p className='sign-in-main-forgot-password' onClick={() => onOpenPasswordReset()}>Forgot Password?</p>{/*password reset link*/}
