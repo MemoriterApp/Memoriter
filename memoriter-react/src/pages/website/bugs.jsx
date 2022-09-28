@@ -9,6 +9,8 @@ const Bugs = () => {
             description='If you find any technical issues, you can report them here.'
         >
 
+            <h1>Bug Report</h1>
+            
             {/*bug report form*/}
             <BugsForm/>
 
@@ -18,7 +20,7 @@ const Bugs = () => {
                     If you find any issues or technical problems, please report them to us.
                 </p>
                 <p>
-                    You can also send us an email regarding the problem to <a>bugs@memoriter.de</a>.
+                    You can also send us an email regarding the problem to <a href='mailto:'>bugs@memoriter.de</a>.
                 </p>
                 <p>
                     If you are fimiliar with the platform, you can also open an issue on <a href='https://github.com/MemoriterApp/Memoriter/issues' target='_blank' rel='noreferrer'>

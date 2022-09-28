@@ -1,7 +1,6 @@
 const BugsForm = () => {
     return (
         <section>
-            <h1>Bug Report</h1>
             <p>
                 When reporting a problem, describe everything as precise as possible,
                 as well as how and where the bug occurs.
