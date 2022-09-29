@@ -1,3 +1,8 @@
+import Start from './pages/start';
+import About from './pages/about';
+import ImpressumPage from './pages/impressum';
+import PrivacyPage from './pages/privacy_policies';
+
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
 
@@ -30,17 +35,29 @@ function App() {
         <ThemeProvider> {/*ThemeProvider is responsible for the dark and light theme*/}
           <Routes>
 
-            <Route path='/login' element={<LoginPage/>}/>
+            <Route path='/start' element={<Start/>}/>
 
-            <Route path='/signup' element={<SignUpPage/>}/>
+            <Route path='/about' element={<About/>}/>
+
+            <Route path='/impressum' element={<ImpressumPage/>}/>
+
+            <Route path='/privacy' element={<PrivacyPage/>}/>
 
             {user? (<> {/*some of the active routes are altered if a user is signed in*/}
+              <Route path='/login' element={<Redirect/>}/>
+
+              <Route path='/signup' element={<Redirect/>}/>
+              
               <Route path='/' element={<HomePage/>}/>
 
               <Route path='/topic' element={<TopicPage/>}/>
 
               <Route path='/study' element={<StudyPage/>}/>
             </>) : (<>
+              <Route path='/login' element={<LoginPage/>}/>
+
+              <Route path='/signup' element={<SignUpPage/>}/>
+
               <Route path='/' element={<Redirect/>}/>
 
               <Route path='/topic' element={<Redirect/>}/>

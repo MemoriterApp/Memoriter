@@ -42,6 +42,7 @@ function LoginPage() {
         try {
             setLoading(true);
             const user = signInWithEmailAndPassword(firebase.auth, email, password)
+                .then(() => navigate('/'))
                 .catch(error => {
                     switch (error.code) {
                         case 'auth/wrong-password':

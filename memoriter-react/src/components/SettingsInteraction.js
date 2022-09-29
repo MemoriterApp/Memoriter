@@ -25,7 +25,7 @@ function SettingsClick() {
         localStorage.removeItem('syncedFolderTitle');
 
         dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
-        navigate('/signin');
+        navigate('/login');
     }
 
     return (

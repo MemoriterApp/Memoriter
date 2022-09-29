@@ -64,6 +64,7 @@ function SignUpPage(props) {
             setError(false);
             setLoading(true);
             const user = createUserWithEmailAndPassword(firebase.auth, email, password)
+                .then(() => navigate('/'))
                 .catch(error => {
                     switch (error.code) {
                         case 'auth/email-already-in-use':
