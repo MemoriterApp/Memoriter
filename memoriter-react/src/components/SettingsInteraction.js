@@ -4,12 +4,20 @@ import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeTheme } from '../features/theme-slice';
 import { displaySuccessMessage } from '../features/authentication-success-slice';
 
 function SettingsClick() {
 
     const dispatch = useDispatch(); //used to manipulate global sate (react redux)
+
+    const themeText = useSelector((state) => state.theme.value); //current light or dark mode text based on theme
+
+    function onChangeTheme(theme) { //function to swap the current theme
+        dispatch(changeTheme(theme)); //changes the theme
+        localStorage.setItem('theme', theme); //the theme can be saved to localStorage
+    }
 
     const [profile, openProfile] = useState(false);
 
@@ -32,8 +40,11 @@ function SettingsClick() {
         <div className='settings-overlay'>
             <h1 className='settings-title'>Set&shy;tings</h1>
             <p className='settings-sub' onClick={() => openProfile(true)}>Pro&shy;file</p>
-            {/*<p className='settings-sub'>Chan&shy;ge Pass&shy;word</p>*/}
-            {/*<p  className='settings-sub' style={{color: 'rgb(228, 48, 48)'}}>De&shy;lete Ac&shy;count</p>*/}
+            
+            {themeText === 'dark' && <p className='settings-sub' onClick={() => onChangeTheme('light')}>Theme:&shy; Dark</p>}
+            
+            {themeText === 'light' && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>Theme:&shy; Dark</p>}
+
             <p className='settings-sub' onClick={() => openSignOutView(true)}>Sign Out</p>
             {signOutView && <div>
                 <div className='Delete_Folder_Confirm'>
