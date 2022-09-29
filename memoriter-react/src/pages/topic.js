@@ -186,6 +186,17 @@ function TopicPage() {
         )
     }
 
+    //states to check what preview mode
+    const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
+    const [isBoth, setIsBoth] = useState(false)
+
+    useEffect(() => {
+        const onlyQuestion = JSON.parse(localStorage.getItem('onlyQuestion'));
+        if (onlyQuestion) {
+         setIsOnlyQuestion(onlyQuestion);
+        }
+      }, []);
+
     return (
         <div>
             <head>
@@ -212,7 +223,7 @@ function TopicPage() {
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
                         <>
-                            {flashcards //add an if statement to check what kind of flashcard should be displayed
+                            {/*flashcards //add an if statement to check what kind of flashcard should be displayed
                                 .map((flashcard) => (
                                     <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                                         onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
@@ -221,14 +232,28 @@ function TopicPage() {
                                         onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
                                         onChangeTextAlign={changeTextAlign}
                                     />)
-                                )}
+                                )*/}
                         </>
                          <>
-                          {flashcards
+                          {isOnlyQuestion === true ? flashcards
                             .map((flashcard) => (
                                 <OnlyQuestion
-                                key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length}/>
+                                key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                    onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
+                                    onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                    onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                    onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                    onChangeTextAlign={changeTextAlign}/>
                             )
+                            ):flashcards //add an if statement to check what kind of flashcard should be displayed
+                            .map((flashcard) => (
+                                <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                    onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
+                                    onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                    onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                    onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                    onChangeTextAlign={changeTextAlign}
+                                />)
                             )}
                          </>
          
