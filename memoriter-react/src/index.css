@@ -21,7 +21,6 @@
     /*colors*/
     --color-highlight-gradient: linear-gradient(45deg, #23aaaa, #28b97d);
     --color-highlight-gradient-blue: #23aaaa;
-    --color-highlight-gradient-green: #26b294;
     --color-backdrop: #000000bf;
     --color-table: #646464;
     --color-shadow: #00000066;
@@ -50,8 +49,6 @@
     --color-font-gray: #c8c8c8;
     --color-background: #202020;
     --color-hover: #373737bf;
-    --color-hover-light: #37373780;
-    --color-hover-button: #373737a6;
     --color-hover-input: #2a2a2a;
     --color-container: #373737;
     --color-container-button: #505050;
@@ -59,11 +56,6 @@
     --color-background-dark-plus: #0a0a0a;
     --color-red-dark: #5a2828;
     --color-green-dark: #144b14;
-    --color-cookies: #3c3c3c99;
-    --color-cookies-hover: #464646bf;
-    --color-banner-gradient: linear-gradient(#242424, #36363c);
-    --color-banner-triangle-light: #36363c80;
-    --color-banner-triangle-dark: #24242480;
     /*values for correcting svg colors*/
     --svg-invert: invert(1);
     --svg-invert-gray: invert(0.78431372549019607843137254901961);
@@ -74,8 +66,6 @@
     --color-font-gray: #373737;
     --color-background: #e0e0e0;
     --color-hover: #b5b5b5bf;
-    --color-hover-light: #a0a0a0bf;
-    --color-hover-button: #858585bf;
     --color-hover-input: #cbcbcb;
     --color-container: #b5b5b5;
     --color-container-button: #929292;
@@ -83,11 +73,6 @@
     --color-background-dark-plus: #bbbbbb;
     --color-red-dark: #802828;
     --color-green-dark: #146814;
-    --color-cookies: #1c1c1c99;
-    --color-cookies-hover: #505050bf;
-    --color-banner-gradient: linear-gradient(#bababa, #8f8f96);
-    --color-banner-triangle-light: #8f8f9680;
-    --color-banner-triangle-dark: #bababa80;
     /*values for correcting svg colors*/
     --svg-invert: invert(0);
     --svg-invert-gray: invert(0.21568627450980392156862745098039);
