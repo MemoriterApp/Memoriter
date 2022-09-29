@@ -689,7 +689,7 @@
 .Zurückbutton_Arrow {
     border: solid;
     border-width: 8px 8px 1px 1px;
-    border-color: var(--current-gray-light) var(--current-gray-light) var(--color-transparent) var(--color-transparent);
+    border-color: var(--color-font) var(--color-font) var(--color-transparent) var(--color-transparent);
     border-radius:6px 0;
     padding: 8px;
     position: absolute;
@@ -866,7 +866,7 @@
 }
 .Flashcard_Open_Title {
     font-family: var(--current-font);
-    color: white;
+    color: var(--color-font);
     text-align: center;
     font-weight: bold;
     font-size: 28px;
@@ -879,7 +879,7 @@
 .Flashcard_Open_Content {
     position: relative;
     font-family: var(--current-font);
-    color: white;
+    color: var(--color-font);
     font-size: 20px;
     text-align: justify;
     width: 90%;
@@ -1041,7 +1041,7 @@
     margin-top: 15px;
     margin-bottom: 0px;
     width: calc(100% - 20px);
-    color: white;
+    color: var(--color-font);
     background-color: var(--color-background);
     font-family: var(--current-font);
     font-size: 20px;
@@ -1075,7 +1075,7 @@
     left: 10px;
     width: calc(100% - 34px);
     height: calc(100% - 270px);
-    color: white;
+    color: var(--color-font);
     text-align: left;
     background-color: var(--color-background);
     font-family: var(--current-font);
@@ -1177,7 +1177,7 @@
     font-weight: bold;
     font-size: 36px;
     text-align: center;
-    color: white;
+    color: var(--color-font);
     padding-top: 40px;
     padding-bottom: 50px;
 }
@@ -1186,7 +1186,7 @@
     font-family: var(--current-font);
     font-size: 20px;
     text-align: justify;
-    color: white;
+    color: var(--color-font);
     line-height: 150%;
     width: 80%;
     left: 10%;
@@ -1199,7 +1199,7 @@
     font-family: var(--current-font);
     font-size: 20px;
     text-align: justify;
-    color: white;
+    color: var(--color-font);
     line-height: 150%;
     width: 80%;
     left: 10%;
@@ -1223,7 +1223,7 @@
     max-width: 100%;
     left: 50%;
     transform: translate(-50%);
-    color: white;
+    color: var(--color-font);
     text-align: center;
     font-family: var(--current-font);
     overflow: visible;
@@ -1241,7 +1241,7 @@
     position: absolute;
     font-family: var(--current-font);
     font-size:25px;
-    color: gray;
+    color: var(--current-gray);
     right: 10px;
     top: 9px;
     cursor: pointer;
@@ -1250,7 +1250,7 @@
     position: absolute;
     font-family: var(--current-font);
     font-size:25px;
-    color: white;
+    color: var(--color-font);
     top: 9px;
     right: 115px;
     cursor: pointer;
@@ -1268,7 +1268,7 @@
     transform: translate(0%, 50%);
     font-family: var(--current-font);
     font-size:25px;
-    color: white;
+    color: var(--color-font);
     text-align: center;
     padding-top: 4px;
     padding-bottom: 8px;
@@ -1293,7 +1293,7 @@
 .mail-input {
     border: 5px solid var(--current-blue-light);
     width: 80%;
-    color: white;
+    color: var(--color-font);
     background-color: var(--color-background);
     font-family: var(--current-font);
     font-size: 20px;
@@ -1318,7 +1318,7 @@
 .password-input {
     border: 5px solid var(--current-blue-light);
     width: 80%;
-    color: white;
+    color: var(--color-font);
     background-color: var(--color-background);
     font-family: var(--current-font);
     font-size: 20px;
@@ -1331,7 +1331,7 @@
     top: -40px;
     font-family: var(--current-font);
     font-size: 20px;
-    color: white;
+    color: var(--color-font);
     right: -85px;
 }
 .LoginButton {
@@ -1345,7 +1345,7 @@
     border: 3px solid #3B6E71;
     cursor: pointer;
     font-size: 20px;
-    color: white;
+    color: var(--color-white);
     transform: translate(-50%);
 }
 .forgot-password {
@@ -1365,7 +1365,7 @@
 .no-account {
     position: relative;
     top: 80px;
-    color: white;
+    color: var(--color-font);
     font-family: var(--current-font);
     font-size: 16px;
     text-align: center;
@@ -1374,7 +1374,7 @@
     display: inline-block;
 }
 .passwords-no-match {
-    color: rgb(228, 48, 48);
+    color: var(--color-red-light);
     font-family: var(--current-font);
     font-size: 14px;
     position: absolute;
@@ -1435,7 +1435,7 @@
     transform: translate(-50%, -50%);
 }
 .accept_privacy_red [type="checkbox"] + label::before {
-    border: 3.5px solid rgb(228, 48, 48);
+    border: 3.5px solid var(--color-red-light);
     border-radius: 3px;
     background-color: var(--color-background);
     display: block;
@@ -1449,23 +1449,7 @@
 }
 .accept_privacy_red [type="checkbox"]:checked+label::before {
     box-shadow: inset 0px 0px 0px 3px var(--color-background);
-    background-color: rgb(228, 48, 48);
-}
-
-/* sign in with google stuff */
-.google-button {
-    width: 125px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: #4286f5;
-    border-color: #4286f5;
-    color: white;
-    font-family: var(--current-font);
-    font-size: 14px;
-    font-weight: 500;
-    position: absolute;
-    top: 320px;
-    right: 20%;
+    background-color: var(--color-red-light);
 }
 
 .text {
@@ -1475,7 +1459,7 @@
     left: 4px;
 }
 .check_text {
-    color: white;
+    color: var(--color-font);
     font-family: var(--current-font);
     position: absolute;
     left: 20px;
@@ -1511,20 +1495,8 @@
   right: 0px;
   margin-right: 1em;
 }
-
-.StartpageHeaderButton {
-  background-color: white;
-  margin-left: 1em;
-  border: 1px solid black;
-}
-
 /*Startpage Content*/
 /*Section 1*/
-.StartpageSection1 {
-  position: relative;
-  background-color: blue;
-  top: 100px;
-}
 
 .StartpageSectionPicture {
   width: 33%;
@@ -1532,13 +1504,12 @@
 }
 
 .StartpageSectionText {
-  color: white;
+  color: var(--color-font);
   width: 67%;
   text-align: center;
   position: absolute;
   max-height: 100%;
   overflow: hidden;
-  border: 10px solid black;
 }
 
 /* Alles für die StartPage*/
@@ -1592,7 +1563,7 @@
     min-height: 160px;
     min-width: 120px;
     max-width: calc(100% - 160px);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 4px var(--color-shadow);
     top: 110px;
     left: 10%;
 }
@@ -1600,7 +1571,7 @@
     position: absolute;
     left: 10px;
     text-align: left;
-    color: #FFFF;
+    color: var(--color-font);
     top: 1px;
     font-family: var(--current-font);
     font-weight: 400;
@@ -1619,7 +1590,7 @@
 }
 .Start1a-Text {
     position: relative;
-    color: #FFFF;
+    color: var(--color-white);
     font-family: var(--current-font);
     font-weight: 400;
     font-size: 28.76px;
@@ -1629,7 +1600,7 @@
     left: 25%;
 }
 .About_Us-Start {
-    color: rgb(255, 255, 255);
+    color: var(--color-white);
     font-family: var(--current-font);
     cursor: pointer;
     text-decoration: underline;
@@ -1643,7 +1614,7 @@
     height: 2px;
     bottom: 10px;
     left: 348px;
-    background-color: #ffffff;
+    background-color: var(--color-font);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }*/
@@ -1655,7 +1626,7 @@
     position: absolute;
     left: 10px;
     text-align: left;
-    color: #FFFF;
+    color: var(--color-font);
     top: 0px;
     font-family: var(--current-font);
     font-weight: 400;
@@ -1674,7 +1645,7 @@
     min-height: 160px;
     min-width: 120px;
     max-width: calc(100% - 160px);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 4px var(--color-shadow);
     top: 90%;
     right:55%;
 }
@@ -1684,7 +1655,7 @@
     left: 5%;
     right: 5%;
     text-align: left;
-    color: #FFFF;
+    color: var(--color-font);
     top: 0px;
     font-family: var(--current-font);
     font-weight: 400;
@@ -1703,7 +1674,7 @@
     border: 3px solid #3B6E71;
     cursor: pointer;
     font-size: 23px;
-    color: white;
+    color: var(--color-white);
 }
 .LoginButton-Start {
     height: 60px;
@@ -1713,10 +1684,10 @@
     position: absolute;
     bottom: 25%;
     right: 220px;
-    border: 3px solid #3B6E71;
+    border: 3px solid var(--current-blue-light);
     cursor: pointer;
     font-size: 23px;
-    color: white;
+    color: var(--color-font);
 }
 .Katze {
     width: 501px;
@@ -1755,12 +1726,12 @@
 /* Nachfolgendes ist alles für den Footer für den Start*/
 .Footer_Body-Start {
     position: absolute;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border-top: 2px solid rgba(112,112,112,1);
+    box-shadow: 0 1px 4px var(--color-shadow);
+    border-top: 2px solid var(--current-gray);
     left: 0%;
     width: 100%;
     height: 400px;
-    background-color: #141414;
+    background-color: var(--color-background-dark);
     text-align: center;
     overflow: auto;
     margin-top: 100px;
@@ -1786,7 +1757,7 @@
     text-align: left;
     font-family: var(--current-font);
     font-size: 16px;
-    color: white;
+    color: var(--color-font);
     transform: translate(-50%, 0%, 0%, 0%);
 }
 .followUs-Start {
@@ -1797,7 +1768,7 @@
     text-align: left;
     font-family: var(--current-font);
     font-size: 16px;
-    color: white;
+    color: var(--color-font);
     
 }
 .rechteckLogo-Start {
@@ -1809,7 +1780,7 @@
     border-radius: 5px;
     width: 55px;
     height: 55px;
-    background-color: #141414;
+    background-color: var(--color-transparent);
     cursor: pointer;
 }
 .instaIcon-Start {
@@ -1820,6 +1791,7 @@
     height: 70%;
     cursor: pointer;
     transform: translate(-50%);
+    filter: var(--svg-invert);
 }
 .Line-Start1 {
     background-color: rgba(112,112,112,1);
@@ -1890,7 +1862,7 @@
 }
    
 .privacyPolicy-Start {
-    color: rgb(255, 255, 255);
+    color: var(--color-font);
     font-family: var(--current-font);
     cursor: pointer;
     position:absolute;
@@ -1904,7 +1876,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #ffffff;
+    background-color: var(--color-font);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -1913,7 +1885,7 @@
     transform-origin: bottom left;
 }
 .termsOfUse-Start {
-    color: rgb(255, 255, 255);
+    color: var(--color-font);
     font-family: var(--current-font);
     cursor: pointer;
     position:absolute;
@@ -1928,7 +1900,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #ffffff;
+    background-color: var(--color-font);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -1938,7 +1910,7 @@
 }
 
 .impressum-Start {
-    color: rgb(255, 255, 255);
+    color: var(--color-font);
     font-family: var(--current-font);
     cursor: pointer;
     position:absolute;
@@ -1953,7 +1925,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #ffffff;
+    background-color: var(--color-font);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -1962,7 +1934,7 @@
     transform-origin: bottom left;
 }
 .About-Start{
-    color: rgb(255, 255, 255);
+    color: var(--color-font);
     font-family: var(--current-font);
     cursor: pointer;
     position:absolute;
@@ -1978,7 +1950,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #ffffff;
+    background-color: var(--color-font);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -2012,13 +1984,13 @@
     margin-bottom: 50px;
 }
 .QA-flashcard-title {
-    color: white;
+    color: var(--color-font);
     font-family: var(--current-font);
     text-align: center;
     padding: 0px 30px 0px 30px;
 }
 .QA-flashcard-content {
-    color: white;
+    color: var(--color-font);
     font-family: var(--current-font);
     font-size: 22px;
     line-height: 27px;
@@ -2063,7 +2035,7 @@
     width: 180px;
     height: 50px;
     background-color:rgb(53, 71, 98);
-    color: white;
+    color: var(--color-white);
     font-size: 24px;
     border-radius: 18px;
     cursor: pointer;
