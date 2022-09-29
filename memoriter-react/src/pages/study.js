@@ -1,11 +1,10 @@
-import Logo from './Logo.png';
+import Logo from '../images/memoriter-logo.svg';
 import Footer from '../components/Footer';
 import FlashcardStudy from '../components/flashcard-study';
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
-import { PieChart } from 'react-minimal-pie-chart';
 const { db } = firebase;
 
 const StudyPage = () => {
@@ -187,14 +186,6 @@ const StudyPage = () => {
                         <p className='finished_statistics' style={{ color:'#dc4c4d'}}>
                             Incorrect: {incorrectFlashcards}
                         </p>
-                        {/* tried to get a pie chart to work
-                        <PieChart
-                            data={[
-                                { title: 'One', value: '90%', color: '#E38627' },
-                                { title: 'Two', value: '90%', color: '#C13C37' },
-                                { title: 'Three', value: '180%', color: '#6A2135' },
-                            ]}
-                        />;*/}
                     </div>
 
                     <button className='finished-button'

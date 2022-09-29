@@ -1,4 +1,4 @@
-import WebsiteHead from '../components/website/wrapper/website-head';
+import WebsiteHead from '../components/website-head';
 import SignInHeader from '../components/sign-in/sign-in-header';
 import SignInMain from '../components/sign-in/sign-in-main';
 import SignInPasswordReset from '../components/sign-in/sign-in-password-reset';

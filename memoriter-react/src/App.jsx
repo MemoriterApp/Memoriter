@@ -1,25 +1,9 @@
-import Product from './pages/website/product';
-import About from './pages/website/about';
-import Blog from './pages/website/blog';
-import BlogPost from './pages/website/blog-post';
-import Download from './pages/website/download';
-import Donate from './pages/website/donate';
-import Releases from './pages/website/releases';
-import Impressum from './pages/website/impressum';
-import Terms from './pages/website/terms';
-import Privacy from './pages/website/privacy';
-import Cookies from './pages/website/cookies';
-import Support from './pages/website/support';
-import Faq from './pages/website/faq';
-import Bugs from './pages/website/bugs';
-import Newsletter from './pages/website/newsletter';
-import PageNotFound from './pages/website/page-not-found';
-
 import SignIn from './pages/sign-in';
 import Register from './pages/register';
 
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
+import StudyPage from './pages/study';
 
 import ThemeProvider from './components/theme-provider';
 import { AuthProvider } from './components/routing/auth-provider';
@@ -30,7 +14,6 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { firebase } from './utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import blogs from './utils/blog-posts';
 
 function App() {
 
@@ -51,57 +34,18 @@ function App() {
 
             <Route path='/register' element={<Register/>}/>
 
-            <Route path='/product' element={<Product/>}/>
-
-            <Route path='/about' element={<About/>}/>
-
-            <Route path='/blog' element={<Blog topic='Latest'/>}/> {/*blog topics are different routes with the same page, but with filtered content*/}
-
-            <Route path='/blog/topic/company' element={<Blog topic='Company'/>}/>
-
-            <Route path='/blog/topic/productivity' element={<Blog topic='Productivity'/>}/>
-
-            <Route path='/blog/topic/technology' element={<Blog topic='Technology'/>}/>
-
-            <Route path='/blog/topic/miscellaneous' element={<Blog topic='Miscellaneous'/>}/>
-
-            {/*blog posts (are mapped from the blog-posts.js file array)*/}
-            {blogs.map((blog) => (
-              <Route path={`/blog/${blog.link}`} element={<BlogPost blog={blog}/>} key={blog.title}/>
-            ))}
-
-            <Route path='/download' element={<Download/>}/>
-
-            <Route path='/donate' element={<Donate/>}/>
-
-            <Route path='/releases' element={<Releases/>}/>
-
-            <Route path='/impressum' element={<Impressum/>}/>
-
-            <Route path='/terms' element={<Terms/>}/>
-
-            <Route path='/privacy' element={<Privacy/>}/>
-
-            <Route path='/cookies' element={<Cookies/>}/>
-
-            <Route path='/support' element={<Support/>}/>
-
-            <Route path='/faq' element={<Faq/>}/>
-
-            <Route path='/bugs' element={<Bugs/>}/>
-
-            <Route path='/newsletter' element={<Newsletter/>}/>
-
-            <Route path='*' element={<PageNotFound/>}/> {/*loads page not found page for all unset routes*/}
-
             {user? (<> {/*some of the active routes are altered if a user is signed in*/}
               <Route path='/' element={<HomePage/>}/>
 
               <Route path='/topic' element={<TopicPage/>}/>
+
+              <Route path='/study' element={<StudyPage/>}/>
             </>) : (<>
               <Route path='/' element={<Redirect/>}/>
 
               <Route path='/topic' element={<Redirect/>}/>
+
+              <Route path='/study' element={<Redirect/>}/>
             </>)}
 
           </Routes>
