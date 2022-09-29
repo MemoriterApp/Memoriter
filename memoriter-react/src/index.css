@@ -16,26 +16,6 @@
     font-weight: 800;
     src: url('./fonts/heebo/Heebo-VariableFont_wght.ttf');
 }
-@font-face { /*Kaisei HarunoUmi: italic serif font for the product page*/
-    font-family: 'Kaisei HarunoUmi';
-    font-weight: 400;
-    src: url('./fonts/kaisei-haruno-umi/KaiseiHarunoUmi-Regular.ttf');
-}
-@font-face { /*BIZ UDPGothic: font for quotation mark at product stories*/
-    font-family: 'BIZ UDPGothic';
-    font-weight: 700;
-    src: url('./fonts/biz-udp-gothic/BIZUDPGothic-Bold.ttf');
-}
-@font-face { /*IBM Plex Serif: serif font for the blog posts*/
-    font-family: 'IBM Plex Serif';
-    font-weight: 400;
-    src: url('./fonts/ibm-plex-serif/IBMPlexSerif-Regular.ttf');
-}
-@font-face { /*Quantico: question mark font for the page not found page*/
-    font-family: 'Quantico';
-    font-weight: 400;
-    src: url('./fonts/quantico/Quantico-Regular.ttf');
-}
 
 :root { /*global fixed colors and fonts*/
     /*colors*/
@@ -62,10 +42,6 @@
     --font-default: 'Inter', sans-serif;
     --font-highlight: 'Rubik', sans-serif;
     --font-heading: 'Heebo', sans-serif;
-    --font-serif: 'Kaisei HarunoUmi', serif;
-    --font-large-quotation: 'BIZ UDPGothic', serif;
-    --font-blog: 'IBM Plex Serif', serif;
-    --font-large-question: 'Quantico', sans-serif;
 }
 
 /*global color variables for different visual modes (can be used with the var() expression)*/
@@ -138,10 +114,13 @@
 }
 
 :root { /*legacy colors (all old colors from the app which cannot be replaced)*/
-    --legacy-gray: #707070;
-    --legacy-blue-dark: #274b65;
-    --legacy-blue-light: #3a6d70;
-    --legacy-green: #2d772d;
+    --current-gray: #707070;
+    --current-gray-light: #f6f7fb;
+    --current-blue-dark: #274b65;
+    --current-blue-light: #3a6d70;
+    --current-blue-folder: #5f9ea0;
+    --current-green: #2d772d;
+    --current-font: 'M PLUS 1', sans-serif;
 }
 
 /* Home */
@@ -159,10 +138,10 @@
     bottom: 0%;
     left: 50%;
     transform: translate(-50%, 50%);
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-weight: bold;
     font-size: 42px;
-    color: rgba(255,255,255,1);
+    color: var(--color-font);
     max-width: 50%;
     max-height: 75px;
     -webkit-line-clamp: 2;
@@ -174,10 +153,10 @@
 }
 .rechteck {
     background: transparent;
-    border-right: 13px solid rgb(53, 72, 96);
-    border-left: 13px solid rgb(53, 72, 96);
-    border-top: 10px solid rgb(53, 72, 96);
-    border-bottom: 10px solid rgb(53, 72, 96);
+    border-top: 10px solid var(--current-blue-dark);
+    border-right: 13px solid var(--current-blue-dark);
+    border-left: 13px solid var(--current-blue-dark);
+    border-bottom: 10px solid var(--current-blue-dark);
     width: 91vw;
     height: calc(100% - 200px);
     margin: auto;
@@ -196,7 +175,7 @@
     top: 48px;
     width: calc(100% - 30px);
     height: 0px;
-    border-top: 8px solid rgb(79, 109, 115);
+    border-top: 8px solid var(--current-blue-light);
     border-radius: 15px;
 }
 .Logo-oben {
@@ -216,9 +195,9 @@
     width: 35px;
     height: 35px;
     border: 1px transparent;
-    background-color: transparent;
+    background-color: var(--color-transparent);
     cursor: pointer;
-    filter: invert(0.75);
+    filter: var(--svg-invert-gray);
 }
 .File-Overview {
     position: absolute;
@@ -227,7 +206,7 @@
     text-align: center;
     color: var(--color-font);
     top: -10px;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-weight: 400;
     font-size: 24px;
     width: calc(100% - 70px);
@@ -257,7 +236,7 @@
     left: 0%;
     padding: 15px 15px;
     background-color: var(--color-background);
-    border: 5px solid #5f9ea0;
+    border: 5px solid var(--current-blue-folder);
     border-radius: 3px;
     cursor: pointer;
 }
@@ -268,8 +247,8 @@
     max-width: calc(100% - 120px);
     color: var(--color-font);
     font-size: 20px;
-    font-family: 'M PLUS 1', sans-serif;
-    background-color: transparent;
+    font-family: var(--current-font);
+    background-color: var(--color-transparent);
     border: 1px transparent;
     cursor: pointer;
     white-space: nowrap;
@@ -287,7 +266,7 @@
 }
 .No_Folder_Text {
     text-align: center;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-style: italic;
     color: var(--color-font-gray);
     font-size: 24px;
@@ -369,7 +348,7 @@
     position: absolute;
     top: 0%;
     width: 100%;
-    border-top: 5px solid var(--legacy-gray);
+    border-top: 5px solid var(--current-gray);
 }
 .Button_New_Folder {
     position: absolute;
@@ -378,7 +357,7 @@
     padding: 15px 15px;
     background-color: var(--color-background);
     cursor: pointer;
-    border: 5px solid #5f9ea0;
+    border: 5px solid var(--current-blue-folder);
     border-radius: 3px;
 }
 .New_Folder_Text {
@@ -388,8 +367,8 @@
     max-width: calc(100% - 40px);
     color: var(--color-font);
     font-size: 20px;
-    font-family: 'M PLUS 1', sans-serif;
-    background-color: transparent;
+    font-family: var(--current-font);
+    background-color: var(--color-transparent);
     border: 1px transparent;
     cursor: pointer;
     outline: none;
@@ -402,24 +381,24 @@
     top: 42.5%;
     left: 10.5%;
     width: 80%;
-    border-top: 5px solid var(--legacy-gray);
+    border-top: 5px solid var(--current-gray);
 }
 .New_Folder_Plus_v {
     position: absolute;
     top: 10.5%;
     left: 42.5%;
     height: 80%;
-    border-left: 5px solid var(--legacy-gray);
+    border-left: 5px solid var(--current-gray);
 }
 
 /* Feld für das Erstellen von Ordnern */
 .Add_Folder_Form_Body {
-    border: 5px solid var(--legacy-blue-dark);
+    border: 5px solid var(--current-blue-dark);
     box-shadow: 0 1px 4px var(--color-shadow);
     background-color: var(--color-background);
     text-align: center;
-    font-family: 'M PLUS 1', sans-serif;
-    color: white;
+    font-family: var(--current-font);
+    color: var(--color-font);
     width: 550px;
     height: 225px;
     position: fixed;
@@ -439,22 +418,22 @@
     font-size: 20px;
 }
 .Add_Folder_Form_Input {
-    border: 5px solid var(--legacy-blue-light);
+    border: 5px solid var(--current-blue-light);
     width: 80%;
-    color: white;
-    background-color: #353535;
-    font-family: 'M PLUS 1', sans-serif;
+    color: var(--color-font);
+    background-color: var(--color-background);
+    font-family: var(--current-font);
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
     border-radius: 3px;
 }
 .Add_Folder_Form_Submit {
-    border: 5px solid var(--legacy-blue-light);
+    border: 5px solid var(--current-blue-light);
     padding: 5px;
-    color: white;
-    background-color: #353535;
-    font-family: 'M PLUS 1', sans-serif;
+    color: var(--color-font);
+    background-color: var(--color-background);
+    font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
     border-radius: 3px;
@@ -462,12 +441,12 @@
 
 /* Delete Folder Bestätigung */
 .Delete_Folder_Confirm {
-    border: 5px solid var(--legacy-blue-dark);
+    border: 5px solid var(--current-blue-dark);
     box-shadow: 0 1px 4px var(--color-shadow);
     background-color: var(--color-background);
     text-align: center;
-    font-family:'M PLUS 1', sans-serif;
-    color: white;
+    font-family:var(--current-font);
+    color: var(--color-font);
     width: 300px;
     height: 160px;
     position: fixed;
@@ -481,13 +460,13 @@
     overflow-y: auto;
 }
 .Delete_Folder_Confirm_Yes {
-    border: 5px solid var(--legacy-green);
+    border: 5px solid var(--current-green);
     border-radius: 3px;
     padding: 5px;
     width: 60px;
-    color: white;
-    background-color: rgb(45, 119, 45);
-    font-family: 'M PLUS 1', sans-serif;
+    color: var(--color-white);
+    background-color: var(--current-green);
+    font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
     display: inline;
@@ -498,9 +477,9 @@
     border-radius: 3px;
     padding: 5px;
     width: 60px;
-    color: white;
-    background-color: rgb(228, 48, 48);
-    font-family: 'M PLUS 1', sans-serif;
+    color: var(--color-white);
+    background-color: var(--color-red-light);
+    font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
     display: inline;
@@ -511,7 +490,7 @@
 .Footer_Body {
     position: fixed;
     box-shadow: 0 1px 4px var(--color-shadow);
-    border-top: 2px solid var(--legacy-gray);
+    border-top: 2px solid var(--current-gray);
     left: 0%;
     bottom: 0%;
     width: 100%;
@@ -540,7 +519,7 @@
     top: 50%;
     transform: translate(0%, -50%);
     text-align: left;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 16px;
     color: var(--color-font);
 }
@@ -553,7 +532,7 @@
     border-radius: 5px;
     width: 10px;
     height: 10px;
-    background-color: var(--legacy-gray);
+    background-color: var(--current-gray);
     cursor: pointer;
 }
 .instaIcon {
@@ -576,22 +555,22 @@
     line-height: 18px;
 }
 .termsOfUse {
-    color: rgba(39,75,101,1);
-    font-family: 'M PLUS 1', sans-serif;
+    color: var(--current-blue-dark);
+    font-family: var(--current-font);
     text-decoration: underline;
     cursor: pointer;
     display: inline;
 }
 .privacyPolicy {
-    color: rgba(39,75,101,1);
-    font-family: 'M PLUS 1', sans-serif;
+    color: var(--current-blue-dark);
+    font-family: var(--current-font);
     text-decoration: underline;
     cursor: pointer;
     display: inline;
 }
 .impressum {
-    color: rgba(39,75,101,1);
-    font-family: 'M PLUS 1', sans-serif;
+    color: var(--current-blue-dark);
+    font-family: var(--current-font);
     text-decoration: underline;
     cursor: pointer;
     display: inline;
@@ -602,7 +581,7 @@
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
     background-color: var(--color-background);
-    border: 5px solid var(--legacy-blue-dark);
+    border: 5px solid var(--current-blue-dark);
     text-align: center;
     width: 210px;
     height: 155px;
@@ -616,16 +595,16 @@
     overflow-y: auto;
 }
 .settings-title {
-    color: white;
-    font-family: 'M PLUS 1', sans-serif;
+    color: var(--color-font);
+    font-family: var(--current-font);
     position: relative;
     word-wrap: break-word;
     hyphens: manual;
 }
 .settings-sub {
-    color: var(--legacy-blue-light);
+    color: var(--current-blue-light);
     width: fit-content;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     position: relative;
     cursor: pointer;
     padding-left: 10px;
@@ -642,7 +621,7 @@
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
     background-color: var(--color-background);
-    border: 5px solid var(--legacy-blue-dark);
+    border: 5px solid var(--current-blue-dark);
     padding: 1rem;
     text-align: center;
     width: 3.4rem;
@@ -654,8 +633,8 @@
     white-space: nowrap;
 }
 .folder-settings-sub {
-    color: rgba(58,109,112,1);
-    font-family: 'M PLUS 1', sans-serif;
+    color: var(--current-blue-light);
+    font-family: var(--current-font);
     position: relative;
     cursor: pointer;
     margin: 2px;
@@ -667,7 +646,7 @@
 
 .Backdropfs {
     position: fixed;
-    background-color: transparent;
+    background-color: var(--color-transparent);
     width: 100%;
     height: 100%;
     top: 0;
@@ -710,7 +689,7 @@
 .Zurückbutton_Arrow {
     border: solid;
     border-width: 8px 8px 1px 1px;
-    border-color: rgb(246, 247, 251) rgb(246, 247, 251) transparent transparent;
+    border-color: var(--current-gray-light) var(--current-gray-light) var(--color-transparent) var(--color-transparent);
     border-radius:6px 0;
     padding: 8px;
     position: absolute;
@@ -732,10 +711,10 @@
     position: absolute;
     top: 30px;
     width: calc(100% - 10px);
-    background-color: rgb(241, 242, 247);
-    border-bottom: 5px solid rgb(199, 202, 211);
-    border-left: 5px solid rgb(199, 202, 211);
-    border-right: 5px solid rgb(199, 202, 211);
+    background-color: var(--current-gray-light);
+    border-bottom: 5px solid var(--color-font-gray);
+    border-left: 5px solid var(--color-font-gray);
+    border-right: 5px solid var(--color-font-gray);
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
@@ -748,11 +727,11 @@
     bottom: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(to top, rgb(241, 242, 247) 5px, rgba(255,255,255,0) 15%);
+    background: linear-gradient(to top, var(--current-gray-light) 5px, var(--color-transparent) 15%);
     pointer-events: none;
 }
 .Flashcard_Title {
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -768,7 +747,7 @@
 }
 .Flashcard_Content {
     position: relative;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 16px;
     text-align: left;
     width: 90%;
@@ -792,7 +771,7 @@
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
     background-color: #333333;
-    border: 5px solid rgb(53, 72, 96);
+    border: 5px solid var(--current-blue-dark);
     padding: 1rem;
     text-align: center;
     width: 3rem;
@@ -806,10 +785,10 @@
     position: absolute;
     width: calc(100% - 10px);
     height: 30px;
-    background-color: rgb(241, 242, 247);
-    border-top: 5px solid rgb(199, 202, 211);
-    border-left: 5px solid rgb(199, 202, 211);
-    border-right: 5px solid rgb(199, 202, 211);
+    background-color: var(--current-gray-light);
+    border-top: 5px solid var(--color-font-gray);
+    border-left: 5px solid var(--color-font-gray);
+    border-right: 5px solid var(--color-font-gray);
     border-radius: 3px;
     cursor: pointer;
 }
@@ -879,14 +858,14 @@
     max-width: calc(100% - 160px);
     background-color: var(--color-background);
     box-shadow: 0 1px 4px var(--color-shadow);
-    border: 5px solid var(--legacy-blue-dark);
+    border: 5px solid var(--current-blue-dark);
     border-radius: 3px;
     z-index: 10;
     overflow-x: hidden;
     overflow-y: auto;
 }
 .Flashcard_Open_Title {
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     color: white;
     text-align: center;
     font-weight: bold;
@@ -899,7 +878,7 @@
 }
 .Flashcard_Open_Content {
     position: relative;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     color: white;
     font-size: 20px;
     text-align: justify;
@@ -925,7 +904,7 @@
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
     background-color: var(--color-background);
-    border: 5px solid var(--legacy-blue-dark);
+    border: 5px solid var(--current-blue-dark);
     padding: 1rem;
     text-align: center;
     width: 3rem;
@@ -996,7 +975,7 @@
     width: 0;
 	height: 0;
 	border-top: 40px solid var(--color-transparent);
-	border-left: 60px solid var(--legacy-gray);
+	border-left: 60px solid var(--current-gray);
 	border-bottom: 40px solid var(--color-transparent);
     z-index: 10;
     cursor: pointer;
@@ -1007,7 +986,7 @@
     width: 0;
 	height: 0;
 	border-top: 40px solid var(--color-transparent);
-	border-right: 60px solid var(--legacy-gray);
+	border-right: 60px solid var(--current-gray);
 	border-bottom: 40px solid var(--color-transparent);
     z-index: 10;
     cursor: pointer;
@@ -1018,8 +997,8 @@
     position: absolute;
     height: calc(100% - 10px);
     width: calc(100% - 10px);
-    background-color: transparent;
-    border: 5px dotted rgb(199, 202, 211);
+    background-color: var(--color-transparent);
+    border: 5px dotted var(--color-font-gray);
     border-radius: 3px;
     overflow: hidden;
     cursor: pointer;
@@ -1031,9 +1010,9 @@
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
-    border: 10px solid rgb(199, 202, 211);
+    border: 10px solid var(--color-font-gray);
     border-radius: 50%;
-    background-color: rgb(241, 242, 247);
+    background-color: var(--current-gray-light);
 }
 .New_Flashcard_Plus_h {
     position: absolute;
@@ -1057,21 +1036,21 @@
     position: relative;
     top: calc(100% - 253px);
     left: 10px;
-    border: 5px solid var(--legacy-blue-light);
+    border: 5px solid var(--current-blue-light);
     padding: 5px;
     margin-top: 15px;
     margin-bottom: 0px;
     width: calc(100% - 20px);
     color: white;
-    background-color: #353535;
-    font-family: 'M PLUS 1', sans-serif;
+    background-color: var(--color-background);
+    font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
     border-radius: 3px;
 }
 .Add_Flashcard_Form_Header {
     font-size: 24px;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     text-align: center;
     color: var(--color-font);
 }
@@ -1081,14 +1060,14 @@
     width: calc(100% - 34px);
     color: var(--color-font);
     text-align: center;
-    background-color: #353535;
-    font-family: 'M PLUS 1', sans-serif;
+    background-color: var(--color-background);
+    font-family: var(--current-font);
     font-size: 24px;
     font-weight: bold;
     padding: 10px 5px;
     outline: none;
     resize: none;
-    border: 2px solid var(--legacy-gray);
+    border: 2px solid var(--current-gray);
     border-radius: 3px;
 }
 .Add_Flashcard_Form_Content {
@@ -1098,13 +1077,13 @@
     height: calc(100% - 270px);
     color: white;
     text-align: left;
-    background-color: #353535;
-    font-family: 'M PLUS 1', sans-serif;
+    background-color: var(--color-background);
+    font-family: var(--current-font);
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
     resize: none;
-    border: 2px solid var(--legacy-gray);
+    border: 2px solid var(--current-gray);
     border-radius: 3px;
     overflow-y: auto;
     overflow-x: auto;
@@ -1121,7 +1100,7 @@
     max-width: calc(100% - 160px);
     background-color: var(--color-background);
     box-shadow: 0 1px 4px var(--color-shadow);
-    border: 5px solid var(--legacy-blue-dark);
+    border: 5px solid var(--current-blue-dark);
     border-radius: 3px;
     z-index: 12;
     overflow-x: hidden;
@@ -1194,7 +1173,7 @@
 /* CSS für AGB, Impressum und Datenschutz */
 .Legal_Header {
     position: relative;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-weight: bold;
     font-size: 36px;
     text-align: center;
@@ -1204,7 +1183,7 @@
 }
 .Legal-SubHeader {
     position: relative;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 20px;
     text-align: justify;
     color: white;
@@ -1217,7 +1196,7 @@
 }
 .Legal_Text {
     position: relative;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 20px;
     text-align: justify;
     color: white;
@@ -1229,7 +1208,7 @@
 /* Css für Login */
 .Login_Base_Scroll {
     position: absolute;
-    background-color: transparent;
+    background-color: var(--color-transparent);
     height: calc(100% - 62px);
     width: calc(100% - 10px);
     left: 5px;
@@ -1238,7 +1217,7 @@
 }
 .Login_Base {
     position: absolute;
-    background-color: transparent;
+    background-color: var(--color-transparent);
     height: 100%;
     width: 550px;
     max-width: 100%;
@@ -1246,7 +1225,7 @@
     transform: translate(-50%);
     color: white;
     text-align: center;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     overflow: visible;
 }
 .Logo-oben-login {
@@ -1260,7 +1239,7 @@
 }
 .Login {
     position: absolute;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size:25px;
     color: gray;
     right: 10px;
@@ -1269,7 +1248,7 @@
 }
 .Signup {
     position: absolute;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size:25px;
     color: white;
     top: 9px;
@@ -1287,7 +1266,7 @@
     bottom: 50%;
     right: 10px;
     transform: translate(0%, 50%);
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size:25px;
     color: white;
     text-align: center;
@@ -1312,11 +1291,11 @@
     left: 40%;
 }
 .mail-input {
-    border: 5px solid rgba(58,109,112,1);
+    border: 5px solid var(--current-blue-light);
     width: 80%;
     color: white;
-    background-color: #353535;
-    font-family: 'M PLUS 1', sans-serif;
+    background-color: var(--color-background);
+    font-family: var(--current-font);
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
@@ -1337,11 +1316,11 @@
     left: 37.5%;
 }
 .password-input {
-    border: 5px solid rgba(58,109,112,1);
+    border: 5px solid var(--current-blue-light);
     width: 80%;
     color: white;
-    background-color: #353535;
-    font-family: 'M PLUS 1', sans-serif;
+    background-color: var(--color-background);
+    font-family: var(--current-font);
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
@@ -1350,7 +1329,7 @@
 .password-label {
     position: relative;
     top: -40px;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 20px;
     color: white;
     right: -85px;
@@ -1373,7 +1352,7 @@
     position: relative;
     top: 10px;
     color: #265272;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     cursor: pointer;
     text-align: center;
     margin-bottom: 24px;
@@ -1387,7 +1366,7 @@
     position: relative;
     top: 80px;
     color: white;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 16px;
     text-align: center;
     margin-top: 0px;
@@ -1396,7 +1375,7 @@
 }
 .passwords-no-match {
     color: rgb(228, 48, 48);
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 14px;
     position: absolute;
     left: 8%;
@@ -1421,9 +1400,9 @@
     transform: translate(-50%, -50%);
 }
 .accept_privacy [type="checkbox"] + label::before {
-    border: 3.5px solid rgba(58,109,112,1);
+    border: 3.5px solid var(--current-blue-light);
     border-radius: 3px;
-    background-color: #353535;
+    background-color: var(--color-background);
     display: block;
     content: "";
     width: 15px;
@@ -1434,8 +1413,8 @@
     margin-top: 1px;
 }
 .accept_privacy [type="checkbox"]:checked+label::before {
-    box-shadow: inset 0px 0px 0px 3px #353535;
-    background-color: rgba(58,109,112,1);
+    box-shadow: inset 0px 0px 0px 3px var(--color-background);
+    background-color: var(--current-blue-light);
 }
 
 .accept_privacy_red {
@@ -1458,7 +1437,7 @@
 .accept_privacy_red [type="checkbox"] + label::before {
     border: 3.5px solid rgb(228, 48, 48);
     border-radius: 3px;
-    background-color: #353535;
+    background-color: var(--color-background);
     display: block;
     content: "";
     width: 15px;
@@ -1469,7 +1448,7 @@
     margin-top: 1px;
 }
 .accept_privacy_red [type="checkbox"]:checked+label::before {
-    box-shadow: inset 0px 0px 0px 3px #353535;
+    box-shadow: inset 0px 0px 0px 3px var(--color-background);
     background-color: rgb(228, 48, 48);
 }
 
@@ -1481,7 +1460,7 @@
     background-color: #4286f5;
     border-color: #4286f5;
     color: white;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 14px;
     font-weight: 500;
     position: absolute;
@@ -1490,14 +1469,14 @@
 }
 
 .text {
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     position: absolute;
     top: -5px;
     left: 4px;
 }
 .check_text {
     color: white;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     position: absolute;
     left: 20px;
 }
@@ -1579,7 +1558,7 @@
     position: relative;
     top: 0%;
     left: 0%;
-    background-color: transparent;
+    background-color: var(--color-transparent);
     overflow: hidden;
 }
 /* Darauf basieren sich die Rechtecke
@@ -1593,9 +1572,9 @@
     min-height: 160px;
     min-width: 120px;
     max-width: calc(100% - 160px);
-    background-color: #353535;
+    background-color: var(--color-background);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border: 5px solid rgba(39,75,101,1);
+    border: 5px solid var(--current-blue-dark);
     border-radius: 3px;
     z-index: 10;
     overflow-x: hidden;
@@ -1604,7 +1583,7 @@
 */
 .rechteck-Start1 {
     background: transparent;
-    border: 5px solid rgba(39,75,101,1);
+    border: 5px solid var(--current-blue-dark);
     width: calc(94vh / 3 * 2);
     height: 94vh;
     margin: auto;
@@ -1623,7 +1602,7 @@
     text-align: left;
     color: #FFFF;
     top: 1px;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-weight: 400;
     font-size: 24px;
     width: 100%;
@@ -1641,7 +1620,7 @@
 .Start1a-Text {
     position: relative;
     color: #FFFF;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-weight: 400;
     font-size: 28.76px;
     line-height: 1.8;
@@ -1651,7 +1630,7 @@
 }
 .About_Us-Start {
     color: rgb(255, 255, 255);
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     cursor: pointer;
     text-decoration: underline;
 }
@@ -1678,7 +1657,7 @@
     text-align: left;
     color: #FFFF;
     top: 0px;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-weight: 400;
     font-size: 24px;
     width: 99%;
@@ -1686,7 +1665,7 @@
 }
 .rechteck-Start3 {
     background: transparent;
-    border: 5px solid rgba(39,75,101,1);
+    border: 5px solid var(--current-blue-dark);
     width: calc(94vh / 3 * 2);
     height: 94vh;
     margin: auto;
@@ -1707,7 +1686,7 @@
     text-align: left;
     color: #FFFF;
     top: 0px;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-weight: 400;
     font-size: 24px;
     width: 90%;
@@ -1730,7 +1709,7 @@
     height: 60px;
     width: 175px;
     border-radius: 5px;
-    background-color: #353535;
+    background-color: var(--color-background);
     position: absolute;
     bottom: 25%;
     right: 220px;
@@ -1805,7 +1784,7 @@
     top: 20%;
     transform: translate(0%, -50%);
     text-align: left;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 16px;
     color: white;
     transform: translate(-50%, 0%, 0%, 0%);
@@ -1816,7 +1795,7 @@
     top: 20%;
     transform: translate(0%, -50%);
     text-align: left;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 16px;
     color: white;
     
@@ -1902,7 +1881,7 @@
 }
 /* Dieser css bezieht sich auf die Links und ihre animation*/
 .footerLinks-Start {
-    background-color: transparent;
+    background-color: var(--color-transparent);
     width: 500px;
     max-height: 36px;
     position: absolute;
@@ -1912,7 +1891,7 @@
    
 .privacyPolicy-Start {
     color: rgb(255, 255, 255);
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     cursor: pointer;
     position:absolute;
     text-decoration: none;
@@ -1935,7 +1914,7 @@
 }
 .termsOfUse-Start {
     color: rgb(255, 255, 255);
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     cursor: pointer;
     position:absolute;
     top:30px;
@@ -1960,7 +1939,7 @@
 
 .impressum-Start {
     color: rgb(255, 255, 255);
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     cursor: pointer;
     position:absolute;
     top: 30px;
@@ -1984,7 +1963,7 @@
 }
 .About-Start{
     color: rgb(255, 255, 255);
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     cursor: pointer;
     position:absolute;
     top: 60px;
@@ -2022,7 +2001,7 @@
     height: 555px;
     width: 80%;
     border-radius: 7.5px;
-    border: 7.5px solid rgba(58,109,112,1);
+    border: 7.5px solid var(--current-blue-light);
     left: 10%;
     overflow-y: auto;
 }
@@ -2034,13 +2013,13 @@
 }
 .QA-flashcard-title {
     color: white;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     text-align: center;
     padding: 0px 30px 0px 30px;
 }
 .QA-flashcard-content {
     color: white;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 22px;
     line-height: 27px;
     text-align: justify;
@@ -2095,16 +2074,16 @@
     position: relative;
     font-size: 20px;
     top: -10px;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-weight: bold;
 
 }
 .study-flashcard-box {
     padding: 10px 20px 20px 20px;
     color: rgb(53, 53, 53);
-    background: rgb(241, 242, 247);
+    background: var(--current-gray-light);
     font-size: 22px;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     position: absolute;
     top: calc(80px + 1.5vw*var(--size));
     left: 50%;
@@ -2124,8 +2103,8 @@
     top: 81px ;
     left: 50%;
     position: absolute;
-    background: rgb(199, 202, 211);
-    border: calc( 1.5vw *var(--size)) solid rgb(199, 202, 211);
+    background: var(--color-font-gray);
+    border: calc( 1.5vw *var(--size)) solid var(--color-font-gray);
     border-radius: 8px;
     transform: translateX(-50%);
     padding: 10px 20px 20px 20px;
@@ -2135,7 +2114,7 @@
     position: absolute;
     right: 20px;
     color: rgba(112, 112, 112, 1);
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     font-size: 20px;
 }
 .study-flashcard-dots {
@@ -2149,7 +2128,7 @@
 }
 .study-flashcard-settings-overlay {
     padding: 0 0 0 20px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
     background-color: #333333;
     border: 5px solid #274b65;
@@ -2167,7 +2146,6 @@
     height: calc(3vh*var(--button));
     width: calc(9vh*var(--button));
     font-size: calc(1.25vh*var(--button));
-    text-shadow: 0 0.04em 0.04em rgba(126, 126, 126, 0.35);
     font-weight: bold;
     cursor: pointer;
     margin:0vw 3vw 0vw 3vw;
@@ -2185,7 +2163,7 @@
     position: relative;
     text-align: center;
     font-size: 2.6vh;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     margin:1vh;
 }
 .finished-box{
@@ -2202,7 +2180,7 @@
 .finished-button{
     position: absolute;
     left: 50%;
-    font-family: 'M PLUS 1', sans-serif;
+    font-family: var(--current-font);
     transform: translate(-50%, -50%);
     border-radius: 0.5vw;
     height: calc(3vh*var(--testing));

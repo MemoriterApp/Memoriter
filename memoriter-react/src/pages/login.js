@@ -18,9 +18,9 @@ function LoginPage() {
     const [loading, setLoading] = useState(false);
 
     const [invalidEmail, setInvalidEmail] = useState(false);
-    const [redBorderEmail, setRedBorderEmail] = useState('5px solid rgba(58,109,112,1)');
+    const [redBorderEmail, setRedBorderEmail] = useState('5px solid var(--current-blue-light)');
     const [wrongPassword, setWrongPassword] = useState(false);
-    const [redBorderPassword, setRedBorderPassword] = useState('5px solid rgba(58,109,112,1)');
+    const [redBorderPassword, setRedBorderPassword] = useState('5px solid var(--current-blue-light)');
 
     const [user, setUser] = useState({})
 
@@ -103,7 +103,7 @@ function LoginPage() {
                                         (e) => {
                                             setEmail(e.target.value);
                                             setInvalidEmail(false);
-                                            setRedBorderEmail('5px solid rgba(58,109,112,1)');
+                                            setRedBorderEmail('5px solid var(--current-blue-light)');
                                         }} />
                                 {invalidEmail && <p className="passwords-no-match">Invalid Email!</p>}
                                 <p style={{ fontSize: '25px' }} />
@@ -117,7 +117,7 @@ function LoginPage() {
                                         (e) => {
                                             setPassword(e.target.value);
                                             setWrongPassword(false);
-                                            setRedBorderPassword('5px solid rgba(58,109,112,1)');
+                                            setRedBorderPassword('5px solid var(--current-blue-light)');
                                         }} />
                                 {wrongPassword && <p className="passwords-no-match">Wrong Password!</p>}
 

@@ -18,7 +18,7 @@ function Start() {
                 <meta name='description' content='Startpage for Memoriter'></meta>
             </head>
             <header className='Page_Header-Start'>
-                <img className="Logo-Start" src={Logo} alt="site-logo" style={{filter: 'invert(1)'}}/>
+                <img className="Logo-Start" src={Logo} alt="site-logo" style={{filter: 'var(--svg-invert)'}}/>
                 <div>
                     <Link to='/signup'>
                         <button type="submit" className="SignupButton-Start">Sign Up</button>

@@ -7,7 +7,7 @@ import Logo from '../images/memoriter-logo.svg';
 const FooterStart = () => {
     return (
         <div className='Footer_Body-Start'>
-            <img  className='MEMORITER-Start' src={Logo} alt='Memoriter-Logo' style={{filter: 'invert(1)'}}></img>
+            <img  className='MEMORITER-Start' src={Logo} alt='Memoriter-Logo' style={{filter: 'var(--svg-invert)'}}></img>
             <div className='Company-Start'>
                 <h2>Company</h2>
                 <ul>   
@@ -24,7 +24,7 @@ const FooterStart = () => {
             </div>
             <div>
                 <a className='rechteckLogo-Start' href='https://www.instagram.com/memorit.er/' target='_blank' rel="noreferrer">
-                    <img className='instaIcon-Start' src={instagramIcon} alt='instagram' style={{filter: 'invert(1)'}}></img>
+                    <img className='instaIcon-Start' src={instagramIcon} alt='instagram' style={{filter: 'var(--svg-invert)'}}></img>
                 </a>
             </div>
             <div >

@@ -43,7 +43,7 @@ function SettingsClick() {
             
             {themeText === 'dark' && <p className='settings-sub' onClick={() => onChangeTheme('light')}>Theme:&shy; Dark</p>}
             
-            {themeText === 'light' && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>Theme:&shy; Dark</p>}
+            {themeText === 'light' && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>Theme:&shy; Light</p>}
 
             <p className='settings-sub' onClick={() => openSignOutView(true)}>Sign Out</p>
             {signOutView && <div>
