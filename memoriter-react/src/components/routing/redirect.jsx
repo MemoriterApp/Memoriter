@@ -8,7 +8,7 @@ const Redirect = () => {
     const navigate = useNavigate();
 
     useEffect(() => { //if no user is signed in and this page loads, you are redirected to the signup page
-        navigate('/signin');
+        navigate('/start');
     });
 
     return null;

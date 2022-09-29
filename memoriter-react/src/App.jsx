@@ -1,5 +1,5 @@
-import SignIn from './pages/sign-in';
-import Register from './pages/register';
+import LoginPage from './pages/login';
+import SignUpPage from './pages/signup';
 
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
@@ -30,9 +30,9 @@ function App() {
         <ThemeProvider> {/*ThemeProvider is responsible for the dark and light theme*/}
           <Routes>
 
-            <Route path='/signin' element={<SignIn/>}/>
+            <Route path='/login' element={<LoginPage/>}/>
 
-            <Route path='/register' element={<Register/>}/>
+            <Route path='/signup' element={<SignUpPage/>}/>
 
             {user? (<> {/*some of the active routes are altered if a user is signed in*/}
               <Route path='/' element={<HomePage/>}/>

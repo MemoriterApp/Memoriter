@@ -1,4 +1,4 @@
-import Logo from './Logo.png';
+import Logo from '../images/memoriter-logo.svg';
 import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
