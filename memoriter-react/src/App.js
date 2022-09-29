@@ -44,9 +44,9 @@ function App() {
             <Route path='/privacy' element={<PrivacyPage/>}/>
 
             {user? (<> {/*some of the active routes are altered if a user is signed in*/}
-              <Route path='/login' element={<Redirect/>}/>
+              <Route path='/login' element={<HomePage/>}/>
 
-              <Route path='/signup' element={<Redirect/>}/>
+              <Route path='/signup' element={<HomePage/>}/>
               
               <Route path='/' element={<HomePage/>}/>
 
