@@ -81,19 +81,19 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
             <div className='Folder_Pos_Body_Down' onClick={
                 () => { if (pos < folderCount) {setPos(pos + 1); onPosDown(folder.id, pos);} }
             }>
-                <div className='Folder_Pos_Arrow_Down' />
+                <div className='Folder_Pos_Arrow_Down'/>
             </div>
             <div className='Button_Homepage_Settings' onClick={settingsHandler}>
-                <span className='dot'></span>
-                <span className='dot'></span>
-                <span className='dot'></span>
+                <span className='dot'/>
+                <span className='dot'/>
+                <span className='dot'/>
             </div>
 
             <div>
                 {modalIsOpen && <div className='folder-settings-overlay'>
                     <div className='folder-settings-sub'>
-                        <p onClick={editFolderReq}>Edit</p>
-                        <p onClick={deleteFolderReq}>Delete</p>
+                        <p onClick={editFolderReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
+                        <p onClick={deleteFolderReq} style={{color: 'rgb(228, 48, 48)'}}>✕ Delete</p>
                     </div>
                 </div>}
             </div>

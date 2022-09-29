@@ -6,12 +6,39 @@ import Footer from '../components/Footer';
 import Flashcard from '../components/Flashcard';
 import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
-import { Link, } from 'react-router-dom';
+import { Link, useNavigate, } from 'react-router-dom';
+import Masonry from 'react-masonry-css';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
 function TopicPage() {
+
+    const navigate = useNavigate();
+
+    const [columns, setColumns] = useState(6); //column count of the masonry layout
+    const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
+    
+    useEffect(() => { //detect window resize
+        window.addEventListener('resize', () => setWidth(window.innerWidth));
+        return () => window.removeEventListener('resize', () => setWidth(window.innerWidth));
+    }, []);
+
+    if (width <= 495 && columns !== 1) { //sets the layout column count
+        setColumns(1);
+    } else if (width > 495 && width <= 850 && columns !== 2) {
+        setColumns(2);
+    } else if (width > 850 && width <= 1150 && columns !== 3) {
+        setColumns(3);
+    } else if (width > 1150 && width <= 1400 && columns !== 4) {
+        setColumns(4);
+    } else if (width > 1400 && width <= 1600 && columns !== 5) {
+        setColumns(5);
+    } else if (width > 1600 && width <= 1900 && columns !== 6) {
+        setColumns(6);
+    } else if (width > 1900 && columns !== 7) {
+        setColumns(7);
+    };
 
     //firebase stuff
     //link zur db
@@ -37,7 +64,7 @@ function TopicPage() {
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
-    let syncedFolderID = localStorage.getItem('syncedFolderID')
+    let syncedFolderID = localStorage.getItem('syncedFolderID');
 
     if (renderedFlashcard === false) {
         setFlashcards(flashcards.filter((flashcard) => flashcard.syncedFolder === syncedFolderID));
@@ -115,7 +142,8 @@ function TopicPage() {
     //Add Flashcard
     const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
-        await addDoc(flashcardCollectionRef, { pos, title: flashcard.title, content: flashcard.content, syncedFolder: flashcard.syncedFolder })
+        await addDoc(flashcardCollectionRef, { pos, title: flashcard.title, content: flashcard.content,
+            textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)', syncedFolder: flashcard.syncedFolder })
 
         const allFlashcards = await getDocs(flashcardCollectionRef)
         setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Flashcards
@@ -133,10 +161,43 @@ function TopicPage() {
             ? { ...flashcard, title: title, content: content } : flashcard))
     }
 
+    //Change text align
+    const changeTextAlign = async (id, textAlign) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+
+        //based on the current text align, the text align will changed to a different value
+        if (textAlign === 'left') {
+            const newAll = { textAlign: 'right', textAlignSymbol: '> >', textAlignColor: 'rgb(228, 48, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'right', textAlignSymbol: '> >', textAlignColor: 'rgb(228, 48, 48)' } : flashcard))
+        } else if (textAlign === 'right') {
+            const newAll = { textAlign: 'center', textAlignSymbol: '> <', textAlignColor: 'rgb(228, 198, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'center', textAlignSymbol: '> <', textAlignColor: 'rgb(228, 198, 48)' } : flashcard))
+        } else if (textAlign === 'center') {
+            const newAll = { textAlign: 'jusify', textAlignSymbol: '< >', textAlignColor: 'rgb(48, 158, 228)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'justify', textAlignSymbol: '< >', textAlignColor: 'rgb(48, 158, 228)' } : flashcard))
+        } else if (textAlign === 'justify') {
+            const newAll = { textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
+        } else {
+            const newAll = { textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
+        }
+    }
+
     //Delete Flashcard
     const deleteFlashcard = async (id, pos) => {
         const flashcardDoc = doc(db, 'flashcards', id);
-        await deleteDoc(flashcardDoc); //Position wird auf Firebase noch nicht korrigiert.
+        await deleteDoc(flashcardDoc);
         setFlashcards((flashcards) =>
             flashcards
                 .map((flashcard) =>
@@ -165,32 +226,34 @@ function TopicPage() {
                 <Link to='/'>
                     <img className="Logo-oben" src={memoriterLogo} alt="site-logo"></img>
                 </Link>
+                <div className='study-now' onClick={() => navigate('/study')}>
+                    <p className='study-now-text'>study now</p>
+                </div>
             </header>
             <body>
                 <div className="rechteck">
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
-                        <>
-                            {flashcards
-                                .map((flashcard) => (
-                                    <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
-                                        onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
-                                        onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
-                                        onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
-                                        onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
-                                    />)
-                                )}
-                        </>
+                        <Masonry breakpointCols={columns} className='flashcard-base-grid'>
+                            {flashcards.map((flashcard) => (
+                                <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                    onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
+                                    onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                    onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                    onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                    onChangeTextAlign={changeTextAlign}
+                                />))}
 
-                        <div className='Flashcard_Body'>
-                            <div className='Flashcard_Settings_Bar' onClick={NewFlashcardClick} />
-                            <div className='Flashcard_Rechteck' onClick={NewFlashcardClick}>
-                                <div className='New_Flashcard_Circle'>
-                                    <div className='New_Flashcard_Plus_h' />
-                                    <div className='New_Flashcard_Plus_v' />
+                                {/*create new flashcard button*/}
+                                <div className='Flashcard_Body'>
+                                    <div className='New_Flashcard_Rechteck' onClick={NewFlashcardClick}>
+                                        <div className='New_Flashcard_Circle'>
+                                            <div className='New_Flashcard_Plus_h'/>
+                                            <div className='New_Flashcard_Plus_v'/>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                        </Masonry>
 
                         <div>
                             {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} syncedFolderID={syncedFolderID} />}
