@@ -66,13 +66,7 @@ function LoginPage() {
 
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, login, signup, account'></meta>
-                <meta name='description' content='login page for memoriter'></meta>
-            </head>
+        <>
             <header className='Page_Header'>
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo" />
@@ -80,7 +74,7 @@ function LoginPage() {
                 <h1 className="page_title">Log In</h1>
                 <Link to='/signup' className="link-box">Sign Up</Link>
             </header>
-            <body>
+            <main>
                 <div className="rechteck">
 
                     {error && <div className="File-Overview"
@@ -133,11 +127,11 @@ function LoginPage() {
                         </div>
                     </div>
                 </div>
-            </body>
+            </main>
             <footer>
                 <Footer />
             </footer>
-        </div>
+        </>
     );
 
 }

@@ -10,13 +10,7 @@ function Start() {
     });
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, study, files, subjects, overview, effective, studying, school, university'></meta>
-                <meta name='description' content='Startpage for Memoriter'></meta>
-            </head>
+        <>
             <header className='Page_Header-Start'>
                 <img className="Logo-Start" src={Logo} alt="site-logo" style={{filter: 'var(--svg-invert)'}}/>
                 <div>
@@ -28,7 +22,7 @@ function Start() {
                     </Link>
                 </div>
             </header>
-            <body>
+            <main>
                 <div className='rechteck-Start1a'>
                     <div className="Start1a-Text">
                         <h1>What is MEMORITER?</h1>
@@ -113,11 +107,11 @@ function Start() {
             </text>
         
     </div>*/}
-            </body>
+            </main>
             <footer>
                 <FooterStart />
             </footer>
-        </div>
+        </>
     );
 }
 export default Start;

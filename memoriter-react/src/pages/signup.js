@@ -87,13 +87,7 @@ function SignUpPage(props) {
     }
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, signup, account, create an account'></meta>
-                <meta name='description' content='signup for Memoriter'></meta>
-            </head>
+        <>
             <header className='Page_Header'>
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo" />
@@ -101,7 +95,7 @@ function SignUpPage(props) {
                 <h1 className="page_title">Sign Up</h1>
                 <Link to='/login' className="link-box">Log In</Link>
             </header>
-            <body>
+            <main>
                 <div className="rechteck">
 
 
@@ -184,11 +178,11 @@ function SignUpPage(props) {
                         </div>
                     </div>
                 </div>
-            </body>
+            </main>
             <footer>
                 <Footer />
             </footer>
-        </div>
+        </>
     );
 }
 

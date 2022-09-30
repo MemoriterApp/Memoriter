@@ -8,13 +8,7 @@ function PrivacyPage() {
     let lastPage = localStorage.getItem('lastPage');
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, privacy, rules, overview'></meta>
-                <meta name='description' content='privacy policies for Memoriter'></meta>
-            </head>
+        <>
             <header>
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo" style={{ top: '-2.5px', zIndex: '10' }}></img>
@@ -27,7 +21,7 @@ function PrivacyPage() {
 
                 <h1 className='Legal_Header'>Privacy Policy</h1>
             </header>
-            <body>
+            <main>
                 <article className="Legal_Text">
                     <p>
                         Last Changed: June 8th, 2022
@@ -89,11 +83,11 @@ function PrivacyPage() {
                     The data can be deleted by the user either manually in the developer tools (for experienced users) or by deleting all website data and settings in the browser history.
                 </article>
                 <div style={{ height: '100px' }} />
-            </body>
+            </main>
             <footer>
                 <Footer />
             </footer>
-        </div>
+        </>
     );
 }
 export default PrivacyPage;

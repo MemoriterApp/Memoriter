@@ -7,13 +7,7 @@ function About() {
     let lastPage = localStorage.getItem('lastPage');
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, about us, team, work, junior'></meta>
-                <meta name='description' content='about us page for memoriter'></meta>
-            </head>
+        <>
             <header>
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo" style={{ top: '-2.5px', zIndex: '10' }}></img>
@@ -25,7 +19,7 @@ function About() {
                 </Link>
                 <h1 className='Legal_Header'>About Us</h1>
             </header>
-            <body>
+            <main>
                 <article className="Legal_Text">
                     <p>
                         Memoriter is a Project made by made by six students (Alex, Simon, Leo, Nils, Maya and Johan) from Potsdam, Germany. We created the project
@@ -47,11 +41,11 @@ function About() {
                     <p>IBAN: DE26120965970001900013</p>
                     <p>Paypal: johan@trieloff.net</p>
                 </article>
-            </body>
+            </main>
             <footer>
                 <Footer />
             </footer>
-        </div>
+        </>
     );
 }
 

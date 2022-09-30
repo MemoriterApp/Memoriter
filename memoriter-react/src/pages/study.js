@@ -135,15 +135,9 @@ const StudyPage = () => {
     };
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, study, files, subjects, overview, effective, studying, school, university, flashcards'></meta>
-                <meta name='description' content='Flashcards for Memoriter'/>
-            </head>
+        <>
 
-            <body>
+            <main>
                 <header className='Page_Header'>
                     {syncedFolderTitle !== '' ? (
                         <h1 className="page_title">{syncedFolderTitle}</h1>
@@ -200,9 +194,9 @@ const StudyPage = () => {
                 </div>}
 
                 <Footer/>
-            </body>
+            </main>
             
-        </div>
+        </>
     );
 }
 

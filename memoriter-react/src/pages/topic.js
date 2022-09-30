@@ -210,13 +210,7 @@ function TopicPage() {
     }
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, study, files, subjects, overview, effective, studying, school, university, flashcards'></meta>
-                <meta name='description' content='Flashacrds for Memoriter'></meta>
-            </head>
+        <>
             <header className='Page_Header'>
                 {syncedFolderTitle !== '' ? (
                     <h1 className="page_title" >{syncedFolderTitle}</h1>
@@ -230,7 +224,7 @@ function TopicPage() {
                     <p className='study-now-text'>study now</p>
                 </div>
             </header>
-            <body>
+            <main>
                 <div className="rechteck">
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
@@ -265,11 +259,11 @@ function TopicPage() {
                     <BackButton />
                     <SettingsIcon />
                 </div>
-            </body>
+            </main>
             <footer>
                 <Footer />
             </footer>
-        </div>
+        </>
     );
 }
 export default TopicPage;

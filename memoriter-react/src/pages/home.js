@@ -129,17 +129,11 @@ function HomePage() {
 
   return (
     <>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name='keywords' content='memoriter, study, files, subjects, overview'></meta>
-        <meta name='description' content='Homepage for Memoriter'></meta>
-      </head>
       <header className='Page_Header'>
         <h1 className="page_title">Home</h1>
         <img className="Logo-oben" src={memoriterLogo} alt="site-logo" />
       </header>
-      <body>
+      <main>
         <div className="rechteck">
           <h2 className="File-Overview">File Overview</h2>
           <SettingsIcon />
@@ -175,7 +169,7 @@ function HomePage() {
             </div>
           </div>
         </div>
-      </body>
+      </main>
       <footer>
         <Footer />
       </footer>
