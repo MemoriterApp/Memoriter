@@ -1,5 +1,5 @@
 import React from 'react';
-import Backdropfs from './backdropfs';
+import Backdropfs from './backdrop-transparent';
 import Backdrop from './backdrop';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';

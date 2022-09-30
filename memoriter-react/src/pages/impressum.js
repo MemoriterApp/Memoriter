@@ -1,5 +1,5 @@
 import Footer from "../components/Footer";
-import Logo from './Logo.png';
+import Logo from '../images/memoriter-logo.svg';
 import { Link } from 'react-router-dom';
 
 function ImpressumPage() {
