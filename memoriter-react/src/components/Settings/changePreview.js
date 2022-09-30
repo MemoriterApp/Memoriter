@@ -11,6 +11,7 @@ function ChangePreview() {
     const [isBoth, setIsBoth] = useState(false)
 
 
+
     //use Effekt to safe the state in local storage, so that it can be used in topic.js
     useEffect(() => {
         localStorage.setItem('onlyQuestion', JSON.stringify(isOnlyQuestion)); //sets the value of key 'OnlyQuestion' to 'isOnlyQuestion' state
@@ -19,6 +20,16 @@ function ChangePreview() {
     useEffect(() => {
         localStorage.setItem('both', JSON.stringify(isBoth)); //sets the value of key 'Both' to 'isBoth' state
     }, [isBoth]);
+
+    function bothVisableEffect() {
+        setIsBoth(!isBoth)
+        window.location.reload()
+    }
+
+    function onlyQuestionEffect() {
+        setIsOnlyQuestion(!isOnlyQuestion)
+        window.location.reload()
+    }
 
     return (
         <>
@@ -40,7 +51,7 @@ function ChangePreview() {
                         </div>
                     </div>
 
-                    <button className="preview-type-button" onClick={() => setIsBoth(!isBoth)}>BOTH VISIBLE</button>
+                    <button className="preview-type-button" onClick={()=> bothVisableEffect()}>BOTH VISIBLE</button>
                 </div>
 
                 <div style={{ position: "absolute", left: "65%" }}>
@@ -60,7 +71,7 @@ function ChangePreview() {
 
                     </div>
 
-                    <button className="preview-type-button" onClick={() => setIsOnlyQuestion(!isOnlyQuestion)}>QUESTION VISIBLE</button>
+                    <button className="preview-type-button" onClick={() => onlyQuestionEffect()}>QUESTION VISIBLE</button>
                 </div>
 
             </div>

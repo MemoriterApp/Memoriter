@@ -188,7 +188,11 @@ function TopicPage() {
 
     //states to check what preview mode
     const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
-    const [isBoth, setIsBoth] = useState(false)
+    const [isBoth, setIsBoth] = useState(false);
+
+    function refreshPage() {
+        window.location.reload();
+      }
 
     useEffect(() => {
         const onlyQuestion = JSON.parse(localStorage.getItem('onlyQuestion'));
@@ -235,7 +239,8 @@ function TopicPage() {
                                 )*/}
                         </>
                          <>
-                          {isOnlyQuestion === true ? flashcards
+                          {isOnlyQuestion === true ? 
+                          flashcards
                             .map((flashcard) => (
                                 <OnlyQuestion
                                 key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
@@ -273,7 +278,7 @@ function TopicPage() {
                             {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} syncedFolderID={syncedFolderID} />}
                         </div>
                         <div onClick={backdropClick}>
-                            {modalIsOpenA && <Backdrop />}
+                            {modalIsOpenA && <Backdrop/>}
                         </div>
                     </div>
                     <BackButton />
