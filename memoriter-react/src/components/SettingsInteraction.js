@@ -31,12 +31,14 @@ function SettingsClick() {
 
     return (
         <div className='settings-overlay'>
-            <h1 className='settings-title'>Set&shy;tings</h1>
-            <p className='settings-sub' onClick={() => openProfile(true)}>Pro&shy;file</p>
-            <p className='settings-sub' onClick={() => openChangePreview(true)}>Change Preview</p>
-            {/*<p className='settings-sub'>Chan&shy;ge Pass&shy;word</p>*/}
-            {/*<p  className='settings-sub' style={{color: 'rgb(228, 48, 48)'}}>De&shy;lete Ac&shy;count</p>*/}
-            <p className='settings-sub' onClick={() => openSignOutView(true)}>Sign Out</p>
+            <div className='settings-title-box'>
+                <h1 className='settings-title'>SETTINGS</h1>
+            </div>
+            <p className='settings-sub' onClick={() => openProfile(true)}>PROFILE</p>
+            <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
+            <div className='sign-out-box'>
+                <p className='settings-sub' style={{color:"white", top:"10px"}} onClick={() => openSignOutView(true)}>SIGN OUT</p>
+            </div>
             {signOutView && <div>
                 <div className='Delete_Folder_Confirm'>
                     <h2 className='Add_folder_Form_Header'>Do you really want to &nbsp;sign out?</h2>
