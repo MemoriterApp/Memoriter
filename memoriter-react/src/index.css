@@ -841,17 +841,17 @@
     min-height: 160px;
     min-width: 120px;
     max-width: calc(100% - 160px);
-    background-color: var(--color-background);
+    background-color: var(--current-gray-light);
     box-shadow: 0 1px 4px var(--color-shadow);
-    border: 5px solid var(--current-blue-dark);
-    border-radius: 3px;
+    border: 10px solid var(--color-font-gray);
+    border-radius: 8px;
     z-index: 10;
     overflow-x: hidden;
     overflow-y: auto;
 }
 .Flashcard_Open_Title {
     font-family: var(--current-font);
-    color: var(--color-font);
+    color: rgb(53, 53, 53);
     text-align: center;
     font-weight: bold;
     font-size: 28px;
@@ -864,7 +864,7 @@
 .Flashcard_Open_Content {
     position: relative;
     font-family: var(--current-font);
-    color: var(--color-font);
+    color: rgb(53, 53, 53);
     font-size: 20px;
     text-align: justify;
     width: 90%;
@@ -1021,13 +1021,12 @@
     position: relative;
     top: calc(100% - 253px);
     left: 10px;
-    border: 5px solid var(--current-blue-light);
+    border: 5px solid var(--color-font-gray);
     padding: 5px;
     margin-top: 15px;
     margin-bottom: 0px;
     width: calc(100% - 20px);
-    color: var(--color-font);
-    background-color: var(--color-background);
+    color: rgb(53, 53, 53);
     font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
@@ -1037,15 +1036,15 @@
     font-size: 24px;
     font-family: var(--current-font);
     text-align: center;
-    color: var(--color-font);
+    color: rgb(53, 53, 53);
 }
 .Add_Flashcard_Form_Title {
     position: relative;
     left: 10px;
     width: calc(100% - 34px);
-    color: var(--color-font);
+    color: rgb(53, 53, 53);
     text-align: center;
-    background-color: var(--color-background);
+    background-color: transparent;
     font-family: var(--current-font);
     font-size: 24px;
     font-weight: bold;
@@ -1060,9 +1059,8 @@
     left: 10px;
     width: calc(100% - 34px);
     height: calc(100% - 270px);
-    color: var(--color-font);
+    color: rgb(53, 53, 53);
     text-align: left;
-    background-color: var(--color-background);
     font-family: var(--current-font);
     font-size: 20px;
     padding: 5px 5px;
@@ -1083,9 +1081,9 @@
     min-height: 160px;
     min-width: 120px;
     max-width: calc(100% - 160px);
-    background-color: var(--color-background);
+    background-color: var(--current-gray-light);
     box-shadow: 0 1px 4px var(--color-shadow);
-    border: 5px solid var(--current-blue-dark);
+    border: 10px solid var(--color-font-gray);
     border-radius: 3px;
     z-index: 12;
     overflow-x: hidden;
@@ -1995,7 +1993,7 @@
     display: inline;
     cursor: pointer;
     margin: 10px 10px 10px 0;
-    line-height: 2;
+    line-height: 2.4;
     border: 2px solid rgba(112, 112 ,112 ,1);
     border-radius: 4px;
     padding: 4px 4px 4px 4px;
@@ -2042,11 +2040,11 @@
     font-size: 22px;
     font-family: var(--current-font);
     position: absolute;
-    top: calc(80px + 1.5vw*var(--size));
+    top: calc(80px + 1.5vw*var(--size) - 9px);
     left: 50%;
     transform: translateX(-50%);
-    height: calc((100vh - 259px)* var(--size));
-    width: calc(24vw *var(--size) + 1px );
+    height: calc((100vh - 259px)* var(--size) + 18px);
+    width: calc(24vw *var(--size) + 20px );
     border-radius: 8px;
     overflow-y: auto;
     text-overflow: ellipsis;
@@ -2054,7 +2052,7 @@
     white-space: pre-line;
     word-wrap: break-word;
 }
-.study-flashcard-box-border{
+.study-flashcard-box-border {
     height: calc((100vh - 262px)* var(--size));
     width: calc(24vw *var(--size));
     top: 81px ;
