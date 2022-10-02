@@ -282,7 +282,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
             </div>
 
             <div>
-                {modalIsOpenS && <div className='flashcard-settings-overlay' style={{width: '90px', height: '100px', padding: '14px 0 14px 14px'}}>
+                {modalIsOpenS && <div className='flashcard-settings-overlay'>
                     <div className='folder-settings-sub'>
                         <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
                             {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>

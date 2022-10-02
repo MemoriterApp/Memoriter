@@ -137,18 +137,15 @@
     text-transform: uppercase;
 }
 .rechteck {
-    background: transparent;
     border-top: 10px solid var(--current-blue-dark);
     border-right: 13px solid var(--current-blue-dark);
     border-left: 13px solid var(--current-blue-dark);
     border-bottom: 10px solid var(--current-blue-dark);
-    width: 91vw;
+    width: 90%;
     height: calc(100% - 200px);
-    margin: auto;
     position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 80px;
+    left: 4.5%;
     border-radius: 30px;
     max-height: calc(100% - 120px);
     min-height: 168px;
@@ -385,7 +382,7 @@
     font-family: var(--current-font);
     color: var(--color-font);
     width: 550px;
-    height: 225px;
+    height: 250px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -433,7 +430,7 @@
     font-family:var(--current-font);
     color: var(--color-font);
     width: 300px;
-    height: 160px;
+    height: 180px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -569,7 +566,7 @@
     border: 5px solid var(--current-blue-dark);
     text-align: center;
     width: 210px;
-    height: 155px;
+    height: 210px;
     max-width: calc(100% - 30px);
     max-height: calc(100% - 30px);
     z-index: 10;
@@ -652,12 +649,12 @@
     right: 5px;
     background-color: var(--color-transparent);
     overflow: auto;
+    display: flex;
+    justify-content: center;
 }
 .flashcard-base-grid {
     display: flex;
-    position: absolute;
-    left: calc(50% + 20px);
-    transform: translate(-50%);
+    margin-left: 20px;
     width: 1680px;
 }
   
@@ -755,12 +752,12 @@
 .flashcard-settings-overlay {
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
-    background-color: #333333;
+    background-color: var(--color-background);
     border: 5px solid var(--current-blue-dark);
-    padding: 1rem;
+    padding: 14px 0 14px 18px;
     text-align: center;
-    width: 3rem;
-    height: 4rem;
+    width: 90px;
+    height: 114px;
     z-index: 10;
     position: absolute;
     left: 45%;
@@ -1019,7 +1016,7 @@
 /* New Flashcard Form */
 .Add_Flashcard_Form_Submit {
     position: relative;
-    top: calc(100% - 253px);
+    top: calc(100% - 280px);
     left: 10px;
     border: 5px solid var(--color-font-gray);
     padding: 5px;
@@ -1058,12 +1055,13 @@
     position: absolute;
     left: 10px;
     width: calc(100% - 34px);
-    height: calc(100% - 270px);
+    height: calc(100% - 280px);
     color: rgb(53, 53, 53);
     text-align: left;
     font-family: var(--current-font);
     font-size: 20px;
     padding: 5px 5px;
+    margin-top: -10px;
     outline: none;
     resize: none;
     border: 2px solid var(--current-gray);
@@ -1135,7 +1133,6 @@
 }
 @media (max-width: 620px) { /*responsiveness for flashcard layout*/
     .flashcard-base-grid {
-        left: calc(50% + 5px);
         width: 420px;
     }
     .Flashcard_Body {
@@ -1143,7 +1140,7 @@
         margin-bottom: 5px;
     }
 }
-@media (max-width: 495px) { /*responsiveness for flashcard layout*/
+@media (max-width: 505px) { /*responsiveness for flashcard layout*/
     .flashcard-base-grid {
         width: 200px;
     }
@@ -2085,7 +2082,7 @@
     padding: 0 0 0 20px;
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
-    background-color: #333333;
+    background-color: var(--color-background);
     border: 5px solid #274b65;
     text-align: center;
     z-index: 10;

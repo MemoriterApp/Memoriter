@@ -24,9 +24,9 @@ function TopicPage() {
         return () => window.removeEventListener('resize', () => setWidth(window.innerWidth));
     }, []);
 
-    if (width <= 495 && columns !== 1) { //sets the layout column count
+    if (width <= 505 && columns !== 1) { //sets the layout column count
         setColumns(1);
-    } else if (width > 495 && width <= 850 && columns !== 2) {
+    } else if (width > 505 && width <= 850 && columns !== 2) {
         setColumns(2);
     } else if (width > 850 && width <= 1150 && columns !== 3) {
         setColumns(3);
