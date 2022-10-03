@@ -174,11 +174,11 @@ const StudyPage = () => {
                         <p className='finished_statistics'>
                             Repetitions: {studiedFlashcards + incorrectFlashcards}
                         </p>
-                        <p className='finished_statistics'>
-                            Average Correctness: fomrula
+                        <p className='finished_statistics' style={{ color:'#2d772d'}}>
+                            Percent Correct: {(100 * (1 - (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards)))).toFixed(2)}%
                         </p>
                         <p className='finished_statistics' style={{ color:'#dc4c4d'}}>
-                            Incorrect: {incorrectFlashcards}
+                            Incorrect: {incorrectFlashcards} ({(100 * (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards))).toFixed(2)}%)
                         </p>
                     </div>
 
