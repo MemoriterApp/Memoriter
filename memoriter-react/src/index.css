@@ -2037,10 +2037,10 @@
     font-size: 22px;
     font-family: var(--current-font);
     position: absolute;
-    top: calc(80px + 1.5vw*var(--size) - 9px);
+    top: calc(100px + 1.5vw*var(--size));
     left: 50%;
     transform: translateX(-50%);
-    height: calc((100vh - 259px)* var(--size) + 18px);
+    height: calc((100vh - 218px) * var(--size) + 18px);
     width: calc(24vw *var(--size) + 20px );
     border-radius: 8px;
     overflow-y: auto;
@@ -2050,9 +2050,9 @@
     word-wrap: break-word;
 }
 .study-flashcard-box-border {
-    height: calc((100vh - 262px)* var(--size));
+    height: calc((100vh - 222px)* var(--size));
     width: calc(24vw *var(--size));
-    top: 81px ;
+    top: 111px ;
     left: 50%;
     position: absolute;
     background: var(--color-font-gray);
@@ -2071,8 +2071,8 @@
 }
 .study-flashcard-dots {
     position: absolute;
-    right: calc(50% - 9.6vw);
-    top: 110px;
+    right: calc(50% - 11vw);
+    top: 124px;
     height: 0;
     padding: 10px 10px 16px 10px;
     cursor: pointer;
@@ -2100,7 +2100,7 @@
     font-size: calc(1.25vh*var(--button));
     font-weight: bold;
     cursor: pointer;
-    margin:0vw 3vw 0vw 3vw;
+    margin: 2.5vw 3vw 0vw 2.5vw;
 }
 .correct-incorrect-button:hover{
     filter: brightness(120%);
