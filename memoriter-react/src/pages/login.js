@@ -1,14 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Logo from './Logo.png';
+import Logo from '../images/memoriter-logo.svg';
 import Footer from "../components/Footer";
 import Backdrop from '../components/backdrop';
 import PasswordReset from "../components/password-reset";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { firebase } from "../utils/firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 function LoginPage() {
+
+    const navigate = useNavigate();
 
     const [passwordResetModal, openPasswordResetModal] = useState(false);
 
@@ -19,9 +21,9 @@ function LoginPage() {
     const [loading, setLoading] = useState(false);
 
     const [invalidEmail, setInvalidEmail] = useState(false);
-    const [redBorderEmail, setRedBorderEmail] = useState('5px solid rgba(58,109,112,1)');
+    const [redBorderEmail, setRedBorderEmail] = useState('5px solid var(--current-blue-light)');
     const [wrongPassword, setWrongPassword] = useState(false);
-    const [redBorderPassword, setRedBorderPassword] = useState('5px solid rgba(58,109,112,1)');
+    const [redBorderPassword, setRedBorderPassword] = useState('5px solid var(--current-blue-light)');
 
     const [user, setUser] = useState({})
 
@@ -39,6 +41,7 @@ function LoginPage() {
         try {
             setLoading(true);
             const user = signInWithEmailAndPassword(firebase.auth, email, password)
+                .then(() => navigate('/'))
                 .catch(error => {
                     switch (error.code) {
                         case 'auth/wrong-password':
@@ -62,13 +65,7 @@ function LoginPage() {
 
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, login, signup, account'></meta>
-                <meta name='description' content='login page for memoriter'></meta>
-            </head>
+        <>
             <header className='Page_Header'>
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo" />
@@ -76,7 +73,7 @@ function LoginPage() {
                 <h1 className="page_title">Log In</h1>
                 <Link to='/signup' className="link-box">Sign Up</Link>
             </header>
-            <body>
+            <main>
 
                 {passwordResetModal && <div>
                     <PasswordReset closePasswordResetModal={() => openPasswordResetModal(false)}/>
@@ -105,7 +102,7 @@ function LoginPage() {
                                         (e) => {
                                             setEmail(e.target.value);
                                             setInvalidEmail(false);
-                                            setRedBorderEmail('5px solid rgba(58,109,112,1)');
+                                            setRedBorderEmail('5px solid var(--current-blue-light)');
                                         }} />
                                 {invalidEmail && <p className="passwords-no-match">Invalid Email!</p>}
                                 <p style={{ fontSize: '25px' }} />
@@ -119,7 +116,7 @@ function LoginPage() {
                                         (e) => {
                                             setPassword(e.target.value);
                                             setWrongPassword(false);
-                                            setRedBorderPassword('5px solid rgba(58,109,112,1)');
+                                            setRedBorderPassword('5px solid var(--current-blue-light)');
                                         }} />
                                 {wrongPassword && <p className="passwords-no-match">Wrong Password!</p>}
 
@@ -134,11 +131,11 @@ function LoginPage() {
                         </div>
                     </div>
                 </div>
-            </body>
+            </main>
             <footer>
                 <Footer />
             </footer>
-        </div>
+        </>
     );
 
 }

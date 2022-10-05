@@ -1,221 +1,75 @@
-import { firebase } from './utils/firebase';
-import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import Start from './pages/start';
+import About from './pages/about';
 import ImpressumPage from './pages/impressum';
 import PrivacyPage from './pages/privacy_policies';
-import HomePage from './pages/home';
-import TopicPage from './pages/topic';
+
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
-import { getAuth } from 'firebase/auth';
-import Startpage from './pages/Start';
-import AboutPage from './pages/About';
-import PatchNotes from './pages/patchnotes/patchnotes.js';
-import 'firebase/auth';
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { AuthProvider } from './contexts/AuthContext';
-import { onAuthStateChanged } from "firebase/auth";
-import PrivateRoutes from './components/PrivateRoutes';
+
+import HomePage from './pages/home';
+import TopicPage from './pages/topic';
+import StudyPage from './pages/study';
+
+import ThemeProvider from './components/theme-provider';
+import { AuthProvider } from './components/routing/auth-provider';
+import ScrollReset from './components/routing/scroll-reset';
+import Redirect from './components/routing/redirect';
+
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { firebase } from './utils/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 function App() {
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({}); //variable for currently signed in user
 
-    onAuthStateChanged(firebase.auth, (currentUser) => {
-        setUser(currentUser);
-    });
+  onAuthStateChanged(firebase.auth, (currentUser) => { //updates user variable when user changes
+    setUser(currentUser);
+  });
 
-
-  /*const [user, setUser] = useState(null);
-  const login = async () => {
-    const provider = new GoogleAuthProvider()
-    signInWithPopup(firebase.auth, provider).then((results) => {
-      console.log('just logged in', results);
-      setUser(results);
-    }).catch((error) => {
-      console.log(error)
-    });
-
-    const logout = async () => {
-      setUser(null);
-    }
-
-  }
-  */
-/*
-  if (!!user) {
-    return (
-      <div>
-        <Routes>
-          <Route path='/' element={<HomePage />}>
-          </Route>
-
-          <Route path='/topic' element={<TopicPage syncedFolderID={syncFolderID} syncedFolderTitle={syncFolderTitle} />}>
-          </Route>
-
-          <Route path='/impressum' element={<ImpressumPage />}>
-
-          </Route>
-
-          <Route path='/privacy' element={<PrivacyPage />}>
-
-          </Route>
-
-          <Route path='/terms-of-use' element={<TermsPage />}>
-
-          </Route>
-
-          <Route path='/topic' element={<TopicPage />}>
-
-          </Route>
-
-          <Route path='/login' element={<LoginPage />}>
-
-          </Route>
-          <Route path='/signup' element={<SignUpPage />}>
-
-          </Route>
-          <Route path='/' element={<HomePage onOpenFolder={openFolder} />}>
-
-          </Route>
-          <Route path='/homepage' element={<homepage />}>
-
-          </Route>
-        </Routes>
-
-      </div>
-    );
-  }
-  else {
-    return (
-
-      // <button onClick={login} type="submit" className="google-button">
-      //     Sign in with Google
-      // </button>
-      <div>
-        <Routes>
-          <Route path='/' element={<SignUpPage login={login} />}>
-          </Route>
-
-          <Route path='/impressum' element={<ImpressumPage />}>
-
-          </Route>
-
-          <Route path='/privacy' element={<PrivacyPage />}>
-
-          </Route>
-
-          <Route path='/terms-of-use' element={<TermsPage />}>
-
-          </Route>
-
-          <Route path='/topic' element={<TopicPage />}>
-
-          </Route>
-
-          <Route path='/login' element={<LoginPage />}>
-
-          </Route>
-          <Route path='/signup' element={<SignUpPage />}>
-
-          </Route>
-        </Routes>
-
-      </div>
-    );
-  }
-  */
- if (user) {
+  //routing (connections to different sub-pages)
   return (
-    <div>
-      <AuthProvider>
-      <Routes>
-        <Route path='/patchnotes' element={<PatchNotes />}>
-        </Route>
+    <AuthProvider> {/*AuthProvider fixes an issue where wrong pages are displayed for a short amound of time on page load*/}
+      <ScrollReset> {/*ScrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/} 
+        <ThemeProvider> {/*ThemeProvider is responsible for the dark and light theme*/}
+          <Routes>
 
-        <Route path='/' element={<HomePage />}>
-        </Route>
+            <Route path='/start' element={<Start/>}/>
 
-        <Route path='/topic' element={<TopicPage />}>
-        </Route>
+            <Route path='/about' element={<About/>}/>
 
-        <Route path='/impressum' element={<ImpressumPage />}>
+            <Route path='/impressum' element={<ImpressumPage/>}/>
 
-        </Route>
+            <Route path='/privacy' element={<PrivacyPage/>}/>
 
-        <Route path='/privacy' element={<PrivacyPage />}>
+            {user? (<> {/*some of the active routes are altered if a user is signed in*/}
+              <Route path='/login' element={<HomePage/>}/>
 
-        </Route>
+              <Route path='/signup' element={<HomePage/>}/>
+              
+              <Route path='/' element={<HomePage/>}/>
 
-        <Route path='/topic' element={<TopicPage />}>
+              <Route path='/topic' element={<TopicPage/>}/>
 
-        </Route>
+              <Route path='/study' element={<StudyPage/>}/>
+            </>) : (<>
+              <Route path='/login' element={<LoginPage/>}/>
 
-        <Route path='/login' element={<HomePage />}>
-        </Route>
-        <Route path='/Signup' element={<HomePage />}>
+              <Route path='/signup' element={<SignUpPage/>}/>
 
-        </Route>
-        <Route element={<PrivateRoutes/>}>
-          <Route path='/home' element={<HomePage />}></Route>
-        </Route>
-      </Routes>
-      </AuthProvider>
+              <Route path='/' element={<Redirect/>}/>
 
-    </div>
+              <Route path='/topic' element={<Redirect/>}/>
+
+              <Route path='/study' element={<Redirect/>}/>
+            </>)}
+
+          </Routes>
+        </ThemeProvider>
+      </ScrollReset>
+    </AuthProvider>
   );
- }
- else {
-  return (
-    <div>
-      <AuthProvider>
-      <Routes>
-      <Route element={<PrivateRoutes/>}>
-        <Route path='/home' element={<HomePage />}></Route>
-      </Route>
-
-        <Route path='/topic' element={<TopicPage />}>
-        </Route>
-
-        <Route path='/impressum' element={<ImpressumPage />}>
-
-        </Route>
-
-        <Route path='/' element={<Startpage />}>
-
-        </Route>
-
-        <Route path='/About' element={<AboutPage/>}/>
-
-        <Route path='/privacy' element={<PrivacyPage />}>
-
-        </Route>
-
-        <Route path='/topic' element={<TopicPage />}>
-
-        </Route>
-
-        <Route path='/login' element={<LoginPage />}>
-
-        </Route>
-        <Route path='/Signup' element={<SignUpPage />}>
-
-        </Route>
-
-        <Route path='/home' element={<HomePage />}>
-        </Route>
-
-        <Route path='/patchnotes' element={<PatchNotes />}>
-        </Route>
-        
-      </Routes>
-      </AuthProvider>
-
-    </div>
-  );
- }
-
-}
+};
 
 export default App;

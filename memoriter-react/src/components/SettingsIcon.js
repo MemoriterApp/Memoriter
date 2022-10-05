@@ -1,5 +1,5 @@
 import React from 'react';
-import zahnrad from './zahnrad.png';
+import settingsIcon from '../images/icons/settings-icon.svg';
 import SettingsClick from './SettingsInteraction';
 import { useState } from 'react';
 import Backdrop from './backdrop';
@@ -18,7 +18,7 @@ const SettingsIcon = () => {
     return (
         <div>
             <button className='gear'>
-                <img className='gear' src={zahnrad} onClick={settingsHandler}></img>
+                <img className='gear' src={settingsIcon} alt='settings' onClick={settingsHandler}></img>
             </button>
             <div>
                 {modalIsOpen && <SettingsClick/>}

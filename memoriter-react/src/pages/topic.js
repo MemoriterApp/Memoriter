@@ -1,25 +1,48 @@
 import { useState, useEffect, } from 'react';
-import Logo from './Logo.png';
+import memoriterLogo from '../images/memoriter-logo.svg';
 import BackButton from '../components/BackButton';
 import SettingsIcon from '../components/SettingsIcon';
 import Footer from '../components/Footer';
-import Flashcard from '../components/Flashcard';
 import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
-import { Link, } from 'react-router-dom';
-import { firebase } from '../utils/firebase'
+import { Link, useNavigate, } from 'react-router-dom';
+import Masonry from 'react-masonry-css';
+import FlashcardOnlyQuestion from '../components/Flashcards/FlashcardOnlyQuestion';
+import Flashcard from '../components/Flashcards/Flashcard';
+import { firebase } from '../utils/firebase';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
-import { onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
+
 
 function TopicPage() {
 
-    //user stuff
-    const [user, setUser] = useState({})
+    const navigate = useNavigate();
 
-    onAuthStateChanged(firebase.auth, (currentUser) => {
-        setUser(currentUser);
-      })
+    const user = firebase.auth.currentUser;
+
+    const [columns, setColumns] = useState(6); //column count of the masonry layout
+    const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
+
+    useEffect(() => { //detect window resize
+        window.addEventListener('resize', () => setWidth(window.innerWidth));
+        return () => window.removeEventListener('resize', () => setWidth(window.innerWidth));
+    }, []);
+
+    if (width <= 505 && columns !== 1) { //sets the layout column count
+        setColumns(1);
+    } else if (width > 505 && width <= 850 && columns !== 2) {
+        setColumns(2);
+    } else if (width > 850 && width <= 1150 && columns !== 3) {
+        setColumns(3);
+    } else if (width > 1150 && width <= 1400 && columns !== 4) {
+        setColumns(4);
+    } else if (width > 1400 && width <= 1600 && columns !== 5) {
+        setColumns(5);
+    } else if (width > 1600 && width <= 1900 && columns !== 6) {
+        setColumns(6);
+    } else if (width > 1900 && columns !== 7) {
+        setColumns(7);
+    };
 
     //firebase stuff
     //link zur db
@@ -42,7 +65,7 @@ function TopicPage() {
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
-    let syncedFolderID = localStorage.getItem('syncedFolderID')
+    let syncedFolderID = localStorage.getItem('syncedFolderID');
 
     const [modalIsOpenA, setModalIsOpenA] = useState(false);
 
@@ -180,50 +203,73 @@ function TopicPage() {
         )
     }
 
+    //states to check what preview mode
+    const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
+    const [isBoth, setIsBoth] = useState(false);
+
+    function refreshPage() {
+        window.location.reload();
+    }
+
+    useEffect(() => {
+        const onlyQuestion = JSON.parse(localStorage.getItem('onlyQuestion'));
+        if (onlyQuestion) {
+            setIsOnlyQuestion(onlyQuestion);
+        }
+    }, []);
+
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, study, files, subjects, overview, effective, studying, school, university, flashcards'></meta>
-                <meta name='description' content='Flashacrds for Memoriter'></meta>
-            </head>
+        <>
             <header className='Page_Header'>
                 {syncedFolderTitle !== '' ? (
-                    <h1 className="page_title" >{syncedFolderTitle}</h1>
+                    <h1 className='page_title' >{syncedFolderTitle}</h1>
                 ) : (
                     <h1 className="page_title" >New Folder</h1>
                 )}
                 <Link to='/'>
-                    <img className="Logo-oben" src={Logo} alt="site-logo"></img>
+                    <img className="Logo-oben" src={memoriterLogo} alt="site-logo"></img>
                 </Link>
+                <div className='study-now' onClick={() => navigate('/study')}>
+                    <p className='study-now-text'>study now</p>
+                </div>
             </header>
-            <body>
+            <main>
                 <div className="rechteck">
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
-                        <>
-                            {flashcards
-                                .map((flashcard) => (
-                                    <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
-                                        onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
-                                        onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
-                                        onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
-                                        onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
-                                        onChangeTextAlign={changeTextAlign}
-                                    />)
-                                )}
-                        </>
 
-                        <div className='Flashcard_Body'>
-                            <div className='Flashcard_Settings_Bar' onClick={NewFlashcardClick} />
-                            <div className='Flashcard_Rechteck' onClick={NewFlashcardClick}>
-                                <div className='New_Flashcard_Circle'>
-                                    <div className='New_Flashcard_Plus_h' />
-                                    <div className='New_Flashcard_Plus_v' />
+                        <Masonry breakpointCols={columns} className='flashcard-base-grid'>
+                            {isOnlyQuestion === true ?
+                                flashcards
+                                    .map((flashcard) => (
+                                        <FlashcardOnlyQuestion
+                                            key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                            onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
+                                            onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                            onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                            onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                            onChangeTextAlign={changeTextAlign} />
+                                    )
+                                    ) : (flashcards //add an if statement to check what kind of flashcard should be displayed
+                                        .map((flashcard) => (
+                                            <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                                onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
+                                                onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                                onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                                onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                                onChangeTextAlign={changeTextAlign}
+                                            />)))}
+
+                            {/*create new flashcard button*/}
+                            <div className='Flashcard_Body'>
+                                <div className='New_Flashcard_Rechteck' onClick={NewFlashcardClick}>
+                                    <div className='New_Flashcard_Circle'>
+                                        <div className='New_Flashcard_Plus_h' />
+                                        <div className='New_Flashcard_Plus_v' />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Masonry>
 
                         <div>
                             {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} syncedFolderID={syncedFolderID} />}
@@ -235,11 +281,11 @@ function TopicPage() {
                     <BackButton />
                     <SettingsIcon />
                 </div>
-            </body>
+            </main>
             <footer>
                 <Footer />
             </footer>
-        </div>
+        </>
     );
 }
 export default TopicPage;

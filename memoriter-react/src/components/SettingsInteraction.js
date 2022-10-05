@@ -3,19 +3,34 @@ import Backdrop from './backdrop';
 import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import ChangePreview from './Settings/changePreview';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeTheme } from '../features/theme-slice';
+import { displaySuccessMessage } from '../features/authentication-success-slice';
 import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from "firebase/auth";
 import { collection, query, where, doc, getDocs, deleteDoc } from 'firebase/firestore/lite';
 const { db } = firebase
 
 function SettingsClick() {
 
+    const dispatch = useDispatch(); //used to manipulate global sate (react redux)
+
+    const themeText = useSelector((state) => state.theme.value); //current light or dark mode text based on theme
+
+    function onChangeTheme(theme) { //function to swap the current theme
+        dispatch(changeTheme(theme)); //changes the theme
+        localStorage.setItem('theme', theme); //the theme can be saved to localStorage
+    }
+
     const [profile, openProfile] = useState(false);
 
     const [signOutView, openSignOutView] = useState(false);
 
+    const [changePreview, openChangePreview] = useState(false);
+
     const auth = getAuth();
 
-    const user = auth.currentUser
+    const user = auth.currentUser;
 
     //states to check wether overlay is open
     const [changePassword, openChangePassword] = useState(false);
@@ -50,6 +65,8 @@ function SettingsClick() {
         await signOut(firebase.auth);
         localStorage.removeItem('syncedFolderID');
         localStorage.removeItem('syncedFolderTitle');
+
+        dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
         navigate('/login');
     }
 
@@ -208,11 +225,17 @@ function SettingsClick() {
 
     return (
         <div className='settings-overlay'>
-            <h1 className='settings-title'>Set&shy;tings</h1>
-            <p className='settings-sub' onClick={() => openProfile(true)}>Pro&shy;file</p>
-            {/*<p className='settings-sub'>Chan&shy;ge Pass&shy;word</p>*/}
-            {/*<p  className='settings-sub' style={{color: 'rgb(228, 48, 48)'}}>De&shy;lete Ac&shy;count</p>*/}
-            <p className='settings-sub' onClick={() => openSignOutView(true)}>Sign Out</p>
+            <div className='settings-title-box'>
+                <h1 className='settings-title'>SETTINGS</h1>
+            </div>
+            <p className='settings-sub' onClick={() => openProfile(true)}>PROFILE</p>
+            {(themeText === 'dark' || !themeText) && <p className='settings-sub' onClick={() => onChangeTheme('light')}>THEME:&shy; DARK</p>}
+            
+            {themeText === 'light' && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>THEME:&shy; LIGHT</p>}
+            <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
+            <div className='sign-out-box'>
+                <p className='settings-sub' style={{color:"white", top:"10px"}} onClick={() => openSignOutView(true)}>SIGN OUT</p>
+            </div>
             {signOutView && <div>
                 <div className='Delete_Folder_Confirm'>
                     <h2 className='Add_folder_Form_Header'>Do you really want to &nbsp;sign out?</h2>
@@ -223,6 +246,8 @@ function SettingsClick() {
                 </div>
                 <Backdrop onClick={() => openSignOutView(false)} />
             </div>}
+
+            {changePreview && <ChangePreview/>}
 
             {profile && <div>
                 <div className='Settings-profile-body'>
