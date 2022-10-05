@@ -3,15 +3,14 @@ import memoriterLogo from '../images/memoriter-logo.svg';
 import BackButton from '../components/BackButton';
 import SettingsIcon from '../components/SettingsIcon';
 import Footer from '../components/Footer';
-import Flashcard from '../components/Flashcard';
 import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
 import { Link, useNavigate, } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
-import OnlyQuestion from '../components/Flashcards/OnlyQuestion';
-import OnlyContent from '../components/Flashcards/OnlyContent';
+import FlashcardOnlyQuestion from '../components/Flashcards/FlashcardOnlyQuestion';
+import Flashcard from '../components/Flashcards/Flashcard';
 const { db } = firebase;
 
 function TopicPage() {
@@ -252,7 +251,7 @@ function TopicPage() {
                             {isOnlyQuestion === true ?
                                 flashcards
                                     .map((flashcard) => (
-                                        <OnlyQuestion
+                                        <FlashcardOnlyQuestion
                                             key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                                             onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
                                             onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}

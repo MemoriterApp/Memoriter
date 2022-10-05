@@ -565,7 +565,7 @@
     background-color: white;
     text-align: center;
     width: 260px;
-    height: 400px;
+    height: 440px;
     max-width: calc(100% - 30px);
     max-height: calc(100% - 30px);
     z-index: 10;
@@ -593,7 +593,7 @@
     bottom: 22px;
 }
 .settings-title {
-    color: var(--color-font);
+    color: var(--color-white);
     font-family: var(--current-font);
     position: relative;
     word-wrap: break-word;

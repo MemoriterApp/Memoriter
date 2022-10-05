@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
-import Backdrop from './backdrop';
-import Backdropfs from './backdrop-transparent';
-import BackdropOpenFlashcard from './backdropOpenFlashcard';
-import BackdropfsOpenFlashcard from './backdropfsOpenFlashcard';
+import Backdrop from '../backdrop';
+import Backdropfs from '../backdrop-transparent';
+import BackdropOpenFlashcard from '../backdropOpenFlashcard';
+import BackdropfsOpenFlashcard from '../backdropfsOpenFlashcard';
 import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 import { convertFromHTML, convertToHTML } from 'draft-convert';
 

@@ -1,15 +1,31 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Backdrop from '../backdrop';
 import Backdropfs from '../backdrop-transparent';
 import BackdropOpenFlashcard from '../backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from '../backdropfsOpenFlashcard';
-import parse from 'html-react-parser';
 import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 import { convertFromHTML, convertToHTML } from 'draft-convert';
 
-const OnlyContent = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
+const FlashcardQnlyQuestion = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteFlashcard, onEditFlashcard,
     onOpenFlashcard, onCloseFlashcard, onNextFlashcard, onPrevFlashcard, openFlashcardView, onPosAdjust, onChangeTextAlign }) => {
+
+    const refHeight = useRef(null); //reference to html id to get the height of the inner flashcard rectangle
+    const [flashcardHeight, setFlashcardHeight] = useState(0); //height of the inner flashcard rectangle
+    const [maxHeightGradient, setMaxHeightGradient] = useState('');
+
+    const refContentHeight = useRef(null);
+    const refTitleHeight = useRef(null);
+  
+    useEffect(() => { //sets the height of the flashcard on component render
+        setFlashcardHeight(refHeight.current.clientHeight);
+        if (refHeight.current.clientHeight >= 290
+            && (refTitleHeight.current.clientHeight + refContentHeight.current.clientHeight) > 260) { //checks if the flashcard has its max height and applies bottom text fade out gradient
+            setMaxHeightGradient('flashcard-rechteck-gradient');
+        } else {
+            setMaxHeightGradient('');
+        };
+      }, []);
 
     const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
@@ -72,10 +88,7 @@ const OnlyContent = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDelet
       setModalIsOpenS(false);
       setModalIsOpenSO(false);
     }
-    function editOpenFlashcardReq() {
-        setModalIsOpenE(true);
-        setModalIsOpenEbackdropfs(true);
-    }
+
     function backdropClickE() {
         setTitle(flashcard.title);
         //setContent(flashcard.content);
@@ -194,7 +207,7 @@ const OnlyContent = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDelet
     const [isMouseInside, setIsMouseInside] = useState(); //state to check if mouse hover over flashcard
 
     return (
-        <div className='Flashcard_Body'>
+        <div className='Flashcard_Body' style={{height: `calc(${flashcardHeight}px + 35px)`}}> {/*height is set by the useEffect based on the inner rectangle height*/}
             <div className='Flashcard_Settings_Bar'>
                 <div className='Flashcard_Settings' onClick={settingsHandler}>
                     <span className='dot'/>
@@ -212,13 +225,19 @@ const OnlyContent = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDelet
                     <div className='Flashcard_Pos_Arrow_Right' />
                 </div>
             </div>
+            <div className={`Flashcard_Rechteck ${maxHeightGradient}`} ref={refHeight} onClick={openFlashcard}
+                onMouseEnter={() => setIsMouseInside(true)} onMouseLeave={() => setIsMouseInside(false)}>
 
-
-            <div className='Flashcard_Rechteck' onClick={openFlashcard}>
+                <h3 className='Flashcard_Title' ref={refTitleHeight}>{flashcard.title}</h3>
                 
-                <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</div>
-            </div>
+                {isMouseInside
+                    ? <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}} ref={refContentHeight}
+                        dangerouslySetInnerHTML={{__html: flashcard.content}}/>
+                    : <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign, opacity: '0'}} ref={refContentHeight}
+                        dangerouslySetInnerHTML={{__html: flashcard.content}}/>
+                } {/*dangerouslySetInnerHTML parses the formatted html text*/}
 
+            </div>
 
             <div>
                 {modalIsOpen && <div>
@@ -238,7 +257,8 @@ const OnlyContent = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDelet
                         <p style={{fontSize: '40px'}} />
                         <h2 className='Flashcard_Open_Title'>{flashcard.title}</h2>
                         <p style={{fontSize: '40px'}} />
-                        <div className='Flashcard_Open_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</div>
+                        <div className='Flashcard_Open_Content' style={{textAlign: flashcard.textAlign}}
+                            dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}
                         <div>
 
                         </div>
@@ -272,7 +292,7 @@ const OnlyContent = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDelet
             </div>
 
             <div>
-                {modalIsOpenS && <div className='flashcard-settings-overlay' style={{width: '90px', height: '100px', padding: '14px 0 14px 14px'}}>
+                {modalIsOpenS && <div className='flashcard-settings-overlay'>
                     <div className='folder-settings-sub'>
                         <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
                             {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
@@ -344,4 +364,4 @@ const OnlyContent = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDelet
     );
 }
 
-export default OnlyContent;
+export default FlashcardQnlyQuestion;
