@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Backdrop from '../backdrop';
-import Backdropfs from '../backdropfs';
+import Backdropfs from '../backdrop-transparent';
 import BackdropOpenFlashcard from '../backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from '../backdropfsOpenFlashcard';
 import parse from 'html-react-parser';
@@ -220,7 +220,7 @@ const OnlyQuestion = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDele
 
             <div className='Flashcard_Rechteck' onClick={openFlashcard} onMouseEnter={() => setIsMouseInside(true)} onMouseLeave={() => setIsMouseInside(false)}>
                 <h2 className='Flashcard_Title'>{flashcard.title}</h2>
-                {isMouseInside ? <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</div> : null}
+                {isMouseInside ? <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</div> : <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign, opacity:"0"}}>{parse(flashcard.content)}</div>}
             </div>
 
 
