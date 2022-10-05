@@ -3,6 +3,7 @@ import Backdrop from './backdrop';
 import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import ChangePreview from './Settings/changePreview';
 import { signOut } from 'firebase/auth';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTheme } from '../features/theme-slice';
@@ -23,6 +24,8 @@ function SettingsClick() {
 
     const [signOutView, openSignOutView] = useState(false);
 
+    const [changePreview, openChangePreview] = useState(false);
+
     const user = firebase.auth.currentUser;
 
     const navigate = useNavigate();
@@ -38,14 +41,17 @@ function SettingsClick() {
 
     return (
         <div className='settings-overlay'>
-            <h1 className='settings-title'>Set&shy;tings</h1>
-            <p className='settings-sub' onClick={() => openProfile(true)}>Pro&shy;file</p>
-            
-            {themeText === 'dark' && <p className='settings-sub' onClick={() => onChangeTheme('light')}>Theme:&shy; Dark</p>}
+            <div className='settings-title-box'>
+                <h1 className='settings-title'>SETTINGS</h1>
+            </div>
+            <p className='settings-sub' onClick={() => openProfile(true)}>PROFILE</p>
+            {(themeText === 'dark' || !themeText) && <p className='settings-sub' onClick={() => onChangeTheme('light')}>Theme:&shy; Dark</p>}
             
             {themeText === 'light' && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>Theme:&shy; Light</p>}
-
-            <p className='settings-sub' onClick={() => openSignOutView(true)}>Sign Out</p>
+            <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
+            <div className='sign-out-box'>
+                <p className='settings-sub' style={{color:"white", top:"10px"}} onClick={() => openSignOutView(true)}>SIGN OUT</p>
+            </div>
             {signOutView && <div>
                 <div className='Delete_Folder_Confirm'>
                     <h2 className='Add_folder_Form_Header'>Do you really want to &nbsp;sign out?</h2>
@@ -56,6 +62,8 @@ function SettingsClick() {
                 </div>
                 <Backdrop onClick={() => openSignOutView(false)} />
             </div>}
+
+            {changePreview && <ChangePreview/>}
 
             {profile && <div>
                 <div className='Add_Folder_Form_Body'>

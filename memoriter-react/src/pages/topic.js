@@ -10,6 +10,8 @@ import { Link, useNavigate, } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+import OnlyQuestion from '../components/Flashcards/OnlyQuestion';
+import OnlyContent from '../components/Flashcards/OnlyContent';
 const { db } = firebase;
 
 function TopicPage() {
@@ -18,7 +20,7 @@ function TopicPage() {
 
     const [columns, setColumns] = useState(6); //column count of the masonry layout
     const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
-    
+
     useEffect(() => { //detect window resize
         window.addEventListener('resize', () => setWidth(window.innerWidth));
         return () => window.removeEventListener('resize', () => setWidth(window.innerWidth));
@@ -142,8 +144,10 @@ function TopicPage() {
     //Add Flashcard
     const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
-        await addDoc(flashcardCollectionRef, { pos, title: flashcard.title, content: flashcard.content,
-            textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)', syncedFolder: flashcard.syncedFolder })
+        await addDoc(flashcardCollectionRef, {
+            pos, title: flashcard.title, content: flashcard.content,
+            textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)', syncedFolder: flashcard.syncedFolder
+        })
 
         const allFlashcards = await getDocs(flashcardCollectionRef)
         setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Flashcards
@@ -209,11 +213,26 @@ function TopicPage() {
         )
     }
 
+    //states to check what preview mode
+    const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
+    const [isBoth, setIsBoth] = useState(false);
+
+    function refreshPage() {
+        window.location.reload();
+    }
+
+    useEffect(() => {
+        const onlyQuestion = JSON.parse(localStorage.getItem('onlyQuestion'));
+        if (onlyQuestion) {
+            setIsOnlyQuestion(onlyQuestion);
+        }
+    }, []);
+
     return (
         <>
             <header className='Page_Header'>
                 {syncedFolderTitle !== '' ? (
-                    <h1 className="page_title" >{syncedFolderTitle}</h1>
+                    <h1 className='page_title' >{syncedFolderTitle}</h1>
                 ) : (
                     <h1 className="page_title" >New Folder</h1>
                 )}
@@ -228,25 +247,38 @@ function TopicPage() {
                 <div className="rechteck">
                     <div className='main-seperator' />
                     <div className='Flashcard_Base'>
-                        <Masonry breakpointCols={columns} className='flashcard-base-grid'>
-                            {flashcards.map((flashcard) => (
-                                <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
-                                    onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
-                                    onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
-                                    onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
-                                    onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
-                                    onChangeTextAlign={changeTextAlign}
-                                />))}
 
-                                {/*create new flashcard button*/}
-                                <div className='Flashcard_Body'>
-                                    <div className='New_Flashcard_Rechteck' onClick={NewFlashcardClick}>
-                                        <div className='New_Flashcard_Circle'>
-                                            <div className='New_Flashcard_Plus_h'/>
-                                            <div className='New_Flashcard_Plus_v'/>
-                                        </div>
+                        <Masonry breakpointCols={columns} className='flashcard-base-grid'>
+                            {isOnlyQuestion === true ?
+                                flashcards
+                                    .map((flashcard) => (
+                                        <OnlyQuestion
+                                            key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                            onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
+                                            onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                            onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                            onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                            onChangeTextAlign={changeTextAlign} />
+                                    )
+                                    ) : (flashcards //add an if statement to check what kind of flashcard should be displayed
+                                        .map((flashcard) => (
+                                            <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
+                                                onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
+                                                onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
+                                                onOpenFlashcard={openFlashcardReq} onCloseFlashcard={closeFlashcardReq}
+                                                onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
+                                                onChangeTextAlign={changeTextAlign}
+                                            />)))}
+
+                            {/*create new flashcard button*/}
+                            <div className='Flashcard_Body'>
+                                <div className='New_Flashcard_Rechteck' onClick={NewFlashcardClick}>
+                                    <div className='New_Flashcard_Circle'>
+                                        <div className='New_Flashcard_Plus_h' />
+                                        <div className='New_Flashcard_Plus_v' />
                                     </div>
                                 </div>
+                            </div>
                         </Masonry>
 
                         <div>
