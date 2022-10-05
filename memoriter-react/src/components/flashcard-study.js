@@ -1,9 +1,8 @@
 import Backdrop from './backdrop';
-import Backdropfs from './backdropfs';
+import Backdropfs from './backdrop-transparent';
 import { useState } from 'react';
 import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 import { convertFromHTML, convertToHTML } from 'draft-convert';
-import parse from 'html-react-parser';
 
 const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, onDeleteFlashcard, onChangeTextAlign }) => {
 
@@ -132,19 +131,20 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
                 <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
             
                 {showAnswer && <div>
-                    <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}>{parse(flashcard.content)}</article>
+                    <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}
+                        dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}
                 </div>}
             </div>
 
             {showAnswer && <div>
                 <div className='flex-container'>
                     <button
-                        style={{ backgroundColor: '#dc4c4d', marginRight: "40px", transform: 'translateY(-40px)' }}
+                        style={{ backgroundColor: '#dc4c4d', marginRight: "40px" }}
                         className='correct-incorrect-button'
                         onClick={() => { setShowAnswer(false); onIncorrect(flashcard); }}
                     >Incorrect</button>
                     <button
-                        style={{ backgroundColor: '#5fcb76', transform: 'translateY(-40px)' }}
+                        style={{ backgroundColor: '#5fcb76' }}
                         className='correct-incorrect-button'
                         onClick={() => { setShowAnswer(false); onCorrect(flashcard.id); }}
                     >Correct</button>

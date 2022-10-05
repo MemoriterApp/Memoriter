@@ -1,4 +1,4 @@
-import Logo from './Logo.png';
+import Logo from '../images/memoriter-logo.svg';
 import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -19,11 +19,11 @@ function SignUpPage(props) {
 
     const [invalidEmail, setInvalidEmail] = useState(false);
     const [emailInUse, setEmailInUse] = useState(false);
-    const [redBorderEmail, setRedBorderEmail] = useState('5px solid rgba(58,109,112,1)');
+    const [redBorderEmail, setRedBorderEmail] = useState('5px solid var(--current-blue-light)');
     const [shortPassword, setShortPassword] = useState(false);
-    const [redBorderPassword, setRedBorderPassword] = useState('5px solid rgba(58,109,112,1)');
+    const [redBorderPassword, setRedBorderPassword] = useState('5px solid var(--current-blue-light)');
     const [samePassword, setSamePassword] = useState(false);
-    const [redBorderConfirm, setRedBorderConfirm] = useState('5px solid rgba(58,109,112,1)');
+    const [redBorderConfirm, setRedBorderConfirm] = useState('5px solid var(--current-blue-light)');
     const [isAccepted, setIsAccepted] = useState(false);
     const [borderBlueCheckbox, setBorderBlueCheckbox] = useState(true);
     const [borderRedCheckbox, setBorderRedCheckbox] = useState(false);
@@ -64,6 +64,7 @@ function SignUpPage(props) {
             setError(false);
             setLoading(true);
             const user = createUserWithEmailAndPassword(firebase.auth, email, password)
+                .then(() => navigate('/'))
                 .catch(error => {
                     switch (error.code) {
                         case 'auth/email-already-in-use':
@@ -86,13 +87,7 @@ function SignUpPage(props) {
     }
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, signup, account, create an account'></meta>
-                <meta name='description' content='signup for Memoriter'></meta>
-            </head>
+        <>
             <header className='Page_Header'>
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo" />
@@ -100,7 +95,7 @@ function SignUpPage(props) {
                 <h1 className="page_title">Sign Up</h1>
                 <Link to='/login' className="link-box">Log In</Link>
             </header>
-            <body>
+            <main>
                 <div className="rechteck">
 
 
@@ -124,7 +119,7 @@ function SignUpPage(props) {
                                             setEmail(e.target.value);
                                             setInvalidEmail(false);
                                             setEmailInUse(false);
-                                            setRedBorderEmail('5px solid rgba(58,109,112,1)');
+                                            setRedBorderEmail('5px solid var(--current-blue-light)');
                                         }} />
                                 {invalidEmail && <p className="passwords-no-match">Invalid Email!</p>}
                                 {emailInUse && <p className="passwords-no-match">Email already in use!</p>}
@@ -138,8 +133,8 @@ function SignUpPage(props) {
                                     onChange={(e) => {
                                         setPassword(e.target.value);
                                         setShortPassword(false); setSamePassword(false);
-                                        setRedBorderPassword('5px solid rgba(58,109,112,1)');
-                                        setRedBorderConfirm('5px solid rgba(58,109,112,1)');
+                                        setRedBorderPassword('5px solid var(--current-blue-light)');
+                                        setRedBorderConfirm('5px solid var(--current-blue-light)');
                                     }} />
                                 {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                 {shortPassword && <p className="passwords-no-match">Password should be at least 6 characters long!</p>}
@@ -153,8 +148,8 @@ function SignUpPage(props) {
                                     onChange={(e) => {
                                         setPasswordAgain(e.target.value);
                                         setShortPassword(false); setSamePassword(false);
-                                        setRedBorderPassword('5px solid rgba(58,109,112,1)');
-                                        setRedBorderConfirm('5px solid rgba(58,109,112,1)');
+                                        setRedBorderPassword('5px solid var(--current-blue-light)');
+                                        setRedBorderConfirm('5px solid var(--current-blue-light)');
                                     }} />
                                 {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                 <p style={{ fontSize: '55px' }} />
@@ -174,7 +169,7 @@ function SignUpPage(props) {
                                 </div>}
 
 
-                                <button type="submit" className="LoginButton" disabled={loading} style={{ top: "360px" }}>Sign Up</button>
+                                <button type="submit" className="LoginButton" disabled={loading} style={{ top: "385px" }}>Sign Up</button>
                             </form>
                             <p className="no-account">Already have an account? You can log in&nbsp;</p>
                             <Link to='/login' className="no-account" style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
@@ -183,11 +178,11 @@ function SignUpPage(props) {
                         </div>
                     </div>
                 </div>
-            </body>
+            </main>
             <footer>
                 <Footer />
             </footer>
-        </div>
+        </>
     );
 }
 

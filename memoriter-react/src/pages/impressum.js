@@ -1,5 +1,5 @@
 import Footer from "../components/Footer";
-import Logo from './Logo.png';
+import Logo from '../images/memoriter-logo.svg';
 import { Link } from 'react-router-dom';
 
 function ImpressumPage() {
@@ -7,13 +7,7 @@ function ImpressumPage() {
     let lastPage = localStorage.getItem('lastPage');
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter,impressum, kontakt, work, junior'></meta>
-                <meta name='description' content='impressum page for memoriter'></meta>
-            </head>
+        <>
             <header>
                 <Link to='/'>
                     <img className="Logo-oben" src={Logo} alt="site-logo" style={{ top: '-2.5px', zIndex: '10' }}></img>
@@ -25,7 +19,7 @@ function ImpressumPage() {
                 </Link>
                 <h1 className='Legal_Header'>Impressum</h1>
             </header>
-            <body>
+            <main>
                 <p className='Legal_Text'>
                     Memoriter is a student company at the Bertha-von-Bertha-Suttner-Gymnasium Babelsberg in Potsdam, Germany,
                     under the supervision of JUNIOR, a project by the Institut der Deutchen Wirtschaft (IW),
@@ -43,11 +37,11 @@ function ImpressumPage() {
                     <li>Email: johan@trieloff.net</li>
                 </ul>
                 <div style={{ height: '100px' }} />
-            </body>
+            </main>
             <footer>
                 <Footer />
             </footer>
-        </div>
+        </>
     );
 }
 

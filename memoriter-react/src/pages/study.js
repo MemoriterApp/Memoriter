@@ -1,4 +1,4 @@
-import Logo from './Logo.png';
+import Logo from '../images/memoriter-logo.svg';
 import Footer from '../components/Footer';
 import FlashcardStudy from '../components/flashcard-study';
 import { useState, useEffect } from "react";
@@ -135,15 +135,9 @@ const StudyPage = () => {
     };
 
     return (
-        <div>
-            <head>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name='keywords' content='memoriter, study, files, subjects, overview, effective, studying, school, university, flashcards'></meta>
-                <meta name='description' content='Flashcards for Memoriter'/>
-            </head>
+        <>
 
-            <body>
+            <main>
                 <header className='Page_Header'>
                     {syncedFolderTitle !== '' ? (
                         <h1 className="page_title">{syncedFolderTitle}</h1>
@@ -170,31 +164,39 @@ const StudyPage = () => {
                 </>}
 
                 {finished && <div>
-                    <p style={{position: 'absolute', left: '50%', top: '30%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}>
-                        Studied Flashcards: {studiedFlashcards}
-                    </p>
-                    <p style={{position: 'absolute', left: '50%', top: '35%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}>
-                        Repetitions: {studiedFlashcards + incorrectFlashcards}
-                    </p>
-                    <p style={{position: 'absolute', left: '50%', top: '40%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}>
-                        Incorrect: {incorrectFlashcards}
-                    </p>
+                    <div className='finished-box'>
+                        <p className='finished_statistics' style={{fontSize:'5.3vh'}}>
+                            Results
+                        </p>
+                        <p className='finished_statistics'>
+                            Studied Flashcards: {studiedFlashcards}
+                        </p>
+                        <p className='finished_statistics'>
+                            Repetitions: {studiedFlashcards + incorrectFlashcards}
+                        </p>
+                        <p className='finished_statistics' style={{ color:'#2d772d'}}>
+                            Percent Correct: {(100 * (1 - (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards)))).toFixed(2)}%
+                        </p>
+                        <p className='finished_statistics' style={{ color:'#dc4c4d'}}>
+                            Incorrect: {incorrectFlashcards} ({(100 * (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards))).toFixed(2)}%)
+                        </p>
+                    </div>
 
-                    <button 
-                        style={{position: 'absolute', left: '50%', top: '55%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
+                    <button className='finished-button'
+                        style={{ top: '70%'}}
                         onClick={() => startAgain()}
                     >Study Again</button>
 
-                    <button 
-                        style={{position: 'absolute', left: '50%', top: '62.5%', transform: 'translate(-50%, -50%)', fontSize: '24px'}}
+                    <button className='finished-button'
+                        style={{top: '77.5%', width: '14vw', backgroundColor:'rgb(126, 128, 134)'}}
                         onClick={() => navigate('/topic')}
                     >Return to Overview</button>
                 </div>}
 
                 <Footer/>
-            </body>
+            </main>
             
-        </div>
+        </>
     );
 }
 

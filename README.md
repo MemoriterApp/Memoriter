@@ -15,5 +15,5 @@ Zu Beginn wollen wir ein Ordnersystem schaffen, in dem man für jedes seiner wic
 
 ## Geplante Features
 * Kalendersystem
- * Erinnerung
+* Erinnerung
 * spaced repetition Algorithmus
