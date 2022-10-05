@@ -566,7 +566,7 @@
     background-color: white;
     text-align: center;
     width: 260px;
-    height: 440px;
+    height: 420px;
     max-width: calc(100% - 30px);
     max-height: calc(100% - 30px);
     z-index: 10;
@@ -606,7 +606,7 @@
     width: 100%;
     font-size: 3ch;
     font-weight: 700;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--current-font);
     position: relative;
     cursor: pointer;
     text-align: center;
@@ -621,7 +621,7 @@
     border-radius: 8px;
     position: relative;
     margin: auto;
-    top: 70px;
+    top: 20px;
 }
 
 /* Nachfolgender Code bezieht sich auf das Settingsoverlay der Folder */
@@ -1967,7 +1967,7 @@
 .patch-notes-Start {
     top: 90px;
     color: rgb(255, 255, 255);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--current-font);
     cursor: pointer;
     position:absolute;
     text-decoration: none;
@@ -2064,10 +2064,10 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     background-color: #353535;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--current-font);
     color: white;
     width: 520px;
-    height: 60vh;
+    height: 65vh;
     position: fixed;
     top: 10%;
     right:5.5vw;
@@ -2082,7 +2082,7 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     background-color: #353535;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--current-font);
     color: white;
     width: 450px;
     height: 320px;
@@ -2102,7 +2102,7 @@
     width: 130px;
     color: white;
     background-color: rgba(112,112,112,1);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
     margin-left: 0;
@@ -2115,7 +2115,7 @@
     width: 130px;
     color: white;
     background-color: #264a63;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
     margin-left: 20px;
@@ -2123,12 +2123,12 @@
 }
 .Settings-changemail-form {
     position: relative;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--current-font);
     font-size: 20px;
     width: 275px;
 }
 @media (max-width: 600px){
-    .Settings-profile-body{
+    .Settings-profile-body {
         width: 90vw;
         right:0px;
         left:4vw;
@@ -2155,7 +2155,7 @@
     overflow-y: auto;
     z-index: 10;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--current-font);
     color: white;
 }
 
@@ -2176,7 +2176,7 @@
     padding: 5px;
     color: white;
     background-color: rgba(112,112,112,1);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
     margin-top: 1.5vw;

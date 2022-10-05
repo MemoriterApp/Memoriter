@@ -4,11 +4,13 @@ import Logo from '../images/memoriter-logo.svg';
 import Footer from "../components/Footer";
 import Backdrop from '../components/backdrop';
 import PasswordReset from "../components/password-reset";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { firebase } from "../utils/firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 function LoginPage() {
+
+    const navigate = useNavigate();
 
     const [passwordResetModal, openPasswordResetModal] = useState(false);
 

@@ -18,6 +18,8 @@ function TopicPage() {
 
     const navigate = useNavigate();
 
+    const user = firebase.auth.currentUser;
+
     const [columns, setColumns] = useState(6); //column count of the masonry layout
     const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
 
