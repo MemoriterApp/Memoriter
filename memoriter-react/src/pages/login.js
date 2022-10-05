@@ -2,14 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Logo from '../images/memoriter-logo.svg';
 import Footer from "../components/Footer";
+import Backdrop from '../components/backdrop';
+import PasswordReset from "../components/password-reset";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { firebase } from "../utils/firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 function LoginPage() {
 
-    const navigate = useNavigate();
+    const [passwordResetModal, openPasswordResetModal] = useState(false);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -27,10 +28,6 @@ function LoginPage() {
     onAuthStateChanged(firebase.auth, (currentUser) => {
         setUser(currentUser);
     })
-
-    if (user !== null) {
-        navigate('/')
-    }
 
     useEffect(() => {
         localStorage.setItem('lastPage', "/login");
@@ -75,6 +72,12 @@ function LoginPage() {
                 <Link to='/signup' className="link-box">Sign Up</Link>
             </header>
             <main>
+
+                {passwordResetModal && <div>
+                    <PasswordReset closePasswordResetModal={() => openPasswordResetModal(false)}/>
+                    <Backdrop onClick={() => openPasswordResetModal(false)}/>
+                </div>}
+
                 <div className="rechteck">
 
                     {error && <div className="File-Overview"
@@ -115,8 +118,7 @@ function LoginPage() {
                                         }} />
                                 {wrongPassword && <p className="passwords-no-match">Wrong Password!</p>}
 
-                                {/*<p className="forgot-password">Forgot Password?</p>*/}
-                                {/*kann später durch forgot password ersetzt werden:*/<p className="forgot-password" style={{ cursor: 'default', height: '20px' }} />}
+                                <p className="forgot-password" onClick={() => openPasswordResetModal(true)}>Forgot Password?</p>
 
                                 <button type="submit" className="LoginButton" disabled={loading}>Log In</button>
                             </form>

@@ -1,14 +1,12 @@
 import Logo from '../images/memoriter-logo.svg';
 import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { firebase } from "../utils/firebase";
 
 
-function SignUpPage(props) {
-
-    const navigate = useNavigate();
+function SignUpPage() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -33,10 +31,6 @@ function SignUpPage(props) {
     onAuthStateChanged(firebase.auth, (currentUser) => {
         setUser(currentUser);
     })
-
-    if (user !== null) {
-        navigate('/')
-    }
 
     useEffect(() => {
         localStorage.setItem('lastPage', "/signup");

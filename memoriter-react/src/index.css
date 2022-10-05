@@ -386,6 +386,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
+    right:0%;
     transform: translate(-50%, -50%);
     max-width: calc(100vw - 30px);
     max-height: calc(100vh - 30px);
@@ -1962,7 +1963,31 @@
 .About-Start:hover:after{
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
+}
+.patch-notes-Start {
+    top: 90px;
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    position:absolute;
+    text-decoration: none;
+}
+.patch-notes-Start:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.patch-notes-Start:hover:after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
 /* Johan Startpage*/
 .how-does-it-work-body {
     position: relative;
@@ -2008,6 +2033,153 @@
 .why-list {
     line-height: 35px;
     text-align: left;
+}
+
+/* Alexanderer Settings allgemein*/
+.Settings-profile-header {
+    font-size: 21px;
+    text-align: left;
+    margin: 5px;
+    cursor: default;
+}
+.Settings-profile-text {
+    font-size: 20px;
+    color:rgba(58,109,112,1); 
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    cursor: default;
+}
+.Settings-line {
+    background-color: rgba(112,112,112,1);
+    border: 1.5px solid rgba(112,112,112,1);
+    width: 98%;
+    margin: auto;
+    position: relative;
+    border-radius: 3px;  
+}
+.Settings-profile-body {
+    border: 5px solid #274b65;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    background-color: #353535;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    width: 520px;
+    height: 60vh;
+    position: fixed;
+    top: 10%;
+    right:5.5vw;
+    max-width: calc(100vw - 30px);
+    max-height: calc(100vh - 30px);
+    z-index: 10;
+    border-radius: 6px;
+    overflow-y: auto;
+}
+.Settings-changemail-body {
+    border: 5px solid #274b65;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    background-color: #353535;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    width: 450px;
+    height: 320px;
+    position: fixed;
+    top: 18%;
+    right:7.5%;
+    max-width: calc(100vw - 30px);
+    max-height: calc(100vh - 30px);
+    z-index: 10;
+    border-radius: 6px;
+    overflow-y: auto;
+}
+.Settings-changemail-cancel {
+    border: 5px solid rgba(112,112,112,1);
+    border-radius: 3px;
+    padding: 5px;
+    width: 130px;
+    color: white;
+    background-color: rgba(112,112,112,1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 0;
+    margin-top: 1.5vw;
+}
+.Settings-changemail-change {
+    border: 5px solid #264a63;
+    border-radius: 3px;
+    padding: 5px;
+    width: 130px;
+    color: white;
+    background-color: #264a63;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 1.5vw;
+}
+.Settings-changemail-form {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    width: 275px;
+}
+@media (max-width: 600px){
+    .Settings-profile-body{
+        width: 90vw;
+        right:0px;
+        left:4vw;
+    }
+    .Settings-changemail-body{
+        width: 85vw;
+        right:0px;
+        left:7vw;
+    }
+}
+
+.settings-delete-account-confirm-body {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+    width: 650px;
+    height: 500px;
+    background-color: #353535;
+    border: 5px solid rgba(39,75,101,1);
+    border-radius: 6px;
+    overflow-y: auto;
+    z-index: 10;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.settings-delete-account-confirm-text {
+    text-align: center;
+    font-size: 18px;
+    color:rgb(228, 48, 48); 
+    font-weight: bold;
+}
+
+.settings-delete-account-confirm-button {
+    position: relative;
+    width: calc(80% + 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid rgba(112,112,112,1);
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+    background-color: rgba(112,112,112,1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 1.5vw;
 }
 
 /*Text Editor Buttons*/
