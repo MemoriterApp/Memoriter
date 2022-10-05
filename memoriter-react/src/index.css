@@ -2069,8 +2069,7 @@
     width: 520px;
     height: 65vh;
     position: fixed;
-    top: 10%;
-    right:5.5vw;
+    top: 16%;
     max-width: calc(100vw - 30px);
     max-height: calc(100vh - 30px);
     z-index: 10;
