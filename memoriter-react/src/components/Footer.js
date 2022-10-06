@@ -19,9 +19,13 @@ const Footer = () => {
             <div className='footerLinks'>
                 <Link className='privacyPolicy' to='/privacy' target='_blank'>Privacy Policy</Link>
                 <div
-                    style={{display: 'inline', color: 'var(--color-font-gray)', cursor: 'default'}}
+                    style={{ display: 'inline', color: 'var(--color-font-gray)', cursor: 'default' }}
                 > | </div>
                 <Link className='impressum' to='/impressum' target='_blank'>Impressum</Link>
+                <div
+                    style={{ display: 'inline', color: 'var(--color-font-gray)', cursor: 'default' }}
+                > | </div>
+                <Link className='impressum' to='/patch-notes' target='_blank'>Patch Notes</Link>
             </div>
         </div>
     );
