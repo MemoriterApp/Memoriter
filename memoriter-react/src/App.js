@@ -2,6 +2,7 @@ import Start from './pages/start';
 import About from './pages/about';
 import ImpressumPage from './pages/impressum';
 import PrivacyPage from './pages/privacy_policies';
+import PatchNotes from './pages/patch_notes';
 
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
@@ -42,6 +43,8 @@ function App() {
             <Route path='/impressum' element={<ImpressumPage/>}/>
 
             <Route path='/privacy' element={<PrivacyPage/>}/>
+
+            <Route path='/patch-notes' element={<PatchNotes/>}/>
 
             {user? (<> {/*some of the active routes are altered if a user is signed in*/}
               <Route path='/login' element={<HomePage/>}/>

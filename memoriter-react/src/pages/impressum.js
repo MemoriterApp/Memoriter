@@ -33,7 +33,7 @@ function ImpressumPage() {
                     <li>Johan Trieloff</li>
                     <li>Kopernikusstraße 30</li>
                     <li>14482 Potsdam, Germany</li>
-                    <li>Phone: +49 (0)221 | 4981-707</li>
+                    <li>Phone: +49 160 7000697</li>
                     <li>Email: johan@trieloff.net</li>
                 </ul>
                 <div style={{ height: '100px' }} />
