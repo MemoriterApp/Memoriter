@@ -16,7 +16,7 @@ const FooterStart = () => {
                         {/*<Link className='termsOfUse-Start' to='/terms-of-use'>Terms of Use</Link>*/}
                         <Link className='impressum-Start' to='/impressum'>Impressum</Link>
                         <Link className='About-Start' to='/About'>About Us</Link>
-                        <Link className='patch-notes-Start' to='/patchnotes'>Patch Notes</Link>
+                        <Link className='patch-notes-Start' to='/patch-notes'>Patch Notes</Link>
                     </div>
                 </ul> 
             </div>
