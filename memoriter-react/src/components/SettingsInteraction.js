@@ -233,9 +233,7 @@ function SettingsClick() {
             
             {themeText === 'light' && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>THEME:&shy; LIGHT</p>}
             <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
-            <div className='sign-out-box'>
-                <p className='settings-sub' style={{color:"white", top:"10px"}} onClick={() => openSignOutView(true)}>SIGN OUT</p>
-            </div>
+            <p className='sign-out-box' onClick={() => openSignOutView(true)}>SIGN OUT</p>
             {signOutView && <div>
                 <div className='Delete_Folder_Confirm'>
                     <h2 className='Add_folder_Form_Header'>Do you really want to &nbsp;sign out?</h2>

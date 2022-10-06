@@ -602,7 +602,7 @@
     hyphens: manual;
 }
 .settings-sub {
-    color: black;
+    color: var(--color-black);
     width: 100%;
     font-size: 3ch;
     font-weight: 700;
@@ -614,14 +614,22 @@
     word-wrap: break-word;
     hyphens: manual;
 }
-.sign-out-box{
-    width: 156px;
-    height: 50px;
-    background-color: #274b65;
-    border-radius: 8px;
+.sign-out-box {
+    color: var(--color-white);
+    margin: 32px auto;
+    width: fit-content;
+    font-size: 3ch;
+    font-weight: 700;
+    font-family: var(--current-font);
     position: relative;
-    margin: auto;
-    top: 20px;
+    cursor: pointer;
+    text-align: center;
+    max-width: 100%;
+    word-wrap: break-word;
+    hyphens: manual;
+    background-color: #274b65;
+    padding: 8px 16px;
+    border-radius: 6px;
 }
 
 /* Nachfolgender Code bezieht sich auf das Settingsoverlay der Folder */
@@ -780,10 +788,10 @@
     border-radius: 6px;
     background-color: var(--color-background);
     border: 5px solid var(--current-blue-dark);
-    padding: 14px 0 14px 18px;
+    padding: 14px 0 30px 18px;
     text-align: center;
     width: 90px;
-    height: 114px;
+    height: 100px;
     z-index: 10;
     position: absolute;
     left: 45%;
@@ -913,14 +921,14 @@
     border-radius: 6px;
     background-color: var(--color-background);
     border: 5px solid var(--current-blue-dark);
-    padding: 1rem;
+    padding: 14px 0 30px 18px;
     text-align: center;
-    width: 3rem;
-    height: 4rem;
-    z-index: 11;
+    width: 90px;
+    height: 100px;
+    z-index: 10;
     position: absolute;
-    right: 18px;
-    top: 22px;
+    left: 45%;
+    top: 3vh;
 }
 .flashcard-open-settings-overlay-position-field {
     position: fixed;
@@ -2062,7 +2070,7 @@
 .Settings-profile-body {
     border: 5px solid #274b65;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    background-color: #353535;
+    background-color: var(--color-background);
     text-align: center;
     font-family: var(--current-font);
     color: white;
@@ -2079,7 +2087,7 @@
 .Settings-changemail-body {
     border: 5px solid #274b65;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    background-color: #353535;
+    background-color: var(--color-background);
     text-align: center;
     font-family: var(--current-font);
     color: white;
@@ -2148,7 +2156,7 @@
     max-height: 90%;
     width: 650px;
     height: 500px;
-    background-color: #353535;
+    background-color: var(--color-background);
     border: 5px solid rgba(39,75,101,1);
     border-radius: 6px;
     overflow-y: auto;
@@ -2313,7 +2321,7 @@
     background-color: red;
 }
 .preview-type-box {
-    background-color: #353535;
+    background-color: var(--color-background);
     position: fixed;
     height: 80vh;
     width: 80vw;
