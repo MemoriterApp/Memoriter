@@ -13,12 +13,12 @@ const AddFlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
     const content = sessionStorage.getItem('flashcard-content');
     const contentObj = sessionStorage.getItem('flashcard-content-obj');
 
-    const [syncedFolder] = useState(syncedFolderID)
+    const [syncedFolder] = useState(syncedFolderID);
 
     const onSubmitFlashcard = (changeContent) => {
         changeContent.preventDefault()
         onAddFlashcard({ title, content, contentObj, syncedFolder })
-    }
+    };
 
     //Editor Functions
     function handleKeyCommand (command) {
