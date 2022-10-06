@@ -32,13 +32,14 @@ function PatchNotes() {
                     <li>Study mode</li>
                     <li>Design rework</li>
                     <li>Flashcard style options</li>
-                    <li>Text align options</li>
-                    <li>different flashcard preview modes</li>
+                    <li>Text editing options</li>
+                    <li>Different flashcard preview modes</li>
                     <li>Dark and light theme</li>
                     <li>Settings rework</li>
                     <li>Contact Form</li>
-                    <li>fixed bugs</li>
+                    <li>Fixed bugs</li>
                 </ul>
+                <br/><br/><br/><br/>
             </main>
             <footer>
                 <Footer />

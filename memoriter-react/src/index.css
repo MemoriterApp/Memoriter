@@ -98,6 +98,23 @@
     background-color: var(--color-transparent);
 }
 
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+body::-webkit-scrollbar-track {
+    background-color: var(--color-transparent);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #121212;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #0a0a0a;
+}
+body::-webkit-scrollbar-corner {
+    background-color: var(--color-transparent);
+}
+
 :root { /*legacy colors (all old colors from the app which cannot be replaced)*/
     --current-gray: #707070;
     --current-gray-light: #f6f7fb;
@@ -1364,7 +1381,6 @@
 }
 .forgot-password {
     position: relative;
-    top: 10px;
     color: #265272;
     font-family: var(--current-font);
     cursor: pointer;
