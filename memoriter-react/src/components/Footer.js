@@ -26,6 +26,10 @@ const Footer = () => {
                     style={{ display: 'inline', color: 'var(--color-font-gray)', cursor: 'default' }}
                 > | </div>
                 <Link className='impressum' to='/patch-notes' target='_blank'>Patch Notes</Link>
+                <div
+                    style={{ display: 'inline', color: 'var(--color-font-gray)', cursor: 'default' }}
+                > | </div>
+                <Link className='privacyPolicy' to='https://forms.gle/sH6X5LXGftLT9eoj7' target='_blank'>Report a Bug</Link>
             </div>
         </div>
     );
