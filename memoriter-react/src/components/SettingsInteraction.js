@@ -247,7 +247,7 @@ function SettingsClick() {
 
             {changePreview && <ChangePreview/>}
 
-            {profile && <div style={{display: 'flex', justifyContent: 'center'}}>
+            {profile && <>
                 <div className='Settings-profile-body'>
                     <h2 className='Add_Folder_Form_Header' style={{ fontSize: '30px',cursor:'default' }}>Profile</h2>
                     <div>
@@ -546,7 +546,7 @@ function SettingsClick() {
 
                     </div>
                 </div>
-            </div> }      
+            </>}      
         </div>
     );
 }
