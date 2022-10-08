@@ -29,7 +29,7 @@ const Footer = () => {
                 <div
                     style={{ display: 'inline', color: 'var(--color-font-gray)', cursor: 'default' }}
                 > | </div>
-                <a className='privacyPolicy' href='https://forms.gle/sH6X5LXGftLT9eoj7' target='_blank'>report a bug</a>
+                <a className='privacyPolicy' href='https://forms.gle/sH6X5LXGftLT9eoj7' target='_blank' rel='noreferrer'>Report a bug</a>
             </div>
         </div>
     );

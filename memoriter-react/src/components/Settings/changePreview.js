@@ -10,8 +10,6 @@ function ChangePreview() {
     const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
     const [isBoth, setIsBoth] = useState(false)
 
-
-
     //use Effekt to safe the state in local storage, so that it can be used in topic.js
     useEffect(() => {
         localStorage.setItem('onlyQuestion', JSON.stringify(isOnlyQuestion)); //sets the value of key 'OnlyQuestion' to 'isOnlyQuestion' state
@@ -34,46 +32,35 @@ function ChangePreview() {
     return (
         <>
             <div className='preview-type-box'>
-                <h1 className='study-now-text' style={{ color: "white", fontSize: "35px", top: "20px" }}>CHOOSE PREVIEW TYPE</h1>
+                <h1 className='study-now-text' style={{ color: "white", fontSize: "28px", top: "10px", marginBottom: '40px' }}>CHOOSE PREVIEW TYPE</h1>
 
-                <div style={{ position: "absolute", left: "20%" }}>
-
-                    <div className='study-flashcard-box-border' style={{ height: "40vh", width: "25vh", marginBlock: "1%" }}></div>
-                    <div className='study-flashcard-box' style={{ height: "40vh", width: "25vh" }}>
-                        <div className='study-flashcard-dots' style={{ right: "2%", top: "3%" }}>
-                            <div className='big-dot' />
-                            <div className='big-dot' />
-                            <div className='big-dot' />
-                        </div>
-                        <h2 style={{ textAlign: 'center' }}>What's the best type of pasta?</h2>
-                        <div>
-                            <article style={{ marginTop: '30px', textAlign: "center" }}>The ones shaped like wheels!</article>
-                        </div>
+                <div className='study-flashcard-box' style={{transform: 'unset', top: '96px', left: '5%', right: 'unset', height: "266px", width: "174px",
+                    overflow: 'visible', border: '5px solid var(--color-font-gray)', borderRadius: '8px'}}>
+                    <div className='study-flashcard-dots' style={{ right: "4px", top: "-4px" }}>
+                        <div className='big-dot' />
+                        <div className='big-dot' />
+                        <div className='big-dot' />
                     </div>
-
-                    <button className="preview-type-button" onClick={()=> bothVisableEffect()}>BOTH VISIBLE</button>
+                    <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What's the best type of pasta?</h2>
+                    <p style={{ marginTop: '30px', textAlign: "center" }}>The ones shaped like wheels!</p>
+                    <button className="preview-type-button" onClick={() => onlyQuestionEffect()}
+                    onMouseEnter={() => setIsMouseInside(false)}>QUESTION VISIBLE</button>
                 </div>
 
-                <div style={{ position: "absolute", left: "65%" }}>
-
-                    <div className='study-flashcard-box-border' style={{ height: "40vh", width: "25vh" }}></div>
-                    <div className='study-flashcard-box' style={{ height: "40vh", width: "25vh" }} onMouseEnter={() => setIsMouseInside(true)} onMouseLeave={() => setIsMouseInside(false)}>
-                        <div className='study-flashcard-dots' style={{ right: "2%", top: "3%" }}>
-                            <div className='big-dot' />
-                            <div className='big-dot' />
-                            <div className='big-dot' />
-                        </div>
-                        <h2 style={{ textAlign: 'center' }}>What's the best type of pasta?</h2>
-
-                        <div>
-                            {isMouseInside ? <article style={{ marginTop: '30px', textAlign: "center" }}>The ones shaped like wheels!</article> : null}
-                        </div>
-
+                <div className='study-flashcard-box' style={{transform: 'unset', top: '96px', left: 'unset', right: '5%', height: "266px", width: "174px",
+                    overflow: 'visible', border: '5px solid var(--color-font-gray)', borderRadius: '8px'}}
+                    onMouseEnter={() => setIsMouseInside(true)} onMouseLeave={() => setIsMouseInside(false)}>
+                    <div className='study-flashcard-dots' style={{ right: "4px", top: "-4px" }}>
+                        <div className='big-dot' />
+                        <div className='big-dot' />
+                        <div className='big-dot' />
                     </div>
-
-                    <button className="preview-type-button" onClick={() => onlyQuestionEffect()}>QUESTION VISIBLE</button>
+                    <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What's the best type of pasta?</h2>
+                    {isMouseInside ? <p style={{ marginTop: '30px', textAlign: "center" }}>The ones shaped like wheels!</p> : null}
+                    <button className="preview-type-button" onClick={() => onlyQuestionEffect()}
+                    onMouseEnter={() => setIsMouseInside(false)}>QUESTION VISIBLE</button>
                 </div>
-
+                <div style={{position: 'relative', top: '400px', height: '10px', width: '100%'}}/>
             </div>
         </>
     )
