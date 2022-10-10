@@ -32,35 +32,35 @@ function ChangePreview() {
     return (
         <>
             <div className='preview-type-box'>
-                <h1 className='study-now-text' style={{ color: "white", fontSize: "28px", top: "10px", marginBottom: '40px' }}>CHOOSE PREVIEW TYPE</h1>
-
-                <div className='study-flashcard-box' style={{transform: 'unset', top: '96px', left: '5%', right: 'unset', height: "266px", width: "174px",
-                    overflow: 'visible', border: '5px solid var(--color-font-gray)', borderRadius: '8px'}}>
-                    <div className='study-flashcard-dots' style={{ right: "4px", top: "-4px" }}>
-                        <div className='big-dot' />
-                        <div className='big-dot' />
-                        <div className='big-dot' />
+                <h1 className='preview-type-heading'>CHOOSE PREVIEW TYPE</h1>
+                
+                <div className='preview-type-layout'>
+                    <div className='preview-type-flashcard'>
+                        <div className='preview-type-flashcard-dots'>
+                            <div className='big-dot'/>
+                            <div className='big-dot'/>
+                            <div className='big-dot'/>
+                        </div>
+                        <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What's the best type of pasta?</h2>
+                        <p style={{ marginTop: '30px', textAlign: "center" }}>The ones shaped like wheels!</p>
+                        <button className="preview-type-button" onClick={() => bothVisableEffect()}
+                        onMouseEnter={() => setIsMouseInside(false)}>BOTH VISIBLE</button>
                     </div>
-                    <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What's the best type of pasta?</h2>
-                    <p style={{ marginTop: '30px', textAlign: "center" }}>The ones shaped like wheels!</p>
-                    <button className="preview-type-button" onClick={() => onlyQuestionEffect()}
-                    onMouseEnter={() => setIsMouseInside(false)}>QUESTION VISIBLE</button>
-                </div>
 
-                <div className='study-flashcard-box' style={{transform: 'unset', top: '96px', left: 'unset', right: '5%', height: "266px", width: "174px",
-                    overflow: 'visible', border: '5px solid var(--color-font-gray)', borderRadius: '8px'}}
-                    onMouseEnter={() => setIsMouseInside(true)} onMouseLeave={() => setIsMouseInside(false)}>
-                    <div className='study-flashcard-dots' style={{ right: "4px", top: "-4px" }}>
-                        <div className='big-dot' />
-                        <div className='big-dot' />
-                        <div className='big-dot' />
+                    <div className='preview-type-flashcard'
+                        onMouseEnter={() => setIsMouseInside(true)} onMouseLeave={() => setIsMouseInside(false)}>
+                        <div className='preview-type-flashcard-dots'>
+                            <div className='big-dot'/>
+                            <div className='big-dot'/>
+                            <div className='big-dot'/>
+                        </div>
+                        <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What's the best type of pasta?</h2>
+                        {isMouseInside ? <p style={{ marginTop: '30px', textAlign: "center" }}>The ones shaped like wheels!</p> : <p style={{ marginTop: '30px', textAlign: "center", opacity: '0' }}>The ones shaped like wheels!</p>}
+                        <button className="preview-type-button" onClick={() => onlyQuestionEffect()}
+                        onMouseEnter={() => setIsMouseInside(false)}>QUESTION VISIBLE</button>
                     </div>
-                    <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What's the best type of pasta?</h2>
-                    {isMouseInside ? <p style={{ marginTop: '30px', textAlign: "center" }}>The ones shaped like wheels!</p> : null}
-                    <button className="preview-type-button" onClick={() => onlyQuestionEffect()}
-                    onMouseEnter={() => setIsMouseInside(false)}>QUESTION VISIBLE</button>
                 </div>
-                <div style={{position: 'relative', top: '400px', height: '10px', width: '100%'}}/>
+                <div style={{position: 'relative', height: '10px', width: '100%'}}/>
             </div>
         </>
     )
