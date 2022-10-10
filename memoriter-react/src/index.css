@@ -509,10 +509,6 @@ body::-webkit-scrollbar-corner {
     text-align: center;
     overflow: auto;
 }
-.Footer_Body::-webkit-scrollbar {
-    width: 1px;
-    height: 1px;
-}
 .MEMORITER {
     position: absolute;
     left: 6px;
@@ -554,7 +550,7 @@ body::-webkit-scrollbar-corner {
     cursor: pointer;
     filter: var(--svg-invert);
 }
-.footerLinks {
+.footer-links {
     background-color: var(--color-transparent);
     width: calc(100% - 220px);
     max-height: 36px;
@@ -564,26 +560,58 @@ body::-webkit-scrollbar-corner {
     transform: translate(-50%, 50%);
     line-height: 18px;
 }
-.termsOfUse {
+.footer-link {
     color: var(--current-blue-dark);
     font-family: var(--current-font);
     text-decoration: underline;
     cursor: pointer;
     display: inline;
 }
-.privacyPolicy {
-    color: var(--current-blue-dark);
-    font-family: var(--current-font);
-    text-decoration: underline;
-    cursor: pointer;
-    display: inline;
+@media (max-width: 430px) {
+    .footer-links {
+        width: calc(100% - 180px);
+    }
+    .footer-link {
+        font-size: 12px;
+    }
+    .followUs {
+        font-size: 12px;
+    }
+    .MEMORITER {
+        width: 80px;
+    }
 }
-.impressum {
-    color: var(--current-blue-dark);
-    font-family: var(--current-font);
-    text-decoration: underline;
-    cursor: pointer;
-    display: inline;
+@media (max-width: 342px) {
+    .footer-links {
+        width: calc(100% - 160px);
+    }
+    .footer-link {
+        font-size: 10px;
+        line-height: 12px;
+    }
+    .followUs {
+        font-size: 10px;
+    }
+    .MEMORITER {
+        width: 60px;
+    }
+    .rechteckLogo {
+        transform: translate(0, -50%) scale(0.8);
+    }
+}
+@media (max-width: 300px) {
+    .footer-links {
+        width: calc(100% - 10px);
+    }
+    .followUs {
+        display: none;
+    }
+    .MEMORITER {
+        display: none;
+    }
+    .rechteckLogo {
+        display: none;
+    }
 }
 
 /* Nachfolgender Code bezieht sich auf das Settingsoverlay */
@@ -1892,7 +1920,7 @@ body::-webkit-scrollbar-corner {
     }
 }
 /* Dieser css bezieht sich auf die Links und ihre animation*/
-.footerLinks-Start {
+.footer-links-Start {
     background-color: var(--color-transparent);
     width: 500px;
     max-height: 36px;
@@ -1901,14 +1929,14 @@ body::-webkit-scrollbar-corner {
     left:1px;
 }
    
-.privacyPolicy-Start {
+.footer-link-Start {
     color: var(--color-font);
     font-family: var(--current-font);
     cursor: pointer;
     position:absolute;
     text-decoration: none;
 }
-.privacyPolicy-Start:after{
+.footer-link-Start:after{
     content: '';
     position: absolute;
     width: 100%;
@@ -1920,7 +1948,7 @@ body::-webkit-scrollbar-corner {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
-.privacyPolicy-Start:hover:after{
+.footer-link-Start:hover:after{
     transform: scaleX(1);
     transform-origin: bottom left;
 }

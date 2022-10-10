@@ -16,20 +16,20 @@ const Footer = () => {
                     <img className='instaIcon' src={instagramIcon} alt='instagram-icon'></img>
                 </a>
             </div>
-            <div className='footerLinks'>
-                <Link className='privacyPolicy' to='/privacy' target='_blank'>Privacy Policy</Link>
+            <div className='footer-links'>
+                <Link className='footer-link' to='/privacy' target='_blank'>Privacy Policy</Link>
                 <div
                     style={{ display: 'inline', color: 'var(--color-font-gray)', cursor: 'default' }}
                 > | </div>
-                <Link className='impressum' to='/impressum' target='_blank'>Impressum</Link>
+                <Link className='footer-link' to='/impressum' target='_blank'>Impressum</Link>
                 <div
                     style={{ display: 'inline', color: 'var(--color-font-gray)', cursor: 'default' }}
                 > | </div>
-                <Link className='impressum' to='/patch-notes' target='_blank'>Patch Notes</Link>
+                <Link className='footer-link' to='/patch-notes' target='_blank'>Patch Notes</Link>
                 <div
                     style={{ display: 'inline', color: 'var(--color-font-gray)', cursor: 'default' }}
                 > | </div>
-                <a className='privacyPolicy' href='https://forms.gle/sH6X5LXGftLT9eoj7' target='_blank' rel='noreferrer'>Report a bug</a>
+                <a className='footer-link' href='https://forms.gle/sH6X5LXGftLT9eoj7' target='_blank' rel='noreferrer'>Report a bug</a>
             </div>
         </div>
     );

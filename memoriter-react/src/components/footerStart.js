@@ -11,8 +11,8 @@ const FooterStart = () => {
             <div className='Company-Start'>
                 <h2>Company</h2>
                 <ul>   
-                    <div className='footerLinks-Start'>
-                        <Link className='privacyPolicy-Start' to='/privacy'>Privacy Policy</Link>
+                    <div className='footer-links-Start'>
+                        <Link className='footer-link-Start' to='/privacy'>Privacy Policy</Link>
                         {/*<Link className='termsOfUse-Start' to='/terms-of-use'>Terms of Use</Link>*/}
                         <Link className='impressum-Start' to='/impressum'>Impressum</Link>
                         <Link className='About-Start' to='/About'>About Us</Link>
