@@ -66,11 +66,11 @@ function LoginPage() {
 
     return (
         <>
-            <header className='Page_Header'>
+            <header className='page-header'>
                 <Link to='/'>
-                    <img className="Logo-oben" src={Logo} alt="site-logo" />
+                    <img className="header-logo" src={Logo} alt="site-logo" />
                 </Link>
-                <h1 className="page_title">Log In</h1>
+                <h1 className="page-title">Log In</h1>
                 <Link to='/signup' className="link-box">Sign Up</Link>
             </header>
             <main>

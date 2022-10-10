@@ -16,6 +16,16 @@
     font-weight: 800;
     src: url('./fonts/heebo/Heebo-VariableFont_wght.ttf');
 }
+@font-face { /*M PLUS 1: default font*/
+    font-family: 'M PLUS 1';
+    font-weight: 600;
+    src: url('./fonts/m-plus-1/MPLUS1-VariableFont_wght.ttf');
+}
+@font-face { /*M PLUS 1: default font (bold version)*/
+    font-family: 'M PLUS 1';
+    font-weight: 800;
+    src: url('./fonts/m-plus-1/MPLUS1-VariableFont_wght.ttf');
+}
 
 :root { /*global fixed colors and fonts*/
     /*colors*/
@@ -78,7 +88,15 @@
     --svg-invert-gray: invert(0.21568627450980392156862745098039);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@600;800&display=swap'); /*font import*/
+:root { /*legacy colors (all old colors from the app which could be replaced in the future)*/
+    --current-gray: #707070;
+    --current-gray-light: #f6f7fb;
+    --current-blue-dark: #274b65;
+    --current-blue-light: #3a6d70;
+    --current-blue-folder: #5f9ea0;
+    --current-green: #2d772d;
+    --current-font: 'M PLUS 1', sans-serif;
+}
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -115,44 +133,42 @@ body::-webkit-scrollbar-corner {
     background-color: var(--color-transparent);
 }
 
-:root { /*legacy colors (all old colors from the app which cannot be replaced)*/
-    --current-gray: #707070;
-    --current-gray-light: #f6f7fb;
-    --current-blue-dark: #274b65;
-    --current-blue-light: #3a6d70;
-    --current-blue-folder: #5f9ea0;
-    --current-green: #2d772d;
-    --current-font: 'M PLUS 1', sans-serif;
-}
-
 /* Home */
-.Page_Header {
+.page-header {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 75px;
     width: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
     overflow: hidden;
 }
-.page_title {
-    display: block;
+.page-title {
     position: absolute;
-    bottom: 0%;
     left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%);
     font-family: var(--current-font);
     font-weight: bold;
-    font-size: 42px;
+    font-size: 36px;
     color: var(--color-font);
     max-width: 50%;
-    max-height: 75px;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     text-transform: uppercase;
+    text-align: center;
+    margin-top: 12px;
 }
+.header-logo {
+    width: 134.4px;
+    max-width: 20%;
+    position: absolute;
+    cursor: pointer;
+    bottom: 50%;
+    left: 10px;
+    transform: translate(0%, 50%);
+    filter: var(--svg-invert);
+}
+
 .rechteck {
     border-top: 10px solid var(--current-blue-dark);
     border-right: 12px solid var(--current-blue-dark);
@@ -176,16 +192,6 @@ body::-webkit-scrollbar-corner {
     height: 0px;
     border-top: 8px solid var(--current-blue-light);
     border-radius: 15px;
-}
-.Logo-oben {
-    width: 134.4px;
-    max-width: 25%;
-    position: absolute;
-    cursor: pointer;
-    bottom: 50%;
-    left: 10px;
-    transform: translate(0%, 50%);
-    filter: var(--svg-invert);
 }
 .gear {
     position: absolute;
@@ -1261,7 +1267,7 @@ body::-webkit-scrollbar-corner {
     font-family: var(--current-font);
     overflow: visible;
 }
-.Logo-oben-login {
+.header-logo-login {
     width: 134.4px;
     max-width: 25%;
     position: absolute;
@@ -1557,7 +1563,7 @@ body::-webkit-scrollbar-corner {
     left: 2%;
 }
 
-.Page_Header-Start {
+.page-header-start {
     height: 110px;
     width: 100%;
     position: relative;
@@ -2249,14 +2255,13 @@ body::-webkit-scrollbar-corner {
   /* Variables used for testing different sizes with constant aspect ratios */
 .study-now {
     position: absolute;
-    font-family:monospace;
-    top: 25%;
-    right: 5%;
+    top: 20%;
+    right: 10px;
     width: 180px;
+    max-width: 20%;
     height: 50px;
-    background-color:rgb(53, 71, 98);
+    background-color: #354762;
     color: var(--color-white);
-    font-size: 24px;
     border-radius: 18px;
     cursor: pointer;
     text-transform: uppercase;
@@ -2265,11 +2270,12 @@ body::-webkit-scrollbar-corner {
 .study-now-text {
     position: relative;
     font-size: 20px;
-    top: -10px;
+    top: 10%;
+    transform: translate(0, -50%);
     font-family: var(--current-font);
     font-weight: bold;
-
 }
+
 .study-flashcard-box {
     padding: 10px 20px 20px 20px;
     color: rgb(53, 53, 53);
@@ -2305,9 +2311,22 @@ body::-webkit-scrollbar-corner {
 .study-remaining {
     position: absolute;
     right: 20px;
-    color: rgba(112, 112, 112, 1);
+    top: 25%;
+    transform: translate(0, -50%);
+    max-width: 20%;
+    color: var(--current-gray);
     font-family: var(--current-font);
     font-size: 20px;
+}
+@media (max-width: 650px) {
+    .study-now-text {
+        top: 10px;
+        font-size: 16px;
+    }
+    .study-remaining {
+        height: 3.2vw;
+        font-size: 3vw;
+    }
 }
 .study-flashcard-dots {
     position: absolute;

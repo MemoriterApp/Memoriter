@@ -11,7 +11,7 @@ function Start() {
 
     return (
         <>
-            <header className='Page_Header-Start'>
+            <header className='page-header-start'>
                 <img className="Logo-Start" src={Logo} alt="site-logo" style={{filter: 'var(--svg-invert)'}}/>
                 <div>
                     <Link to='/signup'>

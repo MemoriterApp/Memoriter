@@ -133,9 +133,9 @@ function HomePage() {
 
   return (
     <>
-      <header className='Page_Header'>
-        <h1 className="page_title">Home</h1>
-        <img className="Logo-oben" src={memoriterLogo} alt="site-logo" />
+      <header className='page-header'>
+        <h1 className="page-title">Home</h1>
+        <img className="header-logo" src={memoriterLogo} alt="site-logo" />
       </header>
       <main>
         <div className="rechteck">

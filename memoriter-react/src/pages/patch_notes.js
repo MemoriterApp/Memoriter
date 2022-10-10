@@ -10,7 +10,7 @@ function PatchNotes() {
         <>
             <header>
                 <Link to='/'>
-                    <img className="Logo-oben" src={Logo} alt="site-logo" style={{ top: '-2.5px', zIndex: '10' }}></img>
+                    <img className="header-logo" src={Logo} alt="site-logo" style={{ top: '-2.5px', zIndex: '10' }}></img>
                 </Link>
                 <Link to={lastPage}>
                     <div className="Zurückbutton_Body" style={{ top: '90px', left: '8px', zIndex: '10' }}>

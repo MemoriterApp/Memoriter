@@ -205,11 +205,6 @@ function TopicPage() {
 
     //states to check what preview mode
     const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
-    const [isBoth, setIsBoth] = useState(false);
-
-    function refreshPage() {
-        window.location.reload();
-    }
 
     useEffect(() => {
         const onlyQuestion = JSON.parse(localStorage.getItem('onlyQuestion'));
@@ -220,14 +215,14 @@ function TopicPage() {
 
     return (
         <>
-            <header className='Page_Header'>
+            <header className='page-header'>
                 {syncedFolderTitle !== '' ? (
-                    <h1 className='page_title' >{syncedFolderTitle}</h1>
+                    <h1 className='page-title' >{syncedFolderTitle}</h1>
                 ) : (
-                    <h1 className="page_title" >New Folder</h1>
+                    <h1 className="page-title" >New Folder</h1>
                 )}
                 <Link to='/'>
-                    <img className="Logo-oben" src={memoriterLogo} alt="site-logo"></img>
+                    <img className="header-logo" src={memoriterLogo} alt="site-logo"></img>
                 </Link>
                 <div className='study-now' onClick={() => navigate('/study')}>
                     <p className='study-now-text'>study now</p>
