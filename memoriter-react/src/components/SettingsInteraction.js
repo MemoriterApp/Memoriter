@@ -3,7 +3,7 @@ import Backdrop from './backdrop';
 import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
-import ChangePreview from './settings/changePreview';
+import ChangePreview from './Settings/changePreview';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTheme } from '../features/theme-slice';
 import { displaySuccessMessage } from '../features/authentication-success-slice';
