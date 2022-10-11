@@ -117,16 +117,14 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
     };
 
     return (
-        <div>
-            <div className='study-flashcard-dots' onClick={() => setSettingsOverlay(true)}>
-                <div className='big-dot'/>
-                <div className='big-dot'/>
-                <div className='big-dot'/>
-            </div>
-
-            <div className='study-flashcard-box-border' onClick={() => setShowAnswer(true)}></div>
-            
+        <div>      
             <div className='study-flashcard-box' onClick={() => setShowAnswer(true)}>
+
+                <div className='study-flashcard-dots' onClick={() => setSettingsOverlay(true)}>
+                    <div className='big-dot'/>
+                    <div className='big-dot'/>
+                    <div className='big-dot'/>
+                </div>
 
                 <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
             
@@ -134,6 +132,23 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
                     <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}
                         dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}
                 </div>}
+
+                {settingsOverlay && 
+                <div className='study-flashcard-settings-overlay'>
+                    <div className='folder-settings-sub'>
+                        <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
+                            {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
+                        <p onClick={editFlashcardReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
+                        <p style={{color: 'rgb(228, 48, 48)'}}
+                            onClick={deleteFlashcardReq}
+                        >✕ Delete</p>
+                    </div>
+                </div>}
+                <div onClick={() => setSettingsOverlay(false)}>
+                    {settingsOverlay && <Backdropfs/>}
+                </div>
+
+
             </div>
 
             {showAnswer && <div>
@@ -150,24 +165,6 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
                     >Correct</button>
                 </div>
             </div>}
-
-            {settingsOverlay && 
-            <div className='overlay-container'>
-                <div className='study-flashcard-settings-overlay'>
-                    <div className='folder-settings-sub'>
-                        <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
-                            {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
-                        <p onClick={editFlashcardReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
-                        <p style={{color: 'rgb(228, 48, 48)'}}
-                            onClick={deleteFlashcardReq}
-                        >✕ Delete</p>
-                    </div>
-                </div>
-            </div>}
-            
-            <div onClick={() => setSettingsOverlay(false)}>
-                {settingsOverlay && <Backdropfs/>}
-            </div>
 
             <div>
                 {modalIsOpenEdit && <form className='Edit_Flashcard_Open_Body'>

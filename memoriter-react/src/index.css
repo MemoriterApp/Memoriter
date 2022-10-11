@@ -2276,7 +2276,7 @@ body::-webkit-scrollbar-corner {
 
 /*study page*/
 :root {
-    --size: 0.8;
+    --size: 0.85;
     --button: 1.7;
     --testing:1.7;
   }
@@ -2310,30 +2310,19 @@ body::-webkit-scrollbar-corner {
     background: var(--current-gray-light);
     font-size: 22px;
     font-family: var(--current-font);
-    position: absolute;
-    top: calc(100px + 1.5vw*var(--size));
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    top: 80px;
     height: calc((100vh - 218px) * var(--size) + 18px);
     width: calc(24vw *var(--size) + 20px );
-    border-radius: 8px;
+    border: 8px solid var(--color-font-gray);
+    border-radius: 16px;
+    margin: 0 auto;
+
     overflow-y: auto;
     text-overflow: ellipsis;
     cursor: pointer;
     white-space: pre-line;
     word-wrap: break-word;
-}
-.study-flashcard-box-border {
-    height: calc((100vh - 222px)* var(--size));
-    width: calc(24vw *var(--size));
-    top: 111px ;
-    left: 50%;
-    position: absolute;
-    background: var(--color-font-gray);
-    border: calc( 1.5vw *var(--size)) solid var(--color-font-gray);
-    border-radius: 8px;
-    transform: translateX(-50%);
-    padding: 10px 20px 20px 20px;
 }
 
 .study-remaining {
@@ -2358,8 +2347,8 @@ body::-webkit-scrollbar-corner {
 }
 .study-flashcard-dots {
     position: absolute;
-    right: calc(50% - 11vw);
-    top: 124px;
+    right: 10px;
+    top: 0;
     height: 0;
     padding: 10px 10px 16px 10px;
     cursor: pointer;
@@ -2369,13 +2358,14 @@ body::-webkit-scrollbar-corner {
     padding: 0 0 0 20px;
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
-    background-color: var(--color-background);
     border: 5px solid var(--current-blue-dark);
     text-align: center;
     z-index: 10;
     position: absolute;
-    right: 570px;
-    top: 110px;
+    right: 20px;
+    top: 2px;
+    background-color: var(--color-background);
+    transform: scale(0.8);
 }
 .correct-incorrect-button {
     border-radius: 0.75vw;
@@ -2396,7 +2386,7 @@ body::-webkit-scrollbar-corner {
     position: relative;
     display: flex;
     justify-content: center;
-    top: 700px;
+    margin: 80px;
 }
 .preview-type-box {
     background-color: var(--color-background);
@@ -2518,21 +2508,4 @@ body::-webkit-scrollbar-corner {
     background-color: rgb(205, 208, 218);
     border:0;
     cursor: pointer;
-}
-@media(max-width: 500px) {
-    .flex-container {
-        top: 60vh;
-    }
-    .study-flashcard-dots {
-        top:80px;
-        right: calc(50% - 13vw);
-    }
-}
-@media(min-height: 1300px) {
-    .flex-container {
-        top: 85vh;
-    }
-    .study-flashcard-dots {
-        top:150px;
-    }
 }
