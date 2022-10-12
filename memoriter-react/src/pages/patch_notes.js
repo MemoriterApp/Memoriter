@@ -20,7 +20,7 @@ function PatchNotes() {
                 <h1 className='Legal_Header'>Patch Notes</h1>
             </header>
             <main>
-                <p className="Legal-SubHeader">Update 1.1:</p>
+                <p className="Legal-SubHeader">Update 1.1 "modus studio":</p>
                 <p className='Legal_Text'>
                     This update we have added a couple of new pretty cool features, as well as a whole new design!
                     The main focus has been that we improved the way you can study, adding a whole new 'study mode' with which you can practice flashcards.
