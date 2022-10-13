@@ -1,9 +1,9 @@
 import Logo from '../images/memoriter-logo.svg';
-import Footer from "../components/Footer";
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { firebase } from "../utils/firebase";
+import Footer from '../components/Footer';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { firebase } from '../utils/firebase';
 
 
 function SignUpPage() {
@@ -148,7 +148,7 @@ function SignUpPage() {
                                     <input type='checkbox' id='accept_privacy'
                                         onChange={() => setIsAccepted(!isAccepted)} />
                                     <label htmlFor="accept_privacy">I agree to our<p style={{ display: 'inline' }}> </p>
-                                        <Link to='/privacy' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
+                                        <Link to='/privacy' target='_blank' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
                                 </div>}
 
                                 {borderRedCheckbox && <div className='accept_privacy_red'>
