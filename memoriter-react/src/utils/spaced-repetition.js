@@ -22,8 +22,8 @@ export const spacedRepetition = (id, type, streak, easiness, interval) => {
             interval = (interval + 1) * easiness; // interval is updated based on the easiness factor
         };
 
-        let date = new Date(); // gets current date
-        date.setDate(date.getDate() + interval + type - 1); // updates date (for the flashcard to showagain) by the last interval
+        let nextDate = new Date(); // gets current date
+        nextDate.setDate(nextDate.getDate() + interval + type - 1); // updates date (for the flashcard to showagain) by the last interval
         streak++; // increments answer streak
         
         easiness = easiness + (0.1 - (4 - type) * (0.08 + (4 - type) * 0.02)); // new easiness factor

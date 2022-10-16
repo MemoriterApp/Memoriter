@@ -138,7 +138,7 @@ function TopicPage() {
     const addFlashcard = async (flashcard) => {
         const pos = flashcards.length + 1
         
-        await addDoc(collection(db, "flashcards"), {q:null, I:null, EF:2.5, n: 0, pos, title: flashcard.title, content: flashcard.content,
+        await addDoc(collection(db, "flashcards"), {nextDate:null, intervall:null, easiness:2.5, streak: 0, pos, title: flashcard.title, content: flashcard.content,
             textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)', syncedFolder: flashcard.syncedFolder, user: user.uid })
 
         const allFlashcards = await getDocs(flashcardCollectionRef)
