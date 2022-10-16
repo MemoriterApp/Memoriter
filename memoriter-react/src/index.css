@@ -683,33 +683,7 @@ body::-webkit-scrollbar-corner {
     border-radius: 6px;
 }
 
-/* Nachfolgender Code bezieht sich auf das Settingsoverlay der Folder */
-.folder-settings-overlay {
-    box-shadow: 0 1px 4px var(--color-shadow);
-    border-radius: 6px;
-    background-color: var(--color-background);
-    border: 5px solid var(--current-blue-dark);
-    padding: 1rem;
-    text-align: center;
-    width: 3.4rem;
-    height: 4rem;
-    z-index: 10;
-    position: absolute;
-    right: 15px;
-    top: 20px;
-    white-space: nowrap;
-}
-.folder-settings-sub {
-    color: var(--current-blue-light);
-    font-family: var(--current-font);
-    position: relative;
-    cursor: pointer;
-    margin: 2px;
-    width: 100%;
-    top: -20%;
-    font-weight: bold;
-    left: -12%;
-}
+
 
 .Backdropfs {
     position: fixed;
