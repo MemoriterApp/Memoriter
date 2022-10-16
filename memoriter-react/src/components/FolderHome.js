@@ -1,3 +1,4 @@
+import '../css/folderHome.css'
 import React from 'react';
 import Backdropfs from './backdrop-transparent';
 import Backdrop from './backdrop';
@@ -72,6 +73,20 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                     <button className='Button_Homepage_Text'>New Folder</button>
                 )}
             </Link>
+
+            <section>
+                <span className='new-cards-indicator'>
+                    <span className='indicator'>
+                        <p className='indicator-number'>12</p>
+                    </span>
+                    <span className='indicator'>
+                        <p className='indicator-number' style={{color:"orange"}}>10</p>
+                    </span>
+                    <span className='indicator'>
+                        <p className='indicator-number' style={{color:"#bf2424"}}>30</p>
+                    </span>
+                </span>
+            </section>
             
             <div className='Folder_Pos_Body_Up' onClick={
                 () => { if (pos > 1) {setPos(pos - 1); onPosUp(folder.id, pos);} }

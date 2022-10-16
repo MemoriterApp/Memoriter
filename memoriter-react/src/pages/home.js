@@ -1,3 +1,4 @@
+import '../css/home.css';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import SettingsIcon from '../components/SettingsIcon';
 import FolderHome from '../components/FolderHome';
@@ -139,12 +140,17 @@ function HomePage() {
       </header>
       <main>
         <div className="rechteck">
-          <h2 className="File-Overview">File Overview</h2>
-          <SettingsIcon />
-          <div className="main-seperator"></div>
-
+          <section>
+            <h2 className="File-Overview">File Overview</h2>
+            <SettingsIcon />
+            <span className='spaced-rep-subtitles'>
+              <span style={{marginRight:"0.9rem"}}>New</span>
+              <span style={{marginRight:"0.9rem"}}>Due</span>
+              <span>Old</span>
+            </span>
+            <div className="main-seperator"></div>
+          </section>
           <div className='Folder_Base'>
-
             <>
               {folders.length > 0 ? (<div />) : (<div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>)}
               {folders
@@ -154,9 +160,10 @@ function HomePage() {
                     onPosUp={posUp} onPosDown={posDown} onPosAdjust={posAdjust} />)
                 )}
             </>
-
+            
             <div folders={folders}>
               <div className='New_Folder_Body'>
+                
                 <div className='New_Folder_Line'></div>
                 <button className='Button_New_Folder' onClick={NewFolderClick}>
                   <div className='New_Folder_Plus_h'></div>

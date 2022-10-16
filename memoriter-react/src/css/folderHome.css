@@ -1,0 +1,39 @@
+.new-cards-indicator {
+    position: relative;
+    top: 3px;
+    right: 0;
+    display: flex;
+    margin-left: 81%;
+}
+.indicator {
+    height: 30px;
+    width: 30px;
+    border-color: var(--color-font-gray);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    margin-right: 1rem;
+    cursor: pointer;
+    color: white;
+    font-family: var(--current-font);
+    font-size: 1.1rem;
+}
+.indicator-number {
+    position: absolute;
+    top: -17px;
+    left: 2.5px;
+}
+.dot {
+    height: 6px;
+    width: 6px;
+    background-color: var(--color-font-gray);
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    margin: 1px;
+    left: 1px;
+    top: -5.5px;
+    cursor: pointer;
+}
