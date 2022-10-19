@@ -225,7 +225,7 @@ function TopicPage() {
                 <Link to='/'>
                     <img className="header-logo" src={memoriterLogo} alt="site-logo"></img>
                 </Link>
-                <div className='study-now' onClick={() => navigate('/study')}>
+                <div className='study-now' onClick={() => navigate('/choose-mode')}>
                     <p className='study-now-text'>study now</p>
                 </div>
             </header>

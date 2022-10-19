@@ -77,9 +77,11 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
             <section>
                 <span className='new-cards-indicator'>
-                    <span className='indicator'>
-                        <p className='indicator-number'>12</p>
-                    </span>
+                    <Link to='/spaced-rep-mode'>
+                        <span className='indicator'>
+                            <p className='indicator-number'>12</p>
+                        </span>
+                    </Link>
                     <span className='indicator'>
                         <p className='indicator-number' style={{color:"orange"}}>10</p>
                     </span>

@@ -10,6 +10,8 @@ import SignUpPage from './pages/signup';
 import HomePage from './pages/home';
 import TopicPage from './pages/topic';
 import StudyPage from './pages/study';
+import SpacedRepMode from './pages/spaced_rep.js';
+import ChooseMode from './pages/choose_mode';
 
 import ThemeProvider from './components/theme-provider';
 import { AuthProvider } from './components/routing/auth-provider';
@@ -56,6 +58,10 @@ function App() {
               <Route path='/topic' element={<TopicPage/>}/>
 
               <Route path='/study' element={<StudyPage/>}/>
+
+              <Route path='/spaced-rep-mode/' element={<SpacedRepMode/>}/>
+
+              <Route path='/choose-mode/' element={<ChooseMode/>}/>
             </>) : (<>
               <Route path='/login' element={<LoginPage/>}/>
 
