@@ -9,6 +9,7 @@ import { Link, useNavigate, } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import FlashcardOnlyQuestion from '../components/Flashcards/FlashcardOnlyQuestion';
 import Flashcard from '../components/Flashcards/Flashcard';
+import ChooseMode from '../components/choose-mode';
 import { firebase } from '../utils/firebase';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
 const { db } = firebase;
@@ -68,6 +69,7 @@ function TopicPage() {
     let syncedFolderID = localStorage.getItem('syncedFolderID');
 
     const [modalIsOpenA, setModalIsOpenA] = useState(false);
+    const [chooseMode, openChooseMode] = useState(false);
 
     function NewFlashcardClick() {
         setModalIsOpenA(true);
@@ -225,9 +227,13 @@ function TopicPage() {
                 <Link to='/'>
                     <img className="header-logo" src={memoriterLogo} alt="site-logo"></img>
                 </Link>
-                <div className='study-now' onClick={() => navigate('/choose-mode')}>
+                <div className='study-now' onClick={() => openChooseMode(true)}>
                     <p className='study-now-text'>study now</p>
                 </div>
+
+                {chooseMode && <ChooseMode/>}
+                {chooseMode && <Backdrop onClick={() => openChooseMode(false)}/>}
+
             </header>
             <main>
                 <div className="rechteck">
