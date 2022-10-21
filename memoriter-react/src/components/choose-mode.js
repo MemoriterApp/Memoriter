@@ -50,7 +50,7 @@ function ChooseMode() {
                             <div className='big-dot'/>
                         </div>
                         <h2 style={{ textAlign: 'center', fontSize: '24px' }}>Regular flashcards</h2>
-                        <p style={{ marginTop: '30px', textAlign: "center" }}>Practice all of your flashcards, with question and anwser.</p>
+                        <p style={{ marginTop: '15px', textAlign: "center" }}>Practice all of your flashcards, with question and answer.</p>
                         <button className="preview-type-button" onClick={() => navigate('/study')}
                         onMouseEnter={() => setIsMouseInside(false)}>FLASHCARDS</button>
                     </div>
@@ -63,8 +63,8 @@ function ChooseMode() {
                             <div className='big-dot'/>
                         </div>
                         <h2 style={{ textAlign: 'center', fontSize: '24px' }}>Spaced repetition</h2>
-                         <p style={{ marginTop: '30px', textAlign: "center" }}>Practice your flashcards in intervals and remeber everything.</p>
-                        <button style={{bottom: '30px'}} className="preview-type-button" onClick={() => navigate('/spaced-rep-mode')}
+                         <p style={{ marginTop: '15px', textAlign: "center" }}>Practice your flashcards in intervals and remeber everything.</p>
+                        <button style={{bottom: '32px'}} className="preview-type-button" onClick={() => navigate('/spaced-rep-mode')}
                         onMouseEnter={() => setIsMouseInside(false)}>SPACED REP.</button>
                     </div>
                 </div>
