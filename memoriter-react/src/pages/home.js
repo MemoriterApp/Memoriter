@@ -1,6 +1,6 @@
 import '../css/home.css';
 import memoriterLogo from '../images/memoriter-logo.svg';
-import SettingsIcon from '../components/SettingsIcon';
+import SettingsIcon from '../components/Settings/SettingsIcon';
 import FolderHome from '../components/FolderHome';
 import AddFolderForm from '../components/AddFolderForm';
 import Backdrop from '../components/backdrop';
@@ -11,6 +11,8 @@ import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
 
+//this file is the home page of the app where you see all your folders
+//it uses css from home.css
 function HomePage() {
 
   //user stuff

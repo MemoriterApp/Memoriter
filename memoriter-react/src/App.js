@@ -11,7 +11,6 @@ import HomePage from './pages/home';
 import TopicPage from './pages/topic';
 import StudyPage from './pages/study';
 import SpacedRepMode from './pages/spaced-rep.js';
-import ChooseMode from './components/choose-mode';
 
 import ThemeProvider from './components/theme-provider';
 import { AuthProvider } from './components/routing/auth-provider';

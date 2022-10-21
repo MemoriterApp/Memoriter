@@ -1,7 +1,7 @@
 import { useState, useEffect, } from 'react';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import BackButton from '../components/BackButton';
-import SettingsIcon from '../components/SettingsIcon';
+import SettingsIcon from '../components/Settings/SettingsIcon';
 import Footer from '../components/Footer';
 import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
