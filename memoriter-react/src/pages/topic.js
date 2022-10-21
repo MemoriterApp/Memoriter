@@ -14,19 +14,27 @@ import { firebase } from '../utils/firebase';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
 const { db } = firebase;
 
+//this file is the home page of the app where you see all your flashcards
+
+//things that need to be explained better by Simon:
+//1. how does collum layout work?
+//2. how does sorting flashcards work?
+//3. What does openFlashReq. do?
+//4. genrell how does all of the positioning work?
+//5. edit flashcard how does it work?
+//6. how does the huge if-else work?
+
 
 function TopicPage() {
 
-    const navigate = useNavigate();
-
-    const user = firebase.auth.currentUser;
+    const user = firebase.auth.currentUser; //creates the user from the firebase auth
 
     const [columns, setColumns] = useState(6); //column count of the masonry layout
     const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
 
     useEffect(() => { //detect window resize
-        window.addEventListener('resize', () => setWidth(window.innerWidth));
-        return () => window.removeEventListener('resize', () => setWidth(window.innerWidth));
+        window.addEventListener('resize', () => setWidth(window.innerWidth)); //add event listener for window resize
+        return () => window.removeEventListener('resize', () => setWidth(window.innerWidth)); //remove event listener for window resize
     }, []);
 
     if (width <= 505 && columns !== 1) { //sets the layout column count
@@ -46,57 +54,57 @@ function TopicPage() {
     };
 
     //firebase stuff
-    //link zur db
-    const flashcardCollectionRef = query(collection(db, "flashcards"), where("syncedFolder", "==", localStorage.getItem('syncedFolderID')));
+    //link to db
+    const flashcardCollectionRef = query(collection(db, "flashcards"), where("syncedFolder", "==", localStorage.getItem('syncedFolderID'))); //gets all flashcards from the synced folder
 
     //Flashcard Data
-    const [flashcards, setFlashcards] = useState([])
+    const [flashcards, setFlashcards] = useState([]) //creates the flashcard state
 
-    //Use Effect für Notes
+    //Use Effect fpt notes resets the notes state when the page is loaded
     useEffect(() => {
-        const getFlashcards = async () => {
-            const allFlashcards = await getDocs(flashcardCollectionRef)
+        const getFlashcards = async () => { //gets all flashcards from the synced folder
+            const allFlashcards = await getDocs(flashcardCollectionRef) 
             setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         };
 
-        getFlashcards();
-        sessionStorage.setItem('flashcard-content', '');
+        getFlashcards(); //calls the function
+        sessionStorage.setItem('flashcard-content', ''); 
         localStorage.setItem('lastPage', "/topic");
     }, [])
 
-    let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
+    let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets the title of the synced folder
 
-    let syncedFolderID = localStorage.getItem('syncedFolderID');
+    let syncedFolderID = localStorage.getItem('syncedFolderID'); //gets the id of the synced folder
 
-    const [modalIsOpenA, setModalIsOpenA] = useState(false);
-    const [chooseMode, openChooseMode] = useState(false);
+    const [modalIsOpenA, setModalIsOpenA] = useState(false); //creates the state for the add flashcard modal
+    const [chooseMode, openChooseMode] = useState(false); //creates the state for the choose study mode modal
 
-    function NewFlashcardClick() {
+    function NewFlashcardClick() { //opens the add flashcard modal
         setModalIsOpenA(true);
     }
 
-    function backdropClick() {
+    function backdropClick() { //closes the add flashcard modal
         setModalIsOpenA(false);
     }
 
     //Open Flashcard
-    const [openFlashcard, setOpenFlashcard] = useState()
+    const [openFlashcard, setOpenFlashcard] = useState() //creates the state for the open flashcard
 
-    const openFlashcardReq = (pos) => {
+    const openFlashcardReq = (pos) => { //opens the flashcard   
         setOpenFlashcard(pos)
     }
 
-    const closeFlashcardReq = () => {
+    const closeFlashcardReq = () => { //closes the flashcard
         setOpenFlashcard(undefined)
     }
 
-    const nextFlashcard = (pos) => {
+    const nextFlashcard = (pos) => { //opens the next flashcard
         if (pos < flashcards.length) {
             setOpenFlashcard(pos + 1)
         }
     }
 
-    const prevFlashcard = (pos) => {
+    const prevFlashcard = (pos) => { //opens the previous flashcard
         if (pos > 1) {
             setOpenFlashcard(pos - 1)
         }
@@ -138,15 +146,15 @@ function TopicPage() {
 
     //Add Flashcard
     const addFlashcard = async (flashcard) => {
-        const pos = flashcards.length + 1
+        const pos = flashcards.length + 1 //adds the flashcard to the end of the list
         
         await addDoc(collection(db, "flashcards"), {nextDate:null, intervall:null, easiness:2.5, streak: 0, pos, title: flashcard.title, content: flashcard.content,
-            textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)', syncedFolder: flashcard.syncedFolder, user: user.uid })
+            textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)', syncedFolder: flashcard.syncedFolder, user: user.uid }) //sets the db files for the flashcard
 
         const allFlashcards = await getDocs(flashcardCollectionRef)
-        setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Flashcards
+        setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //refresh the flashcards state
 
-        setModalIsOpenA(false)
+        setModalIsOpenA(false) //closes the add flashcard modal once the flashcard has been added
     }
 
     //Edit Flashcard
@@ -192,10 +200,10 @@ function TopicPage() {
     }
 
     //Delete Flashcard
-    const deleteFlashcard = async (id, pos) => {
+    const deleteFlashcard = async (id, pos) => { 
         const flashcardDoc = doc(db, 'flashcards', id);
-        await deleteDoc(flashcardDoc);
-        setFlashcards((flashcards) =>
+        await deleteDoc(flashcardDoc); 
+        setFlashcards((flashcards) => //refresh the flashcards state
             flashcards
                 .map((flashcard) =>
                     flashcard.pos > pos
@@ -209,9 +217,9 @@ function TopicPage() {
     //states to check what preview mode
     const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
 
-    useEffect(() => {
+    useEffect(() => { //checks if the preview mode is only question from local storage
         const onlyQuestion = JSON.parse(localStorage.getItem('onlyQuestion'));
-        if (onlyQuestion) {
+        if (onlyQuestion) { //if it is the case sets state to only question
             setIsOnlyQuestion(onlyQuestion);
         }
     }, []);
@@ -241,10 +249,10 @@ function TopicPage() {
                     <div className='Flashcard_Base'>
 
                         <Masonry breakpointCols={columns} className='flashcard-base-grid'>
-                            {isOnlyQuestion === true ?
-                                flashcards
+                            {isOnlyQuestion === true ? //checks if the preview mode is only question
+                                flashcards //if it is the case, only the question will be shown
                                     .map((flashcard) => (
-                                        <FlashcardOnlyQuestion
+                                        <FlashcardOnlyQuestion 
                                             key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                                             onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
                                             onDeleteFlashcard={deleteFlashcard} onEditFlashcard={editFlashcard}
@@ -252,7 +260,7 @@ function TopicPage() {
                                             onNextFlashcard={nextFlashcard} onPrevFlashcard={prevFlashcard}
                                             onChangeTextAlign={changeTextAlign} />
                                     )
-                                    ) : (flashcards //add an if statement to check what kind of flashcard should be displayed
+                                    ) : (flashcards //if it is not the case, the question and answer will be shown
                                         .map((flashcard) => (
                                             <Flashcard key={flashcard.id} flashcard={flashcard} flashcardCount={flashcards.length} openFlashcardView={openFlashcard}
                                                 onPosLeft={posLeft} onPosRight={posRight} onPosAdjust={posAdjust}
