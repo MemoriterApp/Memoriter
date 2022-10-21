@@ -25,6 +25,7 @@ const { db } = firebase;
 //4. genrell how does all of the positioning work?
 //5. edit flashcard how does it work?
 //6. how does the huge if-else work?
+//7. Could you also figure out why renaming the CSS Classes dosen't work?
 
 
 
