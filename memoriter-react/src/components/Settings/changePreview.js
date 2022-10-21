@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import '../../css/changePreview.css';
 
 
 function ChangePreview() {
+
+    //this file is used to change the preview of the flashcards once you click on Setting and on the change preview button
+    //uses css from changePreview.css
 
     const [isMouseInside, setIsMouseInside] = useState(); //state to check if mouse if over "only Question Preview"
 
