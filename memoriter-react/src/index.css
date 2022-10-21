@@ -169,30 +169,7 @@ body::-webkit-scrollbar-corner {
     filter: var(--svg-invert);
 }
 
-.rechteck {
-    border-top: 10px solid var(--current-blue-dark);
-    border-right: 12px solid var(--current-blue-dark);
-    border-left: 12px solid var(--current-blue-dark);
-    border-bottom: 10px solid var(--current-blue-dark);
-    width: 90%;
-    height: calc(100% - 200px);
-    position: absolute;
-    top: 80px;
-    left: calc(5% - 12px);
-    border-radius: 30px;
-    max-height: calc(100% - 120px);
-    min-height: 180px;
-}
-.main-seperator {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 48px;
-    width: calc(100% - 10px);
-    height: 0px;
-    border-top: 8px solid var(--current-blue-light);
-    border-radius: 15px;
-}
+
 .gear {
     position: absolute;
     top: 3px;
@@ -699,23 +676,6 @@ body::-webkit-scrollbar-corner {
 
 
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
-.Flashcard_Base {
-    height: calc(100% - 67px);
-    width: calc(100% - 10px);
-    margin: auto;
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background-color: var(--color-transparent);
-    overflow: auto;
-    display: flex;
-    justify-content: center;
-}
-.flashcard-base-grid {
-    display: flex;
-    margin-left: 20px;
-    width: 1680px;
-}
   
 .Zurückbutton_Body {
     background-color: var(--color-transparent);
@@ -738,16 +698,7 @@ body::-webkit-scrollbar-corner {
     cursor: pointer;
     transform: rotate(-45deg);
 }
-.Flashcard_Body {
-    position: relative;
-    width: 200px;
-    top: 20px;
-    height: 280px; /*only for the add flashcard button*/
-    display: inline-block;
-    margin-bottom: 40px;
-    min-height: 160px;
-    max-height: 320px;
-}
+
 .Flashcard_Rechteck {
     position: absolute;
     top: 30px;
@@ -1034,35 +985,7 @@ body::-webkit-scrollbar-corner {
 }
 
 /* New Flashcard Button*/
-.New_Flashcard_Rechteck {
-    position: absolute;
-    height: calc(100% - 10px);
-    width: calc(100% - 10px);
-    background-color: var(--color-transparent);
-    border: 5px dotted var(--color-font-gray);
-    border-radius: 3px;
-    overflow: hidden;
-    cursor: pointer;
-}
-.New_Flashcard_Circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
-    border: 10px solid var(--color-font-gray);
-    border-radius: 50%;
-    background-color: var(--current-gray-light);
-}
-.New_Flashcard_Plus_h {
-    position: absolute;
-    top: calc(50% - 2.5px);
-    left: 15%;
-    width: 70%;
-    border-top: 5px solid rgb(0, 1, 0);
-    border-radius: 15px;
-}
+
 .New_Flashcard_Plus_v {
     position: absolute;
     top: 15%;
@@ -2251,28 +2174,7 @@ body::-webkit-scrollbar-corner {
     --testing:1.7;
   }
   /* Variables used for testing different sizes with constant aspect ratios */
-.study-now {
-    position: absolute;
-    top: 20%;
-    right: 10px;
-    width: 180px;
-    max-width: 20%;
-    height: 50px;
-    background-color: #354762;
-    color: var(--color-white);
-    border-radius: 18px;
-    cursor: pointer;
-    text-transform: uppercase;
-    text-align: center;
-}
-.study-now-text {
-    position: relative;
-    font-size: 20px;
-    top: 10%;
-    transform: translate(0, -50%);
-    font-family: var(--current-font);
-    font-weight: bold;
-}
+
 
 .study-flashcard-box {
     padding: 10px 20px 20px 20px;

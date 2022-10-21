@@ -1,3 +1,4 @@
+import '../css/topic.css';
 import { useState, useEffect, } from 'react';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import BackButton from '../components/BackButton';
@@ -5,7 +6,7 @@ import SettingsIcon from '../components/Settings/SettingsIcon';
 import Footer from '../components/Footer';
 import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
-import { Link, useNavigate, } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import FlashcardOnlyQuestion from '../components/Flashcards/FlashcardOnlyQuestion';
 import Flashcard from '../components/Flashcards/Flashcard';
@@ -15,6 +16,7 @@ import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } 
 const { db } = firebase;
 
 //this file is the home page of the app where you see all your flashcards
+//it uses css from topic.css
 
 //things that need to be explained better by Simon:
 //1. how does collum layout work?
@@ -23,6 +25,8 @@ const { db } = firebase;
 //4. genrell how does all of the positioning work?
 //5. edit flashcard how does it work?
 //6. how does the huge if-else work?
+
+
 
 
 function TopicPage() {
@@ -244,9 +248,9 @@ function TopicPage() {
 
             </header>
             <main>
-                <div className="rechteck">
+                <div className='rechteck'>
                     <div className='main-seperator' />
-                    <div className='Flashcard_Base'>
+                    <div className='flashcard-base'>
 
                         <Masonry breakpointCols={columns} className='flashcard-base-grid'>
                             {isOnlyQuestion === true ? //checks if the preview mode is only question
@@ -271,7 +275,7 @@ function TopicPage() {
                                             />)))}
 
                             {/*create new flashcard button*/}
-                            <div className='Flashcard_Body'>
+                            <div className='flashcard-body'>
                                 <div className='New_Flashcard_Rechteck' onClick={NewFlashcardClick}>
                                     <div className='New_Flashcard_Circle'>
                                         <div className='New_Flashcard_Plus_h' />
