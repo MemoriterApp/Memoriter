@@ -1,5 +1,5 @@
-import React from 'react';
 import Backdrop from './backdrop';
+import Confirm from './confirm';
 import { useState } from 'react';
 import { firebase } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
@@ -234,16 +234,14 @@ function SettingsClick() {
             {themeText === 'light' && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>THEME:&shy; LIGHT</p>}
             <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
             <p className='sign-out-box' onClick={() => openSignOutView(true)}>SIGN OUT</p>
-            {signOutView && <div>
-                <div className='Delete_Folder_Confirm'>
-                    <h2 className='Add_folder_Form_Header'>Do you really want to &nbsp;sign out?</h2>
-                    <button className='Delete_Folder_Confirm_Yes' onClick={logOut}>Yes</button>
-                    <div style={{ display: 'inline', color: 'transparent', cursor: 'default' }}>====</div>
-                    <button className='Delete_Folder_Confirm_No' onClick={() => openSignOutView(false)}>No</button>
-                    <p style={{ fontSize: '10px' }} />
-                </div>
+            {signOutView && <>
+                <Confirm
+                title='Do you really want to sign out?'
+                onYes={logOut}
+                onNo={() => openSignOutView(false)}
+            />
                 <Backdrop onClick={() => openSignOutView(false)} />
-            </div>}
+            </>}
 
             {changePreview && <ChangePreview/>}
 

@@ -1,3 +1,4 @@
+import Confirm from './confirm'
 import Backdrop from './backdrop';
 import Backdropfs from './backdrop-transparent';
 import { useState } from 'react';
@@ -203,18 +204,11 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
                 </form>}
             </div>
 
-            <div>
-                {modalIsOpenDelete && <div className='Delete_Folder_Confirm'>
-                    <h2 className='Add_folder_Form_Header'>Do you really want to delete this flashcard?</h2>
-                    <button className='Delete_Folder_Confirm_Yes' onClick={
-                        () => onDeleteFlashcard(flashcard.id, flashcard.pos)
-                    }>Yes</button>
-                    <div style={{display: 'inline', color: 'transparent', cursor: 'default'}}>====</div>
-                    <button className='Delete_Folder_Confirm_No'
-                        onClick={() => {setModalIsOpenDelete(false); setBackdropOpen(false);}}>No</button>
-                    <p style={{fontSize: '10px'}} />
-                 </div>}
-            </div>
+            {modalIsOpenDelete && <Confirm
+                title='Do you really want to delete this flashcard?'
+                onYes={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
+                onNo={() => {setModalIsOpenDelete(false); setBackdropOpen(false);}}
+            />}
 
             <div onClick={() => {
                 setBackdropOpen(false);

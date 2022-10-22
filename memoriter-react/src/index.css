@@ -95,6 +95,8 @@
     --current-blue-light: #3a6d70;
     --current-blue-folder: #5f9ea0;
     --current-green: #2d772d;
+    --current-green-hover: #245d24;
+    --color-red-light-hover: #c01e1e;
     --current-font: 'M PLUS 1', sans-serif;
 }
 
@@ -423,52 +425,6 @@ body::-webkit-scrollbar-corner {
     font-size: 20px;
     cursor: pointer;
     border-radius: 3px;
-}
-
-/* Delete Folder Bestätigung */
-.Delete_Folder_Confirm {
-    box-shadow: 0 1px 4px var(--color-shadow);
-    background-color: var(--color-background);
-    text-align: center;
-    font-family:var(--current-font);
-    color: var(--color-font);
-    width: 310px;
-    height: 190px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: calc(100vw - 30px);
-    max-height: calc(100vh - 30px);
-    z-index: 12;
-    border-radius: 6px;
-    overflow-y: auto;
-}
-.Delete_Folder_Confirm_Yes {
-    border: 5px solid var(--current-green);
-    border-radius: 3px;
-    padding: 5px;
-    width: 60px;
-    color: var(--color-white);
-    background-color: var(--current-green);
-    font-family: var(--current-font);
-    font-size: 20px;
-    cursor: pointer;
-    display: inline;
-    left: 25%;
-}
-.Delete_Folder_Confirm_No {
-    border: 5px solid var(--color-red-light);
-    border-radius: 3px;
-    padding: 5px;
-    width: 60px;
-    color: var(--color-white);
-    background-color: var(--color-red-light);
-    font-family: var(--current-font);
-    font-size: 20px;
-    cursor: pointer;
-    display: inline;
-    right: 25%;
 }
 
 /* Nachfolgendes ist alles für den Footer */

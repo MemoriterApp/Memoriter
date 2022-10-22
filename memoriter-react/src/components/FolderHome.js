@@ -1,7 +1,7 @@
-import '../css/folderHome.css'
-import React from 'react';
-import Backdropfs from './backdrop-transparent';
+import '../css/folderHome.css';
+import Confirm from './confirm';
 import Backdrop from './backdrop';
+import BackdropTransparent from './backdrop-transparent';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -132,17 +132,11 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                 </form>}
             </div>
 
-            <div>
-                {modalIsOpenD && <div className='delete-folder-confirm'>
-                    <h2 className='add-folder-form-header'>Do you really want to delete this folder?</h2>
-                    <button className='delete-folder-confirm-yes' onClick={
-                        () => onDeleteFolder(folder.id, folder.pos)
-                    }>Yes</button>
-                    <div style={{display: 'inline', color: 'transparent', cursor: 'default'}}>====</div>
-                    <button className='delete-folder-confirm-no' onClick={backdropClickD}>No</button>
-                    <p style={{fontSize: '10px'}} />
-                 </div>}
-            </div>
+            {modalIsOpenD && <Confirm
+                title='Do you really want to delete this folder?'
+                onYes={() => onDeleteFolder(folder.id, folder.pos)}
+                onNo={backdropClickD}
+            />}
 
             <div  onClick={backdropClickE}>
                 {modalIsOpenE && <Backdrop/>}
@@ -152,10 +146,10 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
             </div>
 
             <div>
-                {modalIsOpen && <Backdropfs/>}
+                {modalIsOpen && <BackdropTransparent/>}
             </div>
             <div  onClick={backdropClick}>
-                {modalIsOpen && <Backdropfs/>}
+                {modalIsOpen && <BackdropTransparent/>}
             </div>
 
 
