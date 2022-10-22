@@ -12,6 +12,14 @@
     max-height: calc(100% - 120px);
     min-height: 180px;
 }
+
+:root {
+    --size: 0.85;
+    --button: 1.7;
+    --testing:1.7;
+  }
+  /* Variables used for testing different sizes with constant aspect ratios */
+
 .spaced-rep-button {
     position: absolute;
     left: 50%;
@@ -24,4 +32,8 @@
     background-color: rgb(205, 208, 218);
     border:0;
     cursor: pointer;
+}
+
+.color-picker {
+    background:#9c420e;
 }
