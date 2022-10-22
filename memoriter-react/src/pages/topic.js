@@ -19,13 +19,13 @@ const { db } = firebase;
 //it uses css from topic.css
 
 //things that need to be explained better by Simon:
-//1. how does collum layout work?
-//2. how does sorting flashcards work?
-//3. What does openFlashReq. do?
-//4. genrell how does all of the positioning work?
-//5. edit flashcard how does it work?
-//6. how does the huge if-else work?
-//7. Could you also figure out why renaming the CSS Classes dosen't work?
+//1. how does collum layout work? | it is based on a library and css media queries
+//2. how does sorting flashcards work? | it is one the most basic ones (https://www.w3schools.com/js/js_array_sort.asp)
+//3. What does openFlashReq. do? | it sets a number to the position of a flashcard which will be opened, the number can be modified with the arrows next to the open card
+//4. genrell how does all of the positioning work? | every flashcard has a position prop in the database which is used by the sort method and is modified by the change position arrows
+//5. edit flashcard how does it work? | like the one of the folders, just with a broken editor
+//6. how does the huge if-else work? | based on the current text align it changes to a specific other one
+//7. Could you also figure out why renaming the CSS Classes dosen't work? | the classes are reused sometimes, so you need to rename it for every use case
 
 
 

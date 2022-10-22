@@ -1117,7 +1117,7 @@ body::-webkit-scrollbar-corner {
     .flashcard-base-grid {
         width: 420px;
     }
-    .Flashcard_Body {
+    .flashcard-body {
         margin-top: 5px;
         margin-bottom: 5px;
     }
@@ -1126,7 +1126,7 @@ body::-webkit-scrollbar-corner {
     .flashcard-base-grid {
         width: 200px;
     }
-    .Flashcard_Body {
+    .flashcard-body {
         margin-top: 10px;
         margin-bottom: 10px;
     }

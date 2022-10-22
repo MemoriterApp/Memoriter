@@ -205,7 +205,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
     };
 
     return (
-        <div className='Flashcard_Body' style={{height: `calc(${flashcardHeight}px + 35px)`}}> {/*height is set by the useEffect based on the inner rectangle height*/}
+        <div className='flashcard-body' style={{height: `calc(${flashcardHeight}px + 35px)`}}> {/*height is set by the useEffect based on the inner rectangle height*/}
             <div className='Flashcard_Settings_Bar'>
                 <div className='Flashcard_Settings' onClick={settingsHandler}>
                     <span className='dot'/>
