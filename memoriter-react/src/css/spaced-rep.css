@@ -20,9 +20,17 @@
   }
   /* Variables used for testing different sizes with constant aspect ratios */
 
+.flex-container {
+position: relative;
+display: flex;
+justify-content: center;
+margin: 120px;
+}
+  
 .spaced-rep-button {
     position: absolute;
     left: 50%;
+    top: 100%;
     font-family: var(--current-font);
     transform: translate(-50%, -50%);
     border-radius: 0.5vw;

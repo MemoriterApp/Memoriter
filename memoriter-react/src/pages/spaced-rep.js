@@ -3,7 +3,7 @@ import '../css/spaced-rep.css';
 import Footer from "../components/Footer";
 import Logo from '../images/memoriter-logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
-import FlashcardStudy from '../components/flashcard-study';
+import FlashcardSpacedRep from '../components/flashcard-spaced-rep';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 import { useState, useEffect } from "react";
@@ -30,6 +30,7 @@ function SpacedRepMode() {
     //for ensdscreen stats
     const [studiedFlashcards, setStudiedFlashcards] = useState(0); //number of correctly answered flashcards
     const [incorrectFlashcards, setIncorrectFlashcards] = useState(0); //number of incorrectly answered flashcards
+    const [showAnswer, setShowAnswer] = useState(false); //state for showing the answer of the card
 
     //Use Effect für Notes
     useEffect(() => {
@@ -72,7 +73,7 @@ function SpacedRepMode() {
                         <img className="header-logo" src={Logo} alt="site-logo"></img>
                     </Link>
              </header>
-             <Link to={lastPage}>
+             <Link to={'/topic'}>
                     <div className="Zurückbutton_Body" style={{ top: '90px', left: '8px', zIndex: '10' }}>
                         <div className="Zurückbutton_Arrow" />
                     </div>
@@ -81,32 +82,10 @@ function SpacedRepMode() {
 
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                         {flashcards.slice(0, 1).map((flashcard) => (
-                            <FlashcardStudy key={flashcard.id} flashcard={flashcard}
+                            <FlashcardSpacedRep key={flashcard.id} flashcard={flashcard}
                                 onCorrect={() => type(flashcard.id)}/>
                         ))}
-                        spacedRepetition
                 </>}
-                {/*Colors will be reworked in the very near future */}
-                <button className='spaced-rep-button'
-                    style={{ top: '89%',left: '30%', background:'#0e9c5a'}}
-                    onClick={() => { }}>
-                    easy 
-                </button>
-                <button className='spaced-rep-button'
-                    style={{ top: '89%',left: '45%', background:'#1f9c0e'}}
-                    onClick={() => { }}>
-                    correct
-                </button>
-                <button className='spaced-rep-button'
-                    style={{ top: '89%',left: '60%', background:'#9c420e', color:'white'}}
-                    onClick={() => { }}>
-                    almost correct
-                </button>
-                <button className='spaced-rep-button'
-                    style={{ top: '89%',left: '75%', background:'#9c0e0e', color:'white'}}
-                    onClick={() => { }}>
-                    incorrect
-                </button>
             </main>
             <footer>
                 <Footer />
