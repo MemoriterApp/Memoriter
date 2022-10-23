@@ -155,12 +155,12 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
             {showAnswer && <div>
                 <div className='flex-container'>
                     <button
-                        style={{ backgroundColor: '#dc4c4d', marginRight: "40px" }}
+                        style={{ backgroundColor: 'var(--color-red-light)', marginRight: "40px" }}
                         className='correct-incorrect-button'
                         onClick={() => { setShowAnswer(false); onIncorrect(flashcard); }}
                     >Incorrect</button>
                     <button
-                        style={{ backgroundColor: '#5fcb76' }}
+                        style={{ backgroundColor: 'var(--current-green)' }}
                         className='correct-incorrect-button'
                         onClick={() => { setShowAnswer(false); onCorrect(flashcard.id); }}
                     >Correct</button>
@@ -206,8 +206,8 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
 
             {modalIsOpenDelete && <Confirm
                 title='Do you really want to delete this flashcard?'
-                onYes={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
-                onNo={() => {setModalIsOpenDelete(false); setBackdropOpen(false);}}
+                onYesClick={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
+                onNoClick={() => {setModalIsOpenDelete(false); setBackdropOpen(false);}}
             />}
 
             <div onClick={() => {

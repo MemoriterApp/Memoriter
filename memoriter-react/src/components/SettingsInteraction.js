@@ -237,8 +237,8 @@ function SettingsClick() {
             {signOutView && <>
                 <Confirm
                 title='Do you really want to sign out?'
-                onYes={logOut}
-                onNo={() => openSignOutView(false)}
+                onYesClick={logOut}
+                onNoClick={() => openSignOutView(false)}
             />
                 <Backdrop onClick={() => openSignOutView(false)} />
             </>}

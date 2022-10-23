@@ -336,8 +336,8 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
             {modalIsOpenD && <Confirm
                 title='Do you really want to delete this flashcard?'
-                onYes={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
-                onNo={backdropClickD}
+                onYesClick={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
+                onNoClick={backdropClickD}
             />}
             
             <div onClick={backdropClick}>

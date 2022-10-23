@@ -2,11 +2,11 @@ import '../css/confirm.css';
 
 // This modal is used to confirm something (most likely deleting) with either a yes or no botton.
 
-const Confirm = ({ title, onYes, onNo}) => {
+const Confirm = ({ title, onYesClick, onNoClick}) => {
   return (
     <div className='confirm'>
 
-      <div className='confirm-close' onClick={() => onNo()}/>
+      <div className='confirm-close' onClick={() => onNoClick()}/>
 
       <p className='confirm-title'>{title}</p>
         
@@ -14,12 +14,12 @@ const Confirm = ({ title, onYes, onNo}) => {
       <div className='confirm-buttons'>
         <button
           className='confirm-button confirm-button-yes'
-          onClick={() => onYes()}
+          onClick={() => onYesClick()}
         >Yes</button>
           
         <button
           className='confirm-button confirm-button-no'
-          onClick={() => onNo()}
+          onClick={() => onNoClick()}
         >No</button>
       </div>
     </div>

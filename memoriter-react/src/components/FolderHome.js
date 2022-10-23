@@ -134,8 +134,8 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
             {modalIsOpenD && <Confirm
                 title='Do you really want to delete this folder?'
-                onYes={() => onDeleteFolder(folder.id, folder.pos)}
-                onNo={backdropClickD}
+                onYesClick={() => onDeleteFolder(folder.id, folder.pos)}
+                onNoClick={backdropClickD}
             />}
 
             <div  onClick={backdropClickE}>
