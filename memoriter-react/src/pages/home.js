@@ -1,13 +1,15 @@
+/* eslint-disable react/no-unknown-property */
+import React from 'react';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import SettingsIcon from '../components/SettingsIcon';
 import FolderHome from '../components/FolderHome';
 import AddFolderForm from '../components/AddFolderForm';
 import Backdrop from '../components/backdrop';
 import Footer from '../components/Footer';
-import { firebase } from '../utils/firebase'
+import { firebase } from '../utils/firebase';
 import { useState, useEffect } from 'react';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 const { db } = firebase;
 
 function HomePage() {
@@ -19,26 +21,26 @@ function HomePage() {
 
   //firestore stuff
   // connection to the folders firestore
-  const foldersCollectionRef = query(collection(db, "folders"), where("user", "==", auth.currentUser.uid));
+  const foldersCollectionRef = query(collection(db, 'folders'), where('user', '==', auth.currentUser.uid));
 
   onAuthStateChanged(firebase.auth, (currentUser) => {
     setUser(currentUser);
-  })
+  });
 
   
   // Folder Data
-  const [folders, setFolders] = useState([])
+  const [folders, setFolders] = useState([]);
 
   //Use Effect für folders
   useEffect(() => {
     const getFolder = async () => {
-      const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
-      setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      const allFolders = await getDocs(foldersCollectionRef); //gibt alles aus einer bestimmten Collection aus
+      setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
     getFolder();
-    localStorage.setItem('lastPage', "/");
-  }, [])
+    localStorage.setItem('lastPage', '/');
+  }, []);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -50,7 +52,7 @@ function HomePage() {
   }
 
   //Folder Position
-  folders.sort(function (a, b) { return a.pos - b.pos }) //Sorting Folders
+  folders.sort(function (a, b) { return a.pos - b.pos; }); //Sorting Folders
 
   const posUp = async (id, pos) => { //Position Up
     const folderDoc = doc(db, 'folders', id);
@@ -61,8 +63,8 @@ function HomePage() {
     setFolders(folders.map((folder) => folder.id === id
       ? { ...folder, pos: (folder.pos - 1) } : folder.pos === (pos - 1)
         ? (sessionStorage.setItem('newPosFolder', folder.id),
-          { ...folder, pos: (folder.pos + 1) }) : folder))
-  }
+        { ...folder, pos: (folder.pos + 1) }) : folder));
+  };
 
   const posDown = async (id, pos) => { //Position Down
     const folderDoc = doc(db, 'folders', id);
@@ -73,26 +75,26 @@ function HomePage() {
     setFolders(folders.map((folder) => folder.id === id
       ? { ...folder, pos: (folder.pos + 1) } : folder.pos === (pos + 1)
         ? (sessionStorage.setItem('newPosFolder', folder.id),
-          { ...folder, pos: (folder.pos - 1) }) : folder))
-  }
+        { ...folder, pos: (folder.pos - 1) }) : folder));
+  };
 
   const posAdjust = async (id, pos) => { //Adjust Position
     const folderDoc = doc(db, 'folders', id);
     const newPosAdjust = { pos: pos };
 
     await updateDoc(folderDoc, newPosAdjust);
-  }
+  };
 
   //Add Folder
   const addFolder = async (folder) => {
-    const pos = folders.length + 1
-    await addDoc(collection(db, "folders"), { pos, title: folder.title, user: user.uid })
+    const pos = folders.length + 1;
+    await addDoc(collection(db, 'folders'), { pos, title: folder.title, user: user.uid });
 
-    const allFolders = await getDocs(foldersCollectionRef)
-    setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Ordner
+    const allFolders = await getDocs(foldersCollectionRef);
+    setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id }))); //Aktualisieren der Ordner
 
-    setModalIsOpen(false)
-  }
+    setModalIsOpen(false);
+  };
 
   //Delete Folder
   const deleteFolder = async (id, pos) => {
@@ -104,22 +106,22 @@ function HomePage() {
         .map((folder) =>
           folder.pos > pos
             ? (sessionStorage.setItem('newPosFolder' + folder.id, folder.id),
-              { ...folder, pos: folder.pos - 1 }) : folder
+            { ...folder, pos: folder.pos - 1 }) : folder
         )
         .filter((folder) => folder.id !== id)
-    )
+    );
 
     //delete folder flashcards stuff
-    const flashcardsCollectionRef = collection(db, "flashcards"); //link zur flashcard-collection
-    const q = query(flashcardsCollectionRef, where("syncedFolder", "==", id)); //Variable zur Filtrierung nach den richtigen flashcards
+    const flashcardsCollectionRef = collection(db, 'flashcards'); //link zur flashcard-collection
+    const q = query(flashcardsCollectionRef, where('syncedFolder', '==', id)); //Variable zur Filtrierung nach den richtigen flashcards
     const snapshot = await getDocs(q); //gefilterte flashcards werden abgefragt
 
-    const results = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
+    const results = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
     results.forEach(async (result) => { //für jedes object wird die function ausgelöst
-      const flashcardDocRef = doc(db, "flashcards", result.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
+      const flashcardDocRef = doc(db, 'flashcards', result.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
       await deleteDoc(flashcardDocRef); //Zieldaten werden gelöscht
-    })
-  }
+    });
+  };
 
 
   //Edit Folder
@@ -128,20 +130,20 @@ function HomePage() {
     const newTitle = { title: title };
     await updateDoc(folderDoc, newTitle);
     setFolders(folders.map((folder) => folder.id === id
-      ? { ...folder, title: title } : folder))
-  }
+      ? { ...folder, title: title } : folder));
+  };
 
   return (
     <>
       <header className='page-header'>
-        <h1 className="page-title">Home</h1>
-        <img className="header-logo" src={memoriterLogo} alt="site-logo" />
+        <h1 className='page-title'>Home</h1>
+        <img className='header-logo' src={memoriterLogo} alt='site-logo' />
       </header>
       <main>
-        <div className="rechteck">
-          <h2 className="File-Overview">File Overview</h2>
+        <div className='rechteck'>
+          <h2 className='File-Overview'>File Overview</h2>
           <SettingsIcon />
-          <div className="main-seperator"></div>
+          <div className='main-seperator'></div>
 
           <div className='Folder_Base'>
 
@@ -154,7 +156,6 @@ function HomePage() {
                     onPosUp={posUp} onPosDown={posDown} onPosAdjust={posAdjust} />)
                 )}
             </>
-
             <div folders={folders}>
               <div className='New_Folder_Body'>
                 <div className='New_Folder_Line'></div>

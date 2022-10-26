@@ -19,6 +19,7 @@
         "css"
     ],
     "rules": {
+        "react/prop-types": "off",
         "camelcase": "warn",
         "array-bracket-newline": "warn",
         "array-bracket-spacing": "warn",

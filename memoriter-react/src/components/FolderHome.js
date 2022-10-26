@@ -48,6 +48,8 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
   const [pos, setPos] = useState(folder.pos);
 
+  console.log(folder.id);
+
   if (folder.pos !== pos) {
     setPos(folder.pos);
   }
