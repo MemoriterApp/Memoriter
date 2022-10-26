@@ -19,5 +19,17 @@
         "css"
     ],
     "rules": {
+        "camelcase": "warn",
+        "array-bracket-newline": "warn",
+        "array-bracket-spacing": "warn",
+        "arrow-parens": "warn",
+        "comma-spacing": ["warn", { "before": false, "after": true }],
+        "dot-location": ["warn", "property"],
+        "indent": "warn",
+        "jsx-quotes": ["warn", "prefer-single"],
+        "no-multi-spaces": "warn",
+        "object-curly-newline": "warn",
+        "quotes": ["warn", "single"],
+        "semi": ["warn", "always"]
     }
 }
