@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect, } from 'react';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import BackButton from '../components/BackButton';
@@ -42,7 +43,7 @@ function TopicPage() {
         setColumns(6);
     } else if (width > 1900 && columns !== 7) {
         setColumns(7);
-    };
+    }
 
     //firebase stuff
     //link zur db
@@ -61,7 +62,7 @@ function TopicPage() {
         getFlashcards();
         sessionStorage.setItem('flashcard-content', '');
         localStorage.setItem('lastPage', "/topic");
-    }, [])
+    }, [flashcardCollectionRef]);
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
