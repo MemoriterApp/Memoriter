@@ -1,3 +1,4 @@
+import React from 'react';
 import Start from './pages/start';
 import About from './pages/about';
 import ImpressumPage from './pages/impressum';
@@ -73,6 +74,6 @@ function App() {
       </ScrollReset>
     </AuthProvider>
   );
-};
+}
 
 export default App;
