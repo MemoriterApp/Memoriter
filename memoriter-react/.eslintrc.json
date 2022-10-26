@@ -25,7 +25,7 @@
         "arrow-parens": "warn",
         "comma-spacing": ["warn", { "before": false, "after": true }],
         "dot-location": ["warn", "property"],
-        "indent": "warn",
+        "indent": ["warn", 2],
         "jsx-quotes": ["warn", "prefer-single"],
         "no-multi-spaces": "warn",
         "object-curly-newline": "warn",
