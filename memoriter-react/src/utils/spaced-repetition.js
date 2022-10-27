@@ -5,10 +5,22 @@ const { db } = firebase;
 // This file contains the algorithm function to set the new date for the spaced repetition algorithm
 
 // function gets the flashcard id answer type, correct answer streak, easiness factor and the last interval
-export const spacedRepetition = async (id, type, streak, easiness, interval) => {
+export const spacedRepetition = (id, type, streak, easiness, interval) => {
   // five different answer types are possible (0-4)
   // 0 is incorrect, 1 is almost correct (with difficulties)
   // 2 is correct and 3 is easy (fast without any difficulties)
+  // 4 is the easiest
+
+  // property definitions for older flashcards without these values
+  if (!streak) {
+    streak = 0;
+  };
+  if (!easiness) {
+    easiness = 2.5;
+  };
+  if (!interval) {
+    interval = 1;
+  };
 
   // a conditional statement sets the new values
   if (type > 1) { // correct response
@@ -48,7 +60,7 @@ export const spacedRepetition = async (id, type, streak, easiness, interval) => 
       interval: interval,
       nextDate: nextDate
     };
-    await updateDoc(flashcard, newProps); // updates the document
+    updateDoc(flashcard, newProps); // updates the document
 
     return true; // returns true to remove the flashcard from the current session
   } else if (type === 1) { // difficult response
@@ -79,7 +91,7 @@ export const spacedRepetition = async (id, type, streak, easiness, interval) => 
         interval: interval,
         nextDate: nextDate
       };
-      await updateDoc(flashcard, newProps); // updates the document
+      updateDoc(flashcard, newProps); // updates the document
     
       return true; // returns true to remove the flashcard from the current session
     } else { // card is either new or was answered incorrectly before
@@ -101,8 +113,8 @@ export const spacedRepetition = async (id, type, streak, easiness, interval) => 
       easiness: easiness,
       interval: interval,
     };
-    await updateDoc(flashcard, newProps); // updates the document
-
+    updateDoc(flashcard, newProps); // updates the document
+    
     return false; // returns false for not removing the flashcard from the current study array
   };
 };

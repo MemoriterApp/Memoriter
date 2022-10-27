@@ -15,7 +15,6 @@ const StudyPage = () => {
 
     let syncedFolderID = localStorage.getItem('syncedFolderID');
 
-
     //firestore stuff
     // connection to the flashcards firestore
     const flashcardsCollectionRef = query(collection(db, "flashcards"), where("syncedFolder", "==", syncedFolderID));

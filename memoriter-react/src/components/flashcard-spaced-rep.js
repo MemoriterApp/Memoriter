@@ -4,9 +4,8 @@ import Backdropfs from './backdrop-transparent';
 import { useState } from 'react';
 import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 import { convertFromHTML, convertToHTML } from 'draft-convert';
-import { spacedRepetition } from '../utils/spaced-repetition';
 
-const FlashcardSpacedRep = ({ flashcard, onCorrect, onEditFlashcard, onDeleteFlashcard, onChangeTextAlign }) => {
+const FlashcardSpacedRep = ({ flashcard, onAnswer, onEditFlashcard, onDeleteFlashcard, onChangeTextAlign }) => {
 
     const [showAnswer, setShowAnswer] = useState(false); //state for showing the answer of the card
 
@@ -158,27 +157,27 @@ const FlashcardSpacedRep = ({ flashcard, onCorrect, onEditFlashcard, onDeleteFla
                     {/*Colors will be reworked in the very near future */}
                     <button className='spaced-rep-button'
                         style={{ left: '28.25%', background:'#0e9c5a'}}
-                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id, 0, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
+                        onClick={() => {setShowAnswer(false); onAnswer(flashcard, 4, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         easy 
                     </button>
                     <button className='spaced-rep-button'
                         style={{ left: '42.75%', background:'#1f9c0e'}}
-                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id, 1, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
+                        onClick={() => {setShowAnswer(false); onAnswer(flashcard, 3, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         correct
                     </button>
                     <button className='spaced-rep-button'
-                        style={{ left: '57.25%', background:'#9c420e', color:'white'}}
-                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id, 2, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
+                        style={{ left: '57.25%', background:'#6c5e0e', color:'white'}}
+                        onClick={() => {setShowAnswer(false); onAnswer(flashcard, 2, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
+                        ok
+                    </button>
+                    <button className='spaced-rep-button'
+                        style={{ left: '71.75%', background:'#9c420e', color:'white'}}
+                        onClick={() => {setShowAnswer(false); onAnswer(flashcard, 1, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         almost correct
                     </button>
                     <button className='spaced-rep-button'
-                        style={{ left: '71.75%', background:'#9c0e0e', color:'white'}}
-                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id, 3, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
-                        incorrect
-                    </button>
-                    <button className='spaced-rep-button'
-                        style={{ left: '80%', background:'#6c5e0e', color:'white'}}
-                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id, 4, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
+                        style={{ left: '80%', background:'#9c0e0e', color:'white'}}
+                        onClick={() => {setShowAnswer(false); onAnswer(flashcard, 0, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         incorrect
                     </button>
                 </div>

@@ -15,6 +15,7 @@ const { db } = firebase;
 function SpacedRepMode() {
 
     const navigate = useNavigate();
+    
     let lastPage = localStorage.getItem('lastPage');
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
@@ -30,7 +31,7 @@ function SpacedRepMode() {
 
     //for ensdscreen stats
     const [studiedFlashcards, setStudiedFlashcards] = useState(0); //number of correctly answered flashcards
-    const [showAnswer, setShowAnswer] = useState(false); //state for showing the answer of the card
+    const [incorrectFlashcards, setIncorrectFlashcards] = useState(0); //number of incorrectly answered flashcards
 
     //Use Effect für Notes
     useEffect(() => {
@@ -45,18 +46,27 @@ function SpacedRepMode() {
         localStorage.setItem('lastPage', '/study');
     }, []);
 
-        // import the function
-
-
-    // function in the spaced repetition PAGE to call
-    const flashcardAnswer = (id, type, streak, easiness, interval) => {
-    if (spacedRepetition(id, type, streak, easiness, interval)) {
-        // function if an answer was defined as correct, removes the correctly answered card
+    // answer function
+    const flashcardAnswer = (answeredFlashcard, type, streak, easiness, interval) => {
+        if (spacedRepetition(answeredFlashcard.id, type, streak, easiness, interval)) {
+            // correct(-ish) answer: flashcard gets removed from the session array
+            if (flashcards.length === 1) { //determines if the endscreen for laerned all cards is shown or not if a flashcard is marked as correct
+                setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== answeredFlashcard.id));
+                setStudiedFlashcards(studiedFlashcards + 1);
+                setFinished(true); //shows endscreen
+            } else {
+                setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== answeredFlashcard.id));
+                setStudiedFlashcards(studiedFlashcards + 1);
+            };
         } else {
-            // removes the incorrect flashcard and moves it to the end, new flashcard shows up
-        }
-    }
-
+            //removes the incorrect flashcard and moves it to the end, new flashcard shows up
+            setFlashcards([...flashcards
+                .filter((flashcard) => flashcard.id !== answeredFlashcard.id) //removes the old flashcard
+                .sort(() => Math.random() - 0.5), answeredFlashcard]) //reshuffles the array and creates the copy
+                //the advantage of this method is the fact that a flashcard will not show the next timo if incorrect is clicked
+            setIncorrectFlashcards(incorrectFlashcards + 1);
+        };
+    };
     // the flashcard properties must be used as function arguments
     // type depends on the clicked button, it can be 0 to 4, 0 is completely incorrect, 4 is very easy
 
@@ -65,16 +75,64 @@ function SpacedRepMode() {
 
     if (!started) { //autostarts the spaced rep mode
         setStarted(true); //shows flashcard component
-    }
+    };
 
-    function type(id) { //function if an answer was defined as correct, removes the correctly answered card
-        if (flashcards.length === 1) { //determines if the endscreen for laerned all cards is shown or not if a flashcard is marked as correct
-            setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
-            setFinished(true); //shows endscreen
+    //Change text align
+    const changeTextAlign = async (id, textAlign) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+
+        //based on the current text align, the text align will changed to a different value
+        if (textAlign === 'left') {
+            const newAll = { textAlign: 'right', textAlignSymbol: '> >', textAlignColor: 'rgb(228, 48, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'right', textAlignSymbol: '> >', textAlignColor: 'rgb(228, 48, 48)' } : flashcard))
+        } else if (textAlign === 'right') {
+            const newAll = { textAlign: 'center', textAlignSymbol: '> <', textAlignColor: 'rgb(228, 198, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'center', textAlignSymbol: '> <', textAlignColor: 'rgb(228, 198, 48)' } : flashcard))
+        } else if (textAlign === 'center') {
+            const newAll = { textAlign: 'jusify', textAlignSymbol: '< >', textAlignColor: 'rgb(48, 158, 228)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'justify', textAlignSymbol: '< >', textAlignColor: 'rgb(48, 158, 228)' } : flashcard))
+        } else if (textAlign === 'justify') {
+            const newAll = { textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
         } else {
-            setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
+            const newAll = { textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' };
+            await updateDoc(flashcardDoc, newAll);
+            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+                ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
         }
-    }
+    };
+
+    //Edit Flashcard
+    const editFlashcard = async (id, title, content) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+        const newAll = { title: title, content: content };
+        await updateDoc(flashcardDoc, newAll);
+        setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+            ? { ...flashcard, title: title, content: content } : flashcard))
+    };
+
+    //Delete Flashcard
+    const deleteFlashcard = async (id, pos) => {
+        const flashcardDoc = doc(db, 'flashcards', id);
+        await deleteDoc(flashcardDoc);
+        setFlashcards((flashcards) =>
+            flashcards
+                .map((flashcard) =>
+                    flashcard.pos > pos
+                        ? (sessionStorage.setItem('newPosFlashcard' + flashcard.id, flashcard.id),
+                            { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
+                )
+                .filter((flashcard) => flashcard.id !== id)
+        )
+    };
 
     return (
         <>
@@ -85,6 +143,7 @@ function SpacedRepMode() {
                     <Link to='/'>
                         <img className="header-logo" src={Logo} alt="site-logo"></img>
                     </Link>
+                    <p className='study-remaining'>Remaining: {flashcards.length}</p>
              </header>
              <Link to={'/topic'}>
                     <div className="Zurückbutton_Body" style={{ top: '90px', left: '8px', zIndex: '10' }}>
@@ -96,7 +155,8 @@ function SpacedRepMode() {
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                         {flashcards.slice(0, 1).map((flashcard) => (
                             <FlashcardSpacedRep key={flashcard.id} flashcard={flashcard}
-                                onCorrect={flashcardAnswer(id, type, streak, easiness, interval)}/>
+                                onAnswer={flashcardAnswer}
+                                onEditFlashcard={editFlashcard} onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign}/>
                         ))}
                 </>}
             </main>
