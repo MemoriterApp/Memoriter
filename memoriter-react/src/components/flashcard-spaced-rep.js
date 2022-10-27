@@ -4,6 +4,7 @@ import Backdropfs from './backdrop-transparent';
 import { useState } from 'react';
 import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 import { convertFromHTML, convertToHTML } from 'draft-convert';
+import { spacedRepetition } from '../utils/spaced-repetition';
 
 const FlashcardSpacedRep = ({ flashcard, onCorrect, onEditFlashcard, onDeleteFlashcard, onChangeTextAlign }) => {
 
@@ -157,26 +158,30 @@ const FlashcardSpacedRep = ({ flashcard, onCorrect, onEditFlashcard, onDeleteFla
                     {/*Colors will be reworked in the very near future */}
                     <button className='spaced-rep-button'
                         style={{ left: '28.25%', background:'#0e9c5a'}}
-                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id); }}>
+                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id, 0, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         easy 
                     </button>
                     <button className='spaced-rep-button'
                         style={{ left: '42.75%', background:'#1f9c0e'}}
-                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id); }}>
+                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id, 1, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         correct
                     </button>
                     <button className='spaced-rep-button'
                         style={{ left: '57.25%', background:'#9c420e', color:'white'}}
-                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id); }}>
+                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id, 2, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         almost correct
                     </button>
                     <button className='spaced-rep-button'
                         style={{ left: '71.75%', background:'#9c0e0e', color:'white'}}
-                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id); }}>
+                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id, 3, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
+                        incorrect
+                    </button>
+                    <button className='spaced-rep-button'
+                        style={{ left: '80%', background:'#6c5e0e', color:'white'}}
+                        onClick={() => {setShowAnswer(false); onCorrect(flashcard.id, 4, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         incorrect
                     </button>
                 </div>
-
             </div>}
 
             <div>
@@ -192,7 +197,7 @@ const FlashcardSpacedRep = ({ flashcard, onCorrect, onEditFlashcard, onDeleteFla
                         <div className='Add_Flashcard_Form_Content'>
                             <BlockStyleControls onToggle={onBlockClick}/>
                             <InlineStyleControls onToggle={onInlineClick}/>
-                            <div style={{width: '100%', borderTop: '2px solid rgba(112, 112 ,112 ,1)', margin: '10px 0 10px 0'}}/>
+                            <div style={{width: '100%', borderTop: '2px solid, rgba(112, 112 ,112 ,1)', margin: '10px 0 10px 0'}}/>
                             <Editor
                                 placeholder='Flashcard Content...'
                                 editorState={editorState}

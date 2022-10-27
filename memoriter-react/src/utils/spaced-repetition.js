@@ -100,7 +100,6 @@ export const spacedRepetition = async (id, type, streak, easiness, interval) => 
       streak: streak,
       easiness: easiness,
       interval: interval,
-      nextDate: nextDate
     };
     await updateDoc(flashcard, newProps); // updates the document
 

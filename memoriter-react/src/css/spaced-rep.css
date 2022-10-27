@@ -37,7 +37,7 @@ margin: 120px;
     height: calc(3vh*var(--testing));
     width: calc(7vw*var(--testing));
     font-size: calc(1.4vh*var(--testing));
-    background-color: rgb(205, 208, 218);
+    background-color: #cdd0da;
     border:0;
     cursor: pointer;
 }

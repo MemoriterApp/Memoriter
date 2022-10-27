@@ -7,6 +7,7 @@ import FlashcardSpacedRep from '../components/flashcard-spaced-rep';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 import { useState, useEffect } from "react";
+import { spacedRepetition } from '../utils/spaced-repetition';
 const { db } = firebase;
 
 
@@ -29,7 +30,6 @@ function SpacedRepMode() {
 
     //for ensdscreen stats
     const [studiedFlashcards, setStudiedFlashcards] = useState(0); //number of correctly answered flashcards
-    const [incorrectFlashcards, setIncorrectFlashcards] = useState(0); //number of incorrectly answered flashcards
     const [showAnswer, setShowAnswer] = useState(false); //state for showing the answer of the card
 
     //Use Effect für Notes
@@ -45,21 +45,34 @@ function SpacedRepMode() {
         localStorage.setItem('lastPage', '/study');
     }, []);
 
+        // import the function
+
+
+    // function in the spaced repetition PAGE to call
+    const flashcardAnswer = (id, type, streak, easiness, interval) => {
+    if (spacedRepetition(id, type, streak, easiness, interval)) {
+        // function if an answer was defined as correct, removes the correctly answered card
+        } else {
+            // removes the incorrect flashcard and moves it to the end, new flashcard shows up
+        }
+    }
+
+    // the flashcard properties must be used as function arguments
+    // type depends on the clicked button, it can be 0 to 4, 0 is completely incorrect, 4 is very easy
+
     const [started, setStarted] = useState(false); //state to set if the session was started or not
     const [finished, setFinished] = useState(false); //state to set if the session is completed (all cards learned)
 
-    if (!started) { //autostarts the study mode
+    if (!started) { //autostarts the spaced rep mode
         setStarted(true); //shows flashcard component
     }
 
     function type(id) { //function if an answer was defined as correct, removes the correctly answered card
         if (flashcards.length === 1) { //determines if the endscreen for laerned all cards is shown or not if a flashcard is marked as correct
             setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
-            setStudiedFlashcards(studiedFlashcards + 1);
             setFinished(true); //shows endscreen
         } else {
             setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
-            setStudiedFlashcards(studiedFlashcards + 1);
         }
     }
 
@@ -78,15 +91,16 @@ function SpacedRepMode() {
                         <div className="Zurückbutton_Arrow" />
                     </div>
             </Link> 
-            <main>
 
+            <main>
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                         {flashcards.slice(0, 1).map((flashcard) => (
                             <FlashcardSpacedRep key={flashcard.id} flashcard={flashcard}
-                                onCorrect={() => type(flashcard.id)}/>
+                                onCorrect={flashcardAnswer(id, type, streak, easiness, interval)}/>
                         ))}
                 </>}
             </main>
+
             <footer>
                 <Footer />
             </footer><footer>
