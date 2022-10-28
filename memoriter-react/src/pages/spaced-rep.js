@@ -15,8 +15,6 @@ const { db } = firebase;
 function SpacedRepMode() {
 
     const navigate = useNavigate();
-    
-    let lastPage = localStorage.getItem('lastPage');
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
@@ -24,7 +22,7 @@ function SpacedRepMode() {
 
     //firestore stuff
     // connection to the flashcards firestore
-    const flashcardsCollectionRef = query(collection(db, "flashcards"), where("syncedFolder", "==", syncedFolderID));
+    const flashcardsCollectionRef = query(collection(db, 'flashcards'), where('syncedFolder', '==', syncedFolderID));
 
     //Flashcard Data
     const [flashcards, setFlashcards] = useState([]);
@@ -75,6 +73,15 @@ function SpacedRepMode() {
 
     if (!started) { //autostarts the spaced rep mode
         setStarted(true); //shows flashcard component
+    };
+
+    // filters the flashcards for onlyx the not studied ones to show up
+    const [filtered, setFiltered] = useState(false);
+    if (flashcards.length > 0 && !filtered) {
+        setFlashcards([...flashcards
+            .filter((flashcard) => new Date(flashcard.nextDate) <= new Date() || !flashcard.nextDate)
+        ])
+        setFiltered(true);
     };
 
     //Change text align
@@ -159,13 +166,38 @@ function SpacedRepMode() {
                                 onEditFlashcard={editFlashcard} onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign}/>
                         ))}
                 </>}
-            </main>
 
-            <footer>
-                <Footer />
-            </footer><footer>
-                <Footer />
-            </footer>
+                {finished && <div>
+                    <div className='finished-box'>
+                        <p className='finished_statistics' style={{fontSize:'5.3vh'}}>
+                            Results
+                        </p>
+                        <p className='finished_statistics'>
+                            Studied Flashcards: {studiedFlashcards}
+                        </p>
+                        <p className='finished_statistics'>
+                            Repetitions: {studiedFlashcards + incorrectFlashcards}
+                        </p>
+                        <p className='finished_statistics' style={{ color:'#2d772d'}}>
+                            Percent Correct: {(100 * (1 - (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards)))).toFixed(2)}%
+                        </p>
+                        <p className='finished_statistics' style={{ color:'#dc4c4d'}}>
+                            Incorrect: {incorrectFlashcards} ({(100 * (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards))).toFixed(2)}%)
+                        </p>
+                    </div>
+
+                    <button className='finished-button'
+                        style={{ top: '70%', width: '14vw'}}
+                        onClick={() => navigate('/study')}
+                    >Study all flashcards</button>
+
+                    <button className='finished-button'
+                        style={{top: '77.5%', width: '14vw', backgroundColor:'rgb(126, 128, 134)'}}
+                        onClick={() => navigate('/topic')}
+                    >Return to Overview</button>
+                </div>}
+            </main>
+            <Footer/>
         </>
     )
 }

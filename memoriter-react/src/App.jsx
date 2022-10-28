@@ -22,7 +22,7 @@ import { Routes, Route } from 'react-router-dom';
 import { firebase } from './utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
-function App() {
+const App = () => {
 
   const [user, setUser] = useState({}); //variable for currently signed in user
 
@@ -58,8 +58,7 @@ function App() {
 
               <Route path='/study' element={<StudyPage/>}/>
 
-              <Route path='/spaced-rep-mode/' element={<SpacedRepMode/>}/>
-
+              <Route path='/study-spaced-repetition/' element={<SpacedRepMode/>}/>
             </>) : (<>
               <Route path='/login' element={<LoginPage/>}/>
 
@@ -78,5 +77,4 @@ function App() {
     </AuthProvider>
   );
 };
-
 export default App;

@@ -36,7 +36,8 @@ export const spacedRepetition = (id, type, streak, easiness, interval) => {
     };
 
     let nextDate = new Date(); // gets current date
-    nextDate.setDate(nextDate.getDate() + interval + type - 1); // updates date (for the flashcard to showagain) by the last interval and answer type
+    nextDate.setDate(nextDate.getDate() + interval + type - 2); // updates date (for the flashcard to showagain) by the last interval and answer type
+    nextDate.setHours(0, 0, 0, 0); // sets time to 0 o'clock
     streak++; // increments answer streak
         
     // new easiness factor based on the type
@@ -76,6 +77,7 @@ export const spacedRepetition = (id, type, streak, easiness, interval) => {
             
       let nextDate = new Date(); // gets current date
       nextDate.setDate(nextDate.getDate() + interval); // updates date (for the flashcard to showagain) by the last interval
+      nextDate.setHours(0, 0, 0, 0); // sets time to 0 o'clock
       streak++; // increments answer streak
     
       easiness = easiness - 0.1; // new (lower) easiness factor
