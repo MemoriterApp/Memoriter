@@ -2,7 +2,7 @@
 import React from 'react';
 import Backdropfs from './backdrop-transparent';
 import Backdrop from './backdrop';
-import { useState } from 'react';
+import { useState} from 'react';
 import { Link } from 'react-router-dom';
 
 //NICHT ERSCHRECKEN: ICH MUSSTE, DAMIT ALLES FUNKTIONIERT, ALLES IN DIESEM COMPONENT ZUSAMMENFÜGEN!
@@ -48,7 +48,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
   const [pos, setPos] = useState(folder.pos);
 
-  console.log(folder.id);
+  
 
   if (folder.pos !== pos) {
     setPos(folder.pos);
@@ -65,9 +65,13 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
     sessionStorage.removeItem('newPosFolder' + folder.id);
   }
 
+  // eslint-disable-next-line no-unused-vars
+  let syncedFolderID = localStorage.getItem('syncedFolderID'); //variable for the folder id and for the link
+  // eslint-disable-next-line no-unused-vars
+  const testNumber = 1; 
   return (
     <div className='Folder_Body'>
-      <Link to='/topic' onClick={onOpenFolder}>
+      <Link to={'/topic/'+syncedFolderID} onClick={onOpenFolder}>
         <button className='Button_Homepage'/>
         {folder.title !== '' ? (
           <button className='Button_Homepage_Text'>{folder.title}</button>

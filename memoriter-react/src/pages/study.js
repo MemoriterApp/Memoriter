@@ -13,7 +13,7 @@ const StudyPage = () => {
 
   const navigate = useNavigate();
 
-  let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
+  let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets folderId from localstorage and uses it for link to topic page
 
   let syncedFolderID = localStorage.getItem('syncedFolderID');
 
@@ -137,6 +137,7 @@ const StudyPage = () => {
         .filter((flashcard) => flashcard.id !== id)
     );
   };
+  
 
   return (
     <>
@@ -153,7 +154,7 @@ const StudyPage = () => {
           </Link>
           <p className='study-remaining'>Remaining: {flashcards.length}</p>
         </header>
-        <Link to='/topic'>
+        <Link to='/topic/:synchedFolderID'>
           <div className='Zurückbutton_Body' style={{ top: '90px', left: '8px', zIndex: '10' }}>
             <div className='Zurückbutton_Arrow' />
           </div>

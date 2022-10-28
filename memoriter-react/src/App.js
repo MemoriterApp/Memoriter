@@ -25,6 +25,13 @@ import { onAuthStateChanged } from 'firebase/auth';
 function App() {
 
   const [user, setUser] = useState({}); //variable for currently signed in user
+  // eslint-disable-next-line no-unused-vars
+  let syncedFolderID = localStorage.getItem('syncedFolderID'); //variable for synced folder ID to use in unique url
+  console.log(syncedFolderID);
+
+  // eslint-disable-next-line no-unused-vars
+  const testNumber = 1; 
+ 
 
   onAuthStateChanged(firebase.auth, (currentUser) => { //updates user variable when user changes
     setUser(currentUser);
@@ -54,7 +61,7 @@ function App() {
               
               <Route path='/' element={<HomePage/>}/>
 
-              <Route path='/topic' element={<TopicPage/>}/>
+              <Route path='/topic/:syncedFolderID' element={<TopicPage/>}/>
 
               <Route path='/study' element={<StudyPage/>}/>
             </>) : (<>
@@ -64,7 +71,7 @@ function App() {
 
               <Route path='/' element={<Redirect/>}/>
 
-              <Route path='/topic' element={<Redirect/>}/>
+              <Route path='/topic/:synchedFolderID' element={<Redirect/>}/>
 
               <Route path='/study' element={<Redirect/>}/>
             </>)}

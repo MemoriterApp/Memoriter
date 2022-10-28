@@ -67,6 +67,7 @@ function TopicPage() {
   let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
   let syncedFolderID = localStorage.getItem('syncedFolderID');
+  
 
   const [modalIsOpenA, setModalIsOpenA] = useState(false);
 
