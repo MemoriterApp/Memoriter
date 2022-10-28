@@ -64,9 +64,8 @@ function TopicPage() {
     localStorage.setItem('lastPage', '/topic');
   }, [flashcardCollectionRef]);
 
-  let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
-
-  let syncedFolderID = localStorage.getItem('syncedFolderID');
+  let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets title of the folder from local storage
+  let syncedFolderID = localStorage.getItem('syncedFolderID'); //gets Id from local storage
   
 
   const [modalIsOpenA, setModalIsOpenA] = useState(false);

@@ -65,10 +65,9 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
     sessionStorage.removeItem('newPosFolder' + folder.id);
   }
 
-  // eslint-disable-next-line no-unused-vars
+  
   let syncedFolderID = localStorage.getItem('syncedFolderID'); //variable for the folder id and for the link
-  // eslint-disable-next-line no-unused-vars
-  const testNumber = 1; 
+  
   return (
     <div className='Folder_Body'>
       <Link to={'/topic/'+syncedFolderID} onClick={onOpenFolder}>
