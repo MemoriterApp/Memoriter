@@ -17,6 +17,9 @@ const { db } = firebase;
 
 function TopicPage() {
 
+  let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets title of the folder from local storage
+  let syncedFolderID = localStorage.getItem('syncedFolderID'); //gets Id from local storage
+
   const navigate = useNavigate();
 
   const user = firebase.auth.currentUser;
@@ -47,7 +50,7 @@ function TopicPage() {
 
   //firebase stuff
   //link zur db
-  const flashcardCollectionRef = query(collection(db, 'flashcards'), where('syncedFolder', '==', localStorage.getItem('syncedFolderID')));
+  const flashcardCollectionRef = query(collection(db, 'flashcards'), where('syncedFolder', '==', syncedFolderID));
 
   //Flashcard Data
   const [flashcards, setFlashcards] = useState([]);
@@ -61,11 +64,10 @@ function TopicPage() {
 
     getFlashcards();
     sessionStorage.setItem('flashcard-content', '');
-    localStorage.setItem('lastPage', '/topic');
+    localStorage.setItem('lastPage', '/topic:syncedFolderID');
   }, [flashcardCollectionRef]);
 
-  let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets title of the folder from local storage
-  let syncedFolderID = localStorage.getItem('syncedFolderID'); //gets Id from local storage
+ 
   
 
   const [modalIsOpenA, setModalIsOpenA] = useState(false);

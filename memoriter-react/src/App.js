@@ -27,10 +27,6 @@ function App() {
   const [user, setUser] = useState({}); //variable for currently signed in user
   // eslint-disable-next-line no-unused-vars
   let syncedFolderID = localStorage.getItem('syncedFolderID'); //variable for synced folder ID to use in unique url
-  console.log(syncedFolderID);
-
-  // eslint-disable-next-line no-unused-vars
-  const testNumber = 1; 
  
 
   onAuthStateChanged(firebase.auth, (currentUser) => { //updates user variable when user changes
