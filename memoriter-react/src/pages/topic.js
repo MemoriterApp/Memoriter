@@ -55,17 +55,17 @@ function TopicPage() {
   //Flashcard Data
   const [flashcards, setFlashcards] = useState([]);
 
-  //Use Effect für Notes
+  //Use Effect for notes
   useEffect(() => {
     const getFlashcards = async () => {
       const allFlashcards = await getDocs(flashcardCollectionRef);
       setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-
     getFlashcards();
     sessionStorage.setItem('flashcard-content', '');
     localStorage.setItem('lastPage', '/topic:syncedFolderID');
-  }, [flashcardCollectionRef]);
+    console.log('flashcards loaded');
+  }, []);
 
  
   
