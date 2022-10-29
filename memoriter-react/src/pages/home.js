@@ -140,7 +140,6 @@ function HomePage() {
       </header>
       <main>
         <div className='rechteck'>
-          <h2 className='File-Overview'>File Overview</h2>
           <SettingsIcon />
           <div className='main-seperator'></div>
 

@@ -174,10 +174,10 @@ body::-webkit-scrollbar-corner {
 }
 
 .rechteck {
-    border-top: 10px solid var(--current-blue-dark);
-    border-right: 12px solid var(--current-blue-dark);
-    border-left: 12px solid var(--current-blue-dark);
-    border-bottom: 10px solid var(--current-blue-dark);
+    border-top: 10px solid var(--color-highligh-light-blue);
+    border-right: 12px solid var(--color-highligh-light-blue);
+    border-left: 12px solid var(--color-highligh-light-blue);
+    border-bottom: 10px solid var(--color-highligh-light-blue);
     width: 90%;
     height: calc(100% - 200px);
     position: absolute;
@@ -194,7 +194,7 @@ body::-webkit-scrollbar-corner {
     top: 48px;
     width: calc(100% - 10px);
     height: 0px;
-    border-top: 8px solid var(--current-blue-light);
+    border-top: 8px solid var(--color-text-black);
     border-radius: 15px;
 }
 .gear {
@@ -286,7 +286,7 @@ body::-webkit-scrollbar-corner {
 .dot {
     height: 6px;
     width: 6px;
-    background-color: var(--color-font-gray);
+    background-color: var(--color-text-black);
     border-radius: 3px;
     display: inline-block;
     position: relative;
@@ -318,7 +318,7 @@ body::-webkit-scrollbar-corner {
     cursor: pointer;
 }
 .Folder_Pos_Arrow_Up {
-    border: solid var(--color-font-gray);
+    border: solid var(--color-text-black);
     border-width: 0 3.5px 3.5px 0;
     padding: 4.5px;
     position: absolute;
@@ -336,7 +336,7 @@ body::-webkit-scrollbar-corner {
     cursor: pointer;
 }
 .Folder_Pos_Arrow_Down {
-    border: solid var(--color-font-gray);
+    border: solid var(--color-text-black);
     border-width: 0 3.5px 3.5px 0;
     padding: 4.5px;
     position: absolute;
