@@ -74,7 +74,6 @@
 #light { /*light mode*/
     --color-font: #000000;
     --color-font-gray: #373737;
-    --color-background: #e0e0e0;
     --color-hover: #b5b5b5bf;
     --color-hover-input: #cbcbcb;
     --color-container: #b5b5b5;
@@ -86,6 +85,11 @@
     /*values for correcting svg colors*/
     --svg-invert: invert(0);
     --svg-invert-gray: invert(0.21568627450980392156862745098039);
+    /*New Colours */
+    --color-background-white: #EEEEEE;
+    --color-highligh-light-blue: #36747D;
+    --color-highlight-red: #c0362C;
+    --color-text-black: #141414;
 }
 
 :root { /*legacy colors (all old colors from the app which could be replaced in the future)*/
