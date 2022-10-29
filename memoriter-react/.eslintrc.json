@@ -30,6 +30,7 @@
         "no-multi-spaces": "warn",
         "object-curly-newline": "warn",
         "quotes": ["warn", "single"],
-        "semi": ["warn", "always"]
+        "semi": ["warn", "always"],
+        "react/prop-types": "off"
     }
 }
