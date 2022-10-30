@@ -14,9 +14,11 @@
 }
 
 :root {
-    --size: 0.85;
-    --button: 1.7;
     --testing:1.7;
+    --current-font: 'M PLUS 1', sans-serif;
+    --color-font-gray: #c8c8c8;
+    --current-gray-light: #f6f7fb;
+    --size-tutorial: 0.1;
   }
   /* Variables used for testing different sizes with constant aspect ratios */
 
@@ -34,14 +36,44 @@ margin: 120px;
     font-family: var(--current-font);
     transform: translate(-50%, -50%);
     border-radius: 0.5vw;
-    height: calc(3vh*var(--testing));
-    width: calc(7vw*var(--testing));
-    font-size: calc(1.4vh*var(--testing));
+    height: calc(5.1vh);
+    width: calc(10.2vw);
+    font-size: calc(1.2vw);
     background-color: #cdd0da;
     border:0;
     cursor: pointer;
 }
 
+.tutorial-button{
+    position: absolute;
+    right:2%;
+    top:10%;
+    color: #C0362c;
+    background: var(--current-gray-light);
+    font-size: 40px;
+    font-family: var(--current-font);
+    height: calc((100vh - 218px) * var(--size-tutorial) + 18px);
+    width: calc(24vw *var(--size-tutorial) + 20px );
+    border: 8px solid var(--color-font-gray);
+    border-radius: 8px;
+    cursor: pointer;
+}
+.study-spaced-repetition-tutorial{
+    position: absolute;
+    right:50%;
+    top:10%;
+    color: #C0362c;
+    background: var(--current-gray-light);
+    font-size: 40px;
+    font-family: var(--current-font);
+    height: calc((100vh - 218px) + 18px);
+    width: calc(24vw + 20px );
+    border: 8px solid var(--color-font-gray);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 .color-picker {
-    background:#9c420e;
+    background:#8f0d0d;
+    color:#C0362c;
 }

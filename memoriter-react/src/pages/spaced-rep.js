@@ -3,6 +3,7 @@ import '../css/spaced-rep.css';
 import Footer from "../components/Footer";
 import Logo from '../images/memoriter-logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
+import Backdrop from '../components/backdrop';
 import FlashcardSpacedRep from '../components/flashcard-spaced-rep';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
@@ -19,6 +20,7 @@ function SpacedRepMode() {
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
     let syncedFolderID = localStorage.getItem('syncedFolderID');
+    const [tutorialSpacedRepetition, setTutorialSpacedRepetition] = useState(false);
 
     //firestore stuff
     // connection to the flashcards firestore
@@ -158,6 +160,7 @@ function SpacedRepMode() {
                     </div>
             </Link> 
 
+
             <main>
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                         {flashcards.slice(0, 1).map((flashcard) => (
@@ -165,7 +168,22 @@ function SpacedRepMode() {
                                 onAnswer={flashcardAnswer}
                                 onEditFlashcard={editFlashcard} onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign}/>
                         ))}
+                    <button className='tutorial-button' title='tutorial'
+                            onClick={() => setTutorialSpacedRepetition(true)}> 
+                        ?
+                    </button>
                 </>}
+
+                {tutorialSpacedRepetition && 
+                    <div className='study-spaced-repetition-tutorial'>
+                        <div className='folder-settings-sub'>
+                            <p>man</p> 
+                        </div>
+                    </div>
+                }
+                <div onClick={() => setTutorialSpacedRepetition(false)}>
+                    {tutorialSpacedRepetition && <Backdrop/>}
+                </div>
 
                 {finished && <div>
                     <div className='finished-box'>

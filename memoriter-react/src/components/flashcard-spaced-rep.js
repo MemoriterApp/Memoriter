@@ -135,16 +135,17 @@ const FlashcardSpacedRep = ({ flashcard, onAnswer, onEditFlashcard, onDeleteFlas
                 </div>}
 
                 {settingsOverlay && 
-                <div className='study-flashcard-settings-overlay'>
-                    <div className='folder-settings-sub'>
-                        <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
-                            {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
-                        <p onClick={editFlashcardReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
-                        <p style={{color: 'rgb(228, 48, 48)'}}
-                            onClick={deleteFlashcardReq}
-                        >✕ Delete</p>
+                    <div className='study-flashcard-settings-overlay'>
+                        <div className='folder-settings-sub'>
+                            <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
+                                {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
+                            <p onClick={editFlashcardReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
+                            <p style={{color: 'rgb(228, 48, 48)'}}
+                                onClick={deleteFlashcardReq}
+                            >✕ Delete</p>
+                        </div>
                     </div>
-                </div>}
+                }
                 <div onClick={() => setSettingsOverlay(false)}>
                     {settingsOverlay && <Backdropfs/>}
                 </div>
@@ -156,27 +157,27 @@ const FlashcardSpacedRep = ({ flashcard, onAnswer, onEditFlashcard, onDeleteFlas
                 <div className='flex-container'>
                     {/*Colors will be reworked in the very near future */}
                     <button className='spaced-rep-button'
-                        style={{ left: '28.25%', background:'#0e9c5a'}}
+                        style={{ left: '25%', background:'#0d8f52'}}
                         onClick={() => {setShowAnswer(false); onAnswer(flashcard, 4, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         easy 
                     </button>
                     <button className='spaced-rep-button'
-                        style={{ left: '42.75%', background:'#1f9c0e'}}
+                        style={{ left: '37.5%', background:'#0d8f18'}}
                         onClick={() => {setShowAnswer(false); onAnswer(flashcard, 3, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         correct
                     </button>
                     <button className='spaced-rep-button'
-                        style={{ left: '57.25%', background:'#6c5e0e', color:'white'}}
+                        style={{ left: '50%', background:'#778f0d'}}
                         onClick={() => {setShowAnswer(false); onAnswer(flashcard, 2, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
-                        ok
+                        mostly correct
                     </button>
                     <button className='spaced-rep-button'
-                        style={{ left: '71.75%', background:'#9c420e', color:'white'}}
+                        style={{ left: '62.5%', background:'#8f520d', color:'white'}}
                         onClick={() => {setShowAnswer(false); onAnswer(flashcard, 1, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         almost correct
                     </button>
                     <button className='spaced-rep-button'
-                        style={{ left: '80%', background:'#9c0e0e', color:'white'}}
+                        style={{ left: '75%', background:'#8f0d0d', color:'white'}}
                         onClick={() => {setShowAnswer(false); onAnswer(flashcard, 0, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
                         incorrect
                     </button>
