@@ -75,7 +75,7 @@ function TopicPage() {
         getFlashcards(); //calls the function
         sessionStorage.setItem('flashcard-content', ''); 
         localStorage.setItem('lastPage', "/topic");
-    }, [])
+    }, []) // do not add dependencies, otherwise it will loop
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets the title of the synced folder
 

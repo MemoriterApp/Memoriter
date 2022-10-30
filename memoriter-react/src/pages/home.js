@@ -41,7 +41,7 @@ function HomePage() {
 
     getFolder();
     localStorage.setItem('lastPage', "/");
-  }, [])
+  }, []) // do not add dependencies, otherwise it will loop
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -143,12 +143,10 @@ function HomePage() {
       <main>
         <div className="rechteck">
           <section>
-            <h2 className="File-Overview">File Overview</h2>
+            
             <SettingsIcon />
             <span className='spaced-rep-subtitles'>
-              <span style={{marginRight:"0.9rem"}}>New</span>
-              <span style={{marginRight:"0.9rem"}}>Due</span>
-              <span>Old</span>
+              <span>Due</span>
             </span>
             <div className="main-seperator"></div>
           </section>
