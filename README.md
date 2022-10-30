@@ -5,24 +5,23 @@
 [![website](https://img.shields.io/website-up-down-green-red/https/app.memoriter.de/.svg)](https://app.memoriter.de)
 
 # Memoriter
-Hier soll die Web-App "Memoriter" (Arbeitstitel) entstehen.
+The web app "Memoriter" is to be created here.
 
 ### [Link to the app](https://app.memoriter.de)
 
-## Was ist Memoriter?
-Memoriter ist ein digitales Lernbegleitungssystem. Das bedeutet: wir wollen ein Programm schaffen, welches die Informationsspeicherungssysteme eines Notizprogramms mit den praktischen Vorteilen eines Karteikartensystems verbindet und damit die ultimative "all in one" Lernunterstützung schafft. 
-Zu Beginn wollen wir ein Ordnersystem schaffen, in dem man für jedes seiner wichtigen Themen ein Ordner erstellen kann, innerhalb dieses Ordners soll es ähnlich wie bei "Google Keep" die verschiedenen Karteikarten zu sehen geben. Ebenfalls ist erstmals ein Karteiabfragungssystem geplant, in welchem ähnlich wie bei Quizlet die Karteikarten überprüfen kann. Wir wollen also auf den Schultern von GIGANTEN stehen.
+## What is Memoriter?
+Memoriter is a digital learning support system. That means: we want to create a program that combines the information storage systems of a note-taking program with the practical advantages of an index card system and thus creates the ultimate "all in one" learning support.
+At the beginning we want to create a folder system in which you can create a folder for each of your important topics. Within this folder there should be different index cards to see, similar to "Google Keep". A card index query system is also planned for the first time, in which the index cards can be checked in a similar way to Quizlet. So we want to stand on the shoulders of GIANTS.
 
-## Was sind die Inspirationen?
-* Quizlet
-* Notion
+## What are our inspirations?
+* Quizzes
+* Notation
 * Google Keep
 * Anki
 
-## Geplante Features
-* Kalendersystem
-* Erinnerung
-* spaced repetition Algorithmus
+## Planned features
+* Calendar system
+* spaced repetition algorithm
 
 ## Social Media
 [![instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)](https://www.instagram.com/memorit.er)
