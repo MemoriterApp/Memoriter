@@ -176,9 +176,25 @@ function SpacedRepMode() {
 
                 {tutorialSpacedRepetition && 
                     <div className='study-spaced-repetition-tutorial'>
-                        <div className='folder-settings-sub'>
+                        <div className='tutorial-sub'>
                             <p>man</p> 
                         </div>
+                        <button className='tutorial-spaced-repetition-buttons'
+                                style={{ left: '-5%', background:'#0d8f52'}}> </button>
+                        
+                        <button className='tutorial-spaced-repetition-buttons'
+                                style={{ left: '17.5%', background:'#0d8f18'}}> </button>
+                        
+                        <button className='tutorial-spaced-repetition-buttons'
+                                style={{ left: '40%', background:'#778f0d'}}> </button>
+                        
+
+                        <button className='tutorial-spaced-repetition-buttons'
+                                style={{ left: '62.5%', background:'#8f520d'}}> </button>
+
+                        <button className='tutorial-spaced-repetition-buttons'
+                                style={{ left: '85%', background:'#8f0d0d'}}> </button>
+
                     </div>
                 }
                 <div onClick={() => setTutorialSpacedRepetition(false)}>
