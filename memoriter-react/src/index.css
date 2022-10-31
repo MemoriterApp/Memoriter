@@ -89,11 +89,11 @@
 }
 
 :root { /*legacy colors (all old colors from the app which could be replaced in the future)*/
-    --current-gray: #707070;
+    --current-gray: #a0a0a0;
     --current-gray-light: #f6f7fb;
-    --current-blue-dark: #274b65;
-    --current-blue-light: #3a6d70;
-    --current-blue-folder: #5f9ea0;
+    --current-gray-dark: #141414;
+    --current-blue: #36747d;
+    --current-red: #c0362c;
     --current-green: #2d9c45;
     --current-green-hover: #3ab454;
     --color-red-light-hover: #fd3b3b;
@@ -220,7 +220,7 @@ body::-webkit-scrollbar-corner {
     left: 0%;
     padding: 15px 15px;
     background-color: var(--color-background);
-    border: 5px solid var(--current-blue-folder);
+    border: 5px solid var(--current-blue);
     border-radius: 3px;
     cursor: pointer;
 }
@@ -345,7 +345,7 @@ body::-webkit-scrollbar-corner {
     padding: 15px 15px;
     background-color: var(--color-background);
     cursor: pointer;
-    border: 5px solid var(--current-blue-folder);
+    border: 5px solid var(--current-blue);
     border-radius: 3px;
 }
 .New_Folder_Text {
@@ -406,7 +406,7 @@ body::-webkit-scrollbar-corner {
     font-size: 20px;
 }
 .Add_Folder_Form_Input {
-    border: 5px solid var(--current-blue-light);
+    border: 5px solid var(--current-gray);
     width: 80%;
     color: var(--color-font);
     background-color: var(--color-background);
@@ -417,7 +417,7 @@ body::-webkit-scrollbar-corner {
     border-radius: 3px;
 }
 .Add_Folder_Form_Submit {
-    border: 5px solid var(--current-blue-light);
+    border: 5px solid var(--current-gray);
     padding: 5px;
     color: var(--color-font);
     background-color: var(--color-background);
@@ -492,7 +492,7 @@ body::-webkit-scrollbar-corner {
     line-height: 18px;
 }
 .footer-link {
-    color: var(--current-blue-dark);
+    color: var(--current-blue);
     font-family: var(--current-font);
     text-decoration: underline;
     cursor: pointer;
@@ -571,7 +571,7 @@ body::-webkit-scrollbar-corner {
     left: 0;
 }
 .settings-title-box {
-    background-color: var(--current-blue-dark);
+    background-color: var(--current-blue);
     width: 262px;
     height: 100px;
     position: relative;
@@ -611,7 +611,7 @@ body::-webkit-scrollbar-corner {
     max-width: 100%;
     word-wrap: break-word;
     hyphens: manual;
-    background-color: var(--current-blue-dark);
+    background-color: var(--current-blue);
     padding: 8px 16px;
     border-radius: 6px;
 }
@@ -655,15 +655,16 @@ body::-webkit-scrollbar-corner {
     transform: rotate(-45deg);
 }
 
-.Flashcard_Rechteck {
+.flashcard-rechteck {
     position: absolute;
     top: 30px;
     width: calc(100% - 10px);
     background-color: var(--current-gray-light);
-    border-bottom: 5px solid var(--color-font-gray);
-    border-left: 5px solid var(--color-font-gray);
-    border-right: 5px solid var(--color-font-gray);
-    border-radius: 3px;
+    border-bottom: 6px solid var(--current-gray);
+    border-left: 6px solid var(--current-gray);
+    border-right: 6px solid var(--current-gray);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     min-height: 130px;
@@ -690,7 +691,7 @@ body::-webkit-scrollbar-corner {
     white-space: pre-line;
     word-wrap: break-word;
     hyphens: auto;
-    color: rgb(53, 53, 53);
+    color: var(--current-gray-dark);
     margin-bottom: 16px;
 }
 .Flashcard_Content {
@@ -706,7 +707,7 @@ body::-webkit-scrollbar-corner {
     word-wrap: break-word;
     hyphens: auto;
     line-height: 140%;
-    color: rgb(53, 53, 53);
+    color: var(--current-gray-dark);
     margin-bottom: -5px;
 }
 .Flashcard_Content p {
@@ -719,7 +720,7 @@ body::-webkit-scrollbar-corner {
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
     background-color: var(--color-background);
-    border: 5px solid var(--current-blue-dark);
+    border: 5px solid var(--current-blue);
     padding: 14px 0 30px 18px;
     text-align: center;
     width: 90px;
@@ -729,21 +730,22 @@ body::-webkit-scrollbar-corner {
     left: 45%;
     top: 3vh;
 }
-.Flashcard_Settings_Bar {
+.Flashcard-settings-bar {
     position: absolute;
     width: calc(100% - 10px);
     height: 30px;
     background-color: var(--current-gray-light);
-    border-top: 5px solid var(--color-font-gray);
-    border-left: 5px solid var(--color-font-gray);
-    border-right: 5px solid var(--color-font-gray);
-    border-radius: 3px;
+    border-top: 6px solid var(--current-gray);
+    border-left: 6px solid var(--current-gray);
+    border-right: 6px solid var(--current-gray);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     cursor: pointer;
 }
 .Flashcard_Settings {
     position: absolute;
-    right: 2%;
-    top: 20%;
+    right: -1px;
+    top: -3px;
     height: 10px;
     width: 25px;
     background-color: var(--color-transparent);
@@ -754,41 +756,43 @@ body::-webkit-scrollbar-corner {
 /* Flashcard Position */
 .Flashcard_Pos_Body_Left {
     background-color: var(--color-transparent);
-    border: 2.5px solid var(--color-transparent);
+    border: 5px solid var(--color-transparent);
     position: absolute;
-    left: -2px;
-    top: 20%;
+    left: -9px;
+    top: -6px;
     padding: 6px 9px;
     cursor: pointer;
     transform: rotate(-90deg);
 }
 .Flashcard_Pos_Arrow_Left {
     border: solid var(--color-font-gray);
-    border-width: 0 3.5px 3.5px 0;
-    padding: 4.5px;
+    border-width: 5px 0 0 5px;
+    padding: 5px;
+    border-radius: 20%;
     position: absolute;
-    left: 15%;
-    top: 25%;
+    left: 0;
+    top: 0;
     cursor: pointer;
-    transform: rotate(-135deg);
+    transform: rotate(45deg);
 }
 .Flashcard_Pos_Body_Right {
     background-color: var(--color-transparent);
     border: 2.5px solid var(--color-transparent);
     position: absolute;
-    left: 18px;
-    top: 20%;
+    left: 7px;
+    top: -4px;
     padding: 6px 9px;
     cursor: pointer;
     transform: rotate(270deg);
 }
 .Flashcard_Pos_Arrow_Right {
     border: solid var(--color-font-gray);
-    border-width: 0 3.5px 3.5px 0;
-    padding: 4.5px;
+    border-width: 0 5px 5px 0;
+    padding: 5px;
+    border-radius: 20%;
     position: absolute;
-    left: 15%;
-    bottom: 25%;
+    left: 0;
+    top: 0;
     cursor: pointer;
     transform: rotate(45deg);
 }
@@ -806,7 +810,7 @@ body::-webkit-scrollbar-corner {
     max-width: calc(100% - 160px);
     background-color: var(--current-gray-light);
     box-shadow: 0 1px 4px var(--color-shadow);
-    border: 10px solid var(--color-font-gray);
+    border: 10px solid var(--current-gray);
     border-radius: 8px;
     z-index: 10;
     overflow-x: hidden;
@@ -814,7 +818,7 @@ body::-webkit-scrollbar-corner {
 }
 .Flashcard_Open_Title {
     font-family: var(--current-font);
-    color: rgb(53, 53, 53);
+    color: var(--current-gray-dark);
     text-align: center;
     font-weight: bold;
     font-size: 28px;
@@ -827,7 +831,7 @@ body::-webkit-scrollbar-corner {
 .Flashcard_Open_Content {
     position: relative;
     font-family: var(--current-font);
-    color: rgb(53, 53, 53);
+    color: var(--current-gray-dark);
     font-size: 20px;
     text-align: justify;
     width: 90%;
@@ -852,7 +856,7 @@ body::-webkit-scrollbar-corner {
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
     background-color: var(--color-background);
-    border: 5px solid var(--current-blue-dark);
+    border: 5px solid var(--current-blue);
     padding: 14px 0 30px 18px;
     text-align: center;
     width: 90px;
@@ -940,17 +944,6 @@ body::-webkit-scrollbar-corner {
     cursor: pointer;
 }
 
-/* New Flashcard Button*/
-
-.New_Flashcard_Plus_v {
-    position: absolute;
-    top: 15%;
-    left: calc(50% - 2.5px);
-    height: 70%;
-    border-left: 5px solid rgb(0, 1, 0);
-    border-radius: 15px;
-}
-
 /* New Flashcard Form */
 .Add_Flashcard_Form_Submit {
     position: relative;
@@ -961,7 +954,7 @@ body::-webkit-scrollbar-corner {
     margin-top: 15px;
     margin-bottom: 0px;
     width: calc(100% - 20px);
-    color: rgb(53, 53, 53);
+    color: var(--current-gray-dark);
     font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
@@ -971,30 +964,32 @@ body::-webkit-scrollbar-corner {
     font-size: 24px;
     font-family: var(--current-font);
     text-align: center;
-    color: rgb(53, 53, 53);
+    color: var(--current-gray-dark);
 }
 .Add_Flashcard_Form_Title {
     position: relative;
-    left: 10px;
-    width: calc(100% - 34px);
-    color: rgb(53, 53, 53);
-    text-align: center;
-    background-color: transparent;
+    left: 16px;
+    width: calc(100% - 48px);
+    margin: 0 auto;
+    color: var(--current-gray-dark);
+    background-color: var(--color-transparent);
     font-family: var(--current-font);
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
-    padding: 10px 5px;
+    padding: 0 5px;
     outline: none;
     resize: none;
-    border: 2px solid var(--current-gray);
-    border-radius: 3px;
+    border: none;
+}
+.Add_Flashcard_Form_Title::placeholder {
+    color: var(--current-gray);
 }
 .Add_Flashcard_Form_Content {
     position: absolute;
     left: 10px;
     width: calc(100% - 34px);
     height: calc(100% - 280px);
-    color: rgb(53, 53, 53);
+    color: var(--current-gray-dark);
     text-align: left;
     font-family: var(--current-font);
     font-size: 20px;
@@ -1002,7 +997,6 @@ body::-webkit-scrollbar-corner {
     margin-top: -10px;
     outline: none;
     resize: none;
-    border: 2px solid var(--current-gray);
     border-radius: 3px;
     overflow-y: auto;
     overflow-x: auto;
@@ -1209,7 +1203,7 @@ body::-webkit-scrollbar-corner {
     left: 40%;
 }
 .mail-input {
-    border: 5px solid var(--current-blue-light);
+    border: 5px solid var(--current-gray);
     width: 80%;
     color: var(--color-font);
     background-color: var(--color-background);
@@ -1234,7 +1228,7 @@ body::-webkit-scrollbar-corner {
     left: 37.5%;
 }
 .password-input {
-    border: 5px solid var(--current-blue-light);
+    border: 5px solid var(--current-gray);
     width: 80%;
     color: var(--color-font);
     background-color: var(--color-background);
@@ -1268,7 +1262,7 @@ body::-webkit-scrollbar-corner {
 }
 .forgot-password {
     position: relative;
-    color: var(--current-blue-dark);
+    color: var(--current-blue);
     font-family: var(--current-font);
     cursor: pointer;
     text-align: center;
@@ -1318,7 +1312,7 @@ body::-webkit-scrollbar-corner {
     transform: translate(-50%, -50%);
 }
 .accept_privacy [type="checkbox"] + label::before {
-    border: 3.5px solid var(--current-blue-light);
+    border: 3.5px solid var(--current-gray);
     border-radius: 3px;
     background-color: var(--color-background);
     display: block;
@@ -1332,7 +1326,7 @@ body::-webkit-scrollbar-corner {
 }
 .accept_privacy [type="checkbox"]:checked+label::before {
     box-shadow: inset 0px 0px 0px 3px var(--color-background);
-    background-color: var(--current-blue-light);
+    background-color: var(--current-gray);
 }
 
 .accept_privacy_red {
@@ -1464,7 +1458,7 @@ body::-webkit-scrollbar-corner {
     max-width: calc(100% - 160px);
     background-color: var(--color-background);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border: 5px solid var(--current-blue-dark);
+    border: 5px solid var(--current-blue);
     border-radius: 3px;
     z-index: 10;
     overflow-x: hidden;
@@ -1473,7 +1467,7 @@ body::-webkit-scrollbar-corner {
 */
 .rechteck-Start1 {
     background: transparent;
-    border: 5px solid var(--current-blue-dark);
+    border: 5px solid var(--current-blue);
     width: calc(94vh / 3 * 2);
     height: 94vh;
     margin: auto;
@@ -1555,7 +1549,7 @@ body::-webkit-scrollbar-corner {
 }
 .rechteck-Start3 {
     background: transparent;
-    border: 5px solid var(--current-blue-dark);
+    border: 5px solid var(--current-blue);
     width: calc(94vh / 3 * 2);
     height: 94vh;
     margin: auto;
@@ -1603,7 +1597,7 @@ body::-webkit-scrollbar-corner {
     position: absolute;
     bottom: 25%;
     right: 220px;
-    border: 3px solid var(--current-blue-light);
+    border: 3px solid var(--current-gray);
     cursor: pointer;
     font-size: 23px;
     color: var(--color-font);
@@ -1916,7 +1910,7 @@ body::-webkit-scrollbar-corner {
     height: 555px;
     width: 80%;
     border-radius: 7.5px;
-    border: 7.5px solid var(--current-blue-light);
+    border: 7.5px solid var(--current-gray);
     left: 10%;
     overflow-y: auto;
 }
@@ -1957,7 +1951,7 @@ body::-webkit-scrollbar-corner {
 }
 .Settings-profile-text {
     font-size: 20px;
-    color: var(--current-blue-light); 
+    color: var(--current-gray); 
     cursor: pointer;
     font-weight: bold;
     display: inline-block;
@@ -1977,7 +1971,7 @@ body::-webkit-scrollbar-corner {
     background-color: var(--color-background);
     text-align: center;
     font-family: var(--current-font);
-    color: var(--color-white);
+    color: var(--color-font);
     width: 520px;
     height: 480px;
     position: fixed;
@@ -1991,7 +1985,7 @@ body::-webkit-scrollbar-corner {
     overflow-y: auto;
 }
 .Settings-changemail-body {
-    border: 5px solid var(--current-blue-dark);
+    border: 5px solid var(--current-blue);
     box-shadow: 0 1px 4px var(--color-shadow);
     background-color: var(--color-background);
     text-align: center;
@@ -2009,12 +2003,12 @@ body::-webkit-scrollbar-corner {
     overflow-y: auto;
 }
 .Settings-changemail-cancel {
-    border: 5px solid rgba(112,112,112,1);
+    border: 5px solid var(--current-gray);;
     border-radius: 3px;
     padding: 5px;
     width: 130px;
     color: white;
-    background-color: rgba(112,112,112,1);
+    background-color: var(--current-gray);
     font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
@@ -2022,12 +2016,12 @@ body::-webkit-scrollbar-corner {
     margin-top: 1.5vw;
 }
 .Settings-changemail-change {
-    border: 5px solid var(--current-blue-dark);
+    border: 5px solid var(--current-blue);
     border-radius: 3px;
     padding: 5px;
     width: 130px;
     color: white;
-    background-color: var(--current-blue-dark);
+    background-color: var(--current-blue);
     font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
@@ -2186,7 +2180,7 @@ body::-webkit-scrollbar-corner {
     padding: 0 0 0 20px;
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
-    border: 5px solid var(--current-blue-dark);
+    border: 5px solid var(--current-blue);
     text-align: center;
     z-index: 10;
     position: absolute;

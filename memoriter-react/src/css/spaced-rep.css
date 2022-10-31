@@ -1,8 +1,8 @@
 .rechteck {
-    border-top: 10px solid var(--current-blue-dark);
-    border-right: 12px solid var(--current-blue-dark);
-    border-left: 12px solid var(--current-blue-dark);
-    border-bottom: 10px solid var(--current-blue-dark);
+    border-top: 10px solid var(--current-blue);
+    border-right: 12px solid var(--current-blue);
+    border-left: 12px solid var(--current-blue);
+    border-bottom: 10px solid var(--current-blue);
     width: 90%;
     height: calc(100% - 200px);
     position: absolute;

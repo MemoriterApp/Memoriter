@@ -57,7 +57,7 @@
     left: 0%;
     padding: 15px 15px;
     background-color: var(--color-background);
-    border: 5px solid var(--current-blue-folder);
+    border: 5px solid var(--current-blue);
     border-radius: 3px;
     cursor: pointer;
 }
@@ -116,7 +116,7 @@
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
     background-color: var(--color-background);
-    border: 5px solid var(--current-blue-dark);
+    border: 5px solid var(--current-blue);
     padding: 1rem;
     text-align: center;
     width: 3.4rem;
@@ -128,7 +128,7 @@
     white-space: nowrap;
 }
 .folder-settings-sub {
-    color: var(--current-blue-light);
+    color: var(--current-gray);
     font-family: var(--current-font);
     position: relative;
     cursor: pointer;
@@ -164,7 +164,7 @@
     font-size: 20px;
 }
 .add-folder-form-input {
-    border: 5px solid var(--current-blue-light);
+    border: 5px solid var(--current-gray);
     width: 80%;
     color: var(--color-font);
     background-color: var(--color-background);
@@ -175,7 +175,7 @@
     border-radius: 3px;
 }
 .add-folder-form-submit {
-    border: 5px solid var(--current-blue-light);
+    border: 5px solid var(--current-gray);
     padding: 5px;
     color: var(--color-font);
     background-color: var(--color-background);

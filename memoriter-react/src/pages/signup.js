@@ -19,11 +19,11 @@ function SignUpPage() {
 
     const [invalidEmail, setInvalidEmail] = useState(false);
     const [emailInUse, setEmailInUse] = useState(false);
-    const [redBorderEmail, setRedBorderEmail] = useState('5px solid var(--current-blue-light)');
+    const [redBorderEmail, setRedBorderEmail] = useState('5px solid var(--current-gray)');
     const [shortPassword, setShortPassword] = useState(false);
-    const [redBorderPassword, setRedBorderPassword] = useState('5px solid var(--current-blue-light)');
+    const [redBorderPassword, setRedBorderPassword] = useState('5px solid var(--current-gray)');
     const [samePassword, setSamePassword] = useState(false);
-    const [redBorderConfirm, setRedBorderConfirm] = useState('5px solid var(--current-blue-light)');
+    const [redBorderConfirm, setRedBorderConfirm] = useState('5px solid var(--current-gray)');
     const [isAccepted, setIsAccepted] = useState(false);
     const [borderBlueCheckbox, setBorderBlueCheckbox] = useState(true);
     const [borderRedCheckbox, setBorderRedCheckbox] = useState(false);
@@ -109,7 +109,7 @@ function SignUpPage() {
                                             setEmail(e.target.value);
                                             setInvalidEmail(false);
                                             setEmailInUse(false);
-                                            setRedBorderEmail('5px solid var(--current-blue-light)');
+                                            setRedBorderEmail('5px solid var(--current-gray)');
                                         }} />
                                 {invalidEmail && <p className="passwords-no-match">Invalid Email!</p>}
                                 {emailInUse && <p className="passwords-no-match">Email already in use!</p>}
@@ -123,8 +123,8 @@ function SignUpPage() {
                                     onChange={(e) => {
                                         setPassword(e.target.value);
                                         setShortPassword(false); setSamePassword(false);
-                                        setRedBorderPassword('5px solid var(--current-blue-light)');
-                                        setRedBorderConfirm('5px solid var(--current-blue-light)');
+                                        setRedBorderPassword('5px solid var(--current-gray)');
+                                        setRedBorderConfirm('5px solid var(--current-gray)');
                                     }} />
                                 {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                 {shortPassword && <p className="passwords-no-match">Password should be at least 6 characters long!</p>}
@@ -138,8 +138,8 @@ function SignUpPage() {
                                     onChange={(e) => {
                                         setPasswordAgain(e.target.value);
                                         setShortPassword(false); setSamePassword(false);
-                                        setRedBorderPassword('5px solid var(--current-blue-light)');
-                                        setRedBorderConfirm('5px solid var(--current-blue-light)');
+                                        setRedBorderPassword('5px solid var(--current-gray)');
+                                        setRedBorderConfirm('5px solid var(--current-gray)');
                                     }} />
                                 {samePassword && <p className="passwords-no-match">Passwords do not match!</p>}
                                 <p style={{ fontSize: '55px' }} />

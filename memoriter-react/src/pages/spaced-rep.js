@@ -81,7 +81,7 @@ function SpacedRepMode() {
     const [filtered, setFiltered] = useState(false);
     if (flashcards.length > 0 && !filtered) {
         setFlashcards([...flashcards
-            .filter((flashcard) => new Date(flashcard.nextDate) <= new Date() || !flashcard.nextDate)
+            .filter((flashcard) => (flashcard.nextDate && flashcard.nextDate.toDate() <= new Date()) || !flashcard.nextDate)
         ])
         setFiltered(true);
     };

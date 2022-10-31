@@ -17,7 +17,7 @@
     display: block;
     height: 56px;
     width: 150px;
-    background-color: var(--current-blue-dark);
+    background-color: var(--current-blue);
     border-style: none;
     border-radius: 4px;
     color: var(--color-white);
@@ -53,7 +53,7 @@
 .preview-type-heading {
     position: relative;
     top: 10px;
-    color: var(--color-white);
+    color: var(--color-font);
     font-size: 28px;
     margin-bottom: 40px;
     font-family: var(--current-font);

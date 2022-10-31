@@ -206,7 +206,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
 
     return (
         <div className='flashcard-body' style={{height: `calc(${flashcardHeight}px + 35px)`}}> {/*height is set by the useEffect based on the inner rectangle height*/}
-            <div className='Flashcard_Settings_Bar'>
+            <div className='Flashcard-settings-bar'>
                 <div className='Flashcard_Settings' onClick={settingsHandler}>
                     <span className='dot'/>
                     <span className='dot'/>
@@ -223,7 +223,7 @@ const Flashcard = ({ flashcard, onPosLeft, onPosRight, flashcardCount, onDeleteF
                     <div className='Flashcard_Pos_Arrow_Right' />
                 </div>
             </div>
-            <div className={`Flashcard_Rechteck ${maxHeightGradient}`} onClick={openFlashcard} ref={refHeight}>
+            <div className={`flashcard-rechteck ${maxHeightGradient}`} onClick={openFlashcard} ref={refHeight}>
                 <h3 className='Flashcard_Title' ref={refTitleHeight}>{flashcard.title}</h3>
                 <div className='Flashcard_Content' style={{textAlign: flashcard.textAlign}} ref={refContentHeight}
                     dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}
