@@ -10,7 +10,7 @@
     left: calc(5% - 12px);
     border-radius: 30px;
     max-height: calc(100% - 120px);
-    min-height: 180px;
+    min-height: 180px ;
 }
 
 :root{
