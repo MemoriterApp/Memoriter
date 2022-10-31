@@ -176,24 +176,26 @@ function SpacedRepMode() {
 
                 {tutorialSpacedRepetition && 
                     <div className='study-spaced-repetition-tutorial'>
+                        
                         <div className='tutorial-sub'>
-                            <p>man</p> 
+                            <p>Tutorial on Spaced Repetition mode</p> 
+                            <p style={{fontSize:'20px'}}>To start click on a colored button below</p>
                         </div>
-                        <button className='tutorial-spaced-repetition-buttons'
-                                style={{ left: '-5%', background:'#0d8f52'}}> </button>
-                        
-                        <button className='tutorial-spaced-repetition-buttons'
-                                style={{ left: '17.5%', background:'#0d8f18'}}> </button>
-                        
-                        <button className='tutorial-spaced-repetition-buttons'
-                                style={{ left: '40%', background:'#778f0d'}}> </button>
-                        
 
                         <button className='tutorial-spaced-repetition-buttons'
-                                style={{ left: '62.5%', background:'#8f520d'}}> </button>
+                                style={{ left: '-5%', background:'#0d8f52'}}>Ez </button>
+                        
+                        <button className='tutorial-spaced-repetition-buttons'
+                                style={{ left: '17.5%', background:'#0d8f18'}}>✔</button>
+                        
+                        <button className='tutorial-spaced-repetition-buttons'
+                                style={{ left: '40%', background:'#778f0d'}}>ok </button>
+                        
+                        <button className='tutorial-spaced-repetition-buttons'
+                                style={{ left: '62.5%', background:'#8f520d'}}>meh </button>
 
                         <button className='tutorial-spaced-repetition-buttons'
-                                style={{ left: '85%', background:'#8f0d0d'}}> </button>
+                                style={{ left: '85%', background:'#8f0d0d'}}>✖</button>
 
                     </div>
                 }

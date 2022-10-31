@@ -1,4 +1,4 @@
-.rechteck {
+.rechteck{
     border-top: 10px solid var(--current-blue);
     border-right: 12px solid var(--current-blue);
     border-left: 12px solid var(--current-blue);
@@ -13,7 +13,7 @@
     min-height: 180px;
 }
 
-:root {
+:root{
     --testing:1.7;
     --current-font: 'M PLUS 1', sans-serif;
     --color-font-gray: #c8c8c8;
@@ -22,14 +22,14 @@
   }
   /* Variables used for testing different sizes with constant aspect ratios */
 
-.flex-container {
+.flex-container{
 position: relative;
 display: flex;
 justify-content: center;
 margin: 120px;
 }
   
-.spaced-rep-button {
+.spaced-rep-button{
     position: absolute;
     left: 50%;
     top: 100%;
@@ -44,7 +44,7 @@ margin: 120px;
     cursor: pointer;
 }
 
-.tutorial-button{
+.tutorial-button {
     position: absolute;
     right:2%;
     top:10%;
@@ -59,22 +59,22 @@ margin: 120px;
     cursor: pointer;
 }
 /* .study-spaced-repetition-tutorial{
-    position: absolute;
-    right:50%;
-    top:10%;
-    color: #C0362c;
-    background: var(--current-gray-light);
-    font-size: 40px;
-    font-family: var(--current-font);
-    height: calc((100vh - 218px) + 18px);
-    width: calc(24vw + 20px );
-    border: 8px solid var(--color-font-gray);
-    border-radius: 8px;
-    cursor: pointer;
+    position:  absolute; 
+    right: 50%;
+    top: 10%;
+    color:  #C0362c;
+    background:  var(--current-gray-light);
+    font-size:  40px;
+    font-family:  var(--current-font);
+    height:  calc((100vh - 218px) + 18px);
+    width:  calc(24vw + 20px );
+    border:  8px solid var(--color-font-gray);
+    border-radius:  8px;
+    cursor:                                   pointer;
 }
 */
 
-.study-spaced-repetition-tutorial {
+.study-spaced-repetition-tutorial{
     padding: 0 0 0 20px;
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
@@ -89,17 +89,16 @@ margin: 120px;
     background-color: var(--current-gray-light);
 }
 
-.tutorial-sub {
+.tutorial-sub{
     color: #000000;
     font-family: var(--current-font);
-    font-size: 30px;
+    font-size: 28px;
     position:relative;
     cursor: pointer;
-    margin: 2px;
-    width: 100%;
-    top: 10%;
+    width: 105%;
+    left:-7%;
+    top: 1%;
     font-weight: bold;
-    left: -45%;
 }
 
 .tutorial-spaced-repetition-buttons{
@@ -111,13 +110,14 @@ margin: 120px;
     border-radius: 0.5vw;
     height: calc(3vh);
     width: calc(3vw);
-    font-size: calc(1.2vw);
+    font-size: 0.8vw;
     background-color: #cdd0da;
     border:0;
     cursor: pointer;
+    z-index: -1;
 }
 
-.color-picker {
+.color-picker{
     background:#8f0d0d;
     color:#C0362c;
 }
