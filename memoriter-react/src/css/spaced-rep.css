@@ -79,8 +79,8 @@ margin: 120px;
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
     border: 8px solid var(--color-font-gray);
-    height: calc((65vh - 218px) + 18px);
-    width: calc(12vw + 20px );
+    height: calc((69vh - 218px) + 18px);
+    width: calc(14vw + 20px );
     text-align: center;
     z-index: 10;
     position: absolute;
@@ -92,7 +92,7 @@ margin: 120px;
 .tutorial-sub{
     color: #000000;
     font-family: var(--current-font);
-    font-size: 28px;
+    font-size: 20px;
     position:relative;
     cursor: pointer;
     width: 105%;
@@ -109,12 +109,21 @@ margin: 120px;
     transform: translate(0%, -50%);
     border-radius: 0.5vw;
     height: calc(3vh);
-    width: calc(3vw);
+    width: 3.4vw;
     font-size: 0.8vw;
-    background-color: #cdd0da;
     border:0;
     cursor: pointer;
     z-index: -1;
+}
+
+.tutorial-spaced-repetition-buttons:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.8);
+}
+
+.tutorial-spaced-repetition-buttons:focus {
+    background-color: rgb(192, 11, 11);
+    box-shadow: 0 5px 15px rgba(175, 175, 175, 0.8);
 }
 
 .color-picker{
