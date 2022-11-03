@@ -57,7 +57,7 @@ function App() {
               
               <Route path='/' element={<HomePage/>}/>
 
-              <Route path='/topic/:syncedFolderID' element={<TopicPage/>}/>
+              <Route path='/topic' element={<TopicPage/>}/>
 
               <Route path='/study' element={<StudyPage/>}/>
             </>) : (<>

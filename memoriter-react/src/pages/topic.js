@@ -1,4 +1,5 @@
 import React from 'react';
+import { getDoc } from 'firebase/firestore/lite';
 import { useState, useEffect, } from 'react';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import BackButton from '../components/BackButton';
@@ -17,8 +18,12 @@ const { db } = firebase;
 
 function TopicPage() {
 
-  let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets title of the folder from local storage
-  let syncedFolderID = localStorage.getItem('syncedFolderID'); //gets Id from local storage
+  //let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets title of the folder from local storage
+  let syncedFolderID = window.location.hash; //gets Id from local storage
+  console.log(window.location.hash);
+  syncedFolderID = syncedFolderID.replace('#', ''); //removes # from the id
+
+  
 
   const navigate = useNavigate();
 
@@ -55,12 +60,26 @@ function TopicPage() {
   //Flashcard Data
   const [flashcards, setFlashcards] = useState([]);
 
+
+
+  const [syncedFolderTitle, setSyncedFolderTitle] = useState('hello world');
+  console.log(syncedFolderTitle);
+  const folder = doc(db, 'folders', syncedFolderID);
+
   //Use Effect for notes
   useEffect(() => {
     const getFlashcards = async () => {
       const allFlashcards = await getDocs(flashcardCollectionRef);
       setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      
     };
+    
+    const getFolder = async () => {
+      const folderDoc = await getDoc(folder);
+      setSyncedFolderTitle(folderDoc.data().title);
+    };
+    getFolder();
+
     getFlashcards();
     sessionStorage.setItem('flashcard-content', '');
     localStorage.setItem('lastPage', '/topic:syncedFolderID');
