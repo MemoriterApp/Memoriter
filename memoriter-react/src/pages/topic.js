@@ -61,7 +61,7 @@ function TopicPage() {
 
 
   const [syncedFolderTitle, setSyncedFolderTitle] = useState('hello world');
-  console.log(syncedFolderTitle);
+  
   const folder = doc(db, 'folders', syncedFolderID);
 
   //Use Effect for notes
@@ -81,7 +81,7 @@ function TopicPage() {
     getFlashcards();
     sessionStorage.setItem('flashcard-content', '');
     localStorage.setItem('lastPage', '/topic:syncedFolderID');
-    console.log('flashcards loaded');
+    
   }, []);
 
  
