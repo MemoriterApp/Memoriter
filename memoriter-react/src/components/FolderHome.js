@@ -71,7 +71,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
   
   return (
     <div className='Folder_Body'>
-      <Link to={'/topic#'+syncedFolderID} onClick={onOpenFolder}>
+      <Link to={'/topic#'+syncedFolderID} onClick={onOpenFolder}> {/*creates the syncedFolderID as the URL */}
         <button className='Button_Homepage'/>
         {folder.title !== '' ? (
           <button className='Button_Homepage_Text'>{folder.title}</button>

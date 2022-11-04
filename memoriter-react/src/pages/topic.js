@@ -18,9 +18,7 @@ const { db } = firebase;
 
 function TopicPage() {
 
-  //let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets title of the folder from local storage
-  let syncedFolderID = window.location.hash; //gets Id from local storage
-  console.log(window.location.hash);
+  let syncedFolderID = window.location.hash; //gets the folderID from the URL
   syncedFolderID = syncedFolderID.replace('#', ''); //removes # from the id
 
   
