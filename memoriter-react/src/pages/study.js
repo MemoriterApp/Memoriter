@@ -154,7 +154,7 @@ const StudyPage = () => {
           </Link>
           <p className='study-remaining'>Remaining: {flashcards.length}</p>
         </header>
-        <Link to={'/topic/'+syncedFolderID}>
+        <Link to={'/topic#'+syncedFolderID}>
           <div className='Zurückbutton_Body' style={{ top: '90px', left: '8px', zIndex: '10' }}>
             <div className='Zurückbutton_Arrow' />
           </div>
