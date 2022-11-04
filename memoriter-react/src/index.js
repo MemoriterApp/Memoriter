@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 //css file imports go all here
 import './index.css';
 

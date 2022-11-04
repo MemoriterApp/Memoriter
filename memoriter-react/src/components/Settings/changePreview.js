@@ -42,7 +42,7 @@ function ChangePreview() {
               <div className='big-dot'/>
               <div className='big-dot'/>
             </div>
-             {/*eslint-disable-next-line react/no-unescaped-entities*/}
+            {/*eslint-disable-next-line react/no-unescaped-entities*/}
             <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What's the best type of pasta?</h2>
             <p style={{ marginTop: '30px', textAlign: 'center' }}>The ones shaped like wheels!</p>
             <button className='preview-type-button' onClick={() => bothVisableEffect()}
@@ -56,7 +56,7 @@ function ChangePreview() {
               <div className='big-dot'/>
               <div className='big-dot'/>
             </div>
-            <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What's the best type of pasta?</h2>
+            <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What&apos;s the best type of pasta?</h2>
             {isMouseInside ? <p style={{ marginTop: '30px', textAlign: 'center' }}>The ones shaped like wheels!</p> : <p style={{ marginTop: '30px', textAlign: 'center', opacity: '0' }}>The ones shaped like wheels!</p>}
             <button className='preview-type-button' onClick={() => onlyQuestionEffect()}
               onMouseEnter={() => setIsMouseInside(false)}>QUESTION VISIBLE</button>

@@ -33,7 +33,7 @@ function Start() {
             </p>
             <p>
                             This new design is based on flashcards and features similar to other
-                            note taking apps. So, try Memoriter and you won't be dissapointed.
+                            note taking apps. So, try Memoriter and you won&apos;t be dissapointed.
             </p>
             <p>
                             If you want to learn something about us, the developers, head to our <a href='/About' className='About_Us-Start'>About Us</a> page.
