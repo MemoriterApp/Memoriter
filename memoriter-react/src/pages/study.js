@@ -79,34 +79,8 @@ const StudyPage = () => {
     //Change text align
     const changeTextAlign = async (id, textAlign) => {
         const flashcardDoc = doc(db, 'flashcards', id);
-
-        //based on the current text align, the text align will changed to a different value
-        if (textAlign === 'left') {
-            const newAll = { textAlign: 'right', textAlignSymbol: '> >', textAlignColor: 'rgb(228, 48, 48)' };
-            await updateDoc(flashcardDoc, newAll);
-            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-                ? { ...flashcard, textAlign: 'right', textAlignSymbol: '> >', textAlignColor: 'rgb(228, 48, 48)' } : flashcard))
-        } else if (textAlign === 'right') {
-            const newAll = { textAlign: 'center', textAlignSymbol: '> <', textAlignColor: 'rgb(228, 198, 48)' };
-            await updateDoc(flashcardDoc, newAll);
-            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-                ? { ...flashcard, textAlign: 'center', textAlignSymbol: '> <', textAlignColor: 'rgb(228, 198, 48)' } : flashcard))
-        } else if (textAlign === 'center') {
-            const newAll = { textAlign: 'jusify', textAlignSymbol: '< >', textAlignColor: 'rgb(48, 158, 228)' };
-            await updateDoc(flashcardDoc, newAll);
-            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-                ? { ...flashcard, textAlign: 'justify', textAlignSymbol: '< >', textAlignColor: 'rgb(48, 158, 228)' } : flashcard))
-        } else if (textAlign === 'justify') {
-            const newAll = { textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' };
-            await updateDoc(flashcardDoc, newAll);
-            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-                ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
-        } else {
-            const newAll = { textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' };
-            await updateDoc(flashcardDoc, newAll);
-            setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-                ? { ...flashcard, textAlign: 'left', textAlignSymbol: '< <', textAlignColor: 'rgb(48, 118, 48)' } : flashcard))
-        }
+        await updateDoc(flashcardDoc, {textAlign: textAlign});
+        setFlashcards(flashcards.map((flashcard) => flashcard.id === id ? { ...flashcard, textAlign: textAlign } : flashcard));
     };
 
     //Edit Flashcard

@@ -1,6 +1,11 @@
 import Confirm from './confirm'
 import Backdrop from './backdrop';
-import Backdropfs from './backdrop-transparent';
+import edit from '../images/edit.svg';
+import deleteIcon from '../images/delete.svg';
+import alignLeft from '../images/text-align-left.svg';
+import alignRight from '../images/text-align-right.svg';
+import alignCenter from '../images/text-align-center.svg';
+import alignJustify from '../images/text-align-justify.svg';
 import { useState } from 'react';
 import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 import { convertFromHTML, convertToHTML } from 'draft-convert';
@@ -135,18 +140,62 @@ const FlashcardStudy = ({ flashcard, onIncorrect, onCorrect, onEditFlashcard, on
                 </div>}
 
                 {settingsOverlay && 
-                <div className='study-flashcard-settings-overlay'>
-                    <div className='folder-settings-sub'>
-                        <p onClick={() => onChangeTextAlign(flashcard.id, flashcard.textAlign)}>Text Align:<br/>
-                            {<span style={{color: flashcard.textAlignColor}}>{flashcard.textAlignSymbol}</span>} {flashcard.textAlign}</p>
-                        <p onClick={editFlashcardReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
-                        <p style={{color: 'rgb(228, 48, 48)'}}
-                            onClick={deleteFlashcardReq}
-                        >✕ Delete</p>
-                    </div>
-                </div>}
+                <div className='flashcard-settings-overlay' style={{transform: 'translate(-24px, 16px)'}}>
+                <div className='folder-settings-sub'>
+                  <p>
+                    {flashcard.textAlign === 'left' || (
+                      <img
+                        className='flashcard-settings-overlay-text-align'
+                        src={alignLeft}
+                        alt=''
+                        onClick={() => onChangeTextAlign(flashcard.id, 'left')}
+                      />
+                    )}
+                    {flashcard.textAlign === 'right' || (
+                      <img
+                        className='flashcard-settings-overlay-text-align'
+                        src={alignRight}
+                        alt=''
+                        onClick={() => onChangeTextAlign(flashcard.id, 'right')}
+                      />
+                    )}
+                    {flashcard.textAlign === 'center' || (
+                      <img
+                        className='flashcard-settings-overlay-text-align'
+                        src={alignCenter}
+                        alt=''
+                        onClick={() => onChangeTextAlign(flashcard.id, 'center')}
+                      />
+                    )}
+                    {flashcard.textAlign === 'justify' || (
+                      <img
+                        className='flashcard-settings-overlay-text-align'
+                        src={alignJustify}
+                        alt=''
+                        onClick={() => onChangeTextAlign(flashcard.id, 'justify')}
+                      />
+                    )}
+                  </p>
+                  <p onClick={editFlashcardReq}>
+                    <img
+                      style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+                      src={edit}
+                      alt=''
+                    />
+                    Edit
+                  </p>
+                  <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)' }}>
+                    <img
+                      style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+                      src={deleteIcon}
+                      alt=''
+                    />
+                    Delete
+                  </p>
+                </div>
+              </div>}
                 <div onClick={() => setSettingsOverlay(false)}>
-                    {settingsOverlay && <Backdropfs/>}
+                    {settingsOverlay && <Backdrop/>}
                 </div>
 
 

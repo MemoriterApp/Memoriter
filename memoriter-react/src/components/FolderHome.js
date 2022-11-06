@@ -1,4 +1,6 @@
 import '../css/folderHome.css';
+import edit from '../images/edit.svg';
+import deleteIcon from '../images/delete.svg';
 import Confirm from './confirm';
 import Backdrop from './backdrop';
 import BackdropTransparent from './backdrop-transparent';
@@ -104,8 +106,22 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
             <div>
                 {modalIsOpen && <div className='folder-settings-overlay'>
                     <div className='folder-settings-sub'>
-                        <p onClick={editFolderReq}><span style={{color: 'rgb(48, 158, 228)'}}>🖋</span> Edit</p>
-                        <p onClick={deleteFolderReq} style={{color: 'rgb(228, 48, 48)'}}>✕ Delete</p>
+                        <p onClick={editFolderReq}>
+                            <img
+                                style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+                                src={edit}
+                                alt=''
+                            />
+                            Edit
+                        </p>
+                        <p onClick={deleteFolderReq} style={{color: 'rgb(228, 48, 48)'}}>
+                            <img
+                                style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+                                src={deleteIcon}
+                                alt=''
+                            />
+                            Delete
+                        </p>
                     </div>
                 </div>}
             </div>
@@ -139,11 +155,8 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                 {modalIsOpenD && <Backdrop/>}
             </div>
 
-            <div>
-                {modalIsOpen && <BackdropTransparent/>}
-            </div>
             <div  onClick={backdropClick}>
-                {modalIsOpen && <BackdropTransparent/>}
+                {modalIsOpen && <Backdrop />}
             </div>
 
 

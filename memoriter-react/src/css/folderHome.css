@@ -113,30 +113,29 @@
     transform: rotate(45deg);
 }
 .folder-settings-overlay {
-    box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
     background-color: var(--color-background);
-    border: 5px solid var(--current-blue);
-    padding: 1rem;
+    padding: 0 0 0 20px;
     text-align: center;
-    width: 3.4rem;
-    height: 4rem;
     z-index: 10;
     position: absolute;
-    right: 15px;
-    top: 20px;
-    white-space: nowrap;
+    right: 0;
+    top: 0;
 }
 .folder-settings-sub {
-    color: var(--current-gray);
+    color: var(--current-gray-dark);
     font-family: var(--current-font);
     position: relative;
-    cursor: pointer;
     margin: 2px;
     width: 100%;
     top: -20%;
     font-weight: bold;
     left: -12%;
+    font-size: medium;
+}
+.folder-settings-sub p {
+    width: fit-content;
+    cursor: pointer;
 }
 .add-folder-form-body {
     box-shadow: 0 1px 4px var(--color-shadow);
