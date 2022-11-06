@@ -132,9 +132,9 @@ const FlashcardSpacedRep = ({ flashcard, onAnswer, onEditFlashcard, onDeleteFlas
                     <div className='big-dot'/>
                 </div>
 
-                <h2 style={{textAlign: 'center'}}>{flashcard.title}</h2>
+                <h2 style={{textAlign: 'center',cursor:'auto'}}>{flashcard.title}</h2>
             
-                {showAnswer && <div>
+                {showAnswer && <div style={{cursor:'auto'}}>
                     <article style={{marginTop: '30px', textAlign: flashcard.textAlign}}
                         dangerouslySetInnerHTML={{__html: flashcard.content}} /> {/*dangerouslySetInnerHTML parses the formatted html text*/}
                 </div>}
@@ -204,7 +204,6 @@ const FlashcardSpacedRep = ({ flashcard, onAnswer, onEditFlashcard, onDeleteFlas
 
             {showAnswer && <div>
                 <div className='flex-container'>
-                    {/*Colors will be reworked in the very near future */}
                     <button className='spaced-rep-button'
                         style={{ left: '25%', background:'#0d8f52'}}
                         onClick={() => {setShowAnswer(false); onAnswer(flashcard, 4, flashcard.streak, flashcard.easiness, flashcard.interval); }}>
