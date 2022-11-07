@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Remarkable } from 'remarkable';
 import edit from '../../images/edit.svg';
 import deleteIcon from '../../images/delete.svg';
 import alignLeft from '../../images/text-align-left.svg';
@@ -9,8 +10,6 @@ import Confirm from '../confirm';
 import Backdrop from '../backdrop';
 import BackdropOpenFlashcard from '../backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from '../backdropfsOpenFlashcard';
-import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
-import { convertFromHTML, convertToHTML } from 'draft-convert';
 
 const Flashcard = ({
   flashcard,
@@ -33,6 +32,8 @@ const Flashcard = ({
 
   const refContentHeight = useRef(null);
   const refTitleHeight = useRef(null);
+
+  const markdown = new Remarkable();
 
   useEffect(() => {
     //sets the height of the flashcard on component render
@@ -120,11 +121,7 @@ const Flashcard = ({
 
   const [title, setTitle] = useState(flashcard.title);
 
-  const [editorState, setEditorState] = useState(
-    EditorState.createWithContent(convertFromHTML(flashcard.content))
-  );
-
-  const content = sessionStorage.getItem('flashcard-content');
+  const [content, setContent] = useState(flashcard.content);
 
   const [pos, setPos] = useState(flashcard.pos);
 
@@ -141,95 +138,6 @@ const Flashcard = ({
   } else if (newPosIdDelete === flashcard.id) {
     onPosAdjust(flashcard.id, flashcard.pos);
     sessionStorage.removeItem('newPosFlashcard' + flashcard.id);
-  }
-
-  //Editor Functions
-  function handleKeyCommand(command) {
-    const newState = RichUtils.handleKeyCommand(editorState, command);
-    if (newState) {
-      this.onChange(newState);
-      return 'handled';
-    }
-    return 'not-handled';
-  }
-
-  const StyleButton = (props) => {
-    let onClickButton = (e) => {
-      e.preventDefault();
-      props.onToggle(props.style);
-    };
-    let className = 'text-editor-button';
-    if (props.active) {
-      className += ' text-editor-button-active';
-    }
-    return (
-      <div
-        onMouseDown={onClickButton}
-        className={className}
-        style={{ fontWeight: props.label, fontStyle: props.label, textDecoration: props.label }}
-      >
-        {props.label}
-      </div>
-    );
-  };
-
-  const INLINE_STYLES = [
-    { label: 'Bold', style: 'BOLD', highlight: 'red' },
-    { label: 'Italic', style: 'ITALIC' },
-    { label: 'Underline', style: 'UNDERLINE' },
-  ];
-
-  const InlineStyleControls = (props) => {
-    const currentStyle = editorState.getCurrentInlineStyle();
-    return (
-      <div>
-        {INLINE_STYLES.map((type) => (
-          <StyleButton
-            key={type.label}
-            label={type.label}
-            onToggle={props.onToggle}
-            style={type.style}
-            active={currentStyle.has(type.style)}
-          />
-        ))}
-      </div>
-    );
-  };
-
-  const BLOCK_TYPES = [
-    { label: 'Bulleted List', style: 'unordered-list-item' },
-    { label: 'Numbered List', style: 'ordered-list-item' },
-  ];
-
-  const BlockStyleControls = (props) => {
-    const selection = editorState.getSelection();
-    const blockType = editorState
-      .getCurrentContent()
-      .getBlockForKey(selection.getStartKey())
-      .getType();
-    return (
-      <div>
-        {BLOCK_TYPES.map((type) => (
-          <StyleButton
-            key={type.label}
-            label={type.label}
-            onToggle={props.onToggle}
-            style={type.style}
-            active={type.style === blockType}
-          />
-        ))}
-      </div>
-    );
-  };
-
-  const onInlineClick = (e) => {
-    let newState = RichUtils.toggleInlineStyle(editorState, e);
-    setEditorState(newState);
-  };
-
-  const onBlockClick = (e) => {
-    let newState = RichUtils.toggleBlockType(editorState, e);
-    setEditorState(newState);
   };
 
   return (
@@ -277,7 +185,7 @@ const Flashcard = ({
           className='Flashcard_Content'
           style={{ textAlign: flashcard.textAlign }}
           ref={refContentHeight}
-          dangerouslySetInnerHTML={{ __html: flashcard.content }}
+          dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().trimEnd() }}
         />
         {/*dangerouslySetInnerHTML parses the formatted html text*/}
       </div>
@@ -303,7 +211,7 @@ const Flashcard = ({
               <div
                 className='Flashcard_Open_Content'
                 style={{ textAlign: flashcard.textAlign }}
-                dangerouslySetInnerHTML={{ __html: flashcard.content }}
+                dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd() }}
               />
               {/*dangerouslySetInnerHTML parses the formatted html text*/}
             </div>
@@ -451,34 +359,12 @@ const Flashcard = ({
               />
               <p style={{ fontSize: '20px' }} />
 
-              <div className='Add_Flashcard_Form_Content'>
-                <BlockStyleControls onToggle={onBlockClick} />
-                <InlineStyleControls onToggle={onInlineClick} />
-                <div
-                  style={{
-                    width: '100%',
-                    borderTop: '2px solid rgba(112, 112 ,112 ,1)',
-                    margin: '10px 0 10px 0',
-                  }}
-                />
-                <Editor
-                  placeholder='Flashcard Content...'
-                  editorState={editorState}
-                  onChange={(editorState) => {
-                    const contentState = editorState.getCurrentContent();
-                    const saveContent = (contentState) => {
-                      sessionStorage.setItem(
-                        'flashcard-content-obj',
-                        JSON.stringify(convertToRaw(contentState))
-                      );
-                      sessionStorage.setItem('flashcard-content', convertToHTML(contentState));
-                    };
-                    saveContent(contentState);
-                    setEditorState(editorState);
-                  }}
-                  handleKeyCommand={handleKeyCommand}
-                />
-              </div>
+              <textarea
+                className='flashcard-form-content'
+                placeholder='Flashcard Content...'
+                value={content}
+                onChange={(changeContent) => setContent(changeContent.target.value)}
+              />
             </div>
             <input
               className='Add_Flashcard_Form_Submit'

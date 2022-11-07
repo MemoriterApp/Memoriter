@@ -4,7 +4,7 @@ import memoriterLogo from '../images/memoriter-logo.svg';
 import BackButton from '../components/BackButton';
 import SettingsIcon from '../components/Settings/SettingsIcon';
 import Footer from '../components/Footer';
-import AddFlashcardForm from '../components/AddFlashcardForm';
+import FlashcardForm from '../components/flashcard-form';
 import Backdrop from '../components/backdrop';
 import { Link} from 'react-router-dom';
 import Masonry from 'react-masonry-css';
@@ -261,7 +261,7 @@ function TopicPage() {
                         </Masonry>
 
                         <div>
-                            {modalIsOpenA && <AddFlashcardForm onAddFlashcard={addFlashcard} syncedFolderID={syncedFolderID} />}
+                            {modalIsOpenA && <FlashcardForm onAddFlashcard={addFlashcard} syncedFolderID={syncedFolderID} />}
                         </div>
                         <div onClick={backdropClick}>
                             {modalIsOpenA && <Backdrop />}

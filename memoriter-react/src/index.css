@@ -719,6 +719,9 @@ body::-webkit-scrollbar-corner {
   margin-top: 0;
   margin-bottom: 0;
 }
+.Flashcard_Content p img {
+  max-width: 100%;
+}
 
 /* Flashcard Settings */
 .flashcard-settings-overlay {
@@ -846,6 +849,11 @@ body::-webkit-scrollbar-corner {
   word-wrap: break-word;
   hyphens: auto;
   line-height: 125%;
+}
+.Flashcard_Open_Content img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 100%;
 }
 .Flashcard_Open_Settings {
   position: absolute;
@@ -975,22 +983,27 @@ body::-webkit-scrollbar-corner {
 .Add_Flashcard_Form_Title::placeholder {
   color: var(--current-gray);
 }
-.Add_Flashcard_Form_Content {
+.flashcard-form-content {
   position: absolute;
-  left: 10px;
-  width: calc(100% - 34px);
-  height: calc(100% - 280px);
+  left: 16px;
+  width: calc(100% - 48px);
+  height: calc(100% - 320px);
   color: var(--current-gray-dark);
   text-align: left;
   font-family: var(--current-font);
   font-size: 20px;
-  padding: 5px 5px;
+  padding: 20px 5px;
   margin-top: -10px;
   outline: none;
   resize: none;
-  border-radius: 3px;
+  border: none;
+  border-top: 2px solid var(--current-gray);
+  background-color: var(--color-transparent);
   overflow-y: auto;
   overflow-x: auto;
+}
+.flashcard-form-content::placeholder {
+  color: var(--current-gray);
 }
 .Edit_Flashcard_Open_Body {
   position: fixed;
@@ -2137,6 +2150,11 @@ body::-webkit-scrollbar-corner {
   cursor: pointer;
   white-space: pre-line;
   word-wrap: break-word;
+}
+.study-flashcard-box img {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .study-remaining {
