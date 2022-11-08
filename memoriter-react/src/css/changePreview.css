@@ -80,7 +80,7 @@
     height: 266px;
     width: 174px;
     overflow: visible;
-    border: 5px solid var(--color-font-gray);
+    border: 6px solid var(--current-gray);
     border-radius: 8px;
     margin-inline: auto;
     margin-bottom: 100px;
