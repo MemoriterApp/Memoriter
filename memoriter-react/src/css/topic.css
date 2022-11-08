@@ -1,14 +1,11 @@
 .rechteck {
-    border-top: 10px solid var(--current-blue);
-    border-right: 12px solid var(--current-blue);
-    border-left: 12px solid var(--current-blue);
-    border-bottom: 10px solid var(--current-blue);
+    border: 10px solid var(--current-blue);
     width: 90%;
     height: calc(100% - 200px);
     position: absolute;
     top: 80px;
     left: calc(5% - 12px);
-    border-radius: 30px;
+    border-radius: 20px;
     max-height: calc(100% - 120px);
     min-height: 180px;
 }
@@ -48,7 +45,7 @@
     height: 50px;
     background-color: var(--current-red);
     color: var(--color-white);
-    border-radius: 18px;
+    border-radius: 8px;
     cursor: pointer;
     text-transform: uppercase;
     text-align: center;

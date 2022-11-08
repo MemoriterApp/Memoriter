@@ -5,33 +5,34 @@
     right: 97px;
 }
 .indicator {
-    height: 30px;
-    width: 30px;
-    border-color: var(--color-font-gray);
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 60%;
+    height: 32px;
+    width: 32px;
+    border: none;
     display: inline-block;
-    position: relative;
-    margin-right: 1rem;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    background-color: var(--current-red);
+    border-radius: 50%;
     cursor: pointer;
-    color: var(--color-font);
+    color: var(--color-white);
     font-family: var(--current-font);
     font-size: 1.1rem;
 }
 .indicator-number {
     position: absolute;
-    top: -17px;
-    left: 2.5px;
+    top: -16px;
+    left: 4px;
 }
 .button-homepage-settings {
     position: absolute;
     right: 0%;
-    top: 20%;
+    top: 18%;
     height: 10px;
     width: 25px;
     border: 5px solid var(--color-transparent);
     cursor: pointer;
+    transform: rotate(90deg);
 }
 .dot {
     height: 6px;
@@ -52,18 +53,18 @@
 }
 .button-homepage {
     position: absolute;
-    top: 0%;
-    left: 0%;
-    padding: 15px 15px;
-    background-color: var(--color-background);
-    border: 5px solid var(--current-blue);
-    border-radius: 3px;
+    top: 5px;
+    left: 5px;
+    padding: 16px 16px;
+    background-color: var(--current-blue);
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
 }
 .button-homepage-text {
     position: absolute;
     bottom: 32%;
-    left: 40px;
+    left: 42px;
     max-width: calc(100% - 120px);
     color: var(--color-font);
     font-size: 20px;
@@ -79,7 +80,7 @@
     border: 2.5px solid var(--color-transparent);
     position: absolute;
     top: 3px;
-    right: 40px;
+    right: 36px;
     padding: 6px 9px;
     cursor: pointer;
 }
@@ -96,7 +97,7 @@
 .folder-pos-body-down {
     border: 2.5px solid var(--color-transparent);
     position: absolute;
-    right: 40px;
+    right: 36px;
     bottom: 13px;
     padding: 6px 9px;
     cursor: pointer;

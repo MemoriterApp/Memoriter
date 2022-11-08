@@ -6,8 +6,6 @@ const Confirm = ({ title, onYesClick, onNoClick}) => {
   return (
     <div className='confirm'>
 
-      <div className='confirm-close' onClick={() => onNoClick()}/>
-
       <p className='confirm-title'>{title}</p>
         
       {/* confirm and cancel buttons */}

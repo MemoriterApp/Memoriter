@@ -1,28 +1,4 @@
-.rechteck{
-    border-top: 10px solid var(--current-blue);
-    border-right: 12px solid var(--current-blue);
-    border-left: 12px solid var(--current-blue);
-    border-bottom: 10px solid var(--current-blue);
-    width: 90%;
-    height: calc(100% - 200px);
-    position: absolute;
-    top: 80px;
-    left: calc(5% - 12px);
-    border-radius: 30px;
-    max-height: calc(100% - 120px);
-    min-height: 180px ;
-}
-
-:root{
-    --testing:1.7;
-    --current-font: 'M PLUS 1', sans-serif;
-    --color-font-gray: #c8c8c8;
-    --current-gray-light: #f6f7fb;
-    --size-tutorial: 0.1;
-  }
-  /* Variables used for testing different sizes with constant aspect ratios */
-
-.flex-container{
+.flex-container {
 position: relative;
 display: flex;
 justify-content: center;
@@ -45,23 +21,24 @@ margin: 120px;
 }
 
 .spaced-rep-button:hover {
-    color: rgba(255, 255, 255, 1);
+    color: var(--color-white);
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.8);
 }
 
 /* Everything below needs to be made responsive */
 .tutorial-button {
     position: absolute;
-    right:2%;
-    top:10%;
-    color: #C0362c;
+    right: 2%;
+    top: 12%;
+    color: var(--current-red);
     background: var(--current-gray-light);
-    font-size: 40px;
+    font-size: 36px;
     font-family: var(--current-font);
-    height: calc((100vh - 218px) * var(--size-tutorial) + 18px);
-    width: calc(24vw *var(--size-tutorial) + 20px );
-    border: 8px solid var(--color-font-gray);
-    border-radius: 8px;
+    height: 56px;
+    width: 56px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--color-shadow);
     cursor: pointer;
 }
 
@@ -69,8 +46,8 @@ margin: 120px;
 .study-spaced-repetition-tutorial{
     padding: 0 0 0 20px;
     box-shadow: 0 1px 4px var(--color-shadow);
-    border-radius: 6px;
-    border: 8px solid var(--color-font-gray);
+    border-radius: 8px;
+    border: 8px solid var(--current-gray);
     height: calc((69vh - 218px) + 18px);
     width: calc(14vw + 20px );
     text-align: center;

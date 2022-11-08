@@ -188,7 +188,7 @@ function SpacedRepMode() {
                                 onEditFlashcard={editFlashcard} onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign}/>
                         ))}
 
-                    <button className='tutorial-button' title='tutorial'
+                    <button className='tutorial-button' title='Tutorial'
                             onClick={() => setTutorialSpacedRepetition(true)}> 
                         ?
                     </button>

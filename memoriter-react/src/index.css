@@ -103,9 +103,9 @@
   --current-gray-dark: #141414;
   --current-blue: #36747d;
   --current-red: #c0362c;
+  --current-red-hover: #d2473d;
   --current-green: #2d9c45;
   --current-green-hover: #3ab454;
-  --color-red-light-hover: #fd3b3b;
   --current-font: 'M PLUS 1', sans-serif;
 }
 
@@ -348,13 +348,13 @@ body::-webkit-scrollbar-corner {
 }
 .Button_New_Folder {
   position: absolute;
-  bottom: 0px;
-  left: 0%;
-  padding: 15px 15px;
-  background-color: var(--color-background);
+  top: 18px;
+  left: 7px;
+  padding: 16px 16px;
+  background-color: var(--current-red);
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
-  border: 5px solid var(--current-blue);
-  border-radius: 3px;
 }
 .New_Folder_Text {
   position: absolute;
@@ -374,17 +374,19 @@ body::-webkit-scrollbar-corner {
 }
 .New_Folder_Plus_h {
   position: absolute;
-  top: 42.5%;
-  left: 10.5%;
-  width: 80%;
-  border-top: 5px solid var(--current-gray);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68%;
+  border-top: 3.5px solid var(--color-white);
 }
 .New_Folder_Plus_v {
   position: absolute;
-  top: 10.5%;
-  left: 42.5%;
-  height: 80%;
-  border-left: 5px solid var(--current-gray);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 68%;
+  border-left: 3.5px solid var(--color-white);
 }
 
 /* Feld für das Erstellen von Ordnern */
@@ -753,7 +755,7 @@ body::-webkit-scrollbar-corner {
 }
 .Flashcard_Settings {
   position: absolute;
-  right: -1px;
+  right: 1px;
   top: 1px;
   height: 10px;
   width: 25px;
@@ -1018,8 +1020,8 @@ body::-webkit-scrollbar-corner {
   max-width: calc(100% - 160px);
   background-color: var(--current-gray-light);
   box-shadow: 0 1px 4px var(--color-shadow);
-  border: 10px solid var(--color-font-gray);
-  border-radius: 3px;
+  border: 7px solid var(--current-gray);
+  border-radius: 10px;
   z-index: 12;
   overflow-x: hidden;
   overflow-y: auto;

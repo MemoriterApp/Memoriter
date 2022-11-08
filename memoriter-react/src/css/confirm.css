@@ -7,7 +7,7 @@
   transform: translate(-50%, -50%);
   background-color: var(--color-background);
   width: 340px;
-  height: 220px;
+  height: 210px;
   max-width: calc(100% - 40px);
   max-height: calc(100% - 40px);
   z-index: 12;
@@ -15,43 +15,18 @@
   overflow-y: auto;
 }
 
-.confirm-close { /* x-button for closing the modal */
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 4px;
-  background-color: var(--color-transparent);;
-  cursor: pointer;
-  transition: background-color 200ms;
-}
-.confirm-close::after { /* x-shape */
-  content: '\d7'; /* symbol for shape */
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color: var(--color-font-gray);
-}
-.confirm-close:hover { /* background on hover */
-  background-color: var(--color-hover);
-}
-
 .confirm-title { /* modal prompt text */
   font-size: 1.6rem;
   color: var(--color-font);
   font-family: var(--current-font);
   text-align: center;
-  margin: 36px 12px 32px 12px;
+  margin: 24px 12px 32px 12px;
 }
 
 .confirm-buttons { /* container for the button layout */
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 48px;
   padding-bottom: 20px;
 }
 
@@ -60,10 +35,10 @@
   font-size: 1.6rem;
   color: var(--color-white);
   font-family: var(--current-font);
-  padding-top: 2px;
-  padding-bottom: 6px;
+  padding-top: 4px;
+  padding-bottom: 8px;
   border: none;
-  border-radius: 1.6rem;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 200ms;
 }
@@ -74,8 +49,8 @@
   background-color: var(--current-green-hover);
 }
 .confirm-button-no { /* button color to cancel */
-  background-color: var(--color-red-light);
+  background-color: var(--current-red);
 }
 .confirm-button-no:hover { /* hover effect for the cancel button */
-  background-color: var(--color-red-light-hover);
+  background-color: var(--current-red-hover);
 }
