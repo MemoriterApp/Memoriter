@@ -77,7 +77,7 @@ function SpacedRepMode() {
         setStarted(true); //shows flashcard component
     };
 
-    // filters the flashcards for onlyx the not studied ones to show up
+    // filters the flashcards for only the not studied ones to show up
     const [filtered, setFiltered] = useState(false);
     if (flashcards.length > 0 && !filtered) {
         setFlashcards([...flashcards

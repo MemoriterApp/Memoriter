@@ -1,8 +1,9 @@
 .spaced-rep-subtitles {
+    position: absolute;
     color: var(--color-font);
     font-family: var(--current-font);
     font-size: 1.2rem;
     display: flex;
     margin-top: 0.8rem;
-    margin-left: 85%;
+    right: 120px;
 }

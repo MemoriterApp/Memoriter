@@ -1,9 +1,8 @@
 .new-cards-indicator {
-    position: relative;
+    position: absolute;
     top: 3px;
-    right: 0;
     display: flex;
-    margin-left: 85.5%;
+    right: 97px;
 }
 .indicator {
     height: 30px;

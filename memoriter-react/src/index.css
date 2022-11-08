@@ -2195,7 +2195,7 @@ body::-webkit-scrollbar-corner {
   font-size: calc(1.25vh * var(--button));
   font-weight: bold;
   cursor: pointer;
-  margin: 2.5vw 3vw 0vw 2.5vw;
+  margin: 1.5vw 3vw 0vw 2.5vw;
 }
 .correct-incorrect-button:hover {
   filter: brightness(120%);
