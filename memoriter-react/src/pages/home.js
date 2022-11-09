@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 const { db } = firebase;
+import '../index.css';
 
 function HomePage() {
 
