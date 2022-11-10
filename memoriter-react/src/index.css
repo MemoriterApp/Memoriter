@@ -348,13 +348,13 @@ body::-webkit-scrollbar-corner {
 }
 .Button_New_Folder {
   position: absolute;
-  top: 18px;
-  left: 7px;
-  padding: 16px 16px;
-  background-color: var(--current-red);
-  border: none;
-  border-radius: 50%;
+  bottom: 0px;
+  left: 0%;
+  padding: 15px 15px;
+  background-color: var(--color-background);
   cursor: pointer;
+  border: 5px solid var(--current-blue);
+  border-radius: 3px;
 }
 .New_Folder_Text {
   position: absolute;
@@ -374,19 +374,17 @@ body::-webkit-scrollbar-corner {
 }
 .New_Folder_Plus_h {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 68%;
-  border-top: 3.5px solid var(--color-white);
+  top: 42.5%;
+  left: 10.5%;
+  width: 80%;
+  border-top: 5px solid var(--current-gray);
 }
 .New_Folder_Plus_v {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 68%;
-  border-left: 3.5px solid var(--color-white);
+    position: absolute;
+    top: 10.5%;
+    left: 42.5%;
+    height: 80%;
+    border-left: 5px solid var(--current-gray);
 }
 
 /* Feld für das Erstellen von Ordnern */
