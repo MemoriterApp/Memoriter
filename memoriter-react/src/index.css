@@ -94,6 +94,7 @@
 
 :root { /*legacy colors (all old colors from the app which could be replaced in the future)*/
     --current-gray: #707070;
+    --current-blue: #36747d;
     --current-gray-light: #f6f7fb;
     --current-blue-dark: #274b65;
     --current-blue-light: #3a6d70;
@@ -174,10 +175,10 @@ body::-webkit-scrollbar-corner {
 }
 
 .rechteck {
-    border-top: 10px solid var(--color-highligh-light-blue);
-    border-right: 12px solid var(--color-highligh-light-blue);
-    border-left: 12px solid var(--color-highligh-light-blue);
-    border-bottom: 10px solid var(--color-highligh-light-blue);
+    border-top: 10px solid var(--current-blue);
+    border-right: 12px solid var(--current-blue);
+    border-left: 12px solid var(--current-blue);
+    border-bottom: 10px solid var(--current-blue);
     width: 90%;
     height: calc(100% - 200px);
     position: absolute;
@@ -194,7 +195,7 @@ body::-webkit-scrollbar-corner {
     top: 48px;
     width: calc(100% - 10px);
     height: 0px;
-    border-top: 8px solid var(--color-text-black);
+    border-top: 8px solid var(--current-gray);
     border-radius: 15px;
 }
 .gear {
