@@ -1,6 +1,7 @@
 import '../css/home.css';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import SettingsIcon from '../components/Settings/SettingsIcon';
+import archiveIcon from '../images/icons/archive-icon.png';
 import FolderHome from '../components/FolderHome';
 import AddFolderForm from '../components/AddFolderForm';
 import Backdrop from '../components/backdrop';
@@ -143,7 +144,7 @@ function HomePage() {
       <main>
         <div className="rechteck">
           <section>
-            
+            <img src={archiveIcon} className='archive-icon'></img>
             <SettingsIcon />
             <span className='spaced-rep-subtitles'>
               <span>Due</span>
