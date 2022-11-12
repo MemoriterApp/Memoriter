@@ -195,8 +195,8 @@ const FlashcardStudy = ({
       {modalIsOpenDelete && (
         <Confirm
           title='Do you really want to delete this flashcard?'
-          onYesClick={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
-          onNoClick={() => {
+          onConfirm={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
+          onCancel={() => {
             setModalIsOpenDelete(false);
             setBackdropOpen(false);
           }}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import memoriterLogo from '../images/memoriter-logo.svg';
-import instagramIcon from '../images/icons/instagram-icon.svg';
+import memoriterLogo from '../../images/memoriter-logo.svg';
+import instagramIcon from '../../images/icons/instagram-icon.svg';
 
 
 const Footer = () => {

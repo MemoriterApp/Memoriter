@@ -1,10 +1,9 @@
 import '../css/home.css';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import SettingsIcon from '../components/Settings/SettingsIcon';
-import FolderHome from '../components/FolderHome';
-import AddFolderForm from '../components/AddFolderForm';
-import Backdrop from '../components/backdrop';
-import Footer from '../components/Footer';
+import Folder from '../components/home/folder';
+import FolderForm from '../components/home/folder-form';
+import Footer from '../components/layout/footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
@@ -40,17 +39,14 @@ function HomePage() {
     };
 
     getFolder();
-    localStorage.setItem('lastPage', "/");
+    localStorage.setItem('lastPage', '/');
   }, []) // do not add dependencies, otherwise it will loop
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function NewFolderClick() {
     setModalIsOpen(true);
-  }
-  function backdropClick() {
-    setModalIsOpen(false);
-  }
+  };
 
   //Folder Position
   folders.sort(function (a, b) { return a.pos - b.pos }) //Sorting Folders
@@ -87,9 +83,9 @@ function HomePage() {
   }
 
   //Add Folder
-  const addFolder = async (folder) => {
+  const addFolder = async (title) => {
     const pos = folders.length + 1
-    await addDoc(collection(db, "folders"), { pos, title: folder.title, user: user.uid })
+    await addDoc(collection(db, 'folders'), { pos, title: title, user: user.uid })
 
     const allFolders = await getDocs(foldersCollectionRef)
     setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id }))) //Aktualisieren der Ordner
@@ -155,7 +151,7 @@ function HomePage() {
               {folders.length > 0 ? (<div />) : (<div className='No_Folder_Text'>Currently there are no folders. Please create one...</div>)}
               {folders
                 .map((folder) => (
-                  <FolderHome key={folder.id} folder={folder} folderCount={folders.length}
+                  <Folder key={folder.id} folder={folder} folderCount={folders.length}
                     onDeleteFolder={deleteFolder} onEditFolder={editFolder}
                     onPosUp={posUp} onPosDown={posDown} onPosAdjust={posAdjust} />)
                 )}
@@ -171,10 +167,7 @@ function HomePage() {
                 </button>
                 <button className='New_Folder_Text' onClick={NewFolderClick}>Create New Folder</button>
                 <div>
-                  {modalIsOpen && <AddFolderForm onAddFolder={addFolder} />}
-                </div>
-                <div onClick={backdropClick}>
-                  {modalIsOpen && <Backdrop />}
+                  {modalIsOpen && <FolderForm folder={{ title: '' }} onConfirm={addFolder} onCancel={() => setModalIsOpen(false)} />}
                 </div>
               </div>
             </div>

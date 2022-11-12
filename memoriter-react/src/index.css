@@ -387,54 +387,6 @@ body::-webkit-scrollbar-corner {
     border-left: 5px solid var(--current-gray);
 }
 
-/* Feld für das Erstellen von Ordnern */
-.Add_Folder_Form_Body {
-  box-shadow: 0 1px 4px var(--color-shadow);
-  background-color: var(--color-background);
-  text-align: center;
-  font-family: var(--current-font);
-  color: var(--color-font);
-  width: 560px;
-  height: 260px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  right: 0%;
-  transform: translate(-50%, -50%);
-  max-width: calc(100vw - 30px);
-  max-height: calc(100vh - 30px);
-  z-index: 10;
-  border-radius: 6px;
-  overflow-y: auto;
-}
-.Add_Folder_Form_Header {
-  font-size: 24px;
-}
-.Add_Folder_Form_Text {
-  font-size: 20px;
-}
-.Add_Folder_Form_Input {
-  border: 5px solid var(--current-gray);
-  width: 80%;
-  color: var(--color-font);
-  background-color: var(--color-background);
-  font-family: var(--current-font);
-  font-size: 20px;
-  padding: 5px 5px;
-  outline: none;
-  border-radius: 3px;
-}
-.Add_Folder_Form_Submit {
-  border: none;
-  padding: 10px 20px;
-  color: var(--color-white);
-  background-color: var(--current-blue);
-  font-family: var(--current-font);
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
 /* Nachfolgendes ist alles für den Footer */
 .Footer_Body {
   position: fixed;

@@ -1,9 +1,9 @@
 import '../css/topic.css';
 import { useState, useEffect, } from 'react';
 import memoriterLogo from '../images/memoriter-logo.svg';
-import BackButton from '../components/BackButton';
+import BackButton from '../components/layout/BackButton';
 import SettingsIcon from '../components/Settings/SettingsIcon';
-import Footer from '../components/Footer';
+import Footer from '../components/layout/footer';
 import FlashcardForm from '../components/flashcard-form';
 import Backdrop from '../components/backdrop';
 import { Link} from 'react-router-dom';

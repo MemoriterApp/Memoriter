@@ -398,8 +398,8 @@ const FlashcardQnlyQuestion = ({
       {modalIsOpenD && (
         <Confirm
           title='Do you really want to delete this flashcard?'
-          onYesClick={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
-          onNoClick={backdropClickD}
+          onConfirm={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
+          onCancel={backdropClickD}
         />
       )}
       <div onClick={backdropClick}>{modalIsOpenS && <Backdrop />}</div>

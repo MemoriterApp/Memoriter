@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/spaced-rep.css';
-import Footer from '../components/Footer';
+import Footer from '../components/layout/footer';
 import Logo from '../images/memoriter-logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import Backdrop from '../components/backdrop';
