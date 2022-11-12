@@ -115,7 +115,7 @@ const StudyPage = () => {
                     {syncedFolderTitle !== '' ? (
                         <h1 className="page-title">{syncedFolderTitle}</h1>
                     ) : (
-                        <h1 className="page-title">New Folder</h1>
+                        <h1 className="page-title">New folder</h1>
                     )}
                     <Link to='/'>
                         <img className="header-logo" src={Logo} alt="site-logo"></img>

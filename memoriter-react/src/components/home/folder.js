@@ -88,7 +88,7 @@ const Folder = ({
         {folder.title !== '' ? ( // checks if the title of the folder is not empty
           <button className='button-homepage-text'>{folder.title}</button>
         ) : (
-          <button className='button-homepage-text'>New Folder</button>
+          <button className='button-homepage-text'>New folder</button>
         )}
       </Link>
 
@@ -153,7 +153,8 @@ const Folder = ({
         )}
       </div>
 
-      {modalIsOpenE && <FolderForm 
+      {modalIsOpenE && <FolderForm
+      type='Edit'
         folder={folder}
         onCancel={() => setModalIsOpenE(false)}
         onConfirm={editFolder}

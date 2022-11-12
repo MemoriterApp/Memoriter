@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../../styles/home/folder-form.css';
 import Backdrop from '../backdrop';
 
-const FolderForm = ({ folder, onConfirm, onCancel }) => {
+const FolderForm = ({ type, folder, onConfirm, onCancel }) => {
   
   // name of the folder
   const [title, setTitle] = useState(folder.title);
@@ -16,15 +16,15 @@ const FolderForm = ({ folder, onConfirm, onCancel }) => {
   return (
     <>
       <form className='folder-form' onSubmit={onSubmitFolder}>
-        <h2 className='folder-form-title'>Create New Folder</h2>
+        <h2 className='folder-form-title'>{type} folder</h2>
         <label className='folder-form-input-label' htmlFor='folder-form-input'>
-          Folder Name:
+          Folder name:
         </label>
         <input
           className='folder-form-input'
           id='folder-form-input'
           value={title}
-          placeholder='New Folder'
+          placeholder='New folder'
           autoFocus
           autoComplete='off'
           maxLength='100'

@@ -165,9 +165,9 @@ function HomePage() {
                   <div className='New_Folder_Plus_h'></div>
                   <div className='New_Folder_Plus_v'></div>
                 </button>
-                <button className='New_Folder_Text' onClick={NewFolderClick}>Create New Folder</button>
+                <button className='New_Folder_Text' onClick={NewFolderClick}>Create new folder</button>
                 <div>
-                  {modalIsOpen && <FolderForm folder={{ title: '' }} onConfirm={addFolder} onCancel={() => setModalIsOpen(false)} />}
+                  {modalIsOpen && <FolderForm type='Create new' folder={{ title: '' }} onConfirm={addFolder} onCancel={() => setModalIsOpen(false)} />}
                 </div>
               </div>
             </div>
