@@ -187,17 +187,17 @@ const FlashcardQnlyQuestion = ({
         </h3>
         {isMouseInside ? (
           <div
-            className='Flashcard_Content'
+            className='flashcard-content'
             style={{ textAlign: flashcard.textAlign }}
             ref={refContentHeight}
-            dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd() }}
+            dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
           />
         ) : (
           <div
-            className='Flashcard_Content'
+            className='flashcard-content'
             style={{ textAlign: flashcard.textAlign, opacity: '0' }}
             ref={refContentHeight}
-            dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd() }}
+            dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
           />
         )}{' '}
         {/*dangerouslySetInnerHTML parses the formatted html text*/}
@@ -224,7 +224,7 @@ const FlashcardQnlyQuestion = ({
               <div
                 className='Flashcard_Open_Content'
                 style={{ textAlign: flashcard.textAlign }}
-                dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd() }}
+                dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
               />
               {/*dangerouslySetInnerHTML parses the formatted html text*/}
             </div>

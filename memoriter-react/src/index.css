@@ -652,7 +652,7 @@ body::-webkit-scrollbar-corner {
   margin-bottom: 16px;
   hyphens: auto;
 }
-.Flashcard_Content {
+.flashcard-content {
   position: relative;
   font-family: var(--current-font);
   font-size: 16px;
@@ -668,11 +668,18 @@ body::-webkit-scrollbar-corner {
   color: var(--current-gray-dark);
   margin-bottom: -5px;
 }
-.Flashcard_Content p {
+.flashcard-content p {
   margin-top: 0;
   margin-bottom: 0;
 }
-.Flashcard_Content p img {
+.flashcard-content ul, ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.flashcard-content ul, ol {
+  margin-left: -16px;
+}
+.flashcard-content p img {
   max-width: 100%;
 }
 
@@ -802,6 +809,13 @@ body::-webkit-scrollbar-corner {
   word-wrap: break-word;
   hyphens: auto;
   line-height: 125%;
+}
+.Flashcard_Open_Content p, ul, ol {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.Flashcard_Open_Content ul, ol {
+  margin-left: -16px;
 }
 .Flashcard_Open_Content img {
   margin-top: 20px;

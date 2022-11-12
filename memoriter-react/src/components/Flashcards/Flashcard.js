@@ -182,11 +182,11 @@ const Flashcard = ({
           {flashcard.title}
         </h3>
         <div
-          className='Flashcard_Content'
+          className='flashcard-content'
           style={{ textAlign: flashcard.textAlign }}
           ref={refContentHeight}
           dangerouslySetInnerHTML={{
-            __html: markdown.render(flashcard.content).trimEnd().trimEnd(),
+            __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, ''),
           }}
         />
         {/*dangerouslySetInnerHTML parses the formatted html text*/}
@@ -213,7 +213,7 @@ const Flashcard = ({
               <div
                 className='Flashcard_Open_Content'
                 style={{ textAlign: flashcard.textAlign }}
-                dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd() }}
+                dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '').replace(/(\r\n|\n|\r)/gm, '') }}
               />
               {/*dangerouslySetInnerHTML parses the formatted html text*/}
             </div>

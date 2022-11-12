@@ -58,7 +58,7 @@ const FlashcardSpacedRep = ({
           <div style={{ cursor: 'auto' }}>
             <article
               style={{ marginTop: '30px', textAlign: flashcard.textAlign }}
-              dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd() }}
+              dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
             />{' '}
             {/*dangerouslySetInnerHTML parses the formatted html text*/}
           </div>
