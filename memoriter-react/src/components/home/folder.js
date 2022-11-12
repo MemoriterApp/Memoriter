@@ -1,10 +1,10 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../../css/folder.css';
 import edit from '../../images/edit.svg';
 import deleteIcon from '../../images/delete.svg';
 import Confirm from '../confirm';
 import Backdrop from '../backdrop';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import FolderForm from './folder-form';
 
 const Folder = ({
@@ -38,7 +38,7 @@ const Folder = ({
   // function when the folder is edited
   const editFolder = (newTitle) => {
     onEditFolder(folder.id, newTitle);
-    setModalIsOpenE(false);
+    setEditModal(false);
   };
 
   // modalIsOpenD is the state of the modal if if is open or not
@@ -51,11 +51,11 @@ const Folder = ({
   };
 
   // modalIsOpenE is the state of the modal if if is open or not
-  const [modalIsOpenE, setModalIsOpenE] = useState(false);
+  const [editModal, setEditModal] = useState(false);
 
   // function that gets called when the user clicks on the edit button
   const editFolderReq = () => {
-    setModalIsOpenE(true);
+    setEditModal(true);
     setModalIsOpen(false);
   };
 
@@ -82,7 +82,7 @@ const Folder = ({
   };
 
   return (
-    <div className='folder-body'>
+    <section className='folder'>
       <Link to='/topic' onClick={onOpenFolder}>
         <button className='button-homepage' />
         {folder.title !== '' ? ( // checks if the title of the folder is not empty
@@ -92,13 +92,11 @@ const Folder = ({
         )}
       </Link>
 
-      <section>
-        <span className='new-cards-indicator'>
-          <Link to='/study-spaced-repetition' className='indicator'>
-              <p className='indicator-number'>12</p>
-          </Link>
-        </span>
-      </section>
+      <div className='new-cards-indicator'>
+        <Link to='/study-spaced-repetition' className='indicator'>
+          <p className='indicator-number'>12</p>
+        </Link>
+      </div>
 
       <div
         className='folder-pos-body-up'
@@ -153,10 +151,10 @@ const Folder = ({
         )}
       </div>
 
-      {modalIsOpenE && <FolderForm
+      {editModal && <FolderForm
       type='Edit'
         folder={folder}
-        onCancel={() => setModalIsOpenE(false)}
+        onCancel={() => setEditModal(false)}
         onConfirm={editFolder}
       />}
 
@@ -169,7 +167,7 @@ const Folder = ({
       }
 
       <div onClick={backdropClick}>{modalIsOpen && <Backdrop />}</div>
-    </div>
+    </section>
   );
 };
 export default Folder;
