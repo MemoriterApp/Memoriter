@@ -488,7 +488,7 @@ function SettingsClick() {
                                     If you delete your account, your data will be gone forever and cannot be restored.
                                 </p>
                                 <br/>
-                                <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal'}}>
+                                <p className='settings-delete-account-confirm-text' style={{color: 'var(--color-font)', fontWeight: 'normal'}}>
                                     Please enter your user id to confirm the deletion:
                                     <br/><br/>
                                     <span style={{color: '#bbb', fontWeight: 'normal'}}>{user.uid}</span>

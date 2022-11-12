@@ -425,14 +425,14 @@ body::-webkit-scrollbar-corner {
   border-radius: 3px;
 }
 .Add_Folder_Form_Submit {
-  border: 5px solid var(--current-gray);
-  padding: 5px;
-  color: var(--color-font);
-  background-color: var(--color-background);
+  border: none;
+  padding: 10px 20px;
+  color: var(--color-white);
+  background-color: var(--current-blue);
   font-family: var(--current-font);
   font-size: 20px;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 6px;
 }
 
 /* Nachfolgendes ist alles für den Footer */
@@ -947,18 +947,19 @@ body::-webkit-scrollbar-corner {
 /* New Flashcard Form */
 .Add_Flashcard_Form_Submit {
   position: relative;
-  top: calc(100% - 280px);
+  top: calc(100% - 272px);
   left: 10px;
-  border: 5px solid var(--color-font-gray);
-  padding: 5px;
+  border: none;
+  padding: 10px;
   margin-top: 15px;
   margin-bottom: 0px;
   width: calc(100% - 20px);
-  color: var(--current-gray-dark);
+  color: var(--color-white);
   font-family: var(--current-font);
   font-size: 20px;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 6px;
+  background-color: var(--current-blue);
 }
 .Add_Flashcard_Form_Header {
   font-size: 24px;
@@ -2091,6 +2092,7 @@ body::-webkit-scrollbar-corner {
   font-size: 18px;
   color: var(--color-red-light);
   font-weight: bold;
+  color: var(--color-font);
 }
 
 .settings-delete-account-confirm-button {

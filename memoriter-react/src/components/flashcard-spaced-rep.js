@@ -112,7 +112,7 @@ const FlashcardSpacedRep = ({
                 />
                 Edit
               </p>
-              <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)' }}>
+              <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
                 <img
                   style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
                   src={deleteIcon}
@@ -206,16 +206,17 @@ const FlashcardSpacedRep = ({
                 onChange={(changeContent) => setContent(changeContent.target.value)}
               />
             </div>
-            <input
+            <button
               className='Add_Flashcard_Form_Submit'
               type='submit'
-              value='Done'
               onClick={() => {
                 onEditFlashcard(flashcard.id, title, content);
                 setModalIsOpenEdit(false);
                 setBackdropOpen(false);
               }}
-            />
+            >
+              Done
+            </button>
           </form>
         )}
       </div>

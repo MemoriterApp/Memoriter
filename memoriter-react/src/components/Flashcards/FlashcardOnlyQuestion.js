@@ -138,7 +138,7 @@ const FlashcardQnlyQuestion = ({
   } else if (newPosIdDelete === flashcard.id) {
     onPosAdjust(flashcard.id, flashcard.pos);
     sessionStorage.removeItem('newPosFlashcard' + flashcard.id);
-  };
+  }
 
   const [isMouseInside, setIsMouseInside] = useState(); //state to check if mouse hover over flashcard
 
@@ -283,7 +283,7 @@ const FlashcardQnlyQuestion = ({
                 />
                 Edit
               </p>
-              <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)' }}>
+              <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
                 <img
                   style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
                   src={deleteIcon}
@@ -297,7 +297,7 @@ const FlashcardQnlyQuestion = ({
       )}
       <div onClick={closeFlashcard}>{modalIsOpen && <Backdrop />}</div>
       <div>
-      {modalIsOpenS && (
+        {modalIsOpenS && (
           <div className='flashcard-settings-overlay'>
             <div className='folder-settings-sub'>
               <p>
@@ -342,7 +342,7 @@ const FlashcardQnlyQuestion = ({
                 />{' '}
                 Edit
               </p>
-              <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)' }}>
+              <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
                 <img
                   style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
                   src={deleteIcon}
@@ -379,10 +379,9 @@ const FlashcardQnlyQuestion = ({
                 onChange={(changeContent) => setContent(changeContent.target.value)}
               />
             </div>
-            <input
+            <button
               className='Add_Flashcard_Form_Submit'
               type='submit'
-              value='Done'
               onClick={() => {
                 onEditFlashcard(flashcard.id, title, content);
                 setModalIsOpenE(false);
@@ -390,7 +389,9 @@ const FlashcardQnlyQuestion = ({
                 setModalIsOpenSO(false);
                 setModalIsOpenEbackdrop(false);
               }}
-            />
+            >
+              Done
+            </button>
           </form>
         )}
       </div>

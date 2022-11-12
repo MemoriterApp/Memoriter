@@ -34,10 +34,10 @@ const FlashcardForm = ({ onAddFlashcard, syncedFolderID }) => {
           onChange={(changeContent) => setContent(changeContent.target.value)}
         />
       </div>
-      <input className='Add_Flashcard_Form_Submit' type='submit' value='Done' />
+      <button className='Add_Flashcard_Form_Submit' type='submit'>Done</button>
       <div
         className='Add_Flashcard_Form_Submit'
-        style={{ border: 'none', marginTop: '0px', left: '5px' }}
+        style={{ border: 'none', marginTop: '0px', left: '5px', padding: '5px', backgroundColor: 'transparent' }}
       />
     </form>
   );

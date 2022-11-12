@@ -114,7 +114,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                             />
                             Edit
                         </p>
-                        <p onClick={deleteFolderReq} style={{color: 'rgb(228, 48, 48)'}}>
+                        <p onClick={deleteFolderReq} style={{color: 'var(--current-red)', filter: 'none'}}>
                             <img
                                 style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
                                 src={deleteIcon}
@@ -136,8 +136,9 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                             defaultValue={title} onChange={(changeName) => setTitle(changeName.target.value)} />
                     </div>
                         <p style={{fontSize: '25px'}} />
-                        <input className='add-folder-form-submit' type='button' value='Done' onClick={
-                            () => { onEditFolder(folder.id, title); setModalIsOpenE(false); setModalIsOpen(false); }} />
+                        <button className='add-folder-form-submit' onClick={
+                            () => { onEditFolder(folder.id, title); setModalIsOpenE(false); setModalIsOpen(false); }}
+                        >Done</button>
                         <p style={{fontSize: '10px'}} />
                 </form>}
             </div>
