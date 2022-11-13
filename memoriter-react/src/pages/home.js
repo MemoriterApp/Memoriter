@@ -13,7 +13,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 const { db } = firebase;
 
 //this file is the home page of the app where you see all your folders
-//it uses css from home.css
+//it uses some css from home.css
 function HomePage() {
 
   //user stuff
@@ -29,29 +29,20 @@ function HomePage() {
     setUser(currentUser);
   })
 
-  
-  // Folder Data
-  const [folders, setFolders] = useState([])
+  const [folders, setFolders] = useState([]) //saves the data of folders in an array
 
   //Use Effect für folders
   useEffect(() => {
     const getFolder = async () => {
-      const allFolders = await getDocs(foldersCollectionRef) //gibt alles aus einer bestimmten Collection aus
+      const allFolders = await getDocs(foldersCollectionRef) //returns all folders from the firestore
       setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     };
-
     getFolder();
     localStorage.setItem('lastPage', "/");
   }, []) // do not add dependencies, otherwise it will loop
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false); //state to check if the modal is open or not
 
-  function NewFolderClick() {
-    setModalIsOpen(true);
-  }
-  function backdropClick() {
-    setModalIsOpen(false);
-  }
 
   //Folder Position
   folders.sort(function (a, b) { return a.pos - b.pos }) //Sorting Folders
@@ -166,15 +157,15 @@ function HomePage() {
               <div className='New_Folder_Body'>
                 
                 <div className='New_Folder_Line'></div>
-                <button className='Button_New_Folder' onClick={NewFolderClick}>
+                <button className='Button_New_Folder' onClick={() => {setModalIsOpen(true)}}>
                   <div className='New_Folder_Plus_h'></div>
                   <div className='New_Folder_Plus_v'></div>
                 </button>
-                <button className='New_Folder_Text' onClick={NewFolderClick}>Create New Folder</button>
+                <button className='New_Folder_Text' onClick={() => {setModalIsOpen(true)}}>Create New Folder</button>
                 <div>
                   {modalIsOpen && <AddFolderForm onAddFolder={addFolder} />}
                 </div>
-                <div onClick={backdropClick}>
+                <div onClick={() => {setModalIsOpen(false)}}>
                   {modalIsOpen && <Backdrop />}
                 </div>
               </div>
