@@ -19,8 +19,6 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
     function backdropClick() { //function that gets called when the user clicks on the backdrop and closes the modal
         setModalIsOpen(false); //must be inside of a function so that it can be called in child component (SettingsFolder)
     }
-
-   
     function backdropClickEdit() { //function that gets called when the user clicks on the backdrop
         setTitle(folder.title); //must be made a function so that it can be called in child component (SettingsFolder)
     }
@@ -87,7 +85,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                     onEditFolder={onEditFolder}
                     onDeleteFolder={onDeleteFolder}
                     backdropClickEdit={backdropClickEdit}
-                    onChangeName={value => setTitle(value)}
+                    onChangeName={value => setTitle(value)} //set the state of the title of the folder to the value of the input
                     backdropClick={backdropClick}
                 />}
                 <div onClick={backdropClick}>

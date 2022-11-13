@@ -1,5 +1,6 @@
 import React from 'react';
 import edit from '../../images/edit.svg'
+import archive from '../../images/icons/archive-icon.svg'
 import deleteIcon from '../../images/delete.svg'
 import Confirm from '../confirm';
 import Backdrop from '../backdrop.jsx';
@@ -25,6 +26,13 @@ function SettingsFolder({title, folder, onDeleteFolder, onEditFolder, backdropCl
                             />
                             Edit
                         </p>
+                        <p>
+                            <img
+                                style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+                                src={archive}
+                                alt=''
+                            />
+                            Archive</p>
                         <p onClick={() => {setDeleteModalIsOpen(true)}} style={{color: 'rgb(228, 48, 48)'}}>
                             <img
                                 style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
@@ -44,7 +52,7 @@ function SettingsFolder({title, folder, onDeleteFolder, onEditFolder, backdropCl
                         <div className='add-folder-form-text'>Rename Folder: </div>
                         <p style={{fontSize: '5px'}} />
                         <input className='add-folder-form-input' autoFocus type='text' maxLength='100' placeholder='New Folder'
-                            defaultValue={title} onChange={event => onChangeName(event.target.value)} />
+                            defaultValue={title} onChange={event => onChangeName(event.target.value)} /> //sends the user input via OnchangeName to the parent component
                     </div>
                         <p style={{fontSize: '25px'}} />
                         <input className='add-folder-form-submit' type='button' value='Done' onClick={
