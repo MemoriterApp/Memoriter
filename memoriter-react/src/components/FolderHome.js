@@ -1,9 +1,6 @@
 import '../css/folderHome.css';
-import edit from '../images/edit.svg';
-import deleteIcon from '../images/delete.svg';
-import Confirm from './confirm';
+import SettingsFolder from './Settings/settings-folder';
 import Backdrop from './backdrop';
-import BackdropTransparent from './backdrop-transparent';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -19,37 +16,17 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
 
     const [modalIsOpen, setModalIsOpen] = useState(false); //modalIsOpen is the state of the modal if if is open or not
 
-    function settingsHandler() { //function that gets called when the user clicks on the settings button
-        setModalIsOpen(true);
-    }
-    function backdropClick() { //function that gets called when the user clicks on the backdrop
-        setModalIsOpen(false);
+    function backdropClick() { //function that gets called when the user clicks on the backdrop and closes the modal
+        setModalIsOpen(false); //must be inside of a function so that it can be called in child component (SettingsFolder)
     }
 
-    const [modalIsOpenD, setModalIsOpenD] = useState(false); //modalIsOpenD is the state of the modal if if is open or not
-
-    function deleteFolderReq() { //function that gets called when the user clicks on the delete button
-      setModalIsOpenD(true);
-      setModalIsOpen(false);
-    }
-    function backdropClickD() { //function that gets called when the user clicks on the backdrop
-      setModalIsOpenD(false);
+   
+    function backdropClickEdit() { //function that gets called when the user clicks on the backdrop
+        setTitle(folder.title); //must be made a function so that it can be called in child component (SettingsFolder)
     }
 
-    const [modalIsOpenE, setModalIsOpenE] = useState(false); //modalIsOpenE is the state of the modal if if is open or not
-
-    function editFolderReq() { //function that gets called when the user clicks on the edit button
-        setModalIsOpenE(true);
-        setModalIsOpen(false);
-    }
-    function backdropClickE() { //function that gets called when the user clicks on the backdrop
-        setTitle(folder.title);
-        setModalIsOpenE(false);
-    }
-
-    const [ title, setTitle ] = useState(folder.title) //title is the state of the title of the folder
-
-    const [ pos, setPos ] = useState(folder.pos) //pos is the state of the position of the folder
+    const [title, setTitle] = useState(folder.title) //title is the state of the title of the folder
+    const [pos, setPos] = useState(folder.pos) //pos is the state of the position of the folder
 
     if (folder.pos !== pos) { //if the position of the folder is not the same as the state of the position of the folder
         setPos(folder.pos)  //set the state of the position of the folder to the position of the folder
@@ -69,7 +46,7 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
     return (
         <div className='folder-body'>
             <Link to='/topic' onClick={onOpenFolder}>
-                <button className='button-homepage'/>
+                <button className='button-homepage' />
                 {folder.title !== '' ? ( //Check if the title of the folder is not empty
                     <button className='button-homepage-text'>{folder.title}</button>
                 ) : (
@@ -86,77 +63,36 @@ const FolderHome = ({ folder, onDeleteFolder, onEditFolder, onPosUp, onPosDown, 
                     </Link>
                 </span>
             </section>
-            
+
             <div className='folder-pos-body-up' onClick={
-                () => { if (pos > 1) {setPos(pos - 1); onPosUp(folder.id, pos);} }
+                () => { if (pos > 1) { setPos(pos - 1); onPosUp(folder.id, pos); } }
             }>
                 <div className='folder-pos-arrow-up' />
             </div>
             <div className='folder-pos-body-down' onClick={
-                () => { if (pos < folderCount) {setPos(pos + 1); onPosDown(folder.id, pos);} }
+                () => { if (pos < folderCount) { setPos(pos + 1); onPosDown(folder.id, pos); } }
             }>
-                <div className='folder-pos-arrow-down'/>
+                <div className='folder-pos-arrow-down' />
             </div>
-            <div className='button-homepage-settings' onClick={settingsHandler}>
-                <span className='dot'/>
-                <span className='dot'/>
-                <span className='dot'/>
-            </div>
-
-            <div>
-                {modalIsOpen && <div className='folder-settings-overlay'>
-                    <div className='folder-settings-sub'>
-                        <p onClick={editFolderReq}>
-                            <img
-                                style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                                src={edit}
-                                alt=''
-                            />
-                            Edit
-                        </p>
-                        <p onClick={deleteFolderReq} style={{color: 'rgb(228, 48, 48)'}}>
-                            <img
-                                style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                                src={deleteIcon}
-                                alt=''
-                            />
-                            Delete
-                        </p>
-                    </div>
-                </div>}
+            <div className='button-homepage-settings' onClick={() => {setModalIsOpen(true)}}>
+                <span className='dot' />
+                <span className='dot' />
+                <span className='dot' />
             </div>
 
             <div>
-                {modalIsOpenE && <form className='add-folder-form-body'>
-                    <div>
-                        <h2 className='add-folder-form-header'>Edit Folder</h2>
-                        <div className='add-folder-form-text'>Rename Folder: </div>
-                        <p style={{fontSize: '5px'}} />
-                        <input className='add-folder-form-input' autoFocus type='text' maxLength='100' placeholder='New Folder'
-                            defaultValue={title} onChange={(changeName) => setTitle(changeName.target.value)} />
-                    </div>
-                        <p style={{fontSize: '25px'}} />
-                        <input className='add-folder-form-submit' type='button' value='Done' onClick={
-                            () => { onEditFolder(folder.id, title); setModalIsOpenE(false); setModalIsOpen(false); }} />
-                        <p style={{fontSize: '10px'}} />
-                </form>}
-            </div>
-
-            {modalIsOpenD && <Confirm
-                title='Do you really want to delete this folder?'
-                onYesClick={() => onDeleteFolder(folder.id, folder.pos)}
-                onNoClick={backdropClickD}
-            />}
-
-            <div  onClick={backdropClickE}>
-                {modalIsOpenE && <Backdrop/>}
-            </div>
-            <div  onClick={backdropClickD}>
-                {modalIsOpenD && <Backdrop/>}
-            </div>
-
-            <div  onClick={backdropClick}>
-                {modalIsOpen && <Backdrop />}
+                {modalIsOpen && <SettingsFolder
+                    title={title}
+                    folder={folder}
+                    onEditFolder={onEditFolder}
+                    onDeleteFolder={onDeleteFolder}
+                    backdropClickEdit={backdropClickEdit}
+                    onChangeName={value => setTitle(value)}
+                    backdropClick={backdropClick}
+                />}
+                <div onClick={backdropClick}>
+                    {modalIsOpen && <Backdrop />}
+                </div>
             </div>
 
 
