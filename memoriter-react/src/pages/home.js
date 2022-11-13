@@ -10,6 +10,7 @@ import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, where } from 'firebase/firestore/lite';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import ArchivedFolders from '../components/archived-folders';
 const { db } = firebase;
 
 //this file is the home page of the app where you see all your folders
@@ -126,6 +127,9 @@ function HomePage() {
       ? { ...folder, title: title } : folder))
   }
 
+  const [archiveFolderIsOpen, setArchiveFolderIsOpen] = useState(false); //state to check if the archive folder is open or not
+
+
   return (
     <>
       <header className='page-header'>
@@ -135,7 +139,12 @@ function HomePage() {
       <main>
         <div className="rechteck">
           <section>
-            <img src={archiveIcon} className='archive-icon'></img>
+            <img src={archiveIcon} className='archive-icon' alt='' onClick={() => {setArchiveFolderIsOpen(true)}}></img>
+            {archiveFolderIsOpen && <div>
+              <ArchivedFolders/>
+              <Backdrop onClick={() => {setArchiveFolderIsOpen(false)}}/>
+            </div>
+            }
             <SettingsIcon />
             <span className='spaced-rep-subtitles'>
               <span>Due</span>

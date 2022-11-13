@@ -1,24 +1,4 @@
-.rechteck {
-    border: 10px solid var(--current-blue);
-    width: 90%;
-    height: calc(100% - 200px);
-    position: absolute;
-    top: 80px;
-    left: calc(5% - 12px);
-    border-radius: 20px;
-    max-height: calc(100% - 120px);
-    min-height: 180px;
-}
-.main-seperator {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 48px;
-    width: calc(100% - 10px);
-    height: 0px;
-    border-top: 8px solid var(--current-gray);
-    border-radius: 15px;
-}
+
 .flashcard-base {
     height: calc(100% - 67px);
     width: calc(100% - 10px);

@@ -223,8 +223,8 @@ function TopicPage() {
 
             </header>
             <main>
-                <div className='rechteck'>
-                    <div className='main-seperator' />
+                <div className='rechteck'> {/*CSS from home.css*/}
+                    <div className='main-seperator' /> {/*CSS from home.css*/}
                     <div className='flashcard-base'>
 
                         <Masonry breakpointCols={columns} className='flashcard-base-grid'>
