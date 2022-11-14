@@ -152,7 +152,7 @@ const Folder = ({
       </div>
 
       {editModal && <FolderForm
-      type='Edit'
+        type='Edit'
         folder={folder}
         onCancel={() => setEditModal(false)}
         onConfirm={editFolder}
