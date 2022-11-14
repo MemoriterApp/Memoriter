@@ -1,12 +1,39 @@
-import React from 'react';
+import FolderHome from './folder-home';
 
-function ArchivedFolders() {
-    return ( 
-        <div className='preview-type-box'> {/*CSS from changePreview.css */}
-            <h1 className='preview-type-heading'>ARCHIVED FOLDERS</h1> {/*CSS from changePreview.css */}
-            <div className='main-seperator' style={{top: '80px'}}></div> {/*CSS from home.css */}
-        </div>
-     );
+function ArchivedFolders({
+  folders,
+  onDeleteFolder,
+  onEditFolder,
+  onDearchiveFolder,
+  onPosUp,
+  onPosDown,
+  onPosAdjust,
+}) {
+  return (
+    <div className='preview-type-box' style={{ paddingInline: '20px' }}>
+      {' '}
+      {/*CSS from changePreview.css */}
+      <h1 className='preview-type-heading'>ARCHIVED FOLDERS</h1> {/*CSS from changePreview.css */}
+      <div className='main-seperator' style={{ top: '80px' }} /> {/*CSS from home.css */}
+      <>
+        {folders // render archived folders
+          .filter((folder) => folder.archived)
+          .map((folder) => (
+            <FolderHome
+              key={folder.id}
+              folder={folder}
+              folderCount={folders.length}
+              onDeleteFolder={onDeleteFolder}
+              onEditFolder={onEditFolder}
+              onDearchiveFolder={onDearchiveFolder}
+              onPosUp={onPosUp}
+              onPosDown={onPosDown}
+              onPosAdjust={onPosAdjust}
+            />
+          ))}
+      </>
+    </div>
+  );
 }
 
 export default ArchivedFolders;
