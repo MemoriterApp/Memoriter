@@ -561,8 +561,24 @@ body::-webkit-scrollbar-corner {
 .flashcard-content ul, ol {
   margin-left: -16px;
 }
-.flashcard-content p img {
+.flashcard-content img {
   max-width: 100%;
+}
+.flashcard-content p code {
+  padding: 1px 2px;
+  background-color: #00000028;
+  border-radius: 2px;
+}
+.flashcard-content pre {
+  padding: 6px 8px;
+  background-color: #00000028;
+  white-space: pre-wrap;
+  border-radius: 2px;
+}
+.flashcard-content blockquote {
+  padding-left: 12px;
+  margin-left: 0;
+  border-left: 3px solid var(--current-gray-dark);
 }
 
 /* Flashcard Settings */
@@ -704,6 +720,23 @@ body::-webkit-scrollbar-corner {
   margin-bottom: 20px;
   max-width: 100%;
 }
+.Flashcard_Open_Content p code {
+  padding: 1px 2px;
+  background-color: #00000028;
+  border-radius: 2px;
+}
+.Flashcard_Open_Content pre {
+  padding: 6px 8px;
+  background-color: #00000028;
+  white-space: pre-wrap;
+  border-radius: 2px;
+}
+.Flashcard_Open_Content blockquote {
+  padding-left: 16px;
+  margin-left: 0;
+  border-left: 4px solid var(--current-gray-dark);
+}
+
 .Flashcard_Open_Settings {
   position: absolute;
   right: 8px;
@@ -837,7 +870,7 @@ body::-webkit-scrollbar-corner {
   position: absolute;
   left: 16px;
   width: calc(100% - 48px);
-  height: calc(100% - 320px);
+  height: calc(100% - 330px);
   color: var(--current-gray-dark);
   text-align: left;
   font-family: var(--current-font);
@@ -853,6 +886,16 @@ body::-webkit-scrollbar-corner {
   overflow-x: auto;
 }
 .flashcard-form-content::placeholder {
+  color: var(--current-gray);
+}
+.flashcard-form-md {
+  position: absolute;
+  bottom: 56px;
+  color: var(--current-gray);
+  font-family: var(--current-font);
+  margin-inline: 10px;
+}
+.flashcard-form-md a {
   color: var(--current-gray);
 }
 .Edit_Flashcard_Open_Body {

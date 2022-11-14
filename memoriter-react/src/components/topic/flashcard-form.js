@@ -37,6 +37,9 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
             value={content}
             onChange={(event) => setContent(event.target.value)}
           />
+          <p className='flashcard-form-md'>
+            This editor supports <a href='https://commonmark.org/help/' target='_blank' rel='noreferrer'>Markdown syntax</a>.
+          </p>
         </div>
         <button className='Add_Flashcard_Form_Submit' type='submit'>Done</button>
         <div
