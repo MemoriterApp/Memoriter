@@ -46,7 +46,7 @@
     top: -5.5px;
     cursor: pointer;
 }
-.folder-body {
+.folder {
     position: relative;
     width: 100%;
     height: 50px;
@@ -136,6 +136,7 @@
 .folder-settings-sub p {
     width: fit-content;
     cursor: pointer;
+    filter: var(--svg-invert);
 }
 .add-folder-form-body {
     box-shadow: 0 1px 4px var(--color-shadow);
@@ -174,12 +175,12 @@
     border-radius: 3px;
 }
 .add-folder-form-submit {
-    border: 5px solid var(--current-gray);
-    padding: 5px;
-    color: var(--color-font);
-    background-color: var(--color-background);
+    border: none;
+    padding: 10px 20px;
+    color: var(--color-white);
+    background-color: var(--current-blue);
     font-family: var(--current-font);
     font-size: 20px;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 6px;
 }

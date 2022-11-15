@@ -1,5 +1,5 @@
 import Logo from '../images/memoriter-logo.svg';
-import Footer from '../components/Footer';
+import Footer from '../components/layout/footer';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -99,9 +99,9 @@ function SignUpPage() {
                             <p style={{ fontSize: '25px' }} />
                             <form onSubmit={handleSubmit}>
 
-                                <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
+                                <div className="folder-form-text" htmlFor="email">Email Adress:</div>
                                 <p style={{ fontSize: '5px' }} />
-                                <input className="Add_Folder_Form_Input" type="email" id="email" name="email"
+                                <input className="folder-form-input" type="email" id="email" name="email"
                                     placeholder='Please enter Email Adress...'
                                     style={{ border: redBorderEmail }}
                                     onChange={
@@ -115,9 +115,9 @@ function SignUpPage() {
                                 {emailInUse && <p className="passwords-no-match">Email already in use!</p>}
                                 <p style={{ fontSize: '25px' }} />
 
-                                <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
+                                <div className="folder-form-text" htmlFor="password">Password:</div>
                                 <p style={{ fontSize: '5px' }} />
-                                <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
+                                <input className="folder-form-input" type="password" id="password" name="password"
                                     placeholder="Please Enter Password..." maxLength={50}
                                     style={{ border: redBorderPassword }}
                                     onChange={(e) => {
@@ -130,9 +130,9 @@ function SignUpPage() {
                                 {shortPassword && <p className="passwords-no-match">Password should be at least 6 characters long!</p>}
                                 <p style={{ fontSize: '25px' }} />
 
-                                <div className="Add_Folder_Form_Text" htmlFor="password">Confirm Password:</div>
+                                <div className="folder-form-text" htmlFor="password">Confirm Password:</div>
                                 <p style={{ fontSize: '5px' }} />
-                                <input className="Add_Folder_Form_Input" type="password" id="password-confirm" name="password"
+                                <input className="folder-form-input" type="password" id="password-confirm" name="password"
                                     placeholder="Please Enter Password Again..." maxLength={50}
                                     style={{ border: redBorderConfirm }}
                                     onChange={(e) => {

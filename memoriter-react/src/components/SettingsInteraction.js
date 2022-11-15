@@ -237,8 +237,8 @@ function SettingsClick() {
             {signOutView && <>
                 <Confirm
                 title='Do you really want to sign out?'
-                onYesClick={logOut}
-                onNoClick={() => openSignOutView(false)}
+                onConfirm={logOut}
+                onCancel={() => openSignOutView(false)}
             />
                 <Backdrop onClick={() => openSignOutView(false)} />
             </>}
@@ -247,7 +247,7 @@ function SettingsClick() {
 
             {profile && <>
                 <div className='Settings-profile-body'>
-                    <h2 className='Add_Folder_Form_Header' style={{ fontSize: '30px',cursor:'default' }}>Profile</h2>
+                    <h2 className='folder-form-title' style={{ fontSize: '30px',cursor:'default' }}>Profile</h2>
                     <div>
                         <h1 className='Settings-profile-header' style={{ fontSize: '21px', textAlign: 'left', margin: '5px' }}>
                             Personal Info
@@ -274,7 +274,7 @@ function SettingsClick() {
 
                             <form onSubmit={newEmailSubmit}>
 
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                <input className='Settings-changemail-form folder-form-input'
                                     placeholder="New Email..."
                                     type="mail"
                                     autocomplete='off'
@@ -286,7 +286,7 @@ function SettingsClick() {
                                 />
                                 <br/>
                                 <br/>
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                <input className='Settings-changemail-form folder-form-input'
                                     placeholder="Confirm New Email..."
                                     type="mail"
                                     autocomplete='off'
@@ -298,7 +298,7 @@ function SettingsClick() {
                                 />
                                 <br/>
                                 <br/>
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                <input className='Settings-changemail-form folder-form-input'
                                     placeholder="Password..."
                                     type="password"
                                     id="accountPassword"
@@ -365,7 +365,7 @@ function SettingsClick() {
                                 
                                 <form onSubmit={newPasswordSubmit}>
 
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                <input className='Settings-changemail-form folder-form-input'
                                     placeholder="Current Password..."
                                     type="password"
                                     id="accountPassword"
@@ -376,7 +376,7 @@ function SettingsClick() {
                                 />
                                 <br/>
                                 <br/>
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                <input className='Settings-changemail-form folder-form-input'
                                     placeholder="New Password..."
                                     type="password"
                                     autocomplete='off'
@@ -388,7 +388,7 @@ function SettingsClick() {
                                 />
                                 <br/>
                                 <br/>
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                <input className='Settings-changemail-form folder-form-input'
                                     placeholder="Confirm New Password..."
                                     type="password"
                                     autocomplete='off'
@@ -445,7 +445,7 @@ function SettingsClick() {
 
                             <form onSubmit={deleteAccountPasswordSubmit}>
 
-                                <input className='Settings-changemail-form Add_Folder_Form_Input'
+                                <input className='Settings-changemail-form folder-form-input'
                                     placeholder="Password..."
                                     type="password"
                                     id="accountPassword"
@@ -483,12 +483,12 @@ function SettingsClick() {
                         {deleteAccountConfirm && <div>
                             <div className='settings-delete-account-confirm-body'>
                                 <br/>
-                                <h2 className='Add_folder_Form_Header' style={{textAlign: 'center'}}>Do you really want to delete your account?</h2>
+                                <h2 className='folder-form-title' style={{textAlign: 'center'}}>Do you really want to delete your account?</h2>
                                 <p className='settings-delete-account-confirm-text' style={{fontSize: '20px'}}>
                                     If you delete your account, your data will be gone forever and cannot be restored.
                                 </p>
                                 <br/>
-                                <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal'}}>
+                                <p className='settings-delete-account-confirm-text' style={{color: 'var(--color-font)', fontWeight: 'normal'}}>
                                     Please enter your user id to confirm the deletion:
                                     <br/><br/>
                                     <span style={{color: '#bbb', fontWeight: 'normal'}}>{user.uid}</span>
@@ -497,7 +497,7 @@ function SettingsClick() {
 
                                 <form onSubmit={deleteAccountFinal}>
                                     <input
-                                        className='Settings-changemail-form Add_Folder_Form_Input'
+                                        className='Settings-changemail-form folder-form-input'
                                         style={{left: '50%', transform: 'translateX(-50%)', width: '80%'}}
                                         type='text'
                                         autocomplete='off'

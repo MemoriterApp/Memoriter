@@ -1,5 +1,5 @@
 import Logo from '../images/memoriter-logo.svg';
-import Footer from '../components/Footer';
+import Footer from '../components/layout/footer';
 import FlashcardStudy from '../components/flashcard-study';
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -115,7 +115,7 @@ const StudyPage = () => {
                     {syncedFolderTitle !== '' ? (
                         <h1 className="page-title">{syncedFolderTitle}</h1>
                     ) : (
-                        <h1 className="page-title">New Folder</h1>
+                        <h1 className="page-title">New folder</h1>
                     )}
                     <Link to='/'>
                         <img className="header-logo" src={Logo} alt="site-logo"></img>

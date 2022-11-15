@@ -42,8 +42,8 @@ const PasswordReset = ({closePasswordResetModal}) => {
 
             {modalIsOpen || <div>
                 <br/>
-                <h2 className='Add_folder_Form_Header' style={{textAlign: 'center'}}>Password Reset</h2>
-                <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal'}}>
+                <h2 className='folder-form-title' style={{textAlign: 'center'}}>Password Reset</h2>
+                <p className='settings-delete-account-confirm-text' style={{color: 'var(--color-font)', fontWeight: 'normal'}}>
                     We will send you an email with further instructions how to reset your password.
                 </p>
                 <br/>
@@ -51,7 +51,7 @@ const PasswordReset = ({closePasswordResetModal}) => {
                 <form onSubmit={passwordReset}>
 
                     <input
-                        className='Settings-changemail-form Add_Folder_Form_Input'
+                        className='Settings-changemail-form folder-form-input'
                         style={{left: '50%', transform: 'translateX(-50%)', width: '80%', borderColor: redBorder}}
                         type='email'
                         placeholder='Please enter account email...'
@@ -81,9 +81,9 @@ const PasswordReset = ({closePasswordResetModal}) => {
 
             {modalIsOpen && <div>
                 <br/>
-                <h2 className='Add_folder_Form_Header' style={{textAlign: 'center'}}>Password Reset</h2>
+                <h2 className='folder-form-title' style={{textAlign: 'center'}}>Password Reset</h2>
                 <br/>
-                <p className='settings-delete-account-confirm-text' style={{color: 'white', fontWeight: 'normal', width: '90%', marginInline: '5%'}}>
+                <p className='settings-delete-account-confirm-text' style={{color: 'var(--color-font)', fontWeight: 'normal', width: '90%', marginInline: '5%'}}>
                     We have sent you your password reset email!
                     If you did not recieve an email, please try again in a few minutes.
                     The Email might also be falsely detected as spam by some email providers.

@@ -8,6 +8,7 @@ import alignCenter from '../images/text-align-center.svg';
 import alignJustify from '../images/text-align-justify.svg';
 import { useState } from 'react';
 import { Remarkable } from 'remarkable';
+import FlashcardForm from './topic/flashcard-form';
 
 const FlashcardSpacedRep = ({
   flashcard,
@@ -39,10 +40,6 @@ const FlashcardSpacedRep = ({
     setModalIsOpenEdit(true);
   }
 
-  const [title, setTitle] = useState(flashcard.title);
-
-  const [content, setContent] = useState(flashcard.content);
-
   return (
     <div>
       <div className='study-flashcard-box' onClick={() => setShowAnswer(true)}>
@@ -58,13 +55,13 @@ const FlashcardSpacedRep = ({
           <div style={{ cursor: 'auto' }}>
             <article
               style={{ marginTop: '30px', textAlign: flashcard.textAlign }}
-              dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd() }}
+              dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
             />{' '}
             {/*dangerouslySetInnerHTML parses the formatted html text*/}
           </div>
         )}
 
-        {settingsOverlay && (
+        {settingsOverlay && 
           <div
             className='flashcard-settings-overlay'
             style={{ transform: 'translate(-24px, 16px)' }}
@@ -112,7 +109,7 @@ const FlashcardSpacedRep = ({
                 />
                 Edit
               </p>
-              <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)' }}>
+              <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
                 <img
                   style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
                   src={deleteIcon}
@@ -122,7 +119,7 @@ const FlashcardSpacedRep = ({
               </p>
             </div>
           </div>
-        )}
+        }
         <div onClick={() => setSettingsOverlay(false)}>{settingsOverlay && <Backdrop />}</div>
       </div>
 
@@ -183,48 +180,18 @@ const FlashcardSpacedRep = ({
         </div>
       )}
 
-      <div>
-        {modalIsOpenEdit && (
-          <form className='Edit_Flashcard_Open_Body'>
-            <div>
-              <h2 className='Add_Flashcard_Form_Header'>Edit Flashcard</h2>
-              <p style={{ fontSize: '30px' }} />
-              <textarea
-                rows='2'
-                className='Add_Flashcard_Form_Title'
-                placeholder='Flashcard Title...'
-                maxLength='100'
-                value={title}
-                onChange={(changeTitle) => setTitle(changeTitle.target.value)}
-              />
-              <p style={{ fontSize: '20px' }} />
-
-              <textarea
-                className='flashcard-form-content'
-                placeholder='Flashcard Content...'
-                value={content}
-                onChange={(changeContent) => setContent(changeContent.target.value)}
-              />
-            </div>
-            <input
-              className='Add_Flashcard_Form_Submit'
-              type='submit'
-              value='Done'
-              onClick={() => {
-                onEditFlashcard(flashcard.id, title, content);
-                setModalIsOpenEdit(false);
-                setBackdropOpen(false);
-              }}
-            />
-          </form>
-        )}
-      </div>
+      {modalIsOpenEdit && <FlashcardForm
+        type='Edit'
+        flashcard={flashcard}
+        onCancel={() => setModalIsOpenEdit(false)}
+        onConfirm={(title, content) => {onEditFlashcard(flashcard.id, title, content); setModalIsOpenEdit(false); setBackdropOpen(false);}}
+      />}
 
       {modalIsOpenDelete && (
         <Confirm
           title='Do you really want to delete this flashcard?'
-          onYesClick={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
-          onNoClick={() => {
+          onConfirm={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
+          onCancel={() => {
             setModalIsOpenDelete(false);
             setBackdropOpen(false);
           }}

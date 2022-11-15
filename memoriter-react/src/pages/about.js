@@ -1,5 +1,5 @@
 import Logo from '../images/memoriter-logo.svg';
-import Footer from "../components/Footer";
+import Footer from "../components/layout/footer";
 import { Link } from 'react-router-dom';
 
 function About() {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Logo from '../images/memoriter-logo.svg';
-import Footer from "../components/Footer";
+import Footer from "../components/layout/footer";
 import Backdrop from '../components/backdrop';
 import PasswordReset from "../components/password-reset";
 import { Link, useNavigate } from "react-router-dom";
@@ -92,9 +92,9 @@ function LoginPage() {
                             <form onSubmit={handleSubmit}>
                                 <div style={{ height: '80px' }} />
 
-                                <div className="Add_Folder_Form_Text" htmlFor="email">Email Adress:</div>
+                                <div className="folder-form-text" htmlFor="email">Email Adress:</div>
                                 <p style={{ fontSize: '5px' }} />
-                                <input className="Add_Folder_Form_Input" type="email" id="email" name="email"
+                                <input className="folder-form-input" type="email" id="email" name="email"
                                     placeholder='Please enter Email Adress...'
                                     value={email}
                                     style={{ border: redBorderEmail }}
@@ -107,9 +107,9 @@ function LoginPage() {
                                 {invalidEmail && <p className="passwords-no-match">Invalid Email!</p>}
                                 <p style={{ fontSize: '25px' }} />
 
-                                <div className="Add_Folder_Form_Text" htmlFor="password">Password:</div>
+                                <div className="folder-form-text" htmlFor="password">Password:</div>
                                 <p style={{ fontSize: '5px' }} />
-                                <input className="Add_Folder_Form_Input" type="password" id="password" name="password"
+                                <input className="folder-form-input" type="password" id="password" name="password"
                                     placeholder="Please Enter Password..." maxLength={50}
                                     style={{ border: redBorderPassword }}
                                     onChange={

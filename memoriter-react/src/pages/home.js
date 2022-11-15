@@ -2,11 +2,11 @@ import '../css/home.css';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import SettingsIcon from '../components/Settings/SettingsIcon';
 import archiveIcon from '../images/icons/archive-icon.svg';
-import FolderHome from '../components/folder-home';
-import AddFolderForm from '../components/AddFolderForm';
 import Backdrop from '../components/backdrop';
-import Footer from '../components/Footer';
-import { firebase } from '../utils/firebase';
+import Folder from '../components/home/folder';
+import FolderForm from '../components/home/folder-form';
+import Footer from '../components/layout/footer';
+import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
 import {
   collection,
@@ -105,9 +105,9 @@ function HomePage() {
   };
 
   //Add Folder
-  const addFolder = async (folder) => {
-    const pos = folders.length + 1;
-    await addDoc(collection(db, 'folders'), { pos, title: folder.title, user: user.uid });
+  const addFolder = async (title) => {
+    const pos = folders.length + 1
+    await addDoc(collection(db, 'folders'), { pos, title: title, user: user.uid, archived: false })
 
     const allFolders = await getDocs(foldersCollectionRef);
     setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id }))); //Aktualisieren der Ordner
@@ -225,7 +225,7 @@ function HomePage() {
               {folders
                 .filter((folder) => !folder.archived)
                 .map((folder) => (
-                  <FolderHome
+                  <Folder
                     key={folder.id}
                     folder={folder}
                     folderCount={folders.length}
@@ -251,21 +251,9 @@ function HomePage() {
                   <div className='New_Folder_Plus_h'></div>
                   <div className='New_Folder_Plus_v'></div>
                 </button>
-                <button
-                  className='New_Folder_Text'
-                  onClick={() => {
-                    setModalIsOpen(true);
-                  }}
-                >
-                  Create New Folder
-                </button>
-                <div>{modalIsOpen && <AddFolderForm onAddFolder={addFolder} />}</div>
-                <div
-                  onClick={() => {
-                    setModalIsOpen(false);
-                  }}
-                >
-                  {modalIsOpen && <Backdrop />}
+                <button className='New_Folder_Text' onClick={() => setModalIsOpen(true)}>Create new folder</button>
+                <div>
+                  {modalIsOpen && <FolderForm type='Create new' folder={{ title: '' }} onConfirm={addFolder} onCancel={() => setModalIsOpen(false)} />}
                 </div>
               </div>
             </div>
