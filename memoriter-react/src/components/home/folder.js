@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../css/folder.css';
 import Confirm from '../confirm';
 import Backdrop from '../backdrop';
-import FolderForm from './folder-form';
+import FolderForm from './new-folder-form';
 import FolderSettings from './folder-settings';
 
 const Folder = ({
@@ -17,23 +17,16 @@ const Folder = ({
   onArchiveFolder,
   onDearchiveFolder,
 }) => {
-  // function that gets called when the user clicks on a folder
   const onOpenFolder = () => {
     localStorage.setItem('syncedFolderID', folder.id); //set the folder id in local storage
     localStorage.setItem('syncedFolderTitle', folder.title); //set the folder title in local storage
   };
 
-  // modalIsOpen is the state of the modal if if is open or not
+  //States to check if a modal is open or not
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
 
-  // function that gets called when the user clicks on the settings button
-  const settingsHandler = () => {
-    setModalIsOpen(true);
-  };
-  // function that gets called when the user clicks on the backdrop
-  const backdropClick = () => {
-    setModalIsOpen(false);
-  };
 
   // function when the folder is edited
   const editFolder = (newTitle) => {
@@ -41,24 +34,15 @@ const Folder = ({
     setEditModal(false);
   };
 
-  // modalIsOpenD is the state of the modal if if is open or not
-  const [modalIsOpenD, setModalIsOpenD] = useState(false);
 
-  // modalIsOpenE is the state of the modal if if is open or not
-  const [editModal, setEditModal] = useState(false);
-
-  // pos is the state of the position of the folder
-  const [pos, setPos] = useState(folder.pos);
-
+  const [pos, setPos] = useState(folder.pos); // pos is the state of the position of the folder
   // if the position of the folder is not the same as the state of the position of the folder
   if (folder.pos !== pos) {
     setPos(folder.pos); // set the state of the position of the folder to the position of the folder
   }
 
-  // get the id of the folder that has the new position
-  const newPosId = sessionStorage.getItem('newPosFolder');
-  // get the id of the folder that has the new position
-  const newPosIdDelete = sessionStorage.getItem('newPosFolder' + folder.id);
+  const newPosId = sessionStorage.getItem('newPosFolder'); // get the id of the folder that has the new position
+  const newPosIdDelete = sessionStorage.getItem('newPosFolder' + folder.id); // get the id of the folder that has the new position
 
   // if the id of the folder that has the new position is the same as the id of the folder
   if (newPosId === folder.id) {
@@ -69,6 +53,7 @@ const Folder = ({
     onPosAdjust(folder.id, folder.pos); //adjust the position of the folder
     sessionStorage.removeItem('newPosFolder' + folder.id); //remove the id of the folder that has the new position from the session storage
   }
+  
 
   return (
     <section className='folder'>
@@ -109,7 +94,7 @@ const Folder = ({
       >
         <div className='folder-pos-arrow-down' />
       </div>
-      <div className='button-homepage-settings' onClick={settingsHandler}>
+      <div className='button-homepage-settings' onClick={() => {setModalIsOpen(true)}}>
         <span className='dot' />
         <span className='dot' />
         <span className='dot' />
@@ -119,7 +104,7 @@ const Folder = ({
         <FolderSettings
           folder={folder}
           editFolderReq={() => {setEditModal(true); setModalIsOpen(false);}}
-          deleteFolderReq={() => {setModalIsOpenD(true); setModalIsOpen(false);}}
+          deleteFolderReq={() => {setDeleteModal(true); setModalIsOpen(false);}}
           onArchive={onArchiveFolder}
           onDearchive={onDearchiveFolder}
         />
@@ -134,15 +119,15 @@ const Folder = ({
         />
       )}
 
-      {modalIsOpenD && (
+      {deleteModal && (
         <Confirm
           title='Do you really want to delete this folder?'
           onConfirm={() => onDeleteFolder(folder.id, folder.pos)}
-          onCancel={() => setModalIsOpenD(false)}
+          onCancel={() => setDeleteModal(false)}
         />
       )}
 
-      <div onClick={backdropClick}>{modalIsOpen && <Backdrop />}</div>
+      <div onClick={() => {setModalIsOpen(false)}}>{modalIsOpen && <Backdrop />}</div>
     </section>
   );
 };

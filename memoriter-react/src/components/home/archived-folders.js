@@ -1,4 +1,4 @@
-import Folder from './home/folder';
+import Folder from './folder';
 
 function ArchivedFolders({
   folders,

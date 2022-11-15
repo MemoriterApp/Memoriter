@@ -4,7 +4,7 @@ import SettingsIcon from '../components/Settings/SettingsIcon';
 import archiveIcon from '../images/icons/archive-icon.svg';
 import Backdrop from '../components/backdrop';
 import Folder from '../components/home/folder';
-import FolderForm from '../components/home/folder-form';
+import FolderForm from '../components/home/new-folder-form';
 import Footer from '../components/layout/footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';
@@ -19,7 +19,7 @@ import {
   where,
 } from 'firebase/firestore/lite';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import ArchivedFolders from '../components/archived-folders';
+import ArchivedFolders from '../components/home/archived-folders';
 const { db } = firebase;
 
 //this file is the home page of the app where you see all your folders
@@ -27,7 +27,6 @@ const { db } = firebase;
 function HomePage() {
   //user stuff
   const [user, setUser] = useState({});
-
   const auth = getAuth();
 
   //firestore stuff
