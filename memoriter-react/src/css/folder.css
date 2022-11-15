@@ -12,7 +12,7 @@
     position: absolute;
     top: 2px;
     right: 0;
-    background-color: var(--color-font-gray);
+    background-color: var(--current-gray-medium-dark);
     border-radius: 50%;
     cursor: pointer;
     color: var(--color-white);
@@ -176,11 +176,11 @@
 }
 .add-folder-form-submit {
     border: none;
-  padding: 10px 20px;
-  color: var(--color-white);
-  background-color: var(--current-blue);
-  font-family: var(--current-font);
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 6px;
+    padding: 10px 20px;
+    color: var(--color-white);
+    background-color: var(--current-blue);
+    font-family: var(--current-font);
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 6px;
 }
