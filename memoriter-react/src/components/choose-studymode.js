@@ -1,7 +1,7 @@
 import { useNavigate, } from 'react-router-dom';
 import '../css/changePreview.css';
 
-function ChooseMode() {
+function ChooseStudyMode() {
 
     //uses the css from changePreview.css
 
@@ -41,4 +41,4 @@ function ChooseMode() {
         
     )
 }
-export default ChooseMode;
+export default ChooseStudyMode;

@@ -9,15 +9,15 @@ import Backdrop from '../components/backdrop';
 import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import Flashcard from '../components/topic/flashcard';
-import ChooseMode from '../components/choose-mode';
+import ChooseStudyMode from '../components/choose-studymode';
 import { firebase } from '../utils/firebase';
 import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
+  collection, //set of database documents
+  getDocs, //gets all documents from a collection
+  addDoc, //adds a document to a collection
+  updateDoc, //updates a document in a collection
+  deleteDoc, //deletes a document from a collection
+  doc, //a single document in a collection
   query,
   where,
 } from 'firebase/firestore/lite';
@@ -25,18 +25,8 @@ const { db } = firebase;
 
 //this file is the home page of the app where you see all your flashcards
 //it uses css from topic.css
-
-//things that need to be explained better by Simon:
-//1. how does collum layout work? | it is based on a library and css media queries
-//2. how does sorting flashcards work? | it is one the most basic ones (https://www.w3schools.com/js/js_array_sort.asp)
-//3. What does openFlashReq. do? | it sets a number to the position of a flashcard which will be opened, the number can be modified with the arrows next to the open card
-//4. genrell how does all of the positioning work? | every flashcard has a position prop in the database which is used by the sort method and is modified by the change position arrows
-//5. edit flashcard how does it work? | like the one of the folders, just with a broken editor
-//6. how does the huge if-else work? | based on the current text align it changes to a specific other one
-//7. Could you also figure out why renaming the CSS Classes dosen't work? | the classes are reused sometimes, so you need to rename it for every use case
-
 function TopicPage() {
-  const user = firebase.auth.currentUser; //creates the user from the firebase auth
+  const user = firebase.auth.currentUser; 
 
   const [columns, setColumns] = useState(6); //column count of the masonry layout
   const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
@@ -66,66 +56,47 @@ function TopicPage() {
 
   //firebase stuff
   //link to db
-  const flashcardCollectionRef = query(
+  const flashcardCollectionReferance = query(
     collection(db, 'flashcards'),
     where('syncedFolder', '==', localStorage.getItem('syncedFolderID'))
   ); //gets all flashcards from the synced folder
 
-  //Flashcard Data
   const [flashcards, setFlashcards] = useState([]); //creates the flashcard state
 
-  //Use Effect fpt notes resets the notes state when the page is loaded
+  //Use Effect fot notes resets the notes state when the page is loaded
   useEffect(() => {
     const getFlashcards = async () => {
       //gets all flashcards from the synced folder
-      const allFlashcards = await getDocs(flashcardCollectionRef);
+      const allFlashcards = await getDocs(flashcardCollectionReferance);
       setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-
     getFlashcards(); //calls the function
     sessionStorage.setItem('flashcard-content', '');
     localStorage.setItem('lastPage', '/topic');
   }, []); // do not add dependencies, otherwise it will loop
 
   let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets the title of the synced folder
-
   let syncedFolderID = localStorage.getItem('syncedFolderID'); //gets the id of the synced folder
 
-  const [modalIsOpenA, setModalIsOpenA] = useState(false); //creates the state for the add flashcard modal
-  const [chooseMode, openChooseMode] = useState(false); //creates the state for the choose study mode modal
 
-  function NewFlashcardClick() {
-    //opens the add flashcard modal
-    setModalIsOpenA(true);
-  }
+  const [chooseStudyModeModal, openChooseStudyModeModal] = useState(false); //creates the state for the choose study mode modal
 
-  function backdropClick() {
-    //closes the add flashcard modal
-    setModalIsOpenA(false);
-  }
-
-  //Open Flashcard
   const [openFlashcard, setOpenFlashcard] = useState(); //creates the state for the open flashcard
-
   const openFlashcardReq = (pos) => {
-    //opens the flashcard
     setOpenFlashcard(pos);
   };
 
   const closeFlashcardReq = () => {
-    //closes the flashcard
     setOpenFlashcard(undefined);
   };
 
-  const nextFlashcard = (pos) => {
-    //opens the next flashcard
+  const nextFlashcard = (pos) => {     //opens the next flashcard
     if (pos < flashcards.length) {
       setOpenFlashcard(pos + 1);
     }
   };
 
-  const prevFlashcard = (pos) => {
-    //opens the previous flashcard
+  const prevFlashcard = (pos) => {    //opens the previous flashcard
     if (pos > 1) {
       setOpenFlashcard(pos - 1);
     }
@@ -136,8 +107,7 @@ function TopicPage() {
     return a.pos - b.pos;
   }); //Sorting Flashcards
 
-  const posLeft = async (id, pos) => {
-    //Position left
+  const posLeft = async (id, pos) => { //moves the flashcard to the left
     const flashcardDoc = doc(db, 'flashcards', id);
     const newPosLeft = { pos: pos - 1 };
 
@@ -155,8 +125,7 @@ function TopicPage() {
     );
   };
 
-  const posRight = async (id, pos) => {
-    //Position right
+  const posRight = async (id, pos) => { //moves the flashcard to the right
     const flashcardDoc = doc(db, 'flashcards', id);
     const newPosRight = { pos: pos + 1 };
 
@@ -182,7 +151,9 @@ function TopicPage() {
     await updateDoc(flashcardDoc, newPosAdjust);
   };
 
-  //Add Flashcard
+  //Add Flashcard stuff 
+  const [addFlashcardModal, setAddFlashcardModal] = useState(false); //creates the state for the add flashcard modal
+
   const addFlashcard = async (title, content, syncedFolder) => {
     const pos = flashcards.length + 1; //adds the flashcard to the end of the list
 
@@ -201,10 +172,10 @@ function TopicPage() {
       user: user.uid,
     }); //sets the db files for the flashcard
 
-    const allFlashcards = await getDocs(flashcardCollectionRef);
+    const allFlashcards = await getDocs(flashcardCollectionReferance);
     setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))); //refresh the flashcards state
 
-    setModalIsOpenA(false); //closes the add flashcard modal once the flashcard has been added
+    setAddFlashcardModal(false); //closes the add flashcard modal once the flashcard has been added
   };
 
   //Edit Flashcard
@@ -272,12 +243,11 @@ function TopicPage() {
         <Link to='/'>
           <img className='header-logo' src={memoriterLogo} alt='site-logo'></img>
         </Link>
-        <div className='study-now' onClick={() => openChooseMode(true)}>
+        <div className='study-now' onClick={() => openChooseStudyModeModal(true)}>
           <p className='study-now-text'>study now</p>
         </div>
-
-        {chooseMode && <ChooseMode />}
-        {chooseMode && <Backdrop onClick={() => openChooseMode(false)} />}
+        {chooseStudyModeModal && <ChooseStudyMode />}
+        {chooseStudyModeModal && <Backdrop onClick={() => openChooseStudyModeModal(false)} />}
       </header>
       <main>
         <div className='rechteck'>
@@ -327,7 +297,7 @@ function TopicPage() {
 
               {/*create new flashcard button*/}
               <div className='flashcard-body'>
-                <div className='New_flashcard-rechteck' onClick={NewFlashcardClick}>
+                <div className='New_flashcard-rechteck' onClick={() => setAddFlashcardModal(true)}>
                   <div className='New_Flashcard_Circle'>
                     <div className='New_Flashcard_Plus_h' />
                     <div className='New_Flashcard_Plus_v' />
@@ -336,10 +306,10 @@ function TopicPage() {
               </div>
             </Masonry>
 
-            {modalIsOpenA && (
+            {addFlashcardModal && (
               <FlashcardForm type='Create new' flashcard={{ title: '', content: '' }} onConfirm={addFlashcard} syncedFolderID={syncedFolderID} />
             )}
-            <div onClick={backdropClick}>{modalIsOpenA && <Backdrop />}</div>
+            <div onClick={() => setAddFlashcardModal(false)}>{addFlashcardModal && <Backdrop />}</div>
           </div>
           <BackButton />
           <SettingsIcon />
