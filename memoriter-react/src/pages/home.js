@@ -185,6 +185,7 @@ function HomePage() {
               src={archiveIcon}
               className='archive-icon'
               alt=''
+              title='Archive'
               onClick={() => {
                 setArchiveFolderIsOpen(true);
               }}

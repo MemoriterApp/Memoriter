@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/folder.css';
-import edit from '../../images/edit.svg';
-import deleteIcon from '../../images/delete.svg';
-import archive from '../../images/icons/archive-icon.svg';
 import Confirm from '../confirm';
 import Backdrop from '../backdrop';
 import FolderForm from './folder-form';
+import FolderSettings from './folder-settings';
 
 const Folder = ({
   folder,
@@ -17,7 +15,7 @@ const Folder = ({
   folderCount,
   onPosAdjust,
   onArchiveFolder,
-  onDearchiveFolder
+  onDearchiveFolder,
 }) => {
   // function that gets called when the user clicks on a folder
   const onOpenFolder = () => {
@@ -46,20 +44,8 @@ const Folder = ({
   // modalIsOpenD is the state of the modal if if is open or not
   const [modalIsOpenD, setModalIsOpenD] = useState(false);
 
-  // function that gets called when the user clicks on the delete button
-  function deleteFolderReq() {
-    setModalIsOpenD(true);
-    setModalIsOpen(false);
-  }
-
   // modalIsOpenE is the state of the modal if if is open or not
   const [editModal, setEditModal] = useState(false);
-
-  // function that gets called when the user clicks on the edit button
-  const editFolderReq = () => {
-    setEditModal(true);
-    setModalIsOpen(false);
-  };
 
   // pos is the state of the position of the folder
   const [pos, setPos] = useState(folder.pos);
@@ -129,50 +115,15 @@ const Folder = ({
         <span className='dot' />
       </div>
 
-      <div>
-        {modalIsOpen && (
-          <div className='folder-settings-overlay'>
-            <div className='folder-settings-sub'>
-              <p onClick={editFolderReq}>
-                <img
-                  style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                  src={edit}
-                  alt=''
-                />
-                Edit
-              </p>
-              {!folder.archived && (
-                <p onClick={() => onArchiveFolder(folder.id)}>
-                  <img
-                    style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                    src={archive}
-                    alt=''
-                  />
-                  Archive
-                </p>
-              )}
-              {folder.archived && (
-                <p onClick={() => onDearchiveFolder(folder.id)}>
-                  <img
-                    style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                    src={archive}
-                    alt=''
-                  />
-                  De-archive
-                </p>
-              )}
-              <p onClick={deleteFolderReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
-                <img
-                  style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                  src={deleteIcon}
-                  alt=''
-                />
-                Delete
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
+      {modalIsOpen && (
+        <FolderSettings
+          folder={folder}
+          editFolderReq={() => {setEditModal(true); setModalIsOpen(false);}}
+          deleteFolderReq={() => {setModalIsOpenD(true); setModalIsOpen(false);}}
+          onArchive={onArchiveFolder}
+          onDearchive={onDearchiveFolder}
+        />
+      )}
 
       {editModal && (
         <FolderForm
