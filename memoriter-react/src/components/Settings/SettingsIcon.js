@@ -8,23 +8,16 @@ const SettingsIcon = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    function settingsHandler() {
-        setModalIsOpen(true);
-    }
-    function closingHandler() {
-        setModalIsOpen(false);
-    }
-
     return (
         <div>
             <button className='gear'>
-                <img className='gear' src={settingsIcon} alt='settings' onClick={settingsHandler}></img>
+                <img className='gear' src={settingsIcon} alt='settings' onClick={() => setModalIsOpen(true)}></img>
             </button>
             <div>
                 {modalIsOpen && <SettingsClick/>}
-                {modalIsOpen && <Backdrop onClick={closingHandler}/>}
+                {modalIsOpen && <Backdrop onClick={() => setModalIsOpen(false)}/>}
             </div>
-            <div  onClick={closingHandler}>
+            <div  onClick={() => setModalIsOpen(false)}>
                     {modalIsOpen && <Backdrop/>}
             </div>
         </div>
