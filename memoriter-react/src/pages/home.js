@@ -4,7 +4,7 @@ import SettingsIcon from '../components/Settings/SettingsIcon';
 import archiveIcon from '../images/icons/archive-icon.svg';
 import Backdrop from '../components/backdrop';
 import Folder from '../components/home/folder';
-import FolderForm from '../components/home/new-folder-form';
+import FolderForm from '../components/home/folder-form';
 import Footer from '../components/layout/footer';
 import { firebase } from '../utils/firebase'
 import { useState, useEffect } from 'react';

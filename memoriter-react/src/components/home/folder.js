@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../css/folder.css';
 import Confirm from '../confirm';
 import Backdrop from '../backdrop';
-import FolderForm from './new-folder-form';
+import FolderForm from './folder-form';
 import FolderSettings from './folder-settings';
 
 const Folder = ({
