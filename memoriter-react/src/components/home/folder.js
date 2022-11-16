@@ -94,7 +94,7 @@ const Folder = ({
       >
         <div className='folder-pos-arrow-down' />
       </div>
-      <div className='button-homepage-settings' onClick={() => {setModalIsOpen(true)}}>
+      <div className='button-homepage-settings' style={{transform:'rotate(90deg)'}}  onClick={() => {setModalIsOpen(true)}}>
         <span className='dot' />
         <span className='dot' />
         <span className='dot' />
