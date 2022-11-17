@@ -65,6 +65,7 @@ function TopicPage() {
   
   const folder = doc(db, 'folders', syncedFolderID);
 
+  const [notYourFolder, setNotYourFolder] = useState(false); //state to open modal if folder is not yours
   //Use Effect for notes
   useEffect(() => {
     const getFlashcards = async () => {
@@ -76,6 +77,10 @@ function TopicPage() {
     const getFolder = async () => {
       const folderDoc = await getDoc(folder);
       setSyncedFolderTitle(folderDoc.data().title);
+      if (folderDoc.data().user !== user.uid && notYourFolder === false) {
+        setNotYourFolder(true);
+      }
+
     };
     getFolder();
 
@@ -85,7 +90,7 @@ function TopicPage() {
     
   }, []);
 
- 
+  
   
 
   const [modalIsOpenA, setModalIsOpenA] = useState(false);
@@ -235,7 +240,7 @@ function TopicPage() {
     }
   }, []);
 
-  const [notYourFolder, setNotYourFolder] = useState(true);
+  
 
   return (
     <>
