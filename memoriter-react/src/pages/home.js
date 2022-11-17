@@ -131,7 +131,7 @@ function HomePage() {
     );
 
     //delete folder flashcards stuff
-    const flashcardsCollectionRef = collection(db, 'flashcards'); //link zur flashcard-collection
+    const flashcardsCollectionRef = collection(db, 'flashcards'); //link to flashcard-collection
     const q = query(flashcardsCollectionRef, where('syncedFolder', '==', id)); //Variable zur Filtrierung nach den richtigen flashcards
     const snapshot = await getDocs(q); //gefilterte flashcards werden abgefragt
 
