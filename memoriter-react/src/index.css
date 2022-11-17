@@ -2411,6 +2411,7 @@ body::-webkit-scrollbar-corner {
     margin-bottom: 40px;
     font-family: var(--current-font);
     font-weight: bold;
+    text-align: center;
 }
 .preview-type-layout {
     display: flex;

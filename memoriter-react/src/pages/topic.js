@@ -4,6 +4,7 @@ import { useState, useEffect, } from 'react';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import BackButton from '../components/BackButton';
 import SettingsIcon from '../components/SettingsIcon';
+import AddImportFolder from '../components/add-import-folder';
 import Footer from '../components/Footer';
 import AddFlashcardForm from '../components/AddFlashcardForm';
 import Backdrop from '../components/backdrop';
@@ -234,6 +235,8 @@ function TopicPage() {
     }
   }, []);
 
+  const [notYourFolder, setNotYourFolder] = useState(true);
+
   return (
     <>
       <header className='page-header'>
@@ -253,6 +256,10 @@ function TopicPage() {
         <div className='rechteck'>
           <div className='main-seperator' />
           <div className='Flashcard_Base'>
+
+            {notYourFolder && <AddImportFolder/>}
+            {notYourFolder && <Backdrop onClick={() => setNotYourFolder(false)}/>}
+
 
             <Masonry breakpointCols={columns} className='flashcard-base-grid'>
               {isOnlyQuestion === true ?
