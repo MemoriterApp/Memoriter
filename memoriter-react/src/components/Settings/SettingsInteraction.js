@@ -44,23 +44,26 @@ function SettingsClick() {
 
 
     return (
-        <div className='settings-overlay'>
-            <div className='settings-title-box'>
-                <h1 className='settings-title'>SETTINGS</h1>
+        <div className = 'settings-overlay'>
+            <div className = 'settings-title-box'>
+                <h1 className = 'settings-title'>SETTINGS</h1>
             </div>
-            <p className='settings-sub' onClick={() => openProfile(true)}>PROFILE</p>
+            <p className = 'settings-sub' onClick={() => openProfile(true)}>PROFILE</p>
+            
             {(themeText === 'light' || !themeText) && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>THEME:&shy; LIGHT</p>}
             
             {themeText === 'dark' && <p className='settings-sub' onClick={() => onChangeTheme('light')}>THEME:&shy; DARK</p>}
-            <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
-            <p className='sign-out-box' onClick={() => openSignOutView(true)}>SIGN OUT</p>
+
+            <p className = 'settings-sub' onClick = {() => openChangePreview(true)}>CHANGE PREVIEW</p>
+            <p className = 'sign-out-box' onClick = {() => openSignOutView(true)}>SIGN OUT</p>
+
             {signOutView && <>
                 <Confirm
-                title='Do you really want to sign out?'
-                onConfirm={logOut}
-                onCancel={() => openSignOutView(false)}
-            />
-                <Backdrop onClick={() => openSignOutView(false)} />
+                title = 'Do you really want to sign out?'
+                onConfirm = {logOut}
+                onCancel = {() => openSignOutView(false)} />
+
+                <Backdrop onClick = {() => openSignOutView(false)} />
             </>}
 
             {changePreview && <ChangePreview/>}

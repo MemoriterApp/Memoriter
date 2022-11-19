@@ -3,12 +3,12 @@
     border-radius: 6px;
     background-color: var(--color-white);
     text-align: center;
-    width: 250px;
-    height: 420px;
+    width: 325px;
+    height: 490px;
     z-index: 10;
     position: absolute;
-    left: calc(50% - 125px);
-    top: calc(50% - 210px);
+    left: calc(50% - 162.5px);
+    top: calc(50% - 245px);
     overflow-x: hidden;
     overflow-y: auto;
     margin: 0;
@@ -16,10 +16,10 @@
 
 .settings-title-box {
     background-color: var(--current-blue);
-    width: 262px;
-    height: 100px;
+    width: 337px;
+    height: 120px;
     position: relative;
-    bottom: 22px;
+    bottom: 33px;
 }
 
 .settings-title {
@@ -29,7 +29,9 @@
     word-wrap: break-word;
     top: 25px;
     hyphens: manual;
+    font-size: 5ch;
 }
+
 .settings-sub {
     color: var(--color-black);
     width: 100%;
@@ -62,175 +64,15 @@
     border-radius: 6px;
 }
 
-/* CSS für den Profile Teil der Settings*/
-.Settings-profile-header {
-    font-size: 21px;
-    text-align: left;
-    margin: 5px;
-    cursor: default;
+@media (max-width: 300px) {
+  .settings-overlay {
+    width: calc(100% - 20px);
+    left: 10px;
   }
-  .Settings-profile-text {
-    font-size: 20px;
-    color: var(--current-gray);
-    cursor: pointer;
-    font-weight: bold;
-    display: inline-block;
-    text-align: left;
-    cursor: default;
-  }
-  .Settings-line {
-    background-color: var(--current-gray);
-    border: 1.5px solid var(--current-gray);
-    width: 98%;
-    margin: auto;
-    position: relative;
-    border-radius: 3px;
-  }
-  .Settings-profile-body {
-    box-shadow: 0 1px 4px var(--color-shadow);
-    background-color: var(--color-background);
-    text-align: center;
-    font-family: var(--current-font);
-    color: var(--color-font);
-    width: 520px;
-    height: 480px;
-    position: fixed;
-    left: calc(50% - 260px);
-    top: calc(50% - 240px);
-    max-width: calc(100% - 10px);
-    max-height: calc(100% - 10px);
-    padding: 10px;
-    z-index: 10;
-    border-radius: 10px;
-    overflow-y: auto;
-  }
-  .Settings-changemail-body {
-    border: 5px solid var(--current-blue);
-    box-shadow: 0 1px 4px var(--color-shadow);
-    background-color: var(--color-background);
-    text-align: center;
-    font-family: var(--current-font);
-    color: var(--color-white);
-    width: 450px;
-    height: 340px;
-    position: fixed;
-    top: 18%;
-    right: 7.5%;
-    max-width: calc(100vw - 30px);
-    max-height: calc(100vh - 30px);
-    z-index: 10;
-    border-radius: 6px;
-    overflow-y: auto;
-  }
-  .Settings-changemail-cancel {
-    border: 5px solid var(--current-gray);
-    border-radius: 3px;
-    padding: 5px;
-    width: 130px;
-    color: white;
-    background-color: var(--current-gray);
-    font-family: var(--current-font);
-    font-size: 20px;
-    cursor: pointer;
-    margin-left: 0;
-    margin-top: 1.5vw;
-  }
-  .Settings-changemail-change {
-    border: 5px solid var(--current-blue);
-    border-radius: 3px;
-    padding: 5px;
-    width: 130px;
-    color: white;
-    background-color: var(--current-blue);
-    font-family: var(--current-font);
-    font-size: 20px;
-    cursor: pointer;
-    margin-left: 20px;
-    margin-top: 1.5vw;
-  }
-  .Settings-changemail-form {
-    position: relative;
-    font-family: var(--current-font);
-    font-size: 20px;
-    width: 275px;
-  }
-  @media (max-width: 600px) {
-    .Settings-profile-body {
-      width: calc(100% - 20px);
-      left: 5px;
-    }
-    .Settings-changemail-body {
-      width: 85vw;
-      right: 0px;
-      left: 7vw;
-    }
-  }
-  @media (max-width: 300px) {
-    .settings-overlay {
-      width: calc(100% - 20px);
-      left: 10px;
-    }
-  }
-  @media (max-height: 500px) {
-    .settings-overlay {
-      height: calc(100vh - 40px);
-      top: -70px;
-    }
-    .Settings-profile-body {
-      height: calc(100% - 20px);
-      top: 5px;
-    }
-  }
-  
-  .settings-delete-account-confirm-body {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    width: 660px;
-    height: 510px;
-    background-color: var(--color-background);
-    border-radius: 10px;
-    overflow-y: auto;
-    z-index: 10;
-    font-family: var(--current-font);
-    color: var(--color-font);
-  }
-  
-  .settings-delete-account-confirm-text {
-    text-align: center;
-    font-size: 18px;
-    color: var(--color-red-light);
-    font-weight: bold;
-    color: var(--color-font);
-  }
-  
-.settings-delete-account-confirm-button {
-    position: relative;
-    width: calc(80% + 20px);
-    left: 50%;
-    transform: translateX(-50%);
-    border: 5px solid rgba(112, 112, 112, 1);
-    border-radius: 3px;
-    padding: 5px;
-    color: white;
-    background-color: rgba(112, 112, 112, 1);
-    font-family: var(--current-font);
-    font-size: 20px;
-    cursor: pointer;
-    margin-top: 1.5vw;
 }
-
-.add-folder-form-input {
-    border: 5px solid var(--current-gray);
-    width: 80%;
-    color: var(--color-font);
-    background-color: var(--color-background);
-    font-family: var(--current-font);
-    font-size: 20px;
-    padding: 5px 5px;
-    outline: none;
-    border-radius: 3px;
+@media (max-height: 500px) {
+  .settings-overlay {
+    height: calc(100vh - 40px);
+    top: -70px;
+  }
 }
