@@ -233,20 +233,25 @@ function Profile() {
 
     return (
         <div className='profile-body'>
+
              <div className = 'profile-title-box'>
                 <h1 className = 'settings-title'>PROFILE</h1>
             </div>
+
             <div>
+
                 <h1 className='profile-header'>
-                    Personal Info
+                    Personal information
                     {updatedEmail && <span className='profile-header' style={{position: 'absolute', color: 'rgb(45, 119, 45)', right: '0', margin: '0px 5px 5px 5px'}}>Email Updated!</span>}
                 </h1>
 
                 <div className='Settings-line'></div>
+
                 <p style={{ fontSize: '10px' }} />
+
                 <div style={{textAlign: 'left'}}>
-                    <div className='profile-sub' style={{ margin: '4px',}}>Personal Email:</div>
-                    <div className='profile-sub' style={{ color: '#bbb',  margin: '5px' }}>{user.email}</div>
+                    <div className='profile-sub'>Personal Email:</div>
+                    <div className='profile-sub' style={{ color: '#36747D',  margin: '5px' }}>{user.email}</div>
                     <div className='profile-sub' style={{ margin: '5px',cursor:'pointer' }}
                         onClick={() => {
                             openChangeEmail(true);
@@ -258,7 +263,7 @@ function Profile() {
                 {changeEmail && <div>
                     <div className='Settings-changemail-body' style={{height:'380px'}}>
 
-                        <div className='profile-sub' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Update "{user.email}"</div>
+                        <div className='profile-header' style={{textAlign: 'center' }}>Update "{user.email}"</div>
 
                         <form onSubmit={newEmailSubmit}>
 
@@ -329,6 +334,7 @@ function Profile() {
 
                 {/*Wenn man etwas vor diesem punkt addiert muss man das <p> direkt hier drunter vergrößern */}
                 <p style={{ fontSize: '30px' }} />
+
             </div>
             <div style={{textAlign: 'left'}}>
                 <h1 className='profile-header'>
@@ -336,8 +342,10 @@ function Profile() {
                     {updatedPassword && <span className='profile-header' style={{position: 'absolute', color: 'rgb(45, 119, 45)', right: '0', margin: '0px 5px 5px 5px'}}>Password Updated!</span>}
                 </h1>
                 <div className='Settings-line'></div>
+
                 <p style={{ fontSize: '10px' }} />
-                <div className='profile-sub' style={{ margin: '5px',cursor:'pointer'}}
+
+                <div className='profile-sub' style={{cursor:'pointer'}}
                     onClick={() => {
                         openChangePassword(true);
                         setUpdatedEmail(false);
@@ -420,7 +428,7 @@ function Profile() {
 
                 <p style={{ fontSize: '20px' }} />
 
-                <div className='profile-sub' style={{ color: '#d83232', margin: '5px', cursor:'pointer'  }}
+                <div className='profile-sub' style={{ color: '#d83232', cursor:'pointer'  }}
                     onClick={() => {
                         openDeleteAccount(true);
                         setUpdatedEmail(false);
@@ -429,14 +437,14 @@ function Profile() {
 
                 <br></br>
 
-                <div className='profile-sub' style={{ fontSize: '15px', color: 'rgb(88, 167, 172)', margin: '5px'}} >If you delete your account, your data will be gone forever!</div>
+                <div className='profile-sub' style={{ fontSize: '1.75ch', color: '#36747D'}} >If you delete your account, your data will be gone forever!</div>
 
                 {deleteAccount && <div>
                     <div className='Settings-changemail-body'>
 
                     <br/><br/>
 
-                    <div className='profile-sub' style={{ color: '#bbb', margin: '20px', textAlign: 'center' }}>Please enter your password to proceed!</div>
+                    <div className='profile-sub'>Please enter your password to proceed!</div>
 
                     <form onSubmit={deleteAccountPasswordSubmit}>
 

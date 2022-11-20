@@ -1,31 +1,33 @@
+
 .profile-body {
   box-shadow: 0 1px 4px var(--color-shadow);
   border-radius: 6px;
   background-color: var(--color-white);
   text-align: center;
-  width: 325px;
+  width: 375px;
   height: 540px;
-  z-index: 10;
-  position: absolute;
-  left: calc(50% - 162.5px);
-  top: calc(50% - 245px);
+  z-index: 11;
+  position: fixed;
+  left: calc(50% - 375px/2);
+  top: calc(50% - 540px/2);
   overflow-x: hidden;
   overflow-y: auto;
-  margin: 0;
+  margin: 0px;
 }
 
 .profile-header {
   font-size: 25px;
   text-align: left;
   margin: 5px;
-  cursor: default;
+  margin-left: 15px;
+  cursor: auto;
   color: var(--color-black);
   font-family: var(--current-font);
 }
 
 .profile-title-box {
   background-color: var(--current-blue);
-  width: 337px;
+  width: calc(375px + 12);
   height: 120px;
   position: relative;
   bottom: 34px;
@@ -38,16 +40,18 @@
     font-weight: 700;
     font-family: var(--current-font);
     position: relative;
-    cursor: pointer;
+    cursor: auto;
     max-width: 100%;
     word-wrap: break-word;
     hyphens: manual;
     display: inline;
+    margin-left: 15px;
 }
+
 .Settings-line {
   background-color: var(--current-gray);
-  border: 1.5px solid var(--current-gray);
-  width: 98%;
+  border: 1px solid var(--current-gray);
+  width: 95%;
   margin: auto;
   position: relative;
   border-radius: 3px;
@@ -71,6 +75,7 @@
   border-radius: 6px;
   overflow-y: auto;
 }
+
 .Settings-changemail-cancel {
   border: 5px solid var(--current-gray);
   border-radius: 3px;
@@ -84,6 +89,7 @@
   margin-left: 0;
   margin-top: 1.5vw;
 }
+
 .Settings-changemail-change {
   border: 5px solid var(--current-blue);
   border-radius: 3px;
@@ -97,12 +103,14 @@
   margin-left: 20px;
   margin-top: 1.5vw;
 }
+
 .Settings-changemail-form {
   position: relative;
   font-family: var(--current-font);
   font-size: 20px;
   width: 275px;
 }
+
 @media (max-width: 600px) {
   .Settings-profile-body {
     width: calc(100% - 20px);
@@ -114,12 +122,14 @@
     left: 7vw;
   }
 }
+
 @media (max-width: 300px) {
   .settings-overlay {
     width: calc(100% - 20px);
     left: 10px;
   }
 }
+
 @media (max-height: 500px) {
   .Settings-profile-body {
     height: calc(100% - 20px);

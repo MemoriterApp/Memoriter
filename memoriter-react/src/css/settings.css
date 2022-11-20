@@ -7,8 +7,8 @@
     height: 490px;
     z-index: 10;
     position: absolute;
-    left: calc(50% - 162.5px);
-    top: calc(50% - 245px);
+    left: calc(50% - 325px/2);
+    top: calc(50% - 490px/2);
     overflow-x: hidden;
     overflow-y: auto;
     margin: 0;
