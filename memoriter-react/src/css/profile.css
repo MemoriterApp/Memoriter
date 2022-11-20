@@ -2,14 +2,14 @@
 .profile-body {
   box-shadow: 0 1px 4px var(--color-shadow);
   border-radius: 6px;
-  background-color: var(--color-white);
+  background-color: var(--color-background);
   text-align: center;
   width: 375px;
-  height: 540px;
+  height: 500px;
   z-index: 11;
   position: fixed;
   left: calc(50% - 375px/2);
-  top: calc(50% - 540px/2);
+  top: calc(50% - 520px/2);
   overflow-x: hidden;
   overflow-y: auto;
   margin: 0px;
@@ -21,7 +21,7 @@
   margin: 5px;
   margin-left: 15px;
   cursor: auto;
-  color: var(--color-black);
+  color: var(--color-font);
   font-family: var(--current-font);
 }
 
@@ -34,7 +34,7 @@
 }
 
 .profile-sub {
-    color: var(--color-black);
+    color: var(--color-font);
     width: 100%;
     font-size: 2ch;
     font-weight: 700;

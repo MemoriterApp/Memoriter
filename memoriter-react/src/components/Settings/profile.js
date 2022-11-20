@@ -437,7 +437,7 @@ function Profile() {
 
                 <br></br>
 
-                <div className='profile-sub' style={{ fontSize: '1.75ch', color: '#36747D'}} >If you delete your account, your data will be gone forever!</div>
+                <div className='profile-sub' style={{ fontSize: '1.75ch', color: '#36747D'}} >If you delete your account, your data will be gone!</div>
 
                 {deleteAccount && <div>
                     <div className='Settings-changemail-body'>

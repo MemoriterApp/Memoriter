@@ -1,7 +1,7 @@
 .settings-overlay {
     box-shadow: 0 1px 4px var(--color-shadow);
     border-radius: 6px;
-    background-color: var(--color-white);
+    background-color: var( --color-background);
     text-align: center;
     width: 325px;
     height: 490px;
@@ -33,7 +33,7 @@
 }
 
 .settings-sub {
-    color: var(--color-black);
+    color: var(--color-font);
     width: 100%;
     font-size: 3ch;
     font-weight: 700;
