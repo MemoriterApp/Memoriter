@@ -138,7 +138,7 @@ const FlashcardSpacedRep = ({
             </button>
             <button
               className='spaced-rep-button'
-              style={{ left: '37.5%', background: '#0d8f18' }}
+              style={{ left: '37.5%', background: '#0d8f18', color: 'white' }}
               onClick={() => {
                 setShowAnswer(false);
                 onAnswer(flashcard, 3, flashcard.streak, flashcard.easiness, flashcard.interval);
@@ -148,7 +148,7 @@ const FlashcardSpacedRep = ({
             </button>
             <button
               className='spaced-rep-button'
-              style={{ left: '50%', background: '#778f0d' }}
+              style={{ left: '50%', background: '#778f0d'}}
               onClick={() => {
                 setShowAnswer(false);
                 onAnswer(flashcard, 2, flashcard.streak, flashcard.easiness, flashcard.interval);
@@ -158,7 +158,7 @@ const FlashcardSpacedRep = ({
             </button>
             <button
               className='spaced-rep-button'
-              style={{ left: '62.5%', background: '#8f520d', color: 'white' }}
+              style={{ left: '62.5%', background: '#8f520d'}}
               onClick={() => {
                 setShowAnswer(false);
                 onAnswer(flashcard, 1, flashcard.streak, flashcard.easiness, flashcard.interval);
@@ -168,7 +168,7 @@ const FlashcardSpacedRep = ({
             </button>
             <button
               className='spaced-rep-button'
-              style={{ left: '75%', background: '#8f0d0d', color: 'white' }}
+              style={{ left: '75%', background: '#8f0d0d'}}
               onClick={() => {
                 setShowAnswer(false);
                 onAnswer(flashcard, 0, flashcard.streak, flashcard.easiness, flashcard.interval);

@@ -16,6 +16,7 @@ margin: 120px;
     width: calc(10.2vw);
     font-size: calc(1.2vw);
     background-color: #cdd0da;
+    color: white;
     border:0;
     cursor: pointer;
 }
