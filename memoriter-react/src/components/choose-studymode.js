@@ -13,7 +13,7 @@ function ChooseStudyMode() {
                 <h1 className='preview-type-heading'>CHOOSE A STUDY MODE</h1>
                 
                 <div className='preview-type-layout'>
-                    <div className='preview-type-flashcard'>
+                    <div className='preview-type-flashcard' style={{boxShadow: '0.25vw 0.75vh 10px #777777cc'}}>
                         <div className='preview-type-flashcard-dots'>
                             <div className='big-dot'/>
                             <div className='big-dot'/>
@@ -24,7 +24,7 @@ function ChooseStudyMode() {
                         <button className="preview-type-button" onClick={() => navigate('/study')}>REGULAR FLASHCARDS</button>
                     </div>
 
-                    <div className='preview-type-flashcard'>
+                    <div className='preview-type-flashcard' style={{boxShadow: '0.25vw 0.75vh 10px #777777cc'}}>
                         <div className='preview-type-flashcard-dots'>
                             <div className='big-dot'/>
                             <div className='big-dot'/>

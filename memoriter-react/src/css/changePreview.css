@@ -66,6 +66,7 @@
     display: flex;
 }
 .preview-type-flashcard {
+    box-shadow: 0.25vw 0.75vh 10px #777777cc;
     display: block;
     padding: 10px 20px 20px 20px;
     color: rgb(53, 53, 53);
