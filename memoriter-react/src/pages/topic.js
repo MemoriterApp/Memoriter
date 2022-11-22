@@ -66,6 +66,7 @@ function TopicPage() {
   const folder = doc(db, 'folders', syncedFolderID);
 
   const [notYourFolder, setNotYourFolder] = useState(false); //state to open modal if folder is not yours
+
   //Use Effect for notes
   useEffect(() => {
     const getFlashcards = async () => {
@@ -73,24 +74,20 @@ function TopicPage() {
       setFlashcards(allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       
     };
-    
     const getFolder = async () => {
       const folderDoc = await getDoc(folder);
       setSyncedFolderTitle(folderDoc.data().title);
       if (folderDoc.data().user !== user.uid && notYourFolder === false) {
         setNotYourFolder(true);
       }
-
     };
     getFolder();
-
     getFlashcards();
     sessionStorage.setItem('flashcard-content', '');
     localStorage.setItem('lastPage', '/topic:syncedFolderID');
-    
   }, []);
 
-  
+
   
 
   const [modalIsOpenA, setModalIsOpenA] = useState(false);
@@ -240,6 +237,8 @@ function TopicPage() {
     }
   }, []);
 
+
+
   
 
   return (
@@ -262,7 +261,7 @@ function TopicPage() {
           <div className='main-seperator' />
           <div className='Flashcard_Base'>
 
-            {notYourFolder && <AddImportFolder/>}
+            {notYourFolder && <AddImportFolder closeModal={() => setNotYourFolder(false)}/>}
             {notYourFolder && <Backdrop onClick={() => setNotYourFolder(false)}/>}
 
 
