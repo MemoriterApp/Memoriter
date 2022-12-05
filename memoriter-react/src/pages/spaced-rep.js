@@ -1,10 +1,11 @@
 import React from 'react';
 import '../css/spaced-rep.css';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/layout/footer';
 import Logo from '../images/memoriter-logo.svg';
-import { Link, useNavigate } from 'react-router-dom';
 import Backdrop from '../components/backdrop';
 import FlashcardSpacedRep from '../components/flashcard-spaced-rep';
+import NothingToStudy from '../components/nothing-to-study';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 import { useState, useEffect } from 'react';
@@ -18,8 +19,8 @@ function SpacedRepMode() {
     const navigate = useNavigate();
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
-
     let syncedFolderID = localStorage.getItem('syncedFolderID');
+
     const [tutorialSpacedRepetition, setTutorialSpacedRepetition] = useState(false);
 
     //firestore stuff
@@ -181,7 +182,7 @@ function SpacedRepMode() {
 
 
             <main>
-                {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
+                {started && <> {/*Only the flashcards where pos in Array = currentNumber are being shown*/}
                         {flashcards.slice(0, 1).map((flashcard) => (
                             <FlashcardSpacedRep key={flashcard.id} flashcard={flashcard}
                                 onAnswer={flashcardAnswer}
@@ -192,6 +193,7 @@ function SpacedRepMode() {
                             onClick={() => setTutorialSpacedRepetition(true)}> 
                         ?
                     </button>
+                    {flashcards.length === 0 && <NothingToStudy/>}
                 </>}
 
                 {tutorialSpacedRepetition && 
