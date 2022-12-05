@@ -1,5 +1,5 @@
 import { useNavigate, } from 'react-router-dom';
-import '../css/changePreview.css';
+import '../../css/changePreview.css';
 
 function ChooseStudyMode() {
 

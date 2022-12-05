@@ -1,6 +1,6 @@
 import Logo from '../images/memoriter-logo.svg';
 import Footer from '../components/layout/footer';
-import FlashcardStudy from '../components/flashcard-study';
+import FlashcardStudy from '../components/study/flashcard-study';
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { firebase } from '../utils/firebase'

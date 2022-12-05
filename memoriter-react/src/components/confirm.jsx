@@ -1,7 +1,7 @@
 import '../styles/confirm.css';
 import Backdrop from './backdrop';
 
-// This modal is used to confirm something (most likely deleting) with either a yes or no botton.
+//This modal is used to confirm something (most likely deleting) with either a yes or no botton.
 
 const Confirm = ({ title, onConfirm, onCancel }) => {
   return (

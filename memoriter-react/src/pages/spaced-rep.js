@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/layout/footer';
 import Logo from '../images/memoriter-logo.svg';
 import Backdrop from '../components/backdrop';
-import FlashcardSpacedRep from '../components/flashcard-spaced-rep';
-import NothingToStudy from '../components/nothing-to-study';
+import FlashcardSpacedRep from '../components/study/flashcard-spaced-rep';
+import NothingToStudy from '../components/study/nothing-to-study';
 import { firebase } from '../utils/firebase'
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 import { useState, useEffect } from 'react';

@@ -1,12 +1,12 @@
-import Confirm from './confirm';
-import Backdrop from './backdrop';
-import edit from '../images/edit.svg';
-import deleteIcon from '../images/delete.svg';
-import alignLeft from '../images/text-align-left.svg';
-import alignRight from '../images/text-align-right.svg';
-import alignCenter from '../images/text-align-center.svg';
-import alignJustify from '../images/text-align-justify.svg';
-import FlashcardForm from './topic/flashcard-form';
+import Confirm from '../confirm';
+import Backdrop from '../backdrop';
+import edit from '../../images/edit.svg';
+import deleteIcon from '../../images/delete.svg';
+import alignLeft from '../../images/text-align-left.svg';
+import alignRight from '../../images/text-align-right.svg';
+import alignCenter from '../../images/text-align-center.svg';
+import alignJustify from '../../images/text-align-justify.svg';
+import FlashcardForm from '../topic/flashcard-form';
 import { useState } from 'react';
 import { Remarkable } from 'remarkable';
 
