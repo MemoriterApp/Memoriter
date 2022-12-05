@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/spaced-rep.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Footer from '../components/layout/footer';
 import Logo from '../images/memoriter-logo.svg';
 import Backdrop from '../components/backdrop';
@@ -15,8 +15,6 @@ import FinishedViewSpacedRep from '../components/study/finished-view-spaced-rep'
 const { db } = firebase;
 
 function SpacedRepMode() {
-
-    const navigate = useNavigate();
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
     let syncedFolderID = localStorage.getItem('syncedFolderID');
