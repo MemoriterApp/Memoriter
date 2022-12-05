@@ -14,7 +14,7 @@ function NothingToStudy() {
                 <p className='finished_statistics'>Come back tomorrow to study again</p>
             </div>
             <button className='finished-button'
-                style={{ top: '65%', width: '14vw', backgroundColor: 'rgb(126, 128, 134)' }}
+                style={{ top: '77%', width: '14vw', backgroundColor: 'rgb(126, 128, 134)' }}
                 onClick={() => navigate('/topic')}
             >Return to Overview</button>
         </>
