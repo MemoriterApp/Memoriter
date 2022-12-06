@@ -53,7 +53,7 @@ const Folder = ({
     onPosAdjust(folder.id, folder.pos); //adjust the position of the folder
     sessionStorage.removeItem('newPosFolder' + folder.id); //remove the id of the folder that has the new position from the session storage
   }
-  
+
 
   return (
     <section className='folder'>
