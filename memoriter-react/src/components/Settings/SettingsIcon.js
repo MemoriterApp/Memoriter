@@ -3,6 +3,7 @@ import settingsIcon from '../../images/icons/settings-icon.svg';
 import SettingsClick from './SettingsInteraction';
 import { useState } from 'react';
 import Backdrop from '../backdrop';
+import '../../css/settings.css';
 
 const SettingsIcon = () => {
 

@@ -191,7 +191,13 @@ body::-webkit-scrollbar-corner {
   background-color: var(--color-transparent);
   cursor: pointer;
   filter: var(--svg-invert-gray);
+  transition: transform .15s ease-in-out;
 }
+
+.gear:hover {
+  transform:scale(1.1);
+}
+
 .File-Overview {
   position: absolute;
   left: 50%;

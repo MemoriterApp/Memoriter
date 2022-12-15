@@ -15,6 +15,24 @@
     margin-left: 20px;
     width: 1680px;
 }
+
+.Zurückbutton_Arrow {
+    border: solid;
+    border-width: 8px 8px 1px 1px;
+    border-color: var(--color-font) var(--color-font) var(--color-transparent)
+        var(--color-transparent);
+    border-radius: 6px 0;
+    padding: 8px;
+    position: absolute;
+    left: 1%;
+    cursor: pointer;
+    transform: rotate(-45deg);
+    transition: transform 0.05s ease-in-out;
+}
+.Zurückbutton_Arrow:hover {
+  transform:scale(1.3) rotate(-45deg);
+}
+
 .study-now {
     position: absolute;
     top: 20%;
@@ -46,6 +64,7 @@
     margin-bottom: 40px;
     min-height: 160px;
     max-height: 320px;
+    border-radius: 10px ;
 }
 .New_flashcard-rechteck {
     position: absolute;
