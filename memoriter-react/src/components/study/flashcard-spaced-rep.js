@@ -62,7 +62,8 @@ const FlashcardSpacedRep = ({
         )}
 
         {settingsOverlay && 
-          <div className='flashcard-settings-overlay'>
+          <div className='flashcard-settings-overlay'
+          style={{ transform: 'translate(-24px, 16px)' }}>
             <div className='folder-settings-sub'>
               <p>
                 {flashcard.textAlign === 'left' || (
