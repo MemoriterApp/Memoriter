@@ -22,8 +22,7 @@ margin: 120px;
 }
 
 .spaced-rep-button:hover {
-    color: var(--color-white);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.8);
+    filter: brightness(120%);
 }
 
 /* Everything below needs to be made responsive */

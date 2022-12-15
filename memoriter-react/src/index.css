@@ -2144,3 +2144,6 @@ body::-webkit-scrollbar-corner {
   border: 0;
   cursor: pointer;
 }
+.finished-button:hover {
+  filter: brightness(120%);
+}
