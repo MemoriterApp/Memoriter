@@ -602,6 +602,7 @@ body::-webkit-scrollbar-corner {
   top: -12px;
 }
 .flashcard-settings-overlay-text-align {
+  display: inline-block;
   height: 1.6rem;
   margin-inline: 0.1rem;
 }
@@ -2039,7 +2040,7 @@ body::-webkit-scrollbar-corner {
   white-space: pre-line;
   word-wrap: break-word;
 }
-.study-flashcard-box img {
+.study-flashcard-box > img {
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
