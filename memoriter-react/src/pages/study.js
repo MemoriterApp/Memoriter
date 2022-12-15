@@ -156,7 +156,7 @@ const StudyPage = () => {
                     </div>
 
                     <button className='finished-button'
-                        style={{ top: '70%'}}
+                        style={{ top: '70%', backgroundColor:'#36747D'}}
                         onClick={() => startAgain()}
                     >Study Again</button>
 

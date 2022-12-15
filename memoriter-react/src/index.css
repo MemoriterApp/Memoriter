@@ -2108,6 +2108,7 @@ body::-webkit-scrollbar-corner {
   text-align: center;
   font-size: 2.6vh;
   font-family: var(--current-font);
+  color:var(--current-gray-dark);
   margin: 1vh;
 }
 .finished-box {
@@ -2117,7 +2118,7 @@ body::-webkit-scrollbar-corner {
   left: 50%;
   position: absolute;
   background: rgb(205, 208, 218);
-  border: 1vw solid rgb(126, 128, 134);
+  border: 1vw solid var(--current-blue);
   border-radius: 5px;
   transform: translateX(-50%);
 }
@@ -2130,7 +2131,7 @@ body::-webkit-scrollbar-corner {
   height: calc(3vh * var(--testing));
   width: calc(7vw * var(--testing));
   font-size: calc(1.4vh * var(--testing));
-  background-color: rgb(205, 208, 218);
+  
   border: 0;
   cursor: pointer;
 }
