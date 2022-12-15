@@ -71,6 +71,7 @@
   --color-container-button: #505050;
   --color-background-dark: #121212;
   --color-background-dark-plus: #0a0a0a;
+  --color-shadow-flashcard: #00000040;
   --color-red-dark: #5a2828;
   --color-green-dark: #144b14;
   /*values for correcting svg colors*/
@@ -89,6 +90,7 @@
   --color-container-button: #929292;
   --color-background-dark: #cbcbcb;
   --color-background-dark-plus: #bbbbbb;
+  --color-shadow-flashcard: #777777cc;
   --color-red-dark: #802828;
   --color-green-dark: #146814;
   /*values for correcting svg colors*/

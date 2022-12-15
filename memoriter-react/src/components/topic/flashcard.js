@@ -145,8 +145,7 @@ const Flashcard = ({
   const [isMouseInside, setIsMouseInside] = useState(); //state to check if mouse hover over flashcard
 
   return (
-    <div className='flashcard-body' style={{ height: `calc(${flashcardHeight}px + 35px)`, boxShadow: '0.25vw 0.75vh 10px #000000' }}>
-      {' '}
+    <div className='flashcard-body' style={{ height: `calc(${flashcardHeight}px + 35px)`, boxShadow: '0.25vw 0.75vh 10px var(--color-shadow-flashcard)' }}>
       {/*height is set by the useEffect based on the inner rectangle height*/}
       <div className='Flashcard-settings-bar'>
         <div className='Flashcard_Settings' onClick={settingsHandler}>

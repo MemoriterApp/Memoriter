@@ -56,16 +56,13 @@ const FlashcardSpacedRep = ({
             <article
               style={{ marginTop: '30px', textAlign: flashcard.textAlign }}
               dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
-            />{' '}
+            />
             {/*dangerouslySetInnerHTML parses the formatted html text*/}
           </div>
         )}
 
         {settingsOverlay && 
-          <div
-            className='flashcard-settings-overlay'
-            style={{ transform: 'translate(-24px, 16px)' }}
-          >
+          <div className='flashcard-settings-overlay'>
             <div className='folder-settings-sub'>
               <p>
                 {flashcard.textAlign === 'left' || (
