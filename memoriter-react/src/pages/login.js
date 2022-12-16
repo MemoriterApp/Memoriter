@@ -122,7 +122,7 @@ function LoginPage() {
 
                                 <p className="forgot-password" onClick={() => openPasswordResetModal(true)}>Forgot Password?</p>
 
-                                <button type="submit" className="LoginButton" disabled={loading}>Log In</button>
+                                <button type="submit" className="login-button" disabled={loading}>Log In</button>
                             </form>
                             <p className="no-account">Do you need an account? You can sign up&nbsp;</p>
                             <Link to='/signup' className="no-account" style={{ color: '#265272', cursor: 'pointer' }}>here</Link>

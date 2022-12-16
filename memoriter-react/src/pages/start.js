@@ -18,7 +18,7 @@ function Start() {
                         <button type="submit" className="SignupButton-Start">Sign Up</button>
                     </Link>
                     <Link to='/login'>
-                        <button type="submit" className="LoginButton-Start">Login</button>
+                        <button type="submit" className="login-button-Start">Login</button>
                     </Link>
                 </div>
             </header>

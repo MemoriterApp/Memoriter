@@ -38,7 +38,7 @@ const PasswordReset = ({closePasswordResetModal}) => {
     }
 
     return (
-        <div className='settings-delete-account-confirm-body' style={{height: '420px'}}>
+        <div className='settings-delete-account-confirm-body' style={{height: '450px'}}>
 
             {modalIsOpen || <div>
                 <br/>

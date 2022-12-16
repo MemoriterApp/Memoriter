@@ -1099,7 +1099,8 @@ body::-webkit-scrollbar-corner {
   width: 120px;
   fill: none;
   border: 5px solid #274b65;
-  border-radius: 3px;
+  background-color: #274b65;
+  border-radius: 6px;
   max-width: 25%;
   position: absolute;
   cursor: pointer;
@@ -1113,6 +1114,11 @@ body::-webkit-scrollbar-corner {
   padding-top: 4px;
   padding-bottom: 8px;
   text-decoration: none;
+  transition: 200ms;
+}
+.link-box:hover {
+  background-color: #213f55;
+  border-color: #213f55;
 }
 .mail-form1 {
   text-align: center;
@@ -1174,19 +1180,24 @@ body::-webkit-scrollbar-corner {
   color: var(--color-font);
   right: -85px;
 }
-.LoginButton {
+.login-button {
   height: 50px;
   width: 125px;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #265272;
   position: absolute;
   top: 320px;
   left: 50%;
-  border: 3px solid #3b6e71;
+  border: 3px solid #265272;
   cursor: pointer;
   font-size: 20px;
   color: var(--color-white);
   transform: translate(-50%);
+  transition: 200ms;
+}
+.login-button:hover {
+  background-color: #213f55;
+  border-color: #213f55;
 }
 .forgot-password {
   position: relative;
@@ -1251,6 +1262,11 @@ body::-webkit-scrollbar-corner {
   margin-right: 5px;
   position: relative;
   margin-top: 1px;
+  cursor: pointer;
+  transition: 200ms;
+}
+.accept_privacy [type='checkbox'] + label:hover::before {
+  background-color: var(--color-hover);
 }
 .accept_privacy [type='checkbox']:checked + label::before {
   box-shadow: inset 0px 0px 0px 3px var(--color-background);
@@ -1516,7 +1532,7 @@ body::-webkit-scrollbar-corner {
   font-size: 23px;
   color: var(--color-white);
 }
-.LoginButton-Start {
+.login-button-Start {
   height: 60px;
   width: 175px;
   border-radius: 5px;
@@ -1536,7 +1552,7 @@ body::-webkit-scrollbar-corner {
 }
 
 @media (max-width: 500px) {
-  .LoginButton-Start {
+  .login-button-Start {
     right: 130px;
     width: 120px;
   }
