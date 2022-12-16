@@ -1,10 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/folder.css';
 import Confirm from '../confirm';
 import Backdrop from '../backdrop';
 import FolderForm from './folder-form';
 import FolderSettings from './folder-settings';
+import { firebase } from '../../utils/firebase';
+import {
+  collection, //set of database documents
+  getDocs, //gets all documents from a collection
+  addDoc, //adds a document to a collection
+  updateDoc, //updates a document in a collection
+  deleteDoc, //deletes a document from a collection
+  doc, //a single document in a collection
+  query,
+  where,
+} from 'firebase/firestore/lite';
+const { db } = firebase;
 
 const Folder = ({
   folder,
@@ -17,6 +29,41 @@ const Folder = ({
   onArchiveFolder,
   onDearchiveFolder,
 }) => {
+
+  // due number
+  // link to db
+  const flashcardCollectionReferance = query(
+    collection(db, 'flashcards'),
+    where('syncedFolder', '==', folder.id)
+  ); //gets all flashcards from the synced folder
+
+  const [due, setDue] = useState([]); //creates the flashcard state
+
+  //Use Effect fot notes resets the notes state when the page is loaded
+  useEffect(() => {
+    const getFlashcards = async () => {
+      //gets all flashcards from the synced folder
+      const allFlashcards = await getDocs(flashcardCollectionReferance);
+      setDue(allFlashcards.docs
+        .map((doc) => ({ ...doc.data(), id: doc.id }))
+        
+      );
+    };
+    getFlashcards(); //calls the function
+    sessionStorage.setItem('flashcard-content', '');
+    localStorage.setItem('lastPage', '/topic');
+  }, []); // do not add dependencies, otherwise it will loop
+
+  // filters the flashcards for only the not studied ones to show up
+  const [filtered, setFiltered] = useState(false);
+  if (due.length > 0 && !filtered) {
+      setDue([...due
+          .filter((flashcard) => (flashcard.nextDate && flashcard.nextDate.toDate() <= new Date()) || !flashcard.nextDate)
+      ])
+      setFiltered(true);
+  };
+
+  // cache folder values if folder is clicked
   const onOpenFolder = () => {
     localStorage.setItem('syncedFolderID', folder.id); //set the folder id in local storage
     localStorage.setItem('syncedFolderTitle', folder.title); //set the folder title in local storage
@@ -68,7 +115,7 @@ const Folder = ({
 
       <div className='new-cards-indicator'>
         <Link to='/study-spaced-repetition' className='indicator'>
-          <p className='indicator-number'>12</p>
+          <p className='indicator-number'>{due.length}</p>
         </Link>
       </div>
 
