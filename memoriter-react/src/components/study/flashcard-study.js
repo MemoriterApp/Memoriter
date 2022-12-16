@@ -103,7 +103,7 @@ const FlashcardStudy = ({
               </p>
               <p onClick={editFlashcardReq}>
                 <img
-                  style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+                  className='icon-settings'
                   src={edit}
                   alt=''
                 />
@@ -111,7 +111,7 @@ const FlashcardStudy = ({
               </p>
               <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
                 <img
-                  style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+                  className='icon-settings'
                   src={deleteIcon}
                   alt=''
                 />

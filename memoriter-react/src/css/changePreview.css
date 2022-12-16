@@ -29,6 +29,9 @@
     cursor: pointer;
     margin-top: 65px;
 }
+.preview-type-button:hover {
+    filter: brightness(120%);
+}
 @media (max-width: 650px) {
     .preview-type-box {
         transform: translate(-50%, -50%) scale(0.85);

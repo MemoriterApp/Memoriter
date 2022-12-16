@@ -608,6 +608,18 @@ body::-webkit-scrollbar-corner {
   height: 1.6rem;
   margin-inline: 0.1rem;
 }
+.flashcard-settings-overlay-text-align:hover {
+  transform:scale(1.1);
+}
+
+.icon-settings {
+  height: 1.6rem;
+  margin-right: 0.2rem;
+  margin-bottom: -0.3rem;
+}
+.icon-settings:hover {
+  transform:scale(1.1);
+}
 .Flashcard-settings-bar {
   position: absolute;
   width: calc(100% - 10px);
