@@ -21,8 +21,9 @@
 }
 .indicator-number {
     position: absolute;
-    top: -16px;
-    left: 4px;
+    top: -15px;
+    text-align: center;
+    width: 100%;
 }
 .button-homepage-settings {
     position: absolute;
