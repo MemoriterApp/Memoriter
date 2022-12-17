@@ -346,7 +346,13 @@ body::-webkit-scrollbar-corner {
   top: 11.5%;
   width: 100%;
   height: 55px;
+  transition: transform 0s ease-in-out;
 }
+.New_Folder_Body:hover {
+    transform:scale(1.05);
+    left:45px
+}
+
 .New_Folder_Line {
   position: absolute;
   left: 50%;
@@ -382,7 +388,9 @@ body::-webkit-scrollbar-corner {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: transform 0s ease-in-out;
 }
+
 .New_Folder_Plus_h {
   position: absolute;
   top: 42.5%;
@@ -641,6 +649,13 @@ body::-webkit-scrollbar-corner {
   background-color: var(--color-transparent);
   border: 5px solid var(--color-transparent);
   cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+.Flashcard_Settings:hover {
+  transform:scale(1.3);
+}
+.dot:hover {
+  background-color: var(--current-gray-medium-dark);
 }
 
 /* Flashcard Position */
@@ -664,6 +679,13 @@ body::-webkit-scrollbar-corner {
   top: 7px;
   cursor: pointer;
   transform: rotate(45deg);
+  transition: transform 0.1s ease-in-out;
+}
+.Flashcard_Pos_Arrow_Left:hover {
+  transform:scale(1.2) rotate(45deg);
+  border: solid var(--current-gray-medium-dark);
+  border-width: 5px 0 0 5px;
+
 }
 .Flashcard_Pos_Body_Right {
   background-color: var(--color-transparent);
@@ -685,6 +707,12 @@ body::-webkit-scrollbar-corner {
   top: 7px;
   cursor: pointer;
   transform: rotate(45deg);
+  transition: transform 0.05s ease-in-out;
+}
+.Flashcard_Pos_Arrow_Right:hover {
+  transform:scale(1.2) rotate(45deg);
+  border: solid var(--current-gray-medium-dark);
+  border-width: 0 5px 5px 0;
 }
 
 /*  Open Flashcard */
