@@ -346,11 +346,6 @@ body::-webkit-scrollbar-corner {
   top: 11.5%;
   width: 100%;
   height: 55px;
-  transition: transform 0s ease-in-out;
-}
-.New_Folder_Body:hover {
-    transform:scale(1.05);
-    left:45px
 }
 
 .New_Folder_Line {
