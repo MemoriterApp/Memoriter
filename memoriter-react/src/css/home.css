@@ -17,6 +17,11 @@
     width: 32.5px;
     cursor: pointer;
     filter: invert(32%) sepia(7%) saturate(0%) hue-rotate(277deg) brightness(98%) contrast(89%); 
+    transition: transform 0.1s ease-out;
+}
+.archive-icon:hover {
+    transform: scale(1.15);
+    
 }
 .rechteck {
     border: 10px solid var(--current-blue);
