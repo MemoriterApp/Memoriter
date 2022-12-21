@@ -1,25 +1,25 @@
-import Start from './pages/start';
-import About from './pages/about';
-import ImpressumPage from './pages/impressum';
-import PrivacyPage from './pages/privacy-policies';
-import PatchNotes from './pages/patch-notes';
+import Start from './pages/start/start';
+import About from './pages/about/about';
+import ImpressumPage from './pages/impressum/impressum';
+import PrivacyPage from './pages/privacy/privacy-policies';
+import PatchNotes from './pages/patchNotes/patch-notes';
 
-import LoginPage from './pages/login';
-import SignUpPage from './pages/signup';
+import LoginPage from './pages/loginStuff/login/login';
+import SignUpPage from './pages/registerStuff/signup';
 
-import HomePage from './pages/home';
-import TopicPage from './pages/topic';
-import StudyPage from './pages/study';
-import SpacedRepMode from './pages/spaced-rep.js';
+import HomePage from './pages/homeStuff/home/home';
+import TopicPage from './pages/topicStuff/topic/topic';
+import StudyPage from './pages/studyModes/regular/study-view/study';
+import SpacedRepMode from './pages/studyModes/spacedRep/study-view/spaced-rep';
 
 import ThemeProvider from './components/theme-provider';
-import { AuthProvider } from './components/routing/auth-provider';
-import ScrollReset from './components/routing/scroll-reset';
-import Redirect from './components/routing/redirect';
+import { AuthProvider } from './technical/routing/auth-provider';
+import ScrollReset from './technical/routing/scroll-reset';
+import Redirect from './technical/routing/redirect';
 
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { firebase } from './utils/firebase';
+import { firebase } from './technical/utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
 const App = () => {
