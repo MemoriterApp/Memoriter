@@ -1,5 +1,6 @@
+import React from 'react';
 function Backdrop({ onFade, onClick }) {
-  
+
   const opacity = onFade; // variable for possible fade animation (opacity)
 
   const backdropStyles = { // css for backdrop

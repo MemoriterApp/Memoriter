@@ -15,20 +15,20 @@ function ImpressumPage() {
             alt='site-logo'
             style={{ top: '-2.5px', zIndex: '10' }}
           ></img>
-        </Link>
+        </Link >
         <Link to={lastPage}>
           <div className='Zurückbutton_Body' style={{ top: '90px', left: '8px', zIndex: '10' }}>
             <div className='Zurückbutton_Arrow' />
           </div>
         </Link>
         <h1 className='Legal_Header'>Impressum</h1>
-      </header>
+      </header >
       <main>
         <p className='Legal_Text'>
-          Memoriter is a student company at the Bertha-von-Bertha-Suttner-Gymnasium Babelsberg in
+          Memoriter is a student company at the Bertha - von - Bertha - Suttner - Gymnasium Babelsberg in
           Potsdam, Germany, under the supervision of JUNIOR, a project by the Institut der Deutchen
-          Wirtschaft (IW), supported by the Bundesministerium für Wirtschaft und Klimaschutz (BMWK).
-          Further information about the JUNIOR project can be found&nbsp;
+          Wirtschaft(IW), supported by the Bundesministerium für Wirtschaft und Klimaschutz(BMWK).
+          Further information about the JUNIOR project can be found & nbsp;
           <a
             href='https://www.junior-programme.de/startseite'
             target='_blank'
@@ -38,7 +38,7 @@ function ImpressumPage() {
             here
           </a>
           .
-        </p>
+        </p >
         <p className='Legal-SubHeader'>Contact:</p>
         <ul className='Legal_Text'>
           <li>Johan Trieloff</li>
@@ -48,7 +48,7 @@ function ImpressumPage() {
           <li>Email: johan@trieloff.net</li>
         </ul>
         <div style={{ height: '100px' }} />
-      </main>
+      </main >
       <footer>
         <Footer />
       </footer>

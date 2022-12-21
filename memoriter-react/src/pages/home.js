@@ -1,4 +1,5 @@
 import '../css/home.css';
+import React from 'react';
 import memoriterLogo from '../images/memoriter-logo.svg';
 import SettingsIcon from '../components/Settings/SettingsIcon';
 import archiveIcon from '../images/icons/archive-icon.svg';
@@ -21,6 +22,7 @@ import {
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import ArchivedFolders from '../components/home/archived-folders';
 const { db } = firebase;
+import '../index.css';
 
 //this file is the home page of the app where you see all your folders
 //it uses some css from home.css
@@ -71,8 +73,8 @@ function HomePage() {
         folder.id === id
           ? { ...folder, pos: folder.pos - 1 }
           : folder.pos === pos - 1
-          ? (sessionStorage.setItem('newPosFolder', folder.id), { ...folder, pos: folder.pos + 1 })
-          : folder
+            ? (sessionStorage.setItem('newPosFolder', folder.id), { ...folder, pos: folder.pos + 1 })
+            : folder
       )
     );
   };
@@ -89,8 +91,8 @@ function HomePage() {
         folder.id === id
           ? { ...folder, pos: folder.pos + 1 }
           : folder.pos === pos + 1
-          ? (sessionStorage.setItem('newPosFolder', folder.id), { ...folder, pos: folder.pos - 1 })
-          : folder
+            ? (sessionStorage.setItem('newPosFolder', folder.id), { ...folder, pos: folder.pos - 1 })
+            : folder
       )
     );
   };
@@ -239,6 +241,7 @@ function HomePage() {
                 ))}
             </>
 
+            { /*eslint-disable-next-line react/no-unknown-property*/}
             <div folders={folders}>
               <div className='New_Folder_Body'>
                 <div className='New_Folder_Line'></div>
@@ -258,8 +261,8 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </div>
-      </main>
+        </div >
+      </main >
       <footer>
         <Footer />
       </footer>

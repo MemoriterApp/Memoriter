@@ -26,7 +26,7 @@ const { db } = firebase;
 //this file is the home page of the app where you see all your flashcards
 //it uses css from topic.css
 function TopicPage() {
-  const user = firebase.auth.currentUser; 
+  const user = firebase.auth.currentUser;
 
   const [columns, setColumns] = useState(6); //column count of the masonry layout
   const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
@@ -118,9 +118,9 @@ function TopicPage() {
         flashcard.id === id
           ? { ...flashcard, pos: flashcard.pos - 1 }
           : flashcard.pos === pos - 1
-          ? (sessionStorage.setItem('newPosFlashcard', flashcard.id),
-            { ...flashcard, pos: flashcard.pos + 1 })
-          : flashcard
+            ? (sessionStorage.setItem('newPosFlashcard', flashcard.id),
+              { ...flashcard, pos: flashcard.pos + 1 })
+            : flashcard
       )
     );
   };
@@ -136,9 +136,9 @@ function TopicPage() {
         flashcard.id === id
           ? { ...flashcard, pos: flashcard.pos + 1 }
           : flashcard.pos === pos + 1
-          ? (sessionStorage.setItem('newPosFlashcard', flashcard.id),
-            { ...flashcard, pos: flashcard.pos - 1 })
-          : flashcard
+            ? (sessionStorage.setItem('newPosFlashcard', flashcard.id),
+              { ...flashcard, pos: flashcard.pos - 1 })
+            : flashcard
       )
     );
   };
@@ -256,44 +256,44 @@ function TopicPage() {
             <Masonry breakpointCols={columns} className='flashcard-base-grid'>
               {isOnlyQuestion === true //checks if the preview mode is only question
                 ? flashcards //if it is the case, only the question will be shown
-                    .map((flashcard) => (
-                      <Flashcard
-                        key={flashcard.id}
-                        type='only-question'
-                        flashcard={flashcard}
-                        flashcardCount={flashcards.length}
-                        openFlashcardView={openFlashcard}
-                        onPosLeft={posLeft}
-                        onPosRight={posRight}
-                        onPosAdjust={posAdjust}
-                        onDeleteFlashcard={deleteFlashcard}
-                        onEditFlashcard={editFlashcard}
-                        onOpenFlashcard={openFlashcardReq}
-                        onCloseFlashcard={closeFlashcardReq}
-                        onNextFlashcard={nextFlashcard}
-                        onPrevFlashcard={prevFlashcard}
-                        onChangeTextAlign={changeTextAlign}
-                      />
-                    ))
+                  .map((flashcard) => (
+                    <Flashcard
+                      key={flashcard.id}
+                      type='only-question'
+                      flashcard={flashcard}
+                      flashcardCount={flashcards.length}
+                      openFlashcardView={openFlashcard}
+                      onPosLeft={posLeft}
+                      onPosRight={posRight}
+                      onPosAdjust={posAdjust}
+                      onDeleteFlashcard={deleteFlashcard}
+                      onEditFlashcard={editFlashcard}
+                      onOpenFlashcard={openFlashcardReq}
+                      onCloseFlashcard={closeFlashcardReq}
+                      onNextFlashcard={nextFlashcard}
+                      onPrevFlashcard={prevFlashcard}
+                      onChangeTextAlign={changeTextAlign}
+                    />
+                  ))
                 : flashcards //if it is not the case, the question and answer will be shown
-                    .map((flashcard) => (
-                      <Flashcard
-                        key={flashcard.id}
-                        flashcard={flashcard}
-                        flashcardCount={flashcards.length}
-                        openFlashcardView={openFlashcard}
-                        onPosLeft={posLeft}
-                        onPosRight={posRight}
-                        onPosAdjust={posAdjust}
-                        onDeleteFlashcard={deleteFlashcard}
-                        onEditFlashcard={editFlashcard}
-                        onOpenFlashcard={openFlashcardReq}
-                        onCloseFlashcard={closeFlashcardReq}
-                        onNextFlashcard={nextFlashcard}
-                        onPrevFlashcard={prevFlashcard}
-                        onChangeTextAlign={changeTextAlign}
-                      />
-                    ))}
+                  .map((flashcard) => (
+                    <Flashcard
+                      key={flashcard.id}
+                      flashcard={flashcard}
+                      flashcardCount={flashcards.length}
+                      openFlashcardView={openFlashcard}
+                      onPosLeft={posLeft}
+                      onPosRight={posRight}
+                      onPosAdjust={posAdjust}
+                      onDeleteFlashcard={deleteFlashcard}
+                      onEditFlashcard={editFlashcard}
+                      onOpenFlashcard={openFlashcardReq}
+                      onCloseFlashcard={closeFlashcardReq}
+                      onNextFlashcard={nextFlashcard}
+                      onPrevFlashcard={prevFlashcard}
+                      onChangeTextAlign={changeTextAlign}
+                    />
+                  ))}
 
               {/*create new flashcard button*/}
               <div className='flashcard-body'>

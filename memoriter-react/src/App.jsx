@@ -1,3 +1,4 @@
+import React from 'react';
 import Start from './pages/start';
 import About from './pages/about';
 import ImpressumPage from './pages/impressum';
@@ -33,42 +34,42 @@ const App = () => {
   //routing (connections to different sub-pages)
   return (
     <AuthProvider> {/*AuthProvider fixes an issue where wrong pages are displayed for a short amound of time on page load*/}
-      <ScrollReset> {/*ScrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/} 
+      <ScrollReset> {/*ScrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/}
         <ThemeProvider> {/*ThemeProvider is responsible for the dark and light theme*/}
           <Routes>
 
-            <Route path='/start' element={<Start/>}/>
+            <Route path='/start' element={<Start />} />
 
-            <Route path='/about' element={<About/>}/>
+            <Route path='/about' element={<About />} />
 
-            <Route path='/impressum' element={<ImpressumPage/>}/>
+            <Route path='/impressum' element={<ImpressumPage />} />
 
-            <Route path='/privacy' element={<PrivacyPage/>}/>
+            <Route path='/privacy' element={<PrivacyPage />} />
 
-            <Route path='/patch-notes' element={<PatchNotes/>}/>
+            <Route path='/patch-notes' element={<PatchNotes />} />
 
-            {user? (<> {/*some of the active routes are altered if a user is signed in*/}
-              <Route path='/login' element={<HomePage/>}/>
+            {user ? (<> {/*some of the active routes are altered if a user is signed in*/}
+              <Route path='/login' element={<HomePage />} />
 
-              <Route path='/signup' element={<HomePage/>}/>
-              
-              <Route path='/' element={<HomePage/>}/>
+              <Route path='/signup' element={<HomePage />} />
 
-              <Route path='/topic' element={<TopicPage/>}/>
+              <Route path='/' element={<HomePage />} />
 
-              <Route path='/study' element={<StudyPage/>}/>
+              <Route path='/topic' element={<TopicPage />} />
 
-              <Route path='/study-spaced-repetition/' element={<SpacedRepMode/>}/>
+              <Route path='/study' element={<StudyPage />} />
+
+              <Route path='/study-spaced-repetition/' element={<SpacedRepMode />} />
             </>) : (<>
-              <Route path='/login' element={<LoginPage/>}/>
+              <Route path='/login' element={<LoginPage />} />
 
-              <Route path='/signup' element={<SignUpPage/>}/>
+              <Route path='/signup' element={<SignUpPage />} />
 
-              <Route path='/' element={<Redirect/>}/>
+              <Route path='/' element={<Redirect />} />
 
-              <Route path='/topic' element={<Redirect/>}/>
+              <Route path='/topic' element={<Redirect />} />
 
-              <Route path='/study' element={<Redirect/>}/>
+              <Route path='/study' element={<Redirect />} />
             </>)}
 
           </Routes>
