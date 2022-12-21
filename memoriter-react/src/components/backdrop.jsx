@@ -1,8 +1,9 @@
+import React from 'react';
 function Backdrop({ onFade, onClick }) {
-  
-  const opacity = onFade; // variable for possible fade animation (opacity)
 
-  const backdropStyles = { // css for backdrop
+  const opacity = onFade; //variable for possible fade animation (opacity)
+
+  const backdropStyles = { //css for backdrop
     position: 'fixed',
     zIndex: '3',
     backgroundColor: 'var(--color-backdrop)',
@@ -11,9 +12,12 @@ function Backdrop({ onFade, onClick }) {
     top: '0',
     left: '0',
     opacity: opacity, //dynamic style
-    transition: 'opacity 800ms',
+    transition: 'opacity 800ms'
   };
 
-  return <div style={backdropStyles} onClick={() => onClick()} />;
-};
+  return (
+    <div style={backdropStyles} onClick={() => onClick()}/>
+  );
+}
+
 export default Backdrop;
