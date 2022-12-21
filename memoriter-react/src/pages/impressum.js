@@ -54,5 +54,5 @@ function ImpressumPage() {
       </footer>
     </>
   );
-}
+};
 export default ImpressumPage;
