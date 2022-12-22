@@ -6,7 +6,7 @@ import alignLeft from '../../../../images/text-align-left.svg';
 import alignRight from '../../../../images/text-align-right.svg';
 import alignCenter from '../../../../images/text-align-center.svg';
 import alignJustify from '../../../../images/text-align-justify.svg';
-import FlashcardForm from '../../../topicStuff/form/flashcard-form';
+import FlashcardForm from '../../../topic-stuff/form/flashcard-form';
 import { useState } from 'react';
 import { Remarkable } from 'remarkable';
 

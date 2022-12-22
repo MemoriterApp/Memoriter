@@ -9,7 +9,7 @@ import Backdrop from '../../../components/backdrops/backdrop';
 import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import Flashcard from '../flashcard/flashcard';
-import ChooseStudyMode from '../../studyModes/choose-studymode/choose-studymode';
+import ChooseStudyMode from '../../study-modes/choose-studymode/choose-studymode';
 import { firebase } from '../../../technical/utils/firebase';
 import {
   collection, //set of database documents

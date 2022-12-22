@@ -8,7 +8,7 @@ import alignCenter from '../../../../images/text-align-center.svg';
 import alignJustify from '../../../../images/text-align-justify.svg';
 import { useState } from 'react';
 import { Remarkable } from 'remarkable';
-import FlashcardForm from '../../../topicStuff/form/flashcard-form';
+import FlashcardForm from '../../../topic-stuff/form/flashcard-form';
 
 const FlashcardSpacedRep = ({
   flashcard,

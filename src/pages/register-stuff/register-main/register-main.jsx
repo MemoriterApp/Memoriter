@@ -4,7 +4,7 @@ import facebookIcon from '../../images/icons/facebook-icon.svg';
 import githubIcon from '../../images/icons/github-icon.svg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { firebase } from '../../technical/utils/firebase';
+import { firebase } from '../../../technical/utils/firebase';
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, OAuthProvider, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
 const RegisterMain = () => {

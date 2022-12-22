@@ -1,11 +1,11 @@
 import './home.css';
 import memoriterLogo from '../../../images/memoriter-logo.svg';
-import SettingsIcon from '../../settings/SettingsIcon';
+import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
 import archiveIcon from '../../../images/icons/archive-icon.svg';
 import Backdrop from '../../../components/backdrops/backdrop';
-import Folder from '../folderStuff/folder/folder';
-import FolderForm from '../folderStuff/folder-form/folder-form';
-import Footer from '../../../components/footer';
+import Folder from '../folder-stuff/folder/folder';
+import FolderForm from '../folder-stuff/form-folder/folder-form';
+import Footer from '../../../components/footer/footer';
 import { firebase } from '../../../technical/utils/firebase'
 import { useState, useEffect } from 'react';
 import {

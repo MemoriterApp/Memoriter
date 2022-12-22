@@ -1,7 +1,7 @@
 //css file imports go all here
 import './index.css';
 
-import './pages/loginStuff/login/sign-in-main.css';
+import './pages/login-stuff/login/sign-in-main.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

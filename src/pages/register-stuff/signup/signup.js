@@ -1,9 +1,9 @@
-import Logo from '../../images/memoriter-logo.svg';
-import Footer from '../../components/footer/footer';
+import Logo from '../../../images/memoriter-logo.svg';
+import Footer from '../../../components/footer/footer';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { firebase } from '../../technical/utils/firebase';
+import { firebase } from '../../../technical/utils/firebase';
 
 
 function SignUpPage() {

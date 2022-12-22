@@ -1,16 +1,16 @@
 import Start from './pages/start/start';
-import About from './pages/footerLinks/about/about';
-import ImpressumPage from './pages/footerLinks/impressum/impressum';
-import PrivacyPage from './pages/footerLinks/privacy/privacy-policies';
-import PatchNotes from './pages/footerLinks/patchNotes/patch-notes';
+import About from './pages/footer-links/about/about';
+import ImpressumPage from './pages/footer-links/impressum/impressum';
+import PrivacyPage from './pages/footer-links/privacy/privacy-policies';
+import PatchNotes from './pages/footer-links/patch-notes/patch-notes';
 
-import LoginPage from './pages/loginStuff/login/login';
-import SignUpPage from './pages/registerStuff/signup';
+import LoginPage from './pages/login-stuff/login/login';
+import SignUpPage from './pages/register-stuff/signup/signup';
 
-import HomePage from './pages/homeStuff/home/home';
-import TopicPage from './pages/topicStuff/topic/topic';
-import StudyPage from './pages/studyModes/regular/study-view/study';
-import SpacedRepMode from './pages/studyModes/spacedRep/study-view/spaced-rep';
+import HomePage from './pages/home-stuff/home/home';
+import TopicPage from './pages/topic-stuff/topic/topic';
+import StudyPage from './pages/study-modes/regular/study-view/study';
+import SpacedRepMode from './pages/study-modes/spaced-rep/study-view/spaced-rep';
 
 import ThemeProvider from './components/theme-provider';
 import { AuthProvider } from './technical/routing/auth-provider';

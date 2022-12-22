@@ -1,4 +1,4 @@
-import WebsiteHead from '../../components/website-head';
+import WebsiteHead from '../../../components/website-head';
 import SignInHeader from '../../components/sign-in/sign-in-header';
 import RegisterMain from '../../components/sign-in/register-main';
 import AlreadySignedIn from '../../components/sign-in/already-signed-in';
