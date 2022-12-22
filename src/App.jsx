@@ -1,8 +1,8 @@
 import Start from './pages/start/start';
-import About from './pages/about/about';
-import ImpressumPage from './pages/impressum/impressum';
-import PrivacyPage from './pages/privacy/privacy-policies';
-import PatchNotes from './pages/patchNotes/patch-notes';
+import About from './pages/footerLinks/about/about';
+import ImpressumPage from './pages/footerLinks/impressum/impressum';
+import PrivacyPage from './pages/footerLinks/privacy/privacy-policies';
+import PatchNotes from './pages/footerLinks/patchNotes/patch-notes';
 
 import LoginPage from './pages/loginStuff/login/login';
 import SignUpPage from './pages/registerStuff/signup';
