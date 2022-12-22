@@ -1,0 +1,5 @@
+This document shall explain the file structure of the project.
+
+## Structure
+We have two important folders, pages and components, both of these have components of the webpage. The difference between these two folders is that 'components' is for the reusable ui components for example the backbutton. 
+Whilst the pages folder is divided into the different pages, as a rule of thumb every component that has a unique route should get their own subfolder. Every component that is uniquely used on that page gets their own sub-sub-folder with the .js file and their own .css file.
