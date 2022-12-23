@@ -7,22 +7,22 @@ import '../interaction/settings-interaction.css';
 
 const SettingsIcon = () => {
 
-	const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
-	return (
-		<div>
-			<button className='gear'>
-				<img className='gear' src={settingsIcon} alt='settings' onClick={() => setModalIsOpen(true)}></img>
-			</button>
-			<div>
-				{modalIsOpen && <SettingsClick />}
-				{modalIsOpen && <Backdrop onClick={() => setModalIsOpen(false)} />}
-			</div>
-			<div onClick={() => setModalIsOpen(false)}>
-				{modalIsOpen && <Backdrop />}
-			</div>
-		</div>
-	);
+    return (
+        <div>
+            <button className='gear'>
+                <img className='gear' src={settingsIcon} alt='settings' onClick={() => setModalIsOpen(true)}></img>
+            </button>
+            <div>
+                {modalIsOpen && <SettingsClick />}
+                {modalIsOpen && <Backdrop onClick={() => setModalIsOpen(false)} />}
+            </div>
+            <div onClick={() => setModalIsOpen(false)}>
+                {modalIsOpen && <Backdrop />}
+            </div>
+        </div>
+    );
 };
 
 export default SettingsIcon;

@@ -39,7 +39,7 @@
         ],
         "indent": [
             "warn",
-            "tab"
+            4
         ],
         "jsx-quotes": [
             "warn",

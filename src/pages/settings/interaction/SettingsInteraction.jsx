@@ -14,62 +14,62 @@ import { signOut } from 'firebase/auth';
 
 function SettingsClick() {
 
-	const dispatch = useDispatch(); //used to manipulate global sate (react redux)
+    const dispatch = useDispatch(); //used to manipulate global sate (react redux)
 
-	const themeText = useSelector((state) => state.theme.value); //current light or dark mode text based on theme
+    const themeText = useSelector((state) => state.theme.value); //current light or dark mode text based on theme
 
-	function onChangeTheme(theme) { //function to swap the current theme
-		dispatch(changeTheme(theme)); //changes the theme
-		localStorage.setItem('theme', theme); //the theme can be saved to localStorage
-	}
+    function onChangeTheme(theme) { //function to swap the current theme
+        dispatch(changeTheme(theme)); //changes the theme
+        localStorage.setItem('theme', theme); //the theme can be saved to localStorage
+    }
 
-	const [profile, openProfile] = useState(false);
+    const [profile, openProfile] = useState(false);
 
-	const [signOutView, openSignOutView] = useState(false);
+    const [signOutView, openSignOutView] = useState(false);
 
-	const [changePreview, openChangePreview] = useState(false);
+    const [changePreview, openChangePreview] = useState(false);
 
-	//logout stuff
-	const navigate = useNavigate();
+    //logout stuff
+    const navigate = useNavigate();
 
-	const logOut = async () => {
-		await signOut(firebase.auth);
-		localStorage.removeItem('syncedFolderID');
-		localStorage.removeItem('syncedFolderTitle');
+    const logOut = async () => {
+        await signOut(firebase.auth);
+        localStorage.removeItem('syncedFolderID');
+        localStorage.removeItem('syncedFolderTitle');
 
-		dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
-		navigate('/login');
-	};
+        dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
+        navigate('/login');
+    };
 
 
 
-	return (
-		<div className='settings-overlay'>
-			<div className='settings-title-box'>
-				<h1 className='settings-title'>SETTINGS</h1>
-			</div>
-			<p className='settings-sub' onClick={() => openProfile(true)}>PROFILE</p>
+    return (
+        <div className='settings-overlay'>
+            <div className='settings-title-box'>
+                <h1 className='settings-title'>SETTINGS</h1>
+            </div>
+            <p className='settings-sub' onClick={() => openProfile(true)}>PROFILE</p>
 
-			{(themeText === 'light' || !themeText) && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>THEME:&shy; LIGHT</p>}
+            {(themeText === 'light' || !themeText) && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>THEME:&shy; LIGHT</p>}
 
-			{themeText === 'dark' && <p className='settings-sub' onClick={() => onChangeTheme('light')}>THEME:&shy; DARK</p>}
+            {themeText === 'dark' && <p className='settings-sub' onClick={() => onChangeTheme('light')}>THEME:&shy; DARK</p>}
 
-			<p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
-			<p className='sign-out-box' onClick={() => openSignOutView(true)}>SIGN OUT</p>
+            <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
+            <p className='sign-out-box' onClick={() => openSignOutView(true)}>SIGN OUT</p>
 
-			{signOutView && <>
-				<Confirm
-					title='Do you really want to sign out?'
-					onConfirm={logOut}
-					onCancel={() => openSignOutView(false)} />
+            {signOutView && <>
+                <Confirm
+                    title='Do you really want to sign out?'
+                    onConfirm={logOut}
+                    onCancel={() => openSignOutView(false)} />
 
-				<Backdrop onClick={() => openSignOutView(false)} />
-			</>}
+                <Backdrop onClick={() => openSignOutView(false)} />
+            </>}
 
-			{changePreview && <ChangePreview />}
+            {changePreview && <ChangePreview />}
 
-			{profile && <Profile />}
-		</div>
-	);
+            {profile && <Profile />}
+        </div>
+    );
 }
 export default SettingsClick;
