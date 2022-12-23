@@ -64,7 +64,7 @@ const PasswordReset = ({ closePasswordResetModal }) => {
 
                     <button
                         className='settings-delete-account-confirm-button'
-                        style={{ backgroundColor: 'rgba(39,75,101,1)', borderColor: 'rgba(39,75,101,1)' }}
+                        style={{ backgroundColor: 'rgb(39,75,101)', borderColor: 'rgb(39,75,101)' }}
                         type='submit'
                     >Send Email</button>
 

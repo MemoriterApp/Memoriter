@@ -77,7 +77,7 @@ function Start() {
                             <article className='QA-flashcard-content'>
                                 <p>
                                     Thats the best part, it is totally <span className='bold'>free!</span>. Memoriter is currently a non profit project, we do not have an incentive to make money off of this project.
-                                    We also do not have any server costs at the moment. {/*But nevertheless if you want to support us you can  <span className='bold'>donate</span> 
+                                    We also do not have any server costs at the moment. {/*But nevertheless if you want to support us you can  <span className='bold'>donate</span>
                             to our bank account, more info on the 'About Us'.*/}
                                 </p>
                             </article>
@@ -88,24 +88,24 @@ function Start() {
                 {/*<div className="rechteck-Start2">
             <text className="Start2-Text">
                 <h1 style={{textAlign: 'center'}}>So why should you use MEMORITER</h1>
-                <ul> 
+                <ul>
                     <li> You can organize your content in flashcards.</li>
                     <li>Its a webapp! Have it everwhere you go. On every operating system.</li>
                     <li>Its free!</li>
                 </ul>
             </text>
-            
+
         </div>
         <div className="rechteck-Start3">
             <text className="Start3-Text">
                 <h1 style={{textAlign: 'center'}}>Collaboration parterns?</h1>
-                <p style={{lineHeight:1.5}}> The JUNIOR programme has helped the founding process of memoriterand it would not exist without them. 
+                <p style={{lineHeight:1.5}}> The JUNIOR programme has helped the founding process of memoriterand it would not exist without them.
                     It helps students learn economics in school, by making them create a student company and let them deal with the logistics of that.
                     <div></div>The collaboration only lasts one year.
                     Soon the year of their influence over us will be over and we will be able to develop memoriter more freely and without constraints
                 </p>
             </text>
-        
+
     </div>*/}
             </main>
             <footer>

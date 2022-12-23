@@ -6,7 +6,7 @@ import Backdrop from '../../../components/backdrops/backdrop';
 import Folder from '../folder-stuff/folder/folder';
 import FolderForm from '../folder-stuff/form-folder/folder-form';
 import Footer from '../../../components/footer/footer';
-import { firebase } from '../../../technical/utils/firebase'
+import { firebase } from '../../../technical/utils/firebase';
 import { useState, useEffect } from 'react';
 import {
   collection,
@@ -105,8 +105,8 @@ function HomePage() {
 
   //Add Folder
   const addFolder = async (title) => {
-    const pos = folders.length + 1
-    await addDoc(collection(db, 'folders'), { pos, title: title, user: user.uid, archived: false })
+    const pos = folders.length + 1;
+    await addDoc(collection(db, 'folders'), { pos, title: title, user: user.uid, archived: false });
 
     const allFolders = await getDocs(foldersCollectionRef);
     setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id }))); //Aktualisieren der Ordner
@@ -124,7 +124,7 @@ function HomePage() {
         .map((folder) =>
           folder.pos > pos
             ? (sessionStorage.setItem('newPosFolder' + folder.id, folder.id),
-              { ...folder, pos: folder.pos - 1 })
+            { ...folder, pos: folder.pos - 1 })
             : folder
         )
         .filter((folder) => folder.id !== id)

@@ -66,7 +66,7 @@ function SpacedRepMode() {
             } else {
                 setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== answeredFlashcard.id));
                 setStudiedFlashcards(studiedFlashcards + 1);
-            };
+            }
         } else {
             //removes the incorrect flashcard and moves it to the end, new flashcard shows up
             setFlashcards([...flashcards
@@ -74,7 +74,7 @@ function SpacedRepMode() {
                 .sort(() => Math.random() - 0.5), answeredFlashcard]) //reshuffles the array and creates the copy
             //the advantage of this method is the fact that a flashcard will not show the next timo if incorrect is clicked
             setIncorrectFlashcards(incorrectFlashcards + 1);
-        };
+        }
     };
     // the flashcard properties must be used as function arguments
     // type depends on the clicked button, it can be 0 to 4, 0 is completely incorrect, 4 is very easy
@@ -84,7 +84,7 @@ function SpacedRepMode() {
 
     if (!started) { //autostarts the spaced rep mode
         setStarted(true); //shows flashcard component
-    };
+    }
 
     // filters the flashcards for only the not studied ones to show up
     const [filtered, setFiltered] = useState(false);
@@ -93,7 +93,7 @@ function SpacedRepMode() {
             .filter((flashcard) => (flashcard.nextDate && flashcard.nextDate.toDate() <= new Date()) || !flashcard.nextDate)
         ])
         setFiltered(true);
-    };
+    }
 
     //Change text align
     const changeTextAlign = async (id, textAlign) => {
@@ -129,7 +129,7 @@ function SpacedRepMode() {
     flashcards.forEach((flashcard) => {
         if (flashcard.nextDate && flashcard.nextDate.toDate() <= new Date()) {
             dueFlashcards++;
-        };
+        }
     });
 
     return (

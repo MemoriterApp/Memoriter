@@ -15,9 +15,9 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-    <BrowserRouter> {/*routing component*/}
-        <Provider store={store}> {/*global state provider*/}
-            <App/> {/*the react app*/}
-        </Provider>
-    </BrowserRouter>
-)
+	<BrowserRouter> {/*routing component*/}
+		<Provider store={store}> {/*global state provider*/}
+			<App/> {/*the react app*/}
+		</Provider>
+	</BrowserRouter>
+);
