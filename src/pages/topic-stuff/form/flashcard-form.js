@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Backdrop from '../../../components/backdrops/backdrop';
+import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 
 const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel }) => {
 

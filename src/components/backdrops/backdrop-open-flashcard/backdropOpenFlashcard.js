@@ -1,4 +1,5 @@
 import React from 'react';
+import './backdrop-open-flashcard.css'
 
 function BackdropOpenFlashcard(props) {
     return (

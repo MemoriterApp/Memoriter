@@ -2,7 +2,7 @@ import './folder.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Confirm from '../../../../components/confirm/confirm';
-import Backdrop from '../../../../components/backdrops/backdrop';
+import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FolderForm from '../form-folder/folder-form';
 import FolderSettings from '../settings-folder/folder-settings';
 import { firebase } from '../../../../technical/utils/firebase';

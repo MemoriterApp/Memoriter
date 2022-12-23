@@ -8,9 +8,9 @@ import alignCenter from '../../../images/text-align-center.svg';
 import alignJustify from '../../../images/text-align-justify.svg';
 import FlashcardForm from '../form/flashcard-form';
 import Confirm from '../../../components/confirm/confirm';
-import Backdrop from '../../../components/backdrops/backdrop';
-import BackdropOpenFlashcard from '../../../components/backdrops/backdropOpenFlashcard';
-import BackdropfsOpenFlashcard from '../../../components/backdrops/backdropfsOpenFlashcard';
+import Backdrop from '../../../components/backdrops/backdrop/backdrop';
+import BackdropOpenFlashcard from '../../../components/backdrops/backdrop-open-flashcard/backdropOpenFlashcard';
+import BackdropfsOpenFlashcard from '../../../components/backdrops/backdropfs-open-flashcard/backdropfsOpenFlashcard';
 
 const Flashcard = ({
   flashcard,

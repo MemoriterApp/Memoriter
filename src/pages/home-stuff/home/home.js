@@ -2,7 +2,7 @@ import './home.css';
 import memoriterLogo from '../../../images/memoriter-logo.svg';
 import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
 import archiveIcon from '../../../images/icons/archive-icon.svg';
-import Backdrop from '../../../components/backdrops/backdrop';
+import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import Folder from '../folder-stuff/folder/folder';
 import FolderForm from '../folder-stuff/form-folder/folder-form';
 import Footer from '../../../components/footer/footer';

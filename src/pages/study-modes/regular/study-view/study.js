@@ -1,6 +1,7 @@
 import Logo from '../../../../images/memoriter-logo.svg';
 import Footer from '../../../../components/footer/footer';
 import FlashcardStudy from '../flashcard/flashcard-study';
+import BackButton from '../../../../components/back-button/BackButton';
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { firebase } from '../../../../technical/utils/firebase'
@@ -122,12 +123,6 @@ const StudyPage = () => {
                     </Link>
                     <p className='study-remaining'>Remaining: {flashcards.length}</p>
                 </header>
-                <Link to='/topic'>
-                    <div className="Zurückbutton_Body" style={{ top: '90px', left: '8px', zIndex: '10' }}>
-                        <div className="Zurückbutton_Arrow" />
-                    </div>
-                </Link>
-
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                     {flashcards.slice(0, 1).map((flashcard) => (
                         <FlashcardStudy key={flashcard.id} flashcard={flashcard}
@@ -165,7 +160,7 @@ const StudyPage = () => {
                         onClick={() => navigate('/topic')}
                     >Return to Overview</button>
                 </div>}
-
+                <BackButton/>
                 <Footer />
             </main>
 

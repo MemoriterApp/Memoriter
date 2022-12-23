@@ -1,5 +1,5 @@
 import Confirm from '../../../../components/confirm/confirm';
-import Backdrop from '../../../../components/backdrops/backdrop';
+import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import edit from '../../../../images/edit.svg';
 import deleteIcon from '../../../../images/delete.svg';
 import alignLeft from '../../../../images/text-align-left.svg';

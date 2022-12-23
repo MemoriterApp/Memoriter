@@ -1,11 +1,11 @@
 import './topic.css';
 import { useState, useEffect } from 'react';
 import memoriterLogo from '../../../images/memoriter-logo.svg';
-import BackButton from '../../../components/BackButton';
+import BackButton from '../../../components/back-button/BackButton';
 import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
 import Footer from '../../../components/footer/footer';
 import FlashcardForm from '../form/flashcard-form';
-import Backdrop from '../../../components/backdrops/backdrop';
+import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import Flashcard from '../flashcard/flashcard';

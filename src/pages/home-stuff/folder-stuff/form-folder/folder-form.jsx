@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './folder-form.css';
-import Backdrop from '../../../../components/backdrops/backdrop';
+import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 
 const FolderForm = ({ type, folder, onConfirm, onCancel }) => {
 

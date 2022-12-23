@@ -1,0 +1,9 @@
+.backdrop-open-flashcard {
+    position: fixed;
+    z-index: 11;
+    background-color: var(--color-backdrop);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}

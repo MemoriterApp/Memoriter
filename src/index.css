@@ -541,28 +541,6 @@ body::-webkit-scrollbar-corner {
 
 /* AB HEIR BITTE NUR TOPIC PAGE ZEUGS */
 
-.Zurückbutton_Body {
-    background-color: var(--color-transparent);
-    border: 2.5px solid var(--color-transparent);
-    position: absolute;
-    left: -1px;
-    top: 9px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transform: rotate(270deg);
-}
-
-.Zurückbutton_Arrow {
-    border: solid;
-    border-width: 8px 8px 1px 1px;
-    border-color: var(--color-font) var(--color-font) var(--color-transparent) var(--color-transparent);
-    border-radius: 6px 0;
-    padding: 8px;
-    position: absolute;
-    left: 1%;
-    cursor: pointer;
-    transform: rotate(-45deg);
-}
 
 .flashcard-rechteck {
     position: absolute;
@@ -1071,25 +1049,6 @@ ol {
     overflow-y: auto;
 }
 
-.backdrop-open-flashcard {
-    position: fixed;
-    z-index: 11;
-    background-color: var(--color-backdrop);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.backdropfs-open-flashcard {
-    position: fixed;
-    z-index: 10;
-    background-color: var(--color-backdrop);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
 
 @media (max-width: 1900px) {
 

@@ -1,5 +1,5 @@
 import './confirm.css';
-import Backdrop from '../backdrops/backdrop';
+import Backdrop from '../backdrops/backdrop/backdrop';
 
 //This modal is used to confirm something (most likely deleting) with either a yes or no botton.
 
