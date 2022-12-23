@@ -270,7 +270,7 @@ function Profile() {
                             <input className='add-folder-form-input'
                                 placeholder="New Email..."
                                 type="mail"
-                                autocomplete='off'
+                                autoComplete='off'
                                 id="email"
                                 name="email"
                                 style={redBorderNewData}
@@ -282,7 +282,7 @@ function Profile() {
                             <input className='add-folder-form-input'
                                 placeholder="Confirm New Email..."
                                 type="mail"
-                                autocomplete='off'
+                                autoComplete='off'
                                 id="confirmEmail"
                                 name="confirmEmail"
                                 style={redBorderNewData}
@@ -292,6 +292,7 @@ function Profile() {
                             <br />
                             <br />
                             <input className='add-folder-form-input'
+                                autoComplete="current-password"
                                 placeholder="Password..."
                                 type="password"
                                 id="accountPassword"
@@ -376,7 +377,7 @@ function Profile() {
                             <input className='add-folder-form-input'
                                 placeholder="New Password..."
                                 type="password"
-                                autocomplete='off'
+                                autoComplete='new-password'
                                 id="newPassword"
                                 name="newPassword"
                                 style={redBorderNewData}
@@ -388,7 +389,7 @@ function Profile() {
                             <input className='add-folder-form-input'
                                 placeholder="Confirm New Password..."
                                 type="password"
-                                autocomplete='off'
+                                autoComplete='new-password'
                                 id="confirmPassword"
                                 name="confirmPassword"
                                 style={redBorderNewData}
@@ -506,7 +507,7 @@ function Profile() {
                                 className='add-folder-form-input'
                                 style={{ left: '50%', transform: 'translateX(-50%)', width: '80%' }}
                                 type='text'
-                                autocomplete='off'
+                                autoComplete='off'
                                 placeholder='Please enter your user id...'
                                 id="userId"
                                 name="userId"

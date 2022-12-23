@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { firebase } from "../../../technical/utils/firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged, getAuth } from "firebase/auth";
 
-const LoginPage = () => {
+function LoginPage() {
 
     const navigate = useNavigate();
 
