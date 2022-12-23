@@ -11,6 +11,14 @@ const StudyPage = () => {
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const user = firebase.auth.currentUser;
+
+        if (!user) {
+            return navigate("/login");
+        }
+    })
+
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
     let syncedFolderID = localStorage.getItem('syncedFolderID');

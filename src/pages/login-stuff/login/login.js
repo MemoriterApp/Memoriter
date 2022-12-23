@@ -6,11 +6,19 @@ import Backdrop from '../../../components/backdrops/backdrop';
 import PasswordReset from "../../settings/password-reset/password-reset";
 import { Link, useNavigate } from "react-router-dom";
 import { firebase } from "../../../technical/utils/firebase";
-import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged, getAuth } from "firebase/auth";
 
-function LoginPage() {
+const LoginPage = () => {
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const auth = getAuth();
+
+        if (auth.currentUser) {
+            return navigate("/");
+        }
+    })
 
     const [passwordResetModal, openPasswordResetModal] = useState(false);
 

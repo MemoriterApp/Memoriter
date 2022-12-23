@@ -1,6 +1,6 @@
 import React from 'react';
 import './spaced-rep.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../../../components/footer/footer';
 import Logo from '../../../../images/memoriter-logo.svg';
 import Backdrop from '../../../../components/backdrops/backdrop';
@@ -15,6 +15,16 @@ import FinishedViewSpacedRep from '../finished-view/finished-view-spaced-rep';
 const { db } = firebase;
 
 function SpacedRepMode() {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const user = firebase.auth.currentUser;
+
+        if (!user) {
+            return navigate("/login");
+        }
+    })
 
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
     let syncedFolderID = localStorage.getItem('syncedFolderID');
@@ -114,7 +124,7 @@ function SpacedRepMode() {
         )
     };
 
-    //generate variable to show how many flashcards are due today 
+    //generate variable to show how many flashcards are due today
     let dueFlashcards = 0;
     flashcards.forEach((flashcard) => {
         if (flashcard.nextDate && flashcard.nextDate.toDate() <= new Date()) {
