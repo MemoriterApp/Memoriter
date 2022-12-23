@@ -1,0 +1,26 @@
+name: Build Project
+
+on: push
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [19.x]
+
+    steps:
+      - name: Pull Project
+        uses: actions/checkout@v2.3.4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Packages
+        run: npm i
+
+      - name: Build Project
+        run: npm build
