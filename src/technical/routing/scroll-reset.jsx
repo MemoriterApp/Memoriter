@@ -7,13 +7,13 @@ import { useLocation } from 'react-router';
 
 const ScrollReset = ({ children }) => {
     
-  const location = useLocation(); //does not work without this
+	const location = useLocation(); //does not work without this
 
-  useEffect(() => {
-    window.scrollTo(0, 0); //scrolls to top
-  }, [location]);
+	useEffect(() => {
+		window.scrollTo(0, 0); //scrolls to top
+	}, [location]);
 
-  return(<>{children}</>); //children refers to the content inside the wrapper (all routes)
+	return(<>{children}</>); //children refers to the content inside the wrapper (all routes)
 };
 
 export default ScrollReset;

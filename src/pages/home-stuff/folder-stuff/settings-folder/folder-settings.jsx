@@ -4,54 +4,54 @@ import archive from '../../../../images/icons/archive-icon.svg';
 import deleteIcon from '../../../../images/delete.svg';
 
 function SettingsFolder({
-  folder,
-  editFolderReq,
-  deleteFolderReq,
-  onArchive,
-  onDearchive
+	folder,
+	editFolderReq,
+	deleteFolderReq,
+	onArchive,
+	onDearchive
 }) {
 
-  return (
-    <div className='folder-settings-overlay'>
-      <div className='folder-settings-sub'>
-        <p onClick={editFolderReq}>
-          <img
-            style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-            src={edit}
-            alt=''
-          />
+	return (
+		<div className='folder-settings-overlay'>
+			<div className='folder-settings-sub'>
+				<p onClick={editFolderReq}>
+					<img
+						style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+						src={edit}
+						alt=''
+					/>
           Edit
-        </p>
-        {!folder.archived && (
-          <p onClick={() => onArchive(folder.id)}>
-            <img
-              style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-              src={archive}
-              alt=''
-            />
+				</p>
+				{!folder.archived && (
+					<p onClick={() => onArchive(folder.id)}>
+						<img
+							style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+							src={archive}
+							alt=''
+						/>
             Archive
-          </p>
-        )}
-        {folder.archived && (
-          <p onClick={() => onDearchive(folder.id)}>
-            <img
-              style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-              src={archive}
-              alt=''
-            />
+					</p>
+				)}
+				{folder.archived && (
+					<p onClick={() => onDearchive(folder.id)}>
+						<img
+							style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+							src={archive}
+							alt=''
+						/>
             De-archive
-          </p>
-        )}
-        <p onClick={deleteFolderReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
-          <img
-            style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-            src={deleteIcon}
-            alt=''
-          />
+					</p>
+				)}
+				<p onClick={deleteFolderReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
+					<img
+						style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+						src={deleteIcon}
+						alt=''
+					/>
           Delete
-        </p>
-      </div>
-    </div>
-  );
+				</p>
+			</div>
+		</div>
+	);
 }
 export default SettingsFolder;

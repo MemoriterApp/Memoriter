@@ -8,27 +8,27 @@ import { firebase } from '../utils/firebase';
 const AuthContext = createContext(); //necessary to work
 
 export function useAuth() { //creates part of the component
-    return useContext(AuthContext);
+	return useContext(AuthContext);
 }
 
 export function AuthProvider({ children }) {
 
-    const [user, setUser] = useState(); //checks if user is signed in
-    const [loading, setLoading] = useState(true); //when loading is true the wrong page cannot display
+	const [user, setUser] = useState(); //checks if user is signed in
+	const [loading, setLoading] = useState(true); //when loading is true the wrong page cannot display
 
-    useEffect(() => {
-        const unsubscribe = firebase.auth.onAuthStateChanged(currentUser => {
-            setUser(currentUser); //sets user
-            setLoading(false); //disables loading
-        });
+	useEffect(() => {
+		const unsubscribe = firebase.auth.onAuthStateChanged((currentUser) => {
+			setUser(currentUser); //sets user
+			setLoading(false); //disables loading
+		});
 
-        return unsubscribe;
-    }, []);
+		return unsubscribe;
+	}, []);
 
-    const value = { user }; //currently signed in user
+	const value = { user }; //currently signed in user
 
-    return (
-        <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>
-        //children refers to the content inside the wrapper (all routes)
-    );
+	return (
+		<AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>
+	//children refers to the content inside the wrapper (all routes)
+	);
 }
