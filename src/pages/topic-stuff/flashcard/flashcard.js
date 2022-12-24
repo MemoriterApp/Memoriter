@@ -155,7 +155,7 @@ const Flashcard = ({
           <span className='dot' />
         </div>
         <div
-          className='Flashcard_Pos_Body_Left'
+          className='flashcard-pos-body-left'
           onClick={() => {
             if (pos > 1) {
               setPos(pos - 1);
@@ -163,10 +163,10 @@ const Flashcard = ({
             }
           }}
         >
-          <div className='Flashcard_Pos_Arrow_Left' />
+          <div className='flashcard-pos-arrow-left' />
         </div>
         <div
-          className='Flashcard_Pos_Body_Right'
+          className='flashcard-pos-body-right'
           onClick={() => {
             if (pos < flashcardCount) {
               setPos(pos + 1);
@@ -174,7 +174,7 @@ const Flashcard = ({
             }
           }}
         >
-          <div className='Flashcard_Pos_Arrow_Right' />
+          <div className='flashcard-pos-arrow-right' />
         </div>
       </div>
       <div
@@ -184,7 +184,7 @@ const Flashcard = ({
         onMouseEnter={() => setIsMouseInside(true)}
         onMouseLeave={() => setIsMouseInside(false)}
       >
-        <h3 className='Flashcard_Title' ref={refTitleHeight}>
+        <h3 className='flashcard-title' ref={refTitleHeight}>
           {flashcard.title}
         </h3>
         {type === 'only-question' && !isMouseInside ? (
@@ -207,24 +207,24 @@ const Flashcard = ({
       <div>
         {modalIsOpen && (
           <div>
-            <div className='Flashcard_Switch_Arrows'>
-              <div className='Next_Flashcard' onClick={() => onNextFlashcard(flashcard.pos)} />
-              <div className='Prev_Flashcard' onClick={() => onPrevFlashcard(flashcard.pos)} />
+            <div className='flashcard-switch-arrows'>
+              <div className='next-flashcard' onClick={() => onNextFlashcard(flashcard.pos)} />
+              <div className='prev-flashcard' onClick={() => onPrevFlashcard(flashcard.pos)} />
             </div>
-            <div className='Flashcard_Open_Body'>
-              <div className='Close_Flashcard_Button' onClick={closeFlashcard}>
-                <div className='Close_Flashcard_Arrow' />
+            <div className='flashcard-open-body'>
+              <div className='close-flashcard-button' onClick={closeFlashcard}>
+                <div className='close-flashcard-arrow' />
               </div>
-              <div className='Flashcard_Open_Settings' onClick={settingsHandlerOpen}>
+              <div className='flashcard-open-settings' onClick={settingsHandlerOpen}>
                 <span className='big-dot' />
                 <span className='big-dot' />
                 <span className='big-dot' />
               </div>
               <p style={{ fontSize: '40px' }} />
-              <h2 className='Flashcard_Open_Title'>{flashcard.title}</h2>
+              <h2 className='flashcard-open-title'>{flashcard.title}</h2>
               <p style={{ fontSize: '40px' }} />
               <div
-                className='Flashcard_Open_Content'
+                className='flashcard-open-content'
                 style={{ textAlign: flashcard.textAlign }}
                 dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
               />

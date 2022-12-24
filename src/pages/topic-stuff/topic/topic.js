@@ -250,7 +250,7 @@ function TopicPage() {
         {chooseStudyModeModal && <Backdrop onClick={() => openChooseStudyModeModal(false)} />}
       </header>
       <main>
-        <div className='rechteck'>
+        <div className='square'>
           <div className='main-seperator' />
           <div className='flashcard-base'>
             <Masonry breakpointCols={columns} className='flashcard-base-grid'>
@@ -297,10 +297,10 @@ function TopicPage() {
 
               {/*create new flashcard button*/}
               <div className='flashcard-body'>
-                <div className='New_flashcard-rechteck' onClick={() => setAddFlashcardModal(true)}>
-                  <div className='New_Flashcard_Circle'>
-                    <div className='New_Flashcard_Plus_h' />
-                    <div className='New_Flashcard_Plus_v' />
+                <div className='new-flashcard-rechteck' onClick={() => setAddFlashcardModal(true)}>
+                  <div className='new-flashcard-circle'>
+                    <div className='new-flashcard-plus-h' />
+                    <div className='new-flashcard-plus-v' />
                   </div>
                 </div>
               </div>

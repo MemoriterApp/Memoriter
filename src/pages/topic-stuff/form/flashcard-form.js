@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
+import './flashcard-form.css';
 
 const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel }) => {
 
@@ -17,13 +18,13 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
 
   return (
     <>
-      <form className='Flashcard_Open_Body' onSubmit={onSubmitFlashcard}>
+      <form className='flashcard-open-body' onSubmit={onSubmitFlashcard}>
         <div>
-          <h2 className='Add_Flashcard_Form_Header'>{type} Flashcard</h2>
+          <h2 className='add-flashcard-form-header'>{type} Flashcard</h2>
           <p style={{ fontSize: '30px' }} />
           <textarea
             rows='2'
-            className='Add_Flashcard_Form_Title'
+            className='add-flashcard-form-title'
             placeholder='Flashcard Title...'
             maxLength='100'
             value={title}
@@ -41,9 +42,9 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
             This editor supports <a href='https://commonmark.org/help/' target='_blank' rel='noreferrer'>Markdown syntax</a>.
           </p>
         </div>
-        <button className='Add_Flashcard_Form_Submit' type='submit'>Done</button>
+        <button className='add-flashcard-form-submit' type='submit'>Done</button>
         <div
-          className='Add_Flashcard_Form_Submit'
+          className='add-flashcard-form-submit'
           style={{ border: 'none', marginTop: '0px', left: '5px', padding: '5px', backgroundColor: 'transparent' }}
         />
       </form>
