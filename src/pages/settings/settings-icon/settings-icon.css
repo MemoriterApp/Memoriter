@@ -1,0 +1,16 @@
+.gear {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 35px;
+    height: 35px;
+    border: 1px transparent;
+    background-color: var(--color-transparent);
+    cursor: pointer;
+    filter: var(--svg-invert-gray);
+    transition: transform .15s ease-in-out;
+}
+
+.gear:hover {
+    transform: scale(1.1);
+}

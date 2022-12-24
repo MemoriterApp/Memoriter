@@ -1,27 +1,4 @@
-.study-remaining {
-    position: absolute;
-    right: 20px;
-    top: 25%;
-    transform: translate(0, -50%);
-    max-width: 20%;
-    color: var(--current-gray);
-    font-family: var(--current-font);
-    font-size: 20px;
-}
-
-@media (max-width: 650px) {
-    .study-now-text {
-        top: 10px;
-        font-size: 16px;
-    }
-
-    .study-remaining {
-        height: 3.2vw;
-        font-size: 3vw;
-    }
-}
-
-.finished-box {
+.nothing-to-study-box {
     top: 20%;
     height: 30vh;
     width: 25vw;
@@ -33,7 +10,7 @@
     transform: translateX(-50%);
 }
 
-.finished-statistics {
+.nothing-to-study-text {
     position: relative;
     text-align: center;
     font-size: 2.6vh;
@@ -42,8 +19,7 @@
     margin: 1vh;
 }
 
-
-.finished-button {
+.return-button {
     position: absolute;
     left: 50%;
     font-family: var(--current-font);
@@ -57,6 +33,6 @@
     cursor: pointer;
 }
 
-.finished-button:hover {
+.return-button:hover {
     filter: brightness(120%);
 }

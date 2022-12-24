@@ -9,6 +9,7 @@ import alignJustify from '../../../../images/text-align-justify.svg';
 import { useState } from 'react';
 import { Remarkable } from 'remarkable';
 import FlashcardForm from '../../../topic-stuff/form/flashcard-form';
+import './flashcard-spaced-rep.css';
 
 const FlashcardSpacedRep = ({
   flashcard,

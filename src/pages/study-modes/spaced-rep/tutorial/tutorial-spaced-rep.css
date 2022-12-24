@@ -1,0 +1,57 @@
+.study-spaced-repetition-tutorial {
+    padding: 0 0 0 20px;
+    box-shadow: 0 1px 4px var(--color-shadow);
+    border-radius: 8px;
+    border: 8px solid var(--current-gray);
+    height: calc((69vh - 218px) + 18px);
+    width: calc(14vw + 20px);
+    text-align: center;
+    z-index: 10;
+    position: absolute;
+    right: 20%;
+    top: 20%;
+    background-color: var(--current-gray-light);
+}
+
+.tutorial-sub {
+    color: #000000;
+    font-family: var(--current-font);
+    font-size: 20px;
+    position: relative;
+    cursor: auto;
+    width: 105%;
+    left: -7%;
+    top: 1%;
+    font-weight: bold;
+}
+
+.tutorial-spaced-repetition-buttons {
+    position: absolute;
+    left: 50%;
+    top: 110%;
+    font-family: var(--current-font);
+    transform: translate(0%, -50%);
+    border-radius: 0.5vw;
+    height: calc(3vh);
+    width: 3.4vw;
+    font-size: 0.8vw;
+    border: 0;
+    cursor: pointer;
+    z-index: -1;
+}
+
+.tutorial-spaced-repetition-buttons:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.8);
+}
+
+.tutorial-spaced-repetition-buttons:focus {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgb(192, 11, 11);
+    box-shadow: 0 5px 15px rgba(175, 175, 175, 0.8);
+}
+
+.color-picker {
+    background: #8f0d0d;
+    color: #C0362c;
+}

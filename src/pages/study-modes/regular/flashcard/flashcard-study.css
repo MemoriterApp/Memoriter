@@ -1,0 +1,115 @@
+.study-flashcard-box {
+    padding: 10px 20px 20px 20px;
+    color: rgb(53, 53, 53);
+    background: var(--current-gray-light);
+    font-size: 22px;
+    font-family: var(--current-font);
+    position: relative;
+    top: 80px;
+    height: calc((100vh - 218px) * var(--size) + 18px);
+    width: calc(24vw * var(--size) + 20px);
+    border: 8px solid var(--current-gray);
+    border-radius: 16px;
+    margin: 0 auto;
+
+    overflow-y: auto;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    white-space: pre-line;
+    word-wrap: break-word;
+}
+
+.study-flashcard-box>img {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.study-flashcard-dots {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    height: 0;
+    padding: 10px 10px 16px 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.big-dot {
+    height: 8px;
+    width: 8px;
+    background-color: var(--color-font-gray);
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    margin: 2px;
+    left: 1px;
+    top: -5.5px;
+    cursor: pointer;
+}
+
+.flashcard-settings-overlay {
+    border-radius: 6px;
+    background-color: var(--color-background);
+    padding: 0 0 0 20px;
+    text-align: center;
+    z-index: 10;
+    position: absolute;
+    right: -20px;
+    top: -12px;
+}
+
+.flashcard-settings-sub p {
+    width: fit-content;
+    cursor: pointer;
+    filter: var(--svg-invert);
+    transition: transform 0.1s ease-out;
+}
+
+.flashcard-settings-sub p:hover {
+    transform: scale(1.15);
+}
+
+.flashcard-settings-overlay-text-align {
+    display: inline-block;
+    height: 1.6rem;
+    margin-inline: 0.1rem;
+}
+
+.flashcard-settings-overlay-text-align:hover {
+    transform: scale(1.1);
+}
+
+.icon-settings {
+    height: 1.6rem;
+    margin-right: 0.2rem;
+    margin-bottom: -0.3rem;
+}
+
+.icon-settings:hover {
+    transform: scale(1.1);
+}
+
+.flex-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 80px;
+}
+
+.correct-incorrect-button {
+    border-radius: 0.75vw;
+    text-transform: uppercase;
+    border: 0px;
+    position: relative;
+    height: calc(3vh * var(--button));
+    width: calc(9vh * var(--button));
+    font-size: calc(1.25vh * var(--button));
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1.5vw 3vw 0vw 2.5vw;
+}
+
+.correct-incorrect-button:hover {
+    filter: brightness(120%);
+}

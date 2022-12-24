@@ -115,13 +115,6 @@ function SpacedRepMode() {
         )
     };
 
-    //generate variable to show how many flashcards are due today 
-    let dueFlashcards = 0;
-    flashcards.forEach((flashcard) => {
-        if (flashcard.nextDate && flashcard.nextDate.toDate() <= new Date()) {
-            dueFlashcards++;
-        };
-    });
 
     return (
         <>

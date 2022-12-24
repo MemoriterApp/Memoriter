@@ -1,5 +1,4 @@
 import Start from './pages/start/start';
-import About from './pages/footer-links/about/about';
 import ImpressumPage from './pages/footer-links/impressum/impressum';
 import PrivacyPage from './pages/footer-links/privacy/privacy-policies';
 import PatchNotes from './pages/footer-links/patch-notes/patch-notes';
@@ -38,8 +37,6 @@ const App = () => {
           <Routes>
 
             <Route path='/start' element={<Start/>}/>
-
-            <Route path='/about' element={<About/>}/>
 
             <Route path='/impressum' element={<ImpressumPage/>}/>
 

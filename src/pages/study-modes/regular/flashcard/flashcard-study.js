@@ -9,6 +9,7 @@ import alignJustify from '../../../../images/text-align-justify.svg';
 import FlashcardForm from '../../../topic-stuff/form/flashcard-form';
 import { useState } from 'react';
 import { Remarkable } from 'remarkable';
+import './flashcard-study.css';
 
 const FlashcardStudy = ({
   flashcard,
@@ -66,7 +67,7 @@ const FlashcardStudy = ({
             className='flashcard-settings-overlay'
             style={{ transform: 'translate(-24px, 16px)' }}
           >
-            <div className='folder-settings-sub'>
+            <div className='flashcard-settings-sub'>
               <p>
                 {flashcard.textAlign === 'left' || (
                   <img

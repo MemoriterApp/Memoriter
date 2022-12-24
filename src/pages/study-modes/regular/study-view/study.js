@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { firebase } from '../../../../technical/utils/firebase'
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+import './regular-study.css'
 const { db } = firebase;
 
 const StudyPage = () => {
@@ -133,19 +134,19 @@ const StudyPage = () => {
 
                 {finished && <div>
                     <div className='finished-box'>
-                        <p className='finished_statistics' style={{ fontSize: '5.3vh' }}>
+                        <p className='finished-statistics' style={{ fontSize: '5.3vh' }}>
                             Results
                         </p>
-                        <p className='finished_statistics'>
+                        <p className='finished-statistics'>
                             Studied Flashcards: {studiedFlashcards}
                         </p>
-                        <p className='finished_statistics'>
+                        <p className='finished-statistics'>
                             Repetitions: {studiedFlashcards + incorrectFlashcards}
                         </p>
-                        <p className='finished_statistics' style={{ color: '#2d772d' }}>
+                        <p className='finished-statistics' style={{ color: '#2d772d' }}>
                             Percent Correct: {(100 * (1 - (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards)))).toFixed(2)}%
                         </p>
-                        <p className='finished_statistics' style={{ color: '#dc4c4d' }}>
+                        <p className='finished-statistics' style={{ color: '#dc4c4d' }}>
                             Incorrect: {incorrectFlashcards} ({(100 * (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards))).toFixed(2)}%)
                         </p>
                     </div>

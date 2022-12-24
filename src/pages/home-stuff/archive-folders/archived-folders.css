@@ -1,0 +1,40 @@
+.archived-box {
+    background-color: var(--color-background);
+    position: fixed;
+    height: 520px;
+    width: 540px;
+    max-width: calc(100% - 8px);
+    max-height: calc(100% - 8px);
+    min-width: 540px;
+    z-index: 10;
+    overflow-y: auto;
+    left: 50%;
+    top: calc(50% - 10px);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding-inline: 20px;
+}
+
+.archived-heading {
+    position: relative;
+    top: 10px;
+    color: var(--color-font);
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-family: var(--current-font);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+
+}
+
+.archived-seperator {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80px;
+    width: calc(100% - 10px);
+    height: 0px;
+    border-top: 8px solid var(--current-gray);
+    border-radius: 15px;
+}

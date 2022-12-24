@@ -1,4 +1,5 @@
 import React from 'react';
+import './tutorial-spaced-rep.css';
 
 function TutorialSpacedRep() {
       /*Here Functions determine what text should be shown, when that button is pressed, instead of the given Text below. */

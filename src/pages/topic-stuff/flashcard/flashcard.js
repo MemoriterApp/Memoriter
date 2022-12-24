@@ -11,6 +11,7 @@ import Confirm from '../../../components/confirm/confirm';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import BackdropOpenFlashcard from '../../../components/backdrops/backdrop-open-flashcard/backdropOpenFlashcard';
 import BackdropfsOpenFlashcard from '../../../components/backdrops/backdropfs-open-flashcard/backdropfsOpenFlashcard';
+import './flashcard.css';
 
 const Flashcard = ({
   flashcard,
@@ -147,8 +148,8 @@ const Flashcard = ({
   return (
     <div className='flashcard-body' style={{ height: `calc(${flashcardHeight}px + 35px)`, boxShadow: '0.25vw 0.75vh 10px var(--color-shadow-flashcard)' }}>
       {/*height is set by the useEffect based on the inner rectangle height*/}
-      <div className='Flashcard-settings-bar'>
-        <div className='Flashcard_Settings' onClick={settingsHandler}>
+      <div className='flashcard-settings-bar'>
+        <div className='flashcard-settings' onClick={settingsHandler}>
           <span className='dot' />
           <span className='dot' />
           <span className='dot' />

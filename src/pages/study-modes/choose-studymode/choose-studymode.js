@@ -1,6 +1,5 @@
 import { useNavigate, } from 'react-router-dom';
-import '../../settings/change-preview/changePreview.css';
-
+import './choose-studymode.css'
 function ChooseStudyMode() {
 
     //uses the css from changePreview.css
@@ -9,30 +8,30 @@ function ChooseStudyMode() {
 
     return (
         <>
-            <div className='preview-type-box'>
-                <h1 className='preview-type-heading'>CHOOSE A STUDY MODE</h1>
+            <div className='choose-studymode-box'>
+                <h1 className='choose-studymode-heading'>CHOOSE A STUDY MODE</h1>
                 
-                <div className='preview-type-layout'>
-                    <div className='preview-type-flashcard' style={{boxShadow: '0.25vw 0.75vh 10px var(--color-shadow-flashcard)'}}>
-                        <div className='preview-type-flashcard-dots'>
+                <div className='choose-studymode-layout'>
+                    <div className='choose-studymode-flashcard' style={{boxShadow: '0.25vw 0.75vh 10px var(--color-shadow-flashcard)'}}>
+                        <div className='choose-studymode-flashcard-dots'>
                             <div className='big-dot'/>
                             <div className='big-dot'/>
                             <div className='big-dot'/>
                         </div>
                         <h2 style={{ textAlign: 'center', fontSize: '24px' }}>Regular flashcards</h2>
                         <p style={{ marginTop: '15px', textAlign: "center" }}>Practice all of your flashcards, with questions and answers.</p>
-                        <button  style={{backgroundColor:'var(--current-purple)'}} className="preview-type-button" onClick={() => navigate('/study')}>REGULAR FLASHCARDS</button>
+                        <button  style={{backgroundColor:'var(--current-purple)'}} className="choose-studymode-button" onClick={() => navigate('/study')}>REGULAR FLASHCARDS</button>
                     </div>
 
-                    <div className='preview-type-flashcard' style={{boxShadow: '0.25vw 0.75vh 10px var(--color-shadow-flashcard)'}}>
-                        <div className='preview-type-flashcard-dots'>
+                    <div className='choose-studymode-flashcard' style={{boxShadow: '0.25vw 0.75vh 10px var(--color-shadow-flashcard)'}}>
+                        <div className='choose-studymode-flashcard-dots'>
                             <div className='big-dot'/>
                             <div className='big-dot'/>
                             <div className='big-dot'/>
                         </div>
                         <h2 style={{ textAlign: 'center', fontSize: '24px' }}>Spaced repetition</h2>
                          <p style={{ marginTop: '15px', textAlign: "center" }}>Practice your flashcards in intervals and remember everything.</p>
-                        <button style={{bottom: '32px', backgroundColor:'var(--current-blue-dark)'}} className="preview-type-button" onClick={() => navigate('/study-spaced-repetition')}>SPACED REPETITION</button>
+                        <button style={{bottom: '32px', backgroundColor:'var(--current-blue-dark)'}} className="choose-studymode-button" onClick={() => navigate('/study-spaced-repetition')}>SPACED REPETITION</button>
                     </div>
                 </div>
                 <div style={{position: 'relative', height: '10px', width: '100%'}}/>

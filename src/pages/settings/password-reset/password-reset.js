@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import './password-reset.css';
 
 const PasswordReset = ({ closePasswordResetModal }) => {
 
@@ -37,12 +38,12 @@ const PasswordReset = ({ closePasswordResetModal }) => {
     }
 
     return (
-        <div className='settings-delete-account-confirm-body' style={{ height: '450px' }}>
+        <div className='password-reset-confirm-body'>
 
             {modalIsOpen || <div>
                 <br />
-                <h2 className='folder-form-title' style={{ textAlign: 'center' }}>Password Reset</h2>
-                <p className='settings-delete-account-confirm-text' style={{ color: 'var(--color-font)', fontWeight: 'normal' }}>
+                <h2 className='password-reset-title'>Password Reset</h2>
+                <p className='password-reset-confirm-text' style={{ color: 'var(--color-font)', fontWeight: 'normal' }}>
                     We will send you an email with further instructions how to reset your password.
                 </p>
                 <br />
