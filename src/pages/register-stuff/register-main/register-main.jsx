@@ -27,7 +27,7 @@ const RegisterMain = () => {
         if (errorMessage !== 'Please accept terms and policies.') { //no password input clear for terms not accepted
             setPassword(''); //clears password input field
             setConfirmPassword(''); //clears confirm password input field
-        };
+        }
          
         //style changes for container (needs to be bigger so that the error popup can fit in)
         if (window.innerHeight <= 721) { //optimization for smaller screens (no conflict with css media query)
@@ -40,42 +40,42 @@ const RegisterMain = () => {
                 height: '650px',
                 top: 'calc(50% + 25px)'
             });
-        };
-    };
+        }
+    }
 
-    const error = (error => { //function instructions what to do if sign in fails (.catch()), is seperate to shorten the code by reusing it
+    const error = ((error) => { //function instructions what to do if sign in fails (.catch()), is seperate to shorten the code by reusing it
         switch (error.code) { //reads error code
-            case 'auth/weak-password': //password too short
-                displayError('Password is too short!');
-                break;
-            case 'auth/email-already-in-use': //existing account with email
-                displayError('Email already in use!');
-                break;
-            case 'auth/missing-email': //missing email
-                displayError('Invalid email!');
-                break;
-            case 'auth/invalid-email': //invalid email
-                displayError('Invalid email!');
-                break;
-            case 'auth/too-many-requests': //too many sign in requests
-                displayError('Too many requests!');
-                break;
-            case 'auth/cancelled-popup-request': //third party authentication error
-                displayError('Request Cancelled!');
-                break;
-            case 'auth/popup-closed-by-user': //cancelled third party authentication cancelled by user
-                //shows no error
-                break;
-            case 'auth/user-disabled': //user disabled
-                displayError('User disabled!');
-                break;
-            case 'auth/internal-error': //internal error
-                displayError('Internal error!');
-                break;
-            default: //all other errors
-                displayError(`Error: ${error.code}`);
-                break;
-        };
+        case 'auth/weak-password': //password too short
+            displayError('Password is too short!');
+            break;
+        case 'auth/email-already-in-use': //existing account with email
+            displayError('Email already in use!');
+            break;
+        case 'auth/missing-email': //missing email
+            displayError('Invalid email!');
+            break;
+        case 'auth/invalid-email': //invalid email
+            displayError('Invalid email!');
+            break;
+        case 'auth/too-many-requests': //too many sign in requests
+            displayError('Too many requests!');
+            break;
+        case 'auth/cancelled-popup-request': //third party authentication error
+            displayError('Request Cancelled!');
+            break;
+        case 'auth/popup-closed-by-user': //cancelled third party authentication cancelled by user
+            //shows no error
+            break;
+        case 'auth/user-disabled': //user disabled
+            displayError('User disabled!');
+            break;
+        case 'auth/internal-error': //internal error
+            displayError('Internal error!');
+            break;
+        default: //all other errors
+            displayError(`Error: ${error.code}`);
+            break;
+        }
     });
 
     async function defaultRegister(e) { //function to sign up with email and password
@@ -84,13 +84,13 @@ const RegisterMain = () => {
         if (!acceptedTerms) { //checks if terms of use and privacy policy are accepted
             displayError('Please accept terms and policies.');
         } else if (password !== confirmPassword) { //checks if password and confirm password inputs match
-            displayError('Passwords do not match!')
+            displayError('Passwords do not match!');
         } else {
             createUserWithEmailAndPassword(firebase.auth, email, password)
                 .then(() => navigate('/')) //navigates to app (only accessable when signed in)
                 .catch(error); //displays error if sign in fails (uses error const)
-        };
-    };
+        }
+    }
 
     async function signInWithGoogle() { //google sign in function
         const provider = new GoogleAuthProvider(); //connection to google sign in
@@ -98,7 +98,7 @@ const RegisterMain = () => {
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
             .then(() => navigate('/')) //navigates to app (only accessable when signed in)
             .catch(error); //displays error if sign in fails (uses error const)
-    };
+    }
 
     async function signInWithApple() { //google sign in function
         const provider = new OAuthProvider('apple.com'); //connection to apple sign in
@@ -106,7 +106,7 @@ const RegisterMain = () => {
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
             .then(() => navigate('/')) //navigates to app (only accessable when signed in)
             .catch(error); //displays error if sign in fails (uses error const)
-    };
+    }
 
     async function signInWithFacebook() { //google sign in function
         const provider = new FacebookAuthProvider(); //connection to facebook sign in
@@ -114,7 +114,7 @@ const RegisterMain = () => {
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
             .then(() => navigate('/')) //navigates to app (only accessable when signed in)
             .catch(error); //displays error if sign in fails (uses error const)
-    };
+    }
 
     async function signInWithGithub() { //google sign in function
         const provider = new GithubAuthProvider(); //connection to github sign in
@@ -122,7 +122,7 @@ const RegisterMain = () => {
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
             .then(() => navigate('/')) //navigates to app (only accessable when signed in)
             .catch(error); //displays error if sign in fails (uses error const)
-    };
+    }
 
     return (
         <main className='sign-in-main' style={errorStyleChanges}>
@@ -208,6 +208,6 @@ const RegisterMain = () => {
 
         </main>
     );
-}
+};
 
 export default RegisterMain;

@@ -23,6 +23,6 @@ const SettingsIcon = () => {
             </div>
         </div>
     );
-}
+};
 
 export default SettingsIcon;

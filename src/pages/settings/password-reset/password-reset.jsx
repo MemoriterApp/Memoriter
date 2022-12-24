@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { useState } from 'react';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 
 const PasswordReset = ({ closePasswordResetModal }) => {
 
@@ -21,16 +21,16 @@ const PasswordReset = ({ closePasswordResetModal }) => {
                 .then(() => {
                     return (
                         setModalIsOpen(true),
-                        setRedBorder({}))
+                        setRedBorder({}));
                 })
-                .catch(error => {
+                .catch((error) => {
                     switch (error.code) {
-                        case 'auth/user-not-found':
-                            setRedBorder('rgb(228, 48, 48)')
-                            break;
-                        case error.code:
-                            alert('An error has occurred, please try again later!" (' + error + ')');
-                            break;
+                    case 'auth/user-not-found':
+                        setRedBorder('rgb(228, 48, 48)');
+                        break;
+                    case error.code:
+                        alert('An error has occurred, please try again later!" (' + error + ')');
+                        break;
                     }
                 });
         }
@@ -54,9 +54,9 @@ const PasswordReset = ({ closePasswordResetModal }) => {
                         style={{ left: '50%', transform: 'translateX(-50%)', width: '80%', borderColor: redBorder }}
                         type='email'
                         placeholder='Please enter account email...'
-                        id="email"
-                        name="email"
-                        onChange={event => { setEmail(event.target.value) }}
+                        id='email'
+                        name='email'
+                        onChange={(event) => { setEmail(event.target.value); }}
                         value={email}
                     />
 
@@ -64,7 +64,7 @@ const PasswordReset = ({ closePasswordResetModal }) => {
 
                     <button
                         className='settings-delete-account-confirm-button'
-                        style={{ backgroundColor: 'rgba(39,75,101,1)', borderColor: 'rgba(39,75,101,1)' }}
+                        style={{ backgroundColor: 'rgb(39,75,101)', borderColor: 'rgb(39,75,101)' }}
                         type='submit'
                     >Send Email</button>
 
@@ -90,12 +90,12 @@ const PasswordReset = ({ closePasswordResetModal }) => {
                 <br /><br />
                 <button
                     className='settings-delete-account-confirm-button'
-                    onClick={() => { closePasswordResetModal() }}
+                    onClick={() => { closePasswordResetModal(); }}
                 >Close</button>
             </div>}
 
         </div>
     );
-}
+};
 
 export default PasswordReset;

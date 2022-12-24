@@ -6,10 +6,10 @@ const BackButton = () => {
     return (
         <Link to='/' >
             <div className='Zurückbutton_Body'>
-               <div className='Zurückbutton_Arrow'/> 
+                <div className='Zurückbutton_Arrow'/> 
             </div>  
         </Link>
     );
-}
+};
 
 export default BackButton;

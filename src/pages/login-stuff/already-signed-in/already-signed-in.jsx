@@ -19,7 +19,7 @@ const AlreadySignedIn = ({ title }) => {
         signOut(firebase.auth); //pre-built sign out firebase function
         dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
         navigate('/signin');
-    };
+    }
 
     return(
         <main className='sign-in-main'>
@@ -75,6 +75,6 @@ const AlreadySignedIn = ({ title }) => {
 
         </main>
     );
-}
+};
 
 export default AlreadySignedIn;

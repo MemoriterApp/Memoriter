@@ -39,8 +39,8 @@ const SignInMain = ({ onOpenPasswordReset }) => {
                 height: '650px',
                 top: 'calc(50% + 25px)'
             });
-        };
-    };
+        }
+    }
 
     const [successMessage, setSuccessMessage] = useState(''); //success message for sign out or account deletion
 
@@ -60,43 +60,43 @@ const SignInMain = ({ onOpenPasswordReset }) => {
                 height: '650px',
                 top: 'calc(50% + 25px)'
             });
-        };
-    };
+        }
+    }
     const authenticationSuccess = useSelector((state) => state.authenticationSuccess.value); //detects if the user signed out or deletet their account
     if (authenticationSuccess) { //if state exists the function for displaying the popup is called
         displaySuccess(authenticationSuccess);
-    };
+    }
 
-    const error = (error => { //function instructions what to do if sign in fails (.catch()), is seperate to shorten the code by reusing it
+    const error = ((error) => { //function instructions what to do if sign in fails (.catch()), is seperate to shorten the code by reusing it
         switch (error.code) { //reads error code
-            case 'auth/wrong-password': //wrong password
-                displayError('Wrong Password!');
-                break;
-            case 'auth/user-not-found': //wrong email
-                displayError('User not found!');
-                break;
-            case 'auth/invalid-email': //invalid email
-                displayError('Invalid email!');
-                break;
-            case 'auth/too-many-requests': //too many sign in requests
-                displayError('Too many requests!');
-                break;
-            case 'auth/cancelled-popup-request': //third party authentication error
-                displayError('Request Cancelled!');
-                break;
-            case 'auth/popup-closed-by-user': //cancelled third party authentication cancelled by user
-                //shows no error
-                break;
-            case 'auth/user-disabled': //user disabled
-                displayError('User disabled!');
-                break;
-            case 'auth/internal-error': //internal error
-                displayError('Internal error!');
-                break;
-            default: //all other errors
-                displayError(`Error: ${error.code}`);
-                break;
-        };
+        case 'auth/wrong-password': //wrong password
+            displayError('Wrong Password!');
+            break;
+        case 'auth/user-not-found': //wrong email
+            displayError('User not found!');
+            break;
+        case 'auth/invalid-email': //invalid email
+            displayError('Invalid email!');
+            break;
+        case 'auth/too-many-requests': //too many sign in requests
+            displayError('Too many requests!');
+            break;
+        case 'auth/cancelled-popup-request': //third party authentication error
+            displayError('Request Cancelled!');
+            break;
+        case 'auth/popup-closed-by-user': //cancelled third party authentication cancelled by user
+            //shows no error
+            break;
+        case 'auth/user-disabled': //user disabled
+            displayError('User disabled!');
+            break;
+        case 'auth/internal-error': //internal error
+            displayError('Internal error!');
+            break;
+        default: //all other errors
+            displayError(`Error: ${error.code}`);
+            break;
+        }
     });
 
     async function defaultSignIn(e) { //function to sign in with email and password
@@ -107,7 +107,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
         signInWithEmailAndPassword(firebase.auth, email, password) //firebase pre-built sign in function
             .then(() => navigate('/')) //navigates to app (only accessable when signed in)
             .catch(error); //displays error if sign in fails (uses error const)
-    };
+    }
 
     async function signInWithGoogle() { //google sign in function
         setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
@@ -117,7 +117,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
             .then(() => navigate('/')) //navigates to app (only accessable when signed in)
             .catch(error); //displays error if sign in fails (uses error const)
-    };
+    }
 
     async function signInWithApple() { //google sign in function
         setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
@@ -127,7 +127,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
             .then(() => navigate('/')) //navigates to app (only accessable when signed in)
             .catch(error); //displays error if sign in fails (uses error const)
-    };
+    }
 
     async function signInWithFacebook() { //google sign in function
         setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
@@ -137,7 +137,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
             .then(() => navigate('/')) //navigates to app (only accessable when signed in)
             .catch(error); //displays error if sign in fails (uses error const)
-    };
+    }
 
     async function signInWithGithub() { //google sign in function
         setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
@@ -147,7 +147,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
         signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
             .then(() => navigate('/')) //navigates to app (only accessable when signed in)
             .catch(error); //displays error if sign in fails (uses error const)
-    };
+    }
 
     return (
         <main className='sign-in-main' style={errorStyleChanges}>
@@ -229,6 +229,6 @@ const SignInMain = ({ onOpenPasswordReset }) => {
 
         </main>
     );
-}
+};
 
 export default SignInMain;

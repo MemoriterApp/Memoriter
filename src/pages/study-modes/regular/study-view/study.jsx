@@ -1,9 +1,9 @@
 import Logo from '../../../../images/memoriter-logo.svg';
 import Footer from '../../../../components/footer/footer';
 import FlashcardStudy from '../flashcard/flashcard-study';
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { firebase } from '../../../../technical/utils/firebase'
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { firebase } from '../../../../technical/utils/firebase';
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 const { db } = firebase;
 
@@ -11,13 +11,21 @@ const StudyPage = () => {
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const user = firebase.auth.currentUser;
+
+        if (!user) {
+            return navigate('/login');
+        }
+    });
+
     let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
 
     let syncedFolderID = localStorage.getItem('syncedFolderID');
 
     //firestore stuff
     // connection to the flashcards firestore
-    const flashcardsCollectionRef = query(collection(db, "flashcards"), where("syncedFolder", "==", syncedFolderID));
+    const flashcardsCollectionRef = query(collection(db, 'flashcards'), where('syncedFolder', '==', syncedFolderID));
 
     //Flashcard Data
     const [flashcards, setFlashcards] = useState([]);
@@ -25,10 +33,10 @@ const StudyPage = () => {
     //Use Effect für Notes
     useEffect(() => {
         const getFlashcards = async () => {
-            const allFlashcards = await getDocs(flashcardsCollectionRef)
+            const allFlashcards = await getDocs(flashcardsCollectionRef);
             setFlashcards(allFlashcards.docs
                 .sort(() => Math.random() - 0.5) //shuffles the data
-                .map((doc) => ({ ...doc.data(), id: doc.id }))) //gets the database flashcards
+                .map((doc) => ({ ...doc.data(), id: doc.id }))); //gets the database flashcards
         };
 
         getFlashcards();
@@ -48,9 +56,11 @@ const StudyPage = () => {
 
     function incorrect(incorrectFlashcard) { //function if an answer was defined as incorrect (reshuffles the array)
         //removes the incorrect flashcard and moves it to the end, new flashcard shows up
-        setFlashcards([...flashcards
-            .filter((flashcard) => flashcard.id !== incorrectFlashcard.id) //removes the old flashcard
-            .sort(() => Math.random() - 0.5), incorrectFlashcard]) //reshuffles the array and creates the copy
+        setFlashcards([
+            ...flashcards
+                .filter((flashcard) => flashcard.id !== incorrectFlashcard.id) //removes the old flashcard
+                .sort(() => Math.random() - 0.5), incorrectFlashcard
+        ]); //reshuffles the array and creates the copy
         //the advantage of this method is the fact that a flashcard will not show the next timo if incorrect is clicked
         setIncorrectFlashcards(incorrectFlashcards + 1);
     }
@@ -68,7 +78,7 @@ const StudyPage = () => {
 
     async function startAgain() {
         setFinished(false);
-        const allFlashcards = await getDocs(flashcardsCollectionRef)
+        const allFlashcards = await getDocs(flashcardsCollectionRef);
         setFlashcards(
             allFlashcards.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
                 .sort(() => Math.random() - 0.5));
@@ -89,7 +99,7 @@ const StudyPage = () => {
         const newAll = { title: title, content: content };
         await updateDoc(flashcardDoc, newAll);
         setFlashcards(flashcards.map((flashcard) => flashcard.id === id
-            ? { ...flashcard, title: title, content: content } : flashcard))
+            ? { ...flashcard, title: title, content: content } : flashcard));
     };
 
     //Delete Flashcard
@@ -101,10 +111,10 @@ const StudyPage = () => {
                 .map((flashcard) =>
                     flashcard.pos > pos
                         ? (sessionStorage.setItem('newPosFlashcard' + flashcard.id, flashcard.id),
-                            { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
+                        { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
                 )
                 .filter((flashcard) => flashcard.id !== id)
-        )
+        );
     };
 
     return (
@@ -113,18 +123,18 @@ const StudyPage = () => {
             <main>
                 <header className='page-header'>
                     {syncedFolderTitle !== '' ? (
-                        <h1 className="page-title">{syncedFolderTitle}</h1>
+                        <h1 className='page-title'>{syncedFolderTitle}</h1>
                     ) : (
-                        <h1 className="page-title">New folder</h1>
+                        <h1 className='page-title'>New folder</h1>
                     )}
                     <Link to='/'>
-                        <img className="header-logo" src={Logo} alt="site-logo"></img>
+                        <img className='header-logo' src={Logo} alt='site-logo'></img>
                     </Link>
                     <p className='study-remaining'>Remaining: {flashcards.length}</p>
                 </header>
                 <Link to='/topic'>
-                    <div className="Zurückbutton_Body" style={{ top: '90px', left: '8px', zIndex: '10' }}>
-                        <div className="Zurückbutton_Arrow" />
+                    <div className='Zurückbutton_Body' style={{ top: '90px', left: '8px', zIndex: '10' }}>
+                        <div className='Zurückbutton_Arrow' />
                     </div>
                 </Link>
 
@@ -171,6 +181,6 @@ const StudyPage = () => {
 
         </>
     );
-}
+};
 
 export default StudyPage;

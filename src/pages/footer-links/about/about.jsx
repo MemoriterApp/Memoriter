@@ -1,5 +1,5 @@
 import Logo from '../../../images/memoriter-logo.svg';
-import Footer from "../../../components/footer/footer";
+import Footer from '../../../components/footer/footer';
 import { Link } from 'react-router-dom';
 
 function About() {
@@ -10,17 +10,17 @@ function About() {
         <>
             <header>
                 <Link to='/'>
-                    <img className="header-logo" src={Logo} alt="site-logo" style={{ top: '-2.5px', zIndex: '10' }}></img>
+                    <img className='header-logo' src={Logo} alt='site-logo' style={{ top: '-2.5px', zIndex: '10' }}></img>
                 </Link>
                 <Link to={lastPage}>
-                    <div className="Zurückbutton_Body" style={{ top: '90px', left: '8px', zIndex: '10' }}>
-                        <div className="Zurückbutton_Arrow" />
+                    <div className='Zurückbutton_Body' style={{ top: '90px', left: '8px', zIndex: '10' }}>
+                        <div className='Zurückbutton_Arrow' />
                     </div>
                 </Link>
                 <h1 className='Legal_Header'>About Us</h1>
             </header>
             <main>
-                <article className="Legal_Text">
+                <article className='Legal_Text'>
                     <p>
                         Memoriter is a Project made by made by six students (Alex, Simon, Leo, Nils, Maya and Johan) from Potsdam, Germany. We created the project
                         as a part of of JUNIOR-project.
@@ -35,8 +35,8 @@ function About() {
                     </p>
                 </article>
                 <div style={{ height: '100px' }} />
-                <h1 className="Legal_Header">How can I donate?</h1>
-                <article className="Legal_Text" style={{ top: "-50px" }}>
+                <h1 className='Legal_Header'>How can I donate?</h1>
+                <article className='Legal_Text' style={{ top: '-50px' }}>
                     <p>All of the money donted will only be used to fund the production of the project.</p>
                     <p>IBAN: DE26120965970001900013</p>
                     <p>Paypal: johan@trieloff.net</p>
