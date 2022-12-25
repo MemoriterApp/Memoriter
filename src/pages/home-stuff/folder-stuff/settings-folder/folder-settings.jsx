@@ -2,6 +2,7 @@ import React from 'react';
 import edit from '../../../../images/edit.svg';
 import archive from '../../../../images/icons/archive-icon.svg';
 import deleteIcon from '../../../../images/delete.svg';
+import './folder-settings.css';
 
 function SettingsFolder({
     folder,

@@ -2,7 +2,7 @@ import './home.css';
 import memoriterLogo from '../../../images/memoriter-logo.svg';
 import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
 import archiveIcon from '../../../images/icons/archive-icon.svg';
-import Backdrop from '../../../components/backdrops/backdrop';
+import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import Folder from '../folder-stuff/folder/folder';
 import FolderForm from '../folder-stuff/form-folder/folder-form';
 import Footer from '../../../components/footer/footer';
@@ -60,7 +60,7 @@ function HomePage() {
     }); //Sorting Folders
 
     const posUp = async (id, pos) => {
-        //Position Up
+    //Position Up
         const folderDoc = doc(db, 'folders', id);
         const newPosUp = { pos: pos - 1 };
 
@@ -78,7 +78,7 @@ function HomePage() {
     };
 
     const posDown = async (id, pos) => {
-        //Position Down
+    //Position Down
         const folderDoc = doc(db, 'folders', id);
         const newPosDown = { pos: pos + 1 };
 
@@ -96,7 +96,7 @@ function HomePage() {
     };
 
     const posAdjust = async (id, pos) => {
-        //Adjust Position
+    //Adjust Position
         const folderDoc = doc(db, 'folders', id);
         const newPosAdjust = { pos: pos };
 
@@ -178,7 +178,7 @@ function HomePage() {
                 <img className='header-logo' src={memoriterLogo} alt='site-logo' />
             </header>
             <main>
-                <div className='rechteck'>
+                <div className='square'>
                     <section>
                         <img
                             src={archiveIcon}
@@ -213,12 +213,12 @@ function HomePage() {
                         </span>
                         <div className='main-seperator'></div>
                     </section>
-                    <div className='Folder_Base'>
+                    <div className='folder-base'>
                         <>
                             {folders.length > 0 ? (
                                 <div />
                             ) : (
-                                <div className='No_Folder_Text'>
+                                <div className='no-folder-text'>
                   Currently there are no folders. Please create one...
                                 </div>
                             )}
@@ -240,18 +240,18 @@ function HomePage() {
                         </>
 
                         <div folders={folders}>
-                            <div className='New_Folder_Body'>
-                                <div className='New_Folder_Line'></div>
+                            <div className='new-folder-body'>
+                                <div className='new-folder-line'></div>
                                 <button
-                                    className='Button_New_Folder'
+                                    className='button-new-folder'
                                     onClick={() => {
                                         setModalIsOpen(true);
                                     }}
                                 >
-                                    <div className='New_Folder_Plus_h'></div>
-                                    <div className='New_Folder_Plus_v'></div>
+                                    <div className='new-folder-plus-h'></div>
+                                    <div className='new-folder-plus-v'></div>
                                 </button>
-                                <button className='New_Folder_Text' onClick={() => setModalIsOpen(true)}>Create new folder</button>
+                                <button className='new-folder-text' onClick={() => setModalIsOpen(true)}>Create new folder</button>
                                 <div>
                                     {modalIsOpen && <FolderForm type='Create new' folder={{ title: '' }} onConfirm={addFolder} onCancel={() => setModalIsOpen(false)} />}
                                 </div>

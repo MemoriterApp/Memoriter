@@ -1,4 +1,5 @@
 import Folder from '../folder-stuff/folder/folder';
+import './archived-folders.css';
 
 function ArchivedFolders({
     folders,
@@ -10,10 +11,10 @@ function ArchivedFolders({
     onPosAdjust,
 }) {
     return (
-        <div className='preview-type-box' style={{ paddingInline: '20px' }}>
+        <div className='archived-box' style={{ paddingInline: '20px' }}>
             {/*CSS from changePreview.css */}
-            <h1 className='preview-type-heading'>ARCHIVED FOLDERS</h1> {/*CSS from changePreview.css */}
-            <div className='main-seperator' style={{ top: '80px' }} /> {/*CSS from home.css */}
+            <h1 className='archived-heading'>ARCHIVED FOLDERS</h1> {/*CSS from changePreview.css */}
+            <div className='archived-seperator' style={{ top: '80px' }} /> {/*CSS from home.css */}
             <>
                 {folders // render archived folders
                     .filter((folder) => folder.archived)
