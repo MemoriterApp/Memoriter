@@ -1,0 +1,118 @@
+.choose-studymode-box {
+    background-color: var(--color-background);
+    position: fixed;
+    height: 520px;
+    width: 540px;
+    max-width: calc(100% - 8px);
+    max-height: calc(100% - 8px);
+    min-width: 540px;
+    z-index: 10;
+    overflow-y: auto;
+    left: 50%;
+    top: calc(50% - 10px);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.choose-studymode-button {
+    display: block;
+    height: 56px;
+    width: 150px;
+    background-color: var(--current-blue);
+    border-style: none;
+    border-radius: 4px;
+    color: var(--color-white);
+    font-family: var(--current-font);
+    font-size: 18px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    cursor: pointer;
+    margin-top: 65px;
+}
+
+.choose-studymode-button:hover {
+    filter: brightness(120%);
+}
+
+@media (max-width: 650px) {
+    .choose-studymode-box {
+        transform: translate(-50%, -50%) scale(0.85);
+        height: calc(100vh / 0.85);
+    }
+}
+
+@media (max-width: 480px) {
+    .choose-studymode-box {
+        height: calc(100vh / 0.85);
+        max-height: 600px;
+        min-width: unset;
+        max-width: 300px;
+    }
+
+    .choose-studymode-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .choose-studymode-heading {
+        font-size: 20px;
+    }
+}
+
+.choose-studymode-heading {
+    position: relative;
+    top: 10px;
+    color: var(--color-font);
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-family: var(--current-font);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+
+}
+
+.choose-studymode-layout {
+    display: flex;
+}
+
+.choose-studymode-flashcard {
+    box-shadow: 0.25vw 0.75vh 10px #777777cc;
+    display: block;
+    padding: 10px 20px 20px 20px;
+    color: rgb(53, 53, 53);
+    font-size: 22px;
+    font-family: var(--current-font);
+    text-overflow: ellipsis;
+    cursor: pointer;
+    white-space: pre-line;
+    word-wrap: break-word;
+    background-color: var(--current-gray-light);
+    top: 96px;
+    height: 266px;
+    width: 174px;
+    overflow: visible;
+    border: 6px solid var(--current-gray);
+    border-radius: 8px;
+    margin-inline: auto;
+    margin-bottom: 100px;
+}
+
+.choose-studymode-flashcard-dots {
+    position: absolute;
+    transform: translate(145px, -5px);
+}
+
+.big-dot {
+    height: 8px;
+    width: 8px;
+    background-color: var(--color-font-gray);
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    margin: 2px;
+    left: 1px;
+    top: -5.5px;
+    cursor: pointer;
+}

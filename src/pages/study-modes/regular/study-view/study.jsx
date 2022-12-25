@@ -1,10 +1,12 @@
 import Logo from '../../../../images/memoriter-logo.svg';
 import Footer from '../../../../components/footer/footer';
 import FlashcardStudy from '../flashcard/flashcard-study';
+import BackButton from '../../../../components/back-button/BackButton';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../../../technical/utils/firebase';
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+import './regular-study.css';
 const { db } = firebase;
 
 const StudyPage = () => {
@@ -132,12 +134,6 @@ const StudyPage = () => {
                     </Link>
                     <p className='study-remaining'>Remaining: {flashcards.length}</p>
                 </header>
-                <Link to='/topic'>
-                    <div className='Zurückbutton_Body' style={{ top: '90px', left: '8px', zIndex: '10' }}>
-                        <div className='Zurückbutton_Arrow' />
-                    </div>
-                </Link>
-
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                     {flashcards.slice(0, 1).map((flashcard) => (
                         <FlashcardStudy key={flashcard.id} flashcard={flashcard}
@@ -148,19 +144,19 @@ const StudyPage = () => {
 
                 {finished && <div>
                     <div className='finished-box'>
-                        <p className='finished_statistics' style={{ fontSize: '5.3vh' }}>
+                        <p className='finished-statistics' style={{ fontSize: '5.3vh' }}>
                             Results
                         </p>
-                        <p className='finished_statistics'>
+                        <p className='finished-statistics'>
                             Studied Flashcards: {studiedFlashcards}
                         </p>
-                        <p className='finished_statistics'>
+                        <p className='finished-statistics'>
                             Repetitions: {studiedFlashcards + incorrectFlashcards}
                         </p>
-                        <p className='finished_statistics' style={{ color: '#2d772d' }}>
+                        <p className='finished-statistics' style={{ color: '#2d772d' }}>
                             Percent Correct: {(100 * (1 - (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards)))).toFixed(2)}%
                         </p>
-                        <p className='finished_statistics' style={{ color: '#dc4c4d' }}>
+                        <p className='finished-statistics' style={{ color: '#dc4c4d' }}>
                             Incorrect: {incorrectFlashcards} ({(100 * (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards))).toFixed(2)}%)
                         </p>
                     </div>
@@ -175,7 +171,7 @@ const StudyPage = () => {
                         onClick={() => navigate('/topic')}
                     >Return to Overview</button>
                 </div>}
-
+                <BackButton/>
                 <Footer />
             </main>
 

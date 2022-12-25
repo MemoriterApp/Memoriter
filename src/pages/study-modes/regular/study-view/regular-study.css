@@ -1,0 +1,62 @@
+.study-remaining {
+    position: absolute;
+    right: 20px;
+    top: 25%;
+    transform: translate(0, -50%);
+    max-width: 20%;
+    color: var(--current-gray);
+    font-family: var(--current-font);
+    font-size: 20px;
+}
+
+@media (max-width: 650px) {
+    .study-now-text {
+        top: 10px;
+        font-size: 16px;
+    }
+
+    .study-remaining {
+        height: 3.2vw;
+        font-size: 3vw;
+    }
+}
+
+.finished-box {
+    top: 20%;
+    height: 30vh;
+    width: 25vw;
+    left: 50%;
+    position: absolute;
+    background: rgb(205, 208, 218);
+    border: 1vw solid var(--current-blue);
+    border-radius: 5px;
+    transform: translateX(-50%);
+}
+
+.finished-statistics {
+    position: relative;
+    text-align: center;
+    font-size: 2.6vh;
+    font-family: var(--current-font);
+    color: var(--current-gray-dark);
+    margin: 1vh;
+}
+
+
+.finished-button {
+    position: absolute;
+    left: 50%;
+    font-family: var(--current-font);
+    transform: translate(-50%, -50%);
+    border-radius: 0.5vw;
+    height: calc(3vh * var(--testing));
+    width: calc(7vw * var(--testing));
+    font-size: calc(1.4vh * var(--testing));
+
+    border: 0;
+    cursor: pointer;
+}
+
+.finished-button:hover {
+    filter: brightness(120%);
+}

@@ -9,6 +9,7 @@
     top: 10px;
     right: 97px;
 }
+
 .archive-icon {
     position: relative;
     top: 8px;
@@ -16,14 +17,16 @@
     height: 32.5px;
     width: 32.5px;
     cursor: pointer;
-    filter: invert(32%) sepia(7%) saturate(0%) hue-rotate(277deg) brightness(98%) contrast(89%); 
+    filter: invert(32%) sepia(7%) saturate(0%) hue-rotate(277deg) brightness(98%) contrast(89%);
     transition: transform 0.1s ease-out;
 }
+
 .archive-icon:hover {
     transform: scale(1.15);
-    
+
 }
-.rechteck {
+
+.square {
     border: 10px solid var(--current-blue);
     width: 90%;
     height: calc(100% - 200px);
@@ -34,6 +37,7 @@
     max-height: calc(100% - 120px);
     min-height: 180px;
 }
+
 .main-seperator {
     position: absolute;
     left: 50%;
@@ -43,4 +47,86 @@
     height: 0px;
     border-top: 8px solid var(--current-gray);
     border-radius: 15px;
+}
+
+.folder-base {
+    height: calc(100% - 62px);
+    width: calc(100% - 10px);
+    margin: auto;
+    position: absolute;
+    bottom: -2px;
+    left: 5px;
+    overflow: auto;
+}
+
+.no-folder-text {
+    text-align: center;
+    font-family: var(--current-font);
+    font-style: italic;
+    color: var(--color-font-gray);
+    font-size: 24px;
+    padding: 11.5px;
+}
+
+.new-folder-body {
+    position: relative;
+    top: 11.5%;
+    width: 100%;
+    height: 55px;
+}
+
+.new-folder-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: 100%;
+    height: 0px;
+    border-top: 5px solid var(--current-gray);
+    border-radius: 10px;
+}
+
+.button-new-folder {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    padding: 15px 15px;
+    background-color: var(--color-background);
+    cursor: pointer;
+    border: 5px solid var(--current-blue);
+    border-radius: 3px;
+}
+
+.new-folder-text {
+    position: absolute;
+    bottom: 11.625%;
+    left: 40px;
+    max-width: calc(100% - 40px);
+    color: var(--color-font);
+    font-size: 20px;
+    font-family: var(--current-font);
+    background-color: var(--color-transparent);
+    border: 1px transparent;
+    cursor: pointer;
+    outline: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: transform 0s ease-in-out;
+}
+
+.new-folder-plus-h {
+    position: absolute;
+    top: 42.5%;
+    left: 10.5%;
+    width: 80%;
+    border-top: 5px solid var(--current-gray);
+}
+
+.new-folder-plus-v {
+    position: absolute;
+    top: 10.5%;
+    left: 42.5%;
+    height: 80%;
+    border-left: 5px solid var(--current-gray);
 }

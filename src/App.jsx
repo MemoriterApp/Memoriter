@@ -1,5 +1,4 @@
 import Start from './pages/start/start';
-import About from './pages/footer-links/about/about';
 import ImpressumPage from './pages/footer-links/impressum/impressum';
 import PrivacyPage from './pages/footer-links/privacy/privacy-policies';
 import PatchNotes from './pages/footer-links/patch-notes/patch-notes';
@@ -35,7 +34,6 @@ const App = () => {
             <ScrollReset> {/*ScrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/}
                 <ThemeProvider> {/*ThemeProvider is responsible for the dark and light theme*/}
                     <Routes>
-                        <Route path='/about' element={<About />} />
                         <Route path='/impressum' element={<ImpressumPage />} />
                         <Route path='/privacy' element={<PrivacyPage />} />
                         <Route path='/patch-notes' element={<PatchNotes />} />

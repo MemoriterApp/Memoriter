@@ -2,8 +2,8 @@ import React from 'react';
 import settingsIcon from '../../../images/icons/settings-icon.svg';
 import SettingsClick from '../interaction/SettingsInteraction';
 import { useState } from 'react';
-import Backdrop from '../../../components/backdrops/backdrop';
-import '../interaction/settings-interaction.css';
+import Backdrop from '../../../components/backdrops/backdrop/backdrop';
+import './settings-icon.css';
 
 const SettingsIcon = () => {
 

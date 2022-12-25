@@ -1,0 +1,98 @@
+.flashcard-open-body {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 94vh;
+    width: calc(94vh / 3 * 2);
+    min-height: 160px;
+    min-width: 120px;
+    max-width: calc(100% - 160px);
+    background-color: var(--current-gray-light);
+    box-shadow: 0 1px 4px var(--color-shadow);
+    border: 7px solid var(--current-gray);
+    border-radius: 10px;
+    z-index: 12;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.add-flashcard-form-submit {
+    position: relative;
+    top: calc(100% - 272px);
+    left: 10px;
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    width: calc(100% - 20px);
+    color: var(--color-white);
+    font-family: var(--current-font);
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: var(--current-blue);
+}
+
+.add-flashcard-form-header {
+    font-size: 24px;
+    font-family: var(--current-font);
+    text-align: center;
+    color: var(--current-gray-dark);
+}
+
+.add-flashcard-form-title {
+    position: relative;
+    left: 16px;
+    width: calc(100% - 48px);
+    margin: 0 auto;
+    color: var(--current-gray-dark);
+    background-color: var(--color-transparent);
+    font-family: var(--current-font);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 5px;
+    outline: none;
+    resize: none;
+    border: none;
+}
+
+.add-flashcard-form-title::placeholder {
+    color: var(--current-gray);
+}
+
+.flashcard-form-content {
+    position: absolute;
+    left: 16px;
+    width: calc(100% - 48px);
+    height: calc(100% - 330px);
+    color: var(--current-gray-dark);
+    text-align: left;
+    font-family: var(--current-font);
+    font-size: 20px;
+    padding: 20px 5px;
+    margin-top: -10px;
+    outline: none;
+    resize: none;
+    border: none;
+    border-top: 2px solid var(--current-gray);
+    background-color: var(--color-transparent);
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.flashcard-form-content::placeholder {
+    color: var(--current-gray);
+}
+
+.flashcard-form-md {
+    position: absolute;
+    bottom: 56px;
+    color: var(--current-gray);
+    font-family: var(--current-font);
+    margin-inline: 10px;
+}
+
+.flashcard-form-md a {
+    color: var(--current-gray);
+}

@@ -1,4 +1,3 @@
-
 .profile-body {
   box-shadow: 0 1px 4px var(--color-shadow);
   border-radius: 6px;
@@ -34,18 +33,18 @@
 }
 
 .profile-sub {
-    color: var(--color-font);
-    width: 100%;
-    font-size: 2ch;
-    font-weight: 700;
-    font-family: var(--current-font);
-    position: relative;
-    cursor: auto;
-    max-width: 100%;
-    word-wrap: break-word;
-    hyphens: manual;
-    display: inline;
-    margin-left: 15px;
+  color: var(--color-font);
+  width: 100%;
+  font-size: 2ch;
+  font-weight: 700;
+  font-family: var(--current-font);
+  position: relative;
+  cursor: auto;
+  max-width: 100%;
+  word-wrap: break-word;
+  hyphens: manual;
+  display: inline;
+  margin-left: 15px;
 }
 
 .Settings-line {
@@ -116,6 +115,7 @@
     width: calc(100% - 20px);
     left: 5px;
   }
+
   .Settings-changemail-body {
     width: 85vw;
     right: 0px;
@@ -188,4 +188,21 @@
   padding: 5px 5px;
   outline: none;
   border-radius: 3px;
+}
+
+.settings-title-box {
+  background-color: var(--current-blue);
+  width: 262px;
+  height: 100px;
+  position: relative;
+  bottom: 22px;
+}
+
+.settings-title {
+  color: var(--color-white);
+  font-family: var(--current-font);
+  position: relative;
+  word-wrap: break-word;
+  top: 25px;
+  hyphens: manual;
 }

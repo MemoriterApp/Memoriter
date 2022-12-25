@@ -1,9 +1,10 @@
 import Footer from '../../../components/footer/footer';
 import Logo from '../../../images/memoriter-logo.svg';
 import { Link } from 'react-router-dom';
+import BackButton from '../../../components/back-button/BackButton';
+import '../footer-links.css';
 
 function ImpressumPage() {
-    let lastPage = localStorage.getItem('lastPage');
 
     return (
         <>
@@ -16,15 +17,11 @@ function ImpressumPage() {
                         style={{ top: '-2.5px', zIndex: '10' }}
                     ></img>
                 </Link>
-                <Link to={lastPage}>
-                    <div className='Zurückbutton_Body' style={{ top: '90px', left: '8px', zIndex: '10' }}>
-                        <div className='Zurückbutton_Arrow' />
-                    </div>
-                </Link>
-                <h1 className='Legal_Header'>Impressum</h1>
+                <BackButton/>
+                <h1 className='legal-header'>Impressum</h1>
             </header>
             <main>
-                <p className='Legal_Text'>
+                <p className='legal-text'>
           Memoriter is a student company at the Bertha-von-Bertha-Suttner-Gymnasium Babelsberg in
           Potsdam, Germany, under the supervision of JUNIOR, a project by the Institut der Deutchen
           Wirtschaft (IW), supported by the Bundesministerium für Wirtschaft und Klimaschutz (BMWK).
@@ -39,8 +36,8 @@ function ImpressumPage() {
                     </a>
           .
                 </p>
-                <p className='Legal-SubHeader'>Contact:</p>
-                <ul className='Legal_Text'>
+                <p className='legal-sub-header'>Contact:</p>
+                <ul className='legal-text'>
                     <li>Johan Trieloff</li>
                     <li>Kopernikusstraße 30</li>
                     <li>14482 Potsdam, Germany</li>

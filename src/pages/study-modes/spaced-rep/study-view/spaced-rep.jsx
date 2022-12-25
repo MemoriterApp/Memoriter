@@ -3,10 +3,11 @@ import './spaced-rep.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../../../components/footer/footer';
 import Logo from '../../../../images/memoriter-logo.svg';
-import Backdrop from '../../../../components/backdrops/backdrop';
+import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FlashcardSpacedRep from '../flashcard/flashcard-spaced-rep';
 import NothingToStudy from '../nothing-to-study/nothing-to-study';
 import TutorialSpacedRep from '../tutorial/tutorial-spaced-rep';
+import BackButton from '../../../../components/back-button/BackButton';
 import { firebase } from '../../../../technical/utils/firebase';
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 import { useState, useEffect } from 'react';
@@ -127,13 +128,6 @@ function SpacedRepMode() {
         );
     };
 
-    //generate variable to show how many flashcards are due today
-    let dueFlashcards = 0;
-    flashcards.forEach((flashcard) => {
-        if (flashcard.nextDate && flashcard.nextDate.toDate() <= new Date()) {
-            dueFlashcards++;
-        }
-    });
 
     return (
         <>
@@ -146,11 +140,7 @@ function SpacedRepMode() {
                 </Link>
                 <p className='study-remaining'>Remaining: {flashcards.length}</p>
             </header>
-            <Link to={'/topic'}>
-                <div className='Zurückbutton_Body' style={{ top: '90px', left: '8px', zIndex: '10' }}>
-                    <div className='Zurückbutton_Arrow' />
-                </div>
-            </Link>
+            <BackButton/>
 
 
             <main>

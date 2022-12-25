@@ -1,0 +1,23 @@
+.folder-settings-overlay {
+    border-radius: 6px;
+    background-color: var(--color-background);
+    padding: 0 0 0 20px;
+    text-align: center;
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.folder-settings-sub {
+    color: var(--current-gray-dark);
+    font-family: var(--current-font);
+    position: relative;
+    margin: 2px;
+    width: 100%;
+    top: -20%;
+    font-weight: bold;
+    left: -12%;
+    font-size: medium;
+
+}
