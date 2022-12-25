@@ -9,6 +9,6 @@ const Head = ({ title, description }) => {
             <meta name='description' content={description}/>
         </Helmet>
     );
-}
+};
 
 export default Head;

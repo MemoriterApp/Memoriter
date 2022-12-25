@@ -16,32 +16,32 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
         setErrorMessage(errorMessage); //configures message
 
         setEmail(''); //clears email input field
-    };
+    }
 
     function passwordReset(e) { //function for sending password reset email
         e.preventDefault(); //removes the default html submit
 
         sendPasswordResetEmail(firebase.auth, email)
-            .catch(error => { //displays error if sign in fails
+            .catch((error) => { //displays error if sign in fails
                 switch (error.code) { //reads error code
-                    case 'auth/user-not-found': //wrong email
-                        displayError('User not found!');
-                        break;
-                    case 'auth/missing-email': //missing email
-                        displayError('Invalid email!');
-                        break;
-                    case 'auth/invalid-email': //invalid email
-                        displayError('Invalid email!');
-                        break;
-                    case 'auth/too-many-requests': //too many sign in requests
-                        displayError('Too many requests!');
-                        break;
-                    default: //all other errors
-                        displayError(`Error: ${error.code}`);
-                        break;
-                };
+                case 'auth/user-not-found': //wrong email
+                    displayError('User not found!');
+                    break;
+                case 'auth/missing-email': //missing email
+                    displayError('Invalid email!');
+                    break;
+                case 'auth/invalid-email': //invalid email
+                    displayError('Invalid email!');
+                    break;
+                case 'auth/too-many-requests': //too many sign in requests
+                    displayError('Too many requests!');
+                    break;
+                default: //all other errors
+                    displayError(`Error: ${error.code}`);
+                    break;
+                }
             });
-    };
+    }
 
     return (
         <section className='sign-in-password-reset' style={animationStyles}>
@@ -82,6 +82,6 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
             
         </section>
     );
-}
+};
 
 export default SignInPasswordReset;

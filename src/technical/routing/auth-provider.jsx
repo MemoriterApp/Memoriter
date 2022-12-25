@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true); //when loading is true the wrong page cannot display
 
     useEffect(() => {
-        const unsubscribe = firebase.auth.onAuthStateChanged(currentUser => {
+        const unsubscribe = firebase.auth.onAuthStateChanged((currentUser) => {
             setUser(currentUser); //sets user
             setLoading(false); //disables loading
         });
@@ -29,6 +29,6 @@ export function AuthProvider({ children }) {
 
     return (
         <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>
-        //children refers to the content inside the wrapper (all routes)
+    //children refers to the content inside the wrapper (all routes)
     );
 }

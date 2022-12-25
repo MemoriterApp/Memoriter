@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState } from 'react';
+import { useEffect } from 'react';
 import './changePreview.css';
 
 
@@ -12,7 +12,7 @@ function ChangePreview() {
 
     //states to check what preview mode
     const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
-    const [isBoth, setIsBoth] = useState(false)
+    const [isBoth, setIsBoth] = useState(false);
 
     //use Effekt to safe the state in local storage, so that it can be used in topic.js
     useEffect(() => {
@@ -24,13 +24,13 @@ function ChangePreview() {
     }, [isBoth]);
 
     function bothVisableEffect() {
-        setIsBoth(!isBoth)
-        window.location.reload()
+        setIsBoth(!isBoth);
+        window.location.reload();
     }
 
     function onlyQuestionEffect() {
-        setIsOnlyQuestion(!isOnlyQuestion)
-        window.location.reload()
+        setIsOnlyQuestion(!isOnlyQuestion);
+        window.location.reload();
     }
 
     return (
@@ -46,9 +46,9 @@ function ChangePreview() {
                             <div className='big-dot'/>
                         </div>
                         <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What's the best type of pasta?</h2>
-                        <p style={{ marginTop: '30px', textAlign: "center" }}>The ones shaped like wheels!</p>
-                        <button className="preview-type-button" onClick={() => bothVisableEffect()}
-                        onMouseEnter={() => setIsMouseInside(false)}>BOTH VISIBLE</button>
+                        <p style={{ marginTop: '30px', textAlign: 'center' }}>The ones shaped like wheels!</p>
+                        <button className='preview-type-button' onClick={() => bothVisableEffect()}
+                            onMouseEnter={() => setIsMouseInside(false)}>BOTH VISIBLE</button>
                     </div>
 
                     <div className='preview-type-flashcard'
@@ -59,15 +59,15 @@ function ChangePreview() {
                             <div className='big-dot'/>
                         </div>
                         <h2 style={{ textAlign: 'center', fontSize: '24px' }}>What's the best type of pasta?</h2>
-                        {isMouseInside ? <p style={{ marginTop: '30px', textAlign: "center" }}>The ones shaped like wheels!</p> : <p style={{ marginTop: '30px', textAlign: "center", opacity: '0' }}>The ones shaped like wheels!</p>}
-                        <button className="preview-type-button" onClick={() => onlyQuestionEffect()}
-                        onMouseEnter={() => setIsMouseInside(false)}>QUESTION VISIBLE</button>
+                        {isMouseInside ? <p style={{ marginTop: '30px', textAlign: 'center' }}>The ones shaped like wheels!</p> : <p style={{ marginTop: '30px', textAlign: 'center', opacity: '0' }}>The ones shaped like wheels!</p>}
+                        <button className='preview-type-button' onClick={() => onlyQuestionEffect()}
+                            onMouseEnter={() => setIsMouseInside(false)}>QUESTION VISIBLE</button>
                     </div>
                 </div>
                 <div style={{position: 'relative', height: '10px', width: '100%'}}/>
             </div>
         </>
-    )
+    );
 }
 
 export default ChangePreview;

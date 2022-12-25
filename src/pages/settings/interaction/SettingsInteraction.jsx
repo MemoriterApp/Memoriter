@@ -9,7 +9,7 @@ import './settings-interaction.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTheme } from '../../../technical/features/theme-slice';
 import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
-import { signOut } from "firebase/auth";
+import { signOut } from 'firebase/auth';
 
 
 function SettingsClick() {
@@ -39,7 +39,7 @@ function SettingsClick() {
 
         dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
         navigate('/login');
-    }
+    };
 
 
 

@@ -1,5 +1,5 @@
 import Logo from '../../../images/memoriter-logo.svg';
-import Footer from "../../../components/footer/footer";
+import Footer from '../../../components/footer/footer';
 import { Link } from 'react-router-dom';
 import BackButton from '../../../components/back-button/BackButton';
 import '../footer-links.css'
@@ -12,7 +12,7 @@ function PrivacyPage() {
         <>
             <header>
                 <Link to='/'>
-                    <img className="header-logo" src={Logo} alt="site-logo" style={{ top: '-2.5px', zIndex: '10' }}></img>
+                    <img className='header-logo' src={Logo} alt='site-logo' style={{ top: '-2.5px', zIndex: '10' }}></img>
                 </Link>
                 <BackButton/>
 
@@ -58,8 +58,8 @@ function PrivacyPage() {
                 <article className="legal-text">
                     <p>
                         All user data is stored at a Firebase database, a service provided by Google. For storing data, the privacy policies of Google apply.
-                        If you have concerns about how Google might be process the data, the privacy policies can be viewed <a href="https://policies.google.com/u/0/privacy" target='_blank' rel="noreferrer" style={{ color: '#274b65' }}>here</a>.
-                        The Firebase privacy policy can be found <a href='https://firebase.google.com/support/privacy' target='_blank' rel="noreferrer" style={{ color: '#274b65' }}>here</a>.
+                        If you have concerns about how Google might be process the data, the privacy policies can be viewed <a href='https://policies.google.com/u/0/privacy' target='_blank' rel='noreferrer' style={{ color: '#274b65' }}>here</a>.
+                        The Firebase privacy policy can be found <a href='https://firebase.google.com/support/privacy' target='_blank' rel='noreferrer' style={{ color: '#274b65' }}>here</a>.
                     </p>
                     <p>
                         All of the data regarding the user such as passwords are being stored inside the firebase authorisation database.

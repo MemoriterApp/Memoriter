@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../change-preview/changePreview.css';
 import './profile.css';
@@ -9,7 +9,7 @@ import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import { firebase } from '../../../technical/utils/firebase';
 import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
 import { useDispatch } from 'react-redux';
-const { db } = firebase
+const { db } = firebase;
 
 
 
@@ -21,7 +21,7 @@ function Profile() {
 
     //states to check what preview mode
     const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
-    const [isBoth, setIsBoth] = useState(false)
+    const [isBoth, setIsBoth] = useState(false);
 
     //use Effekt to safe the state in local storage, so that it can be used in topic.js
     useEffect(() => {
@@ -73,7 +73,7 @@ function Profile() {
 
         dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
         navigate('/login');
-    }
+    };
 
     //change email function
     async function newEmailSubmit(e) {
@@ -82,7 +82,7 @@ function Profile() {
         const credential = EmailAuthProvider.credential( //required input for password confirm
             user.email,
             accountPassword
-        )
+        );
 
         if (newEmail === '') {
             setRedBorderNewData({ borderColor: 'rgb(228, 48, 48)' });
@@ -92,7 +92,7 @@ function Profile() {
             setRedBorderAccountPassword({});
         } else {
             reauthenticateWithCredential(auth.currentUser, credential)
-                .then(result => {
+                .then((result) => {
                     updateEmail(auth.currentUser, newEmail).then(() => {
                         return (
                             openChangeEmail(false),
@@ -101,17 +101,17 @@ function Profile() {
                             setAccountPassword(''),
                             setRedBorderNewData({}),
                             setRedBorderAccountPassword({}),
-                            setUpdatedEmail(true))
+                            setUpdatedEmail(true));
                     });
                 })
-                .catch(error => {
+                .catch((error) => {
                     switch (error.code) {
-                        case error.code:
-                            setRedBorderNewData({});
-                            setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
-                            break;
+                    case error.code:
+                        setRedBorderNewData({});
+                        setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
+                        break;
                     }
-                })
+                });
         }
     }
 
@@ -122,7 +122,7 @@ function Profile() {
         const credential = EmailAuthProvider.credential( //required input for password confirm
             user.email,
             accountPassword
-        )
+        );
 
         if (newPassword === '') {
             setRedBorderNewData({ borderColor: 'rgb(228, 48, 48)' });
@@ -132,7 +132,7 @@ function Profile() {
             setRedBorderAccountPassword({});
         } else {
             reauthenticateWithCredential(auth.currentUser, credential)
-                .then(result => {
+                .then((result) => {
                     updatePassword(auth.currentUser, newPassword).then(() => {
                         return (
                             openChangePassword(false),
@@ -141,17 +141,17 @@ function Profile() {
                             setAccountPassword(''),
                             setRedBorderNewData({}),
                             setRedBorderAccountPassword({}),
-                            setUpdatedPassword(true))
+                            setUpdatedPassword(true));
                     });
                 })
-                .catch(error => {
+                .catch((error) => {
                     switch (error.code) {
-                        case error.code:
-                            setRedBorderNewData({});
-                            setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
-                            break;
+                    case error.code:
+                        setRedBorderNewData({});
+                        setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
+                        break;
                     }
-                })
+                });
         }
     }
 
@@ -162,24 +162,24 @@ function Profile() {
         const credential = EmailAuthProvider.credential( //required input for password confirm
             user.email,
             accountPassword
-        )
+        );
 
         reauthenticateWithCredential(auth.currentUser, credential)
-            .then(result => {
+            .then((result) => {
                 updateEmail(auth.currentUser, newEmail).then(() => {
                     return (
                         openDeleteAccountConfirm(true),
                         openDeleteAccount(false),
-                        setAccountPassword(''))
+                        setAccountPassword(''));
                 });
             })
-            .catch(error => {
+            .catch((error) => {
                 switch (error.code) {
-                    case error.code:
-                        setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
-                        break;
+                case error.code:
+                    setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
+                    break;
                 }
-            })
+            });
     }
 
     //delete user compare uid-input with uid
@@ -187,11 +187,11 @@ function Profile() {
 
     if (deleteAccountConfirmUidMatchRerenderPrevent) {
         if (user.uid === userIdInput) {
-            setDeleteAccountUidCompare(true)
-            setDeleteAccountConfirmUidMatchRerenderPrevent(false)
+            setDeleteAccountUidCompare(true);
+            setDeleteAccountConfirmUidMatchRerenderPrevent(false);
         } else {
-            setDeleteAccountUidCompare(false)
-            setDeleteAccountConfirmUidMatchRerenderPrevent(false)
+            setDeleteAccountUidCompare(false);
+            setDeleteAccountConfirmUidMatchRerenderPrevent(false);
         }
     }
 
@@ -201,26 +201,26 @@ function Profile() {
         e.preventDefault();
 
         //delete user folders
-        const foldersCollectionRef = collection(db, "folders"); //link zur folder-collection
-        const foldersQuery = query(foldersCollectionRef, where("user", "==", auth.currentUser.uid)); //Variable zur Filtrierung nach den richtigen folders
+        const foldersCollectionRef = collection(db, 'folders'); //link zur folder-collection
+        const foldersQuery = query(foldersCollectionRef, where('user', '==', auth.currentUser.uid)); //Variable zur Filtrierung nach den richtigen folders
         const foldersSnapshot = await getDocs(foldersQuery); //gefilterte folders werden abgefragt
 
-        const foldersResults = foldersSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
+        const foldersResults = foldersSnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
         foldersResults.forEach(async (foldersResult) => { //für jedes object wird die function ausgelöst
-            const folderDocRef = doc(db, "folders", foldersResult.id); //Definition der Zieldaten (folders, die gelöscht werden)
+            const folderDocRef = doc(db, 'folders', foldersResult.id); //Definition der Zieldaten (folders, die gelöscht werden)
             await deleteDoc(folderDocRef); //Zieldaten werden gelöscht
-        })
+        });
 
         //delete user flashcards
-        const flashcardsCollectionRef = collection(db, "flashcards"); //link zur flashcard-collection
-        const flashcardsQuery = query(flashcardsCollectionRef, where("user", "==", auth.currentUser.uid)); //Variable zur Filtrierung nach den richtigen flashcards
+        const flashcardsCollectionRef = collection(db, 'flashcards'); //link zur flashcard-collection
+        const flashcardsQuery = query(flashcardsCollectionRef, where('user', '==', auth.currentUser.uid)); //Variable zur Filtrierung nach den richtigen flashcards
         const flashcardsSnapshot = await getDocs(flashcardsQuery); //gefilterte flashcards werden abgefragt
 
-        const flashcardsResults = flashcardsSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
+        const flashcardsResults = flashcardsSnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
         flashcardsResults.forEach(async (flashcardsResult) => { //für jedes object wird die function ausgelöst
-            const flashcardDocRef = doc(db, "flashcards", flashcardsResult.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
+            const flashcardDocRef = doc(db, 'flashcards', flashcardsResult.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
             await deleteDoc(flashcardDocRef); //Zieldaten werden gelöscht
-        })
+        });
 
         //delete user function (https://firebase.google.com/docs/auth/web/manage-users?hl=en)
         deleteUser(user).then(() => {
@@ -268,36 +268,37 @@ function Profile() {
                         <form onSubmit={newEmailSubmit}>
 
                             <input className='add-folder-form-input'
-                                placeholder="New Email..."
-                                type="mail"
-                                autocomplete='off'
-                                id="email"
-                                name="email"
+                                placeholder='New Email...'
+                                type='mail'
+                                autoComplete='off'
+                                id='email'
+                                name='email'
                                 style={redBorderNewData}
-                                onChange={event => setNewEmail(event.target.value)}
+                                onChange={(event) => setNewEmail(event.target.value)}
                                 value={newEmail}
                             />
                             <br />
                             <br />
                             <input className='add-folder-form-input'
-                                placeholder="Confirm New Email..."
-                                type="mail"
-                                autocomplete='off'
-                                id="confirmEmail"
-                                name="confirmEmail"
+                                placeholder='Confirm New Email...'
+                                type='mail'
+                                autoComplete='off'
+                                id='confirmEmail'
+                                name='confirmEmail'
                                 style={redBorderNewData}
-                                onChange={event => setConfirmEmail(event.target.value)}
+                                onChange={(event) => setConfirmEmail(event.target.value)}
                                 value={confirmEmail}
                             />
                             <br />
                             <br />
                             <input className='add-folder-form-input'
-                                placeholder="Password..."
-                                type="password"
-                                id="accountPassword"
-                                name="accountPassword"
+                                autoComplete='current-password'
+                                placeholder='Password...'
+                                type='password'
+                                id='accountPassword'
+                                name='accountPassword'
                                 style={redBorderAccountPassword}
-                                onChange={event => setAccountPassword(event.target.value)}
+                                onChange={(event) => setAccountPassword(event.target.value)}
                                 value={accountPassword}
                             />
 
@@ -363,36 +364,36 @@ function Profile() {
                         <form onSubmit={newPasswordSubmit}>
 
                             <input className='add-folder-form-input'
-                                placeholder="Current Password..."
-                                type="password"
-                                id="accountPassword"
-                                name="accountPassword"
+                                placeholder='Current Password...'
+                                type='password'
+                                id='accountPassword'
+                                name='accountPassword'
                                 style={redBorderAccountPassword}
-                                onChange={event => setAccountPassword(event.target.value)}
+                                onChange={(event) => setAccountPassword(event.target.value)}
                                 value={accountPassword}
                             />
                             <br />
                             <br />
                             <input className='add-folder-form-input'
-                                placeholder="New Password..."
-                                type="password"
-                                autocomplete='off'
-                                id="newPassword"
-                                name="newPassword"
+                                placeholder='New Password...'
+                                type='password'
+                                autoComplete='new-password'
+                                id='newPassword'
+                                name='newPassword'
                                 style={redBorderNewData}
-                                onChange={event => setNewPassword(event.target.value)}
+                                onChange={(event) => setNewPassword(event.target.value)}
                                 value={newPassword}
                             />
                             <br />
                             <br />
                             <input className='add-folder-form-input'
-                                placeholder="Confirm New Password..."
-                                type="password"
-                                autocomplete='off'
-                                id="confirmPassword"
-                                name="confirmPassword"
+                                placeholder='Confirm New Password...'
+                                type='password'
+                                autoComplete='new-password'
+                                id='confirmPassword'
+                                name='confirmPassword'
                                 style={redBorderNewData}
-                                onChange={event => setConfirmPassword(event.target.value)}
+                                onChange={(event) => setConfirmPassword(event.target.value)}
                                 value={confirmPassword}
                             />
                             <br />
@@ -451,12 +452,12 @@ function Profile() {
                         <form onSubmit={deleteAccountPasswordSubmit}>
 
                             <input className='Settings-changemail-form folder-form-input'
-                                placeholder="Password..."
-                                type="password"
-                                id="accountPassword"
-                                name="accountPassword"
+                                placeholder='Password...'
+                                type='password'
+                                id='accountPassword'
+                                name='accountPassword'
                                 style={redBorderAccountPassword}
-                                onChange={event => setAccountPassword(event.target.value)}
+                                onChange={(event) => setAccountPassword(event.target.value)}
                                 value={accountPassword}
                             />
 
@@ -506,11 +507,11 @@ function Profile() {
                                 className='add-folder-form-input'
                                 style={{ left: '50%', transform: 'translateX(-50%)', width: '80%' }}
                                 type='text'
-                                autocomplete='off'
+                                autoComplete='off'
                                 placeholder='Please enter your user id...'
-                                id="userId"
-                                name="userId"
-                                onChange={event => { setUserIdInput(event.target.value); setDeleteAccountConfirmUidMatchRerenderPrevent(true); }}
+                                id='userId'
+                                name='userId'
+                                onChange={(event) => { setUserIdInput(event.target.value); setDeleteAccountConfirmUidMatchRerenderPrevent(true); }}
                                 value={userIdInput}
                             />
 
@@ -551,7 +552,7 @@ function Profile() {
 
             </div>
         </div>
-    )
+    );
 }
 
 export default Profile;

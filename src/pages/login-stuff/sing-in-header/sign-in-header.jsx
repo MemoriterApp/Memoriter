@@ -11,6 +11,6 @@ const SignInHeader = () => {
         
         </header>
     );
-}
+};
 
 export default SignInHeader;

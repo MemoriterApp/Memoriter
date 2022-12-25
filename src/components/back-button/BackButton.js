@@ -11,6 +11,6 @@ const BackButton = () => {
             </div>  
         </Link>
     );
-}
+};
 
 export default BackButton;

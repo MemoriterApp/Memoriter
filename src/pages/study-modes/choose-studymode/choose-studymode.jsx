@@ -38,6 +38,6 @@ function ChooseStudyMode() {
             </div>
         </>
         
-    )
+    );
 }
 export default ChooseStudyMode;

@@ -1,4 +1,4 @@
-import Footer from "../../../components/footer/footer";
+import Footer from '../../../components/footer/footer';
 import Logo from '../../../images/memoriter-logo.svg';
 import { Link } from 'react-router-dom';
 import BackButton from "../../../components/back-button/BackButton";
@@ -10,7 +10,7 @@ function PatchNotes() {
         <>
             <header>
                 <Link to='/'>
-                    <img className="header-logo" src={Logo} alt="site-logo" style={{ top: '-2.5px', zIndex: '10' }}></img>
+                    <img className='header-logo' src={Logo} alt='site-logo' style={{ top: '-2.5px', zIndex: '10' }}></img>
                 </Link>
                 <BackButton/>
                 <h1 className='legal-header'>Patch Notes</h1>
@@ -41,7 +41,7 @@ function PatchNotes() {
                 <Footer />
             </footer>
         </>
-    )
+    );
 
 }
 

@@ -19,7 +19,7 @@ const ThemeProvider = ({ children }) => {
             setBackgroundColor('#eeeeee');
         } else {
             setBackgroundColor('#202020');
-        };
+        }
     }, [currentTheme, theme]);
 
     document.body.style.backgroundColor = backgroundColor; //page background color, cannot be accessed otherwise

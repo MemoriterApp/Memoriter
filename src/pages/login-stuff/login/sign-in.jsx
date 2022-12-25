@@ -45,7 +45,7 @@ const SignIn = () => {
             });
         }, 0);
         //setBackdropAnimation triggers a transition in the backdrop component creating the fade in effect, does not work without timeout
-    };
+    }
 
     function closePasswordReset() { //function for closing the password reset modal
         document.body.style.overflow = 'auto'; //re-enables page scrolling
@@ -58,7 +58,7 @@ const SignIn = () => {
             });
         }, 0);
         //setBackdropAnimation triggers a transition in the backdrop component creating the fade out effect, does not work without timeout
-    };
+    }
 
     return (
         <>
@@ -94,6 +94,6 @@ const SignIn = () => {
 
         </>
     );
-}
+};
 
 export default SignIn;
