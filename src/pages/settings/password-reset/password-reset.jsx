@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { useState } from 'react';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import './password-reset.css';
 
 const PasswordReset = ({ closePasswordResetModal }) => {

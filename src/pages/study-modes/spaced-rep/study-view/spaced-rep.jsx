@@ -8,7 +8,7 @@ import FlashcardSpacedRep from '../flashcard/flashcard-spaced-rep';
 import NothingToStudy from '../nothing-to-study/nothing-to-study';
 import TutorialSpacedRep from '../tutorial/tutorial-spaced-rep';
 import BackButton from '../../../../components/back-button/BackButton';
-import { firebase } from '../../../../technical/utils/firebase'
+import { firebase } from '../../../../technical/utils/firebase';
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
 import { useState, useEffect } from 'react';
 import { spacedRepetition } from '../../../../technical/utils/spaced-repetition';

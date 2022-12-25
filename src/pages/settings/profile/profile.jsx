@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../change-preview/changePreview.css';
 import './profile.css';
 import { collection, query, where, doc, getDocs, deleteDoc } from 'firebase/firestore/lite';
-import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from "firebase/auth";
+import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from 'firebase/auth';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import { firebase } from '../../../technical/utils/firebase';
 import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';

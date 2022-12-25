@@ -2,11 +2,11 @@ import Logo from '../../../../images/memoriter-logo.svg';
 import Footer from '../../../../components/footer/footer';
 import FlashcardStudy from '../flashcard/flashcard-study';
 import BackButton from '../../../../components/back-button/BackButton';
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { firebase } from '../../../../technical/utils/firebase'
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { firebase } from '../../../../technical/utils/firebase';
 import { collection, getDocs, query, where, updateDoc, deleteDoc, doc } from 'firebase/firestore/lite';
-import './regular-study.css'
+import './regular-study.css';
 const { db } = firebase;
 
 const StudyPage = () => {
