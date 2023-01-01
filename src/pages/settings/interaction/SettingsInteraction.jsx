@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changeTheme } from '../../../technical/features/theme-slice';
 import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
 import { signOut } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 
 function SettingsClick() {
@@ -55,6 +56,7 @@ function SettingsClick() {
             {themeText === 'dark' && <p className='settings-sub' onClick={() => onChangeTheme('light')}>THEME:&shy; DARK</p>}
 
             <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
+            <p className='premium-box'>Memoriter-Premium</p>
             <p className='sign-out-box' onClick={() => openSignOutView(true)}>SIGN OUT</p>
 
             {signOutView && <>

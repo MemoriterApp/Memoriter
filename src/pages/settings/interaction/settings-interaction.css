@@ -12,83 +12,108 @@
 }
 
 .gear:hover {
-  transform:scale(1.1);
+  transform: scale(1.1);
 }
 
 .settings-overlay {
-    box-shadow: 0 1px 4px var(--color-shadow);
-    border-radius: 6px;
-    background-color: var( --color-background);
-    text-align: center;
-    width: 325px;
-    height: 490px;
-    z-index: 10;
-    position: absolute;
-    left: calc(50% - 325px/2);
-    top: calc(50% - 490px/2);
-    overflow-x: hidden;
-    overflow-y: auto;
-    margin: 0;
+  box-shadow: 0 1px 4px var(--color-shadow);
+  border-radius: 6px;
+  background-color: var(--color-background);
+  text-align: center;
+  width: 325px;
+  height: 520px;
+  z-index: 10;
+  position: absolute;
+  left: calc(50% - 325px/2);
+  top: calc(50% - 490px/2);
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
 }
 
 .settings-title-box {
-    background-color: var(--current-blue);
-    width: 337px;
-    height: 120px;
-    position: relative;
-    bottom: 33px;
+  background-color: var(--current-blue);
+  width: 337px;
+  height: 120px;
+  position: relative;
+  bottom: 33px;
 }
 
 .settings-title {
-    color: var(--color-white);
-    font-family: var(--current-font);
-    position: relative;
-    word-wrap: break-word;
-    top: 25px;
-    hyphens: manual;
-    font-size: 5ch;
+  color: var(--color-white);
+  font-family: var(--current-font);
+  position: relative;
+  word-wrap: break-word;
+  top: 25px;
+  hyphens: manual;
+  font-size: 5ch;
 }
 
 .settings-sub {
-    color: var(--color-font);
-    width: 100%;
-    font-size: 3ch;
-    font-weight: 700;
-    font-family: var(--current-font);
-    position: relative;
-    cursor: pointer;
-    text-align: center;
-    max-width: 100%;
-    word-wrap: break-word;
-    hyphens: manual;
-    transition: transform 0.1s ease-out;
-  }
+  color: var(--color-font);
+  width: 100%;
+  font-size: 3ch;
+  font-weight: 700;
+  font-family: var(--current-font);
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  max-width: 100%;
+  word-wrap: break-word;
+  hyphens: manual;
+  transition: transform 0.1s ease-out;
+}
+
 .settings-sub:hover {
   transform: scale(1.2);
 }
 
 .sign-out-box {
-    color: var(--color-white);
-    margin: 32px auto;
-    width: fit-content;
-    font-size: 3ch;
-    font-weight: 700;
-    font-family: var(--current-font);
-    position: relative;
-    cursor: pointer;
-    text-align: center;
-    max-width: 100%;
-    word-wrap: break-word;
-    hyphens: manual;
-    background-color: var(--current-blue);
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: transform 0.2s ease-out;
-  }
-  .sign-out-box:hover {
+  color: var(--color-white);
+  margin: 32px auto;
+  width: fit-content;
+  font-size: 3ch;
+  font-weight: 700;
+  font-family: var(--current-font);
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  max-width: 100%;
+  word-wrap: break-word;
+  hyphens: manual;
+  background-color: var(--current-blue);
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: transform 0.2s ease-out;
+}
+
+.sign-out-box:hover {
   transform: scale(1.2);
   background-color: var(--current-red);
 
+}
+
+.premium-box {
+  color: var(--color-white);
+  margin: 32px auto;
+  width: fit-content;
+  font-size: 3ch;
+  font-weight: 700;
+  font-family: var(--current-font);
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  max-width: 100%;
+  word-wrap: break-word;
+  hyphens: manual;
+  background-color: var(--color-premium);
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: transform 0.2s ease-out;
+}
+
+.premium-box:hover {
+  filter: brightness(1.1);
 }
 
 @media (max-width: 300px) {
@@ -97,6 +122,7 @@
     left: 10px;
   }
 }
+
 @media (max-height: 500px) {
   .settings-overlay {
     height: calc(100vh - 40px);
