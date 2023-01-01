@@ -1,0 +1,95 @@
+.premium-ad-box {
+    background-color: var(--color-background);
+    position: fixed;
+    height: 580px;
+    width: 540px;
+    max-width: calc(100% - 8px);
+    max-height: calc(100% - 8px);
+    min-width: 300px;
+    z-index: 10;
+    overflow-y: auto;
+    left: 50%;
+    top: calc(50% - 10px);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.premium-heading {
+    position: relative;
+    top: 10px;
+    color: var(--color-font);
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-family: var(--current-font);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.premium-subheading {
+    position: relative;
+    top: 10px;
+    color: var(--color-font);
+    font-size: 25px;
+    margin-bottom: 40px;
+    font-family: var(--current-font);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.premium-text {
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    top: 10px;
+    color: var(--color-font);
+    font-size: 20px;
+    margin-bottom: 40px;
+    font-family: var(--current-font);
+    font-weight: regular;
+    display: flex;
+    justify-content: center;
+}
+
+.premium-button {
+    color: var(--color-white);
+    background-color: var(--color-premium);
+    position: relative;
+    bottom: 30px;
+    width: 150px;
+    height: 50px;
+    left: 100px;
+    border-radius: 7.5px;
+    border-style: none;
+    font-size: 20px;
+    font-family: var(--current-font);
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.premium-button:hover {
+    filter: brightness(1.1);
+}
+
+.manage-button {
+    color: var(--color-white);
+    background-color: var(--current-blue);
+    position: relative;
+    top: 35px;
+    right: 75px;
+    width: 200px;
+    height: 75px;
+    border-radius: 7.5px;
+    border-style: none;
+    font-size: 20px;
+    font-family: var(--current-font);
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.manage-button:hover {
+    filter: brightness(1.1);
+}
