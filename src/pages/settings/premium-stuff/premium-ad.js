@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './premium-ad.css';
 
 function PremiumAd() {
@@ -16,7 +15,7 @@ function PremiumAd() {
                             className='premium-text' 
                             style={{top:'-20px'}}
                             href='https://discord.gg/cGZXHz9avA' 
-                        >Try it out</a>
+                        >Try it out and get more info</a>
                     </article>
                     <a href='https://buy.stripe.com/eVa5kLakf9Jk3mM3cc'>
                         <button className='premium-button'>
