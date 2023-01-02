@@ -63,6 +63,13 @@ const Folder = ({
         ]);
         setFiltered(true);
     }
+    // changes the background color of the indicator if a lot of cards are due 
+    const backgroundColor =
+  due.length > 100
+      ? 'var(--current-red)'
+      : due.length > 50
+          ? 'var(--current-blue-dark)'
+          : 'var(--current-gray-medium-dark)';
 
     // cache folder values if folder is clicked
     const onOpenFolder = () => {
@@ -102,6 +109,7 @@ const Folder = ({
         sessionStorage.removeItem('newPosFolder' + folder.id); //remove the id of the folder that has the new position from the session storage
     }
 
+    
 
     return (
         <section className='folder'>
@@ -115,7 +123,10 @@ const Folder = ({
             </Link>
 
             <div className='new-cards-indicator'>
-                <Link to='/study-spaced-repetition' className='indicator'>
+                <Link 
+                    to='/study-spaced-repetition' 
+                    className='indicator'
+                    style={{ backgroundColor }}>
                     <p className='indicator-number'>{due.length}</p>
                 </Link>
             </div>
