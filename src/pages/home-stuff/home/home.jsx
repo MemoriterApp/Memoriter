@@ -26,7 +26,6 @@ const { db } = firebase;
 //it uses some css from home.css
 function HomePage() {
     //user stuff
-    const [user, setUser] = useState({});
     const auth = getAuth();
 
     //firestore stuff
@@ -35,10 +34,6 @@ function HomePage() {
         collection(db, 'folders'),
         where('user', '==', auth.currentUser.uid)
     );
-
-    onAuthStateChanged(firebase.auth, (currentUser) => {
-        setUser(currentUser);
-    });
 
     const [folders, setFolders] = useState([]); //saves the data of folders in an array
 
@@ -106,7 +101,7 @@ function HomePage() {
     //Add Folder
     const addFolder = async (title) => {
         const pos = folders.length + 1;
-        await addDoc(collection(db, 'folders'), { pos, title: title, user: user.uid, archived: false });
+        await addDoc(collection(db, 'folders'), { pos, title: title, user: auth.currentUser.uid, archived: false });
 
         const allFolders = await getDocs(foldersCollectionRef);
         setFolders(allFolders.docs.map((doc) => ({ ...doc.data(), id: doc.id }))); //Aktualisieren der Ordner
