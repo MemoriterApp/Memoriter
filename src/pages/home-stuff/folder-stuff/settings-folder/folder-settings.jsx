@@ -21,7 +21,7 @@ function SettingsFolder({
                         src={edit}
                         alt=''
                     />
-          Edit
+          Rename
                 </p>
                 {!folder.archived && (
                     <p onClick={() => onArchive(folder.id)}>
