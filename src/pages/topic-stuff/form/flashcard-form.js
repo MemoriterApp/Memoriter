@@ -1,18 +1,20 @@
 import React from 'react';
 import { useState, useEffect} from 'react';
-import { useDebounce } from 'react-use';
+import _ from 'lodash';
+import { useRef } from 'react';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import './flashcard-form.css';
 import { Configuration, OpenAIApi } from 'openai';
 
+
 const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel }) => {
+    
+    const timeout = useRef();
+
 
     const [title, setTitle] = useState(flashcard.title); // flashcard title
     const [content, setContent] = useState(flashcard.content); // flashcard content
-    const [suggestion, setSuggestion] = useState(''); // flashcard content
 
-    // debounced version of the title state variable
-    const debouncedTitle = useDebounce(title, 500);
 
     // folder of the flashcard
     const [syncedFolder] = useState(syncedFolderID);
@@ -28,8 +30,12 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
         apiKey: process.env.REACT_APP_API_KEY,
         organization: 'org-S1UJXi06d6Dk4asCwduIssYC',
     });
+
+    const [suggestion, setSuggestion] = useState(''); // flashcard content
+    // debounced version of the title state variable
+
     const openai = new OpenAIApi(configuration);
-    const AiPrompt = `This is a flashcard. The question is: ${debouncedTitle}. The answer is:`;
+    const AiPrompt = `This is a flashcard. The question is: ${title}. The answer is:`;
 
     const generateContent = async () => {
         try {
@@ -37,19 +43,27 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
                 model: 'text-davinci-003',
                 prompt: AiPrompt,
                 temperature: 0.5,
-                // eslint-disable-next-line camelcase
+                //eslint-disable-next-line camelcase
                 max_tokens: 512,
             });
             setSuggestion(response.data.choices[0].text);
+            console.log(response.data.choices[0].text);
         } catch (error) {
-            console.error(error.response);
+            console.error(`Oops something went wrong: ${error.response}`);
         }
     };
 
+    // call generateContent function after 4000ms of inactivity
+    const debouncedGenerateContent = _.debounce(generateContent, 4000);
+
+
     // useEffect hook to trigger the generateContent function when the component is mounted
     useEffect(() => {
-        generateContent();
-    }, [debouncedTitle]);
+        clearTimeout(timeout.current);
+        timeout.current = setTimeout(() => {
+            generateContent();
+        }, 1100);
+    }, [title]);
 
     return (
         <>
@@ -62,7 +76,7 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
                         className='add-flashcard-form-title'
                         placeholder='Flashcard Title...'
                         maxLength='100'
-                        value={debouncedTitle}
+                        value={title}
                         onChange={(event) => setTitle(event.target.value)}
                     />
                     <p style={{ fontSize: '20px' }} />
