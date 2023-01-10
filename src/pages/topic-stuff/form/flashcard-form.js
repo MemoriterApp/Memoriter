@@ -1,23 +1,16 @@
 import React from 'react';
-import { useState, useEffect} from 'react';
+import { Configuration, OpenAIApi } from 'openai';
+import { useState, useEffect, useRef} from 'react';
 import _ from 'lodash';
-import { useRef } from 'react';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import './flashcard-form.css';
-import { Configuration, OpenAIApi } from 'openai';
-
 
 const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel }) => {
-    
-    const timeout = useRef();
-
 
     const [title, setTitle] = useState(flashcard.title); // flashcard title
     const [content, setContent] = useState(flashcard.content); // flashcard content
 
-
-    // folder of the flashcard
-    const [syncedFolder] = useState(syncedFolderID);
+    const [syncedFolder] = useState(syncedFolderID); // folder of the flashcard
 
     // function to apply the input value as folder name
     const onSubmitFlashcard = (event) => {
@@ -31,37 +24,33 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
         organization: 'org-S1UJXi06d6Dk4asCwduIssYC',
     });
 
-    const [suggestion, setSuggestion] = useState(''); // flashcard content
-    // debounced version of the title state variable
-
+    const [suggestion, setSuggestion] = useState(''); // content suggestion from AI
+    
     const openai = new OpenAIApi(configuration);
     const AiPrompt = `This is a flashcard. The question is: ${title}. The answer is:`;
 
-    const generateContent = async () => {
+    const generateSuggestion = async () => {
         try {
             const response = await openai.createCompletion({
                 model: 'text-davinci-003',
                 prompt: AiPrompt,
-                temperature: 0.5,
+                temperature: 0.25,
                 //eslint-disable-next-line camelcase
                 max_tokens: 512,
             });
             setSuggestion(response.data.choices[0].text);
-            console.log(response.data.choices[0].text);
         } catch (error) {
             console.error(`Oops something went wrong: ${error.response}`);
         }
     };
 
-    // call generateContent function after 4000ms of inactivity
-    const debouncedGenerateContent = _.debounce(generateContent, 4000);
 
-
+    const timeout = useRef();
     // useEffect hook to trigger the generateContent function when the component is mounted
     useEffect(() => {
         clearTimeout(timeout.current);
         timeout.current = setTimeout(() => {
-            generateContent();
+            generateSuggestion();
         }, 1100);
     }, [title]);
 
@@ -88,7 +77,8 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
                         onChange={(event) => setContent(event.target.value)}
                     />
                     <p className='flashcard-form-md'>
-            This editor supports <a href='https://commonmark.org/help/' target='_blank' rel='noreferrer'>Markdown syntax</a>.
+                        This editor supports 
+                        <a href='https://commonmark.org/help/' target='_blank' rel='noreferrer'>Markdown syntax</a>.
                     </p>
                 </div>
                 <button className='add-flashcard-form-submit' type='submit'>Done</button>
