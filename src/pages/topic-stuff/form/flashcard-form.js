@@ -21,7 +21,8 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
     const configuration = new Configuration({
         // eslint-disable-next-line no-undef
         apiKey: process.env.REACT_APP_API_KEY,
-        organization: 'org-S1UJXi06d6Dk4asCwduIssYC',
+        // eslint-disable-next-line no-undef
+        organization: process.env.REACT_APP_ORGANIZATION_KEY,
     });
 
     const [suggestion, setSuggestion] = useState(''); // content suggestion from AI
