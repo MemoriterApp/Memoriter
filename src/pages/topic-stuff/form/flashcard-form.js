@@ -19,19 +19,12 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
         onConfirm(title, content, syncedFolder);
     };
 
-    const configuration = new Configuration({
-        // eslint-disable-next-line no-undef
-        apiKey: process.env.REACT_APP_API_KEY,
-        // eslint-disable-next-line no-undef
-        organization: process.env.REACT_APP_ORGANIZATION_KEY,
-    });
-
     const [suggestion, setSuggestion] = useState(''); // content suggestion from AI
     
     const generateSuggestion = async () => {
         try {
-            const response = await axios.post('http://localhost:3001/generate-suggestion', { title });
-            setSuggestion(response.data.suggestion);
+            const response = await axios.post('http://localhost:3001/generate-suggestion', { title }); // send the title to the server
+            setSuggestion(response.data.suggestion); // set the suggestion to the response from the server
         } catch (error) {
             console.error(`Oops something went wrong: ${error.response}`);
         }
@@ -67,6 +60,11 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
                         placeholder={suggestion}
                         value={content}
                         onChange={(event) => setContent(event.target.value)}
+                        onKeyDown={(event) => {
+                            if (event.key === 'Tab') {
+                                setContent(suggestion);
+                            }
+                        }}
                     />
                     <p className='flashcard-form-md'>
                         This editor supports 

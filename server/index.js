@@ -50,7 +50,7 @@ app.post('/generate-suggestion', (req, res) => {
             res.end();
         })
         .catch((error) => {
-            console.error(`Oops something went wrong: `, error.response.data.error.message);
+            console.error('Oops something went wrong: ', error.response.data.error.message);
             res.status(500).send('Something went wrong');
         });
 });
