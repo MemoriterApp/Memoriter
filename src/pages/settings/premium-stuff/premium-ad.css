@@ -1,7 +1,7 @@
 .premium-ad-box {
     background-color: var(--color-background);
     position: fixed;
-    height: 580px;
+    height: 850px;
     width: 540px;
     max-width: calc(100% - 8px);
     max-height: calc(100% - 8px);
