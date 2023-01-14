@@ -1,6 +1,7 @@
 import React from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 import { useState, useEffect, useRef} from 'react';
+import axios from 'axios';
 import _ from 'lodash';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import './flashcard-form.css';
@@ -27,24 +28,14 @@ const FlashcardForm = ({ type, flashcard, syncedFolderID, onConfirm, onCancel })
 
     const [suggestion, setSuggestion] = useState(''); // content suggestion from AI
     
-    const openai = new OpenAIApi(configuration);
-    const AiPrompt = `This is a flashcard. The question is: ${title}. The answer is:`;
-
     const generateSuggestion = async () => {
         try {
-            const response = await openai.createCompletion({
-                model: 'text-davinci-003',
-                prompt: AiPrompt,
-                temperature: 0.25,
-                //eslint-disable-next-line camelcase
-                max_tokens: 512,
-            });
-            setSuggestion(response.data.choices[0].text);
+            const response = await axios.post('http://localhost:3001/generate-suggestion', { title });
+            setSuggestion(response.data.suggestion);
         } catch (error) {
             console.error(`Oops something went wrong: ${error.response}`);
         }
     };
-
 
     const timeout = useRef();
     // useEffect hook to trigger the generateContent function when the component is mounted
