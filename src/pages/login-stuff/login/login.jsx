@@ -7,6 +7,7 @@ import PasswordReset from '../../settings/password-reset/password-reset';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../../technical/utils/firebase';
 import { signInWithEmailAndPassword, onAuthStateChanged, getAuth } from 'firebase/auth';
+import './login.css';
 
 function LoginPage() {
 
@@ -88,56 +89,51 @@ function LoginPage() {
                     <Backdrop onClick={() => openPasswordResetModal(false)} />
                 </div>}
 
-                <div className='rechteck'>
-
-                    {error && <div className='File-Overview'
-                        style={{ color: 'rgb(228, 48, 48)', paddingTop: '19px' }}>
+                {error && <div className='File-Overview'
+                    style={{ color: 'rgb(228, 48, 48)', paddingTop: '19px' }}>
                         Failed to log in!</div>}
 
-                    <div className='main-seperator' />
-                    <div className='Login_Base_Scroll'>
-                        <div className='Login_Base'>
-                            <form onSubmit={handleSubmit}>
-                                <div style={{ height: '80px' }} />
+                <div className='top-divider' />
+                <div className='login-container'>
+                    <form onSubmit={handleSubmit}>
+                        <div style={{ height: '80px' }} />
 
-                                <div className='folder-form-text' htmlFor='email'>Email Adress:</div>
-                                <p style={{ fontSize: '5px' }} />
-                                <input className='folder-form-input' type='email' id='email' name='email'
-                                    placeholder='Please enter Email Adress...'
-                                    value={email}
-                                    style={{ border: redBorderEmail }}
-                                    onChange={
-                                        (e) => {
-                                            setEmail(e.target.value);
-                                            setInvalidEmail(false);
-                                            setRedBorderEmail('5px solid var(--current-gray)');
-                                        }} />
-                                {invalidEmail && <p className='passwords-no-match'>Invalid Email!</p>}
-                                <p style={{ fontSize: '25px' }} />
+                        <div className='folder-form-text' htmlFor='email'>Email Adress:</div>
+                        <p style={{ fontSize: '5px' }} />
+                        <input className='folder-form-input' type='email' id='email' name='email'
+                            placeholder='Please enter Email Adress...'
+                            value={email}
+                            style={{ border: redBorderEmail }}
+                            onChange={
+                                (e) => {
+                                    setEmail(e.target.value);
+                                    setInvalidEmail(false);
+                                    setRedBorderEmail('5px solid var(--current-gray)');
+                                }} />
+                        {invalidEmail && <p className='passwords-no-match'>Invalid Email!</p>}
+                        <p style={{ fontSize: '25px' }} />
 
-                                <div className='folder-form-text' htmlFor='password'>Password:</div>
-                                <p style={{ fontSize: '5px' }} />
-                                <input className='folder-form-input' type='password' id='password' name='password'
-                                    placeholder='Please Enter Password...' maxLength={50}
-                                    style={{ border: redBorderPassword }}
-                                    onChange={
-                                        (e) => {
-                                            setPassword(e.target.value);
-                                            setWrongPassword(false);
-                                            setRedBorderPassword('5px solid var(--current-gray)');
-                                        }} />
-                                {wrongPassword && <p className='passwords-no-match'>Wrong Password!</p>}
+                        <div className='folder-form-text' htmlFor='password'>Password:</div>
+                        <p style={{ fontSize: '5px' }} />
+                        <input className='folder-form-input' type='password' id='password' name='password'
+                            placeholder='Please Enter Password...' maxLength={50}
+                            style={{ border: redBorderPassword }}
+                            onChange={
+                                (e) => {
+                                    setPassword(e.target.value);
+                                    setWrongPassword(false);
+                                    setRedBorderPassword('5px solid var(--current-gray)');
+                                }} />
+                        {wrongPassword && <p className='passwords-no-match'>Wrong Password!</p>}
 
-                                <p className='forgot-password' onClick={() => openPasswordResetModal(true)}>Forgot Password?</p>
+                        <p className='forgot-password' onClick={() => openPasswordResetModal(true)}>Forgot Password?</p>
 
-                                <button type='submit' className='login-button' disabled={loading}>Log In</button>
-                            </form>
-                            <p className='no-account'>Do you need an account? You can sign up&nbsp;</p>
-                            <Link to='/signup' className='no-account' style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
-                            <p className='no-account'>!</p>
-                            <div className='no-account' style={{ height: '20px', display: 'block' }} />
-                        </div>
-                    </div>
+                        <button type='submit' className='login-button' disabled={loading}>Log In</button>
+                    </form>
+                    <p className='no-account'>Do you need an account? You can sign up&nbsp;</p>
+                    <Link to='/signup' className='no-account' style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
+                    <p className='no-account'>!</p>
+                    <div className='no-account' style={{ height: '20px', display: 'block' }} />
                 </div>
             </main>
             <footer>

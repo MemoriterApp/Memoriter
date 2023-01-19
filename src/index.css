@@ -295,29 +295,8 @@ body::-webkit-scrollbar-corner {
 /* CSS für AGB, Impressum und Datenschutz */
 
 /* Css für Login */
-.Login_Base_Scroll {
-    position: absolute;
-    background-color: var(--color-transparent);
-    height: calc(100% - 62px);
-    width: calc(100% - 10px);
-    left: 5px;
-    bottom: 5px;
-    overflow: auto;
-}
 
-.Login_Base {
-    position: absolute;
-    background-color: var(--color-transparent);
-    height: 100%;
-    width: 550px;
-    max-width: 100%;
-    left: 50%;
-    transform: translate(-50%);
-    color: var(--color-font);
-    text-align: center;
-    font-family: var(--current-font);
-    overflow: visible;
-}
+
 
 .header-logo-login {
     width: 134.4px;
@@ -443,26 +422,6 @@ body::-webkit-scrollbar-corner {
     right: -85px;
 }
 
-.login-button {
-    height: 50px;
-    width: 125px;
-    border-radius: 6px;
-    background-color: #265272;
-    position: absolute;
-    top: 320px;
-    left: 50%;
-    border: 3px solid #265272;
-    cursor: pointer;
-    font-size: 20px;
-    color: var(--color-white);
-    transform: translate(-50%);
-    transition: 200ms;
-}
-
-.login-button:hover {
-    background-color: #213f55;
-    border-color: #213f55;
-}
 
 .forgot-password {
     position: relative;

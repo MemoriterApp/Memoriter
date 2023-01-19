@@ -1,0 +1,45 @@
+.top-divider {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80px;
+    width: calc(100% - 10px);
+    height: 0px;
+    border-top: 8px solid var(--current-gray);
+    border-radius: 15px;
+}
+
+.login-container {
+    position: absolute;
+    height: 100%;
+    width: 550px;
+    max-width: 100%;
+    left: 50%;
+    top: 20vh;
+    transform: translate(-50%);
+    color: var(--color-font);
+    text-align: center;
+    font-family: var(--current-font);
+    overflow: visible;
+}
+
+.login-button {
+    height: 50px;
+    width: 125px;
+    border-radius: 6px;
+    background-color: #265272;
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    border: 3px solid #265272;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--color-white);
+    transform: translate(-50%);
+    transition: 200ms;
+}
+
+.login-button:hover {
+    background-color: #213f55;
+    border-color: #213f55;
+}
