@@ -328,32 +328,6 @@ body::-webkit-scrollbar-corner {
     cursor: pointer;
 }
 
-.link-box {
-    width: 120px;
-    fill: none;
-    border: 5px solid #274b65;
-    background-color: #274b65;
-    border-radius: 6px;
-    max-width: 25%;
-    position: absolute;
-    cursor: pointer;
-    bottom: 50%;
-    right: 10px;
-    transform: translate(0%, 50%);
-    font-family: var(--current-font);
-    font-size: 25px;
-    color: var(--color-font);
-    text-align: center;
-    padding-top: 4px;
-    padding-bottom: 8px;
-    text-decoration: none;
-    transition: 200ms;
-}
-
-.link-box:hover {
-    background-color: #213f55;
-    border-color: #213f55;
-}
 
 .mail-form1 {
     text-align: center;

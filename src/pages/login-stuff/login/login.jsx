@@ -101,7 +101,7 @@ function LoginPage() {
                         <div className='folder-form-text' htmlFor='email'>Email Adress:</div>
                         <p style={{ fontSize: '5px' }} />
                         <input className='folder-form-input' type='email' id='email' name='email'
-                            placeholder='Please enter Email Adress...'
+                            placeholder='Please enter an email adress...'
                             value={email}
                             style={{ border: redBorderEmail }}
                             onChange={
