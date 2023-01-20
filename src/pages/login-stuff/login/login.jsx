@@ -34,12 +34,6 @@ function LoginPage() {
     const [wrongPassword, setWrongPassword] = useState(false);
     const [redBorderPassword, setRedBorderPassword] = useState('5px solid var(--current-gray)');
 
-    const [user, setUser] = useState({});
-
-    onAuthStateChanged(firebase.auth, (currentUser) => {
-        setUser(currentUser);
-    });
-
     useEffect(() => {
         localStorage.setItem('lastPage', '/login');
     });
@@ -49,7 +43,7 @@ function LoginPage() {
 
         try {
             setLoading(true);
-            const user = signInWithEmailAndPassword(firebase.auth, email, password)
+            const currentUser = signInWithEmailAndPassword(firebase.auth, email, password)
                 .then(() => navigate('/'))
                 .catch((error) => {
                     switch (error.code) {
@@ -90,7 +84,7 @@ function LoginPage() {
                 </div>}
 
                 {error && <div className='File-Overview'
-                    style={{ color: 'rgb(228, 48, 48)', paddingTop: '19px' }}>
+                    style={{ color: 'rgb(228, 48, 48)', paddingTop: '20vh' }}>
                         Failed to log in!</div>}
 
                 <div className='top-divider' />
