@@ -21,7 +21,7 @@ At the beginning we want to create a folder system in which you can create a fol
 
 ## Planned features
 * Calendar system
-* spaced repetition algorithm
+* AI generated flashcards
 
 ## Social Media
 [![instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)](https://www.instagram.com/memorit.er)
