@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Logo from '../../../images/memoriter-logo.svg';
 import Footer from '../../../components/footer/footer';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
@@ -9,13 +10,26 @@ import { firebase } from '../../../technical/utils/firebase';
 import { signInWithEmailAndPassword, onAuthStateChanged, getAuth } from 'firebase/auth';
 import './login.css';
 
+function handleError(error) {
+    switch (error.code) {
+    case 'auth/wrong-password':
+        setLoading(false);
+        setRedBorderPassword('5px solid rgb(228, 48, 48)');
+        setWrongPassword(true);
+        break;
+    case error.code:
+        setLoading(false);
+        setRedBorderEmail('5px solid rgb(228, 48, 48)');
+        setInvalidEmail(true);
+        break;
+    }
+}
+
 function LoginPage() {
 
     const navigate = useNavigate();
-
     useEffect(() => {
         const auth = getAuth();
-
         if (auth.currentUser) {
             return navigate('/');
         }
@@ -38,34 +52,20 @@ function LoginPage() {
         localStorage.setItem('lastPage', '/login');
     });
 
-    async function handleSubmit(e) {
+    const handleSubmit = useCallback((e) => {
         e.preventDefault();
-
         try {
             setLoading(true);
             const currentUser = signInWithEmailAndPassword(firebase.auth, email, password)
                 .then(() => navigate('/'))
                 .catch((error) => {
-                    switch (error.code) {
-                    case 'auth/wrong-password':
-                        setError(true);
-                        setLoading(false);
-                        setRedBorderPassword('5px solid rgb(228, 48, 48)');
-                        setWrongPassword(true);
-                        break;
-                    case error.code:
-                        setError(true);
-                        setLoading(false);
-                        setRedBorderEmail('5px solid rgb(228, 48, 48)');
-                        setInvalidEmail(true);
-                        break;
-                    }
+                    handleError(error);
+                    setError(true);
                 });
         } catch (err) {
             setLoading(false);
         }
-    }
-
+    }, [navigate, firebase.auth, email, password, setLoading, handleError]);
 
     return (
         <>
@@ -83,18 +83,16 @@ function LoginPage() {
                     <Backdrop onClick={() => openPasswordResetModal(false)} />
                 </div>}
 
-                {error && <div className='File-Overview'
-                    style={{ color: 'rgb(228, 48, 48)', paddingTop: '20vh' }}>
-                        Failed to log in!</div>}
+                {error && <div className='failed-login'>Failed to log in!</div>}
 
-                <div className='top-divider' />
+                <div className='top-divider'/>
                 <div className='login-container'>
                     <form onSubmit={handleSubmit}>
-                        <div style={{ height: '80px' }} />
+                        <div style={{ height: '80px'}}/>
 
-                        <div className='folder-form-text' htmlFor='email'>Email Adress:</div>
+                        <div htmlFor='email'>Email Adress:</div>
                         <p style={{ fontSize: '5px' }} />
-                        <input className='folder-form-input' type='email' id='email' name='email'
+                        <input className='mail-and-password-form-input' type='email' id='email' name='email'
                             placeholder='Please enter an email adress...'
                             value={email}
                             style={{ border: redBorderEmail }}
@@ -105,12 +103,13 @@ function LoginPage() {
                                     setRedBorderEmail('5px solid var(--current-gray)');
                                 }} />
                         {invalidEmail && <p className='passwords-no-match'>Invalid Email!</p>}
+
                         <p style={{ fontSize: '25px' }} />
 
-                        <div className='folder-form-text' htmlFor='password'>Password:</div>
+                        <div htmlFor='password'>Password:</div>
                         <p style={{ fontSize: '5px' }} />
-                        <input className='folder-form-input' type='password' id='password' name='password'
-                            placeholder='Please Enter Password...' maxLength={50}
+                        <input className='mail-and-password-form-input' type='password' id='password' name='password'
+                            placeholder='Please Enter a Password...' maxLength={50}
                             style={{ border: redBorderPassword }}
                             onChange={
                                 (e) => {
@@ -124,10 +123,9 @@ function LoginPage() {
 
                         <button type='submit' className='login-button' disabled={loading}>Log In</button>
                     </form>
-                    <p className='no-account'>Do you need an account? You can sign up&nbsp;</p>
-                    <Link to='/signup' className='no-account' style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
-                    <p className='no-account'>!</p>
-                    <div className='no-account' style={{ height: '20px', display: 'block' }} />
+                    <p className='no-account'>
+                        Do you need an account? You can sign up&nbsp; <Link to='/signup' style={{color:'(var(--current-blue-dark)'}}> here</Link>!
+                    </p>
                 </div>
             </main>
             <footer>
