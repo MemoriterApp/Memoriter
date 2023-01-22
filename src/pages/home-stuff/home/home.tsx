@@ -6,21 +6,12 @@ import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import Folder from '../folder-stuff/folder/folder';
 import FolderForm from '../folder-stuff/form-folder/folder-form';
 import Footer from '../../../components/footer/footer';
-import { firebase, getFlashcards, getFolder, getFolders, insertFolder, removeFlashcard, removeFolder, updateFolder } from '../../../technical/utils/firebase';
+import { getFlashcards, getFolders, insertFolder, removeFlashcard, removeFolder, updateFolder } from '../../../technical/utils/mongo';
 import { useState, useEffect } from 'react';
-import {
-    collection,
-    getDocs,
-    addDoc,
-    updateDoc,
-    deleteDoc,
-    doc,
-    query,
-    where,
-} from 'firebase/firestore/lite';
 import { getAuth } from 'firebase/auth';
 import ArchivedFolders from '../archive-folders/archived-folders';
-import * as Type from "../../../types";
+import * as Type from '../../../types';
+import ObjectId from 'bson-objectid';
 
 //this file is the home page of the app where you see all your folders
 //it uses some css from home.css
@@ -47,48 +38,48 @@ function HomePage() {
         return a.pos - b.pos;
     }); //Sorting Folders
 
-    const posUp = async (id: string, pos: number) => {
+    const posUp = async (id: ObjectId, pos: number) => {
     //Position Up
         const newPosUp = { pos: pos - 1 };
-        await updateFolder(await getFolder(id), newPosUp);
+        await updateFolder(id, newPosUp);
 
         setFolders(
             folders.map((folder) =>
-                folder.id === id
+                folder._id === id
                     ? { ...folder, pos: folder.pos - 1 }
                     : folder.pos === pos - 1
-                        ? (sessionStorage.setItem('newPosFolder', folder.id), { ...folder, pos: folder.pos + 1 })
+                        ? (sessionStorage.setItem('newPosFolder', folder._id), { ...folder, pos: folder.pos + 1 })
                         : folder
             )
         );
     };
 
-    const posDown = async (id: string, pos: number) => {
+    const posDown = async (id: ObjectId, pos: number) => {
     //Position Down
         const newPosDown = { pos: pos + 1 };
-        await updateFolder(await getFolder(id), newPosDown);
+        await updateFolder(id, newPosDown);
 
         setFolders(
             folders.map((folder: Type.Folder) =>
-                folder.id === id
+                folder._id === id
                     ? { ...folder, pos: folder.pos + 1 }
                     : folder.pos === pos + 1
-                        ? (sessionStorage.setItem('newPosFolder', folder.id), { ...folder, pos: folder.pos - 1 })
+                        ? (sessionStorage.setItem('newPosFolder', folder._id.toString()), { ...folder, pos: folder.pos - 1 })
                         : folder
             )
         );
     };
 
-    const posAdjust = async (id: string, pos: any) => {
+    const posAdjust = async (id: ObjectId, pos: any) => {
     //Adjust Position
         const newPosAdjust = { pos: pos };
-        await updateFolder(await getFolder(id), newPosAdjust);
+        await updateFolder(id, newPosAdjust);
     };
 
     //Add Folder
     const addFolder = async (title: any) => {
         const pos = folders.length + 1;
-        await insertFolder(title, pos);
+        await insertFolder(title, pos, auth.currentUser.uid);
 
         const allFolders = await getFolders(auth.currentUser.uid);
         setFolders(allFolders); //Aktualisieren der Ordner
@@ -97,48 +88,48 @@ function HomePage() {
     };
 
     //Delete Folder
-    const deleteFolder = async (id: string, pos: number) => {
-        await removeFolder(id);
+    const deleteFolder = async (folder: Type.Folder) => {
+        await removeFolder(folder._id);
 
         setFolders((folders: Type.Folder[]) =>
             folders
                 .map((folder) =>
-                    folder.pos > pos
-                        ? (sessionStorage.setItem('newPosFolder' + folder.id, folder.id),
+                    folder.pos > folder.pos
+                        ? (sessionStorage.setItem('newPosFolder' + folder._id, folder._id.toString()),
                         { ...folder, pos: folder.pos - 1 })
                         : folder
                 )
-                .filter((folder) => folder.id !== id)
+                //.filter((folder) => folder._id.toString() !== folder._id)
         );
 
         //delete folder flashcards stuff
-        const flashcards = await getFlashcards(id);
+        const flashcards = await getFlashcards(folder._id);
 
         flashcards.forEach(async (flashcard) => {
-            await removeFlashcard(flashcard.id);
-        })
+            await removeFlashcard(flashcard._id);
+        });
     };
 
     //Edit Folder
-    const editFolder = async (id: string, title: any) => {
+    const editFolder = async (id: ObjectId, title: any) => {
         const newTitle = { title: title };
-        await updateFolder(await getFolder(id), newTitle);
-        setFolders(folders.map((folder: Type.Folder) => (folder.id === id ? { ...folder, title: title } : folder)));
+        await updateFolder(id, newTitle);
+        setFolders(folders.map((folder: Type.Folder) => (folder._id === id ? { ...folder, title: title } : folder)));
     };
 
     // archive folder
-    const archiveFolder = async (id: string) => {
-        await updateFolder(await getFolder(id), { archived: true });
+    const archiveFolder = async (id: ObjectId) => {
+        await updateFolder(id, { archived: true });
         setFolders(
-            folders.map((folder: Type.Folder) => (folder.id === id ? { ...folder, archived: true } : folder))
+            folders.map((folder: Type.Folder) => (folder._id === id ? { ...folder, archived: true } : folder))
         );
     };
 
     // de-archive folder
-    const dearchiveFolder = async (id: string) => {
-        await updateFolder(await getFolder(id), { archived: false });
+    const dearchiveFolder = async (id: ObjectId) => {
+        await updateFolder(id, { archived: false });
         setFolders(
-            folders.map((folder: Type.Folder) => (folder.id === id ? { ...folder, archived: false } : folder))
+            folders.map((folder: Type.Folder) => (folder._id === id ? { ...folder, archived: false } : folder))
         );
     };
 
@@ -199,7 +190,7 @@ function HomePage() {
                                 .filter((folder: Type.Folder) => !folder.archived)
                                 .map((folder: Type.Folder) => (
                                     <Folder
-                                        key={folder.id}
+                                        key={folder._id.toString()}
                                         folder={folder}
                                         folderCount={folders.length}
                                         onDeleteFolder={deleteFolder}

@@ -7,10 +7,12 @@ import FlashcardSpacedRep from '../flashcard/flashcard-spaced-rep';
 import NothingToStudy from '../nothing-to-study/nothing-to-study';
 import TutorialSpacedRep from '../tutorial/tutorial-spaced-rep';
 import BackButton from '../../../../components/back-button/BackButton';
-import { firebase, getFlashcard, getFlashcards, removeFlashcard, updateFlashcard } from '../../../../technical/utils/firebase';
+import { firebase, getFlashcards, removeFlashcard, updateFlashcard } from '../../../../technical/utils/mongo';
 import { useState, useEffect } from 'react';
 import { spacedRepetition } from '../../../../technical/utils/spaced-repetition';
 import FinishedViewSpacedRep from '../finished-view/finished-view-spaced-rep';
+import { Flashcard } from "../../../../types";
+import ObjectId from "bson-objectid"
 
 function SpacedRepMode() {
 
@@ -24,8 +26,8 @@ function SpacedRepMode() {
         }
     });
 
-    let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
-    let syncedFolderID = localStorage.getItem('syncedFolderID');
+    let folderTitle = localStorage.getItem('folderTitle');
+    let folderID = localStorage.getItem('folderID');
 
     const [tutorialSpacedRepetition, setTutorialSpacedRepetition] = useState(false);
 
@@ -39,7 +41,7 @@ function SpacedRepMode() {
     //Use Effect für Notes
     useEffect(() => {
         const fetchFlashcards = async () => {
-            const allFlashcards = await getFlashcards(syncedFolderID);
+            const allFlashcards = await getFlashcards(new ObjectId(folderID));
             setFlashcards(allFlashcards)
         };
         fetchFlashcards();
@@ -47,22 +49,22 @@ function SpacedRepMode() {
     }, []);
 
     // answer function
-    const flashcardAnswer = (answeredFlashcard: { id: string; }, type: number, streak: number, easiness: number, interval: number) => {
-        if (spacedRepetition(answeredFlashcard.id, type, streak, easiness, interval)) {
+    const flashcardAnswer = (answeredFlashcard: Flashcard, type: number, streak: number, easiness: number, interval: number) => {
+        if (spacedRepetition(answeredFlashcard._id, type, streak, easiness, interval)) {
             // correct(-ish) answer: flashcard gets removed from the session array
             if (flashcards.length === 1) { //determines if the endscreen for laerned all cards is shown or not if a flashcard is marked as correct
-                setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== answeredFlashcard.id));
+                setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard._id !== answeredFlashcard._id));
                 setStudiedFlashcards(studiedFlashcards + 1);
                 setFinished(true); //shows endscreen
             } else {
-                setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== answeredFlashcard.id));
+                setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard._id !== answeredFlashcard._id));
                 setStudiedFlashcards(studiedFlashcards + 1);
             }
         } else {
             //removes the incorrect flashcard and moves it to the end, new flashcard shows up
             setFlashcards([
                 ...flashcards
-                    .filter((flashcard) => flashcard.id !== answeredFlashcard.id) //removes the old flashcard
+                    .filter((flashcard) => flashcard._id !== answeredFlashcard._id) //removes the old flashcard
                     .sort(() => Math.random() - 0.5), answeredFlashcard
             ]); //reshuffles the array and creates the copy
             //the advantage of this method is the fact that a flashcard will not show the next timo if incorrect is clicked
@@ -84,34 +86,34 @@ function SpacedRepMode() {
     if (flashcards.length > 0 && !filtered) {
         setFlashcards([
             ...flashcards
-                .filter((flashcard) => (flashcard.nextDate && flashcard.nextDate.toDate() <= new Date()) || !flashcard.nextDate)
+                .filter((flashcard: Flashcard) => (new Date(flashcard.nextDate) <= new Date()) || !flashcard.nextDate)
         ]);
         setFiltered(true);
     }
 
     //Change text align
-    const changeTextAlign = async (id: string, textAlign: any) => {
-        await updateFlashcard(await getFlashcard(id), { textAlign: textAlign });
-        setFlashcards(flashcards.map((flashcard) => flashcard.id === id ? { ...flashcard, textAlign: textAlign } : flashcard));
+    const changeTextAlign = async (id: ObjectId, textAlign: any) => {
+        await updateFlashcard(id, { textAlign: textAlign });
+        setFlashcards(flashcards.map((flashcard) => flashcard._id === id ? { ...flashcard, textAlign: textAlign } : flashcard));
     };
     //Edit Flashcard
-    const editFlashcard = async (id: string, title: any, content: any) => {
+    const editFlashcard = async (id: ObjectId, title: any, content: any) => {
         const newAll = { title: title, content: content };
-        await updateFlashcard(await getFlashcard(id), newAll);
-        setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+        await updateFlashcard(id, newAll);
+        setFlashcards(flashcards.map((flashcard) => flashcard._id === id
             ? { ...flashcard, title: title, content: content } : flashcard));
     };
     //Delete Flashcard
-    const deleteFlashcard = async (id: string, pos: number) => {
+    const deleteFlashcard = async (id: ObjectId, pos: number) => {
         await removeFlashcard(id);
         setFlashcards((flashcards) =>
             flashcards
                 .map((flashcard) =>
                     flashcard.pos > pos
-                        ? (sessionStorage.setItem('newPosFlashcard' + flashcard.id, flashcard.id),
+                        ? (sessionStorage.setItem('newPosFlashcard' + flashcard._id, flashcard._id),
                         { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
                 )
-                .filter((flashcard) => flashcard.id !== id)
+                .filter((flashcard) => flashcard._id !== id)
         );
     };
 
@@ -120,7 +122,7 @@ function SpacedRepMode() {
         <>
             <header className='page-header'>
                 <h1 className='page-title'>
-                    {syncedFolderTitle}
+                    {folderTitle}
                 </h1>
                 <Link to='/'>
                     <img className='header-logo' src={Logo} alt='site-logo'></img>
@@ -133,9 +135,14 @@ function SpacedRepMode() {
             <main>
                 {started && <> {/*Only the flashcards where pos in Array = currentNumber are being shown*/}
                     {flashcards.slice(0, 1).map((flashcard) => (
-                        <FlashcardSpacedRep key={flashcard.id} flashcard={flashcard}
+                        <FlashcardSpacedRep
+                            key={flashcard._id}
+                            flashcard={flashcard}
                             onAnswer={flashcardAnswer}
-                            onEditFlashcard={editFlashcard} onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign} />
+                            onEditFlashcard={editFlashcard}
+                            onDeleteFlashcard={deleteFlashcard}
+                            onChangeTextAlign={changeTextAlign}
+                        />
                     ))}
 
                     <button className='tutorial-button' title='Tutorial'

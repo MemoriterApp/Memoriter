@@ -5,8 +5,9 @@ import Confirm from '../../../../components/confirm/confirm';
 import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FolderForm from '../form-folder/folder-form';
 import FolderSettings from '../settings-folder/folder-settings';
-import { getFlashcards } from '../../../../technical/utils/firebase';
 import * as Type from "../../../../types";
+import { getFlashcards } from "../../../../technical/utils/mongo";
+import ObjectId from "bson-objectid"
 
 const Folder = ({
     folder,
@@ -26,7 +27,7 @@ const Folder = ({
     useEffect(() => {
         const getFlashcards1 = async () => {
             //gets all flashcards from the synced folder
-            const allFlashcards = getFlashcards(folder.id);
+            const allFlashcards = await getFlashcards(new ObjectId(folder._id));
             setDue(allFlashcards);
         };
         getFlashcards1(); //calls the function
@@ -39,7 +40,7 @@ const Folder = ({
     if (due.length > 0 && !filtered) {
         setDue([
             ...due
-                .filter((flashcard: Type.Flashcard) => (flashcard.nextDate && flashcard.nextDate.toDate() <= new Date()) || !flashcard.nextDate)
+                .filter((flashcard: Type.Flashcard) => (flashcard.nextDate && flashcard.nextDate <= new Date().getTime()) || !flashcard.nextDate)
         ]);
         setFiltered(true);
     }
@@ -53,8 +54,8 @@ const Folder = ({
 
     // cache folder values if folder is clicked
     const onOpenFolder = () => {
-        localStorage.setItem('syncedFolderID', folder.id); //set the folder id in local storage
-        localStorage.setItem('syncedFolderTitle', folder.title); //set the folder title in local storage
+        localStorage.setItem('folderID', folder._id); //set the folder id in local storage
+        localStorage.setItem('folderTitle', folder.title); //set the folder title in local storage
     };
 
     //States to check if a modal is open or not
@@ -65,7 +66,7 @@ const Folder = ({
 
     // function when the folder is edited
     const editFolder = (newTitle) => {
-        onEditFolder(folder.id, newTitle);
+        onEditFolder(folder._id, newTitle);
         setEditModal(false);
     };
 
@@ -77,16 +78,16 @@ const Folder = ({
     }
 
     const newPosId = sessionStorage.getItem('newPosFolder'); // get the id of the folder that has the new position
-    const newPosIdDelete = sessionStorage.getItem('newPosFolder' + folder.id); // get the id of the folder that has the new position
+    const newPosIdDelete = sessionStorage.getItem('newPosFolder' + folder._id); // get the id of the folder that has the new position
 
     // if the id of the folder that has the new position is the same as the id of the folder
-    if (newPosId === folder.id) {
-        onPosAdjust(folder.id, folder.pos); //adjust the position of the folder
+    if (newPosId === folder._id) {
+        onPosAdjust(folder._id, folder.pos); //adjust the position of the folder
         sessionStorage.removeItem('newPosFolder'); //remove the id of the folder that has the new position from the session storage
-    } else if (newPosIdDelete === folder.id) {
+    } else if (newPosIdDelete === folder._id) {
         //if the id of the folder that has the new position is the same as the id of the folder
-        onPosAdjust(folder.id, folder.pos); //adjust the position of the folder
-        sessionStorage.removeItem('newPosFolder' + folder.id); //remove the id of the folder that has the new position from the session storage
+        onPosAdjust(folder._id, folder.pos); //adjust the position of the folder
+        sessionStorage.removeItem('newPosFolder' + folder._id); //remove the id of the folder that has the new position from the session storage
     }
 
 
@@ -116,7 +117,7 @@ const Folder = ({
                 onClick={() => {
                     if (pos > 1) {
                         setPos(pos - 1);
-                        onPosUp(folder.id, pos);
+                        onPosUp(folder._id, pos);
                     }
                 }}
             >
@@ -127,7 +128,7 @@ const Folder = ({
                 onClick={() => {
                     if (pos < folderCount) {
                         setPos(pos + 1);
-                        onPosDown(folder.id, pos);
+                        onPosDown(folder._id, pos);
                     }
                 }}
             >
@@ -161,7 +162,7 @@ const Folder = ({
             {deleteModal && (
                 <Confirm
                     title='Do you really want to delete this folder?'
-                    onConfirm={() => onDeleteFolder(folder.id, folder.pos)}
+                    onConfirm={() => onDeleteFolder(folder)}
                     onCancel={() => setDeleteModal(false)}
                 />
             )}

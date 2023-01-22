@@ -1,22 +1,23 @@
-import { Timestamp } from "firebase/firestore/lite"
+import ObjectId from "bson-objectid"
 
 export type Flashcard = {
-    id: string,
+    _id: ObjectId,
     content: string,
     interval: number,
-    nextDate: Timestamp,
+    easiness: number,
+    nextDate: number,
     pos: number,
     streak: number,
-    syncedFolder: string,
+    folder: ObjectId,
     textAlign: string,
     textAlignColor: string,
-    textAlitnSymbol: string,
+    textAlignSymbol: string,
     title: string,
     user: string
 }
 
 export type Folder = {
-    id: string,
+    _id: ObjectId,
     archived?: boolean,
     pos?: number,
     title?: string,

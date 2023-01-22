@@ -1,7 +1,7 @@
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import Confirm from '../../../components/confirm/confirm';
 import { useState } from 'react';
-import { firebase } from '../../../technical/utils/firebase';
+import { firebase } from '../../../technical/utils/mongo';
 import { useNavigate } from 'react-router-dom';
 import ChangePreview from '../change-preview/changePreview';
 import Profile from '../profile/profile';
@@ -10,7 +10,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changeTheme } from '../../../technical/features/theme-slice';
 import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
 import { signOut } from 'firebase/auth';
-
 
 function SettingsClick() {
 
@@ -34,8 +33,8 @@ function SettingsClick() {
 
     const logOut = async () => {
         await signOut(firebase.auth);
-        localStorage.removeItem('syncedFolderID');
-        localStorage.removeItem('syncedFolderTitle');
+        localStorage.removeItem('folderID');
+        localStorage.removeItem('folderTitle');
 
         dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
         navigate('/login');

@@ -1,9 +1,10 @@
-import { getFlashcard, updateFlashcard } from './firebase';
-
 // This file contains the algorithm function to set the new date for the spaced repetition algorithm
 
+import ObjectId from "bson-objectid"
+import { updateFlashcard } from "./mongo";
+
 // function gets the flashcard id answer type, correct answer streak, easiness factor and the last interval
-export const spacedRepetition = async (id: string, type: number, streak: number, easiness: number, interval: number) => {
+export const spacedRepetition = async (id: ObjectId, type: number, streak: number, easiness: number, interval: number) => {
     // five different answer types are possible (0-4)
     // 0 is incorrect, 1 is almost correct (with difficulties)
     // 2 is correct and 3 is easy (fast without any difficulties)
@@ -52,14 +53,13 @@ export const spacedRepetition = async (id: string, type: number, streak: number,
         }
 
         // variables and functions to update the flashcard document at the database
-        const flashcard = await getFlashcard(id); // reference to the document
         const newProps = { // object of updated properties
             streak: streak,
             easiness: easiness,
             interval: interval,
-            nextDate: nextDate
+            nextDate: nextDate.getTime()
         };
-        updateFlashcard(flashcard, newProps); // updates the document
+        updateFlashcard(id, newProps); // updates the document
 
         return true; // returns true to remove the flashcard from the current session
     } else if (type === 1) { // difficult response
@@ -84,14 +84,13 @@ export const spacedRepetition = async (id: string, type: number, streak: number,
             }
 
             // variables and functions to update the flashcard document at the database
-            const flashcard = await getFlashcard(id); // reference to the document
             const newProps = { // object of updated properties
                 streak: streak,
                 easiness: easiness,
                 interval: interval,
-                nextDate: nextDate
+                nextDate: nextDate.getTime()
             };
-            updateFlashcard(flashcard, newProps); // updates the document
+            updateFlashcard(id, newProps); // updates the document
 
             return true; // returns true to remove the flashcard from the current session
         } else { // card is either new or was answered incorrectly before
@@ -107,13 +106,12 @@ export const spacedRepetition = async (id: string, type: number, streak: number,
         }
 
         // variables and functions to update the flashcard document at the database
-        const flashcard = await getFlashcard(id); // reference to the document
         const newProps = { // object of updated properties
             streak: streak,
             easiness: easiness,
             interval: interval,
         };
-        updateFlashcard(flashcard, newProps); // updates the document
+        updateFlashcard(id, newProps); // updates the document
 
         return false; // returns false for not removing the flashcard from the current study array
     }

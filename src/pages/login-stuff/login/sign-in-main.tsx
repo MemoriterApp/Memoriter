@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
-import { firebase } from '../../../technical/utils/firebase';
+import { firebase } from '../../../technical/utils/mongo';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, OAuthProvider, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
 const SignInMain = ({ onOpenPasswordReset }) => {

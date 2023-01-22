@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import Flashcard from '../flashcard/flashcard';
 import ChooseStudyMode from '../../study-modes/choose-studymode/choose-studymode';
-import { getFlashcards, firebase, getFlashcard, insertFlashcard, updateFlashcard, removeFlashcard } from '../../../technical/utils/firebase';
+import { firebase, getFlashcards, insertFlashcard, removeFlashcard, updateFlashcard } from '../../../technical/utils/mongo';
+import ObjectId from 'bson-objectid';
 
 //this file is the home page of the app where you see all your flashcards
 //it uses css from topic.css
@@ -49,7 +50,7 @@ function TopicPage() {
     useEffect(() => {
         const syncFlashcards = async () => {
             //gets all flashcards from the synced folder
-            const allFlashcards = await getFlashcards(localStorage.getItem('syncedFolderID'));
+            const allFlashcards = await getFlashcards(new ObjectId(localStorage.getItem('folderID')));
             setFlashcards(allFlashcards);
         };
         syncFlashcards(); //calls the function
@@ -57,8 +58,8 @@ function TopicPage() {
         localStorage.setItem('lastPage', '/topic');
     }, []); // do not add dependencies, otherwise it will loop
 
-    let syncedFolderTitle = localStorage.getItem('syncedFolderTitle'); //gets the title of the synced folder
-    let syncedFolderID = localStorage.getItem('syncedFolderID'); //gets the id of the synced folder
+    let folderTitle = localStorage.getItem('folderTitle'); //gets the title of the synced folder
+    let folderID = localStorage.getItem('folderID'); //gets the id of the synced folder
 
 
     const [chooseStudyModeModal, openChooseStudyModeModal] = useState(false); //creates the state for the choose study mode modal
@@ -89,97 +90,92 @@ function TopicPage() {
         return a.pos - b.pos;
     }); //Sorting Flashcards
 
-    const posLeft = async (id: string, pos: number) => { //moves the flashcard to the left
-        const flashcardDoc = await getFlashcard(id);
+    const posLeft = async (id: ObjectId, pos: number) => { //moves the flashcard to the left
         const newPosLeft = { pos: pos - 1 };
 
-        await updateFlashcard(flashcardDoc, newPosLeft);
+        await updateFlashcard(id, newPosLeft);
 
         setFlashcards(
             flashcards.map((flashcard) =>
-                flashcard.id === id
+                flashcard._id === id
                     ? { ...flashcard, pos: flashcard.pos - 1 }
                     : flashcard.pos === pos - 1
-                        ? (sessionStorage.setItem('newPosFlashcard', flashcard.id),
+                        ? (sessionStorage.setItem('newPosFlashcard', flashcard._id),
                         { ...flashcard, pos: flashcard.pos + 1 })
                         : flashcard
             )
         );
     };
 
-    const posRight = async (id: string, pos: number) => { //moves the flashcard to the right
-        const flashcardDoc = await getFlashcard(id);
+    const posRight = async (id: ObjectId, pos: number) => { //moves the flashcard to the right
         const newPosRight = { pos: pos + 1 };
 
-        await updateFlashcard(flashcardDoc, newPosRight);
+        await updateFlashcard(id, newPosRight);
 
         setFlashcards(
             flashcards.map((flashcard) =>
-                flashcard.id === id
+                flashcard._id === id
                     ? { ...flashcard, pos: flashcard.pos + 1 }
                     : flashcard.pos === pos + 1
-                        ? (sessionStorage.setItem('newPosFlashcard', flashcard.id),
+                        ? (sessionStorage.setItem('newPosFlashcard', flashcard._id),
                         { ...flashcard, pos: flashcard.pos - 1 })
                         : flashcard
             )
         );
     };
 
-    const posAdjust = async (id: string, pos: number) => {
+    const posAdjust = async (id: ObjectId, pos: number) => {
         //Adjust Position
-        await updateFlashcard(await getFlashcard(id), { pos: pos });
+        await updateFlashcard(id, { pos: pos });
     };
 
     //Add Flashcard stuff
     const [addFlashcardModal, setAddFlashcardModal] = useState(false); //creates the state for the add flashcard modal
 
-    const addFlashcard = async (title: any, content: any, syncedFolder: any) => {
+    const addFlashcard = async (title: any, content: any, folder: ObjectId) => {
         const pos = flashcards.length + 1; //adds the flashcard to the end of the list
 
-        insertFlashcard(title, content, syncedFolder, pos, user)
+        await insertFlashcard(title, content, folder, pos, user);
 
-        const allFlashcards = await getFlashcards(localStorage.getItem('syncedFolderID'));
+        const allFlashcards = await getFlashcards(new ObjectId(localStorage.getItem('folderID')));
         setFlashcards(allFlashcards); //refresh the flashcards state
 
         setAddFlashcardModal(false); //closes the add flashcard modal once the flashcard has been added
     };
 
     //Edit Flashcard
-    const editFlashcard = async (id: string, title: any, content: any) => {
+    const editFlashcard = async (id: ObjectId, title: any, content: any) => {
         const newAll = { title: title, content: content };
-        await updateFlashcard(await getFlashcard(id), newAll);
+        await updateFlashcard(id, newAll);
         setFlashcards(
             flashcards.map((flashcard) =>
-                flashcard.id === id ? { ...flashcard, title: title, content: content } : flashcard
+                flashcard._id === id ? { ...flashcard, title: title, content: content } : flashcard
             )
         );
     };
 
     //Change text align
-    const changeTextAlign = async (id: string, textAlign: any) => {
-        await updateFlashcard(await getFlashcard(id), { textAlign: textAlign });
+    const changeTextAlign = async (id: ObjectId, textAlign: any) => {
+        await updateFlashcard(id, { textAlign: textAlign });
         setFlashcards(
             flashcards.map((flashcard) =>
-                flashcard.id === id ? { ...flashcard, textAlign: textAlign } : flashcard
+                flashcard._id === id ? { ...flashcard, textAlign: textAlign } : flashcard
             )
         );
     };
 
     //Delete Flashcard
-    const deleteFlashcard = async (id: string, pos: number) => {
-        removeFlashcard(id);
-        setFlashcards(
-            (
-                flashcards //refresh the flashcards state
-            ) =>
-                flashcards
-                    .map((flashcard) =>
-                        flashcard.pos > pos
-                            ? (sessionStorage.setItem('newPosFlashcard' + flashcard.id, flashcard.id),
-                            { ...flashcard, pos: flashcard.pos - 1 })
-                            : flashcard
-                    )
-                    .filter((flashcard) => flashcard.id !== id)
+    const deleteFlashcard = async (id: ObjectId, pos: number) => {
+        await removeFlashcard(id);
+        setFlashcards((flashcards) => //refresh flashcard state
+            (flashcards)
+                .map((flashcard) =>
+                    flashcard.pos > pos
+                        ? (sessionStorage.setItem('newPosFlashcard' + flashcard._id, flashcard._id),
+                        { ...flashcard, pos: flashcard.pos - 1 })
+                        : flashcard
+                )
+                .filter((flashcard) => flashcard._id !== id)
         );
     };
 
@@ -198,8 +194,8 @@ function TopicPage() {
     return (
         <>
             <header className='page-header'>
-                {syncedFolderTitle !== '' ? (
-                    <h1 className='page-title'>{syncedFolderTitle}</h1>
+                {folderTitle !== '' ? (
+                    <h1 className='page-title'>{folderTitle}</h1>
                 ) : (
                     <h1 className='page-title'>New folder</h1>
                 )}
@@ -221,7 +217,7 @@ function TopicPage() {
                                 ? flashcards //if it is the case, only the question will be shown
                                     .map((flashcard) => (
                                         <Flashcard
-                                            key={flashcard.id}
+                                            key={flashcard._id}
                                             type='only-question'
                                             flashcard={flashcard}
                                             flashcardCount={flashcards.length}
@@ -241,7 +237,7 @@ function TopicPage() {
                                 : flashcards //if it is not the case, the question and answer will be shown
                                     .map((flashcard) => (
                                         <Flashcard
-                                            key={flashcard.id}
+                                            key={flashcard._id}
                                             flashcard={flashcard}
                                             flashcardCount={flashcards.length}
                                             openFlashcardView={openFlashcard}
@@ -275,7 +271,7 @@ function TopicPage() {
                                 type='Create new'
                                 flashcard={{ title: '', content: '' }}
                                 onConfirm={addFlashcard}
-                                syncedFolderID={syncedFolderID}
+                                folderID={folderID}
                                 onCancel={undefined}
                             />
                         )}

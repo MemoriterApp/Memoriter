@@ -23,7 +23,7 @@ function SettingsFolder({
           Rename
                 </p>
                 {!folder.archived && (
-                    <p onClick={() => onArchive(folder.id)}>
+                    <p onClick={() => onArchive(folder._id)}>
                         <img
                             style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
                             src={archive}
@@ -33,7 +33,7 @@ function SettingsFolder({
                     </p>
                 )}
                 {folder.archived && (
-                    <p onClick={() => onDearchive(folder.id)}>
+                    <p onClick={() => onDearchive(folder._id)}>
                         <img
                             style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
                             src={archive}

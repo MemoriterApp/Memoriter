@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import './changePreview.css';
 
-
 function ChangePreview() {
 
     //this file is used to change the preview of the flashcards once you click on Setting and on the change preview button

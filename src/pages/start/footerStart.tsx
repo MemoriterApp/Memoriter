@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import instagramIcon from '../../images/icons/instagram-icon.svg';
 import Logo from '../../images/memoriter-logo.svg';
 
-
 const FooterStart = () => {
     return (
         <div className='Footer_Body-Start'>

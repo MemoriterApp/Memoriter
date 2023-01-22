@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { firebase } from '../../../technical/utils/firebase';
+import { firebase } from '../../../technical/utils/mongo';
 import { sendPasswordResetEmail } from 'firebase/auth';
 
 const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
@@ -79,7 +79,7 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
                 </label>
 
             </form>
-            
+
         </section>
     );
 };

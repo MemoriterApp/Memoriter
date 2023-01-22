@@ -4,7 +4,7 @@ This component adds an extra condition (loading) wich prevents the page renderin
 
 import { User } from "firebase/auth";
 import { useState, useEffect, useContext, createContext } from 'react';
-import { firebase } from '../utils/firebase';
+import { firebase } from '../utils/mongo';
 
 const AuthContext = createContext(undefined); //necessary to work
 

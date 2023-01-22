@@ -4,7 +4,7 @@ import facebookIcon from '../../images/icons/facebook-icon.svg';
 import githubIcon from '../../images/icons/github-icon.svg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { firebase } from '../../../technical/utils/firebase';
+import { firebase } from '../../../technical/utils/mongo';
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, OAuthProvider, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
 const RegisterMain = () => {
@@ -28,7 +28,7 @@ const RegisterMain = () => {
             setPassword(''); //clears password input field
             setConfirmPassword(''); //clears confirm password input field
         }
-         
+
         //style changes for container (needs to be bigger so that the error popup can fit in)
         if (window.innerHeight <= 721) { //optimization for smaller screens (no conflict with css media query)
             setErrorStyleChanges({
@@ -36,7 +36,7 @@ const RegisterMain = () => {
                 top: '385px'
             });
         } else { //larger screens
-            setErrorStyleChanges({ 
+            setErrorStyleChanges({
                 height: '650px',
                 top: 'calc(50% + 25px)'
             });
@@ -126,7 +126,7 @@ const RegisterMain = () => {
 
     return (
         <main className='sign-in-main' style={errorStyleChanges}>
-            
+
             <h1 className='sign-in-main-heading'>Register</h1>
 
             {/*popup for register errors*/}
@@ -159,7 +159,7 @@ const RegisterMain = () => {
             <section>
                 {/*sign up with email form*/}
                 <form onSubmit={defaultRegister}>
-                    
+
                     <input className='sign-in-main-input' id='email' type='email' placeholder='Email Address' value={email}
                         onChange={(e) => setEmail(e.target.value)}/>
 
@@ -168,7 +168,7 @@ const RegisterMain = () => {
 
                     <input className='sign-in-main-input' id='password' type='password' placeholder='Confirm Password' value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}/>
-                    
+
                     {/*agree to terms and policies checkbox*/}
                     <div>
                         <p className='sign-in-main-checkbox-label'>
@@ -183,7 +183,7 @@ const RegisterMain = () => {
                             <div className='sign-in-main-checkbox-style'/>
                         </label>
                     </div>
-                    
+
                     {/*create account button*/}
                     <label>
                         <input type='submit' style={{display: 'none'}}/> {/*style hides the default submit button*/}

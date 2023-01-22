@@ -133,14 +133,14 @@ const Flashcard = ({
     }
 
     const newPosId = sessionStorage.getItem('newPosFlashcard');
-    const newPosIdDelete = sessionStorage.getItem('newPosFlashcard' + flashcard.id);
+    const newPosIdDelete = sessionStorage.getItem('newPosFlashcard' + flashcard._id);
 
-    if (newPosId === flashcard.id) {
-        onPosAdjust(flashcard.id, flashcard.pos);
+    if (newPosId === flashcard._id) {
+        onPosAdjust(flashcard._id, flashcard.pos);
         sessionStorage.removeItem('newPosFlashcard');
-    } else if (newPosIdDelete === flashcard.id) {
-        onPosAdjust(flashcard.id, flashcard.pos);
-        sessionStorage.removeItem('newPosFlashcard' + flashcard.id);
+    } else if (newPosIdDelete === flashcard._id) {
+        onPosAdjust(flashcard._id, flashcard.pos);
+        sessionStorage.removeItem('newPosFlashcard' + flashcard._id);
     }
 
     const [isMouseInside, setIsMouseInside] = useState<boolean>(); //state to check if mouse hover over flashcard
@@ -159,7 +159,7 @@ const Flashcard = ({
                     onClick={() => {
                         if (pos > 1) {
                             setPos(pos - 1);
-                            onPosLeft(flashcard.id, pos);
+                            onPosLeft(flashcard._id, pos);
                         }
                     }}
                 >
@@ -170,7 +170,7 @@ const Flashcard = ({
                     onClick={() => {
                         if (pos < flashcardCount) {
                             setPos(pos + 1);
-                            onPosRight(flashcard.id, pos);
+                            onPosRight(flashcard._id, pos);
                         }
                     }}
                 >
@@ -249,7 +249,7 @@ const Flashcard = ({
                                         className='flashcard-settings-overlay-text-align'
                                         src={alignLeft}
                                         alt=''
-                                        onClick={() => onChangeTextAlign(flashcard.id, 'left')}
+                                        onClick={() => onChangeTextAlign(flashcard._id, 'left')}
                                     />
                                 )}
                                 {flashcard.textAlign === 'right' || (
@@ -257,7 +257,7 @@ const Flashcard = ({
                                         className='flashcard-settings-overlay-text-align'
                                         src={alignRight}
                                         alt=''
-                                        onClick={() => onChangeTextAlign(flashcard.id, 'right')}
+                                        onClick={() => onChangeTextAlign(flashcard._id, 'right')}
                                     />
                                 )}
                                 {flashcard.textAlign === 'center' || (
@@ -265,7 +265,7 @@ const Flashcard = ({
                                         className='flashcard-settings-overlay-text-align'
                                         src={alignCenter}
                                         alt=''
-                                        onClick={() => onChangeTextAlign(flashcard.id, 'center')}
+                                        onClick={() => onChangeTextAlign(flashcard._id, 'center')}
                                     />
                                 )}
                                 {flashcard.textAlign === 'justify' || (
@@ -273,7 +273,7 @@ const Flashcard = ({
                                         className='flashcard-settings-overlay-text-align'
                                         src={alignJustify}
                                         alt=''
-                                        onClick={() => onChangeTextAlign(flashcard.id, 'justify')}
+                                        onClick={() => onChangeTextAlign(flashcard._id, 'justify')}
                                     />
                                 )}
                             </p>
@@ -308,7 +308,7 @@ const Flashcard = ({
                                         className='flashcard-settings-overlay-text-align'
                                         src={alignLeft}
                                         alt=''
-                                        onClick={() => onChangeTextAlign(flashcard.id, 'left')}
+                                        onClick={() => onChangeTextAlign(flashcard._id, 'left')}
                                     />
                                 )}
                                 {flashcard.textAlign === 'right' || (
@@ -316,7 +316,7 @@ const Flashcard = ({
                                         className='flashcard-settings-overlay-text-align'
                                         src={alignRight}
                                         alt=''
-                                        onClick={() => onChangeTextAlign(flashcard.id, 'right')}
+                                        onClick={() => onChangeTextAlign(flashcard._id, 'right')}
                                     />
                                 )}
                                 {flashcard.textAlign === 'center' || (
@@ -324,7 +324,7 @@ const Flashcard = ({
                                         className='flashcard-settings-overlay-text-align'
                                         src={alignCenter}
                                         alt=''
-                                        onClick={() => onChangeTextAlign(flashcard.id, 'center')}
+                                        onClick={() => onChangeTextAlign(flashcard._id, 'center')}
                                     />
                                 )}
                                 {flashcard.textAlign === 'justify' || (
@@ -332,7 +332,7 @@ const Flashcard = ({
                                         className='flashcard-settings-overlay-text-align'
                                         src={alignJustify}
                                         alt=''
-                                        onClick={() => onChangeTextAlign(flashcard.id, 'justify')}
+                                        onClick={() => onChangeTextAlign(flashcard._id, 'justify')}
                                     />
                                 )}
                             </p>
@@ -360,13 +360,13 @@ const Flashcard = ({
                 type='Edit'
                 flashcard={flashcard}
                 onCancel={() => setModalIsOpenE(false)}
-                onConfirm={(title, content) => { onEditFlashcard(flashcard.id, title, content); setModalIsOpenE(false); }}
-                syncedFolderID={undefined}
+                onConfirm={(title, content) => { onEditFlashcard(flashcard._id, title, content); setModalIsOpenE(false); }}
+                folderID={undefined}
             />}
             {modalIsOpenD && (
                 <Confirm
                     title='Do you really want to delete this flashcard?'
-                    onConfirm={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
+                    onConfirm={() => onDeleteFlashcard(flashcard._id, flashcard.pos)}
                     onCancel={backdropClickD}
                 />
             )}

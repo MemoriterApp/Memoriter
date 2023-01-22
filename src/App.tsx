@@ -17,7 +17,7 @@ import ScrollReset from './technical/routing/scroll-reset';
 
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { firebase } from './technical/utils/firebase';
+import { firebase } from './technical/utils/mongo';
 import { onAuthStateChanged } from 'firebase/auth';
 
 const App = () => {

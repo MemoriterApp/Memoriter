@@ -1,4 +1,4 @@
-function BackdropfsOpenFlashcardSO(props) {
+function BackdropfsOpenFlashcardSO(props: any) {
     return (
         <div className='backdropfs-open-flashcard' onClick={props.onClick} >
         </div>

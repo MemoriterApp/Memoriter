@@ -3,18 +3,15 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../change-preview/changePreview.css';
 import './profile.css';
-import { collection, query, where, doc, getDocs, deleteDoc } from 'firebase/firestore/lite';
 import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from 'firebase/auth';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
-import { firebase } from '../../../technical/utils/firebase';
+import { firebase } from '../../../technical/utils/mongo';
 import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
 import { useDispatch } from 'react-redux';
-const { db } = firebase;
 
 function Profile() {
 
     const dispatch = useDispatch(); //used to manipulate global sate (react redux)
-
 
     //states to check what preview mode
     const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
@@ -65,8 +62,8 @@ function Profile() {
 
     const logOut = async () => {
         await signOut(firebase.auth);
-        localStorage.removeItem('syncedFolderID');
-        localStorage.removeItem('syncedFolderTitle');
+        localStorage.removeItem('folderID');
+        localStorage.removeItem('folderTitle');
 
         dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
         navigate('/login');
@@ -196,15 +193,16 @@ function Profile() {
 
     async function deleteAccountFinal(e) {
         e.preventDefault();
-
+        //TODO: Move to new DB
+        /*
         //delete user folders
         const foldersCollectionRef = collection(db, 'folders'); //link zur folder-collection
         const foldersQuery = query(foldersCollectionRef, where('user', '==', auth.currentUser!.uid)); //Variable zur Filtrierung nach den richtigen folders
         const foldersSnapshot = await getDocs(foldersQuery); //gefilterte folders werden abgefragt
 
-        const foldersResults = foldersSnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
+        const foldersResults = foldersSnapshot.docs.map((doc) => ({ ...doc.data(), id: doc._id })); //Aufsplitten des arrays zu einzelnen objects
         foldersResults.forEach(async (foldersResult) => { //für jedes object wird die function ausgelöst
-            const folderDocRef = doc(db, 'folders', foldersResult.id); //Definition der Zieldaten (folders, die gelöscht werden)
+            const folderDocRef = doc(db, 'folders', foldersResult._id); //Definition der Zieldaten (folders, die gelöscht werden)
             await deleteDoc(folderDocRef); //Zieldaten werden gelöscht
         });
 
@@ -213,11 +211,12 @@ function Profile() {
         const flashcardsQuery = query(flashcardsCollectionRef, where('user', '==', auth.currentUser!.uid)); //Variable zur Filtrierung nach den richtigen flashcards
         const flashcardsSnapshot = await getDocs(flashcardsQuery); //gefilterte flashcards werden abgefragt
 
-        const flashcardsResults = flashcardsSnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })); //Aufsplitten des arrays zu einzelnen objects
+        const flashcardsResults = flashcardsSnapshot.docs.map((doc) => ({ ...doc.data(), _id: doc._id })); //Aufsplitten des arrays zu einzelnen objects
         flashcardsResults.forEach(async (flashcardsResult) => { //für jedes object wird die function ausgelöst
-            const flashcardDocRef = doc(db, 'flashcards', flashcardsResult.id); //Definition der Zieldaten (flashcards, die gelöscht werden)
+            const flashcardDocRef = doc(db, 'flashcards', flashcardsResult._id); //Definition der Zieldaten (flashcards, die gelöscht werden)
             await deleteDoc(flashcardDocRef); //Zieldaten werden gelöscht
         });
+        */
 
         //delete user function (https://firebase.google.com/docs/auth/web/manage-users?hl=en)
         deleteUser(user!).then(() => {

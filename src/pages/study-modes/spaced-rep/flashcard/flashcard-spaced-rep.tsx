@@ -72,7 +72,7 @@ const FlashcardSpacedRep = ({
                               className='flashcard-settings-overlay-text-align'
                               src={alignLeft}
                               alt=''
-                              onClick={() => onChangeTextAlign(flashcard.id, 'left')}
+                              onClick={() => onChangeTextAlign(flashcard._id, 'left')}
                           />
                       )}
                       {flashcard.textAlign === 'right' || (
@@ -80,7 +80,7 @@ const FlashcardSpacedRep = ({
                               className='flashcard-settings-overlay-text-align'
                               src={alignRight}
                               alt=''
-                              onClick={() => onChangeTextAlign(flashcard.id, 'right')}
+                              onClick={() => onChangeTextAlign(flashcard._id, 'right')}
                           />
                       )}
                       {flashcard.textAlign === 'center' || (
@@ -88,7 +88,7 @@ const FlashcardSpacedRep = ({
                               className='flashcard-settings-overlay-text-align'
                               src={alignCenter}
                               alt=''
-                              onClick={() => onChangeTextAlign(flashcard.id, 'center')}
+                              onClick={() => onChangeTextAlign(flashcard._id, 'center')}
                           />
                       )}
                       {flashcard.textAlign === 'justify' || (
@@ -96,7 +96,7 @@ const FlashcardSpacedRep = ({
                               className='flashcard-settings-overlay-text-align'
                               src={alignJustify}
                               alt=''
-                              onClick={() => onChangeTextAlign(flashcard.id, 'justify')}
+                              onClick={() => onChangeTextAlign(flashcard._id, 'justify')}
                           />
                       )}
                   </p>
@@ -183,14 +183,14 @@ const FlashcardSpacedRep = ({
                 type='Edit'
                 flashcard={flashcard}
                 onCancel={() => setModalIsOpenEdit(false)}
-                onConfirm={(title, content) => { onEditFlashcard(flashcard.id, title, content); setModalIsOpenEdit(false); setBackdropOpen(false); }}
-                syncedFolderID={undefined}
+                onConfirm={(title, content) => { onEditFlashcard(flashcard._id, title, content); setModalIsOpenEdit(false); setBackdropOpen(false); }}
+                folderID={undefined}
             />}
 
             {modalIsOpenDelete && (
                 <Confirm
                     title='Do you really want to delete this flashcard?'
-                    onConfirm={() => onDeleteFlashcard(flashcard.id, flashcard.pos)}
+                    onConfirm={() => onDeleteFlashcard(flashcard._id, flashcard.pos)}
                     onCancel={() => {
                         setModalIsOpenDelete(false);
                         setBackdropOpen(false);

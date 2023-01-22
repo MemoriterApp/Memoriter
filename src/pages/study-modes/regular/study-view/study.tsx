@@ -4,8 +4,9 @@ import FlashcardStudy from '../flashcard/flashcard-study';
 import BackButton from '../../../../components/back-button/BackButton';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { firebase, getFlashcard, getFlashcards, removeFlashcard, updateFlashcard } from '../../../../technical/utils/firebase';
+import { firebase, getFlashcards, removeFlashcard, updateFlashcard } from '../../../../technical/utils/mongo';
 import './regular-study.css';
+import ObjectId from 'bson-objectid';
 
 const StudyPage = () => {
 
@@ -19,9 +20,9 @@ const StudyPage = () => {
         }
     });
 
-    let syncedFolderTitle = localStorage.getItem('syncedFolderTitle');
+    let folderTitle = localStorage.getItem('folderTitle');
 
-    let syncedFolderID = localStorage.getItem('syncedFolderID');
+    let folderID = new ObjectId(localStorage.getItem('folderID'));
 
     //Flashcard Data
     const [flashcards, setFlashcards] = useState([]);
@@ -29,7 +30,7 @@ const StudyPage = () => {
     //Use Effect für Notes
     useEffect(() => {
         const fetchFlashcards = async () => {
-            const allFlashcards = await getFlashcards(syncedFolderID);
+            const allFlashcards = await getFlashcards(folderID);
             setFlashcards(allFlashcards); //gets the database flashcards
         };
 
@@ -48,11 +49,11 @@ const StudyPage = () => {
         setStarted(true); //shows flashcard component
     }
 
-    function incorrect(incorrectFlashcard: { id: any; }) { //function if an answer was defined as incorrect (reshuffles the array)
+    function incorrect(incorrectFlashcard) { //function if an answer was defined as incorrect (reshuffles the array)
         //removes the incorrect flashcard and moves it to the end, new flashcard shows up
         setFlashcards([
             ...flashcards
-                .filter((flashcard) => flashcard.id !== incorrectFlashcard.id) //removes the old flashcard
+                .filter((flashcard) => flashcard._id !== incorrectFlashcard._id) //removes the old flashcard
                 .sort(() => Math.random() - 0.5), incorrectFlashcard
         ]); //reshuffles the array and creates the copy
         //the advantage of this method is the fact that a flashcard will not show the next timo if incorrect is clicked
@@ -61,48 +62,48 @@ const StudyPage = () => {
 
     function correct(id: any) { //function if an answer was defined as correct, removes the correctly answered card
         if (flashcards.length === 1) { //determines if the endscreen for laerned all cards is shown or not if a flashcard is marked as correct
-            setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
+            setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard._id !== id));
             setStudiedFlashcards(studiedFlashcards + 1);
             setFinished(true); //shows endscreen
         } else {
-            setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard.id !== id));
+            setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard._id !== id));
             setStudiedFlashcards(studiedFlashcards + 1);
         }
     }
 
     async function startAgain() {
         setFinished(false);
-        const allFlashcards = await getFlashcards(syncedFolderID);
+        const allFlashcards = await getFlashcards(folderID);
         setFlashcards(allFlashcards.sort(() => Math.random() - 0.5));
         setStudiedFlashcards(0);
         setIncorrectFlashcards(0);
     }
 
     //Change text align
-    const changeTextAlign = async (id: string, textAlign: any) => {
-        await updateFlashcard(await getFlashcard(id), { textAlign: textAlign });
-        setFlashcards(flashcards.map((flashcard) => flashcard.id === id ? { ...flashcard, textAlign: textAlign } : flashcard));
+    const changeTextAlign = async (id: ObjectId, textAlign: any) => {
+        await updateFlashcard(id, { textAlign: textAlign });
+        setFlashcards(flashcards.map((flashcard) => flashcard._id === id ? { ...flashcard, textAlign: textAlign } : flashcard));
     };
 
     //Edit Flashcard
-    const editFlashcard = async (id: string, title: any, content: any) => {
+    const editFlashcard = async (id: ObjectId, title: any, content: any) => {
         const newAll = { title: title, content: content };
-        await updateFlashcard(await getFlashcard(id), newAll);
-        setFlashcards(flashcards.map((flashcard) => flashcard.id === id
+        await updateFlashcard(id, newAll);
+        setFlashcards(flashcards.map((flashcard) => flashcard._id === id
             ? { ...flashcard, title: title, content: content } : flashcard));
     };
 
     //Delete Flashcard
-    const deleteFlashcard = async (id: string, pos: number) => {
-        await removeFlashcard(id)
+    const deleteFlashcard = async (id: ObjectId, pos: number) => {
+        await removeFlashcard(id);
         setFlashcards((flashcards) =>
             flashcards
                 .map((flashcard) =>
                     flashcard.pos > pos
-                        ? (sessionStorage.setItem('newPosFlashcard' + flashcard.id, flashcard.id),
+                        ? (sessionStorage.setItem('newPosFlashcard' + flashcard._id, flashcard._id),
                         { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
                 )
-                .filter((flashcard) => flashcard.id !== id)
+                .filter((flashcard) => flashcard._id !== id)
         );
     };
 
@@ -111,8 +112,8 @@ const StudyPage = () => {
 
             <main>
                 <header className='page-header'>
-                    {syncedFolderTitle !== '' ? (
-                        <h1 className='page-title'>{syncedFolderTitle}</h1>
+                    {folderTitle !== '' ? (
+                        <h1 className='page-title'>{folderTitle}</h1>
                     ) : (
                         <h1 className='page-title'>New folder</h1>
                     )}
@@ -123,9 +124,14 @@ const StudyPage = () => {
                 </header>
                 {started && <> {/*nur die flashcard, wo die position im array der variable currentNumber entspricht, wird angezeigt*/}
                     {flashcards.slice(0, 1).map((flashcard) => (
-                        <FlashcardStudy key={flashcard.id} flashcard={flashcard}
-                            onIncorrect={() => incorrect(flashcard)} onCorrect={() => correct(flashcard.id)}
-                            onEditFlashcard={editFlashcard} onDeleteFlashcard={deleteFlashcard} onChangeTextAlign={changeTextAlign} />
+                        <FlashcardStudy key={flashcard._id}
+                            flashcard={flashcard}
+                            onIncorrect={() => incorrect(flashcard)}
+                            onCorrect={() => correct(flashcard._id)}
+                            onEditFlashcard={editFlashcard}
+                            onDeleteFlashcard={deleteFlashcard}
+                            onChangeTextAlign={changeTextAlign}
+                        />
                     ))}
                 </>}
 
