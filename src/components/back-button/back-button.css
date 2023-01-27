@@ -16,7 +16,11 @@
     border-radius: 6px 0;
     padding: 8px;
     position: absolute;
-    left: 1%;
+    left: 1em ;
+    top: 1em;
     cursor: pointer;
     transform: rotate(-45deg);
+}
+.back-arrow:hover{
+    transform: scale(1.1) rotate(-45deg);
 }
