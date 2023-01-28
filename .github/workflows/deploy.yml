@@ -1,0 +1,38 @@
+name: Deploy Project
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [19.x]
+
+    steps:
+      - name: Pull Project
+        uses: actions/checkout@v3.2.0
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Packages
+        run: npm i
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Publish to bbn.one
+        uses: garygrossgarten/github-action-scp@v0.7.3
+        with:
+          local: ./build
+          remote: /root/memoriter
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          privateKey: ${{ secrets.KEY }}
