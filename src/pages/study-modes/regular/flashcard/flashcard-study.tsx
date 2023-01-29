@@ -135,7 +135,7 @@ const FlashcardStudy = ({
                                 onIncorrect(flashcard);
                             }}
                         >
-              Incorrect
+                            Incorrect
                         </button>
                         <button
                             style={{ backgroundColor: 'var(--current-green)' }}
@@ -145,7 +145,7 @@ const FlashcardStudy = ({
                                 onCorrect(flashcard._id);
                             }}
                         >
-              Correct
+                            Correct
                         </button>
                     </div>
                 </div>

@@ -98,18 +98,42 @@
 }
 
 .correct-incorrect-button {
-    border-radius: 0.75vw;
+    border-radius: 14.4px;
     text-transform: uppercase;
     border: 0px;
     position: relative;
-    height: calc(3vh * var(--button));
-    width: calc(9vh * var(--button));
-    font-size: calc(1.25vh * var(--button));
+    height: 46px;
+    width: 7.5vw;
+    font-size: 1.1vw; /*calc( *var(--button))*/
     font-weight: bold;
     cursor: pointer;
-    margin: 1.5vw 3vw 0vw 2.5vw;
+    margin: 3vh 3vw 1vh 2.5vw;
 }
 
 .correct-incorrect-button:hover {
     filter: brightness(120%);
+}
+
+@media (max-width: 1300px) {
+    .correct-incorrect-button{
+        font-size: 20px;
+        width: 15vw;
+    }
+}
+@media (max-width: 900px) {
+    .study-flashcard-box {
+        width: 100vw;
+    }
+    .correct-incorrect-button{
+        font-size: 20px;
+        width: 20vw;
+    }
+}
+
+@media (max-width: 640px) {
+    .correct-incorrect-button{
+        font-size: 14px;
+        width: 25vw;
+    }
+    
 }
