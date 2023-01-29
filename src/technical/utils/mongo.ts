@@ -1,4 +1,4 @@
-const url = "http://localhost:8443/api/@memoriter/app/";
+const url = "https://app.memoriter.de/api/@memoriter/app/";
 
 export async function getFlashcard(id: ObjectId): Promise<Flashcard> {
     return await fetch(`${url}flashcard/${id}`, {
