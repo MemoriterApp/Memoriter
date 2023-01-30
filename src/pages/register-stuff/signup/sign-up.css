@@ -66,7 +66,7 @@
     position: absolute;
     height: 50px;
     width: 100%;
-    top: 330px;
+    top: 500px;
     left: 50%;
     transform: translate(-50%);
 }
@@ -148,13 +148,25 @@
     background-color: var(--color-red-light);
 }
 
+.no-account {
+    position: relative;
+    top: 80px;
+    color: var(--current-blue-dark);
+    font-family: var(--current-font);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
 .signup-button {
     height: 50px;
     width: 125px;
     border-radius: 6px;
     background-color: var(--current-blue);
     position: absolute;
-    top: 400px;
+    top: 450px;
     left: 50%;
     border: 3px solid var(--current-blue);
     cursor: pointer;

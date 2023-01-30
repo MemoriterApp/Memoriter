@@ -170,11 +170,11 @@ function SignUpPage() {
                         </div>}
 
 
-                        <button type='submit' className='signup-button' disabled={loading} style={{ top: '385px' }}>Sign Up</button>
+                        <button type='submit' className='signup-button' disabled={loading}>Sign Up</button>
                     </form>
-                    <p className='no-account'>Already have an account? You can log in&nbsp;</p>
-                    <Link to='/login' className='no-account' style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
-                    <p className='no-account'>!</p>
+                    <p className='no-account'>
+                        Do you already have an account? You can log in&nbsp; <Link to='/login' style={{color:'(var(--current-blue-dark)'}}> here</Link>!
+                    </p>
                     <div className='no-account' style={{ height: '20px', display: 'block' }} />
                 </div>
                 
