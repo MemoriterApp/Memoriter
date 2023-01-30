@@ -107,7 +107,9 @@ function LoginPage() {
                         <p style={{ fontSize: '25px' }} />
 
                         <div htmlFor='password'>Password:</div>
+
                         <p style={{ fontSize: '5px' }} />
+                        
                         <input className='mail-and-password-form-input' type='password' id='password' name='password'
                             placeholder='Please Enter a Password...' maxLength={50}
                             style={{ border: redBorderPassword }}

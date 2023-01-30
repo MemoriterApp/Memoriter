@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { firebase } from '../../../technical/utils/firebase';
+import './sign-up.css';
 
 
 function SignUpPage() {
@@ -94,88 +95,89 @@ function SignUpPage() {
                 <Link to='/login' className='link-box'>Log In</Link>
             </header>
             <main>
-                <div className='rechteck'>
+                
+                {error && <div className='failed-signup'>Failed to create an account!</div>}
 
+                <div className='top-divider'/>
+                <div className='signup-container'>
+                    
 
-                    {error && <div className='File-Overview'
-                        style={{ color: 'rgb(228, 48, 48)', paddingTop: '19px' }}>
-                        Failed to create an account!</div>}
+                    <p style={{ fontSize: '25px' }} />
 
-                    <div className='main-seperator' />
-                    <div className='Login_Base_Scroll'>
-                        <div className='Login_Base'>
-                            <p style={{ fontSize: '25px' }} />
-                            <form onSubmit={handleSubmit}>
-
-                                <div className='folder-form-text' htmlFor='email'>Email Adress:</div>
-                                <p style={{ fontSize: '5px' }} />
-                                <input className='folder-form-input' type='email' id='email' name='email'
-                                    placeholder='Please enter Email Adress...'
-                                    style={{ border: redBorderEmail }}
-                                    onChange={
-                                        (e) => {
-                                            setEmail(e.target.value);
-                                            setInvalidEmail(false);
-                                            setEmailInUse(false);
-                                            setRedBorderEmail('5px solid var(--current-gray)');
-                                        }} />
-                                {invalidEmail && <p className='passwords-no-match'>Invalid Email!</p>}
-                                {emailInUse && <p className='passwords-no-match'>Email already in use!</p>}
-                                <p style={{ fontSize: '25px' }} />
-
-                                <div className='folder-form-text' htmlFor='password'>Password:</div>
-                                <p style={{ fontSize: '5px' }} />
-                                <input className='folder-form-input' type='password' id='password' name='password'
-                                    placeholder='Please Enter Password...' maxLength={50}
-                                    style={{ border: redBorderPassword }}
-                                    onChange={(e) => {
-                                        setPassword(e.target.value);
-                                        setShortPassword(false); setSamePassword(false);
-                                        setRedBorderPassword('5px solid var(--current-gray)');
-                                        setRedBorderConfirm('5px solid var(--current-gray)');
+                    <form onSubmit={handleSubmit}>
+                        <div htmlFor='email'>Email Adress:
+                            <p style={{ fontSize: '5px' }} />
+                            <input className='mail-and-password-form-input' type='email' id='email' name='email'
+                                placeholder='Please enter an email adress...'
+                                style={{ border: redBorderEmail }}
+                                onChange={
+                                    (e) => {
+                                        setEmail(e.target.value);
+                                        setInvalidEmail(false);
+                                        setEmailInUse(false);
+                                        setRedBorderEmail('5px solid var(--current-gray)');
                                     }} />
-                                {samePassword && <p className='passwords-no-match'>Passwords do not match!</p>}
-                                {shortPassword && <p className='passwords-no-match'>Password should be at least 6 characters long!</p>}
-                                <p style={{ fontSize: '25px' }} />
-
-                                <div className='folder-form-text' htmlFor='password'>Confirm Password:</div>
-                                <p style={{ fontSize: '5px' }} />
-                                <input className='folder-form-input' type='password' id='password-confirm' name='password'
-                                    placeholder='Please Enter Password Again...' maxLength={50}
-                                    style={{ border: redBorderConfirm }}
-                                    onChange={(e) => {
-                                        setPasswordAgain(e.target.value);
-                                        setShortPassword(false); setSamePassword(false);
-                                        setRedBorderPassword('5px solid var(--current-gray)');
-                                        setRedBorderConfirm('5px solid var(--current-gray)');
-                                    }} />
-                                {samePassword && <p className='passwords-no-match'>Passwords do not match!</p>}
-                                <p style={{ fontSize: '55px' }} />
-
-                                {borderBlueCheckbox && <div className='accept_privacy'>
-                                    <input type='checkbox' id='accept_privacy'
-                                        onChange={() => setIsAccepted(!isAccepted)} />
-                                    <label htmlFor='accept_privacy'>I agree to our<p style={{ display: 'inline' }}> </p>
-                                        <Link to='/privacy' target='_blank' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
-                                </div>}
-
-                                {borderRedCheckbox && <div className='accept_privacy_red'>
-                                    <input type='checkbox' id='accept_privacy'
-                                        onChange={() => setIsAccepted(!isAccepted)} />
-                                    <label htmlFor='accept_privacy'>I agree to our<p style={{ display: 'inline' }}> </p>
-                                        <Link to='/privacy' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
-                                </div>}
-
-
-                                <button type='submit' className='login-button' disabled={loading} style={{ top: '385px' }}>Sign Up</button>
-                            </form>
-                            <p className='no-account'>Already have an account? You can log in&nbsp;</p>
-                            <Link to='/login' className='no-account' style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
-                            <p className='no-account'>!</p>
-                            <div className='no-account' style={{ height: '20px', display: 'block' }} />
+                            {invalidEmail && <p className='passwords-no-match'>Invalid Email!</p>}
+                            {emailInUse && <p className='passwords-no-match'>Email already in use!</p>}
                         </div>
-                    </div>
+                        
+                        <p style={{ fontSize: '25px' }} />
+
+                        <div htmlFor='password'>Password:
+                            <p style={{ fontSize: '5px' }} />
+                            <input className='mail-and-password-form-input' type='password' id='password' name='password'
+                                placeholder='Please Enter Password...' maxLength={50}
+                                style={{ border: redBorderPassword }}
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                    setShortPassword(false); setSamePassword(false);
+                                    setRedBorderPassword('5px solid var(--current-gray)');
+                                    setRedBorderConfirm('5px solid var(--current-gray)');
+                                }} />
+                            {samePassword && <p className='passwords-no-match'>Passwords do not match!</p>}
+                            {shortPassword && <p className='passwords-no-match'>Password should be at least 6 characters long!</p>}
+                        </div>
+                        
+                        <p style={{ fontSize: '25px' }} />
+
+                        <div htmlFor='password'>Confirm Password:</div>
+
+                        <p style={{ fontSize: '5px' }} />
+                        <input className='folder-form-input' type='password' id='password-confirm' name='password'
+                            placeholder='Please Enter Password Again...' maxLength={50}
+                            style={{ border: redBorderConfirm }}
+                            onChange={(e) => {
+                                setPasswordAgain(e.target.value);
+                                setShortPassword(false); setSamePassword(false);
+                                setRedBorderPassword('5px solid var(--current-gray)');
+                                setRedBorderConfirm('5px solid var(--current-gray)');
+                            }} />
+                        {samePassword && <p className='passwords-no-match'>Passwords do not match!</p>}
+                        <p style={{ fontSize: '55px' }} />
+
+                        {borderBlueCheckbox && <div className='accept-privacy'>
+                            <input type='checkbox' id='accept-privacy'
+                                onChange={() => setIsAccepted(!isAccepted)} />
+                            <label htmlFor='accept-privacy'>I agree to our<p style={{ display: 'inline' }}> </p>
+                                <Link to='/privacy' target='_blank' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
+                        </div>}
+
+                        {borderRedCheckbox && <div className='accept-privacy-red'>
+                            <input type='checkbox' id='accept-privacy'
+                                onChange={() => setIsAccepted(!isAccepted)} />
+                            <label htmlFor='accept-privacy'>I agree to our<p style={{ display: 'inline' }}> </p>
+                                <Link to='/privacy' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
+                        </div>}
+
+
+                        <button type='submit' className='signup-button' disabled={loading} style={{ top: '385px' }}>Sign Up</button>
+                    </form>
+                    <p className='no-account'>Already have an account? You can log in&nbsp;</p>
+                    <Link to='/login' className='no-account' style={{ color: '#265272', cursor: 'pointer' }}>here</Link>
+                    <p className='no-account'>!</p>
+                    <div className='no-account' style={{ height: '20px', display: 'block' }} />
                 </div>
+                
             </main>
             <footer>
                 <Footer />
