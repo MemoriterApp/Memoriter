@@ -95,13 +95,12 @@
     display: flex;
     justify-content: center;
     margin: 80px;
-    bottom:10%;
 }
 
 .spaced-rep-button {
     position: absolute;
     left: 50%;
-    top: 60%;
+    top: 100%;
     font-family: var(--current-font);
     transform: translate(-50%, -50%);
     border-radius: 0.5vw;
