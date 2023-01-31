@@ -15,9 +15,9 @@
     border-color: var(--color-font) var(--color-font) var(--color-transparent) var(--color-transparent);
     border-radius: 6px 0;
     padding: 8px;
-    position: absolute;
-    left: 1em ;
-    top: 1em;
+    position: fixed;
+    left: 25px;
+    top: 1px;
     cursor: pointer;
     transform: rotate(-45deg);
 }
