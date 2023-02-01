@@ -41,24 +41,33 @@ function SignUpPage() {
         localStorage.setItem('lastPage', '/signup');
     });
 
+    function notSamePassword() {
+        setShortPassword(false);
+        setSamePassword(true);
+        setRedBorderPassword('5px solid rgb(228, 48, 48)');
+        setRedBorderConfirm('5px solid rgb(228, 48, 48)');
+    }
+    function passwordTooSmall() {
+        setSamePassword(false);
+        setShortPassword(true);
+        setRedBorderPassword('5px solid rgb(228, 48, 48)');
+    }
+    function notAcceptedTerms() {
+        setBorderBlueCheckbox(false);
+        setBorderRedCheckbox(true);
+    }
+
     async function handleSubmit(e) {
         e.preventDefault();
-
         if (password !== passwordAgain) {
-            setShortPassword(false);
-            setSamePassword(true);
-            setRedBorderPassword('5px solid rgb(228, 48, 48)');
-            setRedBorderConfirm('5px solid rgb(228, 48, 48)');
-            return setError(true);
+            notSamePassword();
+            return(setError(true));
         } else if (password.length < 6) {
-            setSamePassword(false);
-            setShortPassword(true);
-            setRedBorderPassword('5px solid rgb(228, 48, 48)');
-            return setError(true);
+            passwordTooSmall();
+            return(setError(true));
         } else if (isAccepted === false) {
-            setBorderBlueCheckbox(false);
-            setBorderRedCheckbox(true);
-            return setError(true);
+            notAcceptedTerms();
+            return(setError(true));
         } try {
             setError(false);
             setLoading(true);
@@ -106,7 +115,9 @@ function SignUpPage() {
 
                     <form onSubmit={handleSubmit}>
                         <div htmlFor='email'>Email Adress:
+
                             <p style={{ fontSize: '5px' }} />
+
                             <input className='mail-and-password-form-input' type='email' id='email' name='email'
                                 placeholder='Please enter an email adress...'
                                 style={{ border: redBorderEmail }}
@@ -124,7 +135,9 @@ function SignUpPage() {
                         <p style={{ fontSize: '25px' }} />
 
                         <div htmlFor='password'>Password:
+                        
                             <p style={{ fontSize: '5px' }} />
+
                             <input className='mail-and-password-form-input' type='password' id='password' name='password'
                                 placeholder='Please Enter Password...' maxLength={50}
                                 style={{ border: redBorderPassword }}

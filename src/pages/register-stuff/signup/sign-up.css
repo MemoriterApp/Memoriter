@@ -4,7 +4,7 @@
     transform: translate(-50%);
     text-align: center;
     color: var(--current-red);
-    top: 20vh;
+    top: 100px;
     font-family: var(--current-font);
     font-size: 24px;
     width: calc(100% - 70px);
@@ -112,7 +112,7 @@
     position: absolute;
     height: 50px;
     width: 100%;
-    top: 330px;
+    top: 500px;
     left: 50%;
     transform: translate(-50%);
 }
@@ -150,7 +150,7 @@
 
 .no-account {
     position: relative;
-    top: 80px;
+    top: 70px;
     color: var(--current-blue-dark);
     font-family: var(--current-font);
     font-size: 16px;
