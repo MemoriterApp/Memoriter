@@ -7,7 +7,7 @@ import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import PasswordReset from '../../settings/password-reset/password-reset';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../../technical/utils/firebase';
-import { signInWithEmailAndPassword, onAuthStateChanged, getAuth } from 'firebase/auth';
+import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
 import './login.css';
 
 function handleError(error) {

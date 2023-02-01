@@ -4,7 +4,7 @@ import PrivacyPage from './pages/footer-links/privacy/privacy-policies';
 import PatchNotes from './pages/footer-links/patch-notes/patch-notes';
 
 import LoginPage from './pages/login-stuff/login/login';
-import SignUpPage from './pages/register-stuff/signup/signup';
+import SignUpPage from './pages/signup/signup';
 
 import HomePage from './pages/home-stuff/home/home';
 import TopicPage from './pages/topic-stuff/topic/topic';
