@@ -1,18 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import marked from 'marked';
-import edit from '../../../images/edit.svg';
-import deleteIcon from '../../../images/delete.svg';
-import alignLeft from '../../../images/text-align-left.svg';
-import alignRight from '../../../images/text-align-right.svg';
-import alignCenter from '../../../images/text-align-center.svg';
-import alignJustify from '../../../images/text-align-justify.svg';
 import FlashcardForm from '../form/flashcard-form';
 import Confirm from '../../../components/confirm/confirm';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
-import BackdropOpenFlashcard from '../../../components/backdrops/backdrop-open-flashcard/backdropOpenFlashcard';
-import BackdropTransparent from '../../../components/backdrops/backdrop-transparent/backdrop-transparent';
 import './flashcard.css';
 import * as Type from '../../../types';
+import FlashcardSettings from "../../../components/flashcard-settings/flashcard-settings";
 
 const Flashcard = ({
     flashcard,
@@ -202,128 +195,10 @@ const Flashcard = ({
                 </div>
             )}
             {flashcardIsOpenSettings && (
-                <>
-                    <div className='flashcard-open-settings-overlay-position-field'>
-                        <div
-                            className='flashcard-open-settings-overlay-position-field-click'
-                            onClick={backdropClickOpen}
-                        />
-                        <div className='flashcard-settings-overlay'>
-                            <div className='folder-settings-sub'>
-                                <p>
-                                    {flashcard.textAlign === 'left' || (
-                                        <img
-                                            className='flashcard-settings-overlay-text-align'
-                                            src={alignLeft}
-                                            alt=''
-                                            onClick={() => onChangeTextAlign(flashcard._id, 'left')}
-                                        />
-                                    )}
-                                    {flashcard.textAlign === 'right' || (
-                                        <img
-                                            className='flashcard-settings-overlay-text-align'
-                                            src={alignRight}
-                                            alt=''
-                                            onClick={() => onChangeTextAlign(flashcard._id, 'right')}
-                                        />
-                                    )}
-                                    {flashcard.textAlign === 'center' || (
-                                        <img
-                                            className='flashcard-settings-overlay-text-align'
-                                            src={alignCenter}
-                                            alt=''
-                                            onClick={() => onChangeTextAlign(flashcard._id, 'center')}
-                                        />
-                                    )}
-                                    {flashcard.textAlign === 'justify' || (
-                                        <img
-                                            className='flashcard-settings-overlay-text-align'
-                                            src={alignJustify}
-                                            alt=''
-                                            onClick={() => onChangeTextAlign(flashcard._id, 'justify')}
-                                        />
-                                    )}
-                                </p>
-                                <p onClick={editFlashcardReq}>
-                                    <img
-                                        style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                                        src={edit}
-                                        alt=''
-                                    />
-                                    Edit
-                                </p>
-                                <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
-                                    <img
-                                        style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                                        src={deleteIcon}
-                                        alt=''
-                                    />
-                                    Delete
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <BackdropOpenFlashcard onClick={backdropClickOpen} />
-                </>
+                <FlashcardSettings flashcard={flashcard} onChangeTextAlign={onChangeTextAlign} onCancel={() => setFlashcardIsOpenSettings(false)} onEdit={editFlashcardReq} onDelete={deleteFlashcardReq} />
             )}
             {settingsAreOpen && (
-                <>
-                    <div className='flashcard-settings-overlay'>
-                        <div className='folder-settings-sub'>
-                            <p>
-                                {flashcard.textAlign === 'left' || (
-                                    <img
-                                        className='flashcard-settings-overlay-text-align'
-                                        src={alignLeft}
-                                        alt=''
-                                        onClick={() => onChangeTextAlign(flashcard._id, 'left')}
-                                    />
-                                )}
-                                {flashcard.textAlign === 'right' || (
-                                    <img
-                                        className='flashcard-settings-overlay-text-align'
-                                        src={alignRight}
-                                        alt=''
-                                        onClick={() => onChangeTextAlign(flashcard._id, 'right')}
-                                    />
-                                )}
-                                {flashcard.textAlign === 'center' || (
-                                    <img
-                                        className='flashcard-settings-overlay-text-align'
-                                        src={alignCenter}
-                                        alt=''
-                                        onClick={() => onChangeTextAlign(flashcard._id, 'center')}
-                                    />
-                                )}
-                                {flashcard.textAlign === 'justify' || (
-                                    <img
-                                        className='flashcard-settings-overlay-text-align'
-                                        src={alignJustify}
-                                        alt=''
-                                        onClick={() => onChangeTextAlign(flashcard._id, 'justify')}
-                                    />
-                                )}
-                            </p>
-                            <p onClick={editFlashcardReq}>
-                                <img
-                                    style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                                    src={edit}
-                                    alt=''
-                                />{' '}
-                                Edit
-                            </p>
-                            <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
-                                <img
-                                    style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                                    src={deleteIcon}
-                                    alt=''
-                                />{' '}
-                                Delete
-                            </p>
-                        </div>
-                    </div>
-                    <BackdropTransparent onClick={() => setSettingsAreOpen(false)} />
-                </>
+                <FlashcardSettings flashcard={flashcard} onChangeTextAlign={onChangeTextAlign} onCancel={() => setSettingsAreOpen(false)} onEdit={editFlashcardReq} onDelete={deleteFlashcardReq} />
             )}
             {editingIsOpen && <FlashcardForm
                 type='Edit'
