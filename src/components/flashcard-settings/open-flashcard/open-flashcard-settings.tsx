@@ -1,15 +1,25 @@
-import './flashcard-settings.css';
-import edit from '../../images/edit.svg';
-import deleteIcon from '../../images/delete.svg';
-import alignLeft from '../../images/text-align-left.svg';
-import alignRight from '../../images/text-align-right.svg';
-import alignCenter from '../../images/text-align-center.svg';
-import alignJustify from '../../images/text-align-justify.svg';
-import BackdropOpenFlashcard from '../backdrops/backdrop-open-flashcard/backdropOpenFlashcard';
+import './open-flashcard-settings.css';
+import edit from '../../../images/edit.svg';
+import deleteIcon from '../../../images/delete.svg';
+import alignLeft from '../../../images/text-align-left.svg';
+import alignRight from '../../../images/text-align-right.svg';
+import alignCenter from '../../../images/text-align-center.svg';
+import alignJustify from '../../../images/text-align-justify.svg';
+import BackdropOpenFlashcard from '../../backdrops/backdrop-open-flashcard/backdropOpenFlashcard';
 
-//This modal is used to confirm something (most likely deleting) with either a yes or no botton.
-
-const FlashcardSettings = ({ onChangeTextAlign, flashcard, onCancel, onEdit, onDelete }: { onChangeTextAlign: any, flashcard: any, onCancel: any, onEdit: any, onDelete: any }) => {
+const OpenFlashcardSettings = ({
+    onChangeTextAlign,
+    flashcard,
+    onCancel,
+    onEdit,
+    onDelete }:
+    {
+        onChangeTextAlign: any,
+        flashcard: any,
+        onCancel: any,
+        onEdit: any,
+        onDelete: any,
+    }) => {
     return (
         <>
             <div className='flashcard-open-settings-overlay-position-field'>
@@ -76,4 +86,4 @@ const FlashcardSettings = ({ onChangeTextAlign, flashcard, onCancel, onEdit, onD
         </>
     );
 };
-export default FlashcardSettings;
+export default OpenFlashcardSettings;

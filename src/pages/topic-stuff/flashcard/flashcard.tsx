@@ -5,7 +5,8 @@ import Confirm from '../../../components/confirm/confirm';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import './flashcard.css';
 import * as Type from '../../../types';
-import FlashcardSettings from "../../../components/flashcard-settings/flashcard-settings";
+import OpenFlashcardSettings from "../../../components/flashcard-settings/open-flashcard/open-flashcard-settings";
+import ClosedFlashcardSettings from '../../../components/flashcard-settings/closed-flashcard/closed-flashcard-settings';
 
 const Flashcard = ({
     flashcard,
@@ -195,10 +196,19 @@ const Flashcard = ({
                 </div>
             )}
             {flashcardIsOpenSettings && (
-                <FlashcardSettings flashcard={flashcard} onChangeTextAlign={onChangeTextAlign} onCancel={() => setFlashcardIsOpenSettings(false)} onEdit={editFlashcardReq} onDelete={deleteFlashcardReq} />
+                <OpenFlashcardSettings
+                    flashcard={flashcard}
+                    onChangeTextAlign={onChangeTextAlign}
+                    onCancel={() => setFlashcardIsOpenSettings(false)}
+                    onEdit={editFlashcardReq} onDelete={deleteFlashcardReq} />
             )}
             {settingsAreOpen && (
-                <FlashcardSettings flashcard={flashcard} onChangeTextAlign={onChangeTextAlign} onCancel={() => setSettingsAreOpen(false)} onEdit={editFlashcardReq} onDelete={deleteFlashcardReq} />
+                <ClosedFlashcardSettings
+                    flashcard={flashcard}
+                    onChangeTextAlign={onChangeTextAlign}
+                    onCancel={() => setSettingsAreOpen(false)}
+                    onEdit={editFlashcardReq}
+                    onDelete={deleteFlashcardReq} />
             )}
             {editingIsOpen && <FlashcardForm
                 type='Edit'
