@@ -53,11 +53,11 @@ const Flashcard = ({
     const refTitleHeight = useRef(null);
 
     useEffect(() => {
-    //sets the height of the flashcard on component render
+        //sets the height of the flashcard on component render
         setFlashcardHeight(refHeight.current.clientHeight);
         if (
             refHeight.current.clientHeight >= 290 &&
-      refTitleHeight.current.clientHeight + refContentHeight.current.clientHeight > 260
+            refTitleHeight.current.clientHeight + refContentHeight.current.clientHeight > 260
         ) {
             //checks if the flashcard has its max height and applies bottom text fade out gradient
             setMaxHeightGradient('flashcard-rechteck-gradient');
@@ -66,42 +66,42 @@ const Flashcard = ({
         }
     }, []);
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [modalIsOpenSO, setModalIsOpenSO] = useState(false);
-    const [modalIsOpenS, setModalIsOpenS] = useState(false);
-    const [modalIsOpenD, setModalIsOpenD] = useState(false);
-    const [modalIsOpenE, setModalIsOpenE] = useState(false);
+    const [flashcardIsOpen, setFlashcardIsOpen] = useState(false);
+    const [flashcardIsOpenSettings, setFlashcardIsOpenSettings] = useState(false);
+    const [settingsAreOpen, setSettingsAreOpen] = useState(false);
+    const [deletingIsOpen, setDeletingIsOpen] = useState(false);
+    const [editingIsOpen, setEditingIsOpen] = useState(false);
 
     function closeFlashcard() {
         onCloseFlashcard();
-        setModalIsOpenSO(false);
+        setFlashcardIsOpenSettings(false);
     }
 
     if (openFlashcardView === flashcard.pos) {
-        if (modalIsOpen === false) {
-            setModalIsOpen(true);
+        if (flashcardIsOpen === false) {
+            setFlashcardIsOpen(true);
         }
     } else {
-        if (modalIsOpen === true) {
-            setModalIsOpen(false);
+        if (flashcardIsOpen === true) {
+            setFlashcardIsOpen(false);
         }
     }
 
     function backdropClickOpen() {
-        setModalIsOpenSO(false);
-        setModalIsOpenE(false);
+        setFlashcardIsOpenSettings(false);
+        setEditingIsOpen(false);
     }
 
     function deleteFlashcardReq() {
-        setModalIsOpenD(true);
-        setModalIsOpenS(false);
-        setModalIsOpenSO(false);
+        setDeletingIsOpen(true);
+        setSettingsAreOpen(false);
+        setFlashcardIsOpenSettings(false);
     }
 
     function editFlashcardReq() {
-        setModalIsOpenE(true);
-        setModalIsOpenS(false);
-        setModalIsOpenSO(false);
+        setEditingIsOpen(true);
+        setSettingsAreOpen(false);
+        setFlashcardIsOpenSettings(false);
     }
 
     const [pos, setPos] = useState(flashcard.pos);
@@ -127,7 +127,7 @@ const Flashcard = ({
         <div className='flashcard-body' style={{ height: `calc(${flashcardHeight}px + 35px)`, boxShadow: '0.25vw 0.75vh 10px var(--color-shadow-flashcard)' }}>
             {/*height is set by the useEffect based on the inner rectangle height*/}
             <div className='flashcard-settings-bar'>
-                <div className='flashcard-settings' onClick={() => setModalIsOpenS(true)}>
+                <div className='flashcard-settings' onClick={() => setSettingsAreOpen(true)}>
                     <span className='dot' />
                     <span className='dot' />
                     <span className='dot' />
@@ -167,13 +167,13 @@ const Flashcard = ({
                 </h3>
                 <div
                     className='flashcard-content'
-                    style={{ textAlign: flashcard.textAlign as any, opacity: (type === 'only-question' && !isMouseInside) ? '0': '1' }}
+                    style={{ textAlign: flashcard.textAlign as any, opacity: (type === 'only-question' && !isMouseInside) ? '0' : '1' }}
                     ref={refContentHeight}
                     dangerouslySetInnerHTML={{ __html: marked.parse(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
                 />
                 {/*dangerouslySetInnerHTML parses the formatted html text*/}
             </div>
-            {modalIsOpen && (
+            {flashcardIsOpen && (
                 <div>
                     <div className='flashcard-switch-arrows'>
                         <div className='next-flashcard' onClick={() => onNextFlashcard(flashcard.pos)} />
@@ -183,7 +183,7 @@ const Flashcard = ({
                         <div className='close-flashcard-button' onClick={closeFlashcard}>
                             <div className='close-flashcard-arrow' />
                         </div>
-                        <div className='flashcard-open-settings' onClick={() => setModalIsOpenSO(true)}>
+                        <div className='flashcard-open-settings' onClick={() => setFlashcardIsOpenSettings(true)}>
                             <span className='big-dot' />
                             <span className='big-dot' />
                             <span className='big-dot' />
@@ -193,7 +193,7 @@ const Flashcard = ({
                         <p style={{ fontSize: '40px' }} />
                         <div
                             className='flashcard-open-content'
-                            style={{ textAlign: flashcard.textAlign as any}}
+                            style={{ textAlign: flashcard.textAlign as any }}
                             dangerouslySetInnerHTML={{ __html: marked.parse(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
                         />
                         {/*dangerouslySetInnerHTML parses the formatted html text*/}
@@ -201,7 +201,7 @@ const Flashcard = ({
                     <Backdrop onClick={closeFlashcard} />
                 </div>
             )}
-            {modalIsOpenSO && (
+            {flashcardIsOpenSettings && (
                 <>
                     <div className='flashcard-open-settings-overlay-position-field'>
                         <div
@@ -266,7 +266,7 @@ const Flashcard = ({
                     <BackdropOpenFlashcard onClick={backdropClickOpen} />
                 </>
             )}
-            {modalIsOpenS && (
+            {settingsAreOpen && (
                 <>
                     <div className='flashcard-settings-overlay'>
                         <div className='folder-settings-sub'>
@@ -322,21 +322,21 @@ const Flashcard = ({
                             </p>
                         </div>
                     </div>
-                    <BackdropTransparent onClick={() => setModalIsOpenS(false)} />
+                    <BackdropTransparent onClick={() => setSettingsAreOpen(false)} />
                 </>
             )}
-            {modalIsOpenE && <FlashcardForm
+            {editingIsOpen && <FlashcardForm
                 type='Edit'
                 flashcard={flashcard}
-                onCancel={() => setModalIsOpenE(false)}
-                onConfirm={(title: any, content: any) => { onEditFlashcard(flashcard._id, title, content); setModalIsOpenE(false); }}
+                onCancel={() => setEditingIsOpen(false)}
+                onConfirm={(title: any, content: any) => { onEditFlashcard(flashcard._id, title, content); setEditingIsOpen(false); }}
                 folderID={undefined}
             />}
-            {modalIsOpenD && (
+            {deletingIsOpen && (
                 <Confirm
                     title='Do you really want to delete this flashcard?'
                     onConfirm={() => onDeleteFlashcard(flashcard._id, flashcard.pos)}
-                    onCancel={() => setModalIsOpenD(false)}
+                    onCancel={() => setDeletingIsOpen(false)}
                 />
             )}
         </div>
