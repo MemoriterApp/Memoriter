@@ -49,7 +49,7 @@ function TutorialSpacedRep() {
         <div className='study-spaced-repetition-tutorial'>
             {/*These are the first Texts you see when entering the tutorial popup. */}
             <div className='tutorial-sub'>
-                <p id='title' style={{fontSize:'28px'}}>Tutorial on Spaced Repetition buttons</p> 
+                <p id='title' style={{fontSize:'2.8vmin'}}>Tutorial on Spaced Repetition buttons</p> 
                 <p id='text_1'></p>
                 <p id='text_2'>To start click on a colored button below.</p>
                 <p id='text_3'></p>

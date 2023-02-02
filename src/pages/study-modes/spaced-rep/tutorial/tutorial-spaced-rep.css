@@ -16,7 +16,7 @@
 .tutorial-sub {
     color: #000000;
     font-family: var(--current-font);
-    font-size: 20px;
+    font-size: 1.9vmin;
     position: relative;
     cursor: auto;
     width: 105%;
@@ -38,20 +38,23 @@
     border: 0;
     cursor: pointer;
     z-index: -1;
+    text-shadow: 1px 1px rgba(66, 66, 66, 0.418);
 }
 
 .tutorial-spaced-repetition-buttons:hover {
     color: rgba(255, 255, 255, 1);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.8);
 }
 
 .tutorial-spaced-repetition-buttons:focus {
     color: rgba(255, 255, 255, 1);
     background-color: rgb(192, 11, 11);
-    box-shadow: 0 5px 15px rgba(175, 175, 175, 0.8);
+    box-shadow: 0px 2px 20px rgba(175, 175, 175, 0.753);
+    text-shadow: 2px 3px rgba(0, 0, 0, 0.685);
 }
 
-.color-picker {
-    background: #8f0d0d;
-    color: #C0362c;
+@media (max-width: 1700px) {
+    .spaced-rep-button {
+        width: auto;        
+    }
 }
