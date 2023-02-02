@@ -268,6 +268,7 @@ function TopicPage() {
                             <FlashcardForm
                                 type='Create new'
                                 onConfirm={addFlashcard}
+                                onCancel={() => setAddFlashcardModal(false)}
                                 folderID={folderID}
                             />
                         )}
