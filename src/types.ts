@@ -1,14 +1,12 @@
-import ObjectId from "bson-objectid"
-
 export type Flashcard = {
-    _id: ObjectId,
+    _id?: string,
     content: string,
     interval: number,
     easiness: number,
     nextDate: number,
     pos: number,
     streak: number,
-    folder: ObjectId,
+    folder: string,
     textAlign: string,
     textAlignColor: string,
     textAlignSymbol: string,
@@ -17,7 +15,7 @@ export type Flashcard = {
 }
 
 export type Folder = {
-    _id: ObjectId,
+    _id?: string,
     archived?: boolean,
     pos?: number,
     title?: string,

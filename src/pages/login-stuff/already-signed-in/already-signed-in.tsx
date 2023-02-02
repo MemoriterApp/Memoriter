@@ -5,7 +5,7 @@ import { signOut } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
 
-const AlreadySignedIn = ({ title }) => {
+const AlreadySignedIn = ({ title }: { title: any }) => {
 
     const navigate = useNavigate(); //variable for navigation between pages, alternative to link
 

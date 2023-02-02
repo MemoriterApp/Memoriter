@@ -11,7 +11,6 @@ import { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
 import ArchivedFolders from '../archive-folders/archived-folders';
 import * as Type from '../../../types';
-import ObjectId from 'bson-objectid';
 
 //this file is the home page of the app where you see all your folders
 //it uses some css from home.css
@@ -34,17 +33,17 @@ function HomePage() {
     const [modalIsOpen, setModalIsOpen] = useState(false); //state to check if the modal is open or not
 
     //Folder Position
-    folders.sort(function (a, b) {
+    folders.sort(function (a: Type.Folder, b: Type.Folder) {
         return a.pos - b.pos;
     }); //Sorting Folders
 
-    const posUp = async (id: ObjectId, pos: number) => {
+    const posUp = async (id: string, pos: number) => {
     //Position Up
         const newPosUp = { pos: pos - 1 };
         await updateFolder(id, newPosUp);
 
         setFolders(
-            folders.map((folder) =>
+            folders.map((folder: Type.Folder) =>
                 folder._id === id
                     ? { ...folder, pos: folder.pos - 1 }
                     : folder.pos === pos - 1
@@ -54,7 +53,7 @@ function HomePage() {
         );
     };
 
-    const posDown = async (id: ObjectId, pos: number) => {
+    const posDown = async (id: string, pos: number) => {
     //Position Down
         const newPosDown = { pos: pos + 1 };
         await updateFolder(id, newPosDown);
@@ -70,7 +69,7 @@ function HomePage() {
         );
     };
 
-    const posAdjust = async (id: ObjectId, pos: any) => {
+    const posAdjust = async (id: string, pos: any) => {
     //Adjust Position
         const newPosAdjust = { pos: pos };
         await updateFolder(id, newPosAdjust);
@@ -88,22 +87,22 @@ function HomePage() {
     };
 
     //Delete Folder
-    const deleteFolder = async (folder: Type.Folder) => {
-        await removeFolder(folder._id);
+    const deleteFolder = async (oldFolder: Type.Folder) => {
+        await removeFolder(oldFolder._id);
 
         setFolders((folders: Type.Folder[]) =>
             folders
                 .map((folder) =>
-                    folder.pos > folder.pos
-                        ? (sessionStorage.setItem('newPosFolder' + folder._id, folder._id.toString()),
+                    folder.pos > oldFolder.pos
+                        ? (sessionStorage.setItem('newPosFolder' + folder._id, folder._id),
                         { ...folder, pos: folder.pos - 1 })
                         : folder
                 )
-                //.filter((folder) => folder._id.toString() !== folder._id)
+                .filter((folder) => folder._id !== oldFolder._id)
         );
 
         //delete folder flashcards stuff
-        const flashcards = await getFlashcards(folder._id);
+        const flashcards = await getFlashcards(oldFolder._id);
 
         flashcards.forEach(async (flashcard) => {
             await removeFlashcard(flashcard._id);
@@ -111,14 +110,14 @@ function HomePage() {
     };
 
     //Edit Folder
-    const editFolder = async (id: ObjectId, title: any) => {
+    const editFolder = async (id: string, title: any) => {
         const newTitle = { title: title };
         await updateFolder(id, newTitle);
         setFolders(folders.map((folder: Type.Folder) => (folder._id === id ? { ...folder, title: title } : folder)));
     };
 
     // archive folder
-    const archiveFolder = async (id: ObjectId) => {
+    const archiveFolder = async (id: string) => {
         await updateFolder(id, { archived: true });
         setFolders(
             folders.map((folder: Type.Folder) => (folder._id === id ? { ...folder, archived: true } : folder))
@@ -126,7 +125,7 @@ function HomePage() {
     };
 
     // de-archive folder
-    const dearchiveFolder = async (id: ObjectId) => {
+    const dearchiveFolder = async (id: string) => {
         await updateFolder(id, { archived: false });
         setFolders(
             folders.map((folder: Type.Folder) => (folder._id === id ? { ...folder, archived: false } : folder))
@@ -164,11 +163,7 @@ function HomePage() {
                                     onPosDown={posDown}
                                     onPosAdjust={posAdjust}
                                 />
-                                <Backdrop
-                                    onClick={() => {
-                                        setArchiveFolderIsOpen(false);
-                                    }}
-                                />
+                                <Backdrop onClick={() => setArchiveFolderIsOpen(false)}/>
                             </div>
                         )}
                         <SettingsIcon />
@@ -190,7 +185,7 @@ function HomePage() {
                                 .filter((folder: Type.Folder) => !folder.archived)
                                 .map((folder: Type.Folder) => (
                                     <Folder
-                                        key={folder._id.toString()}
+                                        key={folder._id}
                                         folder={folder}
                                         folderCount={folders.length}
                                         onDeleteFolder={deleteFolder}

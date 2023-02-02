@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import './folder-form.css';
 import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 
-const FolderForm = ({ type, folder, onConfirm, onCancel }) => {
+const FolderForm = ({ type, folder, onConfirm, onCancel }: { type: any, folder: any, onConfirm: any, onCancel: any, }) => {
 
     // name of the folder
-    const [title, setTitle] = useState(folder.title);
+    const [title, setTitle] = useState<string>(folder.title);
 
     // function to apply the input value as folder name
-    const onSubmitFolder = (event) => {
+    const onSubmitFolder = (event: FormEvent) => {
         event.preventDefault();
         onConfirm(title);
     };

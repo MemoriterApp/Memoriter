@@ -17,7 +17,7 @@ function SettingsClick() {
 
     const themeText = useSelector((state: any) => state.theme.value); //current light or dark mode text based on theme
 
-    function onChangeTheme(theme) { //function to swap the current theme
+    function onChangeTheme(theme: string) { //function to swap the current theme
         dispatch(changeTheme(theme)); //changes the theme
         localStorage.setItem('theme', theme); //the theme can be saved to localStorage
     }

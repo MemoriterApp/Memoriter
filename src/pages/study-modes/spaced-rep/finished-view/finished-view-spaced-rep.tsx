@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 import './finished-view-spaced-rep.css';
 
-function FinishedViewSpacedRep({ studiedFlashcards, incorrectFlashcards }) {
+function FinishedViewSpacedRep({ studiedFlashcards, incorrectFlashcards }: {studiedFlashcards: any, incorrectFlashcards: any}) {
     const navigate = useNavigate();
     return (
         <div>

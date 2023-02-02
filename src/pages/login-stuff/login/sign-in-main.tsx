@@ -2,14 +2,14 @@ import googleIcon from '../../images/icons/google-icon.svg';
 import appleIcon from '../../images/icons/apple-icon.svg';
 import facebookIcon from '../../images/icons/facebook-icon.svg';
 import githubIcon from '../../images/icons/github-icon.svg';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
 import { firebase } from '../../../technical/utils/mongo';
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, OAuthProvider, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, OAuthProvider, FacebookAuthProvider, GithubAuthProvider, AuthError } from 'firebase/auth';
 
-const SignInMain = ({ onOpenPasswordReset }) => {
+const SignInMain = ({ onOpenPasswordReset }: { onOpenPasswordReset: any }) => {
 
     const navigate = useNavigate(); //variable for routing, alternative option for links
 
@@ -20,10 +20,10 @@ const SignInMain = ({ onOpenPasswordReset }) => {
     const [email, setEmail] = useState(''); //email input value
     const [password, setPassword] = useState(''); //password input value
 
-    const [errorMessage, setErrorMessage] = useState(''); //error message if sign in fails
+    const [errorMessage, setErrorMessage] = useState<String>(''); //error message if sign in fails
     const [errorStyleChanges, setErrorStyleChanges] = useState({}); //style adjustments when an error popup displays
 
-    function displayError(errorMessage) { //function for displaying the error popup when sign in fails
+    function displayError(errorMessage: String) { //function for displaying the error popup when sign in fails
         setErrorMessage(errorMessage); //configures message
 
         setPassword(''); //clears password input field
@@ -44,7 +44,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
 
     const [successMessage, setSuccessMessage] = useState(''); //success message for sign out or account deletion
 
-    function displaySuccess(successMessage) { //function for displaying the success popup when sign in fails
+    function displaySuccess(successMessage: any) { //function for displaying the success popup when sign in fails
         setSuccessMessage(successMessage); //configures message
 
         dispatch(displaySuccessMessage('')); //removes unnecessary state (would trigger infinite loop)
@@ -67,7 +67,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
         displaySuccess(authenticationSuccess);
     }
 
-    const error = ((error) => { //function instructions what to do if sign in fails (.catch()), is seperate to shorten the code by reusing it
+    const error = ((error: AuthError) => { //function instructions what to do if sign in fails (.catch()), is seperate to shorten the code by reusing it
         switch (error.code) { //reads error code
         case 'auth/wrong-password': //wrong password
             displayError('Wrong Password!');
@@ -99,7 +99,7 @@ const SignInMain = ({ onOpenPasswordReset }) => {
         }
     });
 
-    async function defaultSignIn(e) { //function to sign in with email and password
+    async function defaultSignIn(e: FormEvent) { //function to sign in with email and password
         e.preventDefault(); //removes the default html submit
 
         setSuccessMessage(''); //disables success popup (prevents conflict with error popup)

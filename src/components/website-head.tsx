@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet'; //React-helmet is a package to create working head tags in React.
 
-const Head = ({ title, description }) => {
+const Head = ({ title, description }: { title: String, description: string }) => {
     return (
         <Helmet> {/*The helmet tag is like a head tag for meta data, the normal head tag does not work in React.*/}
             <title>Memoriter | {title}</title> {/*title changes with currently open page*/}

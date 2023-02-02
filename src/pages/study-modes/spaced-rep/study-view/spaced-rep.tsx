@@ -11,8 +11,7 @@ import { firebase, getFlashcards, removeFlashcard, updateFlashcard } from '../..
 import { useState, useEffect } from 'react';
 import { spacedRepetition } from '../../../../technical/utils/spaced-repetition';
 import FinishedViewSpacedRep from '../finished-view/finished-view-spaced-rep';
-import { Flashcard } from "../../../../types";
-import ObjectId from "bson-objectid"
+import { Flashcard } from '../../../../types';
 
 function SpacedRepMode() {
 
@@ -41,8 +40,8 @@ function SpacedRepMode() {
     //Use Effect für Notes
     useEffect(() => {
         const fetchFlashcards = async () => {
-            const allFlashcards = await getFlashcards(new ObjectId(folderID));
-            setFlashcards(allFlashcards)
+            const allFlashcards = await getFlashcards(folderID);
+            setFlashcards(allFlashcards);
         };
         fetchFlashcards();
         localStorage.setItem('lastPage', '/study');
@@ -92,19 +91,19 @@ function SpacedRepMode() {
     }
 
     //Change text align
-    const changeTextAlign = async (id: ObjectId, textAlign: any) => {
+    const changeTextAlign = async (id: string, textAlign: any) => {
         await updateFlashcard(id, { textAlign: textAlign });
         setFlashcards(flashcards.map((flashcard) => flashcard._id === id ? { ...flashcard, textAlign: textAlign } : flashcard));
     };
     //Edit Flashcard
-    const editFlashcard = async (id: ObjectId, title: any, content: any) => {
+    const editFlashcard = async (id: string, title: any, content: any) => {
         const newAll = { title: title, content: content };
         await updateFlashcard(id, newAll);
         setFlashcards(flashcards.map((flashcard) => flashcard._id === id
             ? { ...flashcard, title: title, content: content } : flashcard));
     };
     //Delete Flashcard
-    const deleteFlashcard = async (id: ObjectId, pos: number) => {
+    const deleteFlashcard = async (id: string, pos: number) => {
         await removeFlashcard(id);
         setFlashcards((flashcards) =>
             flashcards
@@ -153,11 +152,11 @@ function SpacedRepMode() {
                 </>}
 
                 {tutorialSpacedRepetition &&
-                    <TutorialSpacedRep />
+                    <>
+                        <TutorialSpacedRep />
+                        <Backdrop onClick={() => setTutorialSpacedRepetition(false)}/>
+                    </>
                 }
-                <div onClick={() => setTutorialSpacedRepetition(false)}>
-                    {tutorialSpacedRepetition && <Backdrop />}
-                </div>
 
                 {finished && <FinishedViewSpacedRep
                     studiedFlashcards={studiedFlashcards}

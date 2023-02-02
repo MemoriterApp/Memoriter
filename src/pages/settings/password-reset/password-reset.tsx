@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import './password-reset.css';
 
-const PasswordReset = ({ closePasswordResetModal }) => {
+const PasswordReset = ({ closePasswordResetModal }: { closePasswordResetModal: any } ) => {
 
     const auth = getAuth();
 
@@ -12,7 +12,7 @@ const PasswordReset = ({ closePasswordResetModal }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    async function passwordReset(e) {
+    async function passwordReset(e: FormEvent) {
         e.preventDefault();
 
         if (email === '') {

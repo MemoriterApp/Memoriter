@@ -1,10 +1,11 @@
-import './backdrop-open-flashcard.css'
+import './backdrop-open-flashcard.css';
 
-function BackdropOpenFlashcard(props: any) {
+
+function BackdropOpenFlashcardSO({ onClick }: { onClick: VoidFunction }) {
     return (
-        <div className='backdrop-open-flashcard' onClick={props.onClick} >
+        <div className='backdrop-open-flashcard' onClick={onClick} >
         </div>
     );
 }
 
-export default BackdropOpenFlashcard;
+export default BackdropOpenFlashcardSO;

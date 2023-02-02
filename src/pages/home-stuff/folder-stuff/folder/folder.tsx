@@ -5,9 +5,8 @@ import Confirm from '../../../../components/confirm/confirm';
 import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FolderForm from '../form-folder/folder-form';
 import FolderSettings from '../settings-folder/folder-settings';
-import * as Type from "../../../../types";
-import { getFlashcards } from "../../../../technical/utils/mongo";
-import ObjectId from "bson-objectid"
+import * as Type from '../../../../types';
+import { getFlashcards } from '../../../../technical/utils/mongo';
 
 const Folder = ({
     folder,
@@ -19,18 +18,28 @@ const Folder = ({
     onPosAdjust,
     onArchiveFolder,
     onDearchiveFolder,
+}: {
+    folder: any,
+    onDeleteFolder: any,
+    onEditFolder: any,
+    onPosUp: any,
+    onPosDown: any,
+    folderCount: any,
+    onPosAdjust: any,
+    onArchiveFolder: any,
+    onDearchiveFolder: any,
 }) => {
 
     const [due, setDue] = useState<any>([]); //creates the flashcard state
 
     //Use Effect fot notes resets the notes state when the page is loaded
     useEffect(() => {
-        const getFlashcards1 = async () => {
+        const syncFlashcards = async () => {
             //gets all flashcards from the synced folder
-            const allFlashcards = await getFlashcards(new ObjectId(folder._id));
+            const allFlashcards = await getFlashcards(folder._id);
             setDue(allFlashcards);
         };
-        getFlashcards1(); //calls the function
+        syncFlashcards(); //calls the function
         sessionStorage.setItem('flashcard-content', '');
         localStorage.setItem('lastPage', '/topic');
     }, []); // do not add dependencies, otherwise it will loop
@@ -63,13 +72,11 @@ const Folder = ({
     const [deleteModal, setDeleteModal] = useState(false);
     const [editModal, setEditModal] = useState(false);
 
-
     // function when the folder is edited
-    const editFolder = (newTitle) => {
+    const editFolder = (newTitle: string) => {
         onEditFolder(folder._id, newTitle);
         setEditModal(false);
     };
-
 
     const [pos, setPos] = useState(folder.pos); // pos is the state of the position of the folder
     // if the position of the folder is not the same as the state of the position of the folder
@@ -89,8 +96,6 @@ const Folder = ({
         onPosAdjust(folder._id, folder.pos); //adjust the position of the folder
         sessionStorage.removeItem('newPosFolder' + folder._id); //remove the id of the folder that has the new position from the session storage
     }
-
-
 
     return (
         <section className='folder'>
@@ -141,13 +146,16 @@ const Folder = ({
             </div>
 
             {modalIsOpen && (
-                <FolderSettings
-                    folder={folder}
-                    editFolderReq={() => { setEditModal(true); setModalIsOpen(false); }}
-                    deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
-                    onArchive={onArchiveFolder}
-                    onDearchive={onDearchiveFolder}
-                />
+                <>
+                    <FolderSettings
+                        folder={folder}
+                        editFolderReq={() => { setEditModal(true); setModalIsOpen(false); }}
+                        deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
+                        onArchive={onArchiveFolder}
+                        onDearchive={onDearchiveFolder}
+                    />
+                    <Backdrop onClick={() => setModalIsOpen(false)} />
+                </>
             )}
 
             {editModal && (
@@ -162,12 +170,10 @@ const Folder = ({
             {deleteModal && (
                 <Confirm
                     title='Do you really want to delete this folder?'
-                    onConfirm={() => onDeleteFolder(folder)}
+                    onConfirm={() => onDeleteFolder(folder) && setDeleteModal(false)}
                     onCancel={() => setDeleteModal(false)}
                 />
             )}
-
-            <div onClick={() => { setModalIsOpen(false); }}>{modalIsOpen && <Backdrop />}</div>
         </section>
     );
 };

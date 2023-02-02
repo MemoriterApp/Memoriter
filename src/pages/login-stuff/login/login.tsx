@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import Logo from '../../../images/memoriter-logo.svg';
 import Footer from '../../../components/footer/footer';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
@@ -42,7 +42,7 @@ function LoginPage() {
         localStorage.setItem('lastPage', '/login');
     });
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e: FormEvent) {
         e.preventDefault();
 
         try {

@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-function BackdropTransparent({ onClick }) {
+function BackdropTransparent({ onClick }: { onClick: VoidFunction }) {
 
     const backdropTransparentStyles: CSSProperties = { //css for transparent backdrop
         position: 'fixed',

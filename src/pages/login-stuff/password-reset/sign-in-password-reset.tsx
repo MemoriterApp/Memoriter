@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { firebase } from '../../../technical/utils/mongo';
 import { sendPasswordResetEmail } from 'firebase/auth';
 
-const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
+const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }: { onAnimation: any, onClosePasswordReset: any }) => {
 
     const animationStyles = onAnimation; //preset for fade in and out animation
 
@@ -12,13 +12,13 @@ const SignInPasswordReset = ({ onAnimation, onClosePasswordReset }) => {
 
     const [errorMessage, setErrorMessage] = useState(''); //error message if password reset email fails
 
-    function displayError(errorMessage) { //function for displaying the error popup when password reset email fails
+    function displayError(errorMessage: string) { //function for displaying the error popup when password reset email fails
         setErrorMessage(errorMessage); //configures message
 
         setEmail(''); //clears email input field
     }
 
-    function passwordReset(e) { //function for sending password reset email
+    function passwordReset(e: FormEvent) { //function for sending password reset email
         e.preventDefault(); //removes the default html submit
 
         sendPasswordResetEmail(firebase.auth, email)

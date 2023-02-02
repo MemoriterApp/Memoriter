@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase, getFlashcards, removeFlashcard, updateFlashcard } from '../../../../technical/utils/mongo';
 import './regular-study.css';
-import ObjectId from 'bson-objectid';
+import { Flashcard } from "../../../../types";
 
 const StudyPage = () => {
 
@@ -22,7 +22,7 @@ const StudyPage = () => {
 
     let folderTitle = localStorage.getItem('folderTitle');
 
-    let folderID = new ObjectId(localStorage.getItem('folderID'));
+    let folderID = localStorage.getItem('folderID');
 
     //Flashcard Data
     const [flashcards, setFlashcards] = useState([]);
@@ -49,7 +49,7 @@ const StudyPage = () => {
         setStarted(true); //shows flashcard component
     }
 
-    function incorrect(incorrectFlashcard) { //function if an answer was defined as incorrect (reshuffles the array)
+    function incorrect(incorrectFlashcard: Flashcard) { //function if an answer was defined as incorrect (reshuffles the array)
         //removes the incorrect flashcard and moves it to the end, new flashcard shows up
         setFlashcards([
             ...flashcards
@@ -80,13 +80,13 @@ const StudyPage = () => {
     }
 
     //Change text align
-    const changeTextAlign = async (id: ObjectId, textAlign: any) => {
+    const changeTextAlign = async (id: string, textAlign: any) => {
         await updateFlashcard(id, { textAlign: textAlign });
         setFlashcards(flashcards.map((flashcard) => flashcard._id === id ? { ...flashcard, textAlign: textAlign } : flashcard));
     };
 
     //Edit Flashcard
-    const editFlashcard = async (id: ObjectId, title: any, content: any) => {
+    const editFlashcard = async (id: string, title: any, content: any) => {
         const newAll = { title: title, content: content };
         await updateFlashcard(id, newAll);
         setFlashcards(flashcards.map((flashcard) => flashcard._id === id
@@ -94,7 +94,7 @@ const StudyPage = () => {
     };
 
     //Delete Flashcard
-    const deleteFlashcard = async (id: ObjectId, pos: number) => {
+    const deleteFlashcard = async (id: string, pos: number) => {
         await removeFlashcard(id);
         setFlashcards((flashcards) =>
             flashcards

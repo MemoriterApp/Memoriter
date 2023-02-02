@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 
-function Backdrop({ onFade, onClick}: { onFade?: any, onClick?: any}) {
+function Backdrop({ onFade, onClick}: { onFade?: number, onClick?: VoidFunction}) {
 
     const opacity = onFade; //variable for possible fade animation (opacity)
 
@@ -18,7 +18,7 @@ function Backdrop({ onFade, onClick}: { onFade?: any, onClick?: any}) {
 
 
     return (
-            <div style={backdropStyles} onClick={() => onClick()}/>
+        <div style={backdropStyles} onClick={onClick}/>
     );
 }
 

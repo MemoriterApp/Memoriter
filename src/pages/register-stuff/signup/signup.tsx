@@ -1,6 +1,6 @@
 import Logo from '../../../images/memoriter-logo.svg';
 import Footer from '../../../components/footer/footer';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { firebase } from '../../../technical/utils/mongo';
@@ -40,7 +40,7 @@ function SignUpPage() {
         localStorage.setItem('lastPage', '/signup');
     });
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e: FormEvent) {
         e.preventDefault();
 
         if (password !== passwordAgain) {

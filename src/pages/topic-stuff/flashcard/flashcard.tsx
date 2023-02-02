@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Remarkable } from 'remarkable';
+import marked from 'marked';
 import edit from '../../../images/edit.svg';
 import deleteIcon from '../../../images/delete.svg';
 import alignLeft from '../../../images/text-align-left.svg';
@@ -10,8 +10,9 @@ import FlashcardForm from '../form/flashcard-form';
 import Confirm from '../../../components/confirm/confirm';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import BackdropOpenFlashcard from '../../../components/backdrops/backdrop-open-flashcard/backdropOpenFlashcard';
-import BackdropfsOpenFlashcard from '../../../components/backdrops/backdropfs-open-flashcard/backdropfsOpenFlashcard';
+import BackdropTransparent from '../../../components/backdrops/backdrop-transparent/backdrop-transparent';
 import './flashcard.css';
+import * as Type from '../../../types';
 
 const Flashcard = ({
     flashcard,
@@ -28,6 +29,21 @@ const Flashcard = ({
     openFlashcardView,
     onPosAdjust,
     onChangeTextAlign,
+}: {
+    flashcard: Type.Flashcard,
+    type?: String,
+    onPosLeft: any,
+    onPosRight: any,
+    flashcardCount: any,
+    onDeleteFlashcard: any,
+    onEditFlashcard: any,
+    onOpenFlashcard: any,
+    onCloseFlashcard: any,
+    onNextFlashcard: any,
+    onPrevFlashcard: any,
+    openFlashcardView: any,
+    onPosAdjust: any,
+    onChangeTextAlign: any,
 }) => {
     const refHeight = useRef(null); //reference to html id to get the height of the inner flashcard rectangle
     const [flashcardHeight, setFlashcardHeight] = useState(0); //height of the inner flashcard rectangle
@@ -35,8 +51,6 @@ const Flashcard = ({
 
     const refContentHeight = useRef(null);
     const refTitleHeight = useRef(null);
-
-    const markdown = new Remarkable();
 
     useEffect(() => {
     //sets the height of the flashcard on component render
@@ -53,10 +67,10 @@ const Flashcard = ({
     }, []);
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
-
-    function openFlashcard() {
-        onOpenFlashcard(flashcard.pos);
-    }
+    const [modalIsOpenSO, setModalIsOpenSO] = useState(false);
+    const [modalIsOpenS, setModalIsOpenS] = useState(false);
+    const [modalIsOpenD, setModalIsOpenD] = useState(false);
+    const [modalIsOpenE, setModalIsOpenE] = useState(false);
 
     function closeFlashcard() {
         onCloseFlashcard();
@@ -73,58 +87,22 @@ const Flashcard = ({
         }
     }
 
-    const [modalIsOpenSO, setModalIsOpenSO] = useState(false);
-
-    function settingsHandlerOpen() {
-        setModalIsOpenSO(true);
-    }
     function backdropClickOpen() {
         setModalIsOpenSO(false);
         setModalIsOpenE(false);
     }
-
-    const [modalIsOpenS, setModalIsOpenS] = useState(false);
-
-    function settingsHandler() {
-        setModalIsOpenS(true);
-    }
-    function backdropClick() {
-        setModalIsOpenS(false);
-    }
-
-    const [modalIsOpenD, setModalIsOpenD] = useState(false);
 
     function deleteFlashcardReq() {
         setModalIsOpenD(true);
         setModalIsOpenS(false);
         setModalIsOpenSO(false);
     }
-    function backdropClickD() {
-        setModalIsOpenD(false);
-    }
-
-    const [modalIsOpenE, setModalIsOpenE] = useState(false);
-    const [modalIsOpenEbackdrop, setModalIsOpenEbackdrop] = useState(false);
-    const [setModalIsOpenEbackdropfs] = useState(false);
 
     function editFlashcardReq() {
         setModalIsOpenE(true);
-        setModalIsOpenEbackdrop(true);
         setModalIsOpenS(false);
         setModalIsOpenSO(false);
     }
-
-    function backdropClickE() {
-        setTitle(flashcard.title);
-        //setContent(flashcard.content);
-        setModalIsOpenE(false);
-        setModalIsOpenEbackdrop(false);
-        //setModalIsOpenEbackdropfs(false);
-    }
-
-    const [title, setTitle] = useState(flashcard.title);
-
-    const [content, setContent] = useState(flashcard.content);
 
     const [pos, setPos] = useState(flashcard.pos);
 
@@ -149,7 +127,7 @@ const Flashcard = ({
         <div className='flashcard-body' style={{ height: `calc(${flashcardHeight}px + 35px)`, boxShadow: '0.25vw 0.75vh 10px var(--color-shadow-flashcard)' }}>
             {/*height is set by the useEffect based on the inner rectangle height*/}
             <div className='flashcard-settings-bar'>
-                <div className='flashcard-settings' onClick={settingsHandler}>
+                <div className='flashcard-settings' onClick={() => setModalIsOpenS(true)}>
                     <span className='dot' />
                     <span className='dot' />
                     <span className='dot' />
@@ -180,126 +158,116 @@ const Flashcard = ({
             <div
                 className={`flashcard-rechteck ${maxHeightGradient}`}
                 ref={refHeight}
-                onClick={openFlashcard}
+                onClick={() => onOpenFlashcard(flashcard.pos)}
                 onMouseEnter={() => setIsMouseInside(true)}
                 onMouseLeave={() => setIsMouseInside(false)}
             >
                 <h3 className='flashcard-title' ref={refTitleHeight}>
                     {flashcard.title}
                 </h3>
-                {type === 'only-question' && !isMouseInside ? (
-                    <div
-                        className='flashcard-content'
-                        style={{ textAlign: flashcard.textAlign, opacity: '0' }}
-                        ref={refContentHeight}
-                        dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
-                    />
-                ) : (
-                    <div
-                        className='flashcard-content'
-                        style={{ textAlign: flashcard.textAlign }}
-                        ref={refContentHeight}
-                        dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
-                    />
-                )}
+                <div
+                    className='flashcard-content'
+                    style={{ textAlign: flashcard.textAlign as any, opacity: (type === 'only-question' && !isMouseInside) ? '0': '1' }}
+                    ref={refContentHeight}
+                    dangerouslySetInnerHTML={{ __html: marked.parse(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
+                />
                 {/*dangerouslySetInnerHTML parses the formatted html text*/}
             </div>
-            <div>
-                {modalIsOpen && (
-                    <div>
-                        <div className='flashcard-switch-arrows'>
-                            <div className='next-flashcard' onClick={() => onNextFlashcard(flashcard.pos)} />
-                            <div className='prev-flashcard' onClick={() => onPrevFlashcard(flashcard.pos)} />
-                        </div>
-                        <div className='flashcard-open-body'>
-                            <div className='close-flashcard-button' onClick={closeFlashcard}>
-                                <div className='close-flashcard-arrow' />
-                            </div>
-                            <div className='flashcard-open-settings' onClick={settingsHandlerOpen}>
-                                <span className='big-dot' />
-                                <span className='big-dot' />
-                                <span className='big-dot' />
-                            </div>
-                            <p style={{ fontSize: '40px' }} />
-                            <h2 className='flashcard-open-title'>{flashcard.title}</h2>
-                            <p style={{ fontSize: '40px' }} />
-                            <div
-                                className='flashcard-open-content'
-                                style={{ textAlign: flashcard.textAlign }}
-                                dangerouslySetInnerHTML={{ __html: markdown.render(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
-                            />
-                            {/*dangerouslySetInnerHTML parses the formatted html text*/}
-                        </div>
+            {modalIsOpen && (
+                <div>
+                    <div className='flashcard-switch-arrows'>
+                        <div className='next-flashcard' onClick={() => onNextFlashcard(flashcard.pos)} />
+                        <div className='prev-flashcard' onClick={() => onPrevFlashcard(flashcard.pos)} />
                     </div>
-                )}
-            </div>
-            <div onClick={backdropClickD}>{modalIsOpenD && <BackdropOpenFlashcard />}</div>
-            <div onClick={backdropClickOpen}>{modalIsOpenSO && <BackdropfsOpenFlashcard />}</div>
-            {modalIsOpenSO && (
-                <div className='flashcard-open-settings-overlay-position-field'>
-                    <div
-                        className='flashcard-open-settings-overlay-position-field-click'
-                        onClick={backdropClickOpen}
-                    />
-                    <div className='flashcard-settings-overlay'>
-                        <div className='folder-settings-sub'>
-                            <p>
-                                {flashcard.textAlign === 'left' || (
-                                    <img
-                                        className='flashcard-settings-overlay-text-align'
-                                        src={alignLeft}
-                                        alt=''
-                                        onClick={() => onChangeTextAlign(flashcard._id, 'left')}
-                                    />
-                                )}
-                                {flashcard.textAlign === 'right' || (
-                                    <img
-                                        className='flashcard-settings-overlay-text-align'
-                                        src={alignRight}
-                                        alt=''
-                                        onClick={() => onChangeTextAlign(flashcard._id, 'right')}
-                                    />
-                                )}
-                                {flashcard.textAlign === 'center' || (
-                                    <img
-                                        className='flashcard-settings-overlay-text-align'
-                                        src={alignCenter}
-                                        alt=''
-                                        onClick={() => onChangeTextAlign(flashcard._id, 'center')}
-                                    />
-                                )}
-                                {flashcard.textAlign === 'justify' || (
-                                    <img
-                                        className='flashcard-settings-overlay-text-align'
-                                        src={alignJustify}
-                                        alt=''
-                                        onClick={() => onChangeTextAlign(flashcard._id, 'justify')}
-                                    />
-                                )}
-                            </p>
-                            <p onClick={editFlashcardReq}>
-                                <img
-                                    style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                                    src={edit}
-                                    alt=''
-                                />
-                Edit
-                            </p>
-                            <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
-                                <img
-                                    style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                                    src={deleteIcon}
-                                    alt=''
-                                />
-                Delete
-                            </p>
+                    <div className='flashcard-open-body'>
+                        <div className='close-flashcard-button' onClick={closeFlashcard}>
+                            <div className='close-flashcard-arrow' />
                         </div>
+                        <div className='flashcard-open-settings' onClick={() => setModalIsOpenSO(true)}>
+                            <span className='big-dot' />
+                            <span className='big-dot' />
+                            <span className='big-dot' />
+                        </div>
+                        <p style={{ fontSize: '40px' }} />
+                        <h2 className='flashcard-open-title'>{flashcard.title}</h2>
+                        <p style={{ fontSize: '40px' }} />
+                        <div
+                            className='flashcard-open-content'
+                            style={{ textAlign: flashcard.textAlign as any}}
+                            dangerouslySetInnerHTML={{ __html: marked.parse(flashcard.content).trimEnd().replace(/(\r\n|\n|\r)/gm, '') }}
+                        />
+                        {/*dangerouslySetInnerHTML parses the formatted html text*/}
                     </div>
+                    <Backdrop onClick={closeFlashcard} />
                 </div>
             )}
-            <div onClick={closeFlashcard}>{modalIsOpen && <Backdrop />}</div>
-            <div>
-                {modalIsOpenS && (
+            {modalIsOpenSO && (
+                <>
+                    <div className='flashcard-open-settings-overlay-position-field'>
+                        <div
+                            className='flashcard-open-settings-overlay-position-field-click'
+                            onClick={backdropClickOpen}
+                        />
+                        <div className='flashcard-settings-overlay'>
+                            <div className='folder-settings-sub'>
+                                <p>
+                                    {flashcard.textAlign === 'left' || (
+                                        <img
+                                            className='flashcard-settings-overlay-text-align'
+                                            src={alignLeft}
+                                            alt=''
+                                            onClick={() => onChangeTextAlign(flashcard._id, 'left')}
+                                        />
+                                    )}
+                                    {flashcard.textAlign === 'right' || (
+                                        <img
+                                            className='flashcard-settings-overlay-text-align'
+                                            src={alignRight}
+                                            alt=''
+                                            onClick={() => onChangeTextAlign(flashcard._id, 'right')}
+                                        />
+                                    )}
+                                    {flashcard.textAlign === 'center' || (
+                                        <img
+                                            className='flashcard-settings-overlay-text-align'
+                                            src={alignCenter}
+                                            alt=''
+                                            onClick={() => onChangeTextAlign(flashcard._id, 'center')}
+                                        />
+                                    )}
+                                    {flashcard.textAlign === 'justify' || (
+                                        <img
+                                            className='flashcard-settings-overlay-text-align'
+                                            src={alignJustify}
+                                            alt=''
+                                            onClick={() => onChangeTextAlign(flashcard._id, 'justify')}
+                                        />
+                                    )}
+                                </p>
+                                <p onClick={editFlashcardReq}>
+                                    <img
+                                        style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+                                        src={edit}
+                                        alt=''
+                                    />
+                                    Edit
+                                </p>
+                                <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
+                                    <img
+                                        style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+                                        src={deleteIcon}
+                                        alt=''
+                                    />
+                                    Delete
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <BackdropOpenFlashcard onClick={backdropClickOpen} />
+                </>
+            )}
+            {modalIsOpenS && (
+                <>
                     <div className='flashcard-settings-overlay'>
                         <div className='folder-settings-sub'>
                             <p>
@@ -342,7 +310,7 @@ const Flashcard = ({
                                     src={edit}
                                     alt=''
                                 />{' '}
-                Edit
+                                Edit
                             </p>
                             <p onClick={deleteFlashcardReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
                                 <img
@@ -350,28 +318,29 @@ const Flashcard = ({
                                     src={deleteIcon}
                                     alt=''
                                 />{' '}
-                Delete
+                                Delete
                             </p>
                         </div>
                     </div>
-                )}
-            </div>
+                    <BackdropTransparent onClick={() => setModalIsOpenS(false)} />
+                </>
+            )}
             {modalIsOpenE && <FlashcardForm
                 type='Edit'
                 flashcard={flashcard}
                 onCancel={() => setModalIsOpenE(false)}
-                onConfirm={(title, content) => { onEditFlashcard(flashcard._id, title, content); setModalIsOpenE(false); }}
+                onConfirm={(title: any, content: any) => { onEditFlashcard(flashcard._id, title, content); setModalIsOpenE(false); }}
                 folderID={undefined}
             />}
             {modalIsOpenD && (
                 <Confirm
                     title='Do you really want to delete this flashcard?'
                     onConfirm={() => onDeleteFlashcard(flashcard._id, flashcard.pos)}
-                    onCancel={backdropClickD}
+                    onCancel={() => setModalIsOpenD(false)}
                 />
             )}
-            <div onClick={backdropClick}>{modalIsOpenS && <Backdrop />}</div>
         </div>
     );
 };
+
 export default Flashcard;

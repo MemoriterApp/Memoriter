@@ -1,28 +1,27 @@
-const url = "https://app.memoriter.de/api/@memoriter/app/";
+const url = 'https://app.memoriter.de/api/@memoriter/app/';
 
-export async function getFlashcard(id: ObjectId): Promise<Flashcard> {
+export async function getFlashcard(id: string): Promise<Flashcard> {
     return await fetch(`${url}flashcard/${id}`, {
-        method: "GET"
-    }).then(x => x.json())
+        method: 'GET'
+    }).then((x) => x.json());
 }
 
-export async function getFlashcards(id: ObjectId): Promise<Flashcard[]> {
-    return await fetch(`${url}flashcards/${id.toHexString()}`, {
-        method: "GET"
-    }).then(x => x.json())
+export async function getFlashcards(id: string): Promise<Flashcard[]> {
+    return await fetch(`${url}flashcards/${id}`, {
+        method: 'GET'
+    }).then((x) => x.json());
 }
 
-export async function updateFlashcard(id: ObjectId, updates: any) {
+export async function updateFlashcard(id: string, updates: any) {
     return await fetch(`${url}flashcard/${id}`, {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify(updates)
     });
 }
 
-export async function insertFlashcard(title: string, content: string, folder: ObjectId, pos: number, user: User) {
+export async function insertFlashcard(title: string, content: string, folder: string, pos: number, user: User) {
 
     const flashcard: Flashcard = ({
-        _id: new ObjectId(),
         nextDate: new Date().getTime(),
         interval: 1,
         easiness: 2.5,
@@ -35,65 +34,62 @@ export async function insertFlashcard(title: string, content: string, folder: Ob
         textAlignColor: 'rgb(48, 118, 48)',
         folder: folder,
         user: user.uid,
-    })
+    });
 
     return await fetch(`${url}flashcard`, {
-        method: "PUT",
+        method: 'PUT',
         body: JSON.stringify(flashcard)
     });
 }
 
-export async function removeFlashcard(id: ObjectId) {
+export async function removeFlashcard(id: string) {
     return await fetch(`${url}flashcard/${id}`, {
-        method: "DELETE"
-    })
+        method: 'DELETE'
+    });
 }
 
 export async function getFolders(id: string): Promise<Folder[]> {
     return await fetch(`${url}folders/${id}`, {
-        method: "GET"
-    }).then(x => x.json())
+        method: 'GET'
+    }).then((x) => x.json());
 }
 
-export async function getFolder(id: ObjectId): Promise<Folder> {
+export async function getFolder(id: string): Promise<Folder> {
     return await fetch(`${url}folder/${id}`, {
-        method: "GET"
-    }).then(x => x.json())
+        method: 'GET'
+    }).then((x) => x.json());
 }
 
 export async function insertFolder(title: string, pos: number, uid: string) {
     const folder: Folder = ({
-        _id: new ObjectId(),
         title: title,
         pos,
         user: uid,
         archived: false
-    })
+    });
 
     return await fetch(`${url}folder`, {
-        method: "PUT",
+        method: 'PUT',
         body: JSON.stringify(folder)
     });
 }
 
-export async function updateFolder(id: ObjectId, updates: any) {
+export async function updateFolder(id: string, updates: any) {
     return await fetch(`${url}folder/${id}`, {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify(updates)
     });
 }
 
-export async function removeFolder(id: ObjectId) {
+export async function removeFolder(id: string) {
     return await fetch(`${url}folder/${id}`, {
-        method: "DELETE"
-    })
+        method: 'DELETE'
+    });
 }
 
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore/lite';
 import { getAuth, User } from 'firebase/auth';
-import { Flashcard, Folder } from "../../types";
-import ObjectId from "bson-objectid"
+import { Flashcard, Folder } from '../../types';
 
 const firebaseConfig = { //configuration and keys to connect to firebase
     apiKey: 'AIzaSyDBXsAk4E47Z9WyZ6__2WQNPnZi0aoWA4Q',

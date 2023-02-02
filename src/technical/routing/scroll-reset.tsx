@@ -4,7 +4,7 @@ This wrapper component (you can find it in App.jsx) fixes this issue by scrollin
 import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 
-const ScrollReset = ({ children }) => {
+const ScrollReset = ({ children }: { children: React.ReactNode }) => {
 
     const location = useLocation(); //does not work without this
 
@@ -12,7 +12,7 @@ const ScrollReset = ({ children }) => {
         window.scrollTo(0, 0); //scrolls to top
     }, [location]);
 
-    return(<>{children}</>); //children refers to the content inside the wrapper (all routes)
+    return (<>{children}</>); //children refers to the content inside the wrapper (all routes)
 };
 
 export default ScrollReset;

@@ -1,5 +1,5 @@
-import * as Type from "../../../types";
-import Folder from "../folder-stuff/folder/folder";
+import * as Type from '../../../types';
+import Folder from '../folder-stuff/folder/folder';
 import './archived-folders.css';
 
 function ArchivedFolders({
@@ -10,6 +10,14 @@ function ArchivedFolders({
     onPosUp,
     onPosDown,
     onPosAdjust,
+}: {
+    folders: any,
+    onDeleteFolder: any,
+    onEditFolder: any,
+    onDearchiveFolder: any,
+    onPosUp: any,
+    onPosDown: any,
+    onPosAdjust: any,
 }) {
 
     return (

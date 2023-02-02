@@ -1,17 +1,18 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
+import { Flashcard } from '../../../types';
 import './flashcard-form.css';
 
-const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }) => {
+const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { type: String, flashcard?: Flashcard, folderID: String, onConfirm: any, onCancel?: any }) => {
 
-    const [title, setTitle] = useState(flashcard.title); // flashcard title
-    const [content, setContent] = useState(flashcard.content); // flashcard content
+    const [title, setTitle] = useState<string>(flashcard ? flashcard.title: ''); // flashcard title
+    const [content, setContent] = useState<string>(flashcard ? flashcard.content: ''); // flashcard content
 
     // folder of the flashcard
     const [folder] = useState(folderID);
 
     // function to apply the input value as folder name
-    const onSubmitFlashcard = (event) => {
+    const onSubmitFlashcard = (event: FormEvent) => {
         event.preventDefault();
         onConfirm(title, content, folder);
     };

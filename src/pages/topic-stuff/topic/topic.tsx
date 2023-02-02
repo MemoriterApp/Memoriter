@@ -11,7 +11,6 @@ import Masonry from 'react-masonry-css';
 import Flashcard from '../flashcard/flashcard';
 import ChooseStudyMode from '../../study-modes/choose-studymode/choose-studymode';
 import { firebase, getFlashcards, insertFlashcard, removeFlashcard, updateFlashcard } from '../../../technical/utils/mongo';
-import ObjectId from 'bson-objectid';
 
 //this file is the home page of the app where you see all your flashcards
 //it uses css from topic.css
@@ -50,7 +49,7 @@ function TopicPage() {
     useEffect(() => {
         const syncFlashcards = async () => {
             //gets all flashcards from the synced folder
-            const allFlashcards = await getFlashcards(new ObjectId(localStorage.getItem('folderID')));
+            const allFlashcards = await getFlashcards(localStorage.getItem('folderID'));
             setFlashcards(allFlashcards);
         };
         syncFlashcards(); //calls the function
@@ -90,7 +89,7 @@ function TopicPage() {
         return a.pos - b.pos;
     }); //Sorting Flashcards
 
-    const posLeft = async (id: ObjectId, pos: number) => { //moves the flashcard to the left
+    const posLeft = async (id: string, pos: number) => { //moves the flashcard to the left
         const newPosLeft = { pos: pos - 1 };
 
         await updateFlashcard(id, newPosLeft);
@@ -107,7 +106,7 @@ function TopicPage() {
         );
     };
 
-    const posRight = async (id: ObjectId, pos: number) => { //moves the flashcard to the right
+    const posRight = async (id: string, pos: number) => { //moves the flashcard to the right
         const newPosRight = { pos: pos + 1 };
 
         await updateFlashcard(id, newPosRight);
@@ -124,7 +123,7 @@ function TopicPage() {
         );
     };
 
-    const posAdjust = async (id: ObjectId, pos: number) => {
+    const posAdjust = async (id: string, pos: number) => {
         //Adjust Position
         await updateFlashcard(id, { pos: pos });
     };
@@ -132,19 +131,19 @@ function TopicPage() {
     //Add Flashcard stuff
     const [addFlashcardModal, setAddFlashcardModal] = useState(false); //creates the state for the add flashcard modal
 
-    const addFlashcard = async (title: any, content: any, folder: ObjectId) => {
+    const addFlashcard = async (title: any, content: any, folder: string) => {
         const pos = flashcards.length + 1; //adds the flashcard to the end of the list
 
         await insertFlashcard(title, content, folder, pos, user);
 
-        const allFlashcards = await getFlashcards(new ObjectId(localStorage.getItem('folderID')));
+        const allFlashcards = await getFlashcards(localStorage.getItem('folderID'));
         setFlashcards(allFlashcards); //refresh the flashcards state
 
         setAddFlashcardModal(false); //closes the add flashcard modal once the flashcard has been added
     };
 
     //Edit Flashcard
-    const editFlashcard = async (id: ObjectId, title: any, content: any) => {
+    const editFlashcard = async (id: string, title: any, content: any) => {
         const newAll = { title: title, content: content };
         await updateFlashcard(id, newAll);
         setFlashcards(
@@ -155,7 +154,7 @@ function TopicPage() {
     };
 
     //Change text align
-    const changeTextAlign = async (id: ObjectId, textAlign: any) => {
+    const changeTextAlign = async (id: string, textAlign: any) => {
         await updateFlashcard(id, { textAlign: textAlign });
         setFlashcards(
             flashcards.map((flashcard) =>
@@ -165,7 +164,7 @@ function TopicPage() {
     };
 
     //Delete Flashcard
-    const deleteFlashcard = async (id: ObjectId, pos: number) => {
+    const deleteFlashcard = async (id: string, pos: number) => {
         await removeFlashcard(id);
         setFlashcards((flashcards) => //refresh flashcard state
             (flashcards)
@@ -251,7 +250,6 @@ function TopicPage() {
                                             onNextFlashcard={nextFlashcard}
                                             onPrevFlashcard={prevFlashcard}
                                             onChangeTextAlign={changeTextAlign}
-                                            type={undefined}
                                         />
                                     ))}
 
@@ -269,13 +267,10 @@ function TopicPage() {
                         {addFlashcardModal && (
                             <FlashcardForm
                                 type='Create new'
-                                flashcard={{ title: '', content: '' }}
                                 onConfirm={addFlashcard}
                                 folderID={folderID}
-                                onCancel={undefined}
                             />
                         )}
-                        <div onClick={() => setAddFlashcardModal(false)}>{addFlashcardModal && <Backdrop />}</div>
                     </div>
                     <BackButton />
                     <SettingsIcon />

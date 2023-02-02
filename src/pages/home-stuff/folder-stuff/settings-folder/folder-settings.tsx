@@ -9,6 +9,12 @@ function SettingsFolder({
     deleteFolderReq,
     onArchive,
     onDearchive
+}: {
+    folder: any,
+    editFolderReq: any,
+    deleteFolderReq: any,
+    onArchive: any,
+    onDearchive: any,
 }) {
 
     return (

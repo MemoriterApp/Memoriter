@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../change-preview/changePreview.css';
@@ -70,7 +70,7 @@ function Profile() {
     };
 
     //change email function
-    async function newEmailSubmit(e) {
+    async function newEmailSubmit(e: FormEvent) {
         e.preventDefault();
 
         const credential = EmailAuthProvider.credential( //required input for password confirm
@@ -110,7 +110,7 @@ function Profile() {
     }
 
     //change password function
-    async function newPasswordSubmit(e) {
+    async function newPasswordSubmit(e: FormEvent) {
         e.preventDefault();
 
         const credential = EmailAuthProvider.credential( //required input for password confirm
@@ -150,7 +150,7 @@ function Profile() {
     }
 
     //delete account password confirm
-    async function deleteAccountPasswordSubmit(e) {
+    async function deleteAccountPasswordSubmit(e: FormEvent) {
         e.preventDefault();
 
         const credential = EmailAuthProvider.credential( //required input for password confirm
@@ -191,7 +191,7 @@ function Profile() {
 
 
 
-    async function deleteAccountFinal(e) {
+    async function deleteAccountFinal(e: FormEvent) {
         e.preventDefault();
         //TODO: Move to new DB
         /*

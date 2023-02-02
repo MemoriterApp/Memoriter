@@ -2,10 +2,10 @@ import googleIcon from '../../images/icons/google-icon.svg';
 import appleIcon from '../../images/icons/apple-icon.svg';
 import facebookIcon from '../../images/icons/facebook-icon.svg';
 import githubIcon from '../../images/icons/github-icon.svg';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../../technical/utils/mongo';
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, OAuthProvider, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, OAuthProvider, FacebookAuthProvider, GithubAuthProvider, AuthError } from 'firebase/auth';
 
 const RegisterMain = () => {
 
@@ -21,7 +21,7 @@ const RegisterMain = () => {
     const [errorMessage, setErrorMessage] = useState(''); //error message if sign up fails
     const [errorStyleChanges, setErrorStyleChanges] = useState({}); //style adjustments when an error popup displays
 
-    function displayError(errorMessage) { //function for displaying the error popup when sign up fails
+    function displayError(errorMessage: string) { //function for displaying the error popup when sign up fails
         setErrorMessage(errorMessage); //configures message
 
         if (errorMessage !== 'Please accept terms and policies.') { //no password input clear for terms not accepted
@@ -43,7 +43,7 @@ const RegisterMain = () => {
         }
     }
 
-    const error = ((error) => { //function instructions what to do if sign in fails (.catch()), is seperate to shorten the code by reusing it
+    const error = ((error: AuthError) => { //function instructions what to do if sign in fails (.catch()), is seperate to shorten the code by reusing it
         switch (error.code) { //reads error code
         case 'auth/weak-password': //password too short
             displayError('Password is too short!');
@@ -78,7 +78,7 @@ const RegisterMain = () => {
         }
     });
 
-    async function defaultRegister(e) { //function to sign up with email and password
+    async function defaultRegister(e: FormEvent) { //function to sign up with email and password
         e.preventDefault();
 
         if (!acceptedTerms) { //checks if terms of use and privacy policy are accepted
