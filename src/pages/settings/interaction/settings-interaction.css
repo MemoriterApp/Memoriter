@@ -27,7 +27,7 @@
     left: calc(50% - 325px/2);
     top: calc(50% - 490px/2);
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     margin: 0;
 }
 
@@ -102,4 +102,11 @@
     height: calc(100vh - 40px);
     top: -70px;
   }
+}
+
+.theme-indicator {
+  display: inline-block;
+  padding: 0.1em 0.3em;
+  border-radius: 0.2em;
+  background-color: var();
 }
