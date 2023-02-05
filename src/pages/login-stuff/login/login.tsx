@@ -20,7 +20,6 @@ function LoginPage() {
         case error.code:
             setLoading(false);
             setRedBorderEmail('5px solid rgb(228, 48, 48)');
-            setInvalidEmail(true);
             break;
         }
     }
@@ -41,16 +40,10 @@ function LoginPage() {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const [invalidEmail, setInvalidEmail] = useState(false);
     const [redBorderEmail, setRedBorderEmail] = useState('5px solid var(--current-gray)');
     const [wrongPassword, setWrongPassword] = useState(false);
     const [redBorderPassword, setRedBorderPassword] = useState('5px solid var(--current-gray)');
 
-    const [user, setUser] = useState({});
-
-    onAuthStateChanged(firebase.auth, (currentUser) => {
-        setUser(currentUser!);
-    });
 
     useEffect(() => {
         localStorage.setItem('lastPage', '/login');
@@ -103,38 +96,8 @@ function LoginPage() {
                             onChange={
                                 (e) => {
                                     setEmail(e.target.value);
-                                    setInvalidEmail(false);
                                     setRedBorderEmail('5px solid var(--current-gray)');
                                 }} />
-                        {invalidEmail && <p className='passwords-no-match'>Invalid Email!</p>}
-
-                                <div className='folder-form-text' data-htmlFor='email'>Email Adress:</div>
-                                <p style={{ fontSize: '5px' }} />
-                                <input className='folder-form-input' type='email' id='email' name='email'
-                                    placeholder='Please enter Email Adress...'
-                                    value={email}
-                                    style={{ border: redBorderEmail }}
-                                    onChange={
-                                        (e) => {
-                                            setEmail(e.target.value);
-                                            setInvalidEmail(false);
-                                            setRedBorderEmail('5px solid var(--current-gray)');
-                                        }} />
-                                {invalidEmail && <p className='passwords-no-match'>Invalid Email!</p>}
-                                <p style={{ fontSize: '25px' }} />
-
-                                <div className='folder-form-text' data-htmlFor='password'>Password:</div>
-                                <p style={{ fontSize: '5px' }} />
-                                <input className='folder-form-input' type='password' id='password' name='password'
-                                    placeholder='Please Enter Password...' maxLength={50}
-                                    style={{ border: redBorderPassword }}
-                                    onChange={
-                                        (e) => {
-                                            setPassword(e.target.value);
-                                            setWrongPassword(false);
-                                            setRedBorderPassword('5px solid var(--current-gray)');
-                                        }} />
-                                {wrongPassword && <p className='passwords-no-match'>Wrong Password!</p>}
 
                         <p style={{ fontSize: '5px' }} />
                         

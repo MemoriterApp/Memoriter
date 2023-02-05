@@ -3,7 +3,7 @@ import Footer from '../../components/footer/footer';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
-import { firebase } from '../../technical/utils/firebase';
+import { firebase } from '../../technical/utils/mongo';
 import './sign-up.css';
 
 
@@ -57,7 +57,7 @@ function SignUpPage() {
         setBorderRedCheckbox(true);
     }
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e:any) {
         e.preventDefault();
         if (password !== passwordAgain) {
             notSamePassword();
@@ -114,7 +114,7 @@ function SignUpPage() {
                     <p style={{ fontSize: '25px' }} />
 
                     <form onSubmit={handleSubmit}>
-                        <div htmlFor='email'>Email Adress:
+                        <div id='email'>Email Adress:
 
                             <p style={{ fontSize: '5px' }} />
 
@@ -134,7 +134,7 @@ function SignUpPage() {
                         
                         <p style={{ fontSize: '25px' }} />
 
-                        <div htmlFor='password'>Password:
+                        <div id='password'>Password:
                         
                             <p style={{ fontSize: '5px' }} />
 
@@ -153,7 +153,7 @@ function SignUpPage() {
                         
                         <p style={{ fontSize: '25px' }} />
 
-                        <div htmlFor='password'>Confirm Password:</div>
+                        <div id='password'>Confirm Password:</div>
 
                         <p style={{ fontSize: '5px' }} />
                         <input className='folder-form-input' type='password' id='password-confirm' name='password'

@@ -29,7 +29,7 @@
     border-radius: 6px;
     background-color: var(--current-blue);
     position: absolute;
-    top: 400px;
+    top: 350px;
     left: 50%;
     border: 3px solid var(--current-blue);
     cursor: pointer;
@@ -57,7 +57,7 @@
     transform: translate(0%, 50%);
     font-family: var(--current-font);
     font-size: 25px;
-    color: var(--color-font);
+    color: var(--color-white);
     text-align: center;
     padding-top: 4px;
     padding-bottom: 8px;
