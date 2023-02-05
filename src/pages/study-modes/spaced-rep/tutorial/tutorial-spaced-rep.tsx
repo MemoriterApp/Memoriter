@@ -23,7 +23,7 @@ function TutorialSpacedRep() {
         document.getElementById('title').innerHTML = 'Mostly correct button';
         document.getElementById('text_1').innerHTML = 'This is used for questions where a small part of your answer is incorrect, or one of multiple correct one is incorrect.';
         document.getElementById('text_2').innerHTML = 'Example:';
-        document.getElementById('text_3').innerHTML = 'Q: Placeholder Text<div> A: NOTHING givven';
+        document.getElementById('text_3').innerHTML = 'Q: What are the four main taste sensations that our taste buds can detect?<div> A: Sweet, sour, salty, and Spicy. (Incorrect: Spicy is not one of the four main taste sensations that our taste buds can detect.)';
         document.getElementById('text_4').innerHTML = '';
     };
 
@@ -31,7 +31,7 @@ function TutorialSpacedRep() {
         document.getElementById('title').innerHTML = 'Almost correct button';
         document.getElementById('text_1').innerHTML = 'This is used for close calls, where you might have just misremembered the answer.';
         document.getElementById('text_2').innerHTML = 'Example:';
-        document.getElementById('text_3').innerHTML = 'Q: gfgfgfgfgfgfgfgfgfgfgff <div> Your A: fr <div> Correct A: gt ';
+        document.getElementById('text_3').innerHTML = 'Q: Who was the 16th President of the United States? <div> A: George Washington. (Incorrect: George Washington was the first President of the United States, but not the 16th.) ';
         document.getElementById('text_4').innerHTML = '';
 
     };
@@ -40,7 +40,7 @@ function TutorialSpacedRep() {
         document.getElementById('title').innerHTML = 'Incorrect button';
         document.getElementById('text_1').innerHTML = 'Here the answer is undoubtedly incorrect.';
         document.getElementById('text_2').innerHTML = 'Example:';
-        document.getElementById('text_3').innerHTML = 'Q: Where do polar bears live? <div> Your A: Antarctica <div> Correct A: The Artcic';
+        document.getElementById('text_3').innerHTML = 'Q: Where do polar bears live? <div> A: Antarctica (Incorrect: Polar bears live in the Arctic, not Antarctica.)';
         document.getElementById('text_4').innerHTML = '';
 
     };
