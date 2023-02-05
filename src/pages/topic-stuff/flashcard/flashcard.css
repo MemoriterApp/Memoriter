@@ -233,7 +233,8 @@ ol {
 
 .next-flashcard {
     position: absolute;
-    right: 0%;
+    right: 7.5vw;
+    bottom: 25vh;
     width: 0;
     height: 0;
     border-top: 40px solid var(--color-transparent);
@@ -245,7 +246,8 @@ ol {
 
 .prev-flashcard {
     position: absolute;
-    left: 0%;
+    left: 7.5vw;
+    bottom: 25vh;
     width: 0;
     height: 0;
     border-top: 40px solid var(--color-transparent);
@@ -260,8 +262,8 @@ ol {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 94vh;
-    width: calc(94vh / 3 * 2);
+    height: 50vh;
+    width: calc(50vh / 3 * 2);
     min-height: 160px;
     min-width: 120px;
     max-width: calc(100% - 160px);
@@ -271,7 +273,7 @@ ol {
     border-radius: 10px;
     z-index: 10;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .flashcard-open-title {

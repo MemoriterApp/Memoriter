@@ -174,13 +174,10 @@ const Flashcard = ({
                         <div className='prev-flashcard' onClick={() => onPrevFlashcard(flashcard.pos)} />
                     </div>
                     <div className='flashcard-open-body'>
-                        <div className='close-flashcard-button' onClick={closeFlashcard}>
-                            <div className='close-flashcard-arrow' />
-                        </div>
                         <div className='flashcard-open-settings' onClick={() => setFlashcardIsOpenSettings(true)}>
                             <span className='big-dot' />
                             <span className='big-dot' />
-                            <span className='big-dot' />
+                            <span className='big-dot' />    
                         </div>
                         <p style={{ fontSize: '40px' }} />
                         <h2 className='flashcard-open-title'>{flashcard.title}</h2>
