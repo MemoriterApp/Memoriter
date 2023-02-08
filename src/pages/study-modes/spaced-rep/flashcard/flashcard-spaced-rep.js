@@ -127,7 +127,7 @@ const FlashcardSpacedRep = ({
                     <div className='flex-container'>
                         <button
                             className='spaced-rep-button'
-                            style={{background: '#27da54'}}
+                            style={{background: '#24BD4A'}}
                             onClick={() => {
                                 setShowAnswer(false);
                                 onAnswer(flashcard, 4, flashcard.streak, flashcard.easiness, flashcard.interval);
@@ -137,7 +137,7 @@ const FlashcardSpacedRep = ({
                         </button>
                         <button
                             className='spaced-rep-button'
-                            style={{background: '#7fd137'}}
+                            style={{background: '#6BC549'}}
                             onClick={() => {
                                 setShowAnswer(false);
                                 onAnswer(flashcard, 3, flashcard.streak, flashcard.easiness, flashcard.interval);
@@ -147,7 +147,7 @@ const FlashcardSpacedRep = ({
                         </button>
                         <button
                             className='spaced-rep-button'
-                            style={{ background: '#cbc91d'}}
+                            style={{ background: '#CDD147'}}
                             onClick={() => {
                                 setShowAnswer(false);
                                 onAnswer(flashcard, 2, flashcard.streak, flashcard.easiness, flashcard.interval);
@@ -157,7 +157,7 @@ const FlashcardSpacedRep = ({
                         </button>
                         <button
                             className='spaced-rep-button'
-                            style={{background: '#d07016'}}
+                            style={{background: '#BC6825'}}
                             onClick={() => {
                                 setShowAnswer(false);
                                 onAnswer(flashcard, 1, flashcard.streak, flashcard.easiness, flashcard.interval);
@@ -167,7 +167,7 @@ const FlashcardSpacedRep = ({
                         </button>
                         <button
                             className='spaced-rep-button'
-                            style={{background: '#d32812'}}
+                            style={{background: '#B1220F'}}
                             onClick={() => {
                                 setShowAnswer(false);
                                 onAnswer(flashcard, 0, flashcard.streak, flashcard.easiness, flashcard.interval);
