@@ -264,8 +264,8 @@ ol {
     transform: translate(-50%, -50%);
     height: 50vh;
     width: calc(50vh / 3 * 2);
-    min-height: 160px;
-    min-width: 120px;
+    min-height: 500px;
+    min-width: 325px;
     max-width: calc(100% - 160px);
     background-color: var(--current-gray-light);
     box-shadow: 0 1px 4px var(--color-shadow);
