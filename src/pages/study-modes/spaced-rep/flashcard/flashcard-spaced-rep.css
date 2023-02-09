@@ -163,8 +163,4 @@
         border-radius: 5px;    
     }
 }
-@media (max-width: 475px) {
-    .spaced-rep-button {
-        width: auto;        
-    }
-}
+

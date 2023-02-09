@@ -1,13 +1,4 @@
-.back-button-body {
-    position: fixed;
-    background-color: var(--color-transparent);
-    border: 2.5px solid var(--color-transparent);
-    left: 5vw;
-    top: 12.5vh;
-    padding: 10px 15px;
-    cursor: pointer;
-    transform: rotate(270deg);
-}
+
 
 .back-arrow {
     border: solid;
@@ -19,8 +10,8 @@
     left: 1em ;
     top: 1em;
     cursor: pointer;
-    transform: rotate(-45deg);
+    transform: rotate(225deg);
 }
 .back-arrow:hover{
-    transform: scale(1.1) rotate(-45deg);
+    transform: scale(1.1) rotate(225deg);
 }

@@ -57,19 +57,19 @@ function TutorialSpacedRep() {
             </div>
 
             <button className='tutorial-spaced-repetition-buttons'
-                style={{ left: '-5%', background:'#0d8f52'}} onClick={easy_change}>Easy</button>
+                style={{ left: '-5%', background:'#24BD4A'}} onClick={easy_change}>Easy</button>
                         
             <button className='tutorial-spaced-repetition-buttons'
-                style={{ left: '17.5%', background:'#0d8f18'}} onClick={ok_change}>✔</button>
+                style={{ left: '17.5%', background:'#6BC549'}} onClick={ok_change}>✔</button>
                         
             <button className='tutorial-spaced-repetition-buttons'
-                style={{ left: '40%', background:'#778f0d'}} onClick={medium_change}>mostly</button>
+                style={{ left: '40%', background:'#CDD147'}} onClick={medium_change}>mostly</button>
                         
             <button className='tutorial-spaced-repetition-buttons'
-                style={{ left: '62.5%', background:'#8f520d'}} onClick={almost_change}>close</button>
+                style={{ left: '62.5%', background:'#BC6825'}} onClick={almost_change}>close</button>
 
             <button className='tutorial-spaced-repetition-buttons'
-                style={{ left: '85%', background:'#8f0d0d'}} onClick={hard_change}>✖</button>
+                style={{ left: '85%', background:'#B1220F'}} onClick={hard_change}>✖</button>
         </div>
     );
 }

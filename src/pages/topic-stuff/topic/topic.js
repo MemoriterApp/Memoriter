@@ -311,9 +311,9 @@ function TopicPage() {
                         )}
                         <div onClick={() => setAddFlashcardModal(false)}>{addFlashcardModal && <Backdrop />}</div>
                     </div>
-                    <div className='notes'>
+                    {/*<div className='notes'>
                         <img  src="https://img.icons8.com/ios/50/null/notepad.png"/>
-                    </div>
+                        </div>*/}
                     <BackButton />
                     <SettingsIcon />
                 </div>
