@@ -21,13 +21,13 @@ function TopicPage() {
     const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
 
     useEffect(() => {
-    //detect window resize
+        //detect window resize
         window.addEventListener('resize', () => setWidth(window.innerWidth)); //add event listener for window resize
         return () => window.removeEventListener('resize', () => setWidth(window.innerWidth)); //remove event listener for window resize
     }, []);
 
     if (width <= 505 && columns !== 1) {
-    //sets the layout column count
+        //sets the layout column count
         setColumns(1);
     } else if (width > 505 && width <= 850 && columns !== 2) {
         setColumns(2);
@@ -100,7 +100,7 @@ function TopicPage() {
                     ? { ...flashcard, pos: flashcard.pos - 1 }
                     : flashcard.pos === pos - 1
                         ? (sessionStorage.setItem('newPosFlashcard', flashcard._id),
-                        { ...flashcard, pos: flashcard.pos + 1 })
+                            { ...flashcard, pos: flashcard.pos + 1 })
                         : flashcard
             )
         );
@@ -117,7 +117,7 @@ function TopicPage() {
                     ? { ...flashcard, pos: flashcard.pos + 1 }
                     : flashcard.pos === pos + 1
                         ? (sessionStorage.setItem('newPosFlashcard', flashcard._id),
-                        { ...flashcard, pos: flashcard.pos - 1 })
+                            { ...flashcard, pos: flashcard.pos - 1 })
                         : flashcard
             )
         );
@@ -171,7 +171,7 @@ function TopicPage() {
                 .map((flashcard) =>
                     flashcard.pos > pos
                         ? (sessionStorage.setItem('newPosFlashcard' + flashcard._id, flashcard._id),
-                        { ...flashcard, pos: flashcard.pos - 1 })
+                            { ...flashcard, pos: flashcard.pos - 1 })
                         : flashcard
                 )
                 .filter((flashcard) => flashcard._id !== id)
@@ -182,11 +182,31 @@ function TopicPage() {
     const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
 
     useEffect(() => {
-    //checks if the preview mode is only question from local storage
+        //checks if the preview mode is only question from local storage
         const onlyQuestion = JSON.parse(localStorage.getItem('onlyQuestion'));
         if (onlyQuestion) {
             //if it is the case sets state to only question
             setIsOnlyQuestion(onlyQuestion);
+        }
+    }, []);
+
+    const [streak, setStreak] = useState(0); // state to keep track of the streak
+
+    //checks if the user has studied today
+    useEffect(() => {
+        const currentDate = new Date();
+        const lastStudyDate = localStorage.getItem('lastStudyDate');
+        if (lastStudyDate) {
+            const lastStudyDateObject = new Date(lastStudyDate);
+            if (currentDate.getDate() === lastStudyDateObject.getDate() &&
+                currentDate.getMonth() === lastStudyDateObject.getMonth() &&
+                currentDate.getFullYear() === lastStudyDateObject.getFullYear()) {
+                setStreak(prevStreak => prevStreak + 1);
+            } else {
+                setStreak(0);
+            }
+        } else {
+            setStreak(0);
         }
     }, []);
 
@@ -203,6 +223,9 @@ function TopicPage() {
                 </Link>
                 <div className='study-now' onClick={() => openChooseStudyModeModal(true)}>
                     <p className='study-now-text'>study now</p>
+                </div>
+                <div className='streak'>
+                    <p className='streak-number'>{streak}</p>
                 </div>
                 {chooseStudyModeModal && <ChooseStudyMode />}
                 {chooseStudyModeModal && <Backdrop onClick={() => openChooseStudyModeModal(false)} />}

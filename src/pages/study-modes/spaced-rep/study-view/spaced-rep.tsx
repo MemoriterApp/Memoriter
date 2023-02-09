@@ -37,6 +37,7 @@ function SpacedRepMode() {
     const [studiedFlashcards, setStudiedFlashcards] = useState(0); //number of correctly answered flashcards
     const [incorrectFlashcards, setIncorrectFlashcards] = useState(0); //number of incorrectly answered flashcards
 
+
     //Use Effect für Notes
     useEffect(() => {
         const fetchFlashcards = async () => {
@@ -110,11 +111,18 @@ function SpacedRepMode() {
                 .map((flashcard) =>
                     flashcard.pos > pos
                         ? (sessionStorage.setItem('newPosFlashcard' + flashcard._id, flashcard._id),
-                        { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
+                            { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
                 )
                 .filter((flashcard) => flashcard._id !== id)
         );
     };
+
+    //function to set the date when last studied when the session is finished
+    useEffect(() => {
+        const currentDate = new Date();
+        localStorage.setItem('lastStudyDate', currentDate.toString());
+    }, [finished]);
+
 
 
     return (
@@ -128,7 +136,7 @@ function SpacedRepMode() {
                 </Link>
                 <p className='study-remaining'>Remaining: {flashcards.length}</p>
             </header>
-            <BackButton/>
+            <BackButton />
 
 
             <main>
@@ -154,7 +162,7 @@ function SpacedRepMode() {
                 {tutorialSpacedRepetition &&
                     <>
                         <TutorialSpacedRep />
-                        <Backdrop onClick={() => setTutorialSpacedRepetition(false)}/>
+                        <Backdrop onClick={() => setTutorialSpacedRepetition(false)} />
                     </>
                 }
 
