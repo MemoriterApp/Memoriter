@@ -19,7 +19,7 @@ function ChooseStudyMode() {
                             <div className='big-dot'/>
                         </div>
                         <h2 style={{ textAlign: 'center', fontSize: '24px' }}>Regular flashcards</h2>
-                        <p style={{ marginTop: '15px', textAlign: 'center' }}>Practice all of your flashcards, with questions and answers.</p>
+                        <p style={{ marginTop: '15px', textAlign: 'center' }} onClick={() => navigate('/study')}>Practice all of your flashcards, with questions and answers.</p>
                         <button style={{backgroundColor:'#875F95'}} className='choose-studymode-button' onClick={() => navigate('/study')}>REGULAR FLASHCARDS</button>
                     </div>
 
@@ -30,7 +30,7 @@ function ChooseStudyMode() {
                             <div className='big-dot'/>
                         </div>
                         <h2 style={{ textAlign: 'center', fontSize: '24px' }}>Spaced repetition</h2>
-                        <p style={{ marginTop: '15px', textAlign: 'center' }}>Practice your flashcards in intervals and remember everything.</p>
+                        <p style={{ marginTop: '15px', textAlign: 'center' }} onClick={() => navigate('/study-spaced-repetition') }>Practice your flashcards in intervals and remember everything.</p>
                         <button style={{bottom: '32px', backgroundColor:'#7C9B4A'}} className='choose-studymode-button' onClick={() => navigate('/study-spaced-repetition')}>SPACED REPETITION</button>
                     </div>
                 </div>

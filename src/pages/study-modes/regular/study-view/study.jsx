@@ -171,7 +171,9 @@ const StudyPage = () => {
                         onClick={() => navigate('/topic')}
                     >Return to Overview</button>
                 </div>}
-                <BackButton/>
+                <Link to='/' >
+                    <div className='back-button'/> 
+                </Link>
                 <Footer />
             </main>
 
