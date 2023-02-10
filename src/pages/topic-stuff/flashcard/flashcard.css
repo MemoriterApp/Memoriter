@@ -233,7 +233,7 @@ ol {
 
 .next-flashcard {
     position: absolute;
-    right: 7.5vw;
+    right: 5vw;
     bottom: 25vh;
     width: 0;
     height: 0;
@@ -246,7 +246,7 @@ ol {
 
 .prev-flashcard {
     position: absolute;
-    left: 7.5vw;
+    left: 5vw;
     bottom: 25vh;
     width: 0;
     height: 0;
