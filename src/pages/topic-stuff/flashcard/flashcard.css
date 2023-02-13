@@ -1,6 +1,6 @@
 .flashcard-body {
     position: relative;
-    width: 200px;
+    width: 210px;
     top: 20px;
     height: 280px;
     /*only for the add flashcard button*/
@@ -174,7 +174,7 @@
     white-space: pre-line;
     word-wrap: break-word;
     hyphens: auto;
-    line-height: 140%;
+    line-height: 150%;
     color: var(--current-gray-dark);
     margin-bottom: -5px;
 }
@@ -273,7 +273,7 @@ ol {
     border-radius: 10px;
     z-index: 10;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 .flashcard-open-title {
@@ -342,7 +342,6 @@ ol {
     font-size: 20px;
     text-align: justify;
     width: 90%;
-    min-height: 60vh;
     left: 5%;
     white-space: pre-line;
     word-wrap: break-word;

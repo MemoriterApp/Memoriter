@@ -65,7 +65,7 @@
     position: absolute;
     left: 16px;
     width: calc(100% - 48px);
-    height: calc(100% - 330px);
+    height: calc(95% - 330px);
     color: var(--current-gray-dark);
     text-align: left;
     font-family: var(--current-font);
