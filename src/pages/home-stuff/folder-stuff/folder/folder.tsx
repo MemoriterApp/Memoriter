@@ -41,7 +41,7 @@ const Folder = ({
         };
         syncFlashcards(); //calls the function
         sessionStorage.setItem('flashcard-content', '');
-        localStorage.setItem('lastPage', '/topic');
+        localStorage.setItem('lastPage', '/topic:folderID');
     }, []); // do not add dependencies, otherwise it will loop
 
     // filters the flashcards for only the not studied ones to show up
@@ -55,11 +55,11 @@ const Folder = ({
     }
     // changes the background color of the indicator if a lot of cards are due
     const backgroundColor =
-  due.length > 100
-      ? 'var(--current-red)'
-      : due.length > 50
-          ? 'var(--current-blue-dark)'
-          : 'var(--current-gray-medium-dark)';
+        due.length > 100
+            ? 'var(--current-red)'
+            : due.length > 50
+                ? 'var(--current-blue-dark)'
+                : 'var(--current-gray-medium-dark)';
 
     // cache folder values if folder is clicked
     const onOpenFolder = () => {
@@ -97,9 +97,11 @@ const Folder = ({
         sessionStorage.removeItem('newPosFolder' + folder._id); //remove the id of the folder that has the new position from the session storage
     }
 
+    let folderID = localStorage.getItem('folderID'); //gets the id of the synced folder
+
     return (
         <section className='folder'>
-            <Link to='/topic' onClick={onOpenFolder}>
+            <Link to={'/topic#' + folderID} onClick={onOpenFolder}>
                 <button className='button-homepage' />
                 {folder.title !== '' ? ( // checks if the title of the folder is not empty
                     <button className='button-homepage-text'>{folder.title}</button>

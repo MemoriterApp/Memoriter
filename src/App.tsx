@@ -28,6 +28,8 @@ const App = () => {
         setUser(currentUser);
     });
 
+    let folderID = localStorage.getItem('folderID'); //gets the id of the synced folder
+
     //routing (connections to different sub-pages)
     return (
         <AuthProvider> {/*AuthProvider fixes an issue where wrong pages are displayed for a short amound of time on page load*/}
@@ -39,7 +41,7 @@ const App = () => {
                         <Route path='/patch-notes' element={<PatchNotes />} />
                         <Route path='/login' element={<LoginPage />} />
                         <Route path='/signup' element={<SignUpPage />} />
-                        <Route path='/topic' element={<TopicPage />} />
+                        <Route path='/topic/:folderID' element={<TopicPage />} />
                         <Route path='/study' element={<StudyPage />} />
                         <Route path='/study-spaced-repetition' element={<SpacedRepMode />} />
                         {user ? (<> {/*some of the active routes are altered if a user is signed in*/}

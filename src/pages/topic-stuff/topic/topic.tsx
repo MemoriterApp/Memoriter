@@ -45,20 +45,22 @@ function TopicPage() {
 
     const [flashcards, setFlashcards] = useState<any[]>([]); //creates the flashcard state
 
-    //Use Effect fot notes resets the notes state when the page is loaded
+    //Use Effect for notes resets the notes state when the page is loaded
     useEffect(() => {
         const syncFlashcards = async () => {
             //gets all flashcards from the synced folder
             const allFlashcards = await getFlashcards(localStorage.getItem('folderID'));
             setFlashcards(allFlashcards);
         };
+
         syncFlashcards(); //calls the function
         sessionStorage.setItem('flashcard-content', '');
-        localStorage.setItem('lastPage', '/topic');
+        localStorage.setItem('lastPage', '/topic:folderID');
     }, []); // do not add dependencies, otherwise it will loop
 
     let folderTitle = localStorage.getItem('folderTitle'); //gets the title of the synced folder
-    let folderID = localStorage.getItem('folderID'); //gets the id of the synced folder
+    let folderID = window.location.hash // gets the id of the URL
+    folderID = folderID.replace('#', ''); //removes the # from the URL
 
 
     const [chooseStudyModeModal, openChooseStudyModeModal] = useState(false); //creates the state for the choose study mode modal
@@ -209,6 +211,7 @@ function TopicPage() {
             setStreak(0);
         }
     }, []);
+
 
     return (
         <>
