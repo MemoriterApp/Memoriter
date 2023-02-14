@@ -10,17 +10,17 @@ import './login.css';
 
 function LoginPage() {
 
-    function handleError(error:any) {
+    function handleError(error: any) {
         switch (error.code) {
-        case 'auth/wrong-password':
-            setLoading(false);
-            setRedBorderPassword('5px solid rgb(228, 48, 48)');
-            setWrongPassword(true);
-            break;
-        case error.code:
-            setLoading(false);
-            setRedBorderEmail('5px solid rgb(228, 48, 48)');
-            break;
+            case 'auth/wrong-password':
+                setLoading(false);
+                setRedBorderPassword('5px solid rgb(228, 48, 48)');
+                setWrongPassword(true);
+                break;
+            case error.code:
+                setLoading(false);
+                setRedBorderEmail('5px solid rgb(228, 48, 48)');
+                break;
         }
     }
 
@@ -73,54 +73,81 @@ function LoginPage() {
                 <h1 className='page-title'>Log In</h1>
                 <Link to='/signup' className='link-box'>Sign Up</Link>
             </header>
-            <main>
 
-                {passwordResetModal && <div>
-                    <PasswordReset closePasswordResetModal={() => openPasswordResetModal(false)} />
-                    <Backdrop onClick={() => openPasswordResetModal(false)} />
-                </div>}
+            <main>
+                {passwordResetModal && (
+                    <div>
+                        <PasswordReset closePasswordResetModal={() => openPasswordResetModal(false)} />
+                        <Backdrop onClick={() => openPasswordResetModal(false)} />
+                    </div>
+                )}
 
                 {error && <div className='failed-login'>Failed to log in!</div>}
 
-                <div className='top-divider'/>
+                <div className='top-divider' />
                 <div className='login-container'>
-                    <form onSubmit={handleSubmit}>
-                        <div style={{ height: '80px'}}/>
+                    <form onSubmit={handleSubmit} autoComplete='on'>
+                        <div style={{ height: '80px' }} />
 
-                        <div id='email'>Email Adress:</div>
+                        <label htmlFor='email'>Email Address:</label>
                         <p style={{ fontSize: '5px' }} />
-                        <input className='mail-and-password-form-input' type='email' id='email' name='email'
-                            placeholder='Please enter an email adress...'
+                        <input
+                            className='mail-and-password-form-input'
+                            type='email'
+                            id='email'
+                            name='email'
+                            placeholder='Please enter an email address...'
                             value={email}
                             style={{ border: redBorderEmail }}
-                            onChange={
-                                (e) => {
-                                    setEmail(e.target.value);
-                                    setRedBorderEmail('5px solid var(--current-gray)');
-                                }} />
+                            autoComplete='username'
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                                setRedBorderEmail('5px solid var(--current-gray)');
+                            }}
+                        />
 
                         <p style={{ fontSize: '5px' }} />
-                        
-                        <input className='mail-and-password-form-input' type='password' id='password' name='password'
-                            placeholder='Please Enter a Password...' maxLength={50}
+
+                        <label htmlFor='password'>Password:</label>
+                        <p style={{ fontSize: '5px' }} />
+                        <input
+                            className='mail-and-password-form-input'
+                            type='password'
+                            id='password'
+                            name='password'
+                            placeholder='Please Enter a Password...'
+                            maxLength={50}
                             style={{ border: redBorderPassword }}
-                            onChange={
-                                (e) => {
-                                    setPassword(e.target.value);
-                                    setWrongPassword(false);
-                                    setRedBorderPassword('5px solid var(--current-gray)');
-                                }} />
+                            autoComplete='current-password'
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                                setWrongPassword(false);
+                                setRedBorderPassword('5px solid var(--current-gray)');
+                            }}
+                        />
                         {wrongPassword && <p className='passwords-no-match'>Wrong Password!</p>}
 
-                        <p className='forgot-password' onClick={() => openPasswordResetModal(true)}>Forgot Password?</p>
+                        <p className='forgot-password' onClick={() => openPasswordResetModal(true)}>
+                            Forgot Password?
+                        </p>
 
-                        <button type='submit' className='login-button' disabled={loading}>Log In</button>
+                        <button type='submit' className='login-button' disabled={loading}>
+                            Log In
+                        </button>
+
+                        <input type='hidden' name='username' value={email} />
                     </form>
+
                     <p className='no-account'>
-                        Do you need an account? You can sign up&nbsp; <Link to='/signup' style={{color:'(var(--current-blue-dark)'}}> here</Link>!
+                        Do you need an account? You can sign up&nbsp;
+                        <Link to='/signup' style={{ color: '(var(--current-blue-dark)' }}>
+                            here
+                        </Link>
+                        !
                     </p>
                 </div>
             </main>
+
             <footer>
                 <Footer />
             </footer>
