@@ -17,7 +17,6 @@ function ImpressumPage() {
                         style={{ top: '-2.5px', zIndex: '10' }}
                     ></img>
                 </Link>
-                <BackButton/>
                 <h1 className='legal-header'>Impressum</h1>
             </header>
             <main>

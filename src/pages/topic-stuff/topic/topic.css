@@ -43,64 +43,6 @@
     width: 1680px;
 }
 
-.Zurückbutton_Arrow {
-    border: solid;
-    border-width: 8px 8px 1px 1px;
-    border-color: var(--color-font) var(--color-font) var(--color-transparent) var(--color-transparent);
-    border-radius: 6px 0;
-    padding: 8px;
-    position: absolute;
-    left: 1%;
-    cursor: pointer;
-    transform: rotate(-45deg);
-    transition: transform 0.05s ease-in-out;
-}
-
-.Zurückbutton_Arrow:hover {
-    transform: scale(1.3) rotate(-45deg);
-}
-
-.study-now {
-    position: absolute;
-    top: 20%;
-    right: 85px;
-    width: 180px;
-    max-width: 20%;
-    height: 50px;
-    background-color: var(--current-red);
-    color: var(--color-white);
-    border-radius: 8px;
-    cursor: pointer;
-    text-transform: uppercase;
-    text-align: center;
-    transition: transform 0s ease-in-out;
-}
-
-.study-now:hover {
-    box-shadow: inset 0 0 100px 100px rgba(255, 0, 0, 0.185);
-    filter: brightness(1.15);
-
-}
-
-.study-now-text {
-    position: relative;
-    font-size: 20px;
-    top: 10%;
-    transform: translate(0, -50%);
-    font-family: var(--current-font);
-    font-weight: bold;
-}
-.notes{
-    position:absolute;
-    width:80px;
-    height:80px;
-    border-radius: 30px;
-    background-color: rgba(211, 211, 211, 0.61);
-    bottom: 10px;
-    left:10px;
-    justify-content: center;
-    cursor: pointer;
-}
 .new-flashcard-rechteck {
     position: absolute;
     height: calc(100% - 10px);
@@ -209,9 +151,9 @@
 }
 
 .streak {
-    position: absolute;
-    top: 40%;
-    right: 200px;
+    position: absolute; 
+    top: 12px;
+    right: 15vw;
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -226,4 +168,43 @@
     font-size: 15px;
     font-weight: bold;
     color: var(--color-font)
+}
+.study-now {
+    position: absolute;
+    top: 20%;
+    right: 5vw;
+    width: 180px;
+    max-width: 20%;
+    height: 50px;
+    background-color: var(--current-red);
+    color: var(--color-white);
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    transition: transform 0s ease-in-out;
+}
+
+.study-now:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 0, 0, 0.185);
+    filter: brightness(1.15);
+
+}
+
+.study-now-text {
+    position: relative;
+    font-size: 20px;
+    top: 10%;
+    transform: translate(0, -50%);
+    font-family: var(--current-font);
+    font-weight: bold;
+}
+.top-responsive-container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
