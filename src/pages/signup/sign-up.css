@@ -20,22 +20,22 @@
     top: 80px;
     width: calc(100% - 10px);
     height: 0px;
-    border-top: 8px solid var(--current-gray);
+    border-top: 5px solid var(--current-gray);
     border-radius: 15px;
 }
 
 .signup-container {
     position: absolute;
-    height: 100%;
     width: 550px;
     max-width: 100%;
     left: 50%;
-    top: 20vh;
+    top: 15vh;
     transform: translate(-50%);
     color: var(--color-font);
     text-align: center;
     font-family: var(--current-font);
     overflow: visible;
+    padding-top: -20px;
 }
 
 .mail-and-password-form-input {
@@ -171,6 +171,7 @@
     border: 3px solid var(--current-blue);
     cursor: pointer;
     font-size: 20px;
+    font-weight: bold;
     color: var(--color-white);
     transform: translate(-50%);
     transition: 200ms;

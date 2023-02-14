@@ -99,7 +99,7 @@ function LoginPage() {
                             placeholder='Please enter an email address...'
                             value={email}
                             style={{ border: redBorderEmail }}
-                            autoComplete='username'
+                            autoComplete='email'
                             onChange={(e) => {
                                 setEmail(e.target.value);
                                 setRedBorderEmail('5px solid var(--current-gray)');
