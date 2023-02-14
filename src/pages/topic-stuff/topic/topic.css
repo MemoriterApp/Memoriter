@@ -207,3 +207,23 @@
         margin-bottom: 10px;
     }
 }
+
+.streak {
+    position: absolute;
+    top: 40%;
+    right: 200px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: var(--color-green-dark);
+}
+
+.streak-number {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--current-font);
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--color-font)
+}

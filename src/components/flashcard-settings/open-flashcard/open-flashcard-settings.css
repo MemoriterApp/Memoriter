@@ -1,0 +1,46 @@
+/* This stylesheet is used for a modal. */
+.flashcard-open-settings-overlay-position-field {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 94vh;
+    width: calc(94vh / 3 * 2);
+    min-height: 160px;
+    min-width: 120px;
+    max-width: calc(100% - 160px);
+    z-index: 11;
+    background-color: var(--color-transparent);
+}
+
+.flashcard-open-settings-overlay-position-field-click {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--color-transparent);
+}
+
+.flashcard-settings-overlay {
+    border-radius: 6px;
+    background-color: var(--color-background);
+    padding: 0 0 0 20px;
+    text-align: center;
+    z-index: 10;
+    position: absolute;
+    right: -20px;
+    top: -12px;
+}
+
+.flashcard-settings-overlay-text-align {
+    display: inline-block;
+    height: 1.6rem;
+    margin-inline: 0.1rem;
+}
+
+.flashcard-settings-overlay-text-align:hover {
+    transform: scale(1.1);
+}
