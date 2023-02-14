@@ -60,3 +60,19 @@
 .finished-button:hover {
     filter: brightness(120%);
 }
+
+.back-button {
+    border: solid;
+    border-width: 8px 8px 1px 1px;
+    border-color: var(--color-font) var(--color-font) var(--color-transparent) var(--color-transparent);
+    border-radius: 6px 0;
+    padding: 8px;
+    position: absolute;
+    left: 4em ;
+    top: 6em;
+    cursor: pointer;
+    transform: rotate(225deg);
+}
+.back-button:hover{
+    transform: scale(1.1) rotate(225deg);
+}

@@ -6,9 +6,7 @@ const BackButton: FC = () => {
 
     return (
         <Link to='/' >
-            <div className='back-button-body'>
-                <div className='back-arrow'/>
-            </div>
+            <div className='back-arrow'/> 
         </Link>
     );
 };

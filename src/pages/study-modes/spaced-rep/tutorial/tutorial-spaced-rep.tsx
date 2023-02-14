@@ -48,7 +48,7 @@ function TutorialSpacedRep() {
         <div className='study-spaced-repetition-tutorial'>
             {/*These are the first Texts you see when entering the tutorial popup. */}
             <div className='tutorial-sub'>
-                <p id='title' style={{fontSize:'28px'}}>Tutorial on Spaced Repetition buttons</p>
+                <p id='title' style={{fontSize:'2.8vmin'}}>Tutorial on Spaced Repetition buttons</p> 
                 <p id='text_1'></p>
                 <p id='text_2'>To start click on a colored button below.</p>
                 <p id='text_3'></p>
@@ -56,19 +56,19 @@ function TutorialSpacedRep() {
             </div>
 
             <button className='tutorial-spaced-repetition-buttons'
-                style={{ left: '-5%', background:'#0d8f52'}} onClick={easyChange}>Easy</button>
+                style={{ left: '-5%', background:'#24BD4A'}} onClick={easyChange}>Easy</button>
+                        
+            <button className='tutorial-spaced-repetition-buttons'
+                style={{ left: '17.5%', background:'#6BC549'}} onClick={okChange}>✔</button>
+                        
+            <button className='tutorial-spaced-repetition-buttons'
+                style={{ left: '40%', background:'#CDD147'}} onClick={mediumChange}>mostly</button>
+                        
+            <button className='tutorial-spaced-repetition-buttons'
+                style={{ left: '62.5%', background:'#BC6825'}} onClick={almostChange}>close</button>
 
             <button className='tutorial-spaced-repetition-buttons'
-                style={{ left: '17.5%', background:'#0d8f18'}} onClick={okChange}>✔</button>
-
-            <button className='tutorial-spaced-repetition-buttons'
-                style={{ left: '40%', background:'#778f0d'}} onClick={mediumChange}>mostly</button>
-
-            <button className='tutorial-spaced-repetition-buttons'
-                style={{ left: '62.5%', background:'#8f520d'}} onClick={almostChange}>close</button>
-
-            <button className='tutorial-spaced-repetition-buttons'
-                style={{ left: '85%', background:'#8f0d0d'}} onClick={hardChange}>✖</button>
+                style={{ left: '85%', background:'#B1220F'}} onClick={hardChange}>✖</button>
         </div>
     );
 }

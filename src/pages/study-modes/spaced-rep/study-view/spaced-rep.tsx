@@ -136,7 +136,10 @@ function SpacedRepMode() {
                 </Link>
                 <p className='study-remaining'>Remaining: {flashcards.length}</p>
             </header>
-            <BackButton />
+            
+            <Link to='/' >
+                <div className='back-button'/> 
+            </Link>
 
 
             <main>
