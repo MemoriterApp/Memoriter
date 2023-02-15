@@ -1,7 +1,6 @@
 //css file imports go all here
 import './index.css';
 
-import './pages/login-stuff/login/sign-in-main.css';
 
 import { createRoot } from 'react-dom/client';
 import App from './App';
