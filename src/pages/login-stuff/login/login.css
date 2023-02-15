@@ -76,7 +76,7 @@
     transform: translate(-50%);
     text-align: center;
     color: var(--current-red);
-    top: 20vh;
+    top: 100px;
     font-family: var(--current-font);
     font-size: 24px;
     width: calc(100% - 70px);
@@ -102,7 +102,7 @@
 }
 
 .passwords-no-match {
-    color: var(--color-red-light);
+    color: var(--current-red);
     font-family: var(--current-font);
     font-size: 14px;
     position: absolute;

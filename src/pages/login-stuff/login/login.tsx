@@ -14,12 +14,12 @@ function LoginPage() {
         switch (error.code) {
             case 'auth/wrong-password':
                 setLoading(false);
-                setRedBorderPassword('5px solid rgb(228, 48, 48)');
+                setRedBorderPassword('5px solid var(--current-red)');
                 setWrongPassword(true);
                 break;
             case error.code:
                 setLoading(false);
-                setRedBorderEmail('5px solid rgb(228, 48, 48)');
+                setRedBorderEmail('5px solid var(--current-red)');
                 break;
         }
     }

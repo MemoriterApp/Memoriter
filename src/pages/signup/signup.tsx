@@ -78,13 +78,13 @@ function SignUpPage() {
                         case 'auth/email-already-in-use':
                             setError(true);
                             setLoading(false);
-                            setRedBorderEmail('5px solid rgb(228, 48, 48)');
+                            setRedBorderEmail('5px solid var(--current-red)');
                             setEmailInUse(true);
                             break;
                         case error.code:
                             setError(true);
                             setLoading(false);
-                            setRedBorderEmail('5px solid rgb(228, 48, 48)');
+                            setRedBorderEmail('5px solid var(--current-red)');
                             setInvalidEmail(true);
                             break;
                     }

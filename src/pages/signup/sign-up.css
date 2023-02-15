@@ -54,7 +54,7 @@
 }
 
 .passwords-no-match {
-    color: var(--color-red-light);
+    color: var(--current-red);
     font-family: var(--current-font);
     font-size: 14px;
     position: absolute;
@@ -130,7 +130,7 @@
 }
 
 .accept-privacy-red [type='checkbox']+label::before {
-    border: 3.5px solid var(--color-red-light);
+    border: 3.5px solid var(--current-red);
     border-radius: 3px;
     background-color: var(--color-background);
     display: block;
@@ -145,7 +145,7 @@
 
 .accept-privacy-red [type='checkbox']:checked+label::before {
     box-shadow: inset 0px 0px 0px 3px var(--color-background);
-    background-color: var(--color-red-light);
+    background-color: var(--current-red);
 }
 
 .no-account {
