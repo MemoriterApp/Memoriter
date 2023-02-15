@@ -139,7 +139,7 @@ function LoginPage() {
                     </form>
 
                     <p className='no-account'>
-                        Do you need an account? You can sign up&nbsp;
+                        Do you need an account? You can sign up{' '}
                         <Link to='/signup' style={{ color: '(var(--current-blue-dark)' }}>
                             here
                         </Link>

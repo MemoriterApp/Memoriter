@@ -11,24 +11,25 @@
 
 .login-container {
     position: absolute;
-    height: 100%;
     width: 550px;
     max-width: 100%;
     left: 50%;
-    top: 20vh;
+    top: 15vh;
     transform: translate(-50%);
     color: var(--color-font);
     text-align: center;
     font-family: var(--current-font);
     overflow: visible;
+    padding-top: -20px;
 }
 
 .login-button {
+    position: absolute;
     height: 50px;
     width: 125px;
     border-radius: 6px;
+    font-weight: bold;
     background-color: var(--current-blue);
-    position: absolute;
     top: 380px;
     left: 50%;
     border: 3px solid var(--current-blue);
@@ -125,7 +126,8 @@
 
 .no-account {
     position: relative;
-    top: 80px;
+    top: 70px;
+    height: 60px;
     color: var(--current-blue-dark);
     font-family: var(--current-font);
     font-size: 16px;
@@ -133,5 +135,5 @@
     margin-top: 0px;
     margin-bottom: 5px;
     display: inline-block;
-    cursor: pointer;
+    padding-bottom: 10px;
 }

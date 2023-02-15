@@ -151,6 +151,7 @@
 .no-account {
     position: relative;
     top: 70px;
+    height: 85px;
     color: var(--current-blue-dark);
     font-family: var(--current-font);
     font-size: 16px;
@@ -158,6 +159,7 @@
     margin-top: 0px;
     margin-bottom: 5px;
     display: inline-block;
+    padding-bottom: 10px;
 }
 
 .signup-button {

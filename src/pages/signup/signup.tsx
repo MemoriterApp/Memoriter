@@ -184,10 +184,7 @@ function SignUpPage() {
                                 onChange={() => setIsAccepted(!isAccepted)} />
                             <label
                                 htmlFor='accept-privacy'>
-                                I agree to our
-                                <p
-                                    style={{ display: 'inline' }}>
-                                </p>
+                                I agree to our{' '}
                                 <Link to='/privacy' target='_blank' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
                         </div>}
 
@@ -198,10 +195,7 @@ function SignUpPage() {
                                 onChange={() => setIsAccepted(!isAccepted)} />
                             <label
                                 htmlFor='accept-privacy'>
-                                I agree to our
-                                <p
-                                    style={{ display: 'inline' }}>
-                                </p>
+                                I agree to our{' '}
                                 <Link to='/privacy' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
                         </div>}
 
@@ -214,9 +208,8 @@ function SignUpPage() {
                         </button>
                     </form>
                     <p className='no-account'>
-                        Do you already have an account? You can log in&nbsp; <Link to='/login' style={{ color: '(var(--current-blue-dark)' }}> here</Link>!
+                        Do you already have an account? You can log in <Link to='/login' style={{ color: '(var(--current-blue-dark)' }}> here</Link>!
                     </p>
-                    <div className='no-account' style={{ height: '20px', display: 'block' }} />
                 </div>
 
             </main >
