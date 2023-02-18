@@ -1,8 +1,8 @@
 import Logo from '../../../images/memoriter-logo.svg';
-import Footer from '../../../components/footer/footer';
 import { Link } from 'react-router-dom';
 import BackButton from '../../../components/back-button/BackButton';
 import '../footer-links.css';
+import FooterButton from '../../../components/footer/footer-button/footer-button';
 
 
 function PrivacyPage() {
@@ -83,7 +83,7 @@ function PrivacyPage() {
                 <div style={{ height: '100px' }} />
             </main>
             <footer>
-                <Footer />
+                <FooterButton />
             </footer>
         </>
     );

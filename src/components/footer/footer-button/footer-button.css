@@ -1,0 +1,17 @@
+/* This file contains the styles for the page footer button*/
+
+.footer-button {
+  position: absolute;
+  right: 1%;
+  bottom: 4%;
+  color: var(--current-gray);
+  background: black;
+  font-size: 36px;
+  font-family: var(--current-font);
+  height: 56px;
+  width: 56px;
+  border: white 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-shadow);
+  cursor: pointer;
+}

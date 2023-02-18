@@ -1,6 +1,5 @@
 import './spaced-rep.css';
 import { Link, useNavigate } from 'react-router-dom';
-import Footer from '../../../../components/footer/footer';
 import Logo from '../../../../images/memoriter-logo.svg';
 import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FlashcardSpacedRep from '../flashcard/flashcard-spaced-rep';
@@ -12,6 +11,7 @@ import { useState, useEffect } from 'react';
 import { spacedRepetition } from '../../../../technical/utils/spaced-repetition';
 import FinishedViewSpacedRep from '../finished-view/finished-view-spaced-rep';
 import { Flashcard } from '../../../../types';
+import FooterButton from '../../../../components/footer/footer-button/footer-button';
 
 function SpacedRepMode() {
 
@@ -173,7 +173,7 @@ function SpacedRepMode() {
                     studiedFlashcards={studiedFlashcards}
                     incorrectFlashcards={incorrectFlashcards} />}
             </main>
-            <Footer />
+            <FooterButton />
         </>
     );
 }

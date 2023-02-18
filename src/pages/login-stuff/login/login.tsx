@@ -1,11 +1,11 @@
 import { useState, useEffect, FormEvent } from 'react';
 import Logo from '../../../images/memoriter-logo.svg';
-import Footer from '../../../components/footer/footer';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import PasswordReset from '../../settings/password-reset/password-reset';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../../technical/utils/mongo';
 import { signInWithEmailAndPassword, onAuthStateChanged, getAuth } from 'firebase/auth';
+import FooterButton from '../../../components/footer/footer-button/footer-button';
 
 function LoginPage() {
 
@@ -140,7 +140,7 @@ function LoginPage() {
                 </div>
             </main>
             <footer>
-                <Footer />
+                <FooterButton />
             </footer>
         </>
     );
