@@ -88,12 +88,19 @@ export async function removeFolder(id: string) {
     });
 }
 
-export async function getSuggestion(title: string, content: string): Promise<string> {
-    return await fetch(`${urlAI}generate-suggestion`, {
+export async function getFlashcardSuggestion(title: string): Promise<string> {
+    const response = await fetch(`${urlAI}generate-suggestion`, {
         method: 'POST',
-        body: JSON.stringify({ title, content })
-    }).then((x) => x.json());
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ title })
+    });
+
+    const data = await response.json();
+    return data.suggestion;
 }
+
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, User } from 'firebase/auth';

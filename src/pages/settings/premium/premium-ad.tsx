@@ -11,12 +11,12 @@ function PremiumAd() {
                         <p className='premium-text'>
                             Memoriter Premium will automatically complete your flashcards. You don't have to type in the answer anymore.
                             Just type in the question and the the ai will suggest the answer. <br />
-                            Simply press 'tab' to accept the suggestion.
+                            Simply press 'tab' to accept the suggestion. For just 1.99€ per month you can use this feature.
                         </p>
                     </article>
                     <p style={{ height: '20px' }} />
 
-                    <a href='https://buy.stripe.com/eVa5kLakf9Jk3mM3cc'>
+                    <a href='https://buy.stripe.com/dR69B163Z9Jk6yY7st'>
                         <button className='premium-button'>
                             <p style={{ position: 'relative', bottom: '10px' }}>GET NOW!</p>
                         </button>
