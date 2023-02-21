@@ -5,6 +5,7 @@ import { firebase } from '../../../technical/utils/mongo';
 import { useNavigate } from 'react-router-dom';
 import ChangePreview from '../change-preview/changePreview';
 import Profile from '../profile/profile';
+import PremiumAd from '../premium/premium-ad';
 import './settings-interaction.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTheme } from '../../../technical/features/theme-slice';
@@ -28,6 +29,8 @@ function SettingsClick() {
 
     const [changePreview, openChangePreview] = useState(false);
 
+    const [premium, openPremium] = useState(false);
+
     //logout stuff
     const navigate = useNavigate();
 
@@ -50,14 +53,15 @@ function SettingsClick() {
             <p className='settings-sub' onClick={() => openProfile(true)}>PROFILE</p>
 
             {(themeText === 'light' || !themeText) && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>
-                THEME:&shy; <p className='theme-indicator' style={{backgroundColor:'#202020', color:'#ffffff'}}>Dark</p>
+                THEME:&shy; <p className='theme-indicator' style={{ backgroundColor: '#202020', color: '#ffffff' }}>Dark</p>
             </p>}
 
             {themeText === 'dark' && <p className='settings-sub' onClick={() => onChangeTheme('light')}>
-                THEME:&shy; <p className='theme-indicator' style={{backgroundColor:'#eeeeee', color:'#000000'}}>LIGHT</p>
+                THEME:&shy; <p className='theme-indicator' style={{ backgroundColor: '#eeeeee', color: '#000000' }}>LIGHT</p>
             </p>}
 
             <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
+            <p className='premium-box' onClick={() => openPremium(true)}>Premium</p>
             <p className='sign-out-box' onClick={() => openSignOutView(true)}>SIGN OUT</p>
 
             {signOutView && <>
@@ -72,6 +76,8 @@ function SettingsClick() {
             {changePreview && <ChangePreview />}
 
             {profile && <Profile />}
+
+            {premium && <PremiumAd />}
         </div>
     );
 }

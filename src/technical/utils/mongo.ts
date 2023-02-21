@@ -1,4 +1,5 @@
 const url = 'https://app.memoriter.de/api/@memoriter/app/';
+const urlAI = 'https://app.memoriter.de/api/@memoriter/ai/';
 
 export async function getFlashcard(id: string): Promise<Flashcard> {
     return await fetch(`${url}flashcard/${id}`, {
@@ -85,6 +86,13 @@ export async function removeFolder(id: string) {
     return await fetch(`${url}folder/${id}`, {
         method: 'DELETE'
     });
+}
+
+export async function getSuggestion(title: string, content: string): Promise<string> {
+    return await fetch(`${urlAI}generate-suggestion`, {
+        method: 'POST',
+        body: JSON.stringify({ title, content })
+    }).then((x) => x.json());
 }
 
 import { initializeApp } from 'firebase/app';
