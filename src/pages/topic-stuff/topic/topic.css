@@ -151,24 +151,30 @@
 }
 
 .streak {
-    position: absolute; 
+    position: absolute;
     top: 12px;
-    right: 15vw;
+    right: 16vw;
     width: 30px;
     height: 30px;
-    border-radius: 100%;
-    background-color: var(--color-green-dark);
 }
 
 .streak-number {
+    top: -4px;
     position: absolute;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
     font-family: var(--current-font);
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--color-font)
 }
+
+.streak-icon {
+    position: absolute;
+    right: 75%;
+    filter: invert(99%) sepia(1%) saturate(7500%) hue-rotate(299deg) brightness(109%) contrast(102%);
+}
+
 .study-now {
     position: absolute;
     top: 20%;
@@ -199,6 +205,7 @@
     font-family: var(--current-font);
     font-weight: bold;
 }
+
 .top-responsive-container {
     position: absolute;
     top: 20px;
