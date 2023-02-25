@@ -171,8 +171,11 @@
 
 .streak-icon {
     position: absolute;
+    top: 25%;
     right: 75%;
     filter: invert(99%) sepia(1%) saturate(7500%) hue-rotate(299deg) brightness(109%) contrast(102%);
+    width: 75%;
+    height: 75%;
 }
 
 .study-now {

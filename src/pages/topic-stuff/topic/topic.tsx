@@ -18,7 +18,7 @@ import { firebase, getFlashcards, insertFlashcard, removeFlashcard, updateFlashc
 function TopicPage() {
   const user = firebase.auth.currentUser;
 
-  const flame = require('../../../images/icons/flame.png');
+  const flame = require('../../../images/icons/flame.png'); //for some reason could not import otherwise
 
   const [columns, setColumns] = useState(6); //column count of the masonry layout
   const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
@@ -211,7 +211,7 @@ function TopicPage() {
     } else {
       setStreak(0);
     }
-  }, []);
+  }, [localStorage.getItem('lastStudyDate')]);
 
   return (
     <>
