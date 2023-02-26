@@ -171,9 +171,9 @@
 
 .streak-icon {
     position: absolute;
-    top: 25%;
+    top: 20%;
     right: 75%;
-    filter: invert(99%) sepia(1%) saturate(7500%) hue-rotate(299deg) brightness(109%) contrast(102%);
+    filter: var(--flame-color);
     width: 75%;
     height: 75%;
 }
