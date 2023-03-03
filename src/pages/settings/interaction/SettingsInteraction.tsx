@@ -5,7 +5,6 @@ import { firebase } from '../../../technical/utils/mongo';
 import { useNavigate } from 'react-router-dom';
 import ChangePreview from '../change-preview/changePreview';
 import Profile from '../profile/profile';
-import PremiumAd from '../premium/premium-ad';
 import './settings-interaction.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTheme } from '../../../technical/features/theme-slice';
@@ -28,8 +27,6 @@ function SettingsClick() {
     const [signOutView, openSignOutView] = useState(false);
 
     const [changePreview, openChangePreview] = useState(false);
-
-    const [premium, openPremium] = useState(false);
 
     //logout stuff
     const navigate = useNavigate();
@@ -61,7 +58,6 @@ function SettingsClick() {
             </p>}
 
             <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>
-            <p className='premium-box' onClick={() => openPremium(true)}>Premium</p>
             <p className='sign-out-box' onClick={() => openSignOutView(true)}>SIGN OUT</p>
 
             {signOutView && <>
@@ -76,8 +72,6 @@ function SettingsClick() {
             {changePreview && <ChangePreview />}
 
             {profile && <Profile />}
-
-            {premium && <PremiumAd />}
         </div>
     );
 }
