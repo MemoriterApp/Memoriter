@@ -11,6 +11,7 @@ import Masonry from 'react-masonry-css';
 import Flashcard from '../flashcard/flashcard';
 import ChooseStudyMode from '../../study-modes/choose-studymode/choose-studymode';
 import { firebase, getFlashcards, insertFlashcard, removeFlashcard, updateFlashcard } from '../../../technical/utils/mongo';
+import moment from 'moment';
 
 
 //this file is the home page of the app where you see all your flashcards
@@ -197,15 +198,13 @@ function TopicPage() {
 
   //checks if the user has studied today
   useEffect(() => {
-    const currentDate = new Date();
+    const currentDate = moment();
     const lastStudyDate = localStorage.getItem('lastStudyDate');
     if (lastStudyDate) {
-      const lastStudyDateObject = new Date(lastStudyDate);
-      if (currentDate.getDate() === lastStudyDateObject.getDate() &&
-        currentDate.getMonth() === lastStudyDateObject.getMonth() &&
-        currentDate.getFullYear() === lastStudyDateObject.getFullYear()) {
+      const lastStudyMoment = moment(lastStudyDate);
+      if (currentDate.isSame(lastStudyMoment, 'day')) {
         setStreak(prevStreak => prevStreak + 1);
-      } else {
+      } else if (currentDate.diff(lastStudyMoment, 'days') > 1) {
         setStreak(0);
       }
     } else {
