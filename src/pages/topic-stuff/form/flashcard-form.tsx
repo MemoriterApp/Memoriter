@@ -22,10 +22,16 @@ const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { typ
 
     // get flashcard suggestion
     const generateSuggestion = async () => {
-        const suggestionResponse = await getFlashcardSuggestion(title);
-        console.log(suggestionResponse);
-        setSuggestion(suggestionResponse);
-    };
+        try {
+          const suggestionResponse = await getFlashcardSuggestion(title);
+          console.log(suggestionResponse);
+          setSuggestion(suggestionResponse);
+        } catch (error) {
+          console.error('Error generating suggestion:', error);
+          setSuggestion('');
+        }
+      };
+      
 
     const timeout = useRef<number | undefined>();
     // useEffect hook to trigger the generateContent function when the component is mounted
