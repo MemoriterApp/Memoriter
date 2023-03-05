@@ -89,12 +89,11 @@ export async function removeFolder(id: string) {
 }
 
 export async function getFlashcardSuggestion(title: string): Promise<string> {
-    const response = await fetch(`${urlAI}generate-suggestion`, {
-        method: 'POST',
+    const response = await fetch(`${urlAI}generate-suggestion/${title}`, {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ title })
+        }
     });
 
     const data = await response.json();
