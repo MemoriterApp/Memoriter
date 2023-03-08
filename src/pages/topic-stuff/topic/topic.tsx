@@ -199,9 +199,12 @@ function TopicPage() {
   //checks if the user has studied today
   useEffect(() => {
     const currentDate = moment();
+    console.log('currentDate:', currentDate);
     const lastStudyDate = localStorage.getItem('lastStudyDate');
+    console.log('lastStudyDate:', lastStudyDate);
     if (lastStudyDate) {
-      const lastStudyMoment = moment(lastStudyDate);
+      const lastStudyMoment = moment(lastStudyDate, 'ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
+      console.log('lastStudyMoment:', lastStudyMoment);
       if (currentDate.isSame(lastStudyMoment, 'day')) {
         setStreak(prevStreak => prevStreak + 1);
       } else if (currentDate.diff(lastStudyMoment, 'days') > 1) {
