@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import Flashcard from '../flashcard/flashcard';
 import ChooseStudyMode from '../../study-modes/choose-studymode/choose-studymode';
+import Notes from '../notes/notes';
 import { firebase, getFlashcards, insertFlashcard, removeFlashcard, updateFlashcard } from '../../../technical/utils/mongo';
 import moment from 'moment';
 
@@ -215,6 +216,9 @@ function TopicPage() {
     }
   }, [localStorage.getItem('lastStudyDate')]);
 
+  const NotesIcon = require('../../../images/icons/google-docs.png'); //for some reason could not import otherwise
+  const [isNotesOpen, setIsNotesOpen] = useState(false); //state to check if the notes are open
+
   return (
     <>
       <header className="page-header">
@@ -254,44 +258,44 @@ function TopicPage() {
             <Masonry breakpointCols={columns} className="flashcard-base-grid">
               {isOnlyQuestion === true //checks if the preview mode is only question
                 ? flashcards //if it is the case, only the question will be shown
-                  .map((flashcard) => (
-                    <Flashcard
-                      key={flashcard._id}
-                      type="only-question"
-                      flashcard={flashcard}
-                      flashcardCount={flashcards.length}
-                      openFlashcardView={openFlashcard}
-                      onPosLeft={posLeft}
-                      onPosRight={posRight}
-                      onPosAdjust={posAdjust}
-                      onDeleteFlashcard={deleteFlashcard}
-                      onEditFlashcard={editFlashcard}
-                      onOpenFlashcard={openFlashcardReq}
-                      onCloseFlashcard={closeFlashcardReq}
-                      onNextFlashcard={nextFlashcard}
-                      onPrevFlashcard={prevFlashcard}
-                      onChangeTextAlign={changeTextAlign}
-                    />
-                  ))
+                    .map((flashcard) => (
+                      <Flashcard
+                        key={flashcard._id}
+                        type="only-question"
+                        flashcard={flashcard}
+                        flashcardCount={flashcards.length}
+                        openFlashcardView={openFlashcard}
+                        onPosLeft={posLeft}
+                        onPosRight={posRight}
+                        onPosAdjust={posAdjust}
+                        onDeleteFlashcard={deleteFlashcard}
+                        onEditFlashcard={editFlashcard}
+                        onOpenFlashcard={openFlashcardReq}
+                        onCloseFlashcard={closeFlashcardReq}
+                        onNextFlashcard={nextFlashcard}
+                        onPrevFlashcard={prevFlashcard}
+                        onChangeTextAlign={changeTextAlign}
+                      />
+                    ))
                 : flashcards //if it is not the case, the question and answer will be shown
-                  .map((flashcard) => (
-                    <Flashcard
-                      key={flashcard._id}
-                      flashcard={flashcard}
-                      flashcardCount={flashcards.length}
-                      openFlashcardView={openFlashcard}
-                      onPosLeft={posLeft}
-                      onPosRight={posRight}
-                      onPosAdjust={posAdjust}
-                      onDeleteFlashcard={deleteFlashcard}
-                      onEditFlashcard={editFlashcard}
-                      onOpenFlashcard={openFlashcardReq}
-                      onCloseFlashcard={closeFlashcardReq}
-                      onNextFlashcard={nextFlashcard}
-                      onPrevFlashcard={prevFlashcard}
-                      onChangeTextAlign={changeTextAlign}
-                    />
-                  ))}
+                    .map((flashcard) => (
+                      <Flashcard
+                        key={flashcard._id}
+                        flashcard={flashcard}
+                        flashcardCount={flashcards.length}
+                        openFlashcardView={openFlashcard}
+                        onPosLeft={posLeft}
+                        onPosRight={posRight}
+                        onPosAdjust={posAdjust}
+                        onDeleteFlashcard={deleteFlashcard}
+                        onEditFlashcard={editFlashcard}
+                        onOpenFlashcard={openFlashcardReq}
+                        onCloseFlashcard={closeFlashcardReq}
+                        onNextFlashcard={nextFlashcard}
+                        onPrevFlashcard={prevFlashcard}
+                        onChangeTextAlign={changeTextAlign}
+                      />
+                    ))}
 
               {/*create new flashcard button*/}
               <div className="flashcard-body">
@@ -316,9 +320,11 @@ function TopicPage() {
               />
             )}
           </div>
-          {/*<div className='notes'>
-                        <img  src="https://img.icons8.com/ios/50/null/notepad.png"/>
-                        </div>*/}
+          <div onClick={() => setIsNotesOpen(true)}>
+            <img className="notes-icon" src={NotesIcon} />
+          </div>
+          {isNotesOpen && <Notes/>}
+          {isNotesOpen && <Backdrop onClick={() => setIsNotesOpen(false)} />}
           <BackButton />
           <SettingsIcon />
         </div>

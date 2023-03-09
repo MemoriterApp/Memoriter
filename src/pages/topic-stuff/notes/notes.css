@@ -1,0 +1,42 @@
+.note-page {
+    background-color: var(--color-white);
+    position: fixed;
+    height: 80vh;
+    width: 40vw;
+    max-width: calc(100% - 8px);
+    max-height: calc(100% - 8px);
+    min-width: 540px;
+    z-index: 10;
+    overflow-y: auto;
+    left: 50%;
+    top: calc(50% - 10px);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+.note-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-family: var(--current-font);
+}
+
+.note-textarea {
+    position: absolute;
+    left: 16px;
+    width: calc(90% - 48px);
+    height: calc(95% - 330px);
+    color: var(--current-gray-dark);
+    text-align: left;
+    font-family: var(--current-font);
+    font-size: 20px;
+    padding: 30px 50px;
+    margin-top: -10px;
+    outline: none;
+    resize: none;
+    border: none;
+    border-top: 2px solid var(--current-gray);
+    background-color: var(--color-transparent);
+    overflow-y: auto;
+    overflow-x: auto;
+}
