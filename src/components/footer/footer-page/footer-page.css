@@ -1,16 +1,16 @@
 /* This file contains the styles for the footer page */
 
-.footer { /* footer container */
+.footer { /* Footer container */
   position: absolute;
   right: 2vw;
   bottom: 12vh;
-  width: 15vw;
+  width: 11vw;
   height: 30vh;
   text-align: left;
   background-color: var(--color-background);
   border: 2px solid var(--current-gray);
   border-radius: 5px;
-  box-shadow: 0 1px 4px var(--color-shadow);
+  box-shadow: 1 10px 10px var(--color-shadow);
   z-index: 10;
   margin: auto;
   font: var(--current-font);
@@ -23,42 +23,43 @@
   color: var(--color-font-gray);
   line-height: 20px;
 }
-.footer-follow-icon { /* instagram icon next to follow us text */
-  position: absolute;
-  left: 11vh;
-  top: 80%;
-  transform: translate(0%, -50%);
-  width: 10px;
-  height: 10px;
-  padding: 8px;
+.footer-line { /* Footer lines that split content */
   background-color: var(--current-gray);
-  border-radius: 5px;
-  cursor: pointer;
-}
-.footer-follow-icon img { /* the actual icon */
-  position: absolute;
-  right: 15%;
-  bottom: 15%;
-  width: 70%;
-  height: 70%;
-  cursor: pointer;
-  filter: var(--svg-invert-white);
-}
-
-.footer-links { /* container with links to other pages */
+  border: 1px solid var(--current-gray);
+  width: 95%;
+  margin: -0.2vh;
   position: relative;
-  left: 0.5vw;
-  top: 1vh;
-  max-height: 36px;
-  color: var(--color-font-gray);
-  line-height: 18px;
+  border-radius: 1px;
 }
 
-.footer-link { /* single link */
-  color: var(--current-blue);
+.footer-link { /* individual links */
+  color: var(--current-gray-light);
   font-family: var(--current-font);
-  text-decoration: underline;
   cursor: pointer;
+  left: 0.5vw;
+  position: relative;
+  content: "";
+  display: block;
+  margin: 1vh;
+  text-decoration: none;
+  transition: transform .2s ease-in-out;
+}
+.footer-link:hover{
+  transform: scale(1.05);
+}
+.footer-tutorial{
+    position: absolute;
+    right:0;
+    bottom: 0vh;
+    width: 15vw;
+    height: 30vh;
+    text-align: left;
+    background-color: var(--color-background);
+    border: 2px solid var(--current-gray);
+    border-radius: 5px;
+    box-shadow: 1 10px 10px var(--color-shadow);
+    z-index: 12;
+    font: var(--current-font);
 }
 
 @media (max-width: 430px) { /* phone optimization */

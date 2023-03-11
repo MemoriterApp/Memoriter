@@ -8,15 +8,23 @@ const FooterButton = () => {
 
     return (
         <>
-        <button className='footer-button' title='Footer Button'
-            onClick={() => setModalIsOpen(true)}>
+        <button
+            className='footer-button'
+            title='Footer Button'
+            onClick={() => setModalIsOpen(true)}
+        >
             ?
         </button>
-        <div>
-            {modalIsOpen && <FooterPage />}
-            {modalIsOpen && <BackdropTransparent onClick={() => setModalIsOpen(false)} />}
 
-        </div></>
+        <div>
+            {modalIsOpen && (
+                <>
+                    <FooterPage />
+                    <BackdropTransparent onClick={() => setModalIsOpen(false)} />
+                </>
+            )}
+        </div>
+        </>
     );
 };
 export default FooterButton;
