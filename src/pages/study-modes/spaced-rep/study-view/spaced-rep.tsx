@@ -6,7 +6,6 @@ import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FlashcardSpacedRep from '../flashcard/flashcard-spaced-rep';
 import NothingToStudy from '../nothing-to-study/nothing-to-study';
 import TutorialSpacedRep from '../tutorial/tutorial-spaced-rep';
-import BackButton from '../../../../components/back-button/BackButton';
 import { firebase, getFlashcards, removeFlashcard, updateFlashcard } from '../../../../technical/utils/mongo';
 import { useState, useEffect } from 'react';
 import { spacedRepetition } from '../../../../technical/utils/spaced-repetition';
@@ -42,7 +41,7 @@ function SpacedRepMode() {
     useEffect(() => {
         const fetchFlashcards = async () => {
             const allFlashcards = await getFlashcards(folderID);
-            setFlashcards(allFlashcards);
+            setFlashcards(allFlashcards.sort(() => Math.random() - 0.5)); // gets the database flashcards and randomizes their order
         };
         fetchFlashcards();
         localStorage.setItem('lastPage', '/study');

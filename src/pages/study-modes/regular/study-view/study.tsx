@@ -1,7 +1,6 @@
 import Logo from '../../../../images/memoriter-logo.svg';
 import Footer from '../../../../components/footer/footer';
 import FlashcardStudy from '../flashcard/flashcard-study';
-import BackButton from '../../../../components/back-button/BackButton';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase, getFlashcards, removeFlashcard, updateFlashcard } from '../../../../technical/utils/mongo';
@@ -31,7 +30,7 @@ const StudyPage = () => {
     useEffect(() => {
         const fetchFlashcards = async () => {
             const allFlashcards = await getFlashcards(folderID);
-            setFlashcards(allFlashcards); //gets the database flashcards
+            setFlashcards(allFlashcards.sort(() => Math.random() - 0.5)); // gets the database flashcards and randomizes their order
         };
 
         fetchFlashcards();
