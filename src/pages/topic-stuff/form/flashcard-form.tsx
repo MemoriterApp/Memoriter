@@ -3,6 +3,7 @@ import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import { Flashcard } from '../../../types';
 import { getFlashcardSuggestion } from '../../../technical/utils/mongo';
 import './flashcard-form.css';
+import sparkles from '../../../images/icons/sparkles.svg'
 
 const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { type: String, flashcard?: Flashcard, folderID: String, onConfirm: any, onCancel?: any }) => {
 
@@ -19,6 +20,7 @@ const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { typ
     };
 
     const [suggestion, setSuggestion] = useState(''); // content suggestion from AI
+    const [isSuggestionOn, setIsSuggestionOn] = useState(true); // whether the suggestion is on or off
 
     // get flashcard suggestion
     const generateSuggestion = async () => {
@@ -33,22 +35,32 @@ const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { typ
       };
       
 
-    const timeout = useRef<number | undefined>();
     // useEffect hook to trigger the generateContent function when the component is mounted
     useEffect(() => {
-        clearTimeout(timeout.current);
-        timeout.current = window.setTimeout(() => {
-            generateSuggestion();
-        }, 1100);
+        if (isSuggestionOn && title) {
+            const timeout = window.setTimeout(() => {
+                generateSuggestion();
+            }, 1100);
+            return () => clearTimeout(timeout);
+        }
+        else {
+            setSuggestion('');
+        }
+    }, [isSuggestionOn, title]);
+    
 
-        return () => clearTimeout(timeout.current);
-    }, [title]);
 
     return (
         <>
             <form className='flashcard-open-body' onSubmit={onSubmitFlashcard}>
                 <div>
                     <h2 className='add-flashcard-form-header'>{type} Flashcard</h2>
+                    <img className='generate-on-off-button'
+                    src={sparkles}
+                    alt='sparkles'
+                    style={{filter: isSuggestionOn ? 'none' : 'grayscale(100%)'}}
+                    onClick={() => setIsSuggestionOn(!isSuggestionOn)}
+                    />
                     <p style={{ fontSize: '30px' }} />
                     <textarea
                         rows={2}
