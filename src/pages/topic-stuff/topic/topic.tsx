@@ -219,6 +219,10 @@ function TopicPage() {
   const NotesIcon = require('../../../images/icons/google-docs.png'); //for some reason could not import otherwise
   const [isNotesOpen, setIsNotesOpen] = useState(false); //state to check if the notes are open
 
+  function handleBackdropClick() {
+    setIsNotesOpen(false);
+  }
+
   return (
     <>
       <header className="page-header">
@@ -324,7 +328,7 @@ function TopicPage() {
             <img className="notes-icon" src={NotesIcon} />
           </div>
           {isNotesOpen && <Notes/>}
-          {isNotesOpen && <Backdrop onClick={() => setIsNotesOpen(false)} />}
+          {isNotesOpen && <Backdrop onClick={handleBackdropClick} />}
           <BackButton />
           <SettingsIcon />
         </div>

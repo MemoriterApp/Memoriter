@@ -227,3 +227,7 @@
     cursor: pointer;
     filter: var(--flame-color);
 }
+
+.notes-icon:hover {
+    transform:scale(1.1);
+}
