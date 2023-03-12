@@ -67,6 +67,7 @@ const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { typ
                         onChange={(event) => setContent(event.target.value)}
                         onKeyDown={(event) => {
                             if (event.key === 'Tab') {
+                                event.preventDefault();
                                 setContent(suggestion);
                             }
                         }}
