@@ -3,34 +3,45 @@ import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import EditorJS from '@editorjs/editorjs';
 import {API} from '@editorjs/editorjs';
 import { useState, useEffect } from 'react';
+import sparkles from '../../../images/icons/sparkles.svg'
 
 function Notes() {
+
+  //const sparkles = require('../../../images/icons/flash-cards.png');
 
   class TurnIntoFlashcard {
     static get isInline(): boolean {
       return true;
     }
-  
+
     button: HTMLButtonElement;
-  
+
     render(): HTMLElement {
       this.button = document.createElement('button');
       this.button.type = 'button';
-      this.button.innerText = 'Save as Flashcard';
-  
+      this.button.style.backgroundImage = `url(${sparkles})`; // set the background image
+      this.button.style.backgroundSize = 'contain'; // set the background size to contain the image
+      this.button.style.backgroundRepeat = 'no-repeat'; // set the background repeat to none
+      this.button.style.backgroundColor = 'transparent'; // set the background color to transparent
+      this.button.style.marginTop = '3px'; // set the margin-top to 2px
+      this.button.style.border = 'none'; // remove the border
+      this.button.style.width = '25px'; // set the width of the button
+      this.button.style.height = '25px'; // set the height of the button
+      this.button.style.cursor = 'pointer'; // set the cursor to pointer
+
       this.button.addEventListener('click', () => {
         const selection = window.getSelection();
         const range = selection.getRangeAt(0);
         const content = range.cloneContents().textContent?.trim();
-  
+
         console.log(content);
       });
-  
+
       return this.button;
     }
-  
+
     surround(range: any): void {}
-  
+
     checkState(selection: any): void {}
   }
   
@@ -70,7 +81,7 @@ function Notes() {
           class: require('@editorjs/link'),
           shortcut: 'CMD+SHIFT+K'
         },
-        turnintoflashcard: {
+        'turn into flashcard': {
           class: TurnIntoFlashcard,
         },
       },
