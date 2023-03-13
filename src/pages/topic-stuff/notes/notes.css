@@ -40,3 +40,13 @@
     overflow-y: auto;
     overflow-x: auto;
 }
+
+.EditorJS .ce-inline-toolbar__btn[data-tool="turnintoflashcard"] button {
+    background: url('../../../images/icons/sparkles.svg') no-repeat center;
+    background-size: contain;
+    padding: 0;
+    border: none;
+    width: 32px;
+    height: 32px;
+  }
+  

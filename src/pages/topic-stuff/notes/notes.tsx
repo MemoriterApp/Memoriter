@@ -1,9 +1,41 @@
 import './notes.css'
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import EditorJS from '@editorjs/editorjs';
+import {API} from '@editorjs/editorjs';
 import { useState, useEffect } from 'react';
 
 function Notes() {
+
+  class TurnIntoFlashcard {
+    static get isInline(): boolean {
+      return true;
+    }
+  
+    button: HTMLButtonElement;
+  
+    render(): HTMLElement {
+      this.button = document.createElement('button');
+      this.button.type = 'button';
+      this.button.innerText = 'Save as Flashcard';
+  
+      this.button.addEventListener('click', () => {
+        const selection = window.getSelection();
+        const range = selection.getRangeAt(0);
+        const content = range.cloneContents().textContent?.trim();
+  
+        console.log(content);
+      });
+  
+      return this.button;
+    }
+  
+    surround(range: any): void {}
+  
+    checkState(selection: any): void {}
+  }
+  
+  
+  
 
   const [editorData, setEditorData] = useState(null);
   const [saveTimeout, setSaveTimeout] = useState(null);
@@ -14,7 +46,12 @@ function Notes() {
       tools: {
         header: {
           class: require('@editorjs/header'),
-          shortcut: 'CMD+SHIFT+H'
+          config: {
+            levels: [1, 2, 3],
+            defaultLevel: 2,
+            shortcut: 'CMD+SHIFT+H',
+            inlineToolbar: true,
+          },
         },
         checklist: {
           class: require('@editorjs/checklist'),
@@ -22,7 +59,8 @@ function Notes() {
         },
         list: {
           class: require('@editorjs/list'),
-          shortcut: 'CMD+SHIFT+L'
+          shortcut: 'CMD+SHIFT+L',
+          inlineToolbar: true,
         },
         quote: {
           class: require('@editorjs/quote'),
@@ -31,7 +69,10 @@ function Notes() {
         link: {
           class: require('@editorjs/link'),
           shortcut: 'CMD+SHIFT+K'
-        }
+        },
+        turnintoflashcard: {
+          class: TurnIntoFlashcard,
+        },
       },
       data: editorData,
       onChange: () => {
