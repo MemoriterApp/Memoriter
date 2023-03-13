@@ -97,7 +97,6 @@ export async function getFlashcardSuggestion(title: string): Promise<string> {
         }
     });
     const data = await response.json();
-    console.log('data', data);
     return data.suggestion;
 }
 
