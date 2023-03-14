@@ -50,11 +50,11 @@ function SettingsClick() {
             <p className='settings-sub' onClick={() => openProfile(true)}>PROFILE</p>
 
             {(themeText === 'light' || !themeText) && <p className='settings-sub' onClick={() => onChangeTheme('dark')}>
-                THEME:&shy; <p className='theme-indicator' style={{backgroundColor:'#202020', color:'#ffffff'}}>Dark</p>
+                THEME:&shy; <p className='theme-indicator' style={{ backgroundColor: '#202020', color: '#ffffff' }}>Dark</p>
             </p>}
 
             {themeText === 'dark' && <p className='settings-sub' onClick={() => onChangeTheme('light')}>
-                THEME:&shy; <p className='theme-indicator' style={{backgroundColor:'#eeeeee', color:'#000000'}}>LIGHT</p>
+                THEME:&shy; <p className='theme-indicator' style={{ backgroundColor: '#eeeeee', color: '#000000' }}>LIGHT</p>
             </p>}
 
             <p className='settings-sub' onClick={() => openChangePreview(true)}>CHANGE PREVIEW</p>

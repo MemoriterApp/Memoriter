@@ -96,3 +96,14 @@
 .flashcard-form-md a {
     color: var(--current-gray);
 }
+    .generate-on-off-button {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        right: 20px;
+        top: 15px;
+        cursor: pointer;
+    }
+.generate-on-off-button:hover {
+    transform: scale(1.15);
+}
