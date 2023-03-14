@@ -1,16 +1,30 @@
 .gear {
     position: absolute;
     top: 3px;
-    right: 3px;
-    width: 35px;
-    height: 35px;
+    right: 40px;
+    width: 20px;
+    height: 20px;
     border: 1px transparent;
     background-color: var(--color-transparent);
     cursor: pointer;
-    filter: var(--svg-invert-gray);
+    filter: invert(32%) sepia(7%) saturate(0%) hue-rotate(277deg) brightness(98%) contrast(89%);
+  }
+  
+  .gear-img {
     transition: transform .15s ease-in-out;
-}
-
-.gear:hover {
-    transform: scale(1.1);
-}
+  }
+  
+  .gear:hover .gear-img {
+    transform: rotate(360deg);
+    animation: spin 2s ease-in-out;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
