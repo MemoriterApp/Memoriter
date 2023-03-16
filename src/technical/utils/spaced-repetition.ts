@@ -60,41 +60,34 @@ export const spacedRepetition = async (id: string, type: number, streak: number,
         };
         updateFlashcard(id, newProps); // updates the document
 
-        return true; // returns true to remove the flashcard from the current session
-    } else if (type === 1) { // difficult response
-        if (streak > 0) { // card was already answererd correctly before
-            // new condition to set the interval based on the answer streak
-            if (streak === 1) { // answer streak is 1
-                interval = 1;
-            } else if (streak === 2) { // answer streak is 2
-                interval = 2;
-            } else { // higher answer streak
-                interval = Math.round((interval + 1) * easiness); // interval is updated based on the easiness factor
-            }
-
-            let nextDate = new Date(); // gets current date
-            nextDate.setDate(nextDate.getDate() + interval); // updates date (for the flashcard to showagain) by the last interval
-            nextDate.setHours(0, 0, 0, 0); // sets time to 0 o'clock
-            streak++; // increments answer streak
-
-            easiness = easiness - 0.1; // new (lower) easiness factor
-            if (easiness < 1.2) { // condition for very low easiness
-                easiness = 1.2; // changes easiness to a fixed value if it is to low
-            }
-
-            // variables and functions to update the flashcard document at the database
-            const newProps = { // object of updated properties
-                streak: streak,
-                easiness: easiness,
-                interval: interval,
-                nextDate: nextDate.getTime()
-            };
-            updateFlashcard(id, newProps); // updates the document
-
-            return true; // returns true to remove the flashcard from the current session
-        } else { // card is either new or was answered incorrectly before
-            return false; // returns false for not removing the flashcard from the current study array
+    } else if (type === 1 && streak > 0) { // difficult response and card was already answererd correctly before
+        // new condition to set the interval based on the answer streak
+        if (streak === 1) { // answer streak is 1
+            interval = 1;
+        } else if (streak === 2) { // answer streak is 2
+            interval = 2;
+        } else { // higher answer streak
+            interval = Math.round((interval + 1) * easiness); // interval is updated based on the easiness factor
         }
+
+        let nextDate = new Date(); // gets current date
+        nextDate.setDate(nextDate.getDate() + interval); // updates date (for the flashcard to showagain) by the last interval
+        nextDate.setHours(0, 0, 0, 0); // sets time to 0 o'clock
+        streak++; // increments answer streak
+
+        easiness = easiness - 0.1; // new (lower) easiness factor
+        if (easiness < 1.2) { // condition for very low easiness
+            easiness = 1.2; // changes easiness to a fixed value if it is to low
+        }
+
+        // variables and functions to update the flashcard document at the database
+        const newProps = { // object of updated properties
+            streak: streak,
+            easiness: easiness,
+            interval: interval,
+            nextDate: nextDate.getTime()
+        };
+        updateFlashcard(id, newProps); // updates the document
     } else { // incorrect response
         streak = 0; // resets answer streak
         // date is not changed for the flashcard to show up again in the session
@@ -111,7 +104,5 @@ export const spacedRepetition = async (id: string, type: number, streak: number,
             interval: interval,
         };
         updateFlashcard(id, newProps); // updates the document
-
-        return false; // returns false for not removing the flashcard from the current study array
     }
 };

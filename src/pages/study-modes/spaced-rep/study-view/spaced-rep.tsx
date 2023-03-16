@@ -49,7 +49,17 @@ function SpacedRepMode() {
 
     // answer function
     const flashcardAnswer = (answeredFlashcard: Flashcard, type: number, streak: number, easiness: number, interval: number) => {
-        if (spacedRepetition(answeredFlashcard._id, type, streak, easiness, interval)) {
+        // if the flashcard has been marked incorrect or partly correct, it will not be removed from the session, otherwise it will be
+        if (type === 0 || (type === 1 && streak === 0)) {
+            //removes the incorrect flashcard and moves it to the end, new flashcard shows up
+            setFlashcards([
+                ...flashcards
+                    .filter((flashcard) => flashcard._id !== answeredFlashcard._id) //removes the old flashcard
+                    .sort(() => Math.random() - 0.5), answeredFlashcard
+            ]); //reshuffles the array and creates the copy
+            //the advantage of this method is the fact that a flashcard will not show the next timo if incorrect is clicked
+            setIncorrectFlashcards(incorrectFlashcards + 1);
+        } else {
             // correct(-ish) answer: flashcard gets removed from the session array
             if (flashcards.length === 1) { //determines if the endscreen for laerned all cards is shown or not if a flashcard is marked as correct
                 setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard._id !== answeredFlashcard._id));
@@ -59,16 +69,9 @@ function SpacedRepMode() {
                 setFlashcards((flashcards) => flashcards.filter((flashcard) => flashcard._id !== answeredFlashcard._id));
                 setStudiedFlashcards(studiedFlashcards + 1);
             }
-        } else {
-            //removes the incorrect flashcard and moves it to the end, new flashcard shows up
-            setFlashcards([
-                ...flashcards
-                    .filter((flashcard) => flashcard._id !== answeredFlashcard._id) //removes the old flashcard
-                    .sort(() => Math.random() - 0.5), answeredFlashcard
-            ]); //reshuffles the array and creates the copy
-            //the advantage of this method is the fact that a flashcard will not show the next timo if incorrect is clicked
-            setIncorrectFlashcards(incorrectFlashcards + 1);
         }
+
+    spacedRepetition(answeredFlashcard._id, type, streak, easiness, interval); // updates flashcard
     };
     // the flashcard properties must be used as function arguments
     // type depends on the clicked button, it can be 0 to 4, 0 is completely incorrect, 4 is very easy
