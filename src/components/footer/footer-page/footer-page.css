@@ -2,8 +2,8 @@
 
 .footer { /* Footer container */
   position: absolute;
-  right: 2vw;
-  bottom: 12vh;
+  right: 3.5vw;
+  bottom: 10vh;
   width: 11vw;
   height: 30vh;
   text-align: left;
@@ -49,8 +49,8 @@
 }
 .footer-tutorial{
     position: absolute;
-    right:0;
-    bottom: 0vh;
+    right: 3.5vw;
+    bottom: 10vh;
     width: 15vw;
     height: 30vh;
     text-align: left;

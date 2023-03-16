@@ -1,10 +1,8 @@
 import './spaced-rep.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../../../images/memoriter-logo.svg';
-import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FlashcardSpacedRep from '../flashcard/flashcard-spaced-rep';
 import NothingToStudy from '../nothing-to-study/nothing-to-study';
-import TutorialSpacedRep from '../tutorial/tutorial-spaced-rep';
 import BackButton from '../../../../components/back-button/BackButton';
 import { firebase, getFlashcards, removeFlashcard, updateFlashcard } from '../../../../technical/utils/mongo';
 import { useState, useEffect } from 'react';
@@ -28,7 +26,6 @@ function SpacedRepMode() {
     let folderTitle = localStorage.getItem('folderTitle');
     let folderID = localStorage.getItem('folderID');
 
-    const [tutorialSpacedRepetition, setTutorialSpacedRepetition] = useState(false);
 
     //Flashcard Data
     const [flashcards, setFlashcards] = useState<any[]>([]);
@@ -154,20 +151,9 @@ function SpacedRepMode() {
                             onChangeTextAlign={changeTextAlign}
                         />
                     ))}
-
-                    <button className='tutorial-button' title='Tutorial'
-                        onClick={() => setTutorialSpacedRepetition(true)}>
-                        ?
-                    </button>
                     {flashcards.length === 0 && <NothingToStudy />}
                 </>}
 
-                {tutorialSpacedRepetition &&
-                    <>
-                        <TutorialSpacedRep />
-                        <Backdrop onClick={() => setTutorialSpacedRepetition(false)} />
-                    </>
-                }
 
                 {finished && <FinishedViewSpacedRep
                     studiedFlashcards={studiedFlashcards}
