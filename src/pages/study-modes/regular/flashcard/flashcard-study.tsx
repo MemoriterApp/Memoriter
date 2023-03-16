@@ -132,17 +132,7 @@ const FlashcardStudy = ({
                 <div>
                     <div className='flex-container'>
                         <button
-                            style={{ backgroundColor: 'var(--current-red)', marginRight: '40px' }}
-                            className='correct-incorrect-button'
-                            onClick={() => {
-                                setShowAnswer(false);
-                                onIncorrect(flashcard);
-                            }}
-                        >
-                            Incorrect
-                        </button>
-                        <button
-                            style={{ backgroundColor: 'var(--current-green)' }}
+                            style={{ backgroundColor: 'var(--current-green)', marginRight: '40px' }}
                             className='correct-incorrect-button'
                             onClick={() => {
                                 setShowAnswer(false);
@@ -150,6 +140,16 @@ const FlashcardStudy = ({
                             }}
                         >
                             Correct
+                        </button>
+                        <button
+                            style={{ backgroundColor: 'var(--current-red)' }}
+                            className='correct-incorrect-button'
+                            onClick={() => {
+                                setShowAnswer(false);
+                                onIncorrect(flashcard);
+                            }}
+                        >
+                            Incorrect
                         </button>
                     </div>
                 </div>
