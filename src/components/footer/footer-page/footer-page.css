@@ -22,6 +22,9 @@
   top: 1vh;
   color: var(--color-font-gray);
   line-height: 20px;
+  font: var(--current-font);
+  font-family: var(--current-font);
+  margin: auto;
 }
 .footer-line { /* Footer lines that split content */
   background-color: var(--current-gray);
@@ -48,18 +51,19 @@
   transform: scale(1.05);
 }
 .footer-tutorial{
-    position: absolute;
-    right: 3.5vw;
-    bottom: 10vh;
-    width: 15vw;
-    height: 30vh;
-    text-align: left;
-    background-color: var(--color-background);
-    border: 2px solid var(--current-gray);
-    border-radius: 5px;
-    box-shadow: 1 10px 10px var(--color-shadow);
-    z-index: 12;
-    font: var(--current-font);
+  position: absolute;
+  right: 3.5vw;
+  bottom: 10vh;
+  width: 15vw;
+  height: 30vh;
+  text-align: left;
+  background-color: var(--color-background);
+  border: 2px solid var(--current-gray);
+  border-radius: 5px;
+  box-shadow: 1 10px 10px var(--color-shadow);
+  z-index: 12;
+  margin: auto;
+  font: var(--current-font);
 }
 
 @media (max-width: 430px) { /* phone optimization */

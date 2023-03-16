@@ -47,6 +47,7 @@ const FooterPage = () => {
 
             {footerTutorial && <div>
                     <footer className='footer-tutorial'>
+
                         <Link className='footer-link' to='/study-spaced-repetition'
                         onClick={() => {
                             setTutorialSpacedRepetition(true);
@@ -55,6 +56,9 @@ const FooterPage = () => {
                         }}>
                             Spaced Repetition
                         </Link>
+                        <a className='footer-text' style={{fontSize:'small'}}>
+                            (If you are not on the page of the tutorial, you will first be brought there, then you sould click the chosen tutorial again)
+                        </a>
                         
                     </footer>
                     <BackdropTransparent onClick={() => openfooterTutorial(false)} />
