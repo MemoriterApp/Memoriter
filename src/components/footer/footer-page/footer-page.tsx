@@ -57,7 +57,7 @@ const FooterPage = () => {
                             Spaced Repetition
                         </Link>
                         <a className='footer-text' style={{fontSize:'small'}}>
-                            (If you are not on the page of the tutorial, you will first be brought there, then you sould click the chosen tutorial again)
+                        (If you are not on the tutorial page, you will be taken there first, then you will need to click on the chosen tutorial again)
                         </a>
                         
                     </footer>
