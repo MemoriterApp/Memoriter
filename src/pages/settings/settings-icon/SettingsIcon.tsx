@@ -11,8 +11,9 @@ const SettingsIcon = () => {
     return (
         <div>
             <button className='gear'>
-                <img className='gear' src={settingsIcon} alt='settings' onClick={() => setModalIsOpen(true)}></img>
-            </button>
+  <img className='gear-img' src={settingsIcon} alt='settings' onClick={() => setModalIsOpen(true)} />
+</button>
+
             <div>
                 {modalIsOpen && <SettingsClick />}
                 {modalIsOpen && <Backdrop onClick={() => setModalIsOpen(false)} />}

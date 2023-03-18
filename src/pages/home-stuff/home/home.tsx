@@ -43,7 +43,7 @@ function HomePage() {
         await updateFolder(id, newPosUp);
 
         setFolders(
-            folders.map((folder: Type.Folder) =>
+            folders.map((folder: Type.Folder) => 
                 folder._id === id
                     ? { ...folder, pos: folder.pos - 1 }
                     : folder.pos === pos - 1

@@ -1,0 +1,184 @@
+.failed-signup {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    color: var(--current-red);
+    top: 100px;
+    font-family: var(--current-font);
+    font-size: 24px;
+    width: calc(100% - 70px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.top-divider {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80px;
+    width: calc(100% - 10px);
+    height: 0px;
+    border-top: 5px solid var(--current-gray);
+    border-radius: 15px;
+}
+
+.signup-container {
+    position: absolute;
+    width: 550px;
+    max-width: 100%;
+    left: 50%;
+    top: 15vh;
+    transform: translate(-50%);
+    color: var(--color-font);
+    text-align: center;
+    font-family: var(--current-font);
+    overflow: visible;
+    padding-top: -20px;
+}
+
+.mail-and-password-form-input {
+    /* folder name input field */
+    width: 80%;
+    font-size: 20px;
+    color: var(--color-font);
+    font-family: var(--current-font);
+    padding: 5px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    background-color: var(--color-transparent);
+    border: 5px solid var(--current-gray);
+    border-radius: 3px;
+    outline: none;
+}
+
+.passwords-no-match {
+    color: var(--current-red);
+    font-family: var(--current-font);
+    font-size: 14px;
+    position: absolute;
+    left: 8%;
+    margin-top: 2px;
+}
+
+.accept-privacy {
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    top: 500px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.accept-privacy [type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.accept-privacy [type='checkbox']+label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.accept-privacy [type='checkbox']+label::before {
+    border: 3.5px solid var(--current-gray);
+    border-radius: 3px;
+    background-color: var(--color-background);
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 5px;
+    position: relative;
+    margin-top: 1px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.accept-privacy [type='checkbox']+label:hover::before {
+    background-color: var(--color-hover);
+}
+
+.accept-privacy [type='checkbox']:checked+label::before {
+    box-shadow: inset 0px 0px 0px 3px var(--color-background);
+    background-color: var(--current-gray);
+}
+
+.accept-privacy-red {
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    top: 500px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.accept-privacy-red [type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.accept-privacy-red [type='checkbox']+label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.accept-privacy-red [type='checkbox']+label::before {
+    border: 3.5px solid var(--current-red);
+    border-radius: 3px;
+    background-color: var(--color-background);
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 5px;
+    position: relative;
+    margin-top: 1px;
+}
+
+.accept-privacy-red [type='checkbox']:checked+label::before {
+    box-shadow: inset 0px 0px 0px 3px var(--color-background);
+    background-color: var(--current-red);
+}
+
+.no-account {
+    position: relative;
+    top: 70px;
+    height: 85px;
+    color: var(--current-blue-dark);
+    font-family: var(--current-font);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.signup-button {
+    height: 50px;
+    width: 125px;
+    border-radius: 6px;
+    background-color: var(--current-blue);
+    position: absolute;
+    top: 450px;
+    left: 50%;
+    border: 3px solid var(--current-blue);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-white);
+    transform: translate(-50%);
+    transition: 200ms;
+}
+
+.signup-button:hover {
+    filter: brightness(120%);
+}
