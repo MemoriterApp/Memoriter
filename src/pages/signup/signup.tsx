@@ -1,5 +1,5 @@
 import Logo from '../../images/memoriter-logo.svg';
-import Footer from '../../components/footer/footer';
+import FooterButton from '../../components/footer/footer-button/footer-button';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
@@ -214,7 +214,7 @@ function SignUpPage() {
 
             </main >
             <footer>
-                <Footer />
+                <FooterButton />
             </footer>
         </>
     );
