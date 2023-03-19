@@ -1,0 +1,120 @@
+.share-box {
+    background-color: var(--color-background);
+    position: fixed;
+    height: 250px;
+    width: 90%;
+    max-width: 540px;
+    max-height: calc(100% - 8px);
+    z-index: 10;
+    overflow-y: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.share-folder-header {
+    position: relative;
+    color: var(--color-font);
+    font-size: 15px;
+    font-family: var(--current-font);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.share-seperator {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -10px;
+    width: calc(100% - 10px);
+    height: 0px;
+    border-top: 3px solid var(--current-gray);
+    border-radius: 15px;
+}
+
+.link-field {
+    position: relative;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 30px;
+    border: 2px solid var(--current-gray);
+    border-radius: 5px;
+    padding: 5px 5px 5px 35px;
+    /* added left padding to make space for the image */
+    outline: none;
+    font-family: var(--current-font);
+    color: var(--color-font);
+    background-color: var(--color-background);
+}
+
+.copy-link-text {
+    position: relative;
+    top: 10px;
+    width: fit-content;
+    left: 1.2vw;
+    font-family: var(--current-font);
+    color: var(--color-font);
+    font-weight: bold;
+    display: flex;
+    justify-content: left;
+}
+
+.link-image {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    filter: var(--svg-invert);
+}
+
+.link-input {
+    position: relative;
+    left: 1vw;
+    font-size: 17px;
+    font-family: var(--current-font);
+    color: var(--color-font);
+    border: none;
+    outline: none;
+    pointer-events: none;
+    width: 100%;
+    background-color: transparent;
+    /* added width property to occupy remaining space */
+}
+
+.copy-button {
+    position: absolute;
+    height: 80%;
+    width: 15%;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--current-blue);
+    font-family: var(--current-font);
+    color: white;
+    font-size: 17px;
+    right: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.copy-button:hover {
+    filter: brightness(1.1);
+}
+
+@media only screen and (max-width: 768px) {
+    .share-box {
+        height: auto;
+        max-height: calc(100% - 8px);
+        width: 90%;
+        max-width: 480px;
+        padding-inline: 10px;
+    }
+}

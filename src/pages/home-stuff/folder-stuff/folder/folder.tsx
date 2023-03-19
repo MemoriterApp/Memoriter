@@ -5,8 +5,10 @@ import Confirm from '../../../../components/confirm/confirm';
 import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FolderForm from '../form-folder/folder-form';
 import FolderSettings from '../settings-folder/folder-settings';
+import ShareFolderPopUp from '../share-folder/share-folder-pop-up';
 import * as Type from '../../../../types';
 import { getFlashcards } from '../../../../technical/utils/mongo';
+import share from '../../../../images/share.svg';
 
 const Folder = ({
     folder,
@@ -99,6 +101,9 @@ const Folder = ({
 
     let folderID = localStorage.getItem('folderID'); //gets the id of the synced folder
 
+    // useState to check if the share modal is open or not
+    const [shareModal, setShareModal] = useState(false);
+
     return (
         <section className='folder'>
             <Link to={'/topic#' + folderID} onClick={onOpenFolder}>
@@ -118,6 +123,17 @@ const Folder = ({
                     <p className='indicator-number'>{due.length}</p>
                 </Link>
             </div>
+
+            <div>
+                <img
+                    onClick={() => { setShareModal(true) }}
+                    className='share-icon'
+                    src={share}
+                />
+            </div>
+
+            {shareModal && <ShareFolderPopUp />}
+            {shareModal && <Backdrop onClick={() => { setShareModal(false) }} />}
 
             <div
                 className='folder-pos-body-up'
@@ -147,36 +163,42 @@ const Folder = ({
                 <span className='dot' />
             </div>
 
-            {modalIsOpen && (
-                <>
-                    <FolderSettings
+            {
+                modalIsOpen && (
+                    <>
+                        <FolderSettings
+                            folder={folder}
+                            editFolderReq={() => { setEditModal(true); setModalIsOpen(false); }}
+                            deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
+                            onArchive={onArchiveFolder}
+                            onDearchive={onDearchiveFolder}
+                        />
+                        <Backdrop onClick={() => setModalIsOpen(false)} />
+                    </>
+                )
+            }
+
+            {
+                editModal && (
+                    <FolderForm
+                        type='Edit'
                         folder={folder}
-                        editFolderReq={() => { setEditModal(true); setModalIsOpen(false); }}
-                        deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
-                        onArchive={onArchiveFolder}
-                        onDearchive={onDearchiveFolder}
+                        onCancel={() => setEditModal(false)}
+                        onConfirm={editFolder}
                     />
-                    <Backdrop onClick={() => setModalIsOpen(false)} />
-                </>
-            )}
+                )
+            }
 
-            {editModal && (
-                <FolderForm
-                    type='Edit'
-                    folder={folder}
-                    onCancel={() => setEditModal(false)}
-                    onConfirm={editFolder}
-                />
-            )}
-
-            {deleteModal && (
-                <Confirm
-                    title='Do you really want to delete this folder?'
-                    onConfirm={() => onDeleteFolder(folder) && setDeleteModal(false)}
-                    onCancel={() => setDeleteModal(false)}
-                />
-            )}
-        </section>
+            {
+                deleteModal && (
+                    <Confirm
+                        title='Do you really want to delete this folder?'
+                        onConfirm={() => onDeleteFolder(folder) && setDeleteModal(false)}
+                        onCancel={() => setDeleteModal(false)}
+                    />
+                )
+            }
+        </section >
     );
 };
 export default Folder;

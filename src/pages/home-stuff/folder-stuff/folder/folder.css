@@ -12,7 +12,7 @@
     display: inline-block;
     position: absolute;
     top: 2px;
-    right: 0;
+    right: 20px;
     background-color: var(--current-gray-medium-dark);
     border-radius: 50%;
     cursor: pointer;
@@ -196,4 +196,20 @@
     font-size: 20px;
     cursor: pointer;
     border-radius: 6px;
+}
+
+.share-icon {
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    right: 70px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    filter: var(--svg-invert);
+    transition: transform 0.1s ease-out;
+}
+
+.share-icon:hover {
+    transform: scale(1.15);
 }
