@@ -235,7 +235,7 @@ function TopicPage() {
             className="study-now"
             onClick={() => openChooseStudyModeModal(true)}
           >
-            <p className="study-now-text">study now</p>
+            <p className="study-now-text">study</p>
           </div>
           <div className="streak">
             <img className="streak-icon" src={flame} alt="flame" />
