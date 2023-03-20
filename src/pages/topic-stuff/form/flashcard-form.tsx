@@ -25,15 +25,15 @@ const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { typ
     // get flashcard suggestion
     const generateSuggestion = async () => {
         try {
-          const suggestionResponse = await getFlashcardSuggestion(title);
-          console.log(suggestionResponse);
-          setSuggestion(suggestionResponse);
+            const suggestionResponse = await getFlashcardSuggestion(title);
+            console.log(suggestionResponse);
+            setSuggestion(suggestionResponse);
         } catch (error) {
-          console.error('Error generating suggestion:', error);
-          setSuggestion('');
+            console.error('Error generating suggestion:', error);
+            setSuggestion('');
         }
-      };
-      
+    };
+
 
     // useEffect hook to trigger the generateContent function when the component is mounted
     useEffect(() => {
@@ -47,7 +47,7 @@ const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { typ
             setSuggestion('');
         }
     }, [isSuggestionOn, title]);
-    
+
 
 
     return (
@@ -56,17 +56,17 @@ const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { typ
                 <div>
                     <h2 className='add-flashcard-form-header'>{type} Flashcard</h2>
                     <img className='generate-on-off-button'
-                    src={sparkles}
-                    alt='sparkles'
-                    style={{filter: isSuggestionOn ? 'none' : 'grayscale(100%)'}}
-                    onClick={() => setIsSuggestionOn(!isSuggestionOn)}
+                        src={sparkles}
+                        alt='sparkles'
+                        style={{ filter: isSuggestionOn ? 'none' : 'grayscale(100%)' }}
+                        onClick={() => setIsSuggestionOn(!isSuggestionOn)}
                     />
                     <p style={{ fontSize: '30px' }} />
                     <textarea
                         rows={2}
                         className='add-flashcard-form-title'
                         placeholder='Flashcard Title...'
-                        maxLength={100}
+                        maxLength={200}
                         value={title}
                         onChange={(event) => setTitle(event.target.value)}
                     />
