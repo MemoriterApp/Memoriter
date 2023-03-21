@@ -42,7 +42,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 48px;
+    margin-bottom: 20px;
     width: calc(100% - 10px);
     height: 0px;
     border-top: 8px solid var(--current-gray);
