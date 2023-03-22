@@ -99,13 +99,15 @@ const Folder = ({
 
     return (
         <section className='folder'>
+            <button className='folder-icon' />
             <Link to='/topic' onClick={onOpenFolder}>
-                <button className='button-homepage' />
-                {folder.title !== '' ? ( // checks if the title of the folder is not empty
-                    <button className='button-homepage-text'>{folder.title}</button>
-                ) : (
-                    <button className='button-homepage-text'>New folder</button>
-                )}
+                <div className='open-folder'>
+                    {folder.title !== '' ? ( // checks if the title of the folder is not empty
+                        <button className='button-homepage-text'>{folder.title}</button>
+                    ) : (
+                        <button className='button-homepage-text'>New folder</button>
+                    )}
+                </div>
             </Link>
 
             <div className='new-cards-indicator'>

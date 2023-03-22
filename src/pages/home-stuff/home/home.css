@@ -50,7 +50,7 @@
 }
 
 .folder-base {
-    height: calc(100% - 62px);
+    height: calc(100% - 68px);
     width: calc(100% - 10px);
     margin: auto;
     position: absolute;
