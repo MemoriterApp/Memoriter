@@ -259,6 +259,9 @@ ol {
 
 .flashcard-open-body {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -277,6 +280,7 @@ ol {
 }
 
 .flashcard-open-title {
+    position: absolute;
     font-family: var(--current-font);
     color: var(--current-gray-dark);
     text-align: center;
@@ -337,6 +341,7 @@ ol {
 
 .flashcard-open-content {
     position: relative;
+    bottom: 40px;
     font-family: var(--current-font);
     color: var(--current-gray-dark);
     font-size: 20px;

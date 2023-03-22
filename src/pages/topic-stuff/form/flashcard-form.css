@@ -1,4 +1,7 @@
 .flashcard-open-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -18,13 +21,10 @@
 }
 
 .add-flashcard-form-submit {
-    position: relative;
-    top: calc(100% - 272px);
-    left: 10px;
+    position: absolute;
+    bottom: 0;
     border: none;
     padding: 10px;
-    margin-top: 15px;
-    margin-bottom: 0px;
     width: calc(100% - 20px);
     color: var(--color-white);
     font-family: var(--current-font);
@@ -32,6 +32,7 @@
     cursor: pointer;
     border-radius: 6px;
     background-color: var(--current-blue);
+    margin: 10px 10px;
 }
 
 .add-flashcard-form-header {
