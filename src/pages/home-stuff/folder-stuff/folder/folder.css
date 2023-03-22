@@ -53,10 +53,12 @@
 }
 
 .folder {
+    top: 5px;
     position: relative;
     top: 5px;
     width: 100%;
     height: 50px;
+    margin-top: 0px;
 }
 
 .button-homepage {
