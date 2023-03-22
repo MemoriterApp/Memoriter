@@ -7,6 +7,7 @@ import FolderForm from '../form-folder/folder-form';
 import FolderSettings from '../settings-folder/folder-settings';
 import * as Type from '../../../../types';
 import { getFlashcards } from '../../../../technical/utils/mongo';
+import placeholderFolder from '../../../../images/placeholder-folder.svg';
 
 const Folder = ({
     folder,
@@ -99,13 +100,15 @@ const Folder = ({
 
     return (
         <section className='folder'>
-            <button className='folder-icon' />
+            <button className='folder-icon'>
+                <img src={placeholderFolder} alt='placeholder icon'/>
+            </button>
             <Link to='/topic' onClick={onOpenFolder}>
                 <div className='open-folder'>
                     {folder.title !== '' ? ( // checks if the title of the folder is not empty
-                        <button className='button-homepage-text'>{folder.title}</button>
+                        <p className='folder-text'>{folder.title}</p>
                     ) : (
-                        <button className='button-homepage-text'>New folder</button>
+                        <p className='folder-text'>New folder</p>
                     )}
                 </div>
             </Link>

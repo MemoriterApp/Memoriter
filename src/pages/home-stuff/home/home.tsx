@@ -10,6 +10,7 @@ import { getFlashcards, getFolders, insertFolder, removeFlashcard, removeFolder,
 import { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
 import ArchivedFolders from '../archive-folders/archived-folders';
+import newFolder from '../../../images/new-folder.svg'
 import * as Type from '../../../types';
 
 //this file is the home page of the app where you see all your folders
@@ -199,22 +200,16 @@ function HomePage() {
                         </>
 
                         <div data-folders={folders}>
-                            <div className='new-folder-body'>
-                                <div className='new-folder-line'></div>
-                                <button
-                                    className='button-new-folder'
-                                    onClick={() => {
-                                        setModalIsOpen(true);
-                                    }}
-                                >
-                                    <div className='new-folder-plus-h'></div>
-                                    <div className='new-folder-plus-v'></div>
-                                </button>
-                                <button className='new-folder-text' onClick={() => setModalIsOpen(true)}>Create new folder</button>
+                        <div className='new-folder-line'/>
+                            <button className='new-folder-body' onClick={() => setModalIsOpen(true)}>
+                                <div className='button-new-folder'>
+                                    <img src={newFolder} alt='new folder'/>
+                                </div>
+                                <p className='new-folder-text'>Create new folder</p>
                                 <div>
                                     {modalIsOpen && <FolderForm type='Create new' folder={{ title: '' }} onConfirm={addFolder} onCancel={() => setModalIsOpen(false)} />}
                                 </div>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
