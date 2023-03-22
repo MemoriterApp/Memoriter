@@ -14,20 +14,21 @@
   z-index: 10;
   margin: auto;
   overflow: auto;
+  overflow-x: hidden;
   white-space: pre-wrap;
   font: var(--current-font);
 }
 
 .footer-text { /*  footer text that's not links*/
-  position: relative;
-  left: 0.5vw;
-  top: 1vh;
   color: var(--color-font-gray);
-  line-height: 1.2;
-  font: var(--current-font);
   font-family: var(--current-font);
-  padding: 0.1vw;
-  margin:auto;
+  cursor:default;
+  left: 0.5vw;
+  position: relative;
+  content: "";
+  display: block;
+  margin: 1vh;
+  text-decoration: none;
 }
 .footer-line { /* Footer lines that split content */
   background-color: var(--current-gray);
@@ -39,7 +40,7 @@
 }
 
 .footer-link { /* individual links */
-  color: var(--current-gray-light);
+  color: var(--color-font-gray);
   font-family: var(--current-font);
   cursor: pointer;
   left: 0.5vw;
@@ -67,12 +68,51 @@
   z-index: 12;
   margin: auto;
   overflow: auto;
+  overflow-x: hidden;
   font: var(--current-font);
+}
+
+.footer-follow-icon { /* instagram icon next to the text */
+  position: relative;
+  display:flex;
+  background-color:#121212;
+  width: 14px;
+  height: 14px;
+  padding: 8px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin: auto;
+}
+.footer-follow-icon img { /* the actual icon */
+  position: absolute;
+  right: 15%;
+  bottom: 15%;
+  width: 70%;
+  height: 70%;
+  cursor: pointer;
+  filter: var(--svg-invert-white);
+}
+@media (max-width: 1700px) {
+  .footer {
+    width:15vw;
+    height: 35vh;
+  }
+}
+@media (max-width: 1500px) {
+  .footer {
+    width:17vw;
+    height: 38vh;
+  }
+  .footer-tutorial {
+    width: 35vw;
+    height: 25vh;
+    
+  }
 }
 @media (max-width: 1000px) {
   .footer {
-    width:30vw;
-    height: 20vh;
+    width:20vw;
+    height: 50vh;
   }
   .footer-tutorial {
     width: 35vw;

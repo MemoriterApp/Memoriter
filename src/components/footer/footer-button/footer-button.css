@@ -4,13 +4,13 @@
   position: absolute;
   right: 1%;
   bottom: 4%;
-  color: rgb(255, 255, 255);
-  background: rgb(0, 0, 0);
+  color: var(--color-font);
+  background: var(--current-blue);
   font-size: 36px;
   font-family: var(--current-font);
   height: 56px;
   width: 56px;
-  border: white 10px;
+  border: 10px 10px var(--color-font);
   border-radius: 50%;
   box-shadow: 0 0 20px var(--color-shadow);
   cursor: pointer;
@@ -18,6 +18,6 @@
 }
 .footer-button:hover{
   transform: scale(1.05);
-  filter: invert(90%);
+  filter: invert(85%);
   box-shadow: none;
 }

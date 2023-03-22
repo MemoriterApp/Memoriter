@@ -4,6 +4,7 @@ import TutorialSpacedRep from '../../../pages/study-modes/spaced-rep/tutorial/tu
 import Backdrop from '../../backdrops/backdrop/backdrop';
 import './footer-page.css';
 import BackdropTransparent from '../../backdrops/backdrop-transparent/backdrop-transparent';
+import instagramIcon from '../../../images/icons/instagram-icon.svg';
 
 
 const FooterPage = () => {
@@ -39,26 +40,38 @@ const FooterPage = () => {
                     <a className='footer-link' href='https://forms.gle/sH6X5LXGftLT9eoj7' target='_blank' rel='noreferrer'>
                         Report a bug
                     </a>
-                    <a className='footer-text'>
-
+                    <br></br>
+                    <p className='footer-text'>
+                        Follow us at:
+                    </p> 
+                    <a
+                    className='footer-follow-icon'
+                    href='https://www.instagram.com/memorit.er/'
+                    target='_blank'
+                    rel='noreferrer'
+                    >                
+                        <img src={instagramIcon} alt='instagram-icon'></img>
                     </a>
+
                 </div>
             }
 
             {footerTutorial && <div>
                     <footer className='footer-tutorial'>
+                        <p className='footer-text' style={{fontSize:'large'}}>
+                        Tutorials
+                        </p>
+                        <div className='footer-line'></div>
 
-                        <Link className='footer-link' to='/study-spaced-repetition'
+                        <a className='footer-link'
                         onClick={() => {
                             setTutorialSpacedRepetition(true);
                             openfooterTutorial(false);
                             closeFooter();
                         }}>
                             Spaced Repetition
-                        </Link>
-                        <a className='footer-text' style={{fontSize:'small'}}>
-                        (If you are not on the tutorial page, you will be taken there first, then you will need to click on the chosen tutorial again)
                         </a>
+
                         
                     </footer>
                     <BackdropTransparent onClick={() => openfooterTutorial(false)} />
