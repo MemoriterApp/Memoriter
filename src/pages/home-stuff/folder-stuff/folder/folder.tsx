@@ -101,7 +101,11 @@ const Folder = ({
     return (
         <section className='folder'>
             <button className='folder-icon'>
-                <img src={placeholderFolder} alt='placeholder icon'/>
+                {folder.icon !== '' ? (
+                    <img src={`/emoji/${folder.icon}.svg`} alt='folder icon'/>
+                ) : (
+                    <img src={placeholderFolder} alt='placeholder icon'/>
+                )}
             </button>
             <Link to='/topic' onClick={onOpenFolder}>
                 <div className='open-folder'>
