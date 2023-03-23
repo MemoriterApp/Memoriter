@@ -21,6 +21,7 @@ const Folder = ({
     onPosAdjust,
     onArchiveFolder,
     onDearchiveFolder,
+    onChangeFolderIcon,
 }: {
     folder: any,
     onDeleteFolder: any,
@@ -31,6 +32,7 @@ const Folder = ({
     onPosAdjust: any,
     onArchiveFolder: any,
     onDearchiveFolder: any,
+    onChangeFolderIcon: any,
 }) => {
 
     const [due, setDue] = useState<any>([]); //creates the flashcard state
@@ -102,9 +104,9 @@ const Folder = ({
     }
 
     const addEmoji = (emoji: any) => {
-        alert(emoji.unified);
+        onChangeFolderIcon(folder._id, emoji.unified);
         setShowEmojiPicker(false);
-      };
+    };
 
     return (
         <section className='folder'>
@@ -193,15 +195,17 @@ const Folder = ({
             )}
 
             {showEmojiPicker && (
-                <><Backdrop onClick={() => setShowEmojiPicker(false)}/>
-                <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', zIndex: '10' }}>
-                    <Picker
-                        set='twitter'
-                        previewPosition='none'
-                        navPosition='none'
-                        onEmojiSelect={addEmoji}
-                    />
-                </div></>
+                <>
+                    <Backdrop onClick={() => setShowEmojiPicker(false)}/>
+                    <div className='emoji-picker-container'>
+                        <Picker
+                            set='twitter'
+                            previewPosition='none'
+                            navPosition='none'
+                            onEmojiSelect={addEmoji}
+                        />
+                    </div>
+                </>
             )}
         </section>
     );

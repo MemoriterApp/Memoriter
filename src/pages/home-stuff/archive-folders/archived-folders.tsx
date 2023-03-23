@@ -10,6 +10,7 @@ function ArchivedFolders({
     onPosUp,
     onPosDown,
     onPosAdjust,
+    onChangeFolderIcon
 }: {
     folders: any,
     onDeleteFolder: any,
@@ -18,6 +19,7 @@ function ArchivedFolders({
     onPosUp: any,
     onPosDown: any,
     onPosAdjust: any,
+    onChangeFolderIcon: any
 }) {
 
     return (
@@ -39,6 +41,7 @@ function ArchivedFolders({
                             onPosUp={onPosUp}
                             onPosDown={onPosDown}
                             onPosAdjust={onPosAdjust}
+                            onChangeFolderIcon={onChangeFolderIcon}
                         />
                     ))}
             </>

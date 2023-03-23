@@ -133,6 +133,11 @@ function HomePage() {
         );
     };
 
+    // change folder icon
+    const changeFolderIcon = async (id: string, icon: any) => {
+        alert(`id: ${id}\nicon: ${icon}`);
+    };
+
     const [archiveFolderIsOpen, setArchiveFolderIsOpen] = useState(false); //state to check if the archive folder is open or not
 
     return (
@@ -163,6 +168,7 @@ function HomePage() {
                                     onPosUp={posUp}
                                     onPosDown={posDown}
                                     onPosAdjust={posAdjust}
+                                    onChangeFolderIcon={changeFolderIcon}
                                 />
                                 <Backdrop onClick={() => setArchiveFolderIsOpen(false)}/>
                             </div>
@@ -195,7 +201,8 @@ function HomePage() {
                                         onPosUp={posUp}
                                         onPosDown={posDown}
                                         onPosAdjust={posAdjust}
-                                        onDearchiveFolder={undefined} />
+                                        onDearchiveFolder={undefined}
+                                        onChangeFolderIcon={changeFolderIcon} />
                                 ))}
                         </>
 
