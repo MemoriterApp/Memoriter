@@ -84,7 +84,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 115%;
+    height: 90%;
     filter: var(--svg-invert-gray);
 }
 
