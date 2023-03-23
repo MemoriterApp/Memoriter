@@ -966,3 +966,21 @@ body::-webkit-scrollbar-corner {
     --button: 1.7;
     --testing: 1.7;
 }
+
+/* emoji picker */
+em-emoji-picker {
+    --border-radius: 10px;
+    --font-family: var(--current-font);
+    --font-size: 16px;
+    --color-border: var(--color-hover);
+}
+#dark em-emoji-picker {
+    --rgb-color: 255, 255, 255;
+    --rgb-background: 32, 32, 32;
+    --rgb-input: 56, 56, 56, 0.75;
+}
+#light em-emoji-picker {
+    --rgb-color: 0, 0, 0;
+    --rgb-background: 238, 238, 238;
+    --rgb-input: 181, 181, 181, 0.75;
+}

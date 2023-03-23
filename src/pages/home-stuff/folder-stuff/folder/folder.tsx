@@ -1,6 +1,8 @@
 import './folder.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import data from '@emoji-mart/data'
+import Picker from '@emoji-mart/react'
 import Confirm from '../../../../components/confirm/confirm';
 import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FolderForm from '../form-folder/folder-form';
@@ -72,6 +74,7 @@ const Folder = ({
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
     const [editModal, setEditModal] = useState(false);
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
     // function when the folder is edited
     const editFolder = (newTitle: string) => {
@@ -98,9 +101,14 @@ const Folder = ({
         sessionStorage.removeItem('newPosFolder' + folder._id); //remove the id of the folder that has the new position from the session storage
     }
 
+    const addEmoji = (emoji: any) => {
+        alert(emoji.unified);
+        setShowEmojiPicker(false);
+      };
+
     return (
         <section className='folder'>
-            <button className='folder-icon'>
+            <button className='folder-icon' onClick={() => setShowEmojiPicker(true)}>
                 {folder.icon !== '' ? (
                     <img src={`/emoji/${folder.icon}.svg`} alt='folder icon'/>
                 ) : (
@@ -182,6 +190,18 @@ const Folder = ({
                     onConfirm={() => onDeleteFolder(folder) && setDeleteModal(false)}
                     onCancel={() => setDeleteModal(false)}
                 />
+            )}
+
+            {showEmojiPicker && (
+                <><Backdrop onClick={() => setShowEmojiPicker(false)}/>
+                <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', zIndex: '10' }}>
+                    <Picker
+                        set='twitter'
+                        previewPosition='none'
+                        navPosition='none'
+                        onEmojiSelect={addEmoji}
+                    />
+                </div></>
             )}
         </section>
     );
