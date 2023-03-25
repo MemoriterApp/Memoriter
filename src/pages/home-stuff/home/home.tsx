@@ -5,12 +5,12 @@ import archiveIcon from '../../../images/icons/archive-icon.svg';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import Folder from '../folder-stuff/folder/folder';
 import FolderForm from '../folder-stuff/form-folder/folder-form';
-import Footer from '../../../components/footer/footer';
 import { getFlashcards, getFolders, insertFolder, removeFlashcard, removeFolder, updateFolder } from '../../../technical/utils/mongo';
 import { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
 import ArchivedFolders from '../archive-folders/archived-folders';
 import * as Type from '../../../types';
+import FooterButton from '../../../components/footer/footer-button/footer-button';
 
 //this file is the home page of the app where you see all your folders
 //it uses some css from home.css
@@ -220,7 +220,7 @@ function HomePage() {
                 </div>
             </main>
             <footer>
-                <Footer />
+                <FooterButton />
             </footer>
         </>
     );

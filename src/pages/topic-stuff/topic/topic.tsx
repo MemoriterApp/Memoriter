@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import memoriterLogo from '../../../images/memoriter-logo.svg';
 import BackButton from '../../../components/back-button/BackButton';
 import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
-import Footer from '../../../components/footer/footer';
+import FooterButton from '../../../components/footer/footer-button/footer-button';
 import FlashcardForm from '../form/flashcard-form';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import { Link } from 'react-router-dom';
@@ -319,14 +319,14 @@ function TopicPage() {
           {/*<div className='notes'>
                         <img  src="https://img.icons8.com/ios/50/null/notepad.png"/>
                         </div>*/}
-          <BackButton />
-          <SettingsIcon />
-        </div>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </>
-  );
+            <BackButton />
+            <SettingsIcon />
+          </div>
+        </main>
+        <footer>
+          <FooterButton />
+        </footer>
+      </>
+    );
 }
 export default TopicPage;
