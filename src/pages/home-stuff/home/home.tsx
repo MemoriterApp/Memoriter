@@ -10,7 +10,7 @@ import { getFlashcards, getFolders, insertFolder, removeFlashcard, removeFolder,
 import { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
 import ArchivedFolders from '../archive-folders/archived-folders';
-import newFolder from '../../../images/new-folder.svg'
+import newFolder from '../../../images/new-folder.svg';
 import * as Type from '../../../types';
 
 //this file is the home page of the app where you see all your folders

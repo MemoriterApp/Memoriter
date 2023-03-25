@@ -1,8 +1,7 @@
 import './folder.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import data from '@emoji-mart/data'
-import Picker from '@emoji-mart/react'
+import Picker from '@emoji-mart/react';
 import Confirm from '../../../../components/confirm/confirm';
 import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FolderForm from '../form-folder/folder-form';
@@ -111,10 +110,10 @@ const Folder = ({
     return (
         <section className='folder'>
             <button className='folder-icon' onClick={() => setShowEmojiPicker(true)}>
-                {folder.icon !== '' ? (
-                    <img src={`/emoji/${folder.icon}.svg`} alt='folder icon'/>
-                ) : (
+                {folder.icon === '' || folder.icon === undefined ? (
                     <img src={placeholderFolder} alt='placeholder icon'/>
+                ) : (
+                    <img src={`/emoji/${folder.icon}.svg`} alt='folder icon'/>
                 )}
             </button>
             <Link to='/topic' onClick={onOpenFolder}>
@@ -172,6 +171,7 @@ const Folder = ({
                         deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
                         onArchive={onArchiveFolder}
                         onDearchive={onDearchiveFolder}
+                        onChangeIcon={() => {onChangeFolderIcon(folder._id, ''); setModalIsOpen(false);}}
                     />
                     <Backdrop onClick={() => setModalIsOpen(false)} />
                 </>

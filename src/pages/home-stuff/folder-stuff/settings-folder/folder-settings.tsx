@@ -1,6 +1,7 @@
 import edit from '../../../../images/edit.svg';
 import archive from '../../../../images/icons/archive-icon.svg';
 import deleteIcon from '../../../../images/delete.svg';
+import clearIcon from '../../../../images/clear-icon.svg';
 import './folder-settings.css';
 
 function SettingsFolder({
@@ -8,13 +9,15 @@ function SettingsFolder({
     editFolderReq,
     deleteFolderReq,
     onArchive,
-    onDearchive
+    onDearchive,
+    onChangeIcon
 }: {
     folder: any,
     editFolderReq: any,
     deleteFolderReq: any,
     onArchive: any,
     onDearchive: any,
+    onChangeIcon: any
 }) {
 
     return (
@@ -48,6 +51,14 @@ function SettingsFolder({
             De-archive
                     </p>
                 )}
+                <p onClick={onChangeIcon}>
+                    <img
+                        style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
+                        src={clearIcon}
+                        alt=''
+                    />
+          Remove Icon
+                </p>
                 <p onClick={deleteFolderReq} style={{ color: 'var(--current-red)', filter: 'none' }}>
                     <img
                         style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
