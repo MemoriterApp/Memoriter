@@ -85,7 +85,6 @@
     top: 50%;
     transform: translate(-50%, -50%);
     height: 90%;
-    filter: var(--svg-invert-gray);
 }
 
 .open-folder {

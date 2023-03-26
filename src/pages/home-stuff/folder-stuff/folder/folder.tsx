@@ -111,9 +111,9 @@ const Folder = ({
         <section className='folder'>
             <button className='folder-icon' onClick={() => setShowEmojiPicker(true)}>
                 {folder.icon === '' || folder.icon === undefined ? (
-                    <img src={placeholderFolder} alt='placeholder icon'/>
+                    <img src={placeholderFolder} alt='placeholder icon' style={{filter: 'var(--svg-invert-gray)'}}/>
                 ) : (
-                    <img src={`/emoji/${folder.icon}.svg`} alt='folder icon'/>
+                    <img src={`/emoji/1fa9f.svg`} alt='folder icon'/>
                 )}
             </button>
             <Link to='/topic' onClick={onOpenFolder}>
