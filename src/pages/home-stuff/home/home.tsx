@@ -79,7 +79,8 @@ function HomePage() {
     //Add Folder
     const addFolder = async (title: any) => {
         const pos = folders.length + 1;
-        await insertFolder(title, pos, auth.currentUser.uid);
+        const icon = '';
+        await insertFolder(title, icon, pos, auth.currentUser.uid);
 
         const allFolders = await getFolders(auth.currentUser.uid);
         setFolders(allFolders); //Aktualisieren der Ordner
@@ -135,7 +136,9 @@ function HomePage() {
 
     // change folder icon
     const changeFolderIcon = async (id: string, icon: any) => {
-        alert(`id: ${id}\nicon: ${icon}`);
+        const newIcon = { icon: icon };
+        await updateFolder(id, newIcon);
+        setFolders(folders.map((folder: Type.Folder) => (folder._id === id ? { ...folder, icon: icon } : folder)));
     };
 
     const [archiveFolderIsOpen, setArchiveFolderIsOpen] = useState(false); //state to check if the archive folder is open or not

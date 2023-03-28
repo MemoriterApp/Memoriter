@@ -61,10 +61,11 @@ export async function getFolder(id: string): Promise<Folder> {
     }).then((x) => x.json());
 }
 
-export async function insertFolder(title: string, pos: number, uid: string) {
+export async function insertFolder(title: string, icon: string, pos: number, uid: string) {
     const folder: Folder = ({
         title: title,
         pos,
+        icon: icon,
         user: uid,
         archived: false
     });
