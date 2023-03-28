@@ -1,0 +1,134 @@
+/* This file contains the styles for the footer page */
+
+.footer { /* Footer container */
+  position: absolute;
+  right: 3.5vw;
+  bottom: 10vh;
+  width: 11vw;
+  height: 30vh;
+  text-align: left;
+  background-color: var(--color-background);
+  border: 2px solid var(--current-gray);
+  border-radius: 5px;
+  box-shadow: 1 10px 10px var(--color-shadow);
+  z-index: 10;
+  margin: auto;
+  overflow: auto;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+  font: var(--current-font);
+}
+
+.footer-text { /*  footer text that's not links*/
+  color: var(--color-font-gray);
+  font-family: var(--current-font);
+  cursor:default;
+  left: 0.5vw;
+  position: relative;
+  content: "";
+  display: block;
+  margin: 1vh;
+  text-decoration: none;
+}
+.footer-line { /* Footer lines that split content */
+  background-color: var(--current-gray);
+  border: 1px solid var(--current-gray);
+  width: 95%;
+  margin: -0.2vh;
+  position: relative;
+  border-radius: 1px;
+}
+
+.footer-link { /* individual links */
+  color: var(--color-font-gray);
+  font-family: var(--current-font);
+  cursor: pointer;
+  left: 0.5vw;
+  position: relative;
+  content: "";
+  display: block;
+  margin: 1vh;
+  text-decoration: none;
+  transition: transform .2s ease-in-out;
+}
+.footer-link:hover{
+  transform: scale(1.05);
+}
+.footer-tutorial{
+  position: absolute;
+  right: 3.5vw;
+  bottom: 10vh;
+  width: 15vw;
+  height: 30vh;
+  text-align: left;
+  background-color: var(--color-background);
+  border: 2px solid var(--current-gray);
+  border-radius: 5px;
+  box-shadow: 1 10px 10px var(--color-shadow);
+  z-index: 12;
+  margin: auto;
+  overflow: auto;
+  overflow-x: hidden;
+  font: var(--current-font);
+}
+
+.footer-follow-icon { /* instagram icon next to the text */
+  position: relative;
+  display:flex;
+  background-color:#121212;
+  width: 14px;
+  height: 14px;
+  padding: 8px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin: auto;
+}
+.footer-follow-icon img { /* the actual icon */
+  position: absolute;
+  right: 15%;
+  bottom: 15%;
+  width: 70%;
+  height: 70%;
+  cursor: pointer;
+  filter: var(--svg-invert-white);
+}
+@media (max-width: 1700px) {
+  .footer {
+    width:15vw;
+    height: 35vh;
+  }
+}
+@media (max-width: 1500px) {
+  .footer {
+    width:17vw;
+    height: 38vh;
+  }
+  .footer-tutorial {
+    width: 35vw;
+    height: 25vh;
+    
+  }
+}
+@media (max-width: 1000px) {
+  .footer {
+    width:20vw;
+    height: 50vh;
+  }
+  .footer-tutorial {
+    width: 35vw;
+    height: 25vh;
+    
+  }
+}
+
+@media (max-width: 430px) { /* phone optimization */
+  .footer {
+    width:30vw;
+    height: 40vh;
+  }
+  .footer-tutorial {
+    width: 35vw;
+    height: 40vh;
+    
+  }
+}

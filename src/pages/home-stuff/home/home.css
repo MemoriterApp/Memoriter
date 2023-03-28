@@ -36,6 +36,7 @@
     border-radius: 20px;
     max-height: calc(100% - 120px);
     min-height: 180px;
+    overflow: hidden;
 }
 
 .main-seperator {
@@ -50,11 +51,11 @@
 }
 
 .folder-base {
-    height: calc(100% - 68px);
+    height: calc(100% - 63px);
     width: calc(100% - 10px);
     margin: auto;
     position: absolute;
-    bottom: -2px;
+    bottom: 0;
     left: 5px;
     overflow: auto;
 }

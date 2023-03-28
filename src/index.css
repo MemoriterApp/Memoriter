@@ -176,23 +176,6 @@ body::-webkit-scrollbar-corner {
     overflow: hidden;
 }
 
-.page-title {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    font-family: var(--current-font);
-    font-weight: bold;
-    font-size: 36px;
-    color: var(--color-font);
-    max-width: 50%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 12px;
-}
-
 
 
 
