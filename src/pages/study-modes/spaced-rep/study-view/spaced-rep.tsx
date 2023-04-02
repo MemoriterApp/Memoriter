@@ -159,7 +159,13 @@ function SpacedRepMode() {
 
                 {finished && <FinishedViewSpacedRep
                     studiedFlashcards={studiedFlashcards}
-                    incorrectFlashcards={incorrectFlashcards} />}
+                    incorrectFlashcards={incorrectFlashcards}
+                />}
+
+                <div className='progress-bar'>
+                    <p className='progress-bar-text'>{studiedFlashcards}/{flashcards.length + studiedFlashcards}</p>
+                    <div className='progress-bar-fill' style={{width: `calc(${100 * (studiedFlashcards / (flashcards.length + studiedFlashcards))}% - 8px)`}}/>
+                </div>
             </main>
             <FooterButton />
         </>

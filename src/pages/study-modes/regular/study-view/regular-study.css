@@ -76,3 +76,31 @@
 .back-button:hover{
     transform: scale(1.1) rotate(225deg);
 }
+
+.progress-bar {
+    position: absolute;
+    left: 50%;
+    bottom: 3%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 20px;
+    background-color: var(--color-hover);
+    border-radius: 20px;
+}
+.progress-bar-text {
+    position: absolute;
+    top: -19px;
+    left: calc(100% + 8px);
+    color: var(--color-font-gray);
+    font-family: var(--current-font);
+}
+.progress-bar-fill {
+    position: relative;
+    top: 3px;
+    height: 14px;
+    width: 0;
+    margin-inline: 4px;
+    background-color: var(--current-blue);
+    border-radius: 16px;
+    transition: width 200ms;
+}
