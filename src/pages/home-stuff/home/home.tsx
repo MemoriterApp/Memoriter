@@ -9,6 +9,7 @@ import { getFlashcards, getFolders, insertFolder, removeFlashcard, removeFolder,
 import { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
 import ArchivedFolders from '../archive-folders/archived-folders';
+import newFolder from '../../../images/new-folder.svg';
 import * as Type from '../../../types';
 import FooterButton from '../../../components/footer/footer-button/footer-button';
 
@@ -78,7 +79,8 @@ function HomePage() {
     //Add Folder
     const addFolder = async (title: any) => {
         const pos = folders.length + 1;
-        await insertFolder(title, pos, auth.currentUser.uid);
+        const icon = '';
+        await insertFolder(title, icon, pos, auth.currentUser.uid);
 
         const allFolders = await getFolders(auth.currentUser.uid);
         setFolders(allFolders); //Aktualisieren der Ordner
@@ -132,6 +134,13 @@ function HomePage() {
         );
     };
 
+    // change folder icon
+    const changeFolderIcon = async (id: string, icon: any) => {
+        const newIcon = { icon: icon };
+        await updateFolder(id, newIcon);
+        setFolders(folders.map((folder: Type.Folder) => (folder._id === id ? { ...folder, icon: icon } : folder)));
+    };
+
     const [archiveFolderIsOpen, setArchiveFolderIsOpen] = useState(false); //state to check if the archive folder is open or not
 
     return (
@@ -162,6 +171,7 @@ function HomePage() {
                                     onPosUp={posUp}
                                     onPosDown={posDown}
                                     onPosAdjust={posAdjust}
+                                    onChangeFolderIcon={changeFolderIcon}
                                 />
                                 <Backdrop onClick={() => setArchiveFolderIsOpen(false)}/>
                             </div>
@@ -194,27 +204,22 @@ function HomePage() {
                                         onPosUp={posUp}
                                         onPosDown={posDown}
                                         onPosAdjust={posAdjust}
-                                        onDearchiveFolder={undefined} />
+                                        onDearchiveFolder={undefined}
+                                        onChangeFolderIcon={changeFolderIcon} />
                                 ))}
                         </>
 
                         <div data-folders={folders}>
-                            <div className='new-folder-body'>
-                                <div className='new-folder-line'></div>
-                                <button
-                                    className='button-new-folder'
-                                    onClick={() => {
-                                        setModalIsOpen(true);
-                                    }}
-                                >
-                                    <div className='new-folder-plus-h'></div>
-                                    <div className='new-folder-plus-v'></div>
-                                </button>
-                                <button className='new-folder-text' onClick={() => setModalIsOpen(true)}>Create new folder</button>
+                        <div className='new-folder-line'/>
+                            <button className='new-folder-body' onClick={() => setModalIsOpen(true)}>
+                                <div className='button-new-folder'>
+                                    <img src={newFolder} alt='new folder'/>
+                                </div>
+                                <p className='new-folder-text'>Create new folder</p>
                                 <div>
                                     {modalIsOpen && <FolderForm type='Create new' folder={{ title: '' }} onConfirm={addFolder} onCancel={() => setModalIsOpen(false)} />}
                                 </div>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>

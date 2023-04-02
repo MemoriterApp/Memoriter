@@ -19,5 +19,6 @@ export type Folder = {
     archived?: boolean,
     pos?: number,
     title?: string,
+    icon?: string,
     user?: string
 }

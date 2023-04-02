@@ -36,13 +36,14 @@
     border-radius: 20px;
     max-height: calc(100% - 120px);
     min-height: 180px;
+    overflow: hidden;
 }
 
 .main-seperator {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin-bottom: 20px;
+    top: 54px;
     width: calc(100% - 10px);
     height: 0px;
     border-top: 8px solid var(--current-gray);
@@ -50,11 +51,11 @@
 }
 
 .folder-base {
-    height: calc(100% - 62px);
+    height: calc(100% - 63px);
     width: calc(100% - 10px);
     margin: auto;
     position: absolute;
-    bottom: -2px;
+    bottom: 0;
     left: 5px;
     overflow: auto;
 }
@@ -68,15 +69,8 @@
     padding: 11.5px;
 }
 
-.new-folder-body {
-    position: relative;
-    top: 11.5%;
-    width: 100%;
-    height: 55px;
-}
-
 .new-folder-line {
-    position: absolute;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
     top: 0;
@@ -86,22 +80,44 @@
     border-radius: 10px;
 }
 
+.new-folder-body {
+    position: relative;
+    top: 8px;
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transition: background-color 200ms;
+}
+.new-folder-body:hover {
+    background-color: var(--color-hover);
+}
 .button-new-folder {
     position: absolute;
-    bottom: 0px;
+    top: 0%;
     left: 0%;
-    padding: 15px 15px;
-    background-color: var(--color-background);
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    border: 5px solid var(--current-blue);
-    border-radius: 3px;
+}
+.button-new-folder img {
+    position: relative;
+    left: 45%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 90%;
+    filter: var(--svg-invert-gray);
 }
 
 .new-folder-text {
     position: absolute;
-    bottom: 11.625%;
-    left: 40px;
-    max-width: calc(100% - 40px);
+    top: -40%;
+    left: 44px;
+    max-width: calc(100% - 60px);
     color: var(--color-font);
     font-size: 20px;
     font-family: var(--current-font);

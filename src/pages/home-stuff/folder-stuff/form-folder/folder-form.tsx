@@ -34,7 +34,7 @@ const FolderForm = ({ type, folder, onConfirm, onCancel }: { type: any, folder: 
           Done
                 </button>
             </form>
-            <Backdrop onClick={() => onCancel()} />
+            <Backdrop onClick={() => onCancel()}/>
         </>
     );
 };

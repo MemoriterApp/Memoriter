@@ -11,7 +11,7 @@
     border: none;
     display: inline-block;
     position: absolute;
-    top: 2px;
+    top: 1px;
     right: 0;
     background-color: var(--current-gray-medium-dark);
     border-radius: 50%;
@@ -31,7 +31,7 @@
 .button-homepage-settings {
     position: absolute;
     right: 0%;
-    top: 20%;
+    top: 25%;
     height: 10px;
     width: 25px;
     border: 5px solid var(--color-transparent);
@@ -53,30 +53,53 @@
 }
 
 .folder {
-    top: 5px;
     position: relative;
-    top: 5px;
+    margin-top: 8px;
     width: 100%;
-    height: 50px;
-    margin-top: 0px;
+    height: 40px;
+    margin-bottom: 8px;
+    border-radius: 3px;
+    transition: background-color 200ms;
+}
+.folder:hover {
+    background-color: var(--color-hover);
 }
 
-.button-homepage {
+.folder-icon {
     position: absolute;
     top: 0%;
     left: 0%;
-    padding: 15px 15px;
+    width: 40px;
+    height: 40px;
     background-color: transparent;
-    border: 5px solid var(--current-blue);
+    border: none;
     border-radius: 3px;
     cursor: pointer;
+    transition: background-color 200ms;
+}
+.folder-icon:hover {
+    background-color: var(--color-hover-icon);
+}
+.folder-icon img {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 90%;
 }
 
-.button-homepage-text {
-    position: absolute;
-    bottom: 32%;
+.open-folder {
+    position: relative;
     left: 42px;
-    max-width: calc(100% - 120px);
+    height: 100%;
+    width: calc(100% - 180px);
+}
+
+.folder-text {
+    position: absolute;
+    top: -40%;
+    left: 4px;
+    max-width: 100%;
     color: var(--color-font);
     font-size: 20px;
     font-family: var(--current-font);
@@ -133,7 +156,7 @@
     padding: 4.5px;
     position: absolute;
     left: 15%;
-    bottom: 25%;
+    bottom: -50%;
     cursor: pointer;
     transform: rotate(45deg);
 }
@@ -199,4 +222,30 @@
     font-size: 20px;
     cursor: pointer;
     border-radius: 6px;
+}
+
+/* emoji picker */
+em-emoji-picker {
+    --border-radius: 10px;
+    --font-family: var(--current-font);
+    --font-size: 16px;
+    --color-border: var(--color-hover);
+}
+#dark em-emoji-picker {
+    --rgb-color: 255, 255, 255;
+    --rgb-background: 32, 32, 32;
+    --rgb-input: 56, 56, 56, 0.75;
+}
+#light em-emoji-picker {
+    --rgb-color: 0, 0, 0;
+    --rgb-background: 238, 238, 238;
+    --rgb-input: 181, 181, 181, 0.75;
+}
+
+.emoji-picker-container {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
 }

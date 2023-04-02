@@ -1,12 +1,14 @@
 import './folder.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Picker from '@emoji-mart/react';
 import Confirm from '../../../../components/confirm/confirm';
 import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 import FolderForm from '../form-folder/folder-form';
 import FolderSettings from '../settings-folder/folder-settings';
 import * as Type from '../../../../types';
 import { getFlashcards } from '../../../../technical/utils/mongo';
+import placeholderFolder from '../../../../images/placeholder-folder.svg';
 
 const Folder = ({
     folder,
@@ -18,6 +20,7 @@ const Folder = ({
     onPosAdjust,
     onArchiveFolder,
     onDearchiveFolder,
+    onChangeFolderIcon,
 }: {
     folder: any,
     onDeleteFolder: any,
@@ -28,6 +31,7 @@ const Folder = ({
     onPosAdjust: any,
     onArchiveFolder: any,
     onDearchiveFolder: any,
+    onChangeFolderIcon: any,
 }) => {
 
     const [due, setDue] = useState<any>([]); //creates the flashcard state
@@ -71,6 +75,7 @@ const Folder = ({
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
     const [editModal, setEditModal] = useState(false);
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
     // function when the folder is edited
     const editFolder = (newTitle: string) => {
@@ -97,15 +102,28 @@ const Folder = ({
         sessionStorage.removeItem('newPosFolder' + folder._id); //remove the id of the folder that has the new position from the session storage
     }
 
+    const addEmoji = (emoji: any) => {
+        onChangeFolderIcon(folder._id, emoji.unified);
+        setShowEmojiPicker(false);
+    };
+
     return (
         <section className='folder'>
-            <Link to='/topic' onClick={onOpenFolder}>
-                <button className='button-homepage' />
-                {folder.title !== '' ? ( // checks if the title of the folder is not empty
-                    <button className='button-homepage-text'>{folder.title}</button>
+            <button className='folder-icon' onClick={() => setShowEmojiPicker(true)}>
+                {folder.icon === '' || folder.icon === undefined ? (
+                    <img src={placeholderFolder} alt='placeholder icon' style={{filter: 'var(--svg-invert-gray)'}}/>
                 ) : (
-                    <button className='button-homepage-text'>New folder</button>
+                    <img src={`/emoji/${folder.icon}.svg`} alt='folder icon'/>
                 )}
+            </button>
+            <Link to='/topic' onClick={onOpenFolder}>
+                <div className='open-folder'>
+                    {folder.title !== '' ? ( // checks if the title of the folder is not empty
+                        <p className='folder-text'>{folder.title}</p>
+                    ) : (
+                        <p className='folder-text'>New folder</p>
+                    )}
+                </div>
             </Link>
 
             <div className='new-cards-indicator'>
@@ -153,6 +171,7 @@ const Folder = ({
                         deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
                         onArchive={onArchiveFolder}
                         onDearchive={onDearchiveFolder}
+                        onChangeIcon={() => {onChangeFolderIcon(folder._id, ''); setModalIsOpen(false);}}
                     />
                     <Backdrop onClick={() => setModalIsOpen(false)} />
                 </>
@@ -173,6 +192,20 @@ const Folder = ({
                     onConfirm={() => onDeleteFolder(folder) && setDeleteModal(false)}
                     onCancel={() => setDeleteModal(false)}
                 />
+            )}
+
+            {showEmojiPicker && (
+                <>
+                    <Backdrop onClick={() => setShowEmojiPicker(false)}/>
+                    <div className='emoji-picker-container'>
+                        <Picker
+                            set='twitter'
+                            previewPosition='none'
+                            navPosition='none'
+                            onEmojiSelect={addEmoji}
+                        />
+                    </div>
+                </>
             )}
         </section>
     );
