@@ -177,7 +177,16 @@ body::-webkit-scrollbar-corner {
 }
 
 
-
+.header-logo {
+    width: 134.4px;
+    max-width: 20%;
+    position: absolute;
+    cursor: pointer;
+    bottom: 50%;
+    left: 10px;
+    transform: translate(0%, 50%);
+    filter: var(--svg-invert);
+}
 
 .sign-out-box {
     color: var(--color-white);
