@@ -68,7 +68,7 @@ function SpacedRepMode() {
             }
         }
 
-    spacedRepetition(answeredFlashcard._id, type, streak, easiness, interval); // updates flashcard
+        spacedRepetition(answeredFlashcard._id, type, streak, easiness, interval); // updates flashcard
     };
     // the flashcard properties must be used as function arguments
     // type depends on the clicked button, it can be 0 to 4, 0 is completely incorrect, 4 is very easy
@@ -110,7 +110,7 @@ function SpacedRepMode() {
                 .map((flashcard) =>
                     flashcard.pos > pos
                         ? (sessionStorage.setItem('newPosFlashcard' + flashcard._id, flashcard._id),
-                            { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
+                        { ...flashcard, pos: flashcard.pos - 1 }) : flashcard
                 )
                 .filter((flashcard) => flashcard._id !== id)
         );

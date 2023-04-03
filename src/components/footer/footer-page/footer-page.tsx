@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import TutorialSpacedRep from '../../../pages/study-modes/spaced-rep/tutorial/tutorial-spaced-rep';
 import Backdrop from '../../backdrops/backdrop/backdrop';
 import './footer-page.css';
 import BackdropTransparent from '../../backdrops/backdrop-transparent/backdrop-transparent';
+import twitterIcon from '../../../images/icons/twitter-icon.svg';
 import instagramIcon from '../../../images/icons/instagram-icon.svg';
+import tiktokIcon from '../../../images/icons/tiktok-icon.svg';
+import discordIcon from '../../../images/icons/discord-icon.svg';
+import githubIcon from '../../../images/icons/github-icon.svg';
 
 
 const FooterPage = () => {
@@ -21,7 +24,6 @@ const FooterPage = () => {
         <>
             {showFooter && 
                 <div className='footer'>
-                    <br></br>
                     <a className='footer-link' 
                         onClick={() => {
                         openfooterTutorial(true); 
@@ -29,29 +31,73 @@ const FooterPage = () => {
                         target='_blank'>
                         Help and Tutorials
                     </a>
-                    <div className='footer-line'></div>
-                    <Link className='footer-link' to='/impressum' target='_blank'>
-                        Terms and Privacy
-                    </Link>
-                    <Link className='footer-link' to='/patch-notes' target='_blank'>
-                        Patch Notes
-                    </Link>
-                    <div className='footer-line'></div>
-                    <a className='footer-link' href='https://forms.gle/sH6X5LXGftLT9eoj7' target='_blank' rel='noreferrer'>
-                        Report a bug
+                    <div className='footer-line'/>
+                    <a className='footer-link' href='https://memoriter.de/impressum' target='_blank' rel='noreferrer'>
+                        Impressum
                     </a>
-                    <br></br>
+                    <a className='footer-link' href='https://memoriter.de/term' target='_blank' rel='noreferrer'>
+                        Terms of Use
+                    </a>
+                    <a className='footer-link' href='https://memoriter.de/privacy' target='_blank' rel='noreferrer'>
+                        Privacy Policy
+                    </a>
+                    <div className='footer-line'/>
+                    <a className='footer-link' href='https://memoriter.de/releases' target='_blank' rel='noreferrer'>
+                        Release Notes
+                    </a>
+                    <a className='footer-link' href='https://memoriter.de/bugs' target='_blank' rel='noreferrer'>
+                        Report a Bug
+                    </a>
+                    <div className='footer-line'/>
+                    <a className='footer-link' href='https://shop-memoriter.myspreadshop.de/' target='_blank' rel='noreferrer'>
+                        Merchandise
+                    </a>
+                    <div className='footer-line'/>
                     <p className='footer-text'>
-                        Follow us at:
-                    </p> 
-                    <a
-                    className='footer-follow-icon'
-                    href='https://www.instagram.com/memorit.er/'
-                    target='_blank'
-                    rel='noreferrer'
-                    >                
-                        <img src={instagramIcon} alt='instagram-icon'></img>
-                    </a>
+                        Follow us:
+                    </p>
+                    <div className='footer-follow-flex'>
+                        <a
+                            className='footer-follow-icon'
+                            href='https://twitter.com/MemoriterHQ'
+                            target='_blank'
+                            rel='noreferrer'
+                        >                
+                            <img src={twitterIcon} alt='twitter-icon'/>
+                        </a>
+                        <a
+                            className='footer-follow-icon'
+                            href='https://www.instagram.com/memoriter6/'
+                            target='_blank'
+                            rel='noreferrer'
+                        >                
+                            <img src={instagramIcon} alt='instagram-icon'/>
+                        </a>
+                        <a
+                            className='footer-follow-icon'
+                            href='https://www.tiktok.com/@memoriterofficial'
+                            target='_blank'
+                            rel='noreferrer'
+                        >                
+                            <img src={tiktokIcon} alt='tiktok-icon'/>
+                        </a>
+                        <a
+                            className='footer-follow-icon'
+                            href='https://discord.com/invite/wpdYh2CQ4H'
+                            target='_blank'
+                            rel='noreferrer'
+                        >                
+                            <img src={discordIcon} alt='discord-icon'/>
+                        </a>
+                        <a
+                            className='footer-follow-icon'
+                            href='https://github.com/MemoriterApp'
+                            target='_blank'
+                            rel='noreferrer'
+                        >                
+                            <img src={githubIcon} alt='github-icon'/>
+                        </a>
+                    </div>
 
                 </div>
             }
@@ -61,7 +107,7 @@ const FooterPage = () => {
                         <p className='footer-text' style={{fontSize:'large'}}>
                         Tutorials
                         </p>
-                        <div className='footer-line'></div>
+                        <div className='footer-line'/>
 
                         <a className='footer-link'
                         onClick={() => {

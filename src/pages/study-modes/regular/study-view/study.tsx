@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase, getFlashcards, removeFlashcard, updateFlashcard } from '../../../../technical/utils/mongo';
 import './regular-study.css';
-import { Flashcard } from "../../../../types";
+import { Flashcard } from '../../../../types';
 import FooterButton from '../../../../components/footer/footer-button/footer-button';
 
 const StudyPage = () => {

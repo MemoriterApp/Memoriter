@@ -5,7 +5,7 @@
   right: 3.5vw;
   bottom: 10vh;
   width: 11vw;
-  height: 30vh;
+  height: 380px;
   text-align: left;
   background-color: var(--color-background);
   border: 2px solid var(--current-gray);
@@ -33,9 +33,8 @@
 .footer-line { /* Footer lines that split content */
   background-color: var(--current-gray);
   border: 1px solid var(--current-gray);
-  width: 95%;
-  margin: -0.2vh;
-  position: relative;
+  width: 92%;
+  margin-inline: 4%;
   border-radius: 1px;
 }
 
@@ -54,6 +53,10 @@
 .footer-link:hover{
   transform: scale(1.05);
 }
+.footer-link:first-of-type {
+  margin-top: 20px;
+}
+
 .footer-tutorial{
   position: absolute;
   right: 3.5vw;
@@ -72,21 +75,25 @@
   font: var(--current-font);
 }
 
+.footer-follow-flex {
+  display: flex;
+  justify-content: center;
+}
 .footer-follow-icon { /* instagram icon next to the text */
   position: relative;
-  display:flex;
   background-color:#121212;
   width: 14px;
   height: 14px;
   padding: 8px;
   border-radius: 7px;
   cursor: pointer;
-  margin: auto;
+  margin-inline: 4px;
 }
 .footer-follow-icon img { /* the actual icon */
   position: absolute;
-  right: 15%;
-  bottom: 15%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 70%;
   height: 70%;
   cursor: pointer;
