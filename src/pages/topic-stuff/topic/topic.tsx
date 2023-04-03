@@ -217,29 +217,29 @@ function TopicPage() {
 
   return (
     <>
-      <header className="page-header">
-        {folderTitle !== "" ? (
-          <h1 className="page-title">{folderTitle}</h1>
+      <header className='page-header'>
+        {folderTitle !== '' ? (
+          <h1 className='page-title'>{folderTitle}</h1>
         ) : (
-          <h1 className="page-title">New folder</h1>
+          <h1 className='page-title'>New folder</h1>
         )}
-        <Link to="/">
+        <Link to='/'>
           <img
-            className="header-logo"
+            className='header-logo'
             src={memoriterLogo}
-            alt="site-logo"
+            alt='site-logo'
           ></img>
         </Link>
-        <div className="top-responsive-container">
+        <div className='top-responsive-container'>
           <div
-            className="study-now"
+            className='study-now'
             onClick={() => openChooseStudyModeModal(true)}
           >
-            <p className="study-now-text">study</p>
+            <p className='study-now-text'>study</p>
           </div>
-          <div className="streak">
-            <img className="streak-icon" src={flame} alt="flame" />
-            <p className="streak-number">{streak}</p>
+          <div className='streak'>
+            <img className='streak-icon' src={flame} alt='flame' />
+            <p className='streak-number'>{streak}</p>
           </div>
         </div>
         {chooseStudyModeModal && <ChooseStudyMode />}
@@ -248,16 +248,16 @@ function TopicPage() {
         )}
       </header>
       <main>
-        <div className="square">
-          <div className="main-seperator" />
-          <div className="flashcard-base">
-            <Masonry breakpointCols={columns} className="flashcard-base-grid">
+        <div className='square'>
+          <div className='main-seperator' />
+          <div className='flashcard-base'>
+            <Masonry breakpointCols={columns} className='flashcard-base-grid'>
               {isOnlyQuestion === true //checks if the preview mode is only question
                 ? flashcards //if it is the case, only the question will be shown
                   .map((flashcard) => (
                     <Flashcard
                       key={flashcard._id}
-                      type="only-question"
+                      type='only-question'
                       flashcard={flashcard}
                       flashcardCount={flashcards.length}
                       openFlashcardView={openFlashcard}
@@ -294,14 +294,14 @@ function TopicPage() {
                   ))}
 
               {/*create new flashcard button*/}
-              <div className="flashcard-body">
+              <div className='flashcard-body'>
                 <div
-                  className="new-flashcard-rechteck"
+                  className='new-flashcard-rechteck'
                   onClick={() => setAddFlashcardModal(true)}
                 >
-                  <div className="new-flashcard-circle">
-                    <div className="new-flashcard-plus-h" />
-                    <div className="new-flashcard-plus-v" />
+                  <div className='new-flashcard-circle'>
+                    <div className='new-flashcard-plus-h' />
+                    <div className='new-flashcard-plus-v' />
                   </div>
                 </div>
               </div>
@@ -309,7 +309,7 @@ function TopicPage() {
 
             {addFlashcardModal && (
               <FlashcardForm
-                type="Create new"
+                type='Create new'
                 onConfirm={addFlashcard}
                 onCancel={() => setAddFlashcardModal(false)}
                 folderID={folderID}
@@ -317,7 +317,7 @@ function TopicPage() {
             )}
           </div>
           {/*<div className='notes'>
-                        <img  src="https://img.icons8.com/ios/50/null/notepad.png"/>
+                        <img  src='https://img.icons8.com/ios/50/null/notepad.png'/>
                         </div>*/}
             <BackButton />
             <SettingsIcon />

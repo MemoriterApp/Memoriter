@@ -185,7 +185,7 @@ function SignUpPage() {
                             <label
                                 htmlFor='accept-privacy'>
                                 I agree to our{' '}
-                                <Link to='/privacy' target='_blank' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
+                                <a href='https://memoriter.de/privacy' target='_blank' rel='noreferrer' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</a>.</label>
                         </div>}
 
                         {borderRedCheckbox && <div className='accept-privacy-red'>
@@ -196,7 +196,7 @@ function SignUpPage() {
                             <label
                                 htmlFor='accept-privacy'>
                                 I agree to our{' '}
-                                <Link to='/privacy' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</Link>.</label>
+                                <a href='https://memoriter.de/privacy' target='_blank' rel='noreferrer' style={{ color: '#265272', cursor: 'pointer' }}>privacy policiy</a>.</label>
                         </div>}
 
 
