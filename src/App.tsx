@@ -1,4 +1,4 @@
-import Start from './pages/start/start';
+import Redirect from './technical/routing/redirect';
 
 import LoginPage from './pages/login-stuff/login/login';
 import SignUpPage from './pages/signup/signup';
@@ -31,15 +31,19 @@ const App = () => {
             <ScrollReset> {/*ScrollReset forces scrolling to top on navigation (fixes issue where the page kept beeing scrolled down)*/}
                 <ThemeProvider> {/*ThemeProvider is responsible for the dark and light theme*/}
                     <Routes>
-                        <Route path='/login' element={<LoginPage />} />
-                        <Route path='/signup' element={<SignUpPage />} />
-                        <Route path='/topic' element={<TopicPage />} />
-                        <Route path='/study' element={<StudyPage />} />
-                        <Route path='/spaced-repetition' element={<SpacedRepMode />} />
-                        {user ? (<> {/*some of the active routes are altered if a user is signed in*/}
+                        <Route path='/topic' element={<TopicPage />} /> {/* always there for share folder */}
+                        {user ? (<> {/* some of the active routes are altered if a user is signed in */}
                             <Route path='/' element={<HomePage />} />
+                            <Route path='/study' element={<StudyPage />} />
+                            <Route path='/spaced-repetition' element={<SpacedRepMode />} />
+                            <Route path='/login' element={<Redirect path='/'/>} />
+                            <Route path='/signup' element={<Redirect path='/'/>} />
                         </>) : (<>
-                            <Route path='/' element={<Start />} />
+                            <Route path='/' element={<Redirect path='/login'/>} />
+                            <Route path='/study' element={<Redirect path='/login'/>} />
+                            <Route path='/spaced-repetition' element={<Redirect path='/login'/>} />
+                            <Route path='/login' element={<LoginPage />} />
+                            <Route path='/signup' element={<SignUpPage />} />
                         </>)}
                     </Routes>
                 </ThemeProvider>
