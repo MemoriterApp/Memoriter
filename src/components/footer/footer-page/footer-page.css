@@ -4,8 +4,8 @@
   position: absolute;
   right: 3.5vw;
   bottom: 10vh;
-  width: 11vw;
-  height: 380px;
+  width: 200px;
+  height: 330px;
   text-align: left;
   background-color: var(--color-background);
   border: 2px solid var(--current-gray);
@@ -22,7 +22,7 @@
 .footer-text { /*  footer text that's not links*/
   color: var(--color-font-gray);
   font-family: var(--current-font);
-  cursor:default;
+  cursor: default;
   left: 0.5vw;
   position: relative;
   content: "";
@@ -54,7 +54,7 @@
   transform: scale(1.05);
 }
 .footer-link:first-of-type {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .footer-tutorial{
@@ -99,17 +99,7 @@
   cursor: pointer;
   filter: var(--svg-invert-white);
 }
-@media (max-width: 1700px) {
-  .footer {
-    width:15vw;
-    height: 35vh;
-  }
-}
 @media (max-width: 1500px) {
-  .footer {
-    width:17vw;
-    height: 38vh;
-  }
   .footer-tutorial {
     width: 35vw;
     height: 25vh;
@@ -117,10 +107,6 @@
   }
 }
 @media (max-width: 1000px) {
-  .footer {
-    width:20vw;
-    height: 50vh;
-  }
   .footer-tutorial {
     width: 35vw;
     height: 25vh;
@@ -129,10 +115,6 @@
 }
 
 @media (max-width: 430px) { /* phone optimization */
-  .footer {
-    width:30vw;
-    height: 40vh;
-  }
   .footer-tutorial {
     width: 35vw;
     height: 40vh;
