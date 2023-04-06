@@ -280,7 +280,8 @@ ol {
 }
 
 .flashcard-open-title {
-    position: absolute;
+    position: relative;
+    top: -80px;
     font-family: var(--current-font);
     color: var(--current-gray-dark);
     text-align: center;
@@ -288,6 +289,7 @@ ol {
     font-size: 28px;
     width: 90%;
     padding-left: 5%;
+    margin-bottom: -150px;
     white-space: pre-line;
     word-wrap: break-word;
     hyphens: auto;
@@ -341,7 +343,6 @@ ol {
 
 .flashcard-open-content {
     position: relative;
-    bottom: 40px;
     font-family: var(--current-font);
     color: var(--current-gray-dark);
     font-size: 20px;
