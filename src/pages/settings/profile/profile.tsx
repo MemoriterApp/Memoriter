@@ -500,8 +500,7 @@ function Profile() {
 
                         <form onSubmit={deleteAccountFinal}>
                             <input
-                                className='add-folder-form-input'
-                                style={{ left: '50%', transform: 'translateX(-50%)', width: '80%' }}
+                                className='settings-delete-account-input'
                                 type='text'
                                 autoComplete='off'
                                 placeholder='Please enter your user id...'
