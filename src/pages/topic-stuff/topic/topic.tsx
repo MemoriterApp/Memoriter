@@ -53,7 +53,7 @@ function TopicPage() {
   useEffect(() => {
     const syncFlashcards = async () => {
       //gets all flashcards from the synced folder
-      const allFlashcards = await getFlashcards(localStorage.getItem('folderID'));
+      const allFlashcards = await getFlashcards(folderID);
       setFlashcards(allFlashcards);
     };
     syncFlashcards(); //calls the function
@@ -215,6 +215,26 @@ function TopicPage() {
     }
   }, [localStorage.getItem('lastStudyDate')]);
 
+
+  const getNextDueDate = () => {
+    // get the next due date of all flashcards
+    const nextDueDates = flashcards
+      .map((flashcard) => flashcard.nextDate)
+      .filter((nextDate) => typeof nextDate === 'number');
+  
+    // find the minimum due date
+    const minDueDate = new Date(Math.min.apply(null, nextDueDates));
+  
+    // format the date as a string
+    const formattedDate = minDueDate.toLocaleDateString();
+  
+    // return the formatted date
+    return formattedDate;
+  };
+  // save the formatted date to local storage
+  localStorage.setItem('nextDueDate', getNextDueDate());
+
+
   return (
     <>
       <header className='page-header'>
@@ -242,7 +262,7 @@ function TopicPage() {
             <p className='streak-number'>{streak}</p>
           </div>
         </div>
-        {chooseStudyModeModal && <ChooseStudyMode />}
+        {chooseStudyModeModal && <ChooseStudyMode/>}
         {chooseStudyModeModal && (
           <Backdrop onClick={() => openChooseStudyModeModal(false)} />
         )}
