@@ -132,7 +132,7 @@ const Folder = ({
                 />
             </div>
 
-            {shareModal && <ShareFolderPopUp />}
+            {shareModal && <ShareFolderPopUp folder={folder}/>}
             {shareModal && <Backdrop onClick={() => { setShareModal(false) }} />}
 
             <div

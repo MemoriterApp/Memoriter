@@ -1,7 +1,7 @@
 import './share-folder.css';
 import linkImage from '../../../../images/link.svg';
 
-const ShareFolderPopUp = () => {
+const ShareFolderPopUp = ({ folder }: { folder: any }) => {
 
     const handleCopyLink = () => {
         const linkInput = document.querySelector<HTMLInputElement>('.link-input');
@@ -27,7 +27,7 @@ const ShareFolderPopUp = () => {
                 <p className='copy-link-text'>copy link</p>
                 <div className="link-field">
                     <img className='link-image' src={linkImage}></img>
-                    <input className='link-input' type='text' value='https://www.google.com' readOnly />
+                    <input className='link-input' type='text' value={`${window.location}topic/${folder._id}`} readOnly />
                     <button onClick={handleCopyLink} className='copy-button'>Copy</button>
                 </div>
             </div>
