@@ -41,7 +41,7 @@ const App = () => {
                         <Route path='/patch-notes' element={<PatchNotes />} />
                         <Route path='/login' element={<LoginPage />} />
                         <Route path='/signup' element={<SignUpPage />} />
-                        <Route path='/topic/:folderID' element={<TopicPage />} />
+                        <Route path='/topic/:folderID' element={<TopicPage />} /> {/* dynamic route */}
                         <Route path='/study' element={<StudyPage />} />
                         <Route path='/study-spaced-repetition' element={<SpacedRepMode />} />
                         {user ? (<> {/*some of the active routes are altered if a user is signed in*/}

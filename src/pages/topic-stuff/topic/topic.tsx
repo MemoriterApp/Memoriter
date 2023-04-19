@@ -59,8 +59,7 @@ function TopicPage() {
     }, []); // do not add dependencies, otherwise it will loop
 
     let folderTitle = localStorage.getItem('folderTitle'); //gets the title of the synced folder
-    let folderID = window.location.hash // gets the id of the URL
-    folderID = folderID.replace('#', ''); //removes the # from the URL
+    let folderID = window.location.pathname.replace('/topic/', ''); // gets the id of the URL
 
 
     const [chooseStudyModeModal, openChooseStudyModeModal] = useState(false); //creates the state for the choose study mode modal

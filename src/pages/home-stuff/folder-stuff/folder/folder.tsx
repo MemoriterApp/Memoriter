@@ -106,7 +106,7 @@ const Folder = ({
 
     return (
         <section className='folder'>
-            <Link to={'/topic#' + folderID} onClick={onOpenFolder}>
+            <Link to={'/topic/' + folderID} onClick={onOpenFolder}>
                 <button className='button-homepage' />
                 {folder.title !== '' ? ( // checks if the title of the folder is not empty
                     <button className='button-homepage-text'>{folder.title}</button>
