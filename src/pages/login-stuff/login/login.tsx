@@ -25,12 +25,12 @@ function LoginPage() {
     }
 
     const navigate = useNavigate();
-    /*useEffect(() => {
+    useEffect(() => {
         const auth = getAuth();
         if (auth.currentUser) {
             return navigate('/');
         }
-    });*/
+    });
 
     const [passwordResetModal, openPasswordResetModal] = useState(false);
 
