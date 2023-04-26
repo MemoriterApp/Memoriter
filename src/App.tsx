@@ -21,9 +21,16 @@ const App = () => {
 
     const [user, setUser] = useState({}); //variable for currently signed in user
 
+    const [appRendered, setAppRendered] = useState(false); //variable for currently signed in user
+
     onAuthStateChanged(firebase.auth, (currentUser) => { //updates user variable when user changes
         setUser(currentUser);
     });
+
+    if (!appRendered) {
+        setAppRendered(true);
+        setUser(firebase.auth.currentUser);
+    }
 
     //routing (connections to different sub-pages)
     return (
@@ -36,13 +43,15 @@ const App = () => {
                             <Route path='/' element={<HomePage />} />
                             <Route path='/study' element={<StudyPage />} />
                             <Route path='/spaced-repetition' element={<SpacedRepMode />} />
+                            <Route path='/login' element={<Redirect path='/'/>} />
+                            <Route path='/signup' element={<Redirect path='/'/>} />
                         </>) : (<>
                             <Route path='/' element={<Redirect path='/login'/>} />
                             <Route path='/study' element={<Redirect path='/login'/>} />
                             <Route path='/spaced-repetition' element={<Redirect path='/login'/>} />
+                            <Route path='/login' element={<LoginPage />} />
+                            <Route path='/signup' element={<SignUpPage />} />
                         </>)}
-                        <Route path='/login' element={<LoginPage />} />
-                        <Route path='/signup' element={<SignUpPage />} />
                     </Routes>
                 </ThemeProvider>
             </ScrollReset>
