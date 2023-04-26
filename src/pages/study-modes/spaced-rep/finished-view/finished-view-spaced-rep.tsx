@@ -3,6 +3,9 @@ import './finished-view-spaced-rep.css';
 
 function FinishedViewSpacedRep({ studiedFlashcards, incorrectFlashcards }: {studiedFlashcards: any, incorrectFlashcards: any}) {
     const navigate = useNavigate();
+
+    const nextDueDate = localStorage.getItem('nextDueDate');
+
     return (
         <div>
             <div className='finished-box'>
@@ -20,6 +23,9 @@ function FinishedViewSpacedRep({ studiedFlashcards, incorrectFlashcards }: {stud
                 </p>
                 <p className='finished-statistics' style={{ color: '#dc4c4d' }}>
                     Incorrect: {incorrectFlashcards} ({(100 * (incorrectFlashcards / (studiedFlashcards + incorrectFlashcards))).toFixed(2)}%)
+                </p>
+                <p className='finished-statistics'>
+                    Next flashcards are due on the {nextDueDate}
                 </p>
             </div>
 

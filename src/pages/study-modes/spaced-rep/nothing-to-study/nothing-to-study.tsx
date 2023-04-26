@@ -4,13 +4,16 @@ import './nothing-to-study.css';
 function NothingToStudy() {
 
     const navigate = useNavigate();
+
+    const nextDueDate = localStorage.getItem('nextDueDate');
+
     return (
         <>
             <div className='nothing-to-study-box'>
                 <h1 className='nothing-to-study-text' style={{ fontSize: '4vh' }}>
                     There are no flashcards to study today
                 </h1>
-                <p className='nothing-to-study-text'>Come back tomorrow to study again</p>
+                <p className='nothing-to-study-text'>Next flashcards are due on the {nextDueDate}</p>
             </div>
 
             <button className='return-button'

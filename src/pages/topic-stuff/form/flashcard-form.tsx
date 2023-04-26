@@ -20,7 +20,9 @@ const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { typ
     };
 
     const [suggestion, setSuggestion] = useState(''); // content suggestion from AI
-    const [isSuggestionOn, setIsSuggestionOn] = useState(true); // whether the suggestion is on or off
+    const [isSuggestionOn, setIsSuggestionOn] = useState(false); // whether the suggestion is on or off
+
+  
 
     // get flashcard suggestion
     const generateSuggestion = async () => {
@@ -37,6 +39,7 @@ const FlashcardForm = ({ type, flashcard, folderID, onConfirm, onCancel }: { typ
 
     // useEffect hook to trigger the generateContent function when the component is mounted
     useEffect(() => {
+        
         if (isSuggestionOn && title) {
             const timeout = window.setTimeout(() => {
                 generateSuggestion();
