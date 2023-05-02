@@ -5,7 +5,7 @@ import Confirm from '../../../components/confirm/confirm';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import './flashcard.css';
 import * as Type from '../../../types';
-import OpenFlashcardSettings from "../../../components/flashcard-settings/open-flashcard/open-flashcard-settings";
+import OpenFlashcardSettings from '../../../components/flashcard-settings/open-flashcard/open-flashcard-settings';
 import ClosedFlashcardSettings from '../../../components/flashcard-settings/closed-flashcard/closed-flashcard-settings';
 
 const Flashcard = ({
@@ -58,7 +58,7 @@ const Flashcard = ({
         } else {
             setMaxHeightGradient('');
         }
-    }, []);
+    }, [onEditFlashcard]); // always triggered when the flashcard is edited
 
     const [flashcardIsOpen, setFlashcardIsOpen] = useState(false);
     const [flashcardIsOpenSettings, setFlashcardIsOpenSettings] = useState(false);
@@ -79,11 +79,6 @@ const Flashcard = ({
         if (flashcardIsOpen === true) {
             setFlashcardIsOpen(false);
         }
-    }
-
-    function backdropClickOpen() {
-        setFlashcardIsOpenSettings(false);
-        setEditingIsOpen(false);
     }
 
     function deleteFlashcardReq() {
