@@ -113,7 +113,10 @@ const Folder = ({
                 {folder.icon === '' || folder.icon === undefined ? (
                     <img src={placeholderFolder} alt='placeholder icon' style={{filter: 'var(--svg-invert-gray)'}}/>
                 ) : (
-                    <img src={`/emoji/${folder.icon}.svg`} alt='folder icon'/>
+                    <img
+                        src={`https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/${folder.icon}.svg`}
+                        alt='folder icon'
+                    />
                 )}
             </button>
             <Link to='/topic' onClick={onOpenFolder}>
