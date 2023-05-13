@@ -17,7 +17,7 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-weight: bold;
     font-size: 2em;
     color: var(--color-font);
@@ -179,7 +179,7 @@
     position: absolute;
     left: 60%;
     transform: translate(-50%, -50%);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 20px;
     font-weight: bold;
     color: var(--color-font)
@@ -221,7 +221,7 @@
     font-size: 20px;
     top: 10%;
     transform: translate(0, -50%);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-weight: bold;
 }
 

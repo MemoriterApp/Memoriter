@@ -1,39 +1,24 @@
 /*This css file is only used for classes used very often and across multiple pages, as well as some global styles.*/
 
-/*font imports*/
 @font-face {
-    /*Inter: basic font for most text*/
-    font-family: 'Inter';
-    font-weight: 300;
-    src: url('./fonts/inter/Inter-VariableFont_slnt\,wght.ttf');
+    /* Open Sans: default font */
+    font-family: 'Open Sans';
+    font-weight: 400;
+    src: url('./fonts/open-sans/OpenSans-VariableFont_wdth\,wght.ttf');
 }
 
 @font-face {
-    /*Rubik: larger font for subheadings or buttons*/
+    /* Rubik: larger font for subheadings or buttons */
     font-family: 'Rubik';
     font-weight: 400;
     src: url('./fonts/rubik/Rubik-VariableFont_wght.ttf');
 }
 
 @font-face {
-    /*Heebo: large font for page headings*/
+    /* Heebo: large font for page headings */
     font-family: 'Heebo';
     font-weight: 800;
     src: url('./fonts/heebo/Heebo-VariableFont_wght.ttf');
-}
-
-@font-face {
-    /*M PLUS 1: default font*/
-    font-family: 'M PLUS 1';
-    font-weight: 600;
-    src: url('./fonts/m-plus-1/MPLUS1-VariableFont_wght.ttf');
-}
-
-@font-face {
-    /*M PLUS 1: default font (bold version)*/
-    font-family: 'M PLUS 1';
-    font-weight: 800;
-    src: url('./fonts/m-plus-1/MPLUS1-VariableFont_wght.ttf');
 }
 
 :root {
@@ -58,7 +43,7 @@
     /*values for correcting svg colors*/
     --svg-invert-white: invert(1);
     /*font families*/
-    --font-default: 'Inter', sans-serif;
+    --font-default: 'Open Sans', sans-serif;
     --font-highlight: 'Rubik', sans-serif;
     --font-heading: 'Heebo', sans-serif;
 }
@@ -120,7 +105,6 @@
     --current-green-hover: #3ab454;
     --current-gray-medium-dark: #373737;
     --color-premium: #9d7111;
-    --current-font: 'M PLUS 1', sans-serif;
 }
 
 /* Custom Scrollbar */
@@ -176,25 +160,13 @@ body::-webkit-scrollbar-corner {
     overflow: hidden;
 }
 
-
-.header-logo {
-    width: 134.4px;
-    max-width: 20%;
-    position: absolute;
-    cursor: pointer;
-    bottom: 50%;
-    left: 10px;
-    transform: translate(0%, 50%);
-    filter: var(--svg-invert);
-}
-
 .sign-out-box {
     color: var(--color-white);
     margin: 32px auto;
     width: fit-content;
     font-size: 3ch;
     font-weight: 700;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     position: relative;
     cursor: pointer;
     text-align: center;
@@ -292,7 +264,7 @@ body::-webkit-scrollbar-corner {
 
 .Login {
     position: absolute;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 25px;
     color: var(--current-gray);
     right: 10px;
@@ -302,7 +274,7 @@ body::-webkit-scrollbar-corner {
 
 .Signup {
     position: absolute;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 25px;
     color: var(--color-font);
     top: 9px;
@@ -334,7 +306,7 @@ body::-webkit-scrollbar-corner {
     width: 80%;
     color: var(--color-font);
     background-color: var(--color-background);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
@@ -362,7 +334,7 @@ body::-webkit-scrollbar-corner {
     width: 80%;
     color: var(--color-font);
     background-color: var(--color-background);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
@@ -372,7 +344,7 @@ body::-webkit-scrollbar-corner {
 .password-label {
     position: relative;
     top: -40px;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 20px;
     color: var(--color-font);
     right: -85px;

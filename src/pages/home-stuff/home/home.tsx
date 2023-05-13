@@ -1,4 +1,5 @@
 import './home.css';
+import Header from '../../../components/layout/header';
 import memoriterLogo from '../../../images/memoriter-logo.svg';
 import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
 import archiveIcon from '../../../images/icons/archive-icon.svg';
@@ -145,10 +146,7 @@ function HomePage() {
 
     return (
         <>
-            <header className='page-header'>
-                <h1 className='page-title'>Home</h1>
-                <img className='header-logo' src={memoriterLogo} alt='site-logo' />
-            </header>
+            <Header/>
             <main>
                 <div className='square'>
                     <section>

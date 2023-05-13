@@ -32,16 +32,6 @@ const FooterPage = () => {
                         Help and Tutorials
                     </a>
                     <div className='footer-line'/>
-                    <a className='footer-link' href='https://memoriter.de/impressum' target='_blank' rel='noreferrer'>
-                        Impressum
-                    </a>
-                    <a className='footer-link' href='https://memoriter.de/term' target='_blank' rel='noreferrer'>
-                        Terms of Use
-                    </a>
-                    <a className='footer-link' href='https://memoriter.de/privacy' target='_blank' rel='noreferrer'>
-                        Privacy Policy
-                    </a>
-                    <div className='footer-line'/>
                     <a className='footer-link' href='https://memoriter.de/releases' target='_blank' rel='noreferrer'>
                         Release Notes
                     </a>

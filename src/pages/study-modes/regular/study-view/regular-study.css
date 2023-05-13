@@ -5,7 +5,7 @@
     transform: translate(0, -50%);
     max-width: 20%;
     color: var(--current-gray);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 20px;
 }
 
@@ -37,7 +37,7 @@
     position: relative;
     text-align: center;
     font-size: 2.6vh;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     color: var(--current-gray-dark);
     margin: 1vh;
 }
@@ -46,7 +46,7 @@
 .finished-button {
     position: absolute;
     left: 50%;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     transform: translate(-50%, -50%);
     border-radius: 0.5vw;
     height: calc(3vh * var(--testing));
@@ -92,7 +92,7 @@
     top: -19px;
     left: calc(100% + 8px);
     color: var(--color-font-gray);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
 }
 .progress-bar-fill {
     position: relative;

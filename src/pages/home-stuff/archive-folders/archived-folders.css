@@ -21,7 +21,7 @@
     color: var(--color-font);
     font-size: 28px;
     margin-bottom: 40px;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-weight: bold;
     display: flex;
     justify-content: center;

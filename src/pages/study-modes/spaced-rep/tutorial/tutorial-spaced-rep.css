@@ -15,7 +15,7 @@
 
 .tutorial-sub {
     color: #000000;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 1.9vmin;
     position: relative;
     cursor: auto;
@@ -28,7 +28,7 @@
     position: absolute;
     left: 50%;
     top: 110%;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     transform: translate(0%, -50%);
     border-radius: 0.5vw;
     height: calc(3vh);

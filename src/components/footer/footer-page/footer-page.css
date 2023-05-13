@@ -5,7 +5,7 @@
   right: 3.5vw;
   bottom: 10vh;
   width: 200px;
-  height: 330px;
+  height: 250px;
   text-align: left;
   background-color: var(--color-background);
   border: 2px solid var(--current-gray);
@@ -16,18 +16,18 @@
   overflow: auto;
   overflow-x: hidden;
   white-space: pre-wrap;
-  font: var(--current-font);
+  font: var(--font-default);
 }
 
 .footer-text { /*  footer text that's not links*/
   color: var(--color-font-gray);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   cursor: default;
   left: 0.5vw;
   position: relative;
   content: "";
   display: block;
-  margin: 1vh;
+  margin: 10px;
   text-decoration: none;
 }
 .footer-line { /* Footer lines that split content */
@@ -40,13 +40,13 @@
 
 .footer-link { /* individual links */
   color: var(--color-font-gray);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   cursor: pointer;
   left: 0.5vw;
   position: relative;
   content: "";
   display: block;
-  margin: 1vh;
+  margin: 10px;
   text-decoration: none;
   transition: transform .2s ease-in-out;
 }
@@ -57,7 +57,7 @@
   margin-top: 10px;
 }
 
-.footer-tutorial{
+.footer-tutorial {
   position: absolute;
   right: 3.5vw;
   bottom: 10vh;
@@ -72,7 +72,7 @@
   margin: auto;
   overflow: auto;
   overflow-x: hidden;
-  font: var(--current-font);
+  font: var(--font-default);
 }
 
 .footer-follow-flex {

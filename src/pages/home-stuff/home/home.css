@@ -1,7 +1,7 @@
 .spaced-rep-subtitles {
     position: absolute;
     color: var(--color-font);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 1.2rem;
     display: flex;
     top: 2vh;
@@ -62,7 +62,7 @@
 
 .no-folder-text {
     text-align: center;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-style: italic;
     color: var(--color-font-gray);
     font-size: 24px;
@@ -120,7 +120,7 @@
     max-width: calc(100% - 60px);
     color: var(--color-font);
     font-size: 20px;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     background-color: var(--color-transparent);
     border: 1px transparent;
     cursor: pointer;

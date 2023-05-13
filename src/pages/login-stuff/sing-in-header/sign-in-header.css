@@ -9,17 +9,6 @@
     z-index: 1;
 }
 
-.header-logo {
-    width: 134.4px;
-    max-width: 20%;
-    position: absolute;
-    cursor: pointer;
-    bottom: 50%;
-    left: 10px;
-    transform: translate(0%, 50%);
-    filter: var(--svg-invert);
-}
-
 .sign-in-header-logo { /*logo formatting used for the header*/
     position: absolute;
     left: 80px;
