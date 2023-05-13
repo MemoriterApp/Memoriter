@@ -146,7 +146,7 @@ function HomePage() {
 
     return (
         <>
-            <Header/>
+            <Header folder='home'/>
             <main>
                 <div className='square'>
                     <section>

@@ -5,7 +5,7 @@ import chevronRight from '../../images/chevron-right.svg';
 import searchIcon from '../../images/icons/search-icon.svg';
 import pushPinIcon from '../../images/icons/push-pin-icon.svg';
 
-const Header = () => {
+const Header = ({ folder }: { folder: string }) => {
   return (
     <header className='header-container'>
       <button className='header-sidebar-button' />
@@ -13,6 +13,19 @@ const Header = () => {
       <p className='header-path'>
         <img className='header-path-chevron' src={chevronRight} alt='>' />
         <Link to='/'>Home</Link>
+        {folder === 'home' ? (
+          <></>
+        ) : folder === '' ? (
+          <>
+            <img className='header-path-chevron' src={chevronRight} alt='>' />
+            <Link to='/topic'>New Folder</Link>
+          </>
+        ) : (
+          <>
+            <img className='header-path-chevron' src={chevronRight} alt='>' />
+            <Link to='/topic'>{folder}</Link>
+          </>
+        )}
       </p>
       <div className='header-flex-gap' />
       <div className='header-search'>

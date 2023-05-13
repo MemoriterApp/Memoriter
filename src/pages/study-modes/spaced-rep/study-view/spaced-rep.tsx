@@ -9,6 +9,7 @@ import { spacedRepetition } from '../../../../technical/utils/spaced-repetition'
 import FinishedViewSpacedRep from '../finished-view/finished-view-spaced-rep';
 import { Flashcard } from '../../../../types';
 import FooterButton from '../../../../components/footer/footer-button/footer-button';
+import Header from '../../../../components/layout/header';
 
 function SpacedRepMode() {
 
@@ -126,15 +127,7 @@ function SpacedRepMode() {
 
     return (
         <>
-            <header className='page-header'>
-                <h1 className='page-title'>
-                    {folderTitle}
-                </h1>
-                <Link to='/'>
-                    <img className='header-logo' src={Logo} alt='site-logo'></img>
-                </Link>
-                <p className='study-remaining'>Remaining: {flashcards.length}</p>
-            </header>
+            <Header folder={folderTitle} />
             
             <Link to='/' >
                 <div className='back-button'/> 
