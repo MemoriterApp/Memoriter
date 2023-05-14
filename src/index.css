@@ -40,6 +40,7 @@
     --color-facebook-hover: #3c5f9b;
     --color-github: #6e5494;
     --color-github-hover: #645087;
+    --color-select: #2850a080;
     /*values for correcting svg colors*/
     --svg-invert-white: invert(1);
     /*font families*/
@@ -355,4 +356,10 @@ body::-webkit-scrollbar-corner {
     --size: 0.85;
     --button: 1.7;
     --testing: 1.7;
+}
+
+/* custom text selection color */
+::selection {
+  background-color: var(--color-select);
+  -webkit-text-fill-color: var(--color-font); /* is needed to fix gradient text */
 }
