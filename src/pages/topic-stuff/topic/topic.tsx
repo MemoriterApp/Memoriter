@@ -18,7 +18,7 @@ import {
   updateFlashcard,
 } from '../../../technical/utils/mongo';
 import moment from 'moment';
-import Header from '../../../components/layout/header';
+import Header from '../../../components/layout/header/header';
 
 //this file is the home page of the app where you see all your flashcards
 //it uses css from topic.css

@@ -1,0 +1,44 @@
+.profile-dropdown {
+  position: absolute;
+  color: var(--color-font);
+  font-family: var(--font-default);
+  right: 8px;
+  top: 58px;
+  width: fit-content;
+  padding: 6px;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-container);
+  border-radius: 4px;
+  box-shadow: 0 0 8px var(--color-shadow);
+  z-index: 4;
+}
+
+.profile-dropdown p {
+  margin: 2px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 200ms;
+}
+.profile-dropdown p:hover {
+  background-color: var(--color-hover);
+}
+.profile-dropdown p a {
+  color: var(--color-font);
+  text-decoration: none;
+}
+.profile-dropdown p.no-hover {
+  cursor: default;
+}
+.profile-dropdown p.no-hover:hover {
+  background-color: unset;
+}
+.profile-dropdown p.no-hover em {
+  color: var(--color-font-gray);
+  font-style: normal;
+}
+
+.profile-dropdown hr {
+  color: var(--color-container);
+  margin-inline: -6px;
+}

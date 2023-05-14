@@ -1,6 +1,5 @@
 import './home.css';
-import Header from '../../../components/layout/header';
-import memoriterLogo from '../../../images/memoriter-logo.svg';
+import Header from '../../../components/layout/header/header';
 import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
 import archiveIcon from '../../../images/icons/archive-icon.svg';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';

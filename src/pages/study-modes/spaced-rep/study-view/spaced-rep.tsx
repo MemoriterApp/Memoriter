@@ -9,7 +9,7 @@ import { spacedRepetition } from '../../../../technical/utils/spaced-repetition'
 import FinishedViewSpacedRep from '../finished-view/finished-view-spaced-rep';
 import { Flashcard } from '../../../../types';
 import FooterButton from '../../../../components/footer/footer-button/footer-button';
-import Header from '../../../../components/layout/header';
+import Header from '../../../../components/layout/header/header';
 
 function SpacedRepMode() {
 
