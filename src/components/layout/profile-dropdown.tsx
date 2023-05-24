@@ -1,5 +1,5 @@
 import './profile-dropdown.css';
-import { firebase } from '../../../technical/utils/mongo';
+import { firebase } from '../../technical/utils/mongo';
 import { getAuth, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router';
 

@@ -18,7 +18,8 @@ import {
   updateFlashcard,
 } from '../../../technical/utils/mongo';
 import moment from 'moment';
-import Header from '../../../components/layout/header/header';
+import Header from '../../../components/layout/header';
+import Layout from '../../../components/layout/layout';
 
 //this file is the home page of the app where you see all your flashcards
 //it uses css from topic.css
@@ -246,8 +247,7 @@ function TopicPage() {
   localStorage.setItem('nextDueDate', getNextDueDate());
 
   return (
-    <>
-      <Header folder={folderTitle}/>
+    <Layout folder={folderTitle}>
       <main>
         <div className='square'>
           <div className='top-responsive-container'>
@@ -335,7 +335,7 @@ function TopicPage() {
       <footer>
         <FooterButton />
       </footer>
-    </>
+    </Layout>
   );
 }
 export default TopicPage;

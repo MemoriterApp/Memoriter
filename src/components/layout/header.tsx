@@ -1,12 +1,12 @@
 import './header.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import memoriterLogo from '../../../images/memoriter-logo.svg';
-import chevronRight from '../../../images/chevron-right.svg';
-import searchIcon from '../../../images/icons/search-icon.svg';
-import pushPinIcon from '../../../images/icons/push-pin-icon.svg';
+import memoriterLogo from '../../images/memoriter-logo.svg';
+import chevronRight from '../../images/chevron-right.svg';
+import searchIcon from '../../images/icons/search-icon.svg';
+import pushPinIcon from '../../images/icons/push-pin-icon.svg';
 import ProfileDropdown from './profile-dropdown';
-import BackdropTransparent from '../../backdrops/backdrop-transparent/backdrop-transparent';
+import BackdropTransparent from '../backdrops/backdrop-transparent/backdrop-transparent';
 
 const Header = ({ folder }: { folder: string }) => {
   const [openProfileDropdown, setOpenProfileDropdown] = useState(false);

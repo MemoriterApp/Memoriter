@@ -1,5 +1,5 @@
 import './home.css';
-import Header from '../../../components/layout/header/header';
+import Layout from '../../../components/layout/layout';
 import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
 import archiveIcon from '../../../images/icons/archive-icon.svg';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
@@ -144,8 +144,7 @@ function HomePage() {
     const [archiveFolderIsOpen, setArchiveFolderIsOpen] = useState(false); //state to check if the archive folder is open or not
 
     return (
-        <>
-            <Header folder='home'/>
+        <Layout folder='home'>
             <main>
                 <div className='square'>
                     <section>
@@ -224,7 +223,7 @@ function HomePage() {
             <footer>
                 <FooterButton />
             </footer>
-        </>
+        </Layout>
     );
 }
 
