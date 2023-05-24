@@ -1,0 +1,7 @@
+.sidebar {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  height: calc(100% - 49px);
+  border-right: 1px solid var(--color-container);
+}
