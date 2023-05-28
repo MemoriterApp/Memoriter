@@ -1,10 +1,11 @@
 import './sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = ({ position }: { position: string }) => {
   return (
-    <aside className='sidebar'>
+    <aside className='sidebar' style={{left: position}}>
       <p>Home</p>
       <p>Pinned Folders</p>
+      <p>Archive</p>
     </aside>
   );
 };
