@@ -8,3 +8,12 @@
   transition: left 250ms;
   z-index: 1;
 }
+
+.sidebar p {
+  font-family: var(--font-default);
+  color: var(--color-font);
+  margin: 10px 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
