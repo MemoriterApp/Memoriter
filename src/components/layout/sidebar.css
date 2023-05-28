@@ -1,10 +1,10 @@
 .sidebar {
   position: absolute;
   bottom: 0;
-  width: 199px;
+  width: 249px;
   height: calc(100% - 49px);
   background-color: var(--color-background);
   border-right: 1px solid var(--color-container);
-  transition: left 200ms;
+  transition: left 250ms;
   z-index: 1;
 }

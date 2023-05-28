@@ -12,15 +12,19 @@ import BackdropTransparent from '../backdrops/backdrop-transparent/backdrop-tran
 const Header = ({
   folder,
   onSidebarButtonClick,
+  onSidebarHoverEnter,
+  onSidebarHoverLeave
 }: {
   folder: string;
   onSidebarButtonClick: () => void;
+  onSidebarHoverEnter: () => void;
+  onSidebarHoverLeave: () => void;
 }) => {
   const [openProfileDropdown, setOpenProfileDropdown] = useState(false);
 
   return (
     <header className='header'>
-      <button className='header-sidebar-button' onClick={() => onSidebarButtonClick()} />
+      <button className='header-sidebar-button' onClick={() => onSidebarButtonClick()} onMouseEnter={() => onSidebarHoverEnter()} onMouseLeave={() => onSidebarHoverLeave()}/>
       <img className='header-logo' src={memoriterLogo} alt='Memoriter' />
       <p className='header-path'>
         <img className='header-path-chevron' src={chevronRight} alt='>' />
