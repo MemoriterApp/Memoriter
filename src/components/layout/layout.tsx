@@ -4,14 +4,17 @@ import Sidebar from './sidebar';
 import { useState } from 'react';
 
 const Layout = ({ folder, children }: { folder: string; children: React.ReactNode }) => {
-  const [expandedSidebar, setExpandedSidebar] = useState<string>('-200px');
+  const [expandedSidebar, setExpandedSidebar] = useState<boolean>(false);
+  const [sidebarPosition, setSidebarPosition] = useState<string>('-200px');
   const [contentWidth, setContentWidth] = useState<string>('calc(100%)');
   const sidebarButtonClick = () => {
-    if (expandedSidebar === '-200px') {
-      setExpandedSidebar('0');
+    if (!expandedSidebar) {
+      setExpandedSidebar(true);
+      setSidebarPosition('0');
       setContentWidth('calc(100% - 200px)');
     } else {
-      setExpandedSidebar('-200px');
+      setExpandedSidebar(false);
+      setSidebarPosition('-200px');
       setContentWidth('calc(100%)');
     }
   };
@@ -20,7 +23,7 @@ const Layout = ({ folder, children }: { folder: string; children: React.ReactNod
     <>
       <Header folder={folder} onSidebarButtonClick={() => sidebarButtonClick()} />
       <div className='layout'>
-        <Sidebar position={expandedSidebar} />
+        <Sidebar position={sidebarPosition} />
         <div className='layout-content' style={{ width: contentWidth }}>
           {children}
         </div>
