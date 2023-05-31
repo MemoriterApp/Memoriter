@@ -1,8 +1,8 @@
 import './sidebar.css';
 
-const Sidebar = ({ position }: { position: string }) => {
+const Sidebar = ({ classStatus, position }: { classStatus: string, position: string }) => {
   return (
-    <aside className='sidebar' style={{left: position}}>
+    <aside className={`sidebar ${classStatus}`} style={{left: position}}>
       <p>Home</p>
       <p>Pinned Folders</p>
       <p>Archive</p>

@@ -1,11 +1,8 @@
 .sidebar {
   position: absolute;
-  bottom: 0;
   width: 249px;
-  height: calc(100% - 49px);
   background-color: var(--color-background);
-  border-right: 1px solid var(--color-container);
-  transition: left 250ms;
+  transition: 200ms;
   z-index: 1;
 }
 
@@ -16,4 +13,20 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.sidebar-floating {
+  bottom: 20px;
+  height: calc(100% - 89px);
+  border-top: 1px solid var(--color-container);
+  border-right: 1px solid var(--color-container);
+  border-bottom: 1px solid var(--color-container);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.sidebar-expanded {
+  bottom: 0;
+  height: calc(100% - 49px);
+  border-right: 1px solid var(--color-container);
 }
