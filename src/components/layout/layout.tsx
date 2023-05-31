@@ -18,12 +18,12 @@ const Layout = ({ folder, children }: { folder: string; children: React.ReactNod
     }
   };
 
-  const sidebarButtonHoverEnter = () => {
+  const sidebarHoverEnter = () => {
     if (sidebarClass === 'sidebar-floating') {
       setSidebarPosition('0');
     }
   };
-  const sidebarButtonHoverLeave = () => {
+  const sidebarHoverLeave = () => {
     if (sidebarClass === 'sidebar-floating') {
       setSidebarPosition('-250px');
     }
@@ -34,11 +34,21 @@ const Layout = ({ folder, children }: { folder: string; children: React.ReactNod
       <Header
         folder={folder}
         onSidebarButtonClick={() => sidebarButtonClick()}
-        onSidebarHoverEnter={() => sidebarButtonHoverEnter()}
-        onSidebarHoverLeave={() => sidebarButtonHoverLeave()}
+        onSidebarButtonHoverEnter={() => sidebarHoverEnter()}
+        onSidebarButtonHoverLeave={() => sidebarHoverLeave()}
       />
       <div className='layout'>
-        <Sidebar classStatus={sidebarClass} position={sidebarPosition} />
+        <Sidebar
+          classStatus={sidebarClass}
+          position={sidebarPosition}
+          onSidebarHoverEnter={() => sidebarHoverEnter()}
+          onSidebarHoverLeave={() => sidebarHoverLeave()}
+        />
+        <div /* transparent column at the left to expand the sidebar when moving the mouse to the screen edge */
+          className='layout-edge-hover'
+          onMouseEnter={() => sidebarHoverEnter()}
+          onMouseLeave={() => sidebarHoverLeave()}
+        />
         <div className='layout-content' style={{ width: contentWidth }}>
           {children}
         </div>
