@@ -125,7 +125,7 @@ function SpacedRepMode() {
 
 
     return (
-        <Layout folder={folderTitle}>
+        <Layout path={folderTitle}>
             
             <Link to='/' >
                 <div className='back-button'/> 

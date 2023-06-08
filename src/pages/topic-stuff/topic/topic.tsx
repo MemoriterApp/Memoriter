@@ -247,7 +247,7 @@ function TopicPage() {
   localStorage.setItem('nextDueDate', getNextDueDate());
 
   return (
-    <Layout folder={folderTitle}>
+    <Layout path={folderTitle}>
       <main>
         <div className='square'>
           <div className='top-responsive-container'>

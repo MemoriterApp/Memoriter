@@ -144,7 +144,7 @@ function HomePage() {
     const [archiveFolderIsOpen, setArchiveFolderIsOpen] = useState(false); //state to check if the archive folder is open or not
 
     return (
-        <Layout folder='home'>
+        <Layout path='home' folders={folders}>
             <main>
                 <div className='square'>
                     <section>

@@ -126,7 +126,7 @@ const StudyPage = () => {
   };
 
   return (
-    <Layout folder={folderTitle}>
+    <Layout path={folderTitle}>
       <main>
         {started && (
           <>

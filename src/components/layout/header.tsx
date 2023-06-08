@@ -10,12 +10,12 @@ import ProfileDropdown from './profile-dropdown';
 import BackdropTransparent from '../backdrops/backdrop-transparent/backdrop-transparent';
 
 const Header = ({
-  folder,
+  path,
   onSidebarButtonClick,
   onSidebarButtonHoverEnter,
   onSidebarButtonHoverLeave,
 }: {
-  folder: string;
+  path: string;
   onSidebarButtonClick: () => void;
   onSidebarButtonHoverEnter: () => void;
   onSidebarButtonHoverLeave: () => void;
@@ -34,7 +34,7 @@ const Header = ({
       <p className='header-path'>
         <img className='header-path-chevron' src={chevronRight} alt='>' />
         <Link to='/'>Home</Link>
-        {folder === 'home' ? null : folder === '' ? (
+        {path === 'home' ? null : path === '' ? (
           <>
             <img className='header-path-chevron' src={chevronRight} alt='>' />
             <Link to='/topic'>New Folder</Link>
@@ -42,7 +42,7 @@ const Header = ({
         ) : (
           <>
             <img className='header-path-chevron' src={chevronRight} alt='>' />
-            <Link to='/topic'>{folder}</Link>
+            <Link to='/topic'>{path}</Link>
           </>
         )}
       </p>

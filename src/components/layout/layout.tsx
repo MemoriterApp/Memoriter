@@ -3,7 +3,15 @@ import Header from './header';
 import Sidebar from './sidebar';
 import { useState } from 'react';
 
-const Layout = ({ folder, children }: { folder: string; children: React.ReactNode }) => {
+const Layout = ({
+  path,
+  folders,
+  children,
+}: {
+  path: string;
+  folders?: [];
+  children: React.ReactNode;
+}) => {
   const [sidebarClass, sesetSidebarClass] = useState<string>('sidebar-floating');
   const [sidebarPosition, setSidebarPosition] = useState<string>('-250px');
   const [contentWidth, setContentWidth] = useState<string>('calc(100%)');
@@ -32,7 +40,7 @@ const Layout = ({ folder, children }: { folder: string; children: React.ReactNod
   return (
     <>
       <Header
-        folder={folder}
+        path={path}
         onSidebarButtonClick={() => sidebarButtonClick()}
         onSidebarButtonHoverEnter={() => sidebarHoverEnter()}
         onSidebarButtonHoverLeave={() => sidebarHoverLeave()}
@@ -41,6 +49,7 @@ const Layout = ({ folder, children }: { folder: string; children: React.ReactNod
         <Sidebar
           classStatus={sidebarClass}
           position={sidebarPosition}
+          folders={folders}
           onSidebarHoverEnter={() => sidebarHoverEnter()}
           onSidebarHoverLeave={() => sidebarHoverLeave()}
         />
