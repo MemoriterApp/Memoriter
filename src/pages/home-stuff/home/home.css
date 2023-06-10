@@ -115,7 +115,7 @@
 
 .new-folder-text {
     position: absolute;
-    top: -40%;
+    top: -35%;
     left: 44px;
     max-width: calc(100% - 60px);
     color: var(--color-font);

@@ -1,0 +1,17 @@
+.sidebar-folder p {
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 200ms;
+}
+.sidebar-folder p:hover {
+  background-color: var(--color-hover);
+}
+.sidebar-folder p, .sidebar-folder a {
+  color: var(--color-font-gray);
+  text-decoration: none;
+}
+.sidebar-folder img {
+  max-width: 22px;
+  margin-right: 6px;
+  vertical-align: top;
+}
