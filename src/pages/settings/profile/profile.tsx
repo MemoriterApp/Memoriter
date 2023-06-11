@@ -6,7 +6,6 @@ import './profile.css';
 import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from 'firebase/auth';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import { firebase } from '../../../technical/utils/mongo';
-import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
 import { useDispatch } from 'react-redux';
 
 function Profile() {
@@ -65,7 +64,6 @@ function Profile() {
         localStorage.removeItem('folderID');
         localStorage.removeItem('folderTitle');
 
-        dispatch(displaySuccessMessage('Successfully signed out!')); //sets state for the sign-in-main component to read to display a success message
         navigate('/login');
     };
 

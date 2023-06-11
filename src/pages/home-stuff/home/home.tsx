@@ -34,9 +34,6 @@ function HomePage() {
     const [modalIsOpen, setModalIsOpen] = useState(false); //state to check if the modal is open or not
 
     //Folder Position
-    folders.sort(function (a: Type.Folder, b: Type.Folder) {
-        return a.pos - b.pos;
-    }); //Sorting Folders
 
     const posUp = async (id: string, pos: number) => {
     //Position Up
@@ -144,7 +141,7 @@ function HomePage() {
     const [archiveFolderIsOpen, setArchiveFolderIsOpen] = useState(false); //state to check if the archive folder is open or not
 
     return (
-        <Layout path='home' folders={folders}>
+        <Layout path='home'>
             <main>
                 <div className='square'>
                     <section>
@@ -189,6 +186,9 @@ function HomePage() {
                             )}
                             {folders
                                 .filter((folder: Type.Folder) => !folder.archived)
+                                .sort(function (a: Type.Folder, b: Type.Folder) {
+                                    return a.pos - b.pos;
+                                })
                                 .map((folder: Type.Folder) => (
                                     <Folder
                                         key={folder._id}

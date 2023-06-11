@@ -5,11 +5,9 @@ import { useState } from 'react';
 
 const Layout = ({
   path,
-  folders,
   children,
 }: {
   path: string;
-  folders?: [];
   children: React.ReactNode;
 }) => {
   const [sidebarClass, sesetSidebarClass] = useState<string>('sidebar-floating');
@@ -49,7 +47,6 @@ const Layout = ({
         <Sidebar
           classStatus={sidebarClass}
           position={sidebarPosition}
-          folders={folders}
           onSidebarHoverEnter={() => sidebarHoverEnter()}
           onSidebarHoverLeave={() => sidebarHoverLeave()}
         />

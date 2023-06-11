@@ -1,5 +1,8 @@
 import './sidebar.css';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getFolders } from '../../technical/utils/mongo';
+import { getAuth } from 'firebase/auth';
 import * as Type from '../../types';
 import homeIcon from '../../images/icons/home-icon.svg';
 import archiveIcon from '../../images/icons/archive-icon.svg';
@@ -9,16 +12,29 @@ import SidebarFolder from './sidebar-folder';
 const Sidebar = ({
   classStatus,
   position,
-  folders,
   onSidebarHoverEnter,
   onSidebarHoverLeave,
 }: {
   classStatus: string;
   position: string;
-  folders: [];
   onSidebarHoverEnter: () => void;
   onSidebarHoverLeave: () => void;
 }) => {
+
+  const auth = getAuth();
+
+    const [folders, setFolders] = useState<any>([]); //saves the data of folders in an array
+
+    //Use Effect für folders
+    useEffect(() => {
+        async function getFolder () {
+            const allFolders = await getFolders(auth.currentUser.uid); //returns all folders from the firestore
+            setFolders(allFolders);
+        }
+        getFolder();
+    }, []);
+
+
   return (
     <aside
       className={`sidebar ${classStatus}`}
