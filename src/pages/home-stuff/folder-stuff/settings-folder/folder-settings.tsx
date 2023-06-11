@@ -1,6 +1,6 @@
 import edit from '../../../../images/edit.svg';
 import archive from '../../../../images/icons/archive-icon.svg';
-import deleteIcon from '../../../../images/delete.svg';
+import deleteIcon from '../../../../images/delete-red.svg';
 import clearIcon from '../../../../images/clear-icon.svg';
 import './folder-settings.css';
 
