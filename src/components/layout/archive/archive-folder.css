@@ -1,0 +1,23 @@
+.archive-folder p {
+  font-family: var(--font-default);
+  padding: 4px;
+  margin: 8px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: 200ms;
+}
+.archive-folder p:hover {
+  background-color: var(--color-hover);
+}
+.archive-folder {
+  color: var(--color-font-gray);
+  text-decoration: none;
+}
+.archive-folder-icon {
+  max-width: 22px;
+  margin-right: 6px;
+  vertical-align: top;
+}

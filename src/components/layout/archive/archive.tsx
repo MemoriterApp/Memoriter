@@ -1,6 +1,6 @@
-import * as Type from '../../types';
-import SidebarFolder from './sidebar-folder';
 import './archive.css';
+import * as Type from '../../../types';
+import ArchiveFolder from './archive-folder';
 
 const Archive = ({
   folders
@@ -13,7 +13,7 @@ const Archive = ({
       {folders // render archived folders
         .filter((folder: Type.Folder) => folder.archived)
         .map((folder: Type.Folder) => (
-          <SidebarFolder
+          <ArchiveFolder
             key={folder._id}
             folder={folder}
           />

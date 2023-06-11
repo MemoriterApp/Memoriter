@@ -1,7 +1,7 @@
 import './sidebar-folder.css';
 import { Link } from 'react-router-dom';
-import * as Type from '../../types';
-import placeholderFolder from '../../images/placeholder-folder.svg';
+import * as Type from '../../../types';
+import placeholderFolder from '../../../images/placeholder-folder.svg';
 
 const SidebarFolder = ({ folder }: { folder: Type.Folder }) => {
   return (
