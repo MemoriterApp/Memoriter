@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import memoriterLogo from '../../images/memoriter-logo.svg';
 import chevronRight from '../../images/chevron-right.svg';
 import searchIcon from '../../images/icons/search-icon.svg';
-import homeIcon from '../../images/icons/home-icon.svg';
 import pushPinIcon from '../../images/icons/push-pin-icon.svg';
 import profileIcon from '../../images/icons/profile-icon.svg';
 import ProfileDropdown from './profile-dropdown';

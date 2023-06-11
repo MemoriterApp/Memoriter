@@ -8,6 +8,8 @@ import homeIcon from '../../images/icons/home-icon.svg';
 import archiveIcon from '../../images/icons/archive-icon.svg';
 import settingsIcon from '../../images/icons/settings-icon.svg';
 import SidebarFolder from './sidebar-folder';
+import Archive from './archive';
+import Backdrop from '../backdrops/backdrop/backdrop';
 
 const Sidebar = ({
   classStatus,
@@ -20,20 +22,19 @@ const Sidebar = ({
   onSidebarHoverEnter: () => void;
   onSidebarHoverLeave: () => void;
 }) => {
-
   const auth = getAuth();
 
-    const [folders, setFolders] = useState<any>([]); //saves the data of folders in an array
+  // queries and saves folders from the database in an array
+  const [folders, setFolders] = useState<any>([]);
+  useEffect(() => {
+    async function getFolder() {
+      const allFolders = await getFolders(auth.currentUser.uid); // returns all folders from firebase
+      setFolders(allFolders);
+    }
+    getFolder();
+  }, []);
 
-    //Use Effect für folders
-    useEffect(() => {
-        async function getFolder () {
-            const allFolders = await getFolders(auth.currentUser.uid); //returns all folders from the firestore
-            setFolders(allFolders);
-        }
-        getFolder();
-    }, []);
-
+  const [showArchive, setShowArchive] = useState<boolean>(false);
 
   return (
     <aside
@@ -45,6 +46,7 @@ const Sidebar = ({
       <div className='sidebar-folders'>
         <p>Pinned Folders:</p>
         {folders
+          .filter((folder: Type.Folder) => !folder.archived)
           .sort(function (a: Type.Folder, b: Type.Folder) {
             return a.pos - b.pos;
           })
@@ -60,7 +62,7 @@ const Sidebar = ({
             Home
           </p>
         </Link>
-        <p>
+        <p onClick={() => setShowArchive(true)}>
           <img src={archiveIcon} alt='Archive icon' />
           Archive
         </p>
@@ -69,6 +71,13 @@ const Sidebar = ({
           Preferences
         </p>
       </div>
+
+      {showArchive && (
+        <>
+          <Archive folders={folders} />
+          <Backdrop onClick={() => setShowArchive(false)} />
+        </>
+      )}
     </aside>
   );
 };
