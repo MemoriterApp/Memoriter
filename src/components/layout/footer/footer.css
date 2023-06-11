@@ -1,0 +1,53 @@
+.footer-button {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
+  font: 2rem var(--font-default);
+  color: var(--color-font);
+  background-color: var(--color-hover);
+  text-align: center;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-shadow);
+  cursor: pointer;
+  transition: background-color 200ms;
+}
+.footer-button:hover {
+  background-color: var(--color-hover-input);
+}
+
+.footer {
+  position: absolute;
+  right: 80px;
+  bottom: 10px;
+  color: var(--color-font);
+  font-family: var(--font-default);
+  padding: 6px 4px 6px 8px;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-hover);
+  border-radius: 4px;
+  box-shadow: 0 0 8px var(--color-shadow);
+}
+.footer a {
+  color: var(--color-font-gray);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 200ms;
+}
+.footer a:hover {
+  color: var(--color-font);
+}
+
+.footer-icon img {
+  height: 16px;
+  margin: 4px 4px 0;
+  vertical-align: top;
+  cursor: pointer;
+  filter: var(--svg-invert-gray);
+  transition: filter 200ms;
+}
+.footer-icon img:hover {
+  filter: var(--svg-invert-white);
+}

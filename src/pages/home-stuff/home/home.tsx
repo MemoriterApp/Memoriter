@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
 import newFolder from '../../../images/new-folder.svg';
 import * as Type from '../../../types';
-import FooterButton from '../../../components/footer/footer-button/footer-button';
 
 //this file is the home page of the app where you see all your folders
 //it uses some css from home.css
@@ -191,9 +190,6 @@ function HomePage() {
                     </div>
                 </div>
             </main>
-            <footer>
-                <FooterButton />
-            </footer>
         </Layout>
     );
 }

@@ -13,6 +13,7 @@ import * as Type from '../../types';
 import Header from './header';
 import Sidebar from './sidebar/sidebar';
 import Archive from './archive/archive';
+import FooterButton from './footer/footer';
 import Backdrop from '../backdrops/backdrop/backdrop';
 
 const Layout = ({ path, children }: { path: string; children: React.ReactNode }) => {
@@ -119,8 +120,9 @@ const Layout = ({ path, children }: { path: string; children: React.ReactNode })
         <div className='layout-content' style={{ width: contentWidth }}>
           {children}
         </div>
-        
       </div>
+
+      <FooterButton />
 
       {showArchive && (
         <>

@@ -10,8 +10,6 @@ import {
 } from '../../../../technical/utils/mongo';
 import './regular-study.css';
 import { Flashcard } from '../../../../types';
-import FooterButton from '../../../../components/footer/footer-button/footer-button';
-import Header from '../../../../components/layout/header';
 import Layout from '../../../../components/layout/layout';
 
 const StudyPage = () => {
@@ -207,8 +205,6 @@ const StudyPage = () => {
             }}
           />
         </div>
-
-        <FooterButton />
       </main>
     </Layout>
   );

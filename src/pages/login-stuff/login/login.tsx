@@ -5,7 +5,7 @@ import PasswordReset from '../../settings/password-reset/password-reset';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../../technical/utils/mongo';
 import { signInWithEmailAndPassword, onAuthStateChanged, getAuth } from 'firebase/auth';
-import FooterButton from '../../../components/footer/footer-button/footer-button';
+import FooterButton from '../../../components/layout/footer/footer';
 import './login.css';
 
 function LoginPage() {

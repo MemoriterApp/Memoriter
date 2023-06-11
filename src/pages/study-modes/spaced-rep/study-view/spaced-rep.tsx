@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react';
 import { spacedRepetition } from '../../../../technical/utils/spaced-repetition';
 import FinishedViewSpacedRep from '../finished-view/finished-view-spaced-rep';
 import { Flashcard } from '../../../../types';
-import FooterButton from '../../../../components/footer/footer-button/footer-button';
 import Layout from '../../../../components/layout/layout';
 
 function SpacedRepMode() {
@@ -158,7 +157,6 @@ function SpacedRepMode() {
                     <div className='progress-bar-fill' style={{width: `calc(${100 * (studiedFlashcards / (flashcards.length + studiedFlashcards))}% - 8px)`}}/>
                 </div>
             </main>
-            <FooterButton />
         </Layout>
     );
 }
