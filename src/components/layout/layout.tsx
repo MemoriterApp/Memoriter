@@ -115,9 +115,11 @@ const Layout = ({ path, children }: { path: string; children: React.ReactNode })
           onMouseEnter={() => sidebarHoverEnter()}
           onMouseLeave={() => sidebarHoverLeave()}
         />
+
         <div className='layout-content' style={{ width: contentWidth }}>
           {children}
         </div>
+        
       </div>
 
       {showArchive && (

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import memoriterLogo from '../../images/memoriter-logo.svg';
 import chevronRight from '../../images/chevron-right.svg';
 import searchIcon from '../../images/icons/search-icon.svg';
-import pushPinIcon from '../../images/icons/push-pin-icon.svg';
+import starIcon from '../../images/icons/star-icon.svg';
 import profileIcon from '../../images/icons/profile-icon.svg';
 import ProfileDropdown from './profile-dropdown';
 import BackdropTransparent from '../backdrops/backdrop-transparent/backdrop-transparent';
@@ -30,7 +30,9 @@ const Header = ({
         onMouseEnter={() => onSidebarButtonHoverEnter()}
         onMouseLeave={() => onSidebarButtonHoverLeave()}
       />
-      <img className='header-logo' src={memoriterLogo} alt='Memoriter' />
+      <Link to='/'>
+        <img className='header-logo' src={memoriterLogo} alt='Memoriter' />
+      </Link>
       <p className='header-path'>
         <img className='header-path-chevron' src={chevronRight} alt='>' />
         <Link to='/'>Home</Link>
@@ -47,7 +49,7 @@ const Header = ({
         )}
       </p>
       <div className='header-flex-gap' />
-      {path !== 'home' && <img className='header-pin-icon' src={pushPinIcon} alt='Push pin icon' />}
+      {path !== 'home' && <img className='header-pin-icon' src={starIcon} alt='Push pin icon' />}
       <div className='header-search'>
         <input className='header-search-input' placeholder='Search' />
         <img className='header-search-icon' src={searchIcon} alt='Search icon' />
