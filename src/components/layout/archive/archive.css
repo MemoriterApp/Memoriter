@@ -9,7 +9,6 @@
   padding: 12px;
   background-color: var(--color-background);
   border-radius: 4px;
-  overflow-y: auto;
   z-index: 4;
 }
 .archive h1 {

@@ -1,14 +1,11 @@
 import './home.css';
 import Layout from '../../../components/layout/layout';
 import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
-import archiveIcon from '../../../images/icons/archive-icon.svg';
-import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import Folder from '../folder-stuff/folder/folder';
 import FolderForm from '../folder-stuff/form-folder/folder-form';
 import { getFlashcards, getFolders, insertFolder, removeFlashcard, removeFolder, updateFolder } from '../../../technical/utils/mongo';
 import { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
-import ArchivedFolders from '../archive-folders/archived-folders';
 import newFolder from '../../../images/new-folder.svg';
 import * as Type from '../../../types';
 import FooterButton from '../../../components/footer/footer-button/footer-button';
@@ -138,37 +135,11 @@ function HomePage() {
         setFolders(folders.map((folder: Type.Folder) => (folder._id === id ? { ...folder, icon: icon } : folder)));
     };
 
-    const [archiveFolderIsOpen, setArchiveFolderIsOpen] = useState(false); //state to check if the archive folder is open or not
-
     return (
         <Layout path='home'>
             <main>
                 <div className='square'>
                     <section>
-                        <img
-                            src={archiveIcon}
-                            className='archive-icon'
-                            alt=''
-                            title='Archive'
-                            onClick={() => {
-                                setArchiveFolderIsOpen(true);
-                            }}
-                        ></img>
-                        {archiveFolderIsOpen && (
-                            <div>
-                                <ArchivedFolders
-                                    folders={folders}
-                                    onDeleteFolder={deleteFolder}
-                                    onEditFolder={editFolder}
-                                    onDearchiveFolder={dearchiveFolder}
-                                    onPosUp={posUp}
-                                    onPosDown={posDown}
-                                    onPosAdjust={posAdjust}
-                                    onChangeFolderIcon={changeFolderIcon}
-                                />
-                                <Backdrop onClick={() => setArchiveFolderIsOpen(false)}/>
-                            </div>
-                        )}
                         <SettingsIcon />
                         <span className='spaced-rep-subtitles'>
                             <span>Due</span>

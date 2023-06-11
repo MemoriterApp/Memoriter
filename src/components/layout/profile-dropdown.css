@@ -7,7 +7,7 @@
   width: fit-content;
   padding: 6px;
   background-color: var(--color-background);
-  border: 1px solid var(--color-container);
+  border: 1px solid var(--color-hover);
   border-radius: 4px;
   box-shadow: 0 0 8px var(--color-shadow);
   z-index: 4;
@@ -39,6 +39,6 @@
 }
 
 .profile-dropdown hr {
-  color: var(--color-container);
+  color: var(--color-hover);
   margin-inline: -6px;
 }

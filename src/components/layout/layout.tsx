@@ -1,19 +1,21 @@
 import './layout.css';
+
 import { useEffect, useState } from 'react';
-import { getFolders } from '../../technical/utils/mongo';
+import {
+  getFlashcards,
+  getFolders,
+  removeFlashcard,
+  removeFolder,
+  updateFolder,
+} from '../../technical/utils/mongo';
 import { getAuth } from 'firebase/auth';
+import * as Type from '../../types';
 import Header from './header';
 import Sidebar from './sidebar/sidebar';
 import Archive from './archive/archive';
 import Backdrop from '../backdrops/backdrop/backdrop';
 
-const Layout = ({
-  path,
-  children,
-}: {
-  path: string;
-  children: React.ReactNode;
-}) => {
+const Layout = ({ path, children }: { path: string; children: React.ReactNode }) => {
   const auth = getAuth();
 
   // queries and saves folders from the database in an array
@@ -24,8 +26,43 @@ const Layout = ({
       setFolders(allFolders);
     }
     getFolder();
-
   }, []);
+
+  // folder actions
+  const changeFolderIcon = async (id: string, icon: any) => {
+    const newIcon = { icon: icon };
+    await updateFolder(id, newIcon);
+    setFolders(
+      folders.map((folder: Type.Folder) => (folder._id === id ? { ...folder, icon: icon } : folder))
+    );
+  };
+
+  const unarchiveFolder = async (id: string) => {
+    await updateFolder(id, { archived: false });
+    setFolders(
+      folders.map((folder: Type.Folder) =>
+        folder._id === id ? { ...folder, archived: false } : folder
+      )
+    );
+  };
+
+  const deleteFolder = async (oldFolder: Type.Folder) => {
+    await removeFolder(oldFolder._id);
+    setFolders((folders: Type.Folder[]) =>
+      folders
+        .map((folder) =>
+          folder.pos > oldFolder.pos
+            ? (sessionStorage.setItem('newPosFolder' + folder._id, folder._id),
+              { ...folder, pos: folder.pos - 1 })
+            : folder
+        )
+        .filter((folder) => folder._id !== oldFolder._id)
+    );
+    const flashcards = await getFlashcards(oldFolder._id);
+    flashcards.forEach(async (flashcard) => {
+      await removeFlashcard(flashcard._id);
+    });
+  };
 
   // sidebar position and animation
   const [sidebarClass, setSidebarClass] = useState<string>('sidebar-floating');
@@ -85,7 +122,12 @@ const Layout = ({
 
       {showArchive && (
         <>
-          <Archive folders={folders} />
+          <Archive
+            folders={folders}
+            onChangeFolderIcon={(id, emoji) => changeFolderIcon(id, emoji)}
+            onUnarchiveFolder={(id) => unarchiveFolder(id)}
+            onDeleteFolder={(folder) => deleteFolder(folder)}
+          />
           <Backdrop onClick={() => setShowArchive(false)} />
         </>
       )}
