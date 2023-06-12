@@ -40,7 +40,12 @@ function HomePage() {
     const changeFolderIcon = (id: string, icon: string) => {
         ref.current.onChangeFolderIcon(id, icon);
     }
-    
+    const favoriteFolder = (id: string) => {
+        ref.current.onFavoriteFolder(id);
+    }
+    const unfavoriteFolder = (id: string) => {
+        ref.current.onUnfavoriteFolder(id);
+    }
     const archiveFolder = (id: string) => {
         ref.current.onArchiveFolder(id);
     }
@@ -84,7 +89,10 @@ function HomePage() {
                                         onPosUp={posUp}
                                         onPosDown={posDown}
                                         onPosAdjust={posAdjust}
-                                        onChangeFolderIcon={changeFolderIcon} />
+                                        onChangeFolderIcon={changeFolderIcon}
+                                        onFavoriteFolder={favoriteFolder}
+                                        onUnfavoriteFolder={unfavoriteFolder}
+                                    />
                                 ))}
                         </>
 

@@ -29,9 +29,9 @@ const Sidebar = ({
       onMouseLeave={() => onSidebarHoverLeave()}
     >
       <div className='sidebar-folders'>
-        <p>Pinned Folders:</p>
+        <p>Favorite Folders:</p>
         {folders
-          .filter((folder: Type.Folder) => !folder.archived)
+          .filter((folder: Type.Folder) => !folder.archived && folder.favorite)
           .sort(function (a: Type.Folder, b: Type.Folder) {
             return a.pos - b.pos;
           })

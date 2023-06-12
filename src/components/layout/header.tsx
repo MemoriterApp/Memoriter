@@ -5,17 +5,20 @@ import memoriterLogo from '../../images/memoriter-logo.svg';
 import chevronRight from '../../images/chevron-right.svg';
 import searchIcon from '../../images/icons/search-icon.svg';
 import starIcon from '../../images/icons/star-icon.svg';
+import starIconFilled from '../../images/icons/star-icon-filled.svg';
 import profileIcon from '../../images/icons/profile-icon.svg';
 import ProfileDropdown from './profile-dropdown';
 import BackdropTransparent from '../backdrops/backdrop-transparent/backdrop-transparent';
 
 const Header = ({
   path,
+  favoriteState,
   onSidebarButtonClick,
   onSidebarButtonHoverEnter,
   onSidebarButtonHoverLeave,
 }: {
   path: string;
+  favoriteState: boolean;
   onSidebarButtonClick: () => void;
   onSidebarButtonHoverEnter: () => void;
   onSidebarButtonHoverLeave: () => void;
@@ -49,7 +52,13 @@ const Header = ({
         )}
       </p>
       <div className='header-flex-gap' />
-      {path !== 'home' && <img className='header-pin-icon' src={starIcon} alt='Push pin icon' />}
+      {path !== 'home' && (
+        <img
+          className='header-pin-icon'
+          src={favoriteState ? starIconFilled : starIcon}
+          alt='Star icon'
+        />
+      )}
       <div className='header-search'>
         <input className='header-search-input' placeholder='Search' />
         <img className='header-search-icon' src={searchIcon} alt='Search icon' />

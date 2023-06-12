@@ -20,6 +20,8 @@ const Folder = ({
     onPosAdjust,
     onArchiveFolder,
     onChangeFolderIcon,
+    onFavoriteFolder,
+    onUnfavoriteFolder,
 }: {
     folder: any,
     onDeleteFolder: any,
@@ -30,6 +32,8 @@ const Folder = ({
     onPosAdjust: any,
     onArchiveFolder: any,
     onChangeFolderIcon: any,
+    onFavoriteFolder: any,
+    onUnfavoriteFolder: any,
 }) => {
 
     const [due, setDue] = useState<any>([]); //creates the flashcard state
@@ -67,6 +71,7 @@ const Folder = ({
     const onOpenFolder = () => {
         localStorage.setItem('folderID', folder._id); //set the folder id in local storage
         localStorage.setItem('folderTitle', folder.title); //set the folder title in local storage
+        localStorage.setItem('folderFavorite', folder.favorite); //set the folder favorite state in local storage
     };
 
     //States to check if a modal is open or not
@@ -172,6 +177,8 @@ const Folder = ({
                         deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
                         onArchive={onArchiveFolder}
                         onChangeIcon={() => {onChangeFolderIcon(folder._id, ''); setModalIsOpen(false);}}
+                        onFavoriteFolder={() => {onFavoriteFolder(folder._id); setModalIsOpen(false);}}
+                        onUnfavoriteFolder={() => {onUnfavoriteFolder(folder._id); setModalIsOpen(false);}}
                     />
                     <Backdrop onClick={() => setModalIsOpen(false)} />
                 </>

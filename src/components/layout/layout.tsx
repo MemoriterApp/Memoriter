@@ -21,10 +21,12 @@ const Layout = forwardRef(
   (
     {
       path,
+      favoriteState,
       children,
       onUpdateFolders,
     }: {
       path: string;
+      favoriteState?: boolean;
       children: React.ReactNode;
       onUpdateFolders?: (arg0: Type.Folder[]) => void;
     },
@@ -62,6 +64,12 @@ const Layout = forwardRef(
       },
       onEditFolder(id: string, title: string) {
         editFolder(id, title)
+      },
+      onFavoriteFolder(id: string) {
+        favoriteFolder(id);
+      },
+      onUnfavoriteFolder(id: string) {
+        unfavoriteFolder(id);
       },
       onArchiveFolder(id: string) {
         archiveFolder(id);
@@ -144,6 +152,26 @@ const Layout = forwardRef(
       onUpdateFolders(updatedFolders);
     };
 
+    const favoriteFolder = async (id: string) => {
+      await updateFolder(id, { favorite: true });
+
+      const updatedFolders = folders.map((folder: Type.Folder) =>
+        folder._id === id ? { ...folder, favorite: true } : folder
+      );
+      setFolders(updatedFolders);
+      onUpdateFolders(updatedFolders);
+    };
+
+    const unfavoriteFolder = async (id: string) => {
+      await updateFolder(id, { favorite: false });
+
+      const updatedFolders = folders.map((folder: Type.Folder) =>
+        folder._id === id ? { ...folder, favorite: false } : folder
+      );
+      setFolders(updatedFolders);
+      onUpdateFolders(updatedFolders);
+    };
+
     const archiveFolder = async (id: string) => {
       await updateFolder(id, { archived: true });
 
@@ -216,6 +244,7 @@ const Layout = forwardRef(
       <>
         <Header
           path={path}
+          favoriteState={favoriteState}
           onSidebarButtonClick={() => sidebarButtonClick()}
           onSidebarButtonHoverEnter={() => sidebarHoverEnter()}
           onSidebarButtonHoverLeave={() => sidebarHoverLeave()}

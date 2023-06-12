@@ -4,7 +4,6 @@ import BackButton from '../../../components/back-button/BackButton';
 import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
 import FlashcardForm from '../form/flashcard-form';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
-import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import Flashcard from '../flashcard/flashcard';
 import ChooseStudyMode from '../../study-modes/choose-studymode/choose-studymode';
@@ -16,7 +15,6 @@ import {
   updateFlashcard,
 } from '../../../technical/utils/mongo';
 import moment from 'moment';
-import Header from '../../../components/layout/header';
 import Layout from '../../../components/layout/layout';
 
 //this file is the home page of the app where you see all your flashcards
@@ -68,6 +66,11 @@ function TopicPage() {
 
   let folderTitle = localStorage.getItem('folderTitle'); //gets the title of the synced folder
   let folderID = localStorage.getItem('folderID'); //gets the id of the synced folder
+  let folderFavoriteStateString = localStorage.getItem('folderFavorite'); //gets the favorite state of the synced folder
+  const [folderFavoriteState, setFolderFavoriteState] = useState(false);
+  if (folderFavoriteStateString === 'true' && !folderFavoriteState) {
+    setFolderFavoriteState(true);
+  }
 
   const [chooseStudyModeModal, openChooseStudyModeModal] = useState(false); //creates the state for the choose study mode modal
 
@@ -245,7 +248,7 @@ function TopicPage() {
   localStorage.setItem('nextDueDate', getNextDueDate());
 
   return (
-    <Layout path={folderTitle}>
+    <Layout path={folderTitle} favoriteState={folderFavoriteState}>
       <main>
         <div className='square'>
           <div className='top-responsive-container'>

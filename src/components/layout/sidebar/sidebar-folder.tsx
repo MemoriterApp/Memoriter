@@ -11,6 +11,7 @@ const SidebarFolder = ({ folder }: { folder: Type.Folder }) => {
         onClick={() => {
           localStorage.setItem('folderID', folder._id);
           localStorage.setItem('folderTitle', folder.title);
+          localStorage.setItem('folderFavorite', JSON.stringify(folder.favorite));
         }}
       >
         <p>
