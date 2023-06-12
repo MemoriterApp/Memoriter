@@ -22,6 +22,10 @@ const FooterButton = () => {
               Release Notes
             </a>{' '}
             |{' '}
+            <a href='https://memoriter.de/support' target='_blank' rel='noreferrer'>
+              Help
+            </a>{' '}
+            |{' '}
             <a href='https://memoriter.de/bugs' target='_blank' rel='noreferrer'>
               Report a Bug
             </a>{' '}

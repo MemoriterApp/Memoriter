@@ -9,14 +9,12 @@ function SettingsFolder({
     editFolderReq,
     deleteFolderReq,
     onArchive,
-    onDearchive,
     onChangeIcon
 }: {
     folder: any,
     editFolderReq: any,
     deleteFolderReq: any,
     onArchive: any,
-    onDearchive: any,
     onChangeIcon: any
 }) {
 
@@ -39,16 +37,6 @@ function SettingsFolder({
                             alt=''
                         />
             Archive
-                    </p>
-                )}
-                {folder.archived && (
-                    <p onClick={() => onDearchive(folder._id)}>
-                        <img
-                            style={{ height: '1.6rem', marginRight: '0.2rem', marginBottom: '-0.3rem' }}
-                            src={archive}
-                            alt=''
-                        />
-            De-archive
                     </p>
                 )}
                 <p onClick={onChangeIcon}>

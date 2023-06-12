@@ -23,7 +23,7 @@ const ProfileDropdown = () => {
       <p>Account</p>
       <p>Preferences</p>
       <p>
-        <a href='https://memoriter.de/support'>Help</a>
+        <a href='https://memoriter.de/support' target='_blank' rel='noreferrer'>Help</a>
       </p>
       <hr />
       <p onClick={() => logOut()}>Sign Out</p>

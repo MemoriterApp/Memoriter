@@ -19,7 +19,6 @@ const Folder = ({
     folderCount,
     onPosAdjust,
     onArchiveFolder,
-    onDearchiveFolder,
     onChangeFolderIcon,
 }: {
     folder: any,
@@ -30,7 +29,6 @@ const Folder = ({
     folderCount: any,
     onPosAdjust: any,
     onArchiveFolder: any,
-    onDearchiveFolder: any,
     onChangeFolderIcon: any,
 }) => {
 
@@ -173,7 +171,6 @@ const Folder = ({
                         editFolderReq={() => { setEditModal(true); setModalIsOpen(false); }}
                         deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
                         onArchive={onArchiveFolder}
-                        onDearchive={onDearchiveFolder}
                         onChangeIcon={() => {onChangeFolderIcon(folder._id, ''); setModalIsOpen(false);}}
                     />
                     <Backdrop onClick={() => setModalIsOpen(false)} />
