@@ -248,7 +248,7 @@ function TopicPage() {
   localStorage.setItem('nextDueDate', getNextDueDate());
 
   return (
-    <Layout path={folderTitle} favoriteState={folderFavoriteState}>
+    <Layout path={folderTitle} folderId={folderID} favoriteState={folderFavoriteState}>
       <main>
         <div className='square'>
           <div className='top-responsive-container'>

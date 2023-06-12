@@ -12,18 +12,26 @@ import BackdropTransparent from '../backdrops/backdrop-transparent/backdrop-tran
 
 const Header = ({
   path,
+  folderId,
   favoriteState,
   onSidebarButtonClick,
   onSidebarButtonHoverEnter,
   onSidebarButtonHoverLeave,
+  onFavoriteFolder,
+  onUnfavoriteFolder,
 }: {
   path: string;
+  folderId: string;
   favoriteState: boolean;
   onSidebarButtonClick: () => void;
   onSidebarButtonHoverEnter: () => void;
   onSidebarButtonHoverLeave: () => void;
+  onFavoriteFolder: (arg0: string) => void;
+  onUnfavoriteFolder: (arg0: string) => void;
 }) => {
   const [openProfileDropdown, setOpenProfileDropdown] = useState(false);
+
+  const [folderFavoriteState, setFolderFavoriteState] = useState(favoriteState);
 
   return (
     <header className='header'>
@@ -55,8 +63,13 @@ const Header = ({
       {path !== 'home' && (
         <img
           className='header-pin-icon'
-          src={favoriteState ? starIconFilled : starIcon}
+          src={folderFavoriteState ? starIconFilled : starIcon}
           alt='Star icon'
+          onClick={() => {
+            folderFavoriteState
+              ? (onUnfavoriteFolder(folderId), setFolderFavoriteState(false))
+              : (onFavoriteFolder(folderId), setFolderFavoriteState(true));
+          }}
         />
       )}
       <div className='header-search'>

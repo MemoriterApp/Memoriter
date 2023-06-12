@@ -21,11 +21,13 @@ const Layout = forwardRef(
   (
     {
       path,
+      folderId,
       favoriteState,
       children,
       onUpdateFolders,
     }: {
       path: string;
+      folderId?: string;
       favoriteState?: boolean;
       children: React.ReactNode;
       onUpdateFolders?: (arg0: Type.Folder[]) => void;
@@ -160,6 +162,7 @@ const Layout = forwardRef(
       );
       setFolders(updatedFolders);
       onUpdateFolders(updatedFolders);
+
     };
 
     const unfavoriteFolder = async (id: string) => {
@@ -244,10 +247,13 @@ const Layout = forwardRef(
       <>
         <Header
           path={path}
+          folderId={folderId}
           favoriteState={favoriteState}
           onSidebarButtonClick={() => sidebarButtonClick()}
           onSidebarButtonHoverEnter={() => sidebarHoverEnter()}
           onSidebarButtonHoverLeave={() => sidebarHoverLeave()}
+          onFavoriteFolder={(id: string) => favoriteFolder(id)}
+          onUnfavoriteFolder={(id: string) => unfavoriteFolder(id)}
         />
 
         <div className='layout'>
