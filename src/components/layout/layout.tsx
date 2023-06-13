@@ -162,7 +162,6 @@ const Layout = forwardRef(
       );
       setFolders(updatedFolders);
       onUpdateFolders(updatedFolders);
-
     };
 
     const unfavoriteFolder = async (id: string) => {
