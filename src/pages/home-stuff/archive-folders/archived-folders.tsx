@@ -31,6 +31,7 @@ function ArchivedFolders({
                     .filter((folder: Type.Folder) => folder.archived)
                     .map((folder: Type.Folder) => (
                         <Folder
+                            id={folder._id.toString()}
                             key={folder._id.toString()}
                             folder={folder}
                             folderCount={folders.length}

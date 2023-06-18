@@ -12,9 +12,22 @@ import ArchivedFolders from '../archive-folders/archived-folders';
 import newFolder from '../../../images/new-folder.svg';
 import * as Type from '../../../types';
 import FooterButton from '../../../components/footer/footer-button/footer-button';
+import {
+    DndContext,
+    closestCenter,
+    KeyboardSensor,
+    PointerSensor,
+    useSensor,
+    useSensors,
+} from '@dnd-kit/core';
+import {
+    arrayMove,
+    SortableContext,
+    sortableKeyboardCoordinates,
+    verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 
-//this file is the home page of the app where you see all your folders
-//it uses some css from home.css
+
 function HomePage() {
     //user stuff
     const auth = getAuth();
@@ -23,7 +36,7 @@ function HomePage() {
 
     //Use Effect für folders
     useEffect(() => {
-        async function getFolder () {
+        async function getFolder() {
             const allFolders = await getFolders(auth.currentUser.uid); //returns all folders from the firestore
             setFolders(allFolders);
         }
@@ -39,12 +52,12 @@ function HomePage() {
     }); //Sorting Folders
 
     const posUp = async (id: string, pos: number) => {
-    //Position Up
+        //Position Up
         const newPosUp = { pos: pos - 1 };
         await updateFolder(id, newPosUp);
 
         setFolders(
-            folders.map((folder: Type.Folder) => 
+            folders.map((folder: Type.Folder) =>
                 folder._id === id
                     ? { ...folder, pos: folder.pos - 1 }
                     : folder.pos === pos - 1
@@ -55,7 +68,7 @@ function HomePage() {
     };
 
     const posDown = async (id: string, pos: number) => {
-    //Position Down
+        //Position Down
         const newPosDown = { pos: pos + 1 };
         await updateFolder(id, newPosDown);
 
@@ -71,7 +84,7 @@ function HomePage() {
     };
 
     const posAdjust = async (id: string, pos: any) => {
-    //Adjust Position
+        //Adjust Position
         const newPosAdjust = { pos: pos };
         await updateFolder(id, newPosAdjust);
     };
@@ -97,7 +110,7 @@ function HomePage() {
                 .map((folder) =>
                     folder.pos > oldFolder.pos
                         ? (sessionStorage.setItem('newPosFolder' + folder._id, folder._id),
-                        { ...folder, pos: folder.pos - 1 })
+                            { ...folder, pos: folder.pos - 1 })
                         : folder
                 )
                 .filter((folder) => folder._id !== oldFolder._id)
@@ -143,6 +156,17 @@ function HomePage() {
 
     const [archiveFolderIsOpen, setArchiveFolderIsOpen] = useState(false); //state to check if the archive folder is open or not
 
+    //Drag and Drop
+    const sensors = useSensors(
+        useSensor(PointerSensor),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        })
+    );
+
+    const [activeId, setActiveId] = useState(null);
+
+
     return (
         <>
             <header className='page-header'>
@@ -173,7 +197,7 @@ function HomePage() {
                                     onPosAdjust={posAdjust}
                                     onChangeFolderIcon={changeFolderIcon}
                                 />
-                                <Backdrop onClick={() => setArchiveFolderIsOpen(false)}/>
+                                <Backdrop onClick={() => setArchiveFolderIsOpen(false)} />
                             </div>
                         )}
                         <SettingsIcon />
@@ -183,37 +207,47 @@ function HomePage() {
                         <div className='main-seperator'></div>
                     </section>
                     <div className='folder-base'>
-                        <>
+                        <DndContext
+                            collisionDetection={closestCenter}
+                            onDragEnd={handleDragEnd}
+                            onDragStart={handleDragStart}
+                            sensors={sensors}
+                        >
                             {folders.length > 0 ? (
                                 <div />
                             ) : (
                                 <div className='no-folder-text'>
-                  Currently there are no folders. Please create one...
+                                    Currently there are no folders. Please create one...
                                 </div>
                             )}
-                            {folders
-                                .filter((folder: Type.Folder) => !folder.archived)
-                                .map((folder: Type.Folder) => (
-                                    <Folder
-                                        key={folder._id}
-                                        folder={folder}
-                                        folderCount={folders.length}
-                                        onDeleteFolder={deleteFolder}
-                                        onEditFolder={editFolder}
-                                        onArchiveFolder={archiveFolder}
-                                        onPosUp={posUp}
-                                        onPosDown={posDown}
-                                        onPosAdjust={posAdjust}
-                                        onDearchiveFolder={undefined}
-                                        onChangeFolderIcon={changeFolderIcon} />
-                                ))}
-                        </>
+                            <SortableContext
+                                items={folders}
+                                strategy={verticalListSortingStrategy}>
+                                {folders
+                                    .filter((folder: Type.Folder) => !folder.archived)
+                                    .map((folder: Type.Folder) => (
+                                        <Folder
+                                            id={folder._id}
+                                            key={folder._id}
+                                            folder={folder}
+                                            folderCount={folders.length}
+                                            onDeleteFolder={deleteFolder}
+                                            onEditFolder={editFolder}
+                                            onArchiveFolder={archiveFolder}
+                                            onPosUp={posUp}
+                                            onPosDown={posDown}
+                                            onPosAdjust={posAdjust}
+                                            onDearchiveFolder={undefined}
+                                            onChangeFolderIcon={changeFolderIcon} />
+                                    ))}
+                            </SortableContext>
+                        </DndContext>
 
                         <div data-folders={folders}>
-                        <div className='new-folder-line'/>
+                            <div className='new-folder-line' />
                             <button className='new-folder-body' onClick={() => setModalIsOpen(true)}>
                                 <div className='button-new-folder'>
-                                    <img src={newFolder} alt='new folder'/>
+                                    <img src={newFolder} alt='new folder' />
                                 </div>
                                 <p className='new-folder-text'>Create new folder</p>
                                 <div>
@@ -229,6 +263,27 @@ function HomePage() {
             </footer>
         </>
     );
+
+    function handleDragEnd(event: any) {
+        const { active, over } = event;
+
+        if (active.id !== over.id) {
+            setFolders((folders: any) => {
+                const oldIndex = folders.indexOf(active.id);
+                const newIndex = folders.indexOf(over.id);
+
+                return arrayMove(folders, oldIndex, newIndex);
+            });
+        }
+
+        setActiveId(null);
+    }
+
+    function handleDragStart(event: any) {
+        const { active } = event;
+
+        setActiveId(active.id);
+    }
 }
 
 export default HomePage;

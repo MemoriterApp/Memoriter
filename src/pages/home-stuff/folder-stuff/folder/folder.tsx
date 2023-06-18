@@ -9,9 +9,12 @@ import FolderSettings from '../settings-folder/folder-settings';
 import * as Type from '../../../../types';
 import { getFlashcards } from '../../../../technical/utils/mongo';
 import placeholderFolder from '../../../../images/placeholder-folder.svg';
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 
 const Folder = ({
     folder,
+    id,
     onDeleteFolder,
     onEditFolder,
     onPosUp,
@@ -23,6 +26,7 @@ const Folder = ({
     onChangeFolderIcon,
 }: {
     folder: any,
+    id: any,
     onDeleteFolder: any,
     onEditFolder: any,
     onPosUp: any,
@@ -59,11 +63,11 @@ const Folder = ({
     }
     // changes the background color of the indicator if a lot of cards are due
     const backgroundColor =
-  due.length > 100
-      ? 'var(--current-red)'
-      : due.length > 50
-          ? 'var(--current-blue-dark)'
-          : 'var(--current-gray-medium-dark)';
+        due.length > 100
+            ? 'var(--current-red)'
+            : due.length > 50
+                ? 'var(--current-blue-dark)'
+                : 'var(--current-gray-medium-dark)';
 
     // cache folder values if folder is clicked
     const onOpenFolder = () => {
@@ -107,11 +111,24 @@ const Folder = ({
         setShowEmojiPicker(false);
     };
 
+    //everything related to the drag and drop
+    const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: folder._id });
+    const style = {
+        transform: CSS.Transform.toString(transform),
+        transition,
+    };
+
+
     return (
-        <section className='folder'>
+        <section
+            className='folder'
+            ref={setNodeRef}
+            style={style}
+            {...attributes}
+            {...listeners}>
             <button className='folder-icon' onClick={() => setShowEmojiPicker(true)}>
                 {folder.icon === '' || folder.icon === undefined ? (
-                    <img src={placeholderFolder} alt='placeholder icon' style={{filter: 'var(--svg-invert-gray)'}}/>
+                    <img src={placeholderFolder} alt='placeholder icon' style={{ filter: 'var(--svg-invert-gray)' }} />
                 ) : (
                     <img
                         src={`https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/${folder.icon}.svg`}
@@ -174,7 +191,7 @@ const Folder = ({
                         deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
                         onArchive={onArchiveFolder}
                         onDearchive={onDearchiveFolder}
-                        onChangeIcon={() => {onChangeFolderIcon(folder._id, ''); setModalIsOpen(false);}}
+                        onChangeIcon={() => { onChangeFolderIcon(folder._id, ''); setModalIsOpen(false); }}
                     />
                     <Backdrop onClick={() => setModalIsOpen(false)} />
                 </>
@@ -199,7 +216,7 @@ const Folder = ({
 
             {showEmojiPicker && (
                 <>
-                    <Backdrop onClick={() => setShowEmojiPicker(false)}/>
+                    <Backdrop onClick={() => setShowEmojiPicker(false)} />
                     <div className='emoji-picker-container'>
                         <Picker
                             set='twitter'
