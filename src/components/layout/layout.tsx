@@ -215,17 +215,39 @@ const Layout = forwardRef(
     };
 
     // sidebar position and animation
-    const [sidebarClass, setSidebarClass] = useState<string>('sidebar-floating');
-    const [sidebarPosition, setSidebarPosition] = useState<string>('-250px');
-    const [contentWidth, setContentWidth] = useState<string>('calc(100%)');
+    if (!localStorage.getItem('sidebar-state')) {
+      localStorage.setItem(
+        'sidebar-state',
+        JSON.stringify({ class: 'sidebar-floating', position: '-250px', content: 'calc(100%)' })
+      );
+    }
+
+    const [sidebarClass, setSidebarClass] = useState<string>(
+      JSON.parse(localStorage.getItem('sidebar-state')).class
+    );
+    const [sidebarPosition, setSidebarPosition] = useState<string>(
+      JSON.parse(localStorage.getItem('sidebar-state')).position
+    );
+    const [contentWidth, setContentWidth] = useState<string>(
+      JSON.parse(localStorage.getItem('sidebar-state')).content
+    );
+
     const sidebarButtonClick = () => {
       if (sidebarClass === 'sidebar-floating') {
         setSidebarClass('sidebar-expanded');
         setSidebarPosition('0');
         setContentWidth('calc(100% - 250px)');
+        localStorage.setItem(
+          'sidebar-state',
+          JSON.stringify({ class: 'sidebar-expanded', position: '0', content: 'calc(100% - 250px)' })
+        );
       } else {
         setSidebarClass('sidebar-floating');
         setContentWidth('calc(100%)');
+        localStorage.setItem(
+          'sidebar-state',
+          JSON.stringify({ class: 'sidebar-floating', position: '-250px', content: 'calc(100%)' })
+        );
       }
     };
     const sidebarHoverEnter = () => {
