@@ -263,6 +263,7 @@ const Layout = forwardRef(
             onSidebarHoverEnter={() => sidebarHoverEnter()}
             onSidebarHoverLeave={() => sidebarHoverLeave()}
             onOpenArchive={() => setShowArchive(true)}
+            onChangeFolderIcon={(id, emoji) => changeFolderIcon(id, emoji)}
           />
           <div /* transparent column at the left to expand the sidebar when moving the mouse to the screen edge */
             className='layout-edge-hover'

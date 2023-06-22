@@ -8,7 +8,7 @@
   z-index: 1;
 }
 .sidebar p {
-  font-family: var(--font-default);
+  font: 14px var(--font-default);
   padding: 4px;
   margin: 8px 12px;
   white-space: nowrap;
@@ -57,7 +57,7 @@
   text-decoration: none;
 }
 .sidebar-links img {
-  max-width: 22px;
+  max-width: 20px;
   margin-right: 6px;
   vertical-align: top;
   filter: var(--svg-invert-gray);

@@ -13,6 +13,7 @@ const Sidebar = ({
   onSidebarHoverEnter,
   onSidebarHoverLeave,
   onOpenArchive,
+  onChangeFolderIcon,
 }: {
   folders: [];
   classStatus: string;
@@ -20,6 +21,7 @@ const Sidebar = ({
   onSidebarHoverEnter: () => void;
   onSidebarHoverLeave: () => void;
   onOpenArchive: () => void;
+  onChangeFolderIcon: (arg0: string, arg1: string) => void;
 }) => {
   return (
     <aside
@@ -36,7 +38,11 @@ const Sidebar = ({
             return a.pos - b.pos;
           })
           .map((folder: Type.Folder) => (
-            <SidebarFolder key={folder._id} folder={folder} />
+            <SidebarFolder
+              key={folder._id}
+              folder={folder}
+              onChangeFolderIcon={(id, emoji) => onChangeFolderIcon(id, emoji)}
+            />
           ))}
       </div>
 

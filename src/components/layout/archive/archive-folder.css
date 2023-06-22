@@ -12,7 +12,6 @@
 .archive-folder-link {
   display: block;
   position: absolute;
-  font-family: var(--font-default);
   color: var(--color-font-gray);
   text-decoration: none;
   width: calc(100% - 118px);
@@ -24,7 +23,7 @@
   position: absolute;
   top: -15px;
   width: calc(100% - 8px);
-  font-size: 18px;
+  font: 18px var(--font-default);
   margin-left: 4px;
   white-space: nowrap;
   overflow: hidden;
