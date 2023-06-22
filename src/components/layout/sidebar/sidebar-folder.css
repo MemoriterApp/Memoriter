@@ -21,10 +21,10 @@
 }
 .sidebar-folder-link p {
   position: absolute;
-  top: -8px;
+  top: -9px;
   width: calc(100% - 8px);
   font: 14px var(--font-default);
-  margin-left: 0;
+  margin-left: 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -35,13 +35,14 @@
   width: 28px;
   height: 28px;
   border-radius: 4px;
+  transition: background-color 200ms;
 }
 .sidebar-folder-icon:hover {
   background-color: var(--color-hover-icon);
 }
 .sidebar-folder-icon img {
-  margin: 4px;
-  height: 20px;
+  margin: 2px;
+  height: 24px;
 }
 
 .sidebar-folder-settings {
@@ -51,4 +52,10 @@
   margin: 2px;
   height: 24px;
   filter: var(--svg-invert-gray);
+}
+
+.sidebar-folder-settings-modal {
+  position: relative;
+  right: -8px;
+  top: 8px;
 }

@@ -50,7 +50,7 @@ const Layout = forwardRef(
     // executes folder actions from home page
     useImperativeHandle(ref, () => ({
       onAddFolder(title: string) {
-        addFolder(title)
+        addFolder(title);
       },
       onPosUp(id: string, pos: number) {
         posUp(id, pos);
@@ -65,7 +65,7 @@ const Layout = forwardRef(
         changeFolderIcon(id, icon);
       },
       onEditFolder(id: string, title: string) {
-        editFolder(id, title)
+        editFolder(id, title);
       },
       onFavoriteFolder(id: string) {
         favoriteFolder(id);
@@ -78,7 +78,7 @@ const Layout = forwardRef(
       },
       onDeleteFolder(folder: Type.Folder) {
         deleteFolder(folder);
-      }
+      },
     }));
 
     // folder actions
@@ -264,6 +264,10 @@ const Layout = forwardRef(
             onSidebarHoverLeave={() => sidebarHoverLeave()}
             onOpenArchive={() => setShowArchive(true)}
             onChangeFolderIcon={(id, emoji) => changeFolderIcon(id, emoji)}
+            onEditFolder={(id: string, title: string) => editFolder(id, title)}
+            onDeleteFolder={(folder: Type.Folder) => deleteFolder(folder)}
+            onArchiveFolder={(id: string) => archiveFolder(id)}
+            onUnfavoriteFolder={(id: string) => unfavoriteFolder(id)}
           />
           <div /* transparent column at the left to expand the sidebar when moving the mouse to the screen edge */
             className='layout-edge-hover'

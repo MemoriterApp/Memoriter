@@ -20,7 +20,7 @@ function SettingsFolder({
     deleteFolderReq: any,
     onArchive: any,
     onChangeIcon: any,
-    onFavoriteFolder: any,
+    onFavoriteFolder?: any,
     onUnfavoriteFolder: any,
 }) {
 

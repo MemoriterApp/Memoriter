@@ -35,6 +35,7 @@
   width: 30px;
   height: 30px;
   border-radius: 4px;
+  transition: background-color 200ms;
 }
 .archive-folder-icon:hover {
   background-color: var(--color-hover-icon);

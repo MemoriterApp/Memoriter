@@ -170,7 +170,7 @@
 }
 
 .folder-settings-sub p:hover {
-    transform: scale(1.15);
+    transform: scale(0.9);
 }
 
 .add-folder-form-body {

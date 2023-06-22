@@ -14,6 +14,10 @@ const Sidebar = ({
   onSidebarHoverLeave,
   onOpenArchive,
   onChangeFolderIcon,
+  onEditFolder,
+  onDeleteFolder,
+  onArchiveFolder,
+  onUnfavoriteFolder,
 }: {
   folders: [];
   classStatus: string;
@@ -22,6 +26,10 @@ const Sidebar = ({
   onSidebarHoverLeave: () => void;
   onOpenArchive: () => void;
   onChangeFolderIcon: (arg0: string, arg1: string) => void;
+  onEditFolder: (arg0: string, arg1: string) => void;
+  onDeleteFolder: (arg0: Type.Folder) => Promise<void>;
+  onArchiveFolder: (arg0: string) => void;
+  onUnfavoriteFolder: (arg0: string) => void;
 }) => {
   return (
     <aside
@@ -42,6 +50,10 @@ const Sidebar = ({
               key={folder._id}
               folder={folder}
               onChangeFolderIcon={(id, emoji) => onChangeFolderIcon(id, emoji)}
+              onEditFolder={(id: string, title: string) => onEditFolder(id, title)}
+              onDeleteFolder={(folder: Type.Folder) => onDeleteFolder(folder)}
+              onArchiveFolder={(id: string) => onArchiveFolder(id)}
+              onUnfavoriteFolder={(id: string) => onUnfavoriteFolder(id)}
             />
           ))}
       </div>
