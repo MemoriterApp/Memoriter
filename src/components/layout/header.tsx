@@ -8,12 +8,12 @@ import starIcon from '../../images/icons/star-icon.svg';
 import starIconFilled from '../../images/icons/star-icon-filled.svg';
 import profileIcon from '../../images/icons/profile-icon.svg';
 import ProfileDropdown from './profile-dropdown';
-import BackdropTransparent from '../backdrops/backdrop-transparent/backdrop-transparent';
 
 const Header = ({
   path,
   folderId,
   favoriteState,
+  onOpenProfileDropdown,
   onSidebarButtonClick,
   onSidebarButtonHoverEnter,
   onSidebarButtonHoverLeave,
@@ -23,14 +23,13 @@ const Header = ({
   path: string;
   folderId: string;
   favoriteState: boolean;
+  onOpenProfileDropdown: () => void;
   onSidebarButtonClick: () => void;
   onSidebarButtonHoverEnter: () => void;
   onSidebarButtonHoverLeave: () => void;
   onFavoriteFolder: (arg0: string) => void;
   onUnfavoriteFolder: (arg0: string) => void;
 }) => {
-  const [openProfileDropdown, setOpenProfileDropdown] = useState(false);
-
   const [folderFavoriteState, setFolderFavoriteState] = useState(favoriteState);
 
   return (
@@ -81,14 +80,8 @@ const Header = ({
           className='header-profile'
           src={profileIcon}
           alt='Profile'
-          onClick={() => setOpenProfileDropdown(true)}
+          onClick={() => onOpenProfileDropdown()}
         />
-        {openProfileDropdown && (
-          <>
-            <ProfileDropdown />
-            <BackdropTransparent onClick={() => setOpenProfileDropdown(false)} />
-          </>
-        )}
       </div>
     </header>
   );

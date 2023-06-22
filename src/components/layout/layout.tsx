@@ -12,10 +12,13 @@ import {
 import { getAuth } from 'firebase/auth';
 import * as Type from '../../types';
 import Header from './header';
+import ProfileDropdown from './profile-dropdown';
 import Sidebar from './sidebar/sidebar';
 import Archive from './archive/archive';
 import FooterButton from './footer/footer';
 import Backdrop from '../backdrops/backdrop/backdrop';
+import Settings from '../../pages/settings/interaction/SettingsInteraction';
+import Profile from '../../pages/settings/profile/profile';
 
 const Layout = forwardRef(
   (
@@ -239,7 +242,11 @@ const Layout = forwardRef(
         setContentWidth('calc(100% - 250px)');
         localStorage.setItem(
           'sidebar-state',
-          JSON.stringify({ class: 'sidebar-expanded', position: '0', content: 'calc(100% - 250px)' })
+          JSON.stringify({
+            class: 'sidebar-expanded',
+            position: '0',
+            content: 'calc(100% - 250px)',
+          })
         );
       } else {
         setSidebarClass('sidebar-floating');
@@ -262,7 +269,10 @@ const Layout = forwardRef(
     };
 
     // modals
+    const [showProfileDropdown, setShowProfileDropdown] = useState(false);
     const [showArchive, setShowArchive] = useState<boolean>(false);
+    const [showSettings, setShowSettings] = useState<boolean>(false);
+    const [showProfile, setShowProfile] = useState<boolean>(false);
 
     return (
       <>
@@ -270,12 +280,27 @@ const Layout = forwardRef(
           path={path}
           folderId={folderId}
           favoriteState={favoriteState}
+          onOpenProfileDropdown={() => setShowProfileDropdown(true)}
           onSidebarButtonClick={() => sidebarButtonClick()}
           onSidebarButtonHoverEnter={() => sidebarHoverEnter()}
           onSidebarButtonHoverLeave={() => sidebarHoverLeave()}
           onFavoriteFolder={(id: string) => favoriteFolder(id)}
           onUnfavoriteFolder={(id: string) => unfavoriteFolder(id)}
         />
+
+        {showProfileDropdown && (
+          <ProfileDropdown
+            onCloseProfileDropdown={() => setShowProfileDropdown(false)}
+            onOpenSettings={() => {
+              setShowSettings(true);
+              setShowProfileDropdown(false);
+            }}
+            onOpenProfile={() => {
+              setShowProfile(true);
+              setShowProfileDropdown(false);
+            }}
+          />
+        )}
 
         <div className='layout'>
           <Sidebar
@@ -285,6 +310,7 @@ const Layout = forwardRef(
             onSidebarHoverEnter={() => sidebarHoverEnter()}
             onSidebarHoverLeave={() => sidebarHoverLeave()}
             onOpenArchive={() => setShowArchive(true)}
+            onOpenSettings={() => setShowSettings(true)}
             onChangeFolderIcon={(id, emoji) => changeFolderIcon(id, emoji)}
             onEditFolder={(id: string, title: string) => editFolder(id, title)}
             onDeleteFolder={(folder: Type.Folder) => deleteFolder(folder)}
@@ -313,6 +339,20 @@ const Layout = forwardRef(
               onDeleteFolder={(folder) => deleteFolder(folder)}
             />
             <Backdrop onClick={() => setShowArchive(false)} />
+          </>
+        )}
+
+        {showSettings && (
+          <>
+            <Backdrop onClick={() => setShowSettings(false)} />
+            <Settings />
+          </>
+        )}
+
+        {showProfile && (
+          <>
+            <Backdrop onClick={() => setShowProfile(false)} />
+            <Profile />
           </>
         )}
       </>

@@ -6,11 +6,8 @@ import './profile.css';
 import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from 'firebase/auth';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import { firebase } from '../../../technical/utils/mongo';
-import { useDispatch } from 'react-redux';
 
 function Profile() {
-
-    const dispatch = useDispatch(); //used to manipulate global sate (react redux)
 
     //states to check what preview mode
     const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);

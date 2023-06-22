@@ -9,7 +9,7 @@
   padding: 12px;
   background-color: var(--color-background);
   border-radius: 4px;
-  z-index: 3;
+  z-index: 4;
 }
 .archive h1 {
   color: var(--color-font);

@@ -13,6 +13,7 @@ const Sidebar = ({
   onSidebarHoverEnter,
   onSidebarHoverLeave,
   onOpenArchive,
+  onOpenSettings,
   onChangeFolderIcon,
   onEditFolder,
   onDeleteFolder,
@@ -25,6 +26,7 @@ const Sidebar = ({
   onSidebarHoverEnter: () => void;
   onSidebarHoverLeave: () => void;
   onOpenArchive: () => void;
+  onOpenSettings: () => void;
   onChangeFolderIcon: (arg0: string, arg1: string) => void;
   onEditFolder: (arg0: string, arg1: string) => void;
   onDeleteFolder: (arg0: Type.Folder) => Promise<void>;
@@ -69,7 +71,7 @@ const Sidebar = ({
           <img src={archiveIcon} alt='Archive icon' />
           Archive
         </p>
-        <p>
+        <p onClick={() => onOpenSettings()}>
           <img src={settingsIcon} alt='Settings icon' />
           Preferences
         </p>
