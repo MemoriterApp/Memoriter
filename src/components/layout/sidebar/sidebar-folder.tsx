@@ -55,7 +55,7 @@ const SidebarFolder = ({
 
       <Link
         className='sidebar-folder-link'
-        to='/topic'
+        to={'/topic/' + folder._id}
         onClick={() => {
           localStorage.setItem('folderID', folder._id);
           localStorage.setItem('folderTitle', folder.title);

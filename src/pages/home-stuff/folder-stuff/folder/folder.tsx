@@ -122,7 +122,7 @@ const Folder = ({
                     />
                 )}
             </button>
-            <Link to='/topic' onClick={onOpenFolder}>
+            <Link to={'/topic/' + folder._id} onClick={onOpenFolder}>
                 <div className='open-folder'>
                     {folder.title !== '' ? ( // checks if the title of the folder is not empty
                         <p className='folder-text'>{folder.title}</p>

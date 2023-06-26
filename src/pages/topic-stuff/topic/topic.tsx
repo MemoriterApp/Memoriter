@@ -65,7 +65,7 @@ function TopicPage() {
   }, []); // do not add dependencies, otherwise it will loop
 
   let folderTitle = localStorage.getItem('folderTitle'); //gets the title of the synced folder
-  let folderID = localStorage.getItem('folderID'); //gets the id of the synced folder
+  let folderID = window.location.pathname.replace('/topic/', ''); // gets the id of the URL
   let folderFavoriteStateString = localStorage.getItem('folderFavorite'); //gets the favorite state of the synced folder
   const [folderFavoriteState, setFolderFavoriteState] = useState(false);
   if (folderFavoriteStateString === 'true' && !folderFavoriteState) {
