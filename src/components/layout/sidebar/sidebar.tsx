@@ -19,6 +19,7 @@ const Sidebar = ({
   onDeleteFolder,
   onArchiveFolder,
   onUnfavoriteFolder,
+  onUpdateCurrentFolder,
 }: {
   folders: [];
   classStatus: string;
@@ -32,6 +33,7 @@ const Sidebar = ({
   onDeleteFolder: (arg0: Type.Folder) => Promise<void>;
   onArchiveFolder: (arg0: string) => void;
   onUnfavoriteFolder: (arg0: string) => void;
+  onUpdateCurrentFolder: (arg0: { id: string; title: string; favorite: boolean }) => void;
 }) => {
   return (
     <aside
@@ -56,6 +58,11 @@ const Sidebar = ({
               onDeleteFolder={(folder: Type.Folder) => onDeleteFolder(folder)}
               onArchiveFolder={(id: string) => onArchiveFolder(id)}
               onUnfavoriteFolder={(id: string) => onUnfavoriteFolder(id)}
+              onUpdateCurrentFolder={(currentFolder: {
+                id: string;
+                title: string;
+                favorite: boolean;
+              }) => onUpdateCurrentFolder(currentFolder)}
             />
           ))}
       </div>

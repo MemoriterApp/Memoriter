@@ -7,7 +7,6 @@ import searchIcon from '../../images/icons/search-icon.svg';
 import starIcon from '../../images/icons/star-icon.svg';
 import starIconFilled from '../../images/icons/star-icon-filled.svg';
 import profileIcon from '../../images/icons/profile-icon.svg';
-import ProfileDropdown from './profile-dropdown';
 
 const Header = ({
   path,
@@ -54,7 +53,7 @@ const Header = ({
         ) : (
           <>
             <img className='header-path-chevron' src={chevronRight} alt='>' />
-            <Link to='/topic'>{path}</Link>
+            <Link to='/topic'>{JSON.stringify(folderFavoriteState)}</Link>
           </>
         )}
       </p>

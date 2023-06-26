@@ -17,6 +17,7 @@ const SidebarFolder = ({
   onDeleteFolder,
   onArchiveFolder,
   onUnfavoriteFolder,
+  onUpdateCurrentFolder,
 }: {
   folder: Type.Folder;
   onChangeFolderIcon: (arg0: string, arg1: string) => void;
@@ -24,6 +25,7 @@ const SidebarFolder = ({
   onDeleteFolder: (arg0: Type.Folder) => Promise<void>;
   onArchiveFolder: (arg0: string) => void;
   onUnfavoriteFolder: (arg0: string) => void;
+  onUpdateCurrentFolder: (arg0: { id: string; title: string; favorite: boolean }) => void;
 }) => {
   const [showFolderSettings, setShowFolderSettings] = useState(false);
   const [showEditFolder, setShowEditFolder] = useState(false);
@@ -57,7 +59,12 @@ const SidebarFolder = ({
         className='sidebar-folder-link'
         to={'/topic/' + folder._id}
         onClick={() => {
-          localStorage.setItem('folderID', folder._id);
+          window.location.pathname.split('/')[1] === 'topic' &&
+            onUpdateCurrentFolder({
+              id: folder._id,
+              title: folder.title,
+              favorite: folder.favorite,
+            });
           localStorage.setItem('folderTitle', folder.title);
           localStorage.setItem('folderFavorite', JSON.stringify(folder.favorite));
         }}

@@ -50,6 +50,14 @@ function TopicPage() {
     setColumns(7);
   }
 
+  const [folderTitle, setFolderTitle] = useState(localStorage.getItem('folderTitle')); //gets the title of the synced folder
+  const [folderID, setFolderID] = useState(window.location.pathname.replace('/topic/', '')); // gets the id of the URL
+  let folderFavoriteStateString = localStorage.getItem('folderFavorite'); //gets the favorite state of the synced folder
+  const [folderFavoriteState, setFolderFavoriteState] = useState(false);
+  if (folderFavoriteStateString === 'true' && !folderFavoriteState) {
+    setFolderFavoriteState(true);
+  }
+
   const [flashcards, setFlashcards] = useState<any[]>([]); //creates the flashcard state
 
   //Use Effect fot notes resets the notes state when the page is loaded
@@ -62,15 +70,8 @@ function TopicPage() {
     syncFlashcards(); //calls the function
     sessionStorage.setItem('flashcard-content', '');
     localStorage.setItem('lastPage', '/topic');
-  }, []); // do not add dependencies, otherwise it will loop
-
-  let folderTitle = localStorage.getItem('folderTitle'); //gets the title of the synced folder
-  let folderID = window.location.pathname.replace('/topic/', ''); // gets the id of the URL
-  let folderFavoriteStateString = localStorage.getItem('folderFavorite'); //gets the favorite state of the synced folder
-  const [folderFavoriteState, setFolderFavoriteState] = useState(false);
-  if (folderFavoriteStateString === 'true' && !folderFavoriteState) {
-    setFolderFavoriteState(true);
-  }
+    console.log(folderID);
+  }, [folderID]); // do not add additional dependencies, otherwise it will loop
 
   const [chooseStudyModeModal, openChooseStudyModeModal] = useState(false); //creates the state for the choose study mode modal
 
@@ -248,7 +249,16 @@ function TopicPage() {
   localStorage.setItem('nextDueDate', getNextDueDate());
 
   return (
-    <Layout path={folderTitle} folderId={folderID} favoriteState={folderFavoriteState}>
+    <Layout
+      path={folderTitle}
+      folderId={folderID}
+      favoriteState={folderFavoriteState}
+      onUpdateCurrentFolder={(currentFolder: { id: string; title: string; favorite: boolean }) => {
+        setFolderID(currentFolder.id);
+        setFolderTitle(currentFolder.title);
+        setFolderFavoriteState(currentFolder.favorite);
+      }}
+    >
       <main>
         <div className='square'>
           <div className='top-responsive-container'>

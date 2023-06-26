@@ -28,12 +28,14 @@ const Layout = forwardRef(
       favoriteState,
       children,
       onUpdateFolders,
+      onUpdateCurrentFolder,
     }: {
       path: string;
       folderId?: string;
       favoriteState?: boolean;
       children: React.ReactNode;
       onUpdateFolders?: (arg0: Type.Folder[]) => void;
+      onUpdateCurrentFolder?: (arg0: {id: string, title: string, favorite: boolean}) => void;
     },
     ref?: any
   ) => {
@@ -175,6 +177,7 @@ const Layout = forwardRef(
       );
       setFolders(updatedFolders);
       onUpdateFolders(updatedFolders);
+
     };
 
     const archiveFolder = async (id: string) => {
@@ -316,6 +319,7 @@ const Layout = forwardRef(
             onDeleteFolder={(folder: Type.Folder) => deleteFolder(folder)}
             onArchiveFolder={(id: string) => archiveFolder(id)}
             onUnfavoriteFolder={(id: string) => unfavoriteFolder(id)}
+            onUpdateCurrentFolder={(currentFolder: {id: string, title: string, favorite: boolean}) => onUpdateCurrentFolder(currentFolder)}
           />
           <div /* transparent column at the left to expand the sidebar when moving the mouse to the screen edge */
             className='layout-edge-hover'
@@ -337,6 +341,8 @@ const Layout = forwardRef(
               onChangeFolderIcon={(id, emoji) => changeFolderIcon(id, emoji)}
               onUnarchiveFolder={(id) => unarchiveFolder(id)}
               onDeleteFolder={(folder) => deleteFolder(folder)}
+              onUpdateCurrentFolder={(currentFolder: {id: string, title: string, favorite: boolean}) => onUpdateCurrentFolder(currentFolder)}
+              onCloseArchive={() => setShowArchive(false)}
             />
             <Backdrop onClick={() => setShowArchive(false)} />
           </>

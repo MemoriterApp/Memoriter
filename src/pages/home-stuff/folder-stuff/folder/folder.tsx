@@ -69,7 +69,6 @@ const Folder = ({
 
     // cache folder values if folder is clicked
     const onOpenFolder = () => {
-        localStorage.setItem('folderID', folder._id); //set the folder id in local storage
         localStorage.setItem('folderTitle', folder.title); //set the folder title in local storage
         localStorage.setItem('folderFavorite', folder.favorite); //set the folder favorite state in local storage
     };
