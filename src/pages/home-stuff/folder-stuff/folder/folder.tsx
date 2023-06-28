@@ -11,7 +11,8 @@ import { getFlashcards } from '../../../../technical/utils/mongo';
 import placeholderFolder from '../../../../images/placeholder-folder.svg';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { useDraggable } from '@dnd-kit/core';
+import dragHandle from '../../../../images/drag-handle.svg';
+
 
 const Folder = ({
     folder,
@@ -109,7 +110,7 @@ const Folder = ({
     };
 
     //everything related to the drag and drop
-    const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: folder._id });
+    const { attributes, listeners, setNodeRef, transform, transition, setActivatorNodeRef } = useSortable({ id: folder._id });
     const style = {
         transform: CSS.Transform.toString(transform),
         transition,
@@ -121,7 +122,7 @@ const Folder = ({
             ref={setNodeRef}
             style={style}
             {...attributes}
-            {...listeners}>
+        >
             <button className='folder-icon' onClick={() => setShowEmojiPicker(true)}>
                 {folder.icon === '' || folder.icon === undefined ? (
                     <img src={placeholderFolder} alt='placeholder icon' style={{ filter: 'var(--svg-invert-gray)' }} />
@@ -150,7 +151,11 @@ const Folder = ({
                     <p className='indicator-number'>{due.length}</p>
                 </Link>
             </div>
-            <button>Drag handle</button>
+
+            <span>
+                <img src={dragHandle} alt='handle-drag-image' className='drag-image' ref={setActivatorNodeRef} {...listeners}></img>
+            </span>
+
             <div className='button-homepage-settings' style={{ transform: 'rotate(90deg)' }} onClick={() => { setModalIsOpen(true); }}>
                 <span className='dot' />
                 <span className='dot' />
