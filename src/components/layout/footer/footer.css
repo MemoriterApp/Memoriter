@@ -22,6 +22,7 @@
   position: absolute;
   right: 80px;
   bottom: 10px;
+  max-width: calc(100% - 106px);
   color: var(--color-font);
   font-family: var(--font-default);
   padding: 6px 4px 6px 8px;

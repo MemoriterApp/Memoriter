@@ -11,8 +11,8 @@ import {
 } from '../../technical/utils/mongo';
 import { getAuth } from 'firebase/auth';
 import * as Type from '../../types';
-import Header from './header';
-import ProfileDropdown from './profile-dropdown';
+import Header from './header/header';
+import ProfileDropdown from './header/profile-dropdown';
 import Sidebar from './sidebar/sidebar';
 import Archive from './archive/archive';
 import FooterButton from './footer/footer';
