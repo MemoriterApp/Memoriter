@@ -11,15 +11,12 @@ import { getFlashcards } from '../../../../technical/utils/mongo';
 import placeholderFolder from '../../../../images/placeholder-folder.svg';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import { useDraggable } from '@dnd-kit/core';
 
 const Folder = ({
     folder,
-    id,
     onDeleteFolder,
     onEditFolder,
-    onPosUp,
-    onPosDown,
-    folderCount,
     onPosAdjust,
     onArchiveFolder,
     onDearchiveFolder,
@@ -118,7 +115,6 @@ const Folder = ({
         transition,
     };
 
-
     return (
         <section
             className='folder'
@@ -154,29 +150,7 @@ const Folder = ({
                     <p className='indicator-number'>{due.length}</p>
                 </Link>
             </div>
-
-            <div
-                className='folder-pos-body-up'
-                onClick={() => {
-                    if (pos > 1) {
-                        setPos(pos - 1);
-                        onPosUp(folder._id, pos);
-                    }
-                }}
-            >
-                <div className='folder-pos-arrow-up' />
-            </div>
-            <div
-                className='folder-pos-body-down'
-                onClick={() => {
-                    if (pos < folderCount) {
-                        setPos(pos + 1);
-                        onPosDown(folder._id, pos);
-                    }
-                }}
-            >
-                <div className='folder-pos-arrow-down' />
-            </div>
+            <button>Drag handle</button>
             <div className='button-homepage-settings' style={{ transform: 'rotate(90deg)' }} onClick={() => { setModalIsOpen(true); }}>
                 <span className='dot' />
                 <span className='dot' />

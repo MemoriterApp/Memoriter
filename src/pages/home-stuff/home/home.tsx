@@ -19,6 +19,8 @@ import {
     PointerSensor,
     useSensor,
     useSensors,
+    DragOverlay,
+    useDraggable,
 } from '@dnd-kit/core';
 import {
     arrayMove,
@@ -240,6 +242,24 @@ function HomePage() {
                                             onDearchiveFolder={undefined}
                                             onChangeFolderIcon={changeFolderIcon} />
                                     ))}
+                                <DragOverlay>
+                                    {activeId ? (
+                                        <Folder
+                                            id={activeId}
+                                            key={activeId}
+                                            folder={folders.find((folder: Type.Folder) => folder._id === activeId)}
+                                            folderCount={folders.length}
+                                            onDeleteFolder={deleteFolder}
+                                            onEditFolder={editFolder}
+                                            onArchiveFolder={archiveFolder}
+                                            onPosUp={posUp}
+                                            onPosDown={posDown}
+                                            onPosAdjust={posAdjust}
+                                            onDearchiveFolder={undefined}
+                                            onChangeFolderIcon={changeFolderIcon}
+                                        />
+                                    ) : null}
+                                </DragOverlay>
                             </SortableContext>
                         </DndContext>
 
@@ -266,23 +286,27 @@ function HomePage() {
 
     function handleDragEnd(event: any) {
         const { active, over } = event;
+        const activeIndex = folders.findIndex((folder: Type.Folder) => folder._id === active.id);
+        const overIndex = folders.findIndex((folder: Type.Folder) => folder._id === over.id);
 
-        if (active.id !== over.id) {
-            setFolders((folders: any) => {
-                const oldIndex = folders.indexOf(active.id);
-                const newIndex = folders.indexOf(over.id);
+        if (activeIndex !== overIndex) {
+            const updatedFolders = [...folders];
+            const [removed] = updatedFolders.splice(activeIndex, 1);
+            updatedFolders.splice(overIndex, 0, removed);
 
-                return arrayMove(folders, oldIndex, newIndex);
-            });
+            const updatedFoldersWithPositions = updatedFolders.map((folder: Type.Folder, index: number) => ({
+                ...folder,
+                pos: index + 1,
+            }));
+            setFolders(updatedFoldersWithPositions);
         }
-
         setActiveId(null);
     }
 
     function handleDragStart(event: any) {
         const { active } = event;
-
         setActiveId(active.id);
+        console.log(active.id);
     }
 }
 
