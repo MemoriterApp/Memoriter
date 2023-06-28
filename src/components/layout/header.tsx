@@ -62,7 +62,7 @@ const Header = ({
       <div className='header-flex-gap' />
       {path !== 'home' && (
         <img
-          className='header-pin-icon'
+          className='header-favorite-icon'
           src={folderFavoriteState ? starIconFilled : starIcon}
           alt='Star icon'
           onClick={() => {

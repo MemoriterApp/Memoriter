@@ -1,6 +1,5 @@
 import './home.css';
 import Layout from '../../../components/layout/layout';
-import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
 import Folder from '../folder-stuff/folder/folder';
 import FolderForm from '../folder-stuff/form-folder/folder-form';
 import { useRef, useState } from 'react';
@@ -60,7 +59,6 @@ function HomePage() {
             <main>
                 <div className='square'>
                     <section>
-                        <SettingsIcon />
                         <span className='spaced-rep-subtitles'>
                             <span>Due</span>
                         </span>

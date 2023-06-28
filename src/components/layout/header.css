@@ -103,7 +103,7 @@
   filter: var(--svg-invert-gray);
 }
 
-.header-pin-icon {
+.header-favorite-icon {
   position: relative;
   top: 4px;
   width: 36px;
@@ -119,4 +119,48 @@
   height: 36px;
   cursor: pointer;
   filter: var(--svg-invert-gray);
+}
+
+@media (max-width: 800px) {
+  .header-logo {
+    display: none;
+  }
+
+  .header-path {
+    margin-left: -24px;
+    max-width: calc(100% - 280px);
+  }
+  .header-path a {
+    max-width: 100px;
+  }
+
+  .header-search {
+    width: 100px;
+  }
+  .header-search-input {
+    width: 72px;
+  }
+}
+
+@media (max-width: 560px) {
+  .header-sidebar-button {
+    margin-right: -32px;
+  }
+  .header-path {
+    display: none;
+  }
+}
+
+@media (max-width: 300px) {
+  .header-favorite-icon {
+    display: none;
+  }
+
+  .header-search {
+    margin-right: 0px;
+  }
+
+  .header-profile {
+    margin-inline: -4px;
+  }
 }

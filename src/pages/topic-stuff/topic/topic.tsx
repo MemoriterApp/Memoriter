@@ -1,7 +1,6 @@
 import './topic.css';
 import { useState, useEffect } from 'react';
 import BackButton from '../../../components/back-button/BackButton';
-import SettingsIcon from '../../settings/settings-icon/SettingsIcon';
 import FlashcardForm from '../form/flashcard-form';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import Masonry from 'react-masonry-css';
@@ -265,6 +264,7 @@ function TopicPage() {
     >
       <main>
         <div className='square'>
+          <h2 className='folder-title'>{folderTitle}</h2>
           <div className='top-responsive-container'>
             <div className='study-now' onClick={() => openChooseStudyModeModal(true)}>
               <p className='study-now-text'>study</p>
@@ -360,7 +360,6 @@ function TopicPage() {
                         <img  src='https://img.icons8.com/ios/50/null/notepad.png'/>
                         </div>*/}
           <BackButton />
-          <SettingsIcon />
         </div>
       </main>
     </Layout>
