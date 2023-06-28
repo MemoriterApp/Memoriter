@@ -53,8 +53,10 @@ function HomePage() {
         ref.current.onDeleteFolder(folder);
     }
 
+    const [searchQuery, setSearchQuery] = useState('');
+
     return (
-        <Layout ref={ref} path='home' onUpdateFolders={(updatedFolders) => updateFolders(updatedFolders)}>
+        <Layout ref={ref} path='home' onUpdateFolders={(updatedFolders) => updateFolders(updatedFolders)} onUpdateSearchQuery={(query) => setSearchQuery(query)}>
             <main>
                 <div className='square'>
                     <section>
@@ -74,6 +76,7 @@ function HomePage() {
                                 </div>
                             )}
                             {folders
+                                .filter((folder: Type.Folder) => folder.title.includes(searchQuery))
                                 .filter((folder: Type.Folder) => !folder.archived)
                                 .sort(function (a: Type.Folder, b: Type.Folder) {
                                     return a.pos - b.pos;

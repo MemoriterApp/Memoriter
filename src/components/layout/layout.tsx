@@ -29,6 +29,7 @@ const Layout = forwardRef(
       children,
       onUpdateFolders,
       onUpdateCurrentFolder,
+      onUpdateSearchQuery,
     }: {
       path: string;
       folderId?: string;
@@ -36,6 +37,7 @@ const Layout = forwardRef(
       children: React.ReactNode;
       onUpdateFolders?: (arg0: Type.Folder[]) => void;
       onUpdateCurrentFolder?: (arg0: {id: string, title: string, favorite: boolean}) => void;
+      onUpdateSearchQuery?: (arg0: string) => void;
     },
     ref?: any
   ) => {
@@ -289,6 +291,7 @@ const Layout = forwardRef(
           onSidebarButtonHoverLeave={() => sidebarHoverLeave()}
           onFavoriteFolder={(id: string) => favoriteFolder(id)}
           onUnfavoriteFolder={(id: string) => unfavoriteFolder(id)}
+          onUpdateSearchQuery={(query) => onUpdateSearchQuery(query)}
         />
 
         {showProfileDropdown && (

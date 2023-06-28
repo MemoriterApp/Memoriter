@@ -18,6 +18,7 @@ const Header = ({
   onSidebarButtonHoverLeave,
   onFavoriteFolder,
   onUnfavoriteFolder,
+  onUpdateSearchQuery,
 }: {
   path: string;
   folderId: string;
@@ -28,6 +29,7 @@ const Header = ({
   onSidebarButtonHoverLeave: () => void;
   onFavoriteFolder: (arg0: string) => void;
   onUnfavoriteFolder: (arg0: string) => void;
+  onUpdateSearchQuery: (arg0: string) => void;
 }) => {
   const [folderFavoriteState, setFolderFavoriteState] = useState(favoriteState);
 
@@ -53,7 +55,7 @@ const Header = ({
         ) : (
           <>
             <img className='header-path-chevron' src={chevronRight} alt='>' />
-            <Link to='/topic'>{JSON.stringify(folderFavoriteState)}</Link>
+            <Link to='/topic'>{path}</Link>
           </>
         )}
       </p>
@@ -71,7 +73,13 @@ const Header = ({
         />
       )}
       <div className='header-search'>
-        <input className='header-search-input' placeholder='Search' />
+        <input
+          className='header-search-input'
+          placeholder='Search'
+          onChange={(e) => {
+            onUpdateSearchQuery(e.target.value);
+          }}
+        />
         <img className='header-search-icon' src={searchIcon} alt='Search icon' />
       </div>
       <div>

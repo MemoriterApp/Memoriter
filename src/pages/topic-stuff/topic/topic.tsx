@@ -16,6 +16,7 @@ import {
 } from '../../../technical/utils/mongo';
 import moment from 'moment';
 import Layout from '../../../components/layout/layout';
+import * as Type from '../../../types';
 
 //this file is the home page of the app where you see all your flashcards
 //it uses css from topic.css
@@ -248,6 +249,8 @@ function TopicPage() {
   // save the formatted date to local storage
   localStorage.setItem('nextDueDate', getNextDueDate());
 
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <Layout
       path={folderTitle}
@@ -258,6 +261,7 @@ function TopicPage() {
         setFolderTitle(currentFolder.title);
         setFolderFavoriteState(currentFolder.favorite);
       }}
+      onUpdateSearchQuery={(query) => setSearchQuery(query)}
     >
       <main>
         <div className='square'>
@@ -277,6 +281,14 @@ function TopicPage() {
             <Masonry breakpointCols={columns} className='flashcard-base-grid'>
               {isOnlyQuestion === true // checks if the preview mode is only question
                 ? flashcards // if it is the case, only the question will be shown
+                    .filter(
+                      (flashcard: Type.Flashcard) =>
+                        flashcard.title.includes(searchQuery) ||
+                        flashcard.content.includes(searchQuery)
+                    )
+                    .sort(function (a: Type.Flashcard, b: Type.Flashcard) {
+                      return a.pos - b.pos;
+                    })
                     .map((flashcard) => (
                       <Flashcard
                         key={flashcard._id}
@@ -297,6 +309,14 @@ function TopicPage() {
                       />
                     ))
                 : flashcards //if it is not the case, the question and answer will be shown
+                    .filter(
+                      (flashcard: Type.Flashcard) =>
+                        flashcard.title.includes(searchQuery) ||
+                        flashcard.content.includes(searchQuery)
+                    )
+                    .sort(function (a: Type.Flashcard, b: Type.Flashcard) {
+                      return a.pos - b.pos;
+                    })
                     .map((flashcard) => (
                       <Flashcard
                         key={flashcard._id}
