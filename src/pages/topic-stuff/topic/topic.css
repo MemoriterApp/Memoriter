@@ -11,7 +11,6 @@
     border-radius: 30px;
     max-height: calc(100% - 120px);
     min-height: 180px;
-    container-type: size; /* used for @container queries */
 }
 
 .page-title {
@@ -99,62 +98,6 @@
     height: 70%;
     border-left: 5px solid var(--current-gray-dark);
     border-radius: 15px;
-}
-
-@container (max-width: 1710px) {
-
-    /*responsiveness for flashcard layout*/
-    .flashcard-base-grid {
-        width: 1400px;
-    }
-}
-
-@container (max-width: 1440px) {
-
-    /*responsiveness for flashcard layout*/
-    .flashcard-base-grid {
-        width: 1200px;
-    }
-}
-
-@container (max-width: 1260px) {
-
-    /*responsiveness for flashcard layout*/
-    .flashcard-base-grid {
-        width: 950px;
-    }
-}
-
-@container (max-width: 1035px) {
-
-    /*responsiveness for flashcard layout*/
-    .flashcard-base-grid {
-        width: 700px;
-    }
-}
-
-@container (max-width: 765px) {
-
-    /*responsiveness for flashcard layout*/
-    .flashcard-base-grid {
-        width: 500px;
-    }
-}
-
-@container (max-width: 558px) {
-
-    /*responsiveness for flashcard layout*/
-    .flashcard-base-grid {
-        width: 440px;
-    }
-}
-
-@container (max-width: 455px) {
-
-    /*responsiveness for flashcard layout*/
-    .flashcard-base-grid {
-        width: 200px;
-    }
 }
 
 .streak {

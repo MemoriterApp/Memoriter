@@ -26,8 +26,9 @@ function TopicPage() {
 
   const flame = require('../../../images/icons/flame.png'); //for some reason could not import otherwise
 
-  const [columns, setColumns] = useState(6); //column count of the masonry layout
-  const [width, setWidth] = useState(0); //get the width of the current browser window
+  const [columns, setColumns] = useState(7); // column count of the masonry layout
+  const [gridWidth, setGridWidth] = useState(1680); // width of the masonry layout (doesn't work perfectly with css only)
+  const [width, setWidth] = useState(0); // get the width of the current browser window
 
   useEffect(() => {
     setWidth(sizeRef.current.clientWidth);
@@ -39,18 +40,28 @@ function TopicPage() {
   if (width <= 455 && columns !== 1) {
     //sets the layout column count
     setColumns(1);
-  } else if (width > 455 && width <= 765 && columns !== 2) {
+    setGridWidth(200);
+  } else if (width > 455 && width <= 558 && columns !== 2) {
     setColumns(2);
+    setGridWidth(440);
+  } else if (width > 558 && width <= 765 && columns !== 2) {
+    setColumns(2);
+    setGridWidth(500);
   } else if (width > 765 && width <= 1035 && columns !== 3) {
     setColumns(3);
+    setGridWidth(700);
   } else if (width > 1035 && width <= 1260 && columns !== 4) {
     setColumns(4);
+    setGridWidth(950);
   } else if (width > 1260 && width <= 1440 && columns !== 5) {
     setColumns(5);
+    setGridWidth(1200);
   } else if (width > 1440 && width <= 1710 && columns !== 6) {
     setColumns(6);
+    setGridWidth(1400);
   } else if (width > 1710 && columns !== 7) {
     setColumns(7);
+    setGridWidth(1680);
   }
 
   const [folderTitle, setFolderTitle] = useState(localStorage.getItem('folderTitle')); //gets the title of the synced folder
@@ -267,7 +278,7 @@ function TopicPage() {
       onSidebarButtonClick={(sidebarClass) =>
         sidebarClass === 'sidebar-floating'
           ? setWidth(sizeRef.current.clientWidth - 250)
-          : setWidth(sizeRef.current.clientWidth + 250)
+          : setWidth(sizeRef.current.clientWidth +250)
       }
     >
       <main>
@@ -282,11 +293,15 @@ function TopicPage() {
               <p className='streak-number'>{streak}</p>
             </div>
           </div>
-          {chooseStudyModeModal && <ChooseStudyMode folderId={folderID}/>}
+          {chooseStudyModeModal && <ChooseStudyMode folderId={folderID} />}
           {chooseStudyModeModal && <Backdrop onClick={() => openChooseStudyModeModal(false)} />}
           <div className='main-seperator' />
           <div className='flashcard-base'>
-            <Masonry breakpointCols={columns} className='flashcard-base-grid'>
+            <Masonry
+              breakpointCols={columns}
+              className='flashcard-base-grid'
+              style={{ width: `${gridWidth}px` }}
+            >
               {isOnlyQuestion === true // checks if the preview mode is only question
                 ? flashcards // if it is the case, only the question will be shown
                     .filter(
