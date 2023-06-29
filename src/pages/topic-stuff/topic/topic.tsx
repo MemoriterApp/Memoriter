@@ -1,5 +1,5 @@
 import './topic.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import BackButton from '../../../components/back-button/BackButton';
 import FlashcardForm from '../form/flashcard-form';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
@@ -20,33 +20,36 @@ import * as Type from '../../../types';
 //this file is the home page of the app where you see all your flashcards
 //it uses css from topic.css
 function TopicPage() {
+  const sizeRef = useRef(null);
+
   const user = firebase.auth.currentUser;
 
   const flame = require('../../../images/icons/flame.png'); //for some reason could not import otherwise
 
   const [columns, setColumns] = useState(6); //column count of the masonry layout
-  const [width, setWidth] = useState(window.innerWidth); //get the width of the current browser window
+  const [width, setWidth] = useState(0); //get the width of the current browser window
 
   useEffect(() => {
+    setWidth(sizeRef.current.clientWidth);
     //detect window resize
-    window.addEventListener('resize', () => setWidth(window.innerWidth)); //add event listener for window resize
-    return () => window.removeEventListener('resize', () => setWidth(window.innerWidth)); //remove event listener for window resize
+    window.addEventListener('resize', () => setWidth(sizeRef.current.clientWidth)); //add event listener for window resize
+    return () => window.removeEventListener('resize', () => setWidth(sizeRef.current.clientWidth)); //remove event listener for window resize
   }, []);
 
-  if (width <= 505 && columns !== 1) {
+  if (width <= 455 && columns !== 1) {
     //sets the layout column count
     setColumns(1);
-  } else if (width > 505 && width <= 850 && columns !== 2) {
+  } else if (width > 455 && width <= 765 && columns !== 2) {
     setColumns(2);
-  } else if (width > 850 && width <= 1150 && columns !== 3) {
+  } else if (width > 765 && width <= 1035 && columns !== 3) {
     setColumns(3);
-  } else if (width > 1150 && width <= 1400 && columns !== 4) {
+  } else if (width > 1035 && width <= 1260 && columns !== 4) {
     setColumns(4);
-  } else if (width > 1400 && width <= 1600 && columns !== 5) {
+  } else if (width > 1260 && width <= 1440 && columns !== 5) {
     setColumns(5);
-  } else if (width > 1600 && width <= 1900 && columns !== 6) {
+  } else if (width > 1440 && width <= 1710 && columns !== 6) {
     setColumns(6);
-  } else if (width > 1900 && columns !== 7) {
+  } else if (width > 1710 && columns !== 7) {
     setColumns(7);
   }
 
@@ -261,9 +264,14 @@ function TopicPage() {
         setFolderFavoriteState(currentFolder.favorite);
       }}
       onUpdateSearchQuery={(query) => setSearchQuery(query)}
+      onSidebarButtonClick={(sidebarClass) =>
+        sidebarClass === 'sidebar-floating'
+          ? setWidth(sizeRef.current.clientWidth - 250)
+          : setWidth(sizeRef.current.clientWidth + 250)
+      }
     >
       <main>
-        <div className='square'>
+        <div className='square' ref={sizeRef}>
           <h2 className='folder-title'>{folderTitle}</h2>
           <div className='top-responsive-container'>
             <div className='study-now' onClick={() => openChooseStudyModeModal(true)}>

@@ -391,29 +391,3 @@ ol {
     margin-left: 0;
     border-left: 4px solid var(--current-gray-dark);
 }
-
-@media (max-width: 620px) {
-
-    /*responsiveness for flashcard layout*/
-    .flashcard-base-grid {
-        width: 420px;
-    }
-
-    .flashcard-body {
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-}
-
-@media (max-width: 505px) {
-
-    /*responsiveness for flashcard layout*/
-    .flashcard-base-grid {
-        width: 200px;
-    }
-
-    .flashcard-body {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-}

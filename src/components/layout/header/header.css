@@ -66,6 +66,7 @@
   height: fit-content;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .header-flex-gap {
