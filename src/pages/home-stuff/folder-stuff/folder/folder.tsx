@@ -133,7 +133,7 @@ const Folder = ({
 
             <div className='new-cards-indicator'>
                 <Link
-                    to='/spaced-repetition'
+                    to={'/spaced-repetition/' + folder._id}
                     className='indicator'
                     style={{ backgroundColor }}>
                     <p className='indicator-number'>{due.length}</p>
