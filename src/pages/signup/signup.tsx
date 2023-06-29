@@ -97,10 +97,10 @@ function SignUpPage() {
     return (
         <>
             <header className='page-header'>
-                <Link to='/'>
-                    <img className='header-logo' src={Logo} alt='site-logo' />
-                </Link>
-                <h1 className='page-title'>Sign Up</h1>
+            <a href='https://memoriter.de'>
+                    <img className='header-logo' src={Logo} alt='site-logo' style={{top: '20px', left: '10px'}} />
+                </a>
+                <h1 className='page-title' style={{top: '10px'}}>Sign Up</h1>
                 <Link to='/login' className='link-box'>Log In</Link>
             </header>
             <main>
