@@ -22,7 +22,7 @@ function SpacedRepMode() {
     });
 
     let folderTitle = localStorage.getItem('folderTitle');
-    let folderID = localStorage.getItem('folderID');
+    let folderID = window.location.pathname.replace('/spaced-repetition/', '');
 
 
     //Flashcard Data

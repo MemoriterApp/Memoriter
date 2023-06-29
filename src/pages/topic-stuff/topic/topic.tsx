@@ -282,7 +282,7 @@ function TopicPage() {
               <p className='streak-number'>{streak}</p>
             </div>
           </div>
-          {chooseStudyModeModal && <ChooseStudyMode />}
+          {chooseStudyModeModal && <ChooseStudyMode folderId={folderID}/>}
           {chooseStudyModeModal && <Backdrop onClick={() => openChooseStudyModeModal(false)} />}
           <div className='main-seperator' />
           <div className='flashcard-base'>

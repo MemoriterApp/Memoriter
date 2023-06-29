@@ -34,8 +34,8 @@ const App = () => {
                         <Route path='/topic/:folderId' element={<TopicPage />} /> {/* always there for share folder */}
                         {user ? (<> {/* some of the active routes are altered if a user is signed in */}
                             <Route path='/' element={<HomePage />} />
-                            <Route path='/study' element={<StudyPage />} />
-                            <Route path='/spaced-repetition' element={<SpacedRepMode />} />
+                            <Route path='/study/:folderId' element={<StudyPage />} />
+                            <Route path='/spaced-repetition/:folderId' element={<SpacedRepMode />} />
                             <Route path='/login' element={<Redirect path='/'/>} />
                             <Route path='/signup' element={<Redirect path='/'/>} />
                         </>) : (<>
