@@ -85,23 +85,23 @@ const Folder = ({
         setEditModal(false);
     };
 
-    const [pos, setPos] = useState(folder.pos); // pos is the state of the position of the folder
-    // if the position of the folder is not the same as the state of the position of the folder
+    const [pos, setPos] = useState(folder.pos);
+
     if (folder.pos !== pos) {
-        setPos(folder.pos); // set the state of the position of the folder to the position of the folder
+        setPos(folder.pos);
     }
 
-    const newPosId = sessionStorage.getItem('newPosFolder'); // get the id of the folder that has the new position
-    const newPosIdDelete = sessionStorage.getItem('newPosFolder' + folder._id); // get the id of the folder that has the new position
+    const newPosId = sessionStorage.getItem('newPosFolder');
+    const newPosIdDelete = sessionStorage.getItem('newPosFolder' + folder._id);
 
-    // if the id of the folder that has the new position is the same as the id of the folder
+
     if (newPosId === folder._id) {
-        onPosAdjust(folder._id, folder.pos); //adjust the position of the folder
-        sessionStorage.removeItem('newPosFolder'); //remove the id of the folder that has the new position from the session storage
+        onPosAdjust(folder._id, folder.pos);
+        sessionStorage.removeItem('newPosFolder');
     } else if (newPosIdDelete === folder._id) {
-        //if the id of the folder that has the new position is the same as the id of the folder
-        onPosAdjust(folder._id, folder.pos); //adjust the position of the folder
-        sessionStorage.removeItem('newPosFolder' + folder._id); //remove the id of the folder that has the new position from the session storage
+
+        onPosAdjust(folder._id, folder.pos);
+        sessionStorage.removeItem('newPosFolder' + folder._id);
     }
 
     const addEmoji = (emoji: any) => {
