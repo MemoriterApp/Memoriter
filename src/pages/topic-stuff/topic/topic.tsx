@@ -278,7 +278,7 @@ function TopicPage() {
       onSidebarButtonClick={(sidebarClass) =>
         sidebarClass === 'sidebar-floating'
           ? setWidth(sizeRef.current.clientWidth - 250)
-          : setWidth(sizeRef.current.clientWidth +250)
+          : setWidth(sizeRef.current.clientWidth + 250)
       }
     >
       <main>
@@ -306,8 +306,8 @@ function TopicPage() {
                 ? flashcards // if it is the case, only the question will be shown
                     .filter(
                       (flashcard: Type.Flashcard) =>
-                        flashcard.title.includes(searchQuery) ||
-                        flashcard.content.includes(searchQuery)
+                        flashcard.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        flashcard.content.toLowerCase().includes(searchQuery.toLowerCase())
                     )
                     .sort(function (a: Type.Flashcard, b: Type.Flashcard) {
                       return a.pos - b.pos;
@@ -334,8 +334,8 @@ function TopicPage() {
                 : flashcards //if it is not the case, the question and answer will be shown
                     .filter(
                       (flashcard: Type.Flashcard) =>
-                        flashcard.title.includes(searchQuery) ||
-                        flashcard.content.includes(searchQuery)
+                        flashcard.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        flashcard.content.toLowerCase().includes(searchQuery.toLowerCase())
                     )
                     .sort(function (a: Type.Flashcard, b: Type.Flashcard) {
                       return a.pos - b.pos;

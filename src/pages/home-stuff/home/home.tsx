@@ -74,7 +74,7 @@ function HomePage() {
                                 </div>
                             )}
                             {folders
-                                .filter((folder: Type.Folder) => folder.title.includes(searchQuery))
+                                .filter((folder: Type.Folder) => folder.title.toLowerCase().includes(searchQuery.toLowerCase()))
                                 .filter((folder: Type.Folder) => !folder.archived)
                                 .sort(function (a: Type.Folder, b: Type.Folder) {
                                     return a.pos - b.pos;
