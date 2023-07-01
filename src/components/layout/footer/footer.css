@@ -13,7 +13,7 @@
   box-shadow: 0 0 8px var(--color-shadow);
   cursor: pointer;
   transition: background-color 200ms;
-  z-index: 3;
+  z-index: 2;
 }
 .footer-button:hover {
   background-color: var(--color-hover-input);
@@ -52,5 +52,5 @@
   transition: filter 200ms;
 }
 .footer-icon img:hover {
-  filter: var(--svg-invert-white);
+  filter: var(--svg-invert);
 }
