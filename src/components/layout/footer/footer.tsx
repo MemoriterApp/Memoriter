@@ -5,6 +5,7 @@ import instagramIcon from '../../../images/icons/instagram-icon.svg';
 import tiktokIcon from '../../../images/icons/tiktok-icon.svg';
 import discordIcon from '../../../images/icons/discord-icon.svg';
 import githubIcon from '../../../images/icons/github-icon.svg';
+import BackdropTransparent from '../../backdrops/backdrop-transparent/backdrop-transparent';
 
 const FooterButton = () => {
   const [showExpandedFooter, setShowExpandedFooter] = useState(false);
@@ -17,6 +18,7 @@ const FooterButton = () => {
 
       {showExpandedFooter && (
         <>
+          <BackdropTransparent onClick={() => setShowExpandedFooter(false)} />
           <p className='footer'>
             <a href='https://memoriter.de/releases' target='_blank' rel='noreferrer'>
               Release Notes
