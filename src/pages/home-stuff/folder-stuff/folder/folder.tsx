@@ -135,7 +135,8 @@ const Folder = ({
                 <Link
                     to={'/spaced-repetition/' + folder._id}
                     className='indicator'
-                    style={{ backgroundColor }}>
+                    style={{ backgroundColor }}
+                    onClick={onOpenFolder}>
                     <p className='indicator-number'>{due.length}</p>
                 </Link>
             </div>

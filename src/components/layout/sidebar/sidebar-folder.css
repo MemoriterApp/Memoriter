@@ -15,7 +15,7 @@
   position: absolute;
   color: var(--color-font-gray);
   text-decoration: none;
-  width: calc(100% - 80px);
+  width: calc(100% - 56px);
   height: 24px;
   padding-top: 4px;
   margin-left: 28px;
@@ -47,7 +47,7 @@
 }
 
 .sidebar-folder-settings {
-  right: 12px;
+  right: 0;
 }
 .sidebar-folder-settings img {
   margin: 2px;
