@@ -4,7 +4,7 @@
   position: absolute;
   width: 249px;
   background-color: var(--color-background);
-  transition: left 250ms;
+  transition: left 350ms;
   z-index: 2;
 }
 .sidebar > * > p, .sidebar > * > * > p {
