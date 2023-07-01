@@ -17,7 +17,7 @@
     border-radius: 50%;
     cursor: pointer;
     color: var(--color-white);
-    font-family: var(--font-default);
+    font-family: var(--font-user-content);
     font-size: 1.1rem;
 }
 
@@ -97,12 +97,12 @@
 
 .folder-text {
     position: absolute;
-    top: -35%;
+    top: -40%;
     left: 4px;
     max-width: 100%;
     color: var(--color-font);
     font-size: 20px;
-    font-family: var(--font-default);
+    font-family: var(--font-user-content);
     background-color: var(--color-transparent);
     border: 1px transparent;
     cursor: pointer;

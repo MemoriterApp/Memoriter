@@ -8,6 +8,13 @@
 }
 
 @font-face {
+    /* M PLUS 1: user content font */
+    font-family: 'M PLUS 1';
+    font-weight: 500;
+    src: url('./fonts/m-plus-1/MPLUS1-VariableFont_wght.ttf');
+}
+
+@font-face {
     /* Rubik: larger font for subheadings or buttons */
     font-family: 'Rubik';
     font-weight: 400;
@@ -45,6 +52,7 @@
     --svg-invert-white: invert(1);
     /*font families*/
     --font-default: 'Open Sans', sans-serif;
+    --font-user-content: 'M PLUS 1', sans-serif;
     --font-highlight: 'Rubik', sans-serif;
     --font-heading: 'Heebo', sans-serif;
 }

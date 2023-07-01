@@ -10,22 +10,6 @@
     right: 97px;
 }
 
-.archive-icon {
-    position: relative;
-    top: 8px;
-    left: 8px;
-    height: 32.5px;
-    width: 32.5px;
-    cursor: pointer;
-    filter: invert(32%) sepia(7%) saturate(0%) hue-rotate(277deg) brightness(98%) contrast(89%);
-    transition: transform 0.1s ease-out;
-}
-
-.archive-icon:hover {
-    transform: scale(1.15);
-
-}
-
 .square {
     border: 10px solid var(--current-blue);
     width: 90%;
@@ -62,7 +46,7 @@
 
 .no-folder-text {
     text-align: center;
-    font-family: var(--font-default);
+    font-family: var(--font-user-content);
     font-style: italic;
     color: var(--color-font-gray);
     font-size: 24px;
@@ -115,12 +99,12 @@
 
 .new-folder-text {
     position: absolute;
-    top: -35%;
+    top: -40%;
     left: 44px;
     max-width: calc(100% - 60px);
     color: var(--color-font);
     font-size: 20px;
-    font-family: var(--font-default);
+    font-family: var(--font-user-content);
     background-color: var(--color-transparent);
     border: 1px transparent;
     cursor: pointer;

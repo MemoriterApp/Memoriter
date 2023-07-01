@@ -60,7 +60,7 @@ function HomePage() {
                 <div className='square'>
                     <section>
                         <span className='spaced-rep-subtitles'>
-                            <span>Due</span>
+                            <span style={{fontFamily: 'var(--font-user-content)'}}>Due</span>
                         </span>
                         <div className='main-seperator'></div>
                     </section>

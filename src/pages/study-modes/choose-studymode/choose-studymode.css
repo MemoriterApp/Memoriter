@@ -84,7 +84,7 @@
     padding: 10px 20px 20px 20px;
     color: rgb(53, 53, 53);
     font-size: 22px;
-    font-family: var(--font-default);
+    font-family: var(--font-user-content);
     text-overflow: ellipsis;
     cursor: pointer;
     white-space: pre-line;

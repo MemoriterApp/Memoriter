@@ -13,22 +13,6 @@
     min-height: 180px;
 }
 
-.page-title {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    font-family: var(--font-default);
-    font-weight: bold;
-    font-size: 2em;
-    color: var(--color-font);
-    max-width: 50%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    text-align: center;
-    margin-top: 12px;
-}
-
 .main-seperator {
     position: absolute;
     left: 50%;
@@ -170,9 +154,9 @@
 
 .folder-title {
     color: var(--color-font);
-    font-family: var(--font-default);
+    font-family: var(--font-user-content);
     position: relative;
-    top: -8px;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     width: fit-content;

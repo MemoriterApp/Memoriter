@@ -3,7 +3,7 @@
     color: rgb(53, 53, 53);
     background: var(--current-gray-light);
     font-size: 22px;
-    font-family: var(--font-default);
+    font-family: var(--font-user-content);
     position: relative;
     top: 80px;
     height: calc((100vh - 218px) * var(--size) + 18px);
