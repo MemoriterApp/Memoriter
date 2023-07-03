@@ -257,9 +257,8 @@ em-emoji-picker {
 
 .drag-image {
     position: absolute;
-    z-index: 100;
     cursor: grab;
-    background-color: #ccc;
+    background-color: #807d7d;
     width: 25px;
     height: 25px;
     border-radius: 50%;

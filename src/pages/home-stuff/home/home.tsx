@@ -288,20 +288,26 @@ function HomePage() {
         const { active, over } = event;
         const activeIndex = folders.findIndex((folder: Type.Folder) => folder._id === active.id);
         const overIndex = folders.findIndex((folder: Type.Folder) => folder._id === over.id);
-
+    
         if (activeIndex !== overIndex) {
             const updatedFolders = [...folders];
             const [removed] = updatedFolders.splice(activeIndex, 1);
             updatedFolders.splice(overIndex, 0, removed);
-
+    
             const updatedFoldersWithPositions = updatedFolders.map((folder: Type.Folder, index: number) => ({
                 ...folder,
                 pos: index + 1,
             }));
             setFolders(updatedFoldersWithPositions);
+    
+            // Update new positions in the database
+            updatedFoldersWithPositions.forEach(async (folder) => {
+                await updateFolder(folder._id, { pos: folder.pos });
+            });
         }
         setActiveId(null);
     }
+    
 
     function handleDragStart(event: any) {
         const { active } = event;
