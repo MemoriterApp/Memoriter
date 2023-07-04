@@ -50,12 +50,12 @@ const Header = ({
         {path === 'home' ? null : path === '' ? (
           <>
             <img className='header-path-chevron' src={chevronRight} alt='>' />
-            <Link to='/topic'>New Folder</Link>
+            <Link to={'/topic/' + folderId}>New Folder</Link>
           </>
         ) : (
           <>
             <img className='header-path-chevron' src={chevronRight} alt='>' />
-            <Link to='/topic'>{path}</Link>
+            <Link to={'/topic/' + folderId}>{path}</Link>
           </>
         )}
       </p>

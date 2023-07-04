@@ -1,6 +1,7 @@
 import './layout.css';
 
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import { useNavigate } from 'react-router';
 import {
   getFlashcards,
   getFolders,
@@ -43,6 +44,7 @@ const Layout = forwardRef(
     },
     ref?: any
   ) => {
+    const navigate = useNavigate();
     const auth = getAuth();
 
     // queries and saves folders from the database in an array
@@ -205,6 +207,10 @@ const Layout = forwardRef(
 
     const deleteFolder = async (oldFolder: Type.Folder) => {
       await removeFolder(oldFolder._id);
+
+      if (oldFolder._id === window.location.pathname.replace('/topic/', '')) {
+        navigate('/');
+      }
 
       const updatedFolders = folders
         .map((folder: Type.Folder) =>
