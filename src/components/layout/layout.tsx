@@ -144,6 +144,10 @@ const Layout = forwardRef(
     };
 
     const editFolder = async (id: string, title: any) => {
+      if (id === window.location.pathname.replace('/topic/', '')) {
+        onUpdateCurrentFolder({ id: id, title: title, favorite: true });
+      }
+
       const newTitle = { title: title };
       await updateFolder(id, newTitle);
 
