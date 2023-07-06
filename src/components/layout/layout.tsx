@@ -129,8 +129,7 @@ const Layout = forwardRef(
         onUpdateCurrentFolder({ id: id, title: title, favorite: true });
       }
 
-      const newTitle = { title: title };
-      await updateFolder(id, newTitle);
+      await updateFolder(id, { title: title });
 
       const updatedFolders = folders.map((folder: Type.Folder) =>
         folder._id === id ? { ...folder, title: title } : folder
