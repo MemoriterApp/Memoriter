@@ -66,7 +66,7 @@ function HomePage() {
     ref.current.onDeleteFolder(folder);
   };
 
-  function handleDragEnd(event: any) {
+  const handleDragEnd = (event: any) => {
     const { active, over } = event;
     const activeIndex = folders.findIndex((folder: Type.Folder) => folder._id === active.id);
     const overIndex = folders.findIndex((folder: Type.Folder) => folder._id === over.id);
@@ -90,7 +90,7 @@ function HomePage() {
       });
     }
     setActiveId(null);
-  }
+  };
 
   const [searchQuery, setSearchQuery] = useState('');
 
