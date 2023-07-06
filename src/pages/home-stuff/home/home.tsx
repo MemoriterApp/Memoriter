@@ -18,6 +18,10 @@ function HomePage() {
         setFolders(updatedFolders);
     }
 
+    const closeModal = () => {
+        setModalIsOpen(false);
+    };
+
     const [modalIsOpen, setModalIsOpen] = useState(false); //state to check if the modal is open or not
 
     const addFolder = (title: string) => {
@@ -60,7 +64,7 @@ function HomePage() {
                 <div className='square'>
                     <section>
                         <span className='spaced-rep-subtitles'>
-                            <span style={{fontFamily: 'var(--font-user-content)'}}>Due</span>
+                            <span style={{ fontFamily: 'var(--font-user-content)' }}>Due</span>
                         </span>
                         <div className='main-seperator'></div>
                     </section>
@@ -70,7 +74,7 @@ function HomePage() {
                                 <div />
                             ) : (
                                 <div className='no-folder-text'>
-                  Currently there are no folders. Please create one...
+                                    Currently there are no folders. Please create one...
                                 </div>
                             )}
                             {folders
@@ -98,14 +102,14 @@ function HomePage() {
                         </>
 
                         <div data-folders={folders}>
-                        <div className='new-folder-line'/>
+                            <div className='new-folder-line' />
                             <button className='new-folder-body' onClick={() => setModalIsOpen(true)}>
                                 <div className='button-new-folder'>
-                                    <img src={newFolder} alt='new folder'/>
+                                    <img src={newFolder} alt='new folder' />
                                 </div>
                                 <p className='new-folder-text'>Create new folder</p>
                                 <div>
-                                    {modalIsOpen && <FolderForm type='Create new' folder={{ title: '' }} onConfirm={addFolder} onCancel={() => setModalIsOpen(false)} />}
+                                    {modalIsOpen && <FolderForm type='Create new' folder={{ title: '' }} onConfirm={addFolder} onCancel={closeModal} />}
                                 </div>
                             </button>
                         </div>

@@ -1,6 +1,7 @@
 /* styles for the modal to create and edit folders */
 
-.folder-form { /* the overall modal container */
+.folder-form {
+  /* the overall modal container */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -15,15 +16,17 @@
   background-color: var(--color-background);
   border-radius: 10px;
   overflow-y: auto;
-  z-index: 10;
+  z-index: 4;
 }
 
-.folder-form-title { /* modal heading */
+.folder-form-title {
+  /* modal heading */
   font-size: 24px;
   margin-bottom: 16px;
 }
 
-.folder-form-input { /* folder name input field */
+.folder-form-input {
+  /* folder name input field */
   width: 80%;
   font-size: 20px;
   color: var(--color-font);
@@ -36,11 +39,14 @@
   border-radius: 3px;
   outline: none;
 }
-.folder-form-input-label { /* input field label */
+
+.folder-form-input-label {
+  /* input field label */
   font-size: 20px;
 }
 
-.folder-form-button { /* done button to confirm changes */
+.folder-form-button {
+  /* done button to confirm changes */
   font-size: 20px;
   color: var(--color-white);
   font-family: var(--font-default);
