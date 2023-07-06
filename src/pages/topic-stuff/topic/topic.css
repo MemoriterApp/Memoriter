@@ -4,12 +4,11 @@
     border-left: 12px solid var(--current-blue);
     border-bottom: 10px solid var(--current-blue);
     width: 90%;
-    height: calc(100% - 200px);
+    height: calc(100% - 150px);
     position: absolute;
     top: 80px;
     left: calc(5% - 12px);
     border-radius: 30px;
-    max-height: calc(100% - 120px);
     min-height: 180px;
 }
 

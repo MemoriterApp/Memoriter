@@ -8,7 +8,7 @@ import FolderForm from '../form-folder/folder-form';
 import FolderSettings from '../settings-folder/folder-settings';
 import * as Type from '../../../../types';
 import { getFlashcards } from '../../../../technical/utils/mongo';
-import placeholderFolder from '../../../../images/placeholder-folder.svg';
+import placeholderFolder from '../../../../images/icons/folder-icon.svg';
 
 const Folder = ({
     folder,
@@ -61,11 +61,11 @@ const Folder = ({
     }
     // changes the background color of the indicator if a lot of cards are due
     const backgroundColor =
-  due.length > 100
-      ? 'var(--current-red)'
-      : due.length > 50
-          ? 'var(--current-blue-dark)'
-          : 'var(--current-gray-medium-dark)';
+        due.length > 100
+            ? 'var(--current-red)'
+            : due.length > 50
+                ? 'var(--current-blue-dark)'
+                : 'var(--current-gray-medium-dark)';
 
     // cache folder values if folder is clicked
     const onOpenFolder = () => {
@@ -113,7 +113,7 @@ const Folder = ({
         <section className='folder'>
             <button className='folder-icon' onClick={() => setShowEmojiPicker(true)}>
                 {folder.icon === '' || folder.icon === undefined ? (
-                    <img src={placeholderFolder} alt='placeholder icon' style={{filter: 'var(--svg-invert-gray)'}}/>
+                    <img src={placeholderFolder} alt='placeholder icon' style={{ filter: 'var(--svg-invert-gray)' }} />
                 ) : (
                     <img
                         src={`https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/${folder.icon}.svg`}
@@ -176,9 +176,9 @@ const Folder = ({
                         editFolderReq={() => { setEditModal(true); setModalIsOpen(false); }}
                         deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
                         onArchive={onArchiveFolder}
-                        onChangeIcon={() => {onChangeFolderIcon(folder._id, ''); setModalIsOpen(false);}}
-                        onFavoriteFolder={() => {onFavoriteFolder(folder._id); setModalIsOpen(false);}}
-                        onUnfavoriteFolder={() => {onUnfavoriteFolder(folder._id); setModalIsOpen(false);}}
+                        onChangeIcon={() => { onChangeFolderIcon(folder._id, ''); setModalIsOpen(false); }}
+                        onFavoriteFolder={() => { onFavoriteFolder(folder._id); setModalIsOpen(false); }}
+                        onUnfavoriteFolder={() => { onUnfavoriteFolder(folder._id); setModalIsOpen(false); }}
                     />
                     <Backdrop onClick={() => setModalIsOpen(false)} />
                 </>
@@ -203,7 +203,7 @@ const Folder = ({
 
             {showEmojiPicker && (
                 <>
-                    <Backdrop onClick={() => setShowEmojiPicker(false)}/>
+                    <Backdrop onClick={() => setShowEmojiPicker(false)} />
                     <div className='emoji-picker-container'>
                         <Picker
                             set='twitter'

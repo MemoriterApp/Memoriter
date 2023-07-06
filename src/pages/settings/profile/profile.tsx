@@ -8,20 +8,6 @@ import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import { firebase } from '../../../technical/utils/mongo';
 
 function Profile() {
-
-    //states to check what preview mode
-    const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
-    const [isBoth, setIsBoth] = useState(false);
-
-    //use Effekt to safe the state in local storage, so that it can be used in topic.js
-    useEffect(() => {
-        localStorage.setItem('onlyQuestion', JSON.stringify(isOnlyQuestion)); //sets the value of key 'OnlyQuestion' to 'isOnlyQuestion' state
-    }, [isOnlyQuestion]);
-
-    useEffect(() => {
-        localStorage.setItem('both', JSON.stringify(isBoth)); //sets the value of key 'Both' to 'isBoth' state
-    }, [isBoth]);
-
     //states to check wether overlay is open
     const [changePassword, openChangePassword] = useState(false);
     const [changeEmail, openChangeEmail] = useState(false);
@@ -95,10 +81,10 @@ function Profile() {
                 })
                 .catch((error) => {
                     switch (error.code) {
-                    case error.code:
-                        setRedBorderNewData({});
-                        setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
-                        break;
+                        case error.code:
+                            setRedBorderNewData({});
+                            setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
+                            break;
                     }
                 });
         }
@@ -135,10 +121,10 @@ function Profile() {
                 })
                 .catch((error) => {
                     switch (error.code) {
-                    case error.code:
-                        setRedBorderNewData({});
-                        setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
-                        break;
+                        case error.code:
+                            setRedBorderNewData({});
+                            setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
+                            break;
                     }
                 });
         }
@@ -164,9 +150,9 @@ function Profile() {
             })
             .catch((error) => {
                 switch (error.code) {
-                case error.code:
-                    setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
-                    break;
+                    case error.code:
+                        setRedBorderAccountPassword({ borderColor: 'rgb(228, 48, 48)' });
+                        break;
                 }
             });
     }
