@@ -14,7 +14,7 @@
     position: relative;
     text-align: center;
     font-size: 2.6vh;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     color: var(--current-gray-dark);
     margin: 1vh;
 }
@@ -22,7 +22,7 @@
 .return-button {
     position: absolute;
     left: 50%;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     transform: translate(-50%, -50%);
     border-radius: 0.5vw;
     height: calc(3vh * var(--testing));

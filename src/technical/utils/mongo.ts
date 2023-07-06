@@ -1,5 +1,6 @@
 const url = 'https://app.memoriter.de/api/@memoriter/app/';
 const urlAI = 'https://app.memoriter.de/api/@memoriter/ai/';
+const urlAuth = 'https://app.memoriter.de/api/@memoriter/auth/';
 
 export async function getFlashcard(id: string): Promise<Flashcard> {
     return await fetch(`${url}flashcard/${id}`, {
@@ -101,6 +102,60 @@ export async function getFlashcardSuggestion(title: string): Promise<string> {
     return data.suggestion;
 }
 
+export async function login(email: string, password: string) {
+    const res = await fetch(`${urlAuth}email`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    });
+    localStorage.setItem('refreshToken', (await res.json()).token);
+
+    await refreshAccessToken();
+}
+
+export async function register(email: string, name: string, password: string) {
+    const res = await fetch(`${urlAuth}register`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            name: name,
+            password: password
+        })
+    });
+    localStorage.setItem('refreshToken', (await res.json()).token);
+    await refreshAccessToken();
+}
+
+export async function refreshAccessToken() {
+    const res = await fetch(`${urlAuth}refresh-access-token`, {
+        method: 'POST',
+        headers: {
+            'Authorization': 'JWT ' + localStorage.getItem('refreshToken')
+        }
+    });
+    localStorage.setItem('accessToken', (await res.json()).token);
+}
+
+//TODO: Finish in Backend
+export async function forgotPassword(email: string) {
+    return await fetch(`${urlAuth}forgot-password`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email
+        })
+    });
+}
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, User } from 'firebase/auth';

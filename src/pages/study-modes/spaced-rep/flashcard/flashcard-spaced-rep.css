@@ -3,7 +3,7 @@
     color: rgb(53, 53, 53);
     background: var(--current-gray-light);
     font-size: 22px;
-    font-family: var(--current-font);
+    font-family: var(--font-user-content);
     position: relative;
     top: 80px;
     height: calc((100vh - 218px) * var(--size) + 18px);
@@ -108,14 +108,14 @@
     position: relative;
     top: 4.5vh;
     margin: 0.2vw;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     border-radius: 0.5vw;
     height: 4.5vh;
     width: 10vw;
     min-width: 60px;
     font-size: 1.2vw;
     background-color: #cdd0da;
-    color: var(--current-font);
+    color: var(--font-default);
     border: 0;
     cursor: pointer;
 

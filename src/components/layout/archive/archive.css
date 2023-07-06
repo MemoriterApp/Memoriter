@@ -1,0 +1,18 @@
+.archive {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: calc(100% - 36px);
+  max-height: calc(100% - 36px);
+  padding: 12px;
+  background-color: var(--color-background);
+  border-radius: 4px;
+  z-index: 4;
+}
+.archive h1 {
+  color: var(--color-font);
+  font: 1.6rem var(--font-default);
+  text-align: center;
+}

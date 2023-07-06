@@ -21,7 +21,7 @@
     border-style: none;
     border-radius: 4px;
     color: var(--color-white);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 18px;
     position: relative;
     left: 50%;
@@ -59,7 +59,7 @@
     color: var(--color-font);
     font-size: 28px;
     margin-bottom: 40px;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -74,7 +74,7 @@
     padding: 10px 20px 20px 20px;
     color: rgb(53, 53, 53);
     font-size: 22px;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     text-overflow: ellipsis;
     cursor: pointer;
     white-space: pre-line;

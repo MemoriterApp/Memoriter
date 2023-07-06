@@ -17,7 +17,7 @@
     border-radius: 50%;
     cursor: pointer;
     color: var(--color-white);
-    font-family: var(--current-font);
+    font-family: var(--font-user-content);
     font-size: 1.1rem;
 }
 
@@ -105,7 +105,7 @@
     max-width: 100%;
     color: var(--color-font);
     font-size: 20px;
-    font-family: var(--current-font);
+    font-family: var(--font-user-content);
     background-color: var(--color-transparent);
     border: 1px transparent;
     cursor: pointer;
@@ -173,14 +173,14 @@
 }
 
 .folder-settings-sub p:hover {
-    transform: scale(1.15);
+    transform: scale(0.95);
 }
 
 .add-folder-form-body {
     box-shadow: 0 1px 4px var(--color-shadow);
     background-color: var(--color-background);
     text-align: center;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     color: var(--color-font);
     width: 560px;
     height: 260px;
@@ -209,7 +209,7 @@
     width: 80%;
     color: var(--color-font);
     background-color: var(--color-background);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
@@ -221,7 +221,7 @@
     padding: 10px 20px;
     color: var(--color-white);
     background-color: var(--current-blue);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 20px;
     cursor: pointer;
     border-radius: 6px;
@@ -230,7 +230,7 @@
 /* emoji picker */
 em-emoji-picker {
     --border-radius: 10px;
-    --font-family: var(--current-font);
+    --font-family: var(--font-default);
     --font-size: 16px;
     --color-border: var(--color-hover);
 }

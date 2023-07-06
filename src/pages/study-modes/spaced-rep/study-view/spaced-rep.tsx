@@ -1,6 +1,5 @@
 import './spaced-rep.css';
 import { Link, useNavigate } from 'react-router-dom';
-import Logo from '../../../../images/memoriter-logo.svg';
 import FlashcardSpacedRep from '../flashcard/flashcard-spaced-rep';
 import NothingToStudy from '../nothing-to-study/nothing-to-study';
 import { firebase, getFlashcards, removeFlashcard, updateFlashcard } from '../../../../technical/utils/mongo';
@@ -8,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { spacedRepetition } from '../../../../technical/utils/spaced-repetition';
 import FinishedViewSpacedRep from '../finished-view/finished-view-spaced-rep';
 import { Flashcard } from '../../../../types';
-import FooterButton from '../../../../components/footer/footer-button/footer-button';
+import Layout from '../../../../components/layout/layout';
 
 function SpacedRepMode() {
 
@@ -23,7 +22,7 @@ function SpacedRepMode() {
     });
 
     let folderTitle = localStorage.getItem('folderTitle');
-    let folderID = localStorage.getItem('folderID');
+    let folderID = window.location.pathname.replace('/spaced-repetition/', '');
 
 
     //Flashcard Data
@@ -125,16 +124,7 @@ function SpacedRepMode() {
 
 
     return (
-        <>
-            <header className='page-header'>
-                <h1 className='page-title'>
-                    {folderTitle}
-                </h1>
-                <Link to='/'>
-                    <img className='header-logo' src={Logo} alt='site-logo'></img>
-                </Link>
-                <p className='study-remaining'>Remaining: {flashcards.length}</p>
-            </header>
+        <Layout path={folderTitle}>
             
             <Link to='/' >
                 <div className='back-button'/> 
@@ -167,8 +157,7 @@ function SpacedRepMode() {
                     <div className='progress-bar-fill' style={{width: `calc(${100 * (studiedFlashcards / (flashcards.length + studiedFlashcards))}% - 8px)`}}/>
                 </div>
             </main>
-            <FooterButton />
-        </>
+        </Layout>
     );
 }
 

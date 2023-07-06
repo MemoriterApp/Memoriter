@@ -1,6 +1,6 @@
 import './closed-flashcard-settings.css';
 import edit from '../../../images/edit.svg';
-import deleteIcon from '../../../images/delete.svg';
+import deleteIcon from '../../../images/delete-red.svg';
 import alignLeft from '../../../images/text-align-left.svg';
 import alignRight from '../../../images/text-align-right.svg';
 import alignCenter from '../../../images/text-align-center.svg';

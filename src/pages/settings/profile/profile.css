@@ -21,7 +21,7 @@
   margin-left: 15px;
   cursor: auto;
   color: var(--color-font);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
 }
 
 .profile-title-box {
@@ -37,7 +37,7 @@
   width: 100%;
   font-size: 2ch;
   font-weight: 700;
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   position: relative;
   cursor: auto;
   max-width: 100%;
@@ -61,7 +61,7 @@
   box-shadow: 0 1px 4px var(--color-shadow);
   background-color: var(--color-background);
   text-align: center;
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   color: var(--color-white);
   width: 450px;
   height: 340px;
@@ -82,7 +82,7 @@
   width: 130px;
   color: white;
   background-color: var(--current-gray);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   font-size: 20px;
   cursor: pointer;
   margin-left: 0;
@@ -96,7 +96,7 @@
   width: 130px;
   color: white;
   background-color: var(--current-blue);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   font-size: 20px;
   cursor: pointer;
   margin-left: 20px;
@@ -105,7 +105,7 @@
 
 .Settings-changemail-form {
   position: relative;
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   font-size: 20px;
   width: 275px;
 }
@@ -150,7 +150,7 @@
   border-radius: 10px;
   overflow-y: auto;
   z-index: 10;
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   color: var(--color-font);
 }
 
@@ -172,7 +172,7 @@
   padding: 5px;
   color: white;
   background-color: rgba(112, 112, 112, 1);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   font-size: 20px;
   cursor: pointer;
   margin-top: 1.5vw;
@@ -183,7 +183,7 @@
   width: 80%;
   color: var(--color-font);
   background-color: var(--color-background);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   font-size: 20px;
   padding: 5px 5px;
   outline: none;
@@ -200,7 +200,7 @@
 
 .settings-title {
   color: var(--color-white);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   position: relative;
   word-wrap: break-word;
   top: 25px;

@@ -5,7 +5,7 @@
     text-align: center;
     color: var(--current-red);
     top: 100px;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 24px;
     width: calc(100% - 70px);
     white-space: nowrap;
@@ -33,7 +33,7 @@
     transform: translate(-50%);
     color: var(--color-font);
     text-align: center;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     overflow: visible;
     padding-top: -20px;
 }
@@ -43,7 +43,7 @@
     width: 80%;
     font-size: 20px;
     color: var(--color-font);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     padding: 5px;
     margin-top: 16px;
     margin-bottom: 24px;
@@ -55,7 +55,7 @@
 
 .passwords-no-match {
     color: var(--current-red);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 14px;
     position: absolute;
     left: 8%;
@@ -153,7 +153,7 @@
     top: 70px;
     height: 85px;
     color: var(--current-blue-dark);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 16px;
     text-align: center;
     margin-top: 0px;

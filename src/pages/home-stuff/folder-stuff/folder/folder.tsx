@@ -20,8 +20,9 @@ const Folder = ({
     onEditFolder,
     onPosAdjust,
     onArchiveFolder,
-    onDearchiveFolder,
     onChangeFolderIcon,
+    onFavoriteFolder,
+    onUnfavoriteFolder,
 }: {
     folder: any,
     id: any,
@@ -32,8 +33,9 @@ const Folder = ({
     folderCount: any,
     onPosAdjust: any,
     onArchiveFolder: any,
-    onDearchiveFolder: any,
     onChangeFolderIcon: any,
+    onFavoriteFolder: any,
+    onUnfavoriteFolder: any,
 }) => {
 
     const [due, setDue] = useState<any>([]); //creates the flashcard state
@@ -69,8 +71,8 @@ const Folder = ({
 
     // cache folder values if folder is clicked
     const onOpenFolder = () => {
-        localStorage.setItem('folderID', folder._id); //set the folder id in local storage
         localStorage.setItem('folderTitle', folder.title); //set the folder title in local storage
+        localStorage.setItem('folderFavorite', folder.favorite); //set the folder favorite state in local storage
     };
 
     //States to check if a modal is open or not
@@ -133,7 +135,7 @@ const Folder = ({
                     />
                 )}
             </button>
-            <Link to='/topic' onClick={onOpenFolder}>
+            <Link to={'/topic/' + folder._id} onClick={onOpenFolder}>
                 <div className='open-folder'>
                     {folder.title !== '' ? ( // checks if the title of the folder is not empty
                         <p className='folder-text'>{folder.title}</p>
@@ -145,9 +147,10 @@ const Folder = ({
 
             <div className='new-cards-indicator'>
                 <Link
-                    to='/study-spaced-repetition'
+                    to={'/spaced-repetition/' + folder._id}
                     className='indicator'
-                    style={{ backgroundColor }}>
+                    style={{ backgroundColor }}
+                    onClick={onOpenFolder}>
                     <p className='indicator-number'>{due.length}</p>
                 </Link>
             </div>
@@ -169,8 +172,9 @@ const Folder = ({
                         editFolderReq={() => { setEditModal(true); setModalIsOpen(false); }}
                         deleteFolderReq={() => { setDeleteModal(true); setModalIsOpen(false); }}
                         onArchive={onArchiveFolder}
-                        onDearchive={onDearchiveFolder}
-                        onChangeIcon={() => { onChangeFolderIcon(folder._id, ''); setModalIsOpen(false); }}
+                        onChangeIcon={() => {onChangeFolderIcon(folder._id, ''); setModalIsOpen(false);}}
+                        onFavoriteFolder={() => {onFavoriteFolder(folder._id); setModalIsOpen(false);}}
+                        onUnfavoriteFolder={() => {onUnfavoriteFolder(folder._id); setModalIsOpen(false);}}
                     />
                     <Backdrop onClick={() => setModalIsOpen(false)} />
                 </>

@@ -5,7 +5,7 @@
     color: var(--current-red);
     background: var(--current-gray-light);
     font-size: 36px;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     height: 56px;
     width: 56px;
     border: none;
@@ -44,7 +44,7 @@
     top: -19px;
     left: calc(100% + 8px);
     color: var(--color-font-gray);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
 }
 .progress-bar-fill {
     position: relative;

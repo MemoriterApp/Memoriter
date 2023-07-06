@@ -1,39 +1,31 @@
 /*This css file is only used for classes used very often and across multiple pages, as well as some global styles.*/
 
-/*font imports*/
 @font-face {
-    /*Inter: basic font for most text*/
-    font-family: 'Inter';
-    font-weight: 300;
-    src: url('./fonts/inter/Inter-VariableFont_slnt\,wght.ttf');
+    /* Open Sans: default font */
+    font-family: 'Open Sans';
+    font-weight: 400;
+    src: url('./fonts/open-sans/OpenSans-VariableFont_wdth\,wght.ttf');
 }
 
 @font-face {
-    /*Rubik: larger font for subheadings or buttons*/
+    /* M PLUS 1: user content font */
+    font-family: 'M PLUS 1';
+    font-weight: 500;
+    src: url('./fonts/m-plus-1/MPLUS1-VariableFont_wght.ttf');
+}
+
+@font-face {
+    /* Rubik: larger font for subheadings or buttons */
     font-family: 'Rubik';
     font-weight: 400;
     src: url('./fonts/rubik/Rubik-VariableFont_wght.ttf');
 }
 
 @font-face {
-    /*Heebo: large font for page headings*/
+    /* Heebo: large font for page headings */
     font-family: 'Heebo';
     font-weight: 800;
     src: url('./fonts/heebo/Heebo-VariableFont_wght.ttf');
-}
-
-@font-face {
-    /*M PLUS 1: default font*/
-    font-family: 'M PLUS 1';
-    font-weight: 600;
-    src: url('./fonts/m-plus-1/MPLUS1-VariableFont_wght.ttf');
-}
-
-@font-face {
-    /*M PLUS 1: default font (bold version)*/
-    font-family: 'M PLUS 1';
-    font-weight: 800;
-    src: url('./fonts/m-plus-1/MPLUS1-VariableFont_wght.ttf');
 }
 
 :root {
@@ -55,10 +47,12 @@
     --color-facebook-hover: #3c5f9b;
     --color-github: #6e5494;
     --color-github-hover: #645087;
+    --color-select: #2850a080;
     /*values for correcting svg colors*/
     --svg-invert-white: invert(1);
     /*font families*/
-    --font-default: 'Inter', sans-serif;
+    --font-default: 'Open Sans', sans-serif;
+    --font-user-content: 'M PLUS 1', sans-serif;
     --font-highlight: 'Rubik', sans-serif;
     --font-heading: 'Heebo', sans-serif;
 }
@@ -72,8 +66,6 @@
     --color-hover: #373737bf;
     --color-hover-input: #2a2a2a;
     --color-hover-icon: #ffffff20;
-    --color-container: #373737;
-    --color-container-button: #505050;
     --color-background-dark: #121212;
     --color-background-dark-plus: #0a0a0a;
     --color-shadow-flashcard: #00000040;
@@ -93,8 +85,6 @@
     --color-hover: #b5b5b5bf;
     --color-hover-input: #cbcbcb;
     --color-hover-icon: #00000020;
-    --color-container: #b5b5b5;
-    --color-container-button: #929292;
     --color-background-dark: #cbcbcb;
     --color-background-dark-plus: #bbbbbb;
     --color-shadow-flashcard: #777777cc;
@@ -120,7 +110,6 @@
     --current-green-hover: #3ab454;
     --current-gray-medium-dark: #373737;
     --color-premium: #9d7111;
-    --current-font: 'M PLUS 1', sans-serif;
 }
 
 /* Custom Scrollbar */
@@ -176,25 +165,13 @@ body::-webkit-scrollbar-corner {
     overflow: hidden;
 }
 
-
-.header-logo {
-    width: 134.4px;
-    max-width: 20%;
-    position: absolute;
-    cursor: pointer;
-    bottom: 50%;
-    left: 10px;
-    transform: translate(0%, 50%);
-    filter: var(--svg-invert);
-}
-
 .sign-out-box {
     color: var(--color-white);
     margin: 32px auto;
     width: fit-content;
     font-size: 3ch;
     font-weight: 700;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     position: relative;
     cursor: pointer;
     text-align: center;
@@ -292,7 +269,7 @@ body::-webkit-scrollbar-corner {
 
 .Login {
     position: absolute;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 25px;
     color: var(--current-gray);
     right: 10px;
@@ -302,7 +279,7 @@ body::-webkit-scrollbar-corner {
 
 .Signup {
     position: absolute;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 25px;
     color: var(--color-font);
     top: 9px;
@@ -334,7 +311,7 @@ body::-webkit-scrollbar-corner {
     width: 80%;
     color: var(--color-font);
     background-color: var(--color-background);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
@@ -362,7 +339,7 @@ body::-webkit-scrollbar-corner {
     width: 80%;
     color: var(--color-font);
     background-color: var(--color-background);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 20px;
     padding: 5px 5px;
     outline: none;
@@ -372,7 +349,7 @@ body::-webkit-scrollbar-corner {
 .password-label {
     position: relative;
     top: -40px;
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     font-size: 20px;
     color: var(--color-font);
     right: -85px;
@@ -383,4 +360,10 @@ body::-webkit-scrollbar-corner {
     --size: 0.85;
     --button: 1.7;
     --testing: 1.7;
+}
+
+/* custom text selection color */
+::selection {
+  background-color: var(--color-select);
+  -webkit-text-fill-color: var(--color-font); /* is needed to fix gradient text */
 }

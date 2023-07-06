@@ -18,13 +18,13 @@ function NothingToStudy() {
 
             <button className='return-button'
                 style={{ top: '70%', width: '14vw' }}
-                onClick={() => navigate('/study')}>
+                onClick={() => navigate(window.location.pathname.replace('/spaced-repetition/', '/study/'))}>
                 Study all flashcards
             </button>
 
             <button className='return-button'
                 style={{ top: '77%', width: '14vw', backgroundColor: 'rgb(126, 128, 134)' }}
-                onClick={() => navigate('/topic')}>
+                onClick={() => navigate(window.location.pathname.replace('/spaced-repetition/', '/topic/'))}>
                 Return to Overview
             </button>
         </>
