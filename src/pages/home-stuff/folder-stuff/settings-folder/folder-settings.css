@@ -11,7 +11,7 @@
 
 .folder-settings-sub {
     color: var(--current-gray-dark);
-    font-family: var(--current-font);
+    font-family: var(--font-default);
     position: relative;
     margin: 2px;
     width: 100%;

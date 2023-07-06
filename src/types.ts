@@ -17,6 +17,7 @@ export type Flashcard = {
 export type Folder = {
     _id?: string,
     archived?: boolean,
+    favorite?: boolean,
     pos?: number,
     title?: string,
     icon?: string,

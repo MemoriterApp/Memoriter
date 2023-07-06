@@ -1,0 +1,52 @@
+.archive-folder {
+  height: 30px;
+  margin-top: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 200ms;
+}
+.archive-folder:hover {
+  background-color: var(--color-hover);
+}
+
+.archive-folder-link {
+  display: block;
+  position: absolute;
+  color: var(--color-font-gray);
+  text-decoration: none;
+  width: calc(100% - 118px);
+  height: 26px;
+  padding-top: 4px;
+  margin-left: 30px;
+}
+.archive-folder-link p {
+  position: absolute;
+  top: -15px;
+  width: calc(100% - 8px);
+  font: 18px var(--font-default);
+  margin-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.archive-folder-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  transition: background-color 200ms;
+}
+.archive-folder-icon:hover {
+  background-color: var(--color-hover-icon);
+}
+.archive-folder-icon img {
+  margin: 4px;
+  height: 22px;
+}
+
+.archive-folder-button img {
+  margin: 3px;
+  height: 24px;
+  filter: var(--svg-invert-gray);
+}

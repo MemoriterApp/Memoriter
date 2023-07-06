@@ -1,0 +1,62 @@
+.sidebar-folder {
+  height: 28px;
+  margin: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 200ms;
+  position: relative;
+}
+.sidebar-folder:hover {
+  background-color: var(--color-hover);
+}
+
+.sidebar-folder-link {
+  display: block;
+  position: absolute;
+  color: var(--color-font-gray);
+  text-decoration: none;
+  width: calc(100% - 56px);
+  height: 24px;
+  padding-top: 4px;
+  margin-left: 28px;
+}
+.sidebar-folder-link p {
+  position: absolute;
+  top: -9px;
+  width: calc(100% - 8px);
+  font: 14px var(--font-default);
+  margin-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-folder-icon {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  transition: background-color 200ms;
+}
+.sidebar-folder-icon:hover {
+  background-color: var(--color-hover-icon);
+}
+.sidebar-folder-icon img {
+  margin: 2px;
+  height: 24px;
+}
+
+.sidebar-folder-settings {
+  right: 0;
+}
+.sidebar-folder-settings img {
+  margin: 2px;
+  height: 24px;
+  filter: var(--svg-invert-gray);
+}
+
+.sidebar-folder-settings-modal {
+  position: relative;
+  right: -8px;
+  top: 8px;
+}

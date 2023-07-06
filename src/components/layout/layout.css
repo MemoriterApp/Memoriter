@@ -1,0 +1,26 @@
+.layout {
+  display: flex;
+}
+
+.layout-edge-hover {
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  width: 20px;
+  height: calc(100% - 89px);
+  z-index: 1;
+}
+
+.layout-content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  transition: width 250ms;
+}
+
+@media (max-width: 600px) {
+  .layout-content {
+    width: 100% !important;
+  }
+}

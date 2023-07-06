@@ -8,8 +8,8 @@
   background-color: var(--color-background);
   width: 340px;
   height: 210px;
-  max-width: calc(100% - 40px);
-  max-height: calc(100% - 40px);
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
   z-index: 12;
   border-radius: 12px;
   overflow-y: auto;
@@ -18,7 +18,7 @@
 .confirm-title { /* modal prompt text */
   font-size: 1.6rem;
   color: var(--color-font);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   text-align: center;
   margin: 24px 12px 32px 12px;
 }
@@ -34,7 +34,7 @@
   width: 100px;
   font-size: 1.6rem;
   color: var(--color-white);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   padding-top: 4px;
   padding-bottom: 8px;
   border: none;

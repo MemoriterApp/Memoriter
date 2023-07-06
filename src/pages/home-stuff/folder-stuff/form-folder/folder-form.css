@@ -10,7 +10,7 @@
   max-width: calc(100vw - 30px);
   max-height: calc(100vh - 30px);
   color: var(--color-font);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   text-align: center;
   background-color: var(--color-background);
   border-radius: 10px;
@@ -27,7 +27,7 @@
   width: 80%;
   font-size: 20px;
   color: var(--color-font);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   padding: 5px;
   margin-top: 16px;
   margin-bottom: 24px;
@@ -43,7 +43,7 @@
 .folder-form-button { /* done button to confirm changes */
   font-size: 20px;
   color: var(--color-white);
-  font-family: var(--current-font);
+  font-family: var(--font-default);
   padding: 8px 24px;
   background-color: var(--current-blue);
   border: none;

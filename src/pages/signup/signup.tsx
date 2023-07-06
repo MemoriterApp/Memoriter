@@ -1,5 +1,5 @@
 import Logo from '../../images/memoriter-logo.svg';
-import FooterButton from '../../components/footer/footer-button/footer-button';
+import FooterButton from '../../components/layout/footer/footer';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
@@ -97,10 +97,10 @@ function SignUpPage() {
     return (
         <>
             <header className='page-header'>
-                <Link to='/'>
-                    <img className='header-logo' src={Logo} alt='site-logo' />
-                </Link>
-                <h1 className='page-title'>Sign Up</h1>
+            <a href='https://memoriter.de'>
+                    <img className='header-logo' src={Logo} alt='site-logo' style={{top: '20px', left: '10px'}} />
+                </a>
+                <h1 className='page-title' style={{top: '10px'}}>Sign Up</h1>
                 <Link to='/login' className='link-box'>Log In</Link>
             </header>
             <main>
