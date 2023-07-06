@@ -212,10 +212,6 @@ const Layout = forwardRef(
     const deleteFolder = async (oldFolder: Type.Folder) => {
       await removeFolder(oldFolder._id);
 
-      if (oldFolder._id === window.location.pathname.replace('/topic/', '')) {
-        navigate('/');
-      }
-
       const updatedFolders = folders
         .map((folder: Type.Folder) =>
           folder.pos > oldFolder.pos
@@ -224,8 +220,15 @@ const Layout = forwardRef(
             : folder
         )
         .filter((folder: Type.Folder) => folder._id !== oldFolder._id);
-      setFolders(updatedFolders);
-      onUpdateFolders(updatedFolders);
+
+      if (oldFolder._id === window.location.pathname.replace('/topic/', '')) {
+        setFolders(updatedFolders);
+        navigate('/');
+      } else {
+        setFolders(updatedFolders);
+        onUpdateFolders(updatedFolders);
+      }
+
 
       const flashcards = await getFlashcards(oldFolder._id);
       flashcards.forEach(async (flashcard) => {
