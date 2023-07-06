@@ -140,8 +140,7 @@ const Layout = forwardRef(
     };
 
     const changeFolderIcon = async (id: string, icon: any) => {
-      const newIcon = { icon: icon };
-      await updateFolder(id, newIcon);
+      await updateFolder(id, { icon: icon });
 
       const updatedFolders = folders.map((folder: Type.Folder) =>
         folder._id === id ? { ...folder, icon: icon } : folder
