@@ -63,15 +63,6 @@ const Layout = forwardRef(
       onAddFolder(title: string) {
         addFolder(title);
       },
-      onPosUp(id: string, pos: number) {
-        posUp(id, pos);
-      },
-      onPosDown(id: string, pos: number) {
-        posDown(id, pos);
-      },
-      onFolderPositionAdjust(id: string, pos: number) {
-        folderPositionAdjust(id, pos);
-      },
       onChangeFolderIcon(id: string, icon: string) {
         changeFolderIcon(id, icon);
       },
@@ -103,46 +94,6 @@ const Layout = forwardRef(
       onUpdateFolders(allFolders);
     };
 
-    const posUp = async (id: string, pos: number) => {
-      const newPosUp = { pos: pos - 1 };
-      await updateFolder(id, newPosUp);
-
-      const updatedFolders = folders.map((folder: Type.Folder) =>
-        folder._id === id
-          ? { ...folder, pos: folder.pos - 1 }
-          : folder.pos === pos - 1
-          ? (sessionStorage.setItem('newPosFolder', folder._id), { ...folder, pos: folder.pos + 1 })
-          : folder
-      );
-      setFolders(updatedFolders);
-      onUpdateFolders(updatedFolders);
-    };
-    const posDown = async (id: string, pos: number) => {
-      const newPosDown = { pos: pos + 1 };
-      await updateFolder(id, newPosDown);
-
-      const updatedFolders = folders.map((folder: Type.Folder) =>
-        folder._id === id
-          ? { ...folder, pos: folder.pos + 1 }
-          : folder.pos === pos + 1
-          ? (sessionStorage.setItem('newPosFolder', folder._id.toString()),
-            { ...folder, pos: folder.pos - 1 })
-          : folder
-      );
-      setFolders(updatedFolders);
-      onUpdateFolders(updatedFolders);
-    };
-    const folderPositionAdjust = async (id: string, pos: any) => {
-      const newPosition = { pos: pos };
-      await updateFolder(id, newPosition);
-
-      const updatedFolders = folders.map((folder: Type.Folder) =>
-        folder._id === id ? { ...folder, pos: pos } : folder
-      );
-      setFolders(updatedFolders);
-      onUpdateFolders(updatedFolders);
-    };
-
     const editFolder = async (id: string, title: any) => {
       if (id === window.location.pathname.replace('/topic/', '')) {
         onUpdateCurrentFolder({ id: id, title: title, favorite: true });
@@ -154,8 +105,6 @@ const Layout = forwardRef(
       const updatedFolders = folders.map((folder: Type.Folder) =>
         folder._id === id ? { ...folder, title: title } : folder
       );
-      setFolders(updatedFolders);
-      onUpdateFolders(updatedFolders);
     };
 
     const changeFolderIcon = async (id: string, icon: any) => {

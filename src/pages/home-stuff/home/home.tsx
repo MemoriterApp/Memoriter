@@ -38,15 +38,6 @@ function HomePage() {
     ref.current.onAddFolder(title);
     setModalIsOpen(false);
   };
-  const posUp = (id: string, pos: number) => {
-    ref.current.onPosUp(id, pos);
-  };
-  const posDown = (id: string, pos: number) => {
-    ref.current.onPosDown(id, pos);
-  };
-  const posAdjust = (id: string, pos: number) => {
-    ref.current.onFolderPositionAdjust(id, pos);
-  };
   const editFolder = (id: string, title: string) => {
     ref.current.onEditFolder(id, title);
   };
@@ -64,32 +55,6 @@ function HomePage() {
   };
   const deleteFolder = (folder: Type.Folder) => {
     ref.current.onDeleteFolder(folder);
-  };
-
-  const handleDragEnd = (event: any) => {
-    const { active, over } = event;
-    const activeIndex = folders.findIndex((folder: Type.Folder) => folder._id === active.id);
-    const overIndex = folders.findIndex((folder: Type.Folder) => folder._id === over.id);
-
-    if (activeIndex !== overIndex) {
-      const updatedFolders = [...folders];
-      const [removed] = updatedFolders.splice(activeIndex, 1);
-      updatedFolders.splice(overIndex, 0, removed);
-
-      const updatedFoldersWithPositions = updatedFolders.map(
-        (folder: Type.Folder, index: number) => ({
-          ...folder,
-          pos: index + 1,
-        })
-      );
-      setFolders(updatedFoldersWithPositions);
-
-      // Update new positions in the database
-      updatedFoldersWithPositions.forEach(async (folder) => {
-        await updateFolder(folder._id, { pos: folder.pos });
-      });
-    }
-    setActiveId(null);
   };
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -148,9 +113,6 @@ function HomePage() {
                       onDeleteFolder={deleteFolder}
                       onEditFolder={editFolder}
                       onArchiveFolder={archiveFolder}
-                      onPosUp={posUp}
-                      onPosDown={posDown}
-                      onPosAdjust={posAdjust}
                       onChangeFolderIcon={changeFolderIcon}
                       onFavoriteFolder={favoriteFolder}
                       onUnfavoriteFolder={unfavoriteFolder}
@@ -166,9 +128,6 @@ function HomePage() {
                       onDeleteFolder={deleteFolder}
                       onEditFolder={editFolder}
                       onArchiveFolder={archiveFolder}
-                      onPosUp={posUp}
-                      onPosDown={posDown}
-                      onPosAdjust={posAdjust}
                       onChangeFolderIcon={changeFolderIcon}
                       onFavoriteFolder={favoriteFolder}
                       onUnfavoriteFolder={unfavoriteFolder}
@@ -202,6 +161,32 @@ function HomePage() {
       </main>
     </Layout>
   );
+
+  function handleDragEnd(event: any) {
+    const { active, over } = event;
+    const activeIndex = folders.findIndex((folder: Type.Folder) => folder._id === active.id);
+    const overIndex = folders.findIndex((folder: Type.Folder) => folder._id === over.id);
+
+    if (activeIndex !== overIndex) {
+      const updatedFolders = [...folders];
+      const [removed] = updatedFolders.splice(activeIndex, 1);
+      updatedFolders.splice(overIndex, 0, removed);
+
+      const updatedFoldersWithPositions = updatedFolders.map(
+        (folder: Type.Folder, index: number) => ({
+          ...folder,
+          pos: index + 1,
+        })
+      );
+      setFolders(updatedFoldersWithPositions);
+
+      // Update new positions in the database
+      updatedFoldersWithPositions.forEach(async (folder) => {
+        await updateFolder(folder._id, { pos: folder.pos });
+      });
+    }
+    setActiveId(null);
+  }
 
   function handleDragStart(event: any) {
     const { active } = event;

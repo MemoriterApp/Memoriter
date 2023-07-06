@@ -18,7 +18,6 @@ const Folder = ({
     folder,
     onDeleteFolder,
     onEditFolder,
-    onPosAdjust,
     onArchiveFolder,
     onChangeFolderIcon,
     onFavoriteFolder,
@@ -28,10 +27,7 @@ const Folder = ({
     id: any,
     onDeleteFolder: any,
     onEditFolder: any,
-    onPosUp: any,
-    onPosDown: any,
     folderCount: any,
-    onPosAdjust: any,
     onArchiveFolder: any,
     onChangeFolderIcon: any,
     onFavoriteFolder: any,
@@ -91,19 +87,6 @@ const Folder = ({
 
     if (folder.pos !== pos) {
         setPos(folder.pos);
-    }
-
-    const newPosId = sessionStorage.getItem('newPosFolder');
-    const newPosIdDelete = sessionStorage.getItem('newPosFolder' + folder._id);
-
-
-    if (newPosId === folder._id) {
-        onPosAdjust(folder._id, folder.pos);
-        sessionStorage.removeItem('newPosFolder');
-    } else if (newPosIdDelete === folder._id) {
-
-        onPosAdjust(folder._id, folder.pos);
-        sessionStorage.removeItem('newPosFolder' + folder._id);
     }
 
     const addEmoji = (emoji: any) => {
