@@ -18,7 +18,7 @@
     top: 80px;
     left: calc(5% - 12px);
     border-radius: 20px;
-    max-height: calc(100% - 120px);
+    max-height: calc(100% - 30px);
     min-height: 180px;
     overflow: hidden;
 }
@@ -75,9 +75,11 @@
     border: none;
     transition: background-color 200ms;
 }
+
 .new-folder-body:hover {
     background-color: var(--color-hover);
 }
+
 .button-new-folder {
     position: absolute;
     top: 0%;
@@ -88,6 +90,7 @@
     border: none;
     cursor: pointer;
 }
+
 .button-new-folder img {
     position: relative;
     left: 45%;

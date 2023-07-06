@@ -33,6 +33,7 @@
 }
 
 .profile-sub {
+  top: 15px;
   color: var(--color-font);
   width: 100%;
   font-size: 2ch;
@@ -67,12 +68,15 @@
   height: 340px;
   position: fixed;
   top: 18%;
-  right: 7.5%;
   max-width: calc(100vw - 30px);
   max-height: calc(100vh - 30px);
   z-index: 10;
   border-radius: 6px;
   overflow-y: auto;
+}
+
+.Settings-changemail-body :first-child {
+  margin-top: 30px;
 }
 
 .Settings-changemail-cancel {
