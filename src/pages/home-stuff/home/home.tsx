@@ -59,6 +59,10 @@ function HomePage() {
   const deleteFolder = (folder: Type.Folder) => {
     ref.current.onDeleteFolder(folder);
   };
+    
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
   const [searchQuery, setSearchQuery] = useState('');
 

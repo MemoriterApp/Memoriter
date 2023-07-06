@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import './folder-form.css';
 import Backdrop from '../../../../components/backdrops/backdrop/backdrop';
 
@@ -13,12 +13,13 @@ const FolderForm = ({ type, folder, onConfirm, onCancel }: { type: any, folder: 
         onConfirm(title);
     };
 
+
     return (
         <>
             <form className='folder-form' onSubmit={onSubmitFolder}>
                 <h2 className='folder-form-title'>{type} folder</h2>
                 <label className='folder-form-input-label' htmlFor='folder-form-input'>
-          Folder name:
+                    Folder name:
                 </label>
                 <input
                     className='folder-form-input'
@@ -31,10 +32,10 @@ const FolderForm = ({ type, folder, onConfirm, onCancel }: { type: any, folder: 
                     onChange={(event) => setTitle(event.target.value)}
                 />
                 <button className='folder-form-button' type='submit'>
-          Done
+                    Done
                 </button>
             </form>
-            <Backdrop onClick={() => onCancel()}/>
+            <Backdrop onClick={onCancel} />
         </>
     );
 };
