@@ -61,6 +61,7 @@
     border-radius: 3px;
     transition: background-color 200ms;
 }
+
 .folder:hover {
     background-color: var(--color-hover);
 }
@@ -77,9 +78,11 @@
     cursor: pointer;
     transition: background-color 200ms;
 }
+
 .folder-icon:hover {
     background-color: var(--color-hover-icon);
 }
+
 .folder-icon img {
     position: relative;
     left: 50%;
@@ -231,11 +234,13 @@ em-emoji-picker {
     --font-size: 16px;
     --color-border: var(--color-hover);
 }
+
 #dark em-emoji-picker {
     --rgb-color: 255, 255, 255;
     --rgb-background: 32, 32, 32;
     --rgb-input: 56, 56, 56, 0.75;
 }
+
 #light em-emoji-picker {
     --rgb-color: 0, 0, 0;
     --rgb-background: 238, 238, 238;
@@ -248,4 +253,17 @@ em-emoji-picker {
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
+}
+
+.drag-image {
+    position: absolute;
+    cursor: grab;
+    background-color: #807d7d;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    right: 50px;
+    margin-top: -32px;
+    display: inline-block;
+    vertical-align: middle;
 }

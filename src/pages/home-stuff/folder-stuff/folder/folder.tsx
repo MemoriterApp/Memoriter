@@ -9,27 +9,25 @@ import FolderSettings from '../settings-folder/folder-settings';
 import * as Type from '../../../../types';
 import { getFlashcards } from '../../../../technical/utils/mongo';
 import placeholderFolder from '../../../../images/placeholder-folder.svg';
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import dragHandle from '../../../../images/drag-handle.svg';
+
 
 const Folder = ({
     folder,
     onDeleteFolder,
     onEditFolder,
-    onPosUp,
-    onPosDown,
-    folderCount,
-    onPosAdjust,
     onArchiveFolder,
     onChangeFolderIcon,
     onFavoriteFolder,
     onUnfavoriteFolder,
 }: {
     folder: any,
+    id: any,
     onDeleteFolder: any,
     onEditFolder: any,
-    onPosUp: any,
-    onPosDown: any,
     folderCount: any,
-    onPosAdjust: any,
     onArchiveFolder: any,
     onChangeFolderIcon: any,
     onFavoriteFolder: any,
@@ -61,11 +59,11 @@ const Folder = ({
     }
     // changes the background color of the indicator if a lot of cards are due
     const backgroundColor =
-  due.length > 100
-      ? 'var(--current-red)'
-      : due.length > 50
-          ? 'var(--current-blue-dark)'
-          : 'var(--current-gray-medium-dark)';
+        due.length > 100
+            ? 'var(--current-red)'
+            : due.length > 50
+                ? 'var(--current-blue-dark)'
+                : 'var(--current-gray-medium-dark)';
 
     // cache folder values if folder is clicked
     const onOpenFolder = () => {
@@ -85,23 +83,10 @@ const Folder = ({
         setEditModal(false);
     };
 
-    const [pos, setPos] = useState(folder.pos); // pos is the state of the position of the folder
-    // if the position of the folder is not the same as the state of the position of the folder
+    const [pos, setPos] = useState(folder.pos);
+
     if (folder.pos !== pos) {
-        setPos(folder.pos); // set the state of the position of the folder to the position of the folder
-    }
-
-    const newPosId = sessionStorage.getItem('newPosFolder'); // get the id of the folder that has the new position
-    const newPosIdDelete = sessionStorage.getItem('newPosFolder' + folder._id); // get the id of the folder that has the new position
-
-    // if the id of the folder that has the new position is the same as the id of the folder
-    if (newPosId === folder._id) {
-        onPosAdjust(folder._id, folder.pos); //adjust the position of the folder
-        sessionStorage.removeItem('newPosFolder'); //remove the id of the folder that has the new position from the session storage
-    } else if (newPosIdDelete === folder._id) {
-        //if the id of the folder that has the new position is the same as the id of the folder
-        onPosAdjust(folder._id, folder.pos); //adjust the position of the folder
-        sessionStorage.removeItem('newPosFolder' + folder._id); //remove the id of the folder that has the new position from the session storage
+        setPos(folder.pos);
     }
 
     const addEmoji = (emoji: any) => {
@@ -109,11 +94,23 @@ const Folder = ({
         setShowEmojiPicker(false);
     };
 
+    //everything related to the drag and drop
+    const { attributes, listeners, setNodeRef, transform, transition, setActivatorNodeRef } = useSortable({ id: folder._id });
+    const style = {
+        transform: CSS.Transform.toString(transform),
+        transition,
+    };
+
     return (
-        <section className='folder'>
+        <section
+            className='folder'
+            ref={setNodeRef}
+            style={style}
+            {...attributes}
+        >
             <button className='folder-icon' onClick={() => setShowEmojiPicker(true)}>
                 {folder.icon === '' || folder.icon === undefined ? (
-                    <img src={placeholderFolder} alt='placeholder icon' style={{filter: 'var(--svg-invert-gray)'}}/>
+                    <img src={placeholderFolder} alt='placeholder icon' style={{ filter: 'var(--svg-invert-gray)' }} />
                 ) : (
                     <img
                         src={`https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/${folder.icon}.svg`}
@@ -141,28 +138,10 @@ const Folder = ({
                 </Link>
             </div>
 
-            <div
-                className='folder-pos-body-up'
-                onClick={() => {
-                    if (pos > 1) {
-                        setPos(pos - 1);
-                        onPosUp(folder._id, pos);
-                    }
-                }}
-            >
-                <div className='folder-pos-arrow-up' />
-            </div>
-            <div
-                className='folder-pos-body-down'
-                onClick={() => {
-                    if (pos < folderCount) {
-                        setPos(pos + 1);
-                        onPosDown(folder._id, pos);
-                    }
-                }}
-            >
-                <div className='folder-pos-arrow-down' />
-            </div>
+            <span>
+                <img src={dragHandle} alt='handle-drag-image' className='drag-image' ref={setActivatorNodeRef} {...listeners}></img>
+            </span>
+
             <div className='button-homepage-settings' style={{ transform: 'rotate(90deg)' }} onClick={() => { setModalIsOpen(true); }}>
                 <span className='dot' />
                 <span className='dot' />
@@ -203,7 +182,7 @@ const Folder = ({
 
             {showEmojiPicker && (
                 <>
-                    <Backdrop onClick={() => setShowEmojiPicker(false)}/>
+                    <Backdrop onClick={() => setShowEmojiPicker(false)} />
                     <div className='emoji-picker-container'>
                         <Picker
                             set='twitter'
