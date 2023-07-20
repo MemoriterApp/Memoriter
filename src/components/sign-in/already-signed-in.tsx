@@ -17,7 +17,7 @@ const AlreadySignedIn = ({ title }: { title: string }) => {
   function signOutFunction() {
     signOut(firebase.auth); // pre-built sign out firebase function
     dispatch(displaySuccessMessage('Successfully signed out!')); // sets state for the sign-in-main component to read to display a success message
-    navigate('/signin');
+    navigate('/sign-in');
   }
 
   return (
@@ -100,14 +100,14 @@ const AlreadySignedIn = ({ title }: { title: string }) => {
       {/* link to privacy policiy and terms of use page */}
       <section>
         <p className='sign-in-main-text'>
-          <Link className='sign-in-main-link' to='/privacy' target='_blank'>
+          <a className='sign-in-main-link' href='https://memoriter.de/privacy' target='_blank' rel='noreferrer'>
             Privacy Policy
-          </Link>
+          </a>
         </p>
         <p className='sign-in-main-text'>
-          <Link className='sign-in-main-link' to='/terms' target='_blank'>
+          <a className='sign-in-main-link' href='https://memoriter.de/terms' target='_blank' rel='noreferrer'>
             Terms of Use
-          </Link>
+          </a>
         </p>
       </section>
     </main>

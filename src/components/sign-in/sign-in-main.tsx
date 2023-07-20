@@ -129,50 +129,6 @@ const SignInMain = ({ onOpenPasswordReset }: { onOpenPasswordReset: any }) => {
       .catch(error); //displays error if sign in fails (uses error const)
   }
 
-  async function signInWithGoogle() {
-    //google sign in function
-    setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
-
-    const provider = new GoogleAuthProvider(); //connection to google sign in
-
-    signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
-      .then(() => navigate('/')) //navigates to app (only accessable when signed in)
-      .catch(error); //displays error if sign in fails (uses error const)
-  }
-
-  async function signInWithApple() {
-    //google sign in function
-    setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
-
-    const provider = new OAuthProvider('apple.com'); //connection to apple sign in
-
-    signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
-      .then(() => navigate('/')) //navigates to app (only accessable when signed in)
-      .catch(error); //displays error if sign in fails (uses error const)
-  }
-
-  async function signInWithFacebook() {
-    //google sign in function
-    setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
-
-    const provider = new FacebookAuthProvider(); //connection to facebook sign in
-
-    signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
-      .then(() => navigate('/')) //navigates to app (only accessable when signed in)
-      .catch(error); //displays error if sign in fails (uses error const)
-  }
-
-  async function signInWithGithub() {
-    //google sign in function
-    setSuccessMessage(''); //disables success popup (prevents conflict with error popup)
-
-    const provider = new GithubAuthProvider(); //connection to github sign in
-
-    signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
-      .then(() => navigate('/')) //navigates to app (only accessable when signed in)
-      .catch(error); //displays error if sign in fails (uses error const)
-  }
-
   return (
     <main className='sign-in-main' style={errorStyleChanges}>
       <h1 className='sign-in-main-heading'>Sign In</h1>
@@ -212,26 +168,6 @@ const SignInMain = ({ onOpenPasswordReset }: { onOpenPasswordReset: any }) => {
       )}
 
       {/*buttons for third party authentication methods*/}
-      <section className='sign-in-main-third-party'>
-        <button className='sign-in-main-google' onClick={signInWithGoogle /*imported function*/}>
-          <img src={googleIcon} alt='google-icon' className='sign-in-main-google-icon' />
-        </button>
-
-        <button className='sign-in-main-apple' onClick={signInWithApple /*imported function*/}>
-          <img src={appleIcon} alt='apple-icon' className='sign-in-main-apple-icon' />
-        </button>
-
-        <button
-          className='sign-in-main-facebook'
-          onClick={signInWithFacebook /*imported function*/}
-        >
-          <img src={facebookIcon} alt='facebook-icon' className='sign-in-main-facebook-icon' />
-        </button>
-
-        <button className='sign-in-main-github' onClick={signInWithGithub /*imported function*/}>
-          <img src={githubIcon} alt='github-icon' className='sign-in-main-github-icon' />
-        </button>
-      </section>
 
       <section>
         {/*sign up with email form*/}
@@ -277,14 +213,14 @@ const SignInMain = ({ onOpenPasswordReset }: { onOpenPasswordReset: any }) => {
 
         {/*link to privacy policiy and terms of use page*/}
         <p className='sign-in-main-text'>
-          <Link className='sign-in-main-link' to='/privacy' target='_blank'>
+          <a className='sign-in-main-link' href='https://memoriter.de/privacy' target='_blank' rel='noreferrer'>
             Privacy Policy
-          </Link>
+          </a>
         </p>
         <p className='sign-in-main-text'>
-          <Link className='sign-in-main-link' to='/terms' target='_blank'>
+          <a className='sign-in-main-link' href='https://memoriter.de/terms' target='_blank' rel='noreferrer'>
             Terms of Use
-          </Link>
+          </a>
         </p>
 
         {/*link to register page*/}

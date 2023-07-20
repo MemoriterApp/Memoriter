@@ -108,42 +108,6 @@ const RegisterMain = () => {
     }
   }
 
-  async function signInWithGoogle() {
-    //google sign in function
-    const provider = new GoogleAuthProvider(); //connection to google sign in
-
-    signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
-      .then(() => navigate('/')) //navigates to app (only accessable when signed in)
-      .catch(error); //displays error if sign in fails (uses error const)
-  }
-
-  async function signInWithApple() {
-    //google sign in function
-    const provider = new OAuthProvider('apple.com'); //connection to apple sign in
-
-    signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
-      .then(() => navigate('/')) //navigates to app (only accessable when signed in)
-      .catch(error); //displays error if sign in fails (uses error const)
-  }
-
-  async function signInWithFacebook() {
-    //google sign in function
-    const provider = new FacebookAuthProvider(); //connection to facebook sign in
-
-    signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
-      .then(() => navigate('/')) //navigates to app (only accessable when signed in)
-      .catch(error); //displays error if sign in fails (uses error const)
-  }
-
-  async function signInWithGithub() {
-    //google sign in function
-    const provider = new GithubAuthProvider(); //connection to github sign in
-
-    signInWithPopup(firebase.auth, provider) //firebase pre-built sign in function
-      .then(() => navigate('/')) //navigates to app (only accessable when signed in)
-      .catch(error); //displays error if sign in fails (uses error const)
-  }
-
   return (
     <main className='sign-in-main' style={errorStyleChanges}>
       <h1 className='sign-in-main-heading'>Register</h1>
@@ -164,28 +128,6 @@ const RegisterMain = () => {
           {/*close popup button*/}
         </p>
       )}
-
-      {/*buttons for third party authenticationmethods*/}
-      <section className='sign-in-main-third-party'>
-        <button className='sign-in-main-google' onClick={signInWithGoogle /*imported function*/}>
-          <img src={googleIcon} alt='google-icon' className='sign-in-main-google-icon' />
-        </button>
-
-        <button className='sign-in-main-apple' onClick={signInWithApple /*imported function*/}>
-          <img src={appleIcon} alt='apple-icon' className='sign-in-main-apple-icon' />
-        </button>
-
-        <button
-          className='sign-in-main-facebook'
-          onClick={signInWithFacebook /*imported function*/}
-        >
-          <img src={facebookIcon} alt='facebook-icon' className='sign-in-main-facebook-icon' />
-        </button>
-
-        <button className='sign-in-main-github' onClick={signInWithGithub /*imported function*/}>
-          <img src={githubIcon} alt='github-icon' className='sign-in-main-github-icon' />
-        </button>
-      </section>
 
       <section>
         {/*sign up with email form*/}
@@ -221,13 +163,13 @@ const RegisterMain = () => {
           <div>
             <p className='sign-in-main-checkbox-label'>
               I have read and understood the{' '}
-              <Link className='sign-in-main-text-link' to='/terms' target='_blank'>
+              <a className='sign-in-main-text-link' href='https://memoriter.de/privacy' target='_blank' rel='noreferrer'>
                 terms of use
-              </Link>{' '}
+              </a>{' '}
               and{' '}
-              <Link className='sign-in-main-text-link' to='/privacy' target='_blank'>
+              <a className='sign-in-main-text-link' href='https://memoriter.de/terms' target='_blank' rel='noreferrer'>
                 privacy policy
-              </Link>
+              </a>
               .
             </p>
             <label className='sign-in-main-checkbox'>
@@ -255,7 +197,7 @@ const RegisterMain = () => {
         {/*link to sign in page*/}
         <p className='sign-in-main-text'>
           Already have an account?{' '}
-          <Link className='sign-in-main-text-link' to='/signin'>
+          <Link className='sign-in-main-text-link' to='/sign-in'>
             Sign in here
           </Link>
           .
