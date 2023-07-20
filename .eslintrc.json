@@ -40,7 +40,7 @@
         ],
         "indent": [
             "warn",
-            4
+            2
         ],
         "jsx-quotes": [
             "warn",

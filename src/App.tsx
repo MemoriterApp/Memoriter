@@ -16,6 +16,8 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { firebase } from './technical/utils/mongo';
 import { onAuthStateChanged } from 'firebase/auth';
+import SignIn from './pages/sign-in';
+import Register from './pages/register';
 
 const App = () => {
 
@@ -45,6 +47,8 @@ const App = () => {
                             <Route path='/login' element={<LoginPage />} />
                             <Route path='/signup' element={<SignUpPage />} />
                         </>)}
+                        <Route path='/signin' element={<SignIn />} />
+                        <Route path='/register' element={<Register />} />
                     </Routes>
                 </ThemeProvider>
             </ScrollReset>
