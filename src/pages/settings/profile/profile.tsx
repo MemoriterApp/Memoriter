@@ -1,13 +1,15 @@
 import { FormEvent, useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
 import '../change-preview/changePreview.css';
 import './profile.css';
-import { signOut, getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from 'firebase/auth';
+import { getAuth, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider, deleteUser } from 'firebase/auth';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
-import { firebase } from '../../../technical/utils/mongo';
 
 function Profile() {
+    const dispatch = useDispatch(); // used to manipulate global sate (react redux)
 
     //states to check what preview mode
     const [isOnlyQuestion, setIsOnlyQuestion] = useState(false);
@@ -55,14 +57,6 @@ function Profile() {
 
     //logout stuff
     const navigate = useNavigate();
-
-    const logOut = async () => {
-        await signOut(firebase.auth);
-        localStorage.removeItem('folderID');
-        localStorage.removeItem('folderTitle');
-
-        navigate('/login');
-    };
 
     //change email function
     async function newEmailSubmit(e: FormEvent) {
@@ -215,7 +209,8 @@ function Profile() {
 
         //delete user function (https://firebase.google.com/docs/auth/web/manage-users?hl=en)
         deleteUser(user!).then(() => {
-            return navigate('/login');
+            dispatch(displaySuccessMessage('Account successfully deleted!')); // sets state for the sign-in-main component to read to display a success message
+            return navigate('/sign-in');
         }).catch((error) => {
             alert('An error has occurred while trying to delete your account, please try again later!" (' + error + ')');
         });

@@ -8,6 +8,7 @@ import Profile from '../profile/profile';
 import './settings-interaction.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTheme } from '../../../technical/features/theme-slice';
+import { displaySuccessMessage } from '../../../technical/features/authentication-success-slice';
 import { signOut } from 'firebase/auth';
 
 function SettingsClick() {
@@ -32,10 +33,11 @@ function SettingsClick() {
 
     const logOut = async () => {
         await signOut(firebase.auth);
+        dispatch(displaySuccessMessage('Successfully signed out!')); // sets state for the sign-in-main component to read to display a success message
         localStorage.removeItem('folderID');
         localStorage.removeItem('folderTitle');
 
-        navigate('/login');
+        navigate('/sign-in');
     };
 
 
