@@ -1,21 +1,10 @@
 import '../../styles/sign-in/sign-in-main.css';
-import googleIcon from '../../images/icons/google-icon.svg';
-import appleIcon from '../../images/icons/apple-icon.svg';
-import facebookIcon from '../../images/icons/facebook-icon.svg';
-import githubIcon from '../../images/icons/github-icon.svg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { displaySuccessMessage } from '../../technical/features/authentication-success-slice';
 import { firebase } from '../../technical/utils/mongo';
-import {
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  OAuthProvider,
-  FacebookAuthProvider,
-  GithubAuthProvider,
-} from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const SignInMain = ({ onOpenPasswordReset }: { onOpenPasswordReset: any }) => {
   const navigate = useNavigate(); //variable for routing, alternative option for links
@@ -213,12 +202,22 @@ const SignInMain = ({ onOpenPasswordReset }: { onOpenPasswordReset: any }) => {
 
         {/*link to privacy policiy and terms of use page*/}
         <p className='sign-in-main-text'>
-          <a className='sign-in-main-link' href='https://memoriter.de/privacy' target='_blank' rel='noreferrer'>
+          <a
+            className='sign-in-main-link'
+            href='https://memoriter.de/privacy'
+            target='_blank'
+            rel='noreferrer'
+          >
             Privacy Policy
           </a>
         </p>
         <p className='sign-in-main-text'>
-          <a className='sign-in-main-link' href='https://memoriter.de/terms' target='_blank' rel='noreferrer'>
+          <a
+            className='sign-in-main-link'
+            href='https://memoriter.de/terms'
+            target='_blank'
+            rel='noreferrer'
+          >
             Terms of Use
           </a>
         </p>

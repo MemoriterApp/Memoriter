@@ -1,18 +1,7 @@
-import googleIcon from '../../images/icons/google-icon.svg';
-import appleIcon from '../../images/icons/apple-icon.svg';
-import facebookIcon from '../../images/icons/facebook-icon.svg';
-import githubIcon from '../../images/icons/github-icon.svg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { firebase } from '../../technical/utils/mongo';
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  OAuthProvider,
-  FacebookAuthProvider,
-  GithubAuthProvider,
-} from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const RegisterMain = () => {
   const navigate = useNavigate(); //variable for routing, alternative option for links
@@ -163,11 +152,21 @@ const RegisterMain = () => {
           <div>
             <p className='sign-in-main-checkbox-label'>
               I have read and understood the{' '}
-              <a className='sign-in-main-text-link' href='https://memoriter.de/privacy' target='_blank' rel='noreferrer'>
+              <a
+                className='sign-in-main-text-link'
+                href='https://memoriter.de/privacy'
+                target='_blank'
+                rel='noreferrer'
+              >
                 terms of use
               </a>{' '}
               and{' '}
-              <a className='sign-in-main-text-link' href='https://memoriter.de/terms' target='_blank' rel='noreferrer'>
+              <a
+                className='sign-in-main-text-link'
+                href='https://memoriter.de/terms'
+                target='_blank'
+                rel='noreferrer'
+              >
                 privacy policy
               </a>
               .

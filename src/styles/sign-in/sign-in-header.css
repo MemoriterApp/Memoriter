@@ -2,7 +2,7 @@
 
 /* the header box at the top of the page */
 .sign-in-header {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -10,19 +10,35 @@
   z-index: 1;
 }
 
+/* all navigation links and buttons */
+.sign-in-header-navigation {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: calc(100% - 160px);
+  max-width: 1400px;
+  height: calc(100% - 1px);
+}
+
 /* logo formatting used for the header */
 .sign-in-header-logo {
   position: absolute;
-  left: 80px;
   top: calc(50% - 1px);
-  transform: translate(0, -50%);
+  transform: translateY(-50%);
   height: 35px;
-  cursor: pointer;
+  font: 1.4rem var(--font-highlight);
+  line-height: 2.2rem;
   filter: var(--svg-invert);
+  cursor: pointer;
 }
 
 /* logo position is equal to website header logo */
-@media (max-width: 1160px) {
+@media (max-width: 1200px) {  
+  .sign-in-header-navigation {
+    width: 100%;
+  }
+
   .sign-in-header-logo {
     left: 10px;
   }
