@@ -1,4 +1,5 @@
 import Redirect from './technical/routing/redirect';
+import PageNotFound from './pages/404';
 
 import LoginPage from './pages/login-stuff/login/login';
 import SignUpPage from './pages/signup/signup';
@@ -45,6 +46,7 @@ const App = () => {
                             <Route path='/login' element={<LoginPage />} />
                             <Route path='/signup' element={<SignUpPage />} />
                         </>)}
+                        <Route path='*' element={<PageNotFound />} /> {/* 404 page for all other routes */}
                     </Routes>
                 </ThemeProvider>
             </ScrollReset>
