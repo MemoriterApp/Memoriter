@@ -1,5 +1,5 @@
 import { useState, useEffect, FormEvent, useCallback } from 'react';
-import Logo from '../../../images/memoriter-logo.svg';
+import Logo from '../../../images/memoriter-logo-black.svg';
 import Backdrop from '../../../components/backdrops/backdrop/backdrop';
 import PasswordReset from '../../settings/password-reset/password-reset';
 import { Link, useNavigate } from 'react-router-dom';

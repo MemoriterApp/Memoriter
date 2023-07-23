@@ -28,8 +28,8 @@
   transform: translateY(-50%);
   height: 35px;
   font: 1.4rem var(--font-highlight);
+  color: var(--color-font);
   line-height: 2.2rem;
-  filter: var(--svg-invert);
   cursor: pointer;
 }
 

@@ -1,7 +1,7 @@
 import './header.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import memoriterLogo from '../../../images/memoriter-logo.svg';
+import memoriterLogo from '../../../images/memoriter-logo-black.svg';
 import chevronRight from '../../../images/chevron-right.svg';
 import searchIcon from '../../../images/icons/search-icon.svg';
 import starIcon from '../../../images/icons/star-icon.svg';
