@@ -1,7 +1,7 @@
 [![stars](https://img.shields.io/github/stars/MemoriterApp/Memoriter?color=brightgreen)](https://github.com/MemoriterApp/Memoriter/stargazers)
 [![issues](https://img.shields.io/github/issues/MemoriterApp/Memoriter?color=orange)](https://github.com/MemoriterApp/Memoriter/issues)
 [![pull requests](https://img.shields.io/github/issues-pr/MemoriterApp/Memoriter?color=yellow)](https://github.com/MemoriterApp/Memoriter/pulls)
-[![license](https://img.shields.io/github/license/MemoriterApp/Memoriter?color=blue)](https://www.gnu.org/licenses/gpl-3.0)
+[![license](https://img.shields.io/github/license/MemoriterApp/Memoriter?color=blue)](https://github.com/MemoriterApp/Memoriter/blob/main/LICENSE)
 [![website](https://img.shields.io/website-up-down-green-red/https/app.memoriter.de/.svg)](https://app.memoriter.de)
 
 # Memoriter
