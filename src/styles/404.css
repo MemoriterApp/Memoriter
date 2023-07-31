@@ -1,0 +1,109 @@
+/* a few styles for the page not found (error 404) page */
+
+/* container with everything */
+.page-not-found {
+  display: flex; /* for layout (queston mark needs to be at the side) */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-width: calc(100% - 40px);
+  color: var(--color-font);
+  font-family: var(--font-highlight);
+  padding-bottom: 92px;
+  gap: 40px; /* gap between question mark and text */
+}
+
+/* large question mark at the left side */
+.page-not-found-question-mark {
+  font: 20rem var(--font-large-question);
+  margin: 0 0 -80px -20px;
+  background: var(--color-highlight-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--color-transparent);
+}
+
+/* memoriter logo */
+.page-not-found-logo {
+  height: 56px;
+  font-size: 2rem;
+  line-height: 60px;
+}
+
+/* page not found heading */
+.page-not-found h1 {
+  font: 3.2rem var(--font-heading);
+}
+
+/* basic (large) text */
+.page-not-found p {
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+  margin-top: -1.6rem;
+}
+
+/* return button, needed to be split in multiple classes, this class is for the positionig of the button */
+.page-not-found-button {
+  position: relative;
+  font-size: 1.4rem;
+  color: var(--color-white);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+}
+
+/* the hover background was done in React because it did not work in css */
+.page-not-found-button-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-highlight-gradient);
+  border-radius: var(--border-radius);
+  z-index: -1;
+  transition: filter 200ms;
+}
+
+/* mobile version of the page */
+@media (max-width: 600px) {
+  .page-not-found {
+    display: unset;
+    top: 20px;
+    transform: translateX(-50%);
+    width: 400px;
+    text-align: center;
+  }
+
+  .page-not-found-question-mark {
+    font-size: 14rem;
+    margin-left: unset;
+    margin-bottom: -20px;
+  }
+
+  .page-not-found-button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+  }
+}
+
+/* hides the content on too small screens (when the warning modal is open) */
+@media (max-width: 240px) {
+  .page-not-found {
+    display: none;
+  }
+}
+
+/* new position on less high screens (otherwise some parts would be off screen) */
+@media (max-height: 500px) {
+  .page-not-found {
+    top: 20px;
+    transform: translateX(-50%);
+  }
+}

@@ -28,6 +28,13 @@
     src: url('./fonts/heebo/Heebo-VariableFont_wght.ttf');
 }
 
+/* Quantico: question mark font for the page not found page */
+@font-face {
+  font-family: 'Quantico';
+  font-weight: 400;
+  src: url('./fonts/quantico/Quantico-Regular.ttf');
+}
+
 :root {
     /*global fixed colors and fonts*/
     /*colors*/
@@ -55,6 +62,9 @@
     --font-user-content: 'M PLUS 1', sans-serif;
     --font-highlight: 'Rubik', sans-serif;
     --font-heading: 'Heebo', sans-serif;
+    --font-large-question: 'Quantico', sans-serif;
+    /* border radii */
+    --border-radius: 4px;
 }
 
 /*global color variables for different visual modes (can be used with the var() expression)*/
