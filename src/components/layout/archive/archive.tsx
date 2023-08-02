@@ -20,23 +20,27 @@ const Archive = ({
   return (
     <div className='archive'>
       <h1>Archive</h1>
-      {folders // render archived folders
-        .filter((folder: Type.Folder) => folder.archived)
-        .map((folder: Type.Folder) => (
-          <ArchiveFolder
-            key={folder._id}
-            folder={folder}
-            onChangeFolderIcon={(id, emoji) => onChangeFolderIcon(id, emoji)}
-            onUnarchiveFolder={(id) => onUnarchiveFolder(id)}
-            onDeleteFolder={(folder) => onDeleteFolder(folder)}
-            onUpdateCurrentFolder={(currentFolder: {
-              id: string;
-              title: string;
-              favorite: boolean;
-            }) => onUpdateCurrentFolder(currentFolder)}
-            onCloseArchive={() => onCloseArchive()}
-          />
-        ))}
+      {folders.filter((folder: Type.Folder) => folder.archived).length === 0 ? (
+        <p className='archive-empty'>Currently there are no archived folders.</p>
+      ) : (
+        folders // render archived folders
+          .filter((folder: Type.Folder) => folder.archived)
+          .map((folder: Type.Folder) => (
+            <ArchiveFolder
+              key={folder._id}
+              folder={folder}
+              onChangeFolderIcon={(id, emoji) => onChangeFolderIcon(id, emoji)}
+              onUnarchiveFolder={(id) => onUnarchiveFolder(id)}
+              onDeleteFolder={(folder) => onDeleteFolder(folder)}
+              onUpdateCurrentFolder={(currentFolder: {
+                id: string;
+                title: string;
+                favorite: boolean;
+              }) => onUpdateCurrentFolder(currentFolder)}
+              onCloseArchive={() => onCloseArchive()}
+            />
+          ))
+      )}
     </div>
   );
 };

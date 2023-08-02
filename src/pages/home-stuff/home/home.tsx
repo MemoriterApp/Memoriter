@@ -59,7 +59,7 @@ function HomePage() {
   const deleteFolder = (folder: Type.Folder) => {
     ref.current.onDeleteFolder(folder);
   };
-    
+
   const closeModal = () => {
     setModalIsOpen(false);
   };
@@ -98,7 +98,7 @@ function HomePage() {
               onDragStart={handleDragStart}
               sensors={sensors}
             >
-              {folders.length > 0 ? (
+              {folders.filter((folder: Type.Folder) => !folder.archived).length > 0 ? (
                 <div />
               ) : (
                 <div className='no-folder-text'>

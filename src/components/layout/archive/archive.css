@@ -16,3 +16,10 @@
   font: 1.6rem var(--font-default);
   text-align: center;
 }
+
+.archive-empty {
+  font: italic 1.2rem var(--font-default);
+  color: var(--color-font-gray);
+  text-align: center;
+  margin: -4px 0 8px;
+}
