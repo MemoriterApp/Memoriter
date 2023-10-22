@@ -31,8 +31,17 @@ jobs:
         uses: garygrossgarten/github-action-scp@v0.7.3
         with:
           local: ./build
-          remote: /root/memoriter
+          remote: /root/memoriter/web
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           privateKey: ${{ secrets.KEY }}
+
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: cd memoriter/ && docker compose up -d --pull always memoriter-web
