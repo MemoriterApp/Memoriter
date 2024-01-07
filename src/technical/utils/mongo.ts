@@ -1,6 +1,6 @@
-const url = 'https://app.memoriter.de/api/@memoriter/app/';
-const urlAI = 'https://app.memoriter.de/api/@memoriter/ai/';
-const urlAuth = 'https://app.memoriter.de/api/@memoriter/auth/';
+const url = 'http://localhost:3000/api/@memoriter/app/';
+const urlAI = 'http://localhost:3000/api/@memoriter/ai/';
+const urlAuth = 'http://localhost:3000/api/@memoriter/auth/';
 
 export async function getFlashcard(id: string): Promise<Flashcard> {
     return await fetch(`${url}flashcard/${id}`, {
