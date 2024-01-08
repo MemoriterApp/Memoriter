@@ -170,6 +170,7 @@ function TopicPage() {
     setFlashcards(allFlashcards); //refresh the flashcards state
 
     setAddFlashcardModal(false); //closes the add flashcard modal once the flashcard has been added
+    setOpenFlashcard(undefined); //closes the flashcard view once the flashcard has been added
   };
 
   //Edit Flashcard
